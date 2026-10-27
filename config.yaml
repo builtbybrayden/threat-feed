@@ -80,10 +80,28 @@ scoring:
   epss_weight: 30
   watchlist_bonus: 15
   poc_bonus: 10
+  appsec_bonus: 14      # push application-security-relevant items up the feed
   recency:
     max_bonus: 15
     half_life_days: 7
   clamp: [0, 100]
+
+# --- Feed split (News vs Threats) ---------------------------------------
+# Threats = an item that names a CVE AND carries a priority signal (KEV, high
+# EPSS, a public PoC, or an AppSec product). Multi-CVE newsletter roundups are
+# kept in News even when they mention CVEs, so "reading" stays separate from
+# "new/active vulnerabilities".
+feed:
+  epss_threshold: 0.3
+  roundup_min_cves: 3   # >= this many CVEs in one item => treat as a News roundup
+
+# --- Headline stats (AppSec-focused) ------------------------------------
+stats:
+  # "Newly exploited" counts AppSec CVEs added to CISA KEV within this window
+  # (KEV's dateAdded is a reliable real-world "just started being exploited"
+  # signal, unlike our own first-seen time).
+  new_exploited_days: 30
+  threats_limit: 60         # how many ranked vulns to publish to the Threats board
 
 # --- Detection triage ----------------------------------------------------
 candidate:

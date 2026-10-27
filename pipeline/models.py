@@ -28,6 +28,8 @@ class Item:
     score_reasons: list[str] = field(default_factory=list)
     kev: bool = False
     epss: Optional[float] = None
+    feed: str = "news"            # "news" (reading) or "threats" (new/active vulns)
+    appsec: bool = False          # application-security relevant
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -76,10 +78,14 @@ class CveRecord:
     fixed_version: Optional[str] = None
     references: list[dict[str, Any]] = field(default_factory=list)  # {url, tags[]}
     kev: bool = False
+    kev_added: Optional[str] = None                 # CISA KEV dateAdded (YYYY-MM-DD)
     epss: Optional[float] = None
     poc_links: list[str] = field(default_factory=list)
     nuclei_template: Optional[str] = None          # path in nuclei-templates, or None
     detection: Detection = field(default_factory=Detection)
+    appsec: bool = False                            # application-security relevant
+    ecosystems: list[str] = field(default_factory=list)   # npm, pypi, php, web, ...
+    vuln_classes: list[str] = field(default_factory=list) # sqli, ssrf, rce, ...
     is_candidate: bool = False
     candidate_reasons: list[str] = field(default_factory=list)
     score: float = 0.0                              # best score of linked items

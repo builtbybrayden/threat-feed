@@ -5,7 +5,7 @@
    keeps that staleness honest. */
 "use strict";
 
-var CACHE = "threat-feed-v1";
+var CACHE = "appsec-feed-v2";
 var SHELL = [
   "./",
   "./index.html",

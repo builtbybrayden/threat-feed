@@ -22,6 +22,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from . import appsec as appsec_mod
 from . import coverage as coverage_mod
 from . import epss as epss_mod
 from . import feeds as feeds_mod
@@ -34,7 +35,9 @@ from .models import Item
 from .score import score_cve, score_item
 from .state import State
 from .triage import classify, evaluate_candidate
-from .util import ROOT, load_config, load_watchlist, make_session, now_iso, word_boundary_hits
+from .util import (
+    ROOT, age_days, load_config, load_watchlist, make_session, now_iso, word_boundary_hits,
+)
 
 log = logging.getLogger("pipeline")
 
@@ -124,6 +127,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             k = kev_map[cve]
             rec.vendor = rec.vendor or k.get("vendor")
             rec.product = rec.product or k.get("product")
+            rec.kev_added = k.get("date_added")
 
     # 3. EPSS (batched) ----------------------------------------------------
     epss_map = gather_epss(all_cves, cfg, session, args.offline, sample_dir)
@@ -139,15 +143,30 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # 5. NVD enrichment (cached by TTL) + PoC ------------------------------
     _enrich_nvd_poc(state, cfg, session, args, sample_dir, all_cves)
 
-    # 6. Score + tag items; track which CVEs hit the watchlist -------------
+    # 5b. AppSec relevance per CVE (text + CWE + CPE), before scoring/split.
+    for rec in state.cves.values():
+        a = appsec_mod.classify_cve(rec, cfg)
+        rec.appsec = a["appsec"]
+        rec.ecosystems = a["ecosystems"]
+        rec.vuln_classes = a["vuln_classes"]
+
+    # 6. Score + tag items; split News vs Threats; track watchlist CVEs ----
     watchlist_cves: set[str] = set()
     for it in state.items.values():
         it.kev = any(c in kev_map for c in it.cves)
         epss_vals = [state.cves[c].epss for c in it.cves if state.cves.get(c) and state.cves[c].epss is not None]
         it.epss = max(epss_vals) if epss_vals else None
         has_poc = any(state.cves.get(c) and state.cves[c].poc_links for c in it.cves)
-        it.score, it.score_reasons, hits = score_item(it, cfg, watchlist, has_poc=has_poc)
-        it.tags = _tags_for_item(it, hits, has_poc)
+        # AppSec: the item's own text, or any CVE it references being AppSec.
+        text_a = appsec_mod.classify_text(it.title, it.summary)
+        it.appsec = text_a["appsec"] or any(
+            state.cves.get(c) and state.cves[c].appsec for c in it.cves
+        )
+        it.score, it.score_reasons, hits = score_item(
+            it, cfg, watchlist, has_poc=has_poc, appsec=it.appsec
+        )
+        it.feed = _classify_feed(it, cfg, has_poc)
+        it.tags = _tags_for_item(it, hits, has_poc, text_a["ecosystems"] + text_a["vuln_classes"])
         if hits:
             watchlist_cves.update(it.cves)
 
@@ -177,7 +196,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         write_brief(rec, args.briefs)
 
     # 9. Site JSON ---------------------------------------------------------
-    stats = _compute_stats(state, candidates)
+    stats = _compute_stats(state, candidates, cfg)
     _write_site(state, candidates, stats, args.site)
 
     # 10. Issues (CI only) -------------------------------------------------
@@ -263,38 +282,79 @@ def _apply_nvd(rec, fields: dict[str, Any]) -> None:
     rec.references = fields.get("references") or rec.references
 
 
-def _tags_for_item(it: Item, hits: list[str], has_poc: bool) -> list[str]:
+def _classify_feed(it: Item, config: dict[str, Any], has_poc: bool) -> str:
+    """News (reading) vs Threats (new/active vulns).
+
+    Threats = an item that names a CVE AND carries a priority signal (KEV, high
+    EPSS, a public PoC, or AppSec relevance). Multi-CVE newsletter roundups are
+    kept in News so "reading" stays separate from "new/active vulnerabilities".
+    """
+    f = config.get("feed", {})
+    if not it.cves:
+        return "news"
+    if len(it.cves) >= f.get("roundup_min_cves", 3):
+        return "news"  # a multi-topic newsletter roundup
+    priority = (
+        it.kev
+        or (it.epss is not None and it.epss >= f.get("epss_threshold", 0.3))
+        or has_poc
+        or it.appsec
+    )
+    return "threats" if priority else "news"
+
+
+def _tags_for_item(it: Item, hits: list[str], has_poc: bool, extra: list[str]) -> list[str]:
     tags = []
     if it.kev:
         tags.append("KEV")
     if it.source_type == "research":
         tags.append("research")
+    if it.appsec:
+        tags.append("appsec")
     if hits:
         tags.append("watchlist")
-        # AI-sec tag when an AI/LLM term matched.
         if any(h in ("prompt injection", "llm", "rag", "mcp", "model context protocol", "langchain") for h in hits):
             tags.append("AI-sec")
-    low = f"{it.title} {it.summary}".lower()
-    if "supply chain" in low or "dependency" in low:
-        tags.append("supply-chain")
     if has_poc:
         tags.append("has-PoC")
     if it.cves:
         tags.append("has-CVE")
+    for t in extra:                      # ecosystem / vuln-class tags
+        if t not in tags:
+            tags.append(t)
     return tags
 
 
-def _compute_stats(state: State, candidates: list) -> dict[str, Any]:
-    kev_records = [r for r in state.cves.values() if r.kev]
+def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> dict[str, Any]:
+    cves = state.cves
+    kev_records = [r for r in cves.values() if r.kev]
     kev_covered = [r for r in kev_records if r.nuclei_template]
     pct = round(100 * len(kev_covered) / len(kev_records), 1) if kev_records else 0.0
+
+    # AppSec-focused headline numbers.
+    actively_exploited_appsec = sum(1 for r in cves.values() if r.kev and r.appsec)
+    public_poc = sum(1 for r in cves.values() if r.appsec and r.poc_links)
+
+    # Newly exploited: AppSec CVEs added to KEV within the window (real dates).
+    st = config.get("stats", {})
+    days = st.get("new_exploited_days", 30)
+    newly_exploited = sum(
+        1 for r in cves.values()
+        if r.appsec and r.kev_added and age_days(r.kev_added) <= days
+    )
+
     return {
+        "actively_exploited_appsec": actively_exploited_appsec,
+        "newly_exploited": newly_exploited,
+        "newly_exploited_days": days,
+        "public_poc": public_poc,
+        "open_gaps": len(candidates),
+        "appsec_cves": sum(1 for r in cves.values() if r.appsec),
         "kev_tracked": len(kev_records),
         "kev_with_coverage": len(kev_covered),
         "kev_coverage_pct": pct,
-        "open_gaps": len(candidates),
         "total_items": len(state.items),
-        "total_cves": len(state.cves),
+        "total_cves": len(cves),
     }
 
 
@@ -304,10 +364,28 @@ def _write_site(state: State, candidates: list, stats: dict, site_dir: str) -> N
     generated = now_iso()
 
     items_sorted = sorted(state.items.values(), key=lambda i: i.score, reverse=True)
+
+    # Map each CVE to the feed items that mention it (the "coverage" on a threat).
+    cve_sources: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for it in items_sorted:
+        for c in it.cves:
+            if len(cve_sources[c]) < 3:
+                cve_sources[c].append({"title": it.title, "url": it.url, "source": it.source})
+
+    # Threats board: AppSec first, then by score, then most-recently exploited
+    # (KEV dateAdded) so newly-weaponised vulns break ties above old classics.
+    ranked = sorted(
+        state.cves.values(),
+        key=lambda r: (r.appsec, r.score, r.kev_added or ""),
+        reverse=True,
+    )
+    threats = [_threat_view(r, cve_sources.get(r.cve_id, [])) for r in ranked if r.score > 0][:60]
+
     data = {
         "generated": generated,
         "last_run": state.meta.get("last_run", generated),
         "stats": stats,
+        "threats": threats,
         "items": [i.to_dict() for i in items_sorted[:400]],
     }
     _dump(site / "data.json", data)
@@ -330,6 +408,9 @@ def _candidate_view(rec) -> dict[str, Any]:
         "epss": rec.epss,
         "cvss_score": rec.cvss_score,
         "cwe": rec.cwe,
+        "appsec": rec.appsec,
+        "ecosystems": rec.ecosystems,
+        "vuln_classes": rec.vuln_classes,
         "detectability": {
             "remote_network": rec.detection.remote_network,
             "likely_http": rec.detection.likely_http,
@@ -340,6 +421,29 @@ def _candidate_view(rec) -> dict[str, Any]:
         "brief": f"briefs/{rec.cve_id}.md",
         "issue_number": rec.issue_number,
         "candidate_reasons": rec.candidate_reasons,
+    }
+
+
+def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
+    """A vulnerability card for the Threats board (CVE-centric intelligence)."""
+    return {
+        "cve_id": rec.cve_id,
+        "vendor": rec.vendor,
+        "product": rec.product,
+        "score": rec.score,
+        "kev": rec.kev,
+        "kev_added": rec.kev_added,
+        "epss": rec.epss,
+        "cvss_score": rec.cvss_score,
+        "appsec": rec.appsec,
+        "ecosystems": rec.ecosystems,
+        "vuln_classes": rec.vuln_classes,
+        "has_poc": bool(rec.poc_links),
+        "coverage": "covered" if rec.nuclei_template else "gap",
+        "is_candidate": rec.is_candidate,
+        "brief": f"briefs/{rec.cve_id}.md" if rec.is_candidate else None,
+        "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
+        "sources": sources,
     }
 
 

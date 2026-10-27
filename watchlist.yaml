@@ -1,45 +1,97 @@
-# Generic, public products/technologies to flag. Matching is case-insensitive
-# and word-boundary aware (so "mcp" won't match "mcpherson"), against each
-# item's title + summary and each CVE's vendor/product string.
+# Application-security watchlist. Matching is case-insensitive and
+# word-boundary aware (so "mcp" won't match "mcpherson"), against each item's
+# title + summary and each CVE's vendor/product/description.
 #
-# This is a personal public repo, so keep the list generic (CLAUDE.md).
+# This repo is AppSec-focused: the emphasis is package ecosystems, web
+# frameworks, languages, and the vulnerability classes a DAST/web pentester
+# cares about. Generic network/OS gear is intentionally lighter here so
+# application-layer issues rise to the top (we re-rank, we don't drop).
 terms:
-  - log4j
-  - log4shell
-  - openssl
-  - confluence
-  - jira
-  - sharepoint
-  - exchange
-  - outlook
-  - fortinet
-  - fortios
-  - ivanti
-  - citrix
-  - netscaler
-  - vmware
-  - esxi
-  - gitlab
-  - jenkins
-  - apache
-  - struts
-  - spring
-  - tomcat
+  # --- package ecosystems / dependency supply chain ---
+  - npm
+  - node.js
+  - yarn
+  - pnpm
+  - pypi
+  - pip
+  - maven
+  - gradle
+  - rubygems
+  - nuget
+  - composer
+  - packagist
+  - crates.io
+  - go module
+  - dependency confusion
+  - supply chain
+  - typosquat
+  - malicious package
+
+  # --- languages / runtimes commonly in app stacks ---
+  - php
+  - python
+  - java
+  - javascript
+  - typescript
+  - ruby
+  - golang
+  - dotnet
+
+  # --- web frameworks / app platforms ---
   - wordpress
   - drupal
-  - kubernetes
-  - docker
-  - cisco
-  - "palo alto"
-  - pan-os
-  - sonicwall
-  - moveit
-  - curl
-  - openssh
-  # AI / LLM security
-  - "prompt injection"
+  - joomla
+  - laravel
+  - symfony
+  - django
+  - flask
+  - rails
+  - express
+  - spring
+  - struts
+  - tomcat
+  - log4j
+  - log4shell
+  - confluence
+  - jira
+  - gitlab
+  - jenkins
+  - sharepoint
+  - graphql
+  - nextjs
+  - react
+
+  # --- DAST / web vulnerability classes ---
+  - sql injection
+  - sqli
+  - cross-site scripting
+  - xss
+  - ssrf
+  - xxe
+  - deserialization
+  - path traversal
+  - directory traversal
+  - prototype pollution
+  - template injection
+  - ssti
+  - command injection
+  - remote code execution
+  - rce
+  - authentication bypass
+  - insecure deserialization
+  - open redirect
+  - csrf
+  - jwt
+
+  # --- AI / LLM app security ---
+  - prompt injection
   - llm
   - rag
-  - "model context protocol"
+  - model context protocol
   - mcp
   - langchain
+
+  # --- a few high-impact infra items worth keeping ---
+  - openssl
+  - curl
+  - openssh

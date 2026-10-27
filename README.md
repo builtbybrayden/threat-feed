@@ -130,12 +130,28 @@ in the Detection queue, and opened as GitHub Issues.
 
 ## Dashboard
 
-- **Feed view** — cards sorted by score; tag filter chips; search; last-updated; KEV
-  badge; EPSS %; expandable score reasons.
-- **Detection queue view** — ranked candidates with CVE, product, coverage status
-  (template exists / **GAP**), detectability, PoC, suggested template type, a link to the
-  brief, and the tracking issue number.
-- **Headline stats** — KEV CVEs tracked, % with Nuclei coverage, open gaps, feed items.
+A black/white/gray, high-contrast UI (X timeline structure, Apple-grade restraint) with
+three views and an AppSec-focused headline:
+
+- **News** — the reading timeline: newsletters, research and commentary as X-style posts
+  (real source avatars, score pill, CVE chips, inline KEV/EPSS/PoC + ecosystem/vuln-class
+  tags, expandable score reasons), with search and tag filters.
+- **Threats** — a CVE-centric intelligence board: active & recent application-security
+  vulnerabilities ranked by priority (exploited in the wild, EPSS, public PoC, ecosystem
+  relevance), newest-exploited first, each showing coverage status (**Covered** /
+  **No template**), ecosystem/class tags, and any feed coverage. Filter by "Gaps only" or
+  ecosystem.
+- **Detection queue** — the detection backlog: AppSec vulns with no Nuclei template yet
+  (the gaps), with detectability, suggested template type, a brief, and the tracking issue.
+- **Headline KPIs** — Actively exploited (AppSec ∩ KEV), Newly exploited (added to KEV in
+  the last 30d), Public PoC, Detection gaps.
+- **Right rail** — top detection gaps and trending tags.
+
+Feed split: an item is a **Threat** when it names a CVE and carries a priority signal
+(KEV, high EPSS, public PoC, or an AppSec product); multi-CVE newsletter roundups stay in
+**News**. The whole pipeline re-ranks toward application security (package ecosystems,
+web frameworks, languages, DAST vuln classes) via `watchlist.yaml` and an AppSec scoring
+bonus, without dropping anything.
 
 ### iPhone app (PWA)
 

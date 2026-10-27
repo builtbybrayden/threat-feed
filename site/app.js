@@ -4,18 +4,23 @@
 "use strict";
 
 (function () {
-  var SVG = "http://www.w3.org/2000/svg";
-  var state = { items: [], candidates: [], stats: null, activeTags: new Set(), query: "", view: "feed" };
-
-  // Per-source identity for the X-style avatar + handle.
-  var SOURCES = {
-    "PortSwigger Research": { i: "PS", c: "#e8651e", h: "portswigger", v: true },
-    "Project Zero": { i: "P0", c: "#ea4335", h: "projectzero", v: true },
-    "GitHub Security Lab": { i: "GH", c: "#8957e5", h: "ghsecuritylab", v: true },
-    "tl;dr sec": { i: "TL", c: "#1a7f37", h: "tldrsec", v: false },
-    "Risky Bulletin": { i: "RB", c: "#d7263d", h: "riskybiz", v: false },
-    "Simon Willison": { i: "SW", c: "#0a7ea4", h: "simonw", v: false }
+  var state = {
+    items: [], threats: [], candidates: [], stats: null,
+    view: "news",
+    newsQuery: "", newsTags: new Set(),
+    threatGapsOnly: false, threatEco: new Set()
   };
+
+  // Source identity: avatar file slug, @handle, trusted-research flag.
+  var SOURCES = {
+    "PortSwigger Research": { slug: "portswigger", h: "portswigger", v: true },
+    "Project Zero": { slug: "projectzero", h: "projectzero", v: true },
+    "GitHub Security Lab": { slug: "ghsecuritylab", h: "ghsecuritylab", v: true },
+    "tl;dr sec": { slug: "tldrsec", h: "tldrsec", v: false },
+    "Risky Bulletin": { slug: "riskybiz", h: "riskybiz", v: false },
+    "Simon Willison": { slug: "simonw", h: "simonw", v: false }
+  };
+  var AI_TAGS = { "prompt injection": 1, "llm": 1, "rag": 1, "mcp": 1, "model context protocol": 1, "langchain": 1 };
 
   // ---- helpers ----------------------------------------------------------
   function el(tag, cls, text) {
@@ -24,261 +29,272 @@
     if (text != null) n.textContent = String(text);
     return n;
   }
-  function svg(tag, attrs) {
-    var n = document.createElementNS(SVG, tag);
-    for (var k in attrs) n.setAttribute(k, attrs[k]);
-    return n;
-  }
   function safeHref(url) {
     if (typeof url !== "string") return null;
-    try {
-      var u = new URL(url, window.location.href);
-      return (u.protocol === "http:" || u.protocol === "https:") ? u.href : null;
-    } catch (e) { return null; }
+    try { var u = new URL(url, window.location.href); return (u.protocol === "http:" || u.protocol === "https:") ? u.href : null; }
+    catch (e) { return null; }
   }
   function link(url, text, cls) {
     var href = safeHref(url);
     if (!href) return el("span", cls, text == null ? url : text);
     var a = el("a", cls, text == null ? url : text);
-    a.setAttribute("href", href);
-    a.setAttribute("target", "_blank");
-    a.setAttribute("rel", "noopener noreferrer");
+    a.setAttribute("href", href); a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener noreferrer");
     return a;
   }
   function fmtAge(iso) {
-    var t = Date.parse(iso);
-    if (isNaN(t)) return "";
-    var mins = Math.max(0, (Date.now() - t) / 60000);
-    if (mins < 1) return "now";
-    if (mins < 60) return Math.round(mins) + "m";
-    if (mins < 1440) return Math.round(mins / 60) + "h";
-    return Math.round(mins / 1440) + "d";
+    var t = Date.parse(iso); if (isNaN(t)) return "";
+    var m = Math.max(0, (Date.now() - t) / 60000);
+    if (m < 1) return "now"; if (m < 60) return Math.round(m) + "m";
+    if (m < 1440) return Math.round(m / 60) + "h"; return Math.round(m / 1440) + "d";
   }
-  function scoreClass(s, base) { return base + (s >= 70 ? " hi" : s >= 45 ? " mid" : ""); }
   function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return h; }
   function sourceMeta(name) {
     if (SOURCES[name]) return SOURCES[name];
-    var words = String(name).split(/\s+/);
-    var init = (words[0][0] || "?") + (words.length > 1 ? words[1][0] : "");
-    return { i: init.toUpperCase(), c: "hsl(" + (Math.abs(hash(name)) % 360) + " 55% 45%)",
+    var w = String(name).split(/\s+/);
+    return { slug: null, i: ((w[0][0] || "?") + (w.length > 1 ? w[1][0] : "")).toUpperCase(),
              h: String(name).toLowerCase().replace(/[^a-z0-9]+/g, ""), v: false };
   }
-  var AI_TAGS = { "prompt injection": 1, "llm": 1, "rag": 1, "mcp": 1, "model context protocol": 1, "langchain": 1 };
+  function scoreClass(s, base) { return base + (s >= 70 ? " hi" : s >= 45 ? " mid" : ""); }
+  function initials(name) { var w = String(name).split(/\s+/); return ((w[0][0] || "?") + (w.length > 1 ? w[1][0] : "")).toUpperCase(); }
 
-  // ---- feed post --------------------------------------------------------
+  function avatar(name) {
+    var m = sourceMeta(name);
+    var d = el("div", "avatar");
+    if (m.slug) {
+      var img = document.createElement("img");
+      img.src = "avatars/" + m.slug + ".png"; img.alt = "";
+      img.addEventListener("error", function () { d.textContent = initials(name); });
+      d.appendChild(img);
+    } else {
+      d.textContent = m.i || initials(name);
+    }
+    return d;
+  }
+
   function statItem(label, value, cls) {
     var s = el("span", "stat-item" + (cls ? " " + cls : ""));
     if (value != null) s.appendChild(el("span", "sv", value));
     s.appendChild(el("span", null, label));
     return s;
   }
+  function pct(x) { return Math.round(x * 100) + "%"; }
 
-  function feedPost(it) {
-    var meta = sourceMeta(it.source);
+  // ---- KPI header -------------------------------------------------------
+  function renderKpis() {
+    var s = state.stats; if (!s) return;
+    var host = document.getElementById("kpis"); host.textContent = "";
+    [
+      ["n crit", s.actively_exploited_appsec, "Actively exploited"],
+      ["n warn", s.newly_exploited, "Newly exploited · " + (s.newly_exploited_days || 30) + "d"],
+      ["n poc", s.public_poc, "Public PoC"],
+      ["n", s.open_gaps, "Detection gaps"]
+    ].forEach(function (k) {
+      var b = el("div", "kpi");
+      b.appendChild(el("div", k[0], k[1]));
+      b.appendChild(el("div", "l", k[2]));
+      host.appendChild(b);
+    });
+  }
+
+  // ---- NEWS -------------------------------------------------------------
+  function newsTagCounts() {
+    var set = {};
+    state.items.forEach(function (it) { (it.tags || []).forEach(function (t) { set[t] = (set[t] || 0) + 1; }); });
+    return Object.keys(set).sort(function (a, b) { return set[b] - set[a]; }).map(function (t) { return [t, set[t]]; });
+  }
+  function renderNewsChips() {
+    var host = document.getElementById("news-chips"); host.textContent = "";
+    newsTagCounts().slice(0, 12).forEach(function (p) {
+      var c = el("button", "chip", p[0]); c.type = "button";
+      c.setAttribute("aria-pressed", state.newsTags.has(p[0]) ? "true" : "false");
+      c.addEventListener("click", function () {
+        state.newsTags.has(p[0]) ? state.newsTags.delete(p[0]) : state.newsTags.add(p[0]);
+        renderNewsChips(); renderNews();
+      });
+      host.appendChild(c);
+    });
+  }
+  function newsMatch(it) {
+    for (var t of state.newsTags) { if ((it.tags || []).indexOf(t) === -1) return false; }
+    if (state.newsQuery) {
+      var hay = (it.title + " " + it.summary + " " + (it.cves || []).join(" ")).toLowerCase();
+      if (hay.indexOf(state.newsQuery) === -1) return false;
+    }
+    return true;
+  }
+  function newsPost(it) {
+    var m = sourceMeta(it.source);
     var post = el("article", "post");
-
-    var av = el("div", "avatar", meta.i);
-    av.style.background = "linear-gradient(135deg, " + meta.c + ", " + meta.c + "cc)";
-    post.appendChild(av);
-
+    post.appendChild(avatar(it.source));
     var body = el("div", "post-body");
 
     var head = el("div", "post-head");
     head.appendChild(el("span", "p-source", it.source));
-    if (meta.v) { var v = el("span", "verified", "✓"); v.setAttribute("title", "trusted research source"); head.appendChild(v); }
-    head.appendChild(el("span", "p-handle", "@" + meta.h));
+    if (m.v) { var v = el("span", "verified", "✓"); v.title = "trusted research source"; head.appendChild(v); }
+    head.appendChild(el("span", "p-handle", "@" + m.h));
     head.appendChild(el("span", "p-dot", "·"));
     head.appendChild(el("span", "p-time", fmtAge(it.published)));
     head.appendChild(el("span", scoreClass(it.score, "p-score"), Math.round(it.score)));
     body.appendChild(head);
 
-    var h = el("div", "p-title");
-    h.appendChild(link(it.url, it.title));
-    body.appendChild(h);
-
-    if (it.summary) {
-      var sum = it.summary.length > 230 ? it.summary.slice(0, 230).trim() + "…" : it.summary;
-      body.appendChild(el("p", "p-text", sum));
-    }
-
+    var h = el("div", "p-title"); h.appendChild(link(it.url, it.title)); body.appendChild(h);
+    if (it.summary) { var s = it.summary.length > 220 ? it.summary.slice(0, 220).trim() + "…" : it.summary; body.appendChild(el("p", "p-text", s)); }
     if (it.cves && it.cves.length) {
       var cr = el("div", "cve-row");
       it.cves.slice(0, 6).forEach(function (c) { cr.appendChild(el("span", "cve-chip", c)); });
       body.appendChild(cr);
     }
-
     var stats = el("div", "p-stats");
     if (it.kev) stats.appendChild(statItem("KEV", null, "kev"));
-    if (it.epss != null) stats.appendChild(statItem("EPSS", Math.round(it.epss * 100) + "%"));
+    if (it.epss != null) stats.appendChild(statItem("EPSS", pct(it.epss)));
+    if ((it.tags || []).indexOf("has-PoC") !== -1) stats.appendChild(statItem("PoC", null, "poc"));
     (it.tags || []).forEach(function (t) {
-      if (t === "has-PoC") stats.appendChild(statItem("PoC", null, "poc"));
-    });
-    (it.tags || []).forEach(function (t) {
-      if (t === "KEV" || t === "has-PoC" || t === "has-CVE") return;
+      if (["KEV", "has-PoC", "has-CVE", "research", "watchlist"].indexOf(t) !== -1) return;
       stats.appendChild(el("span", "tag-pill" + (t === "AI-sec" ? " ai" : ""), t));
     });
     if (stats.childNodes.length) body.appendChild(stats);
-
     if (it.score_reasons && it.score_reasons.length) {
       var det = el("details", "why");
       det.appendChild(el("summary", null, "Why it scored " + Math.round(it.score)));
-      var ul = el("ul");
-      it.score_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
-      det.appendChild(ul);
-      body.appendChild(det);
+      var ul = el("ul"); it.score_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
+      det.appendChild(ul); body.appendChild(det);
     }
-
     post.appendChild(body);
     return post;
   }
+  function renderNews() {
+    var host = document.getElementById("news"); host.textContent = "";
+    var shown = state.items.filter(newsMatch);
+    document.getElementById("news-empty").hidden = shown.length !== 0;
+    shown.forEach(function (it) { host.appendChild(newsPost(it)); });
+  }
 
-  // ---- queue post -------------------------------------------------------
-  function queuePost(c) {
-    var post = el("article", "post gap");
+  // ---- THREATS ----------------------------------------------------------
+  function threatEcosystems() {
+    var set = {};
+    state.threats.forEach(function (t) { (t.ecosystems || []).forEach(function (e) { set[e] = (set[e] || 0) + 1; }); });
+    return Object.keys(set).sort(function (a, b) { return set[b] - set[a]; });
+  }
+  function renderThreatChips() {
+    var host = document.getElementById("threat-chips"); host.textContent = "";
+    var gaps = el("button", "chip", "Gaps only"); gaps.type = "button";
+    gaps.setAttribute("aria-pressed", state.threatGapsOnly ? "true" : "false");
+    gaps.addEventListener("click", function () { state.threatGapsOnly = !state.threatGapsOnly; renderThreatChips(); renderThreats(); });
+    host.appendChild(gaps);
+    threatEcosystems().forEach(function (e) {
+      var c = el("button", "chip", e); c.type = "button";
+      c.setAttribute("aria-pressed", state.threatEco.has(e) ? "true" : "false");
+      c.addEventListener("click", function () {
+        state.threatEco.has(e) ? state.threatEco.delete(e) : state.threatEco.add(e);
+        renderThreatChips(); renderThreats();
+      });
+      host.appendChild(c);
+    });
+  }
+  function threatMatch(t) {
+    if (state.threatGapsOnly && t.coverage !== "gap") return false;
+    for (var e of state.threatEco) { if ((t.ecosystems || []).indexOf(e) === -1) return false; }
+    return true;
+  }
+  function threatCard(t) {
+    var v = el("article", "vuln");
+    var head = el("div", "vuln-head");
+    var idw = el("div");
+    idw.appendChild(el("div", "vuln-id", t.cve_id));
+    var prod = (t.vendor ? t.vendor + " / " : "") + (t.product || "unknown product");
+    idw.appendChild(el("div", "vuln-prod", prod));
+    head.appendChild(idw);
+    head.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
+    v.appendChild(head);
 
-    var head = el("div", "gap-head");
-    var idwrap = el("div");
-    idwrap.appendChild(el("div", "gap-cve", c.cve_id));
-    if (c.product || c.vendor) idwrap.appendChild(el("div", "gap-prod", (c.vendor ? c.vendor + " / " : "") + (c.product || "")));
-    head.appendChild(idwrap);
-    var gap = !c.nuclei_template;
-    head.appendChild(el("span", "cov " + (gap ? "gap" : "ok"), gap ? "GAP" : "covered"));
-    post.appendChild(head);
+    var stats = el("div", "p-stats");
+    stats.appendChild(el("span", scoreClass(t.score, "p-score"), Math.round(t.score)));
+    if (t.kev) stats.appendChild(statItem(t.kev_added ? "KEV · " + String(t.kev_added).slice(0, 4) : "KEV", null, "kev"));
+    if (t.epss != null) stats.appendChild(statItem("EPSS", pct(t.epss)));
+    if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
+    if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
+    (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
+    (t.vuln_classes || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
+    v.appendChild(stats);
+
+    if (t.description) v.appendChild(el("p", "vuln-desc", t.description));
+
+    if (t.sources && t.sources.length) {
+      var sl = el("div", "src-links");
+      t.sources.forEach(function (s) {
+        var a = link(s.url, s.title);
+        var wrap = el("div");
+        wrap.appendChild(a);
+        wrap.appendChild(el("span", "src-from", "  — " + s.source));
+        sl.appendChild(wrap);
+      });
+      v.appendChild(sl);
+    }
+
+    var act = el("div", "actions");
+    if (t.is_candidate && t.brief) act.appendChild(link(t.brief, "Detection brief", "btn primary"));
+    act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + t.cve_id, "NVD", "btn"));
+    if (t.coverage === "gap" && t.is_candidate) act.appendChild(el("span", "issue-ref", "in detection queue"));
+    v.appendChild(act);
+    return v;
+  }
+  function renderThreats() {
+    var host = document.getElementById("threats"); host.textContent = "";
+    var shown = state.threats.filter(threatMatch);
+    document.getElementById("threats-empty").hidden = shown.length !== 0;
+    shown.forEach(function (t) { host.appendChild(threatCard(t)); });
+  }
+
+  // ---- DETECTION QUEUE --------------------------------------------------
+  function queueCard(c) {
+    var v = el("article", "vuln");
+    var head = el("div", "vuln-head");
+    var idw = el("div");
+    idw.appendChild(el("div", "vuln-id", c.cve_id));
+    idw.appendChild(el("div", "vuln-prod", (c.vendor ? c.vendor + " / " : "") + (c.product || "unknown product")));
+    head.appendChild(idw);
+    head.appendChild(el("span", "cov gap", "No template"));
+    v.appendChild(head);
 
     var stats = el("div", "p-stats");
     stats.appendChild(el("span", scoreClass(c.score, "p-score"), Math.round(c.score)));
     if (c.kev) stats.appendChild(statItem("KEV", null, "kev"));
-    if (c.epss != null) stats.appendChild(statItem("EPSS", Math.round(c.epss * 100) + "%"));
+    if (c.epss != null) stats.appendChild(statItem("EPSS", pct(c.epss)));
     if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
     if (c.detectability && c.detectability.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
-    post.appendChild(stats);
+    (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
+    v.appendChild(stats);
 
     var d = c.detectability || {};
     var grid = el("div", "meta-grid");
-    function row(k, v) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", v)); }
+    function row(k, val) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val)); }
     row("Detectability", d.likely_http ? "HTTP" : (d.remote_network ? "remote (AV:N)" : "local"));
     row("Template type", d.suggested_template_type || "?");
     if (c.cwe && c.cwe.length) row("CWE", c.cwe.join(", "));
-    post.appendChild(grid);
+    v.appendChild(grid);
 
     if (c.candidate_reasons && c.candidate_reasons.length) {
       var det = el("details", "why");
       det.appendChild(el("summary", null, "Why it's a candidate"));
-      var ul = el("ul");
-      c.candidate_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
-      det.appendChild(ul);
-      post.appendChild(det);
+      var ul = el("ul"); c.candidate_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
+      det.appendChild(ul); v.appendChild(det);
     }
-
-    var actions = el("div", "actions");
-    actions.appendChild(link(c.brief, "Detection brief", "btn primary"));
-    actions.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
-    if (c.issue_number != null) actions.appendChild(el("span", "issue-ref", "Issue #" + c.issue_number));
-    post.appendChild(actions);
-    return post;
-  }
-
-  // ---- filters ----------------------------------------------------------
-  function allTags() {
-    var set = {};
-    state.items.forEach(function (it) { (it.tags || []).forEach(function (t) { set[t] = (set[t] || 0) + 1; }); });
-    return Object.keys(set).sort(function (a, b) { return set[b] - set[a]; }).map(function (t) { return [t, set[t]]; });
-  }
-  function renderChips() {
-    var host = document.getElementById("chips");
-    host.textContent = "";
-    allTags().forEach(function (pair) {
-      var tag = pair[0];
-      var chip = el("button", "chip", tag);
-      chip.setAttribute("type", "button");
-      chip.setAttribute("aria-pressed", state.activeTags.has(tag) ? "true" : "false");
-      chip.addEventListener("click", function () {
-        if (state.activeTags.has(tag)) state.activeTags.delete(tag); else state.activeTags.add(tag);
-        renderChips(); renderFeed();
-      });
-      host.appendChild(chip);
-    });
-  }
-  function matches(it) {
-    for (var t of state.activeTags) { if ((it.tags || []).indexOf(t) === -1) return false; }
-    if (state.query) {
-      var hay = (it.title + " " + it.summary + " " + (it.cves || []).join(" ")).toLowerCase();
-      if (hay.indexOf(state.query) === -1) return false;
-    }
-    return true;
-  }
-  function renderFeed() {
-    var host = document.getElementById("feed");
-    host.textContent = "";
-    var shown = state.items.filter(matches);
-    document.getElementById("feed-empty").hidden = shown.length !== 0;
-    shown.forEach(function (it) { host.appendChild(feedPost(it)); });
+    var act = el("div", "actions");
+    act.appendChild(link(c.brief, "Detection brief", "btn primary"));
+    act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
+    if (c.issue_number != null) act.appendChild(el("span", "issue-ref", "Issue #" + c.issue_number));
+    v.appendChild(act);
+    return v;
   }
   function renderQueue() {
-    var host = document.getElementById("queue");
-    host.textContent = "";
+    var host = document.getElementById("queue"); host.textContent = "";
     document.getElementById("queue-empty").hidden = state.candidates.length !== 0;
-    state.candidates.forEach(function (c) { host.appendChild(queuePost(c)); });
+    state.candidates.forEach(function (c) { host.appendChild(queueCard(c)); });
   }
 
-  // ---- KPI strip (mobile/tablet) ---------------------------------------
-  function renderKpis() {
-    var s = state.stats; if (!s) return;
-    var host = document.getElementById("kpi-strip");
-    host.textContent = "";
-    [
-      ["n", s.kev_tracked, "KEV tracked"],
-      ["n good", s.kev_coverage_pct + "%", "Nuclei coverage"],
-      ["n kev", s.open_gaps, "Open gaps"],
-      ["n", s.total_items, "Feed items"]
-    ].forEach(function (k) {
-      var box = el("div", "kpi");
-      box.appendChild(el("div", k[0], k[1]));
-      box.appendChild(el("div", "l", k[2]));
-      host.appendChild(box);
-    });
-  }
-
-  // ---- right rail -------------------------------------------------------
-  function renderCoverage() {
-    var s = state.stats; if (!s) return;
-    var card = document.getElementById("rail-coverage");
-    card.textContent = "";
-    card.appendChild(el("h2", null, "KEV coverage"));
-
-    var wrap = el("div", "gauge-wrap");
-    var pct = s.kev_coverage_pct || 0;
-    var size = 92, stroke = 11, r = (size - stroke) / 2, circ = 2 * Math.PI * r;
-    var g = svg("svg", { class: "gauge", width: size, height: size, viewBox: "0 0 " + size + " " + size });
-    var cx = size / 2;
-    g.appendChild(svg("circle", { cx: cx, cy: cx, r: r, fill: "none", stroke: "#1e2636", "stroke-width": stroke }));
-    var arc = svg("circle", {
-      cx: cx, cy: cx, r: r, fill: "none", stroke: "#2fd4a7", "stroke-width": stroke,
-      "stroke-linecap": "round", "stroke-dasharray": circ,
-      "stroke-dashoffset": circ * (1 - pct / 100),
-      transform: "rotate(-90 " + cx + " " + cx + ")"
-    });
-    g.appendChild(arc);
-    wrap.appendChild(g);
-    var txt = el("div", "gauge-txt");
-    txt.appendChild(el("div", "big", pct + "%"));
-    txt.appendChild(el("div", "sub", "of tracked KEV CVEs have a Nuclei template"));
-    wrap.appendChild(txt);
-    card.appendChild(wrap);
-
-    var mini = el("div", "cov-mini");
-    [["n", s.kev_tracked, "KEV tracked"], ["n kev", s.open_gaps, "Open gaps"]].forEach(function (m) {
-      var b = el("div", "box");
-      b.appendChild(el("div", m[0], m[1]));
-      b.appendChild(el("div", "l", m[2]));
-      mini.appendChild(b);
-    });
-    card.appendChild(mini);
-  }
-
-  function renderTopGaps() {
-    var card = document.getElementById("rail-gaps");
-    card.textContent = "";
+  // ---- RAIL -------------------------------------------------------------
+  function renderRailGaps() {
+    var card = document.getElementById("rail-gaps"); card.textContent = "";
     card.appendChild(el("h2", null, "Top detection gaps"));
     if (!state.candidates.length) { card.appendChild(el("p", "rail-foot", "No open gaps.")); return; }
     state.candidates.slice(0, 5).forEach(function (c, i) {
@@ -290,58 +306,40 @@
       row.appendChild(mid);
       row.appendChild(el("div", "g-score", Math.round(c.score)));
       row.addEventListener("click", function () { selectView("queue"); });
-      row.style.cursor = "pointer";
       card.appendChild(row);
     });
   }
-
-  function renderTrending() {
-    var card = document.getElementById("rail-trending");
-    card.textContent = "";
+  function renderRailTrending() {
+    var card = document.getElementById("rail-trending"); card.textContent = "";
     card.appendChild(el("h2", null, "Trending tags"));
-    allTags().slice(0, 6).forEach(function (pair) {
+    newsTagCounts().slice(0, 6).forEach(function (p) {
       var row = el("div", "trend-item");
-      var isAi = pair[0] === "AI-sec";
-      row.appendChild(el("div", "t-tag" + (isAi ? " ai" : ""), "#" + pair[0]));
-      row.appendChild(el("div", "t-n", pair[1] + " items"));
-      row.addEventListener("click", function () {
-        selectView("feed");
-        state.activeTags = new Set([pair[0]]);
-        renderChips(); renderFeed();
-      });
-      row.style.cursor = "pointer";
+      row.appendChild(el("div", "t-tag" + (p[0] === "AI-sec" ? " ai" : ""), "#" + p[0]));
+      row.appendChild(el("div", "t-n", p[1]));
+      row.addEventListener("click", function () { selectView("news"); state.newsTags = new Set([p[0]]); renderNewsChips(); renderNews(); });
       card.appendChild(row);
     });
   }
 
   // ---- view switching ---------------------------------------------------
+  var VIEWS = ["news", "threats", "queue"];
   function selectView(view) {
     state.view = view;
-    var isFeed = view === "feed";
-    document.getElementById("view-feed").hidden = !isFeed;
-    document.getElementById("view-queue").hidden = isFeed;
+    VIEWS.forEach(function (v) { document.getElementById("view-" + v).hidden = (v !== view); });
     document.querySelectorAll("[data-view]").forEach(function (b) {
       var active = b.getAttribute("data-view") === view;
-      if (b.classList.contains("seg-btn")) {
-        b.classList.toggle("is-active", active);
-        b.setAttribute("aria-selected", active ? "true" : "false");
-      } else {
-        b.setAttribute("aria-current", active ? "true" : "false");
-      }
+      if (b.classList.contains("seg-btn")) { b.classList.toggle("is-active", active); b.setAttribute("aria-selected", active ? "true" : "false"); }
+      else { b.setAttribute("aria-current", active ? "true" : "false"); }
     });
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // ---- load -------------------------------------------------------------
-  function setGapBadges(n) {
-    ["nav-gap-count", "tab-gap-count"].forEach(function (id) {
-      var e = document.getElementById(id);
-      if (!e) return;
-      e.textContent = n;
-      e.hidden = n === 0;
-    });
+  function setGapBadge(n) {
+    var e = document.getElementById("nav-gap-count"); if (!e) return;
+    e.textContent = n; e.hidden = n === 0;
   }
 
+  // ---- load -------------------------------------------------------------
   function load() {
     Promise.all([
       fetch("data.json", { cache: "no-cache" }).then(function (r) { return r.json(); }),
@@ -349,21 +347,17 @@
     ]).then(function (res) {
       var data = res[0], cand = res[1];
       state.items = data.items || [];
+      state.threats = data.threats || [];
       state.candidates = cand.candidates || [];
       state.stats = data.stats || null;
-
       var when = data.last_run || data.generated;
-      var upd = when ? "Updated " + fmtAge(when) + " ago" : "";
-      var un = document.getElementById("updated-nav"); if (un) un.textContent = upd;
-
-      setGapBadges(state.candidates.length);
+      var un = document.getElementById("updated-nav"); if (un) un.textContent = when ? "Updated " + fmtAge(when) + " ago" : "";
+      setGapBadge(state.candidates.length);
       renderKpis();
-      renderChips();
-      renderFeed();
+      renderNewsChips(); renderNews();
+      renderThreatChips(); renderThreats();
       renderQueue();
-      renderCoverage();
-      renderTopGaps();
-      renderTrending();
+      renderRailGaps(); renderRailTrending();
     }).catch(function (e) {
       var un = document.getElementById("updated-nav"); if (un) un.textContent = "Failed to load";
       // eslint-disable-next-line no-console
@@ -371,20 +365,14 @@
     });
   }
 
-  // ---- wire up ----------------------------------------------------------
   document.querySelectorAll("[data-view]").forEach(function (b) {
     b.addEventListener("click", function () { selectView(b.getAttribute("data-view")); });
   });
   document.getElementById("search").addEventListener("input", function (e) {
-    state.query = e.target.value.trim().toLowerCase();
-    renderFeed();
+    state.newsQuery = e.target.value.trim().toLowerCase(); renderNews();
   });
-
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function () {
-      navigator.serviceWorker.register("sw.js").catch(function () { /* offline cache is best-effort */ });
-    });
+    window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
   }
-
   load();
 })();

@@ -18,6 +18,7 @@ def score_item(
     watchlist: list[str],
     *,
     has_poc: bool = False,
+    appsec: bool = False,
 ) -> tuple[float, list[str], list[str]]:
     """Return (score, score_reasons, watchlist_hits) for an item.
 
@@ -60,6 +61,12 @@ def score_item(
         total += b
         reasons.append(f"has PoC (+{b})")
 
+    # Application-security relevance (this repo's focus).
+    if appsec:
+        b = s.get("appsec_bonus", 14)
+        total += b
+        reasons.append(f"AppSec-relevant (+{b})")
+
     # Recency decay: fresh items float up.
     rec = s.get("recency", {})
     half_life = rec.get("half_life_days", 7)
@@ -90,6 +97,8 @@ def score_cve(rec, config: dict[str, Any]) -> float:
         total += rec.epss * s.get("epss_weight", 30)
     if rec.poc_links:
         total += s.get("poc_bonus", 10)
+    if getattr(rec, "appsec", False):
+        total += s.get("appsec_bonus", 14)
     if rec.cvss_score is not None:
         total += float(rec.cvss_score)  # 0–10, nudges severe issues up
     lo, hi = s.get("clamp", [0, 100])
