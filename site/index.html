@@ -19,11 +19,11 @@
   <meta name="referrer" content="no-referrer" />
 
   <title>Threat Feed &amp; Detection Queue</title>
-  <meta name="description" content="Prioritized security feed and Nuclei detection-gap queue." />
+  <meta name="description" content="Prioritized security feed and Nuclei detection-gap intelligence dashboard." />
 
   <!-- PWA / iOS add-to-home-screen -->
   <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#0a0d14" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Threat Feed" />
@@ -33,46 +33,80 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <h1>Threat Feed</h1>
-    </div>
-    <div class="updated" id="updated" aria-live="polite">loading&hellip;</div>
-  </header>
+  <div class="app">
 
-  <!-- Headline stats: the demo moment -->
-  <section class="stats" id="stats" aria-label="Headline statistics"></section>
+    <!-- LEFT NAV (desktop) -->
+    <aside class="nav">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Threat Feed</span>
+      </div>
+      <nav class="nav-list" aria-label="Views">
+        <button class="nav-item" data-view="feed" aria-current="true">
+          <span class="nav-ico" aria-hidden="true">◎</span><span class="nav-lbl">Feed</span>
+        </button>
+        <button class="nav-item" data-view="queue">
+          <span class="nav-ico" aria-hidden="true">⌖</span><span class="nav-lbl">Detection queue</span>
+          <span class="nav-count" id="nav-gap-count" hidden></span>
+        </button>
+      </nav>
+      <div class="nav-foot">
+        <span class="live" id="live-dot"><i aria-hidden="true"></i> Live</span>
+        <span class="nav-updated" id="updated-nav"></span>
+      </div>
+    </aside>
 
-  <nav class="tabs" role="tablist" aria-label="Views">
-    <button class="tab" id="tab-feed" role="tab" aria-selected="true" aria-controls="view-feed">Feed</button>
-    <button class="tab" id="tab-queue" role="tab" aria-selected="false" aria-controls="view-queue">Detection queue</button>
+    <!-- CENTER TIMELINE -->
+    <main class="main">
+      <header class="main-head">
+        <div class="seg" role="tablist" aria-label="Views">
+          <button class="seg-btn is-active" data-view="feed" role="tab" aria-selected="true">Feed</button>
+          <button class="seg-btn" data-view="queue" role="tab" aria-selected="false">Detection queue</button>
+        </div>
+      </header>
+
+      <!-- KPI strip (mobile / tablet) -->
+      <div class="kpi-strip" id="kpi-strip" aria-label="Headline statistics"></div>
+
+      <!-- FEED -->
+      <section id="view-feed" class="view">
+        <div class="controls">
+          <div class="search-wrap">
+            <span class="search-ico" aria-hidden="true">⌕</span>
+            <input type="search" id="search" placeholder="Search titles, summaries, CVEs"
+                   autocomplete="off" aria-label="Search the feed" />
+          </div>
+          <div class="chips" id="chips" aria-label="Filter by tag"></div>
+        </div>
+        <div class="timeline" id="feed"></div>
+        <p class="empty" id="feed-empty" hidden>No items match your filters.</p>
+      </section>
+
+      <!-- DETECTION QUEUE -->
+      <section id="view-queue" class="view" hidden>
+        <p class="queue-intro">
+          Ranked CVEs with <strong>no existing Nuclei template</strong> that are remote- or
+          HTTP-detectable and carry a priority signal (KEV, high EPSS, or a watchlist product).
+        </p>
+        <div class="timeline" id="queue"></div>
+        <p class="empty" id="queue-empty" hidden>No open detection gaps right now.</p>
+      </section>
+    </main>
+
+    <!-- RIGHT INTELLIGENCE RAIL (desktop) -->
+    <aside class="rail">
+      <section class="rail-card" id="rail-coverage" aria-label="Coverage"></section>
+      <section class="rail-card" id="rail-gaps" aria-label="Top detection gaps"></section>
+      <section class="rail-card" id="rail-trending" aria-label="Trending tags"></section>
+      <p class="rail-foot">Public sources only • refreshes on a schedule</p>
+    </aside>
+  </div>
+
+  <!-- BOTTOM TAB BAR (mobile) -->
+  <nav class="tabbar" aria-label="Views">
+    <button class="tab" data-view="feed" aria-current="true"><span aria-hidden="true">◎</span>Feed</button>
+    <button class="tab" data-view="queue"><span aria-hidden="true">⌖</span>Queue<span class="tab-count" id="tab-gap-count" hidden></span></button>
   </nav>
-
-  <!-- FEED VIEW -->
-  <section id="view-feed" class="view" role="tabpanel" aria-labelledby="tab-feed">
-    <div class="controls">
-      <input type="search" id="search" placeholder="Search titles, summaries, CVEs&hellip;"
-             autocomplete="off" aria-label="Search the feed" />
-      <div class="chips" id="chips" aria-label="Filter by tag"></div>
-    </div>
-    <div class="cards" id="feed"></div>
-    <p class="empty" id="feed-empty" hidden>No items match your filters.</p>
-  </section>
-
-  <!-- DETECTION QUEUE VIEW -->
-  <section id="view-queue" class="view" role="tabpanel" aria-labelledby="tab-queue" hidden>
-    <p class="queue-intro">
-      Ranked CVEs with <strong>no existing Nuclei template</strong> that are remote- or
-      HTTP-detectable and carry a priority signal (KEV, high EPSS, or a watchlist product).
-    </p>
-    <div class="cards" id="queue"></div>
-    <p class="empty" id="queue-empty" hidden>No open detection gaps right now.</p>
-  </section>
-
-  <footer class="foot">
-    <span>Static demo • data refreshes on a schedule • public sources only</span>
-  </footer>
 
   <script src="app.js"></script>
 </body>
