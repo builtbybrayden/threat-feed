@@ -1,0 +1,125 @@
+{
+  "candidates": [
+    {
+      "brief": "briefs/CVE-2019-0708.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "in CISA KEV",
+        "EPSS 100% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2019-0708",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-416"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "epss": 0.99999,
+      "issue_number": null,
+      "kev": true,
+      "nuclei_template": null,
+      "product": "windows_7",
+      "score": 89.8,
+      "vendor": "microsoft"
+    },
+    {
+      "brief": "briefs/CVE-2026-109619.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 100% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-109619",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-416",
+        "CWE-755",
+        "CWE-824",
+        "CWE-1325"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "epss": 0.99999,
+      "issue_number": null,
+      "kev": true,
+      "nuclei_template": null,
+      "product": "php",
+      "score": 88.1,
+      "vendor": "php"
+    },
+    {
+      "brief": "briefs/CVE-2023-44487.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 100% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2023-44487",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-400"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "epss": 0.99999,
+      "issue_number": null,
+      "kev": true,
+      "nuclei_template": null,
+      "product": "simatic_s7-1500_cpu_1518f-4_pn\\/dp_mfp_firmware",
+      "score": 87.5,
+      "vendor": "siemens"
+    },
+    {
+      "brief": "briefs/CVE-2025-49704.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 100% >= 30%",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2025-49704",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-94"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "epss": 0.99995,
+      "issue_number": null,
+      "kev": true,
+      "nuclei_template": null,
+      "product": "sharepoint_server",
+      "score": 78.8,
+      "vendor": "microsoft"
+    }
+  ],
+  "generated": "2026-10-27T22:00:10Z",
+  "stats": {
+    "kev_coverage_pct": 30.2,
+    "kev_tracked": 1760,
+    "kev_with_coverage": 531,
+    "open_gaps": 4,
+    "total_cves": 1775,
+    "total_items": 209
+  }
+}

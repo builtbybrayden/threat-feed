@@ -1,0 +1,45 @@
+name: validate-templates
+
+# Phase 2 scaffold. Isolated, manual-only syntax validation of draft Nuclei
+# templates. It ONLY runs `nuclei -validate` (static checks); it never executes
+# templates against any target. Behavioural validation against a vulnerable vs.
+# patched lab container (docker compose) is done locally, never in CI, so no
+# generated template is ever run against a live or shared host.
+on:
+  workflow_dispatch: {}
+
+permissions: {}   # nothing needed; this job only reads the checkout
+
+env:
+  # Pin the Nuclei version used for validation.
+  NUCLEI_VERSION: "3.3.7"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
+
+      - name: Skip when no drafts
+        id: check
+        run: |
+          if [ -z "$(ls -A drafts 2>/dev/null)" ]; then
+            echo "has_drafts=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_drafts=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install pinned Nuclei
+        if: steps.check.outputs.has_drafts == 'true'
+        run: |
+          curl -sSL -o nuclei.zip \
+            "https://github.com/projectdiscovery/nuclei/releases/download/v${NUCLEI_VERSION}/nuclei_${NUCLEI_VERSION}_linux_amd64.zip"
+          unzip -o nuclei.zip nuclei
+          ./nuclei -version
+
+      - name: Validate draft templates (syntax only, no execution)
+        if: steps.check.outputs.has_drafts == 'true'
+        run: ./nuclei -validate -t drafts/ -disable-update-check

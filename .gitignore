@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Caches regenerated each run (the coverage index is rebuilt from a fresh clone).
+# NOTE: state.json, site/*.json and sample_data/ ARE committed: state.json is the
+# pipeline's dedupe/first-seen memory, and the JSON/fixtures feed Pages + --offline.
+cache/
+auditlog.log
+
+# A shallow clone of nuclei-templates used only to (re)build the coverage index.
+nuclei-templates/
+
+# Secrets never belong in the repo (keys come from env / Actions secrets).
+.env
+*.key

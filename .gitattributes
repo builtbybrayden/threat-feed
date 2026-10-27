@@ -1,0 +1,4 @@
+# Normalize line endings to LF in the repo (CI runs on Linux; workflow `run:`
+# blocks are shell scripts that must stay LF). Binary icons are left untouched.
+* text=auto eol=lf
+*.png binary

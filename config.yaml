@@ -1,0 +1,95 @@
+# ---------------------------------------------------------------------------
+# Threat-feed pipeline configuration.
+#
+# All tunable behaviour lives here, not as magic numbers in code (CLAUDE.md).
+# Every feed URL below was verified to resolve on 2026-10-27.
+# ---------------------------------------------------------------------------
+
+feeds:
+  - name: PortSwigger Research
+    url: https://portswigger.net/research/rss
+    type: research
+  - name: Project Zero
+    url: https://projectzero.google/feed.xml      # old blogspot URL 302s here
+    type: research
+  - name: GitHub Security Lab
+    url: https://securitylab.github.com/advisories/feed.xml
+    type: research
+  - name: tl;dr sec
+    url: https://tldrsec.com/feed.xml              # 301s to a beehiiv feed; followed
+    type: news
+  - name: Risky Bulletin
+    url: https://risky.biz/feeds/risky-business-news/
+    type: news
+  - name: Simon Willison
+    url: https://simonwillison.net/atom/everything/
+    type: news
+
+kev:
+  # CISA Known Exploited Vulnerabilities catalog (JSON).
+  url: https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
+
+epss:
+  # FIRST EPSS API. We batch CVE ids to stay polite.
+  url: https://api.first.org/data/v1/epss
+  batch_size: 100
+
+nvd:
+  url: https://services.nvd.nist.gov/rest/json/cves/2.0
+  # NVD rate limits aggressively. With an API key (NVD_API_KEY env var) the
+  # limit is ~50 req / 30s; without, ~5 req / 30s. We throttle accordingly.
+  delay_no_key: 6.5
+  delay_with_key: 0.8
+  # Don't re-fetch a CVE's static NVD data more often than this (seconds).
+  cache_ttl: 604800        # 7 days
+
+poc:
+  # nomi-sec PoC-in-GitHub: per-year JSON files mapping CVE -> PoC repos.
+  base_url: https://raw.githubusercontent.com/nomi-sec/PoC-in-GitHub/master
+
+coverage:
+  repo: https://github.com/projectdiscovery/nuclei-templates.git
+  # Built index is cached here so we don't re-clone every run.
+  index_cache: cache/coverage_index.json
+
+http:
+  timeout: 20
+  retries: 3
+  backoff_factor: 1.5
+  user_agent: threat-feed-aggregator/0.1 (+https://github.com/builtbybrayden)
+
+# --- Scoring -------------------------------------------------------------
+# score = source_weight
+#       + kev_bonus            (if in KEV)
+#       + epss * epss_weight
+#       + watchlist_bonus      (once, if any watchlist term hits)
+#       + poc_bonus            (if a PoC is known)
+#       + recency_max * 0.5 ** (age_days / half_life_days)
+# then clamped to `clamp`. Each term that fires is recorded in score_reasons[].
+scoring:
+  source_weights:
+    PortSwigger Research: 15
+    Project Zero: 15
+    GitHub Security Lab: 12
+    tl;dr sec: 8
+    Risky Bulletin: 8
+    Simon Willison: 6
+    CISA KEV: 20
+  default_source_weight: 5
+  kev_bonus: 40
+  epss_weight: 30
+  watchlist_bonus: 15
+  poc_bonus: 10
+  recency:
+    max_bonus: 15
+    half_life_days: 7
+  clamp: [0, 100]
+
+# --- Detection triage ----------------------------------------------------
+candidate:
+  # A CVE is a candidate if it has no template AND is remote/HTTP-detectable
+  # AND (in KEV OR epss >= this OR a watchlist term hits).
+  epss_threshold: 0.3
+
+# CWE ids that imply a web/HTTP-detectable issue (used by triage).
+web_cwes: [22, 78, 79, 89, 94, 287, 352, 434, 502, 611, 862, 918]

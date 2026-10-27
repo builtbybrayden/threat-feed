@@ -1,0 +1,13 @@
+# Runtime + test dependencies, pinned exactly (CLAUDE.md stack constraint).
+# These are the only third-party packages the pipeline uses.
+certifi==2026.10.23
+charset-normalizer==3.5.2
+feedparser==6.0.14
+feedparser-sgmllib==2.1.0
+idna==3.20
+requests==2.34.2
+urllib3==2.8.0
+PyYAML==6.0.2
+
+# test-only
+pytest==8.3.4

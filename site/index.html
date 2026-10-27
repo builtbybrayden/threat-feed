@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <!-- Restrictive CSP: deny by default; only same-origin scripts/styles/data.
+       Feed content is untrusted and is rendered via textContent only. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none';
+                 base-uri 'self';
+                 script-src 'self';
+                 style-src 'self';
+                 img-src 'self';
+                 connect-src 'self';
+                 manifest-src 'self';
+                 font-src 'self';
+                 form-action 'none';" />
+  <meta name="referrer" content="no-referrer" />
+
+  <title>Threat Feed &amp; Detection Queue</title>
+  <meta name="description" content="Prioritized security feed and Nuclei detection-gap queue." />
+
+  <!-- PWA / iOS add-to-home-screen -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Threat Feed" />
+  <link rel="apple-touch-icon" href="icons/icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <h1>Threat Feed</h1>
+    </div>
+    <div class="updated" id="updated" aria-live="polite">loading&hellip;</div>
+  </header>
+
+  <!-- Headline stats: the demo moment -->
+  <section class="stats" id="stats" aria-label="Headline statistics"></section>
+
+  <nav class="tabs" role="tablist" aria-label="Views">
+    <button class="tab" id="tab-feed" role="tab" aria-selected="true" aria-controls="view-feed">Feed</button>
+    <button class="tab" id="tab-queue" role="tab" aria-selected="false" aria-controls="view-queue">Detection queue</button>
+  </nav>
+
+  <!-- FEED VIEW -->
+  <section id="view-feed" class="view" role="tabpanel" aria-labelledby="tab-feed">
+    <div class="controls">
+      <input type="search" id="search" placeholder="Search titles, summaries, CVEs&hellip;"
+             autocomplete="off" aria-label="Search the feed" />
+      <div class="chips" id="chips" aria-label="Filter by tag"></div>
+    </div>
+    <div class="cards" id="feed"></div>
+    <p class="empty" id="feed-empty" hidden>No items match your filters.</p>
+  </section>
+
+  <!-- DETECTION QUEUE VIEW -->
+  <section id="view-queue" class="view" role="tabpanel" aria-labelledby="tab-queue" hidden>
+    <p class="queue-intro">
+      Ranked CVEs with <strong>no existing Nuclei template</strong> that are remote- or
+      HTTP-detectable and carry a priority signal (KEV, high EPSS, or a watchlist product).
+    </p>
+    <div class="cards" id="queue"></div>
+    <p class="empty" id="queue-empty" hidden>No open detection gaps right now.</p>
+  </section>
+
+  <footer class="foot">
+    <span>Static demo • data refreshes on a schedule • public sources only</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

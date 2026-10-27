@@ -1,0 +1,45 @@
+# Generic, public products/technologies to flag. Matching is case-insensitive
+# and word-boundary aware (so "mcp" won't match "mcpherson"), against each
+# item's title + summary and each CVE's vendor/product string.
+#
+# This is a personal public repo, so keep the list generic (CLAUDE.md).
+terms:
+  - log4j
+  - log4shell
+  - openssl
+  - confluence
+  - jira
+  - sharepoint
+  - exchange
+  - outlook
+  - fortinet
+  - fortios
+  - ivanti
+  - citrix
+  - netscaler
+  - vmware
+  - esxi
+  - gitlab
+  - jenkins
+  - apache
+  - struts
+  - spring
+  - tomcat
+  - wordpress
+  - drupal
+  - kubernetes
+  - docker
+  - cisco
+  - "palo alto"
+  - pan-os
+  - sonicwall
+  - moveit
+  - curl
+  - openssh
+  # AI / LLM security
+  - "prompt injection"
+  - llm
+  - rag
+  - "model context protocol"
+  - mcp
+  - langchain
