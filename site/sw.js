@@ -52,9 +52,20 @@ self.addEventListener("fetch", function (event) {
       }).catch(function () { return caches.match(req); })
     );
   } else {
-    // Cache-first for the static shell.
+    // Stale-while-revalidate for the static shell: serve the cached copy
+    // instantly (works offline), and refresh the cache in the background so a
+    // new deploy is picked up on the next load without bumping sw.js.
     event.respondWith(
-      caches.match(req).then(function (hit) { return hit || fetch(req); })
+      caches.match(req).then(function (hit) {
+        var network = fetch(req).then(function (res) {
+          if (res && res.ok) {
+            var copy = res.clone();
+            caches.open(CACHE).then(function (c) { c.put(req, copy); });
+          }
+          return res;
+        }).catch(function () { return hit; });
+        return hit || network;
+      })
     );
   }
 });
