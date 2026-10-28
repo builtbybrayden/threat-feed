@@ -168,6 +168,33 @@ body.modal-open { overflow: hidden; }
 .detail-h { font-size: 0.95rem; font-weight: 700; margin: 20px 0 2px; }
 .detail-hint { color: var(--muted); font-size: 0.78rem; margin: 0 0 10px; }
 .detail-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.detail-dates { color: var(--muted); font-size: 0.78rem; margin: 10px 0 0; }
+.detail-dismiss { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.btn.ghost { background: transparent; color: var(--muted); }
+.btn.ghost:hover { color: var(--crit); border-color: var(--crit); background: transparent; }
+.kpi-detail-n { font-size: 2.1rem; font-weight: 800; letter-spacing: -0.02em; }
+.kpi-sources { margin: 8px 0 0; padding-left: 18px; }
+.kpi-sources li { color: var(--muted); font-size: 0.85rem; padding: 3px 0; }
+.src-link { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Clickable KPI boxes */
+.kpi.clickable:hover { background: var(--panel); }
+.kpi.clickable:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Grouped filter pills (coverage / sort / ecosystem) */
+.filter-group { padding: 4px 0 6px; }
+.filter-group-label { color: var(--faint); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 2px 2px 7px; }
+.chips-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.filter-group.inline { padding: 0; }
+
+/* Detection-queue controls bar */
+.list-controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; padding: 11px 14px; }
+.list-controls .filter-group-label { margin-bottom: 6px; }
+.dismissed-toggle { align-self: center; }
+.vuln.is-dismissed { opacity: 0.5; }
+
+/* Main footer disclaimer (visible on every viewport) */
+.main-foot { padding: 20px 16px 28px; color: var(--faint); font-size: 0.72rem; text-align: center; border-top: 1px solid var(--line-soft); margin-top: 8px; }
 
 /* ============================= NEWS TIMELINE =========================== */
 .timeline { display: flex; flex-direction: column; }

@@ -124,6 +124,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     watchlist = load_watchlist(args.watchlist)
     sample_dir = Path(args.sample)
     state = State.load(args.state)
+    state.meta.setdefault("first_run", now_iso())  # data-capture start date (disclaimer)
     session = None if args.offline else make_session(cfg)
 
     # 1. Feeds + KEV + ecosystem advisories --------------------------------
@@ -146,6 +147,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             rec.vendor = rec.vendor or k.get("vendor")
             rec.product = rec.product or k.get("product")
             rec.kev_added = k.get("date_added")
+            rec.published = rec.published or k.get("date_added")
 
     # Merge ecosystem advisories onto their CVE records. An advisory is inherently
     # AppSec (it's a package vuln), so track its CVE to force appsec=True below.
@@ -440,6 +442,7 @@ def _write_site(state: State, candidates: list, stats: dict, site_dir: str, conf
         # Use this run's time; state.meta["last_run"] isn't refreshed until save(),
         # so reading it here would report the *previous* run's time.
         "last_run": generated,
+        "first_run": state.meta.get("first_run"),
         "repo": repo,
         "stats": stats,
         "threats": threats,
@@ -462,6 +465,9 @@ def _candidate_view(rec) -> dict[str, Any]:
         "product": rec.product,
         "score": rec.score,
         "kev": rec.kev,
+        "kev_added": rec.kev_added,
+        "published": rec.published,
+        "modified": rec.modified or rec.published,
         "epss": rec.epss,
         "cvss_score": rec.cvss_score,
         "cwe": rec.cwe,
@@ -490,6 +496,8 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "score": rec.score,
         "kev": rec.kev,
         "kev_added": rec.kev_added,
+        "published": rec.published,
+        "modified": rec.modified or rec.published,
         "epss": rec.epss,
         "cvss_score": rec.cvss_score,
         "appsec": rec.appsec,
@@ -542,7 +550,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--watchlist", default=str(ROOT / "watchlist.yaml"))
     ap.add_argument("--state", default=str(ROOT / "state.json"))
     ap.add_argument("--site", default=str(ROOT / "site"))
-    ap.add_argument("--briefs", default=str(ROOT / "briefs"))
+    ap.add_argument("--briefs", default=str(ROOT / "site" / "briefs"))
     ap.add_argument("--sample", default=str(ROOT / "sample_data"))
     ap.add_argument("--verbose", "-v", action="store_true")
     return ap

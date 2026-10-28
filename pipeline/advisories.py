@@ -123,6 +123,7 @@ def parse_advisory(adv: dict[str, Any]) -> Optional[dict[str, Any]]:
         "cwe": cwes,
         "references": refs,
         "published": adv.get("published_at"),
+        "modified": adv.get("updated_at") or adv.get("published_at"),
     }
 
 
@@ -159,6 +160,10 @@ def apply_to_record(rec, adv: dict[str, Any]) -> None:
         rec.ghsa_id = adv["ghsa_id"]
     if adv.get("advisory_url") and not rec.advisory_url:
         rec.advisory_url = adv["advisory_url"]
+    if adv.get("published") and not rec.published:
+        rec.published = adv["published"]
+    if adv.get("modified") and (not rec.modified or adv["modified"] > rec.modified):
+        rec.modified = adv["modified"]
     existing = {r.get("url") for r in rec.references}
     for r in adv.get("references", []):
         if r["url"] not in existing:

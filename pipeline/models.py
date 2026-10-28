@@ -79,6 +79,8 @@ class CveRecord:
     references: list[dict[str, Any]] = field(default_factory=list)  # {url, tags[]}
     kev: bool = False
     kev_added: Optional[str] = None                 # CISA KEV dateAdded (YYYY-MM-DD)
+    published: Optional[str] = None                 # upstream publish date (advisory/KEV)
+    modified: Optional[str] = None                  # upstream last-modified date
     epss: Optional[float] = None
     poc_links: list[str] = field(default_factory=list)
     nuclei_template: Optional[str] = None          # path in nuclei-templates, or None

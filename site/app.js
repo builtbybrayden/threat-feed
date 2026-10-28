@@ -6,10 +6,25 @@
 (function () {
   var state = {
     items: [], threats: [], candidates: [], stats: null, repo: null,
+    first_run: null, last_run: null,
     view: "news",
     newsQuery: "", newsTags: new Set(),
-    threatGapsOnly: false, threatEco: null
+    threatCoverage: "all", threatEco: null,      // coverage: all | gap | covered
+    threatSort: "score", queueSort: "score",     // score | published | modified
+    dismissed: new Set(), showDismissed: false
   };
+
+  // Per-device dismissals (localStorage). Not shared across devices — that would
+  // need a repo-side ignore list; this is an instant, reversible local hide.
+  var DISMISS_KEY = "tf-dismissed-v1";
+  function loadDismissed() {
+    try { return new Set(JSON.parse(localStorage.getItem(DISMISS_KEY) || "[]")); }
+    catch (e) { return new Set(); }
+  }
+  function saveDismissed() {
+    try { localStorage.setItem(DISMISS_KEY, JSON.stringify(Array.from(state.dismissed))); }
+    catch (e) { /* private mode / blocked storage: dismissals just won't persist */ }
+  }
 
   // Canonical ecosystem quick-filter order + display labels (Threats board).
   var ECO_ORDER = ["pypi", "npm", "maven", "go", "rubygems", "nuget", "composer", "rust", "swift", "actions", "php", "web", "supply-chain"];
@@ -89,21 +104,102 @@
     return s;
   }
   function pct(x) { return Math.round(x * 100) + "%"; }
+  // EPSS often sits at 0.999x for actively-exploited CVEs; rounding those to a
+  // flat "100%" made the whole queue look identical. Floor to real precision so
+  // 0.99999 reads 99.99% and only an exact 1.0 shows 100%.
+  function epssPct(x) {
+    if (x == null) return "";
+    if (x >= 1) return "100%";
+    var p = x * 100;
+    if (p >= 99) return (Math.floor(p * 100) / 100) + "%";   // 99.99, 99.98, ...
+    if (p >= 10) return (Math.round(p * 10) / 10) + "%";      // 42.3
+    return (Math.round(p * 100) / 100) + "%";                 // 2.34
+  }
+  function dateShort(iso) {
+    if (!iso) return "";
+    var t = Date.parse(iso); if (isNaN(t)) return "";
+    return new Date(t).toISOString().slice(0, 10);           // YYYY-MM-DD
+  }
+  // Sort a copy of a CVE list by the chosen key (score keeps server order).
+  function sortCves(arr, by) {
+    if (by === "score") return arr;
+    var key = by === "modified" ? "modified" : "published";
+    return arr.slice().sort(function (a, b) {
+      return String(b[key] || "").localeCompare(String(a[key] || ""));
+    });
+  }
 
   // ---- KPI header -------------------------------------------------------
   function renderKpis() {
     var s = state.stats; if (!s) return;
     var host = document.getElementById("kpis"); host.textContent = "";
     [
-      ["n crit", s.actively_exploited_appsec, "AppSec CVEs exploited in the wild"],
-      ["n warn", s.newly_exploited, "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d"],
-      ["n poc", s.public_poc, "With public exploit code (PoC)"],
-      ["n", s.open_gaps, "Missing a Nuclei template"]
+      ["n crit", s.actively_exploited_appsec, "AppSec CVEs exploited in the wild", "exploited"],
+      ["n warn", s.newly_exploited, "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d", "newly"],
+      ["n poc", s.public_poc, "With public exploit code (PoC)", "poc"],
+      ["n", s.open_gaps, "Missing a Nuclei template", "gaps"]
     ].forEach(function (k) {
-      var b = el("div", "kpi");
+      var b = el("div", "kpi clickable");
+      b.setAttribute("role", "button"); b.setAttribute("tabindex", "0");
       b.appendChild(el("div", k[0], k[1]));
       b.appendChild(el("div", "l", k[2]));
+      b.addEventListener("click", function () { openKpiDetail(k[3]); });
+      b.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openKpiDetail(k[3]); } });
       host.appendChild(b);
+    });
+  }
+  // Explains each headline metric: what it counts and where the number comes from.
+  function openKpiDetail(key) {
+    var s = state.stats || {};
+    var M = {
+      exploited: {
+        n: s.actively_exploited_appsec, label: "AppSec CVEs exploited in the wild",
+        what: "CVEs that are both application-security relevant and listed in CISA's Known Exploited Vulnerabilities (KEV) catalog — i.e. confirmed exploited in the wild.",
+        how: [["CISA KEV catalog", "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"],
+              ["AppSec classifier (ecosystem / CWE / CPE)", null]],
+        jump: "threats"
+      },
+      newly: {
+        n: s.newly_exploited, label: "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d",
+        what: "AppSec CVEs whose CISA KEV dateAdded falls within the last " + (s.newly_exploited_days || 30) + " days — the ones that just started being exploited.",
+        how: [["CISA KEV dateAdded", "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"]],
+        jump: "threats"
+      },
+      poc: {
+        n: s.public_poc, label: "With public exploit code (PoC)",
+        what: "AppSec CVEs for which a public proof-of-concept exploit repo is known.",
+        how: [["nomi-sec PoC-in-GitHub index", "https://github.com/nomi-sec/PoC-in-GitHub"]],
+        jump: "threats"
+      },
+      gaps: {
+        n: s.open_gaps, label: "Missing a Nuclei template",
+        what: "Detection candidates: AppSec CVEs that have no Nuclei template yet, are remotely/HTTP-detectable, and carry a priority signal (KEV, high EPSS, or a watchlist product).",
+        how: [["ProjectDiscovery nuclei-templates (coverage)", "https://github.com/projectdiscovery/nuclei-templates"],
+              ["FIRST EPSS", "https://www.first.org/epss/"]],
+        jump: "queue"
+      }
+    };
+    var m = M[key]; if (!m) return;
+    openModal(function (body) {
+      var h = el("div", "detail-head");
+      h.appendChild(el("div", "kpi-detail-n", m.n == null ? "—" : m.n));
+      h.appendChild(el("div", "detail-prod", m.label));
+      body.appendChild(h);
+      body.appendChild(el("p", "detail-desc", m.what));
+      body.appendChild(el("h3", "detail-h", "Where this comes from"));
+      var ul = el("ul", "kpi-sources");
+      m.how.forEach(function (src) {
+        var li = el("li");
+        if (src[1]) li.appendChild(link(src[1], src[0], "src-link")); else li.appendChild(el("span", null, src[0]));
+        ul.appendChild(li);
+      });
+      body.appendChild(ul);
+      var links = el("div", "detail-links");
+      var jb = el("button", "btn primary", m.jump === "queue" ? "View detection queue" : "View on Threats board");
+      jb.type = "button";
+      jb.addEventListener("click", function () { closeModal(); selectView(m.jump); });
+      links.appendChild(jb);
+      body.appendChild(links);
     });
   }
 
@@ -150,7 +246,7 @@
       stats.appendChild(el("span", "tag-pill multi", it.cves.length + " CVEs"));
     } else {
       if (it.kev) stats.appendChild(statItem("KEV", null, "kev"));
-      if (it.epss != null) stats.appendChild(statItem("EPSS", pct(it.epss)));
+      if (it.epss != null) stats.appendChild(statItem("EPSS", epssPct(it.epss)));
       if ((it.tags || []).indexOf("has-PoC") !== -1) stats.appendChild(statItem("PoC", null, "poc"));
     }
     (it.tags || []).forEach(function (t) {
@@ -190,24 +286,45 @@
     });
     return c;
   }
+  // A small labeled group of single-select pills.
+  function pillGroup(host, label, options, current, onPick) {
+    var g = el("div", "filter-group");
+    g.appendChild(el("div", "filter-group-label", label));
+    var row = el("div", "chips-row");
+    options.forEach(function (o) {
+      var b = el("button", "chip", o[1]); b.type = "button";
+      b.setAttribute("aria-pressed", current === o[0] ? "true" : "false");
+      b.addEventListener("click", function () { onPick(o[0]); });
+      row.appendChild(b);
+    });
+    g.appendChild(row); host.appendChild(g);
+  }
+  var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Has template"]];
+  var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
   function renderThreatChips() {
     var host = document.getElementById("threat-chips"); host.textContent = "";
-    // "Gaps only" is an independent toggle; the ecosystem row is single-select.
-    var gaps = el("button", "chip", "Gaps only"); gaps.type = "button";
-    gaps.setAttribute("aria-pressed", state.threatGapsOnly ? "true" : "false");
-    gaps.addEventListener("click", function () { state.threatGapsOnly = !state.threatGapsOnly; renderThreatChips(); renderThreats(); });
-    host.appendChild(gaps);
-
-    host.appendChild(ecoChip("All", null, state.threatEco === null, null));
-    threatEcosystems().forEach(function (p) {
-      host.appendChild(ecoChip(ECO_LABEL[p[0]] || p[0], p[0], state.threatEco === p[0], p[1]));
+    pillGroup(host, "Template coverage", COVERAGE_OPTS, state.threatCoverage, function (v) {
+      state.threatCoverage = v; renderThreatChips(); renderThreats();
     });
+    pillGroup(host, "Sort by", SORT_OPTS, state.threatSort, function (v) {
+      state.threatSort = v; renderThreatChips(); renderThreats();
+    });
+    var g = el("div", "filter-group");
+    g.appendChild(el("div", "filter-group-label", "Ecosystem"));
+    var row = el("div", "chips-row");
+    row.appendChild(ecoChip("All", null, state.threatEco === null, null));
+    threatEcosystems().forEach(function (p) {
+      row.appendChild(ecoChip(ECO_LABEL[p[0]] || p[0], p[0], state.threatEco === p[0], p[1]));
+    });
+    g.appendChild(row); host.appendChild(g);
     updateThreatFilterLabel();
   }
   function threatFilterSummary() {
     var parts = [];
-    if (state.threatGapsOnly) parts.push("Gaps");
+    if (state.threatCoverage === "gap") parts.push("No template");
+    else if (state.threatCoverage === "covered") parts.push("Has template");
     if (state.threatEco) parts.push(ECO_LABEL[state.threatEco] || state.threatEco);
+    if (state.threatSort !== "score") parts.push(state.threatSort === "published" ? "by published" : "by modified");
     return parts.join(" · ");
   }
   function updateThreatFilterLabel() {
@@ -215,7 +332,8 @@
     var s = threatFilterSummary(); badge.textContent = s; badge.hidden = !s;
   }
   function threatMatch(t) {
-    if (state.threatGapsOnly && t.coverage !== "gap") return false;
+    if (state.threatCoverage === "gap" && t.coverage !== "gap") return false;
+    if (state.threatCoverage === "covered" && t.coverage === "gap") return false;
     if (state.threatEco && (t.ecosystems || []).indexOf(state.threatEco) === -1) return false;
     return true;
   }
@@ -233,7 +351,7 @@
     var stats = el("div", "p-stats");
     stats.appendChild(el("span", scoreClass(t.score, "p-score"), Math.round(t.score)));
     if (t.kev) stats.appendChild(statItem(t.kev_added ? "KEV · " + String(t.kev_added).slice(0, 4) : "KEV", null, "kev"));
-    if (t.epss != null) stats.appendChild(statItem("EPSS", pct(t.epss)));
+    if (t.epss != null) stats.appendChild(statItem("EPSS", epssPct(t.epss)));
     if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
     if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
     (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
@@ -268,7 +386,7 @@
   }
   function renderThreats() {
     var host = document.getElementById("threats"); host.textContent = "";
-    var shown = state.threats.filter(threatMatch);
+    var shown = sortCves(state.threats.filter(threatMatch), state.threatSort);
     document.getElementById("threats-empty").hidden = shown.length !== 0;
     shown.forEach(function (t) { host.appendChild(threatCard(t)); });
   }
@@ -287,7 +405,7 @@
     var stats = el("div", "p-stats");
     stats.appendChild(el("span", scoreClass(c.score, "p-score"), Math.round(c.score)));
     if (c.kev) stats.appendChild(statItem("KEV", null, "kev"));
-    if (c.epss != null) stats.appendChild(statItem("EPSS", pct(c.epss)));
+    if (c.epss != null) stats.appendChild(statItem("EPSS", epssPct(c.epss)));
     if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
     if (c.detectability && c.detectability.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
     (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
@@ -311,13 +429,44 @@
     act.appendChild(link(c.brief, "Detection brief", "btn primary"));
     act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
     if (c.issue_number != null) act.appendChild(el("span", "issue-ref", "Issue #" + c.issue_number));
+    var isD = state.dismissed.has(c.cve_id);
+    var db = el("button", "btn ghost", isD ? "Restore" : "Dismiss"); db.type = "button";
+    db.addEventListener("click", function (e) { e.stopPropagation(); toggleDismiss(c.cve_id); });
+    act.appendChild(db);
     v.appendChild(act);
+    if (isD) v.classList.add("is-dismissed");
+    v.classList.add("clickable");
+    v.setAttribute("role", "button"); v.setAttribute("tabindex", "0");
+    v.addEventListener("click", cardClick(function () { openCandidateDetail(c); }));
+    v.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCandidateDetail(c); } });
     return v;
   }
   function renderQueue() {
     var host = document.getElementById("queue"); host.textContent = "";
-    document.getElementById("queue-empty").hidden = state.candidates.length !== 0;
-    state.candidates.forEach(function (c) { host.appendChild(queueCard(c)); });
+    var ctl = document.getElementById("queue-controls");
+    if (ctl) {
+      ctl.textContent = "";
+      var g = el("div", "filter-group inline");
+      g.appendChild(el("div", "filter-group-label", "Sort by"));
+      var row = el("div", "chips-row");
+      SORT_OPTS.forEach(function (o) {
+        var b = el("button", "chip", o[1]); b.type = "button";
+        b.setAttribute("aria-pressed", state.queueSort === o[0] ? "true" : "false");
+        b.addEventListener("click", function () { state.queueSort = o[0]; renderQueue(); });
+        row.appendChild(b);
+      });
+      g.appendChild(row); ctl.appendChild(g);
+      var dCount = state.candidates.length - visibleCandidates().length;
+      if (dCount) {
+        var t = el("button", "chip dismissed-toggle", (state.showDismissed ? "Hide" : "Show") + " dismissed (" + dCount + ")");
+        t.type = "button";
+        t.addEventListener("click", function () { state.showDismissed = !state.showDismissed; renderQueue(); });
+        ctl.appendChild(t);
+      }
+    }
+    var list = sortCves(state.showDismissed ? state.candidates : visibleCandidates(), state.queueSort);
+    document.getElementById("queue-empty").hidden = list.length !== 0;
+    list.forEach(function (c) { host.appendChild(queueCard(c)); });
   }
 
   // ---- DETAIL MODAL + ISSUE TRACKING ------------------------------------
@@ -395,7 +544,7 @@
       var stats = el("div", "p-stats");
       stats.appendChild(el("span", scoreClass(t.score, "p-score"), Math.round(t.score)));
       if (t.kev) stats.appendChild(statItem(t.kev_added ? "KEV · " + String(t.kev_added).slice(0, 4) : "KEV", null, "kev"));
-      if (t.epss != null) stats.appendChild(statItem("EPSS", pct(t.epss)));
+      if (t.epss != null) stats.appendChild(statItem("EPSS", epssPct(t.epss)));
       if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
       if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
       stats.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
@@ -455,6 +604,74 @@
       }, { research: true, template: !!(it.cves && it.cves.length) }));
     });
   }
+  function openCandidateDetail(c) {
+    openModal(function (body) {
+      var h = el("div", "detail-head");
+      h.appendChild(el("div", "detail-id", c.cve_id));
+      h.appendChild(el("div", "detail-prod", (c.vendor ? c.vendor + " / " : "") + (c.product || "unknown product")));
+      body.appendChild(h);
+
+      var stats = el("div", "p-stats");
+      stats.appendChild(el("span", scoreClass(c.score, "p-score"), Math.round(c.score)));
+      if (c.kev) stats.appendChild(statItem(c.kev_added ? "KEV · " + String(c.kev_added).slice(0, 4) : "KEV", null, "kev"));
+      if (c.epss != null) stats.appendChild(statItem("EPSS", epssPct(c.epss)));
+      if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
+      if (c.detectability && c.detectability.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
+      stats.appendChild(el("span", "cov gap", "No template"));
+      (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
+      (c.cwe || []).forEach(function (cw) { stats.appendChild(el("span", "tag-pill", cw)); });
+      body.appendChild(stats);
+
+      var dates = [];
+      if (c.published) dates.push("Published " + dateShort(c.published));
+      if (c.modified) dates.push("Modified " + dateShort(c.modified));
+      if (dates.length) body.appendChild(el("p", "detail-dates", dates.join("  ·  ")));
+
+      var d = c.detectability || {};
+      var grid = el("div", "meta-grid");
+      function row(k, val) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val)); }
+      row("Detectability", d.likely_http ? "HTTP" : (d.remote_network ? "remote (AV:N)" : "local"));
+      row("Template type", d.suggested_template_type || "?");
+      if (c.cwe && c.cwe.length) row("CWE", c.cwe.join(", "));
+      body.appendChild(grid);
+
+      if (c.candidate_reasons && c.candidate_reasons.length) {
+        var det = el("details", "why"); det.setAttribute("open", "");
+        det.appendChild(el("summary", null, "Why it's a candidate"));
+        var ul = el("ul"); c.candidate_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
+        det.appendChild(ul); body.appendChild(det);
+      }
+
+      var links = el("div", "detail-links");
+      links.appendChild(link(c.brief, "Detection brief", "btn"));
+      links.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
+      if (c.issue_number != null) links.appendChild(link("https://github.com/" + (state.repo || "builtbybrayden/threat-feed") + "/issues/" + c.issue_number, "Issue #" + c.issue_number, "btn"));
+      body.appendChild(links);
+
+      body.appendChild(el("h3", "detail-h", "Track this"));
+      body.appendChild(el("p", "detail-hint", "Opens a prefilled issue on GitHub — review and submit it there."));
+      body.appendChild(detailActions({
+        cve_id: c.cve_id, product: c.product, ecosystems: c.ecosystems, cvss_score: c.cvss_score,
+        epss: c.epss, kev: c.kev, coverage: "gap", description: c.description || "", brief: c.brief, issue_number: c.issue_number
+      }, { research: true, template: true }));
+
+      var dz = el("div", "detail-dismiss");
+      var isD = state.dismissed.has(c.cve_id);
+      var db = el("button", "btn ghost", isD ? "Restore to queue" : "Dismiss — not relevant"); db.type = "button";
+      db.addEventListener("click", function () { toggleDismiss(c.cve_id); closeModal(); });
+      dz.appendChild(db);
+      body.appendChild(dz);
+    });
+  }
+  function visibleCandidates() {
+    return state.candidates.filter(function (c) { return !state.dismissed.has(c.cve_id); });
+  }
+  function toggleDismiss(cve) {
+    if (state.dismissed.has(cve)) state.dismissed.delete(cve); else state.dismissed.add(cve);
+    saveDismissed();
+    renderQueue(); renderRailGaps();
+    setGapBadge(visibleCandidates().length);
+  }
   // A click anywhere on a card opens its detail, except on a real link/button.
   function cardClick(open) {
     return function (e) { if (e.target.closest("a,button")) return; open(); };
@@ -464,8 +681,9 @@
   function renderRailGaps() {
     var card = document.getElementById("rail-gaps"); card.textContent = "";
     card.appendChild(el("h2", null, "Top detection gaps"));
-    if (!state.candidates.length) { card.appendChild(el("p", "rail-foot", "No open gaps.")); return; }
-    state.candidates.slice(0, 5).forEach(function (c, i) {
+    var cands = visibleCandidates();
+    if (!cands.length) { card.appendChild(el("p", "rail-foot", "No open gaps.")); return; }
+    cands.slice(0, 5).forEach(function (c, i) {
       var row = el("div", "gap-item");
       row.appendChild(el("div", "gap-rank", i + 1));
       var mid = el("div");
@@ -473,7 +691,7 @@
       if (c.product) mid.appendChild(el("div", "g-prod", c.product));
       row.appendChild(mid);
       row.appendChild(el("div", "g-score", Math.round(c.score)));
-      row.addEventListener("click", function () { selectView("queue"); });
+      row.addEventListener("click", function () { openCandidateDetail(c); });  // open the card, not the whole queue
       card.appendChild(row);
     });
   }
@@ -487,6 +705,21 @@
       row.addEventListener("click", function () { selectView("news"); state.newsTags = new Set([p[0]]); renderNews(); });
       card.appendChild(row);
     });
+  }
+
+  // ---- footers / disclaimers --------------------------------------------
+  function renderFooters() {
+    var age = state.last_run ? fmtAge(state.last_run) : null;
+    var un = document.getElementById("updated-nav");
+    if (un) un.textContent = age ? "as of " + age + " ago" : "";
+    var foot = document.getElementById("main-foot");
+    if (foot) {
+      var parts = [];
+      if (age) parts.push("Live · data as of " + age + " ago");
+      if (state.first_run) parts.push("tracking since " + dateShort(state.first_run));
+      parts.push("public sources only, refreshed every 6h");
+      foot.textContent = parts.join("  ·  ");
+    }
   }
 
   // ---- view switching ---------------------------------------------------
@@ -519,9 +752,11 @@
       state.candidates = cand.candidates || [];
       state.stats = data.stats || null;
       state.repo = data.repo || null;
-      var when = data.last_run || data.generated;
-      var un = document.getElementById("updated-nav"); if (un) un.textContent = when ? "Updated " + fmtAge(when) + " ago" : "";
-      setGapBadge(state.candidates.length);
+      state.first_run = data.first_run || null;
+      state.last_run = data.last_run || data.generated || null;
+      state.dismissed = loadDismissed();
+      setGapBadge(visibleCandidates().length);
+      renderFooters();
       renderKpis();
       renderNews();
       renderThreatChips(); renderThreats();
