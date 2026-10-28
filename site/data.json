@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-10-28T21:31:50Z",
+  "generated": "2026-10-28T22:30:05Z",
   "items": [
     {
       "appsec": true,
@@ -75,13 +75,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 48.8,
+      "score": 48.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.6)"
+        "recency (+7.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -106,13 +106,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 48.7,
+      "score": 48.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.6)"
+        "recency (+7.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -137,12 +137,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 48.6,
+      "score": 48.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.6)"
+        "recency (+7.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -406,11 +406,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 43.2,
+      "score": 43.1,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+13.2)"
+        "recency (+13.1)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -430,11 +430,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 42.8,
+      "score": 42.7,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+12.8)"
+        "recency (+12.7)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -629,12 +629,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.9)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1479,11 +1479,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 35.7,
+      "score": 35.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.7)"
+        "recency (+14.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1570,30 +1570,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "880e8544b15f9e13",
-      "kev": false,
-      "published": "2026-10-23T19:40:54Z",
-      "score": 30.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Introducing Kimi K3.1 Pro Kimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot promise \"Full model weights will be released by Nov 4, 2026\". They're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same). The US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5. Moonshot's own benchmarks show Kimi as approximately level with Opus 5.5 and GPT-6 Astra - beating them on a few benchmarks, coming close on others. Artificial Analysis scored Kimi at 55 - ahead of Claude Fable 5.1, GPT-6 Astra, and Gemini 4 Argon (all at 53) and behind only Claude Opus 5.5 (58). This is the first time a (soon-to-be) open weight model has scored this highly against the frontier. I tried it out via the Moonshot API using the llm openai endpoint command I added to LLM 0.32 back in August: llm openai endpoint \\ https://api.moonshot.ai/v1 \\ --key kimi \\ -m kimi-k3.1-pro \\ \"Generate an SVG of a pelican riding a bicycle\" \\ --responses \\ -o reasoning_effort low \\ > kimi-k3.1-pro-pelican-low.stdout.txt \\ 2> kimi-k3.1-pro-pelican-low.stderr.txt llm openai endpoint can run prompts against any OpenAI-compatible endpoint but doesn't log the results, hence the extra options to save stdout and stderr (the reasoning trace). Here are the pelicans I got for Kimi K3.1 Pro on the three reasoning levels it supports - low, medium, and max. This is max: For comparison, I ran fresh pelicans against Kimi K3 on those three reasoning levels. Via Hacker News Tags: ai, generative-ai, llms, llm, llm-pricing, pelican-riding-a-bicycle, llm-release, ai-in-china, moonshot, kimi",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Introducing Kimi K3.1 Pro",
-      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "3cf6af4e6439ce3c",
       "kev": false,
       "published": "2026-03-05T08:00:00Z",
@@ -1611,6 +1587,30 @@
       ],
       "title": "On the Effectiveness of Mutational Grammar Fuzzing",
       "url": "https://projectzero.google/2026/03/mutational-grammar-fuzzing.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "880e8544b15f9e13",
+      "kev": false,
+      "published": "2026-10-23T19:40:54Z",
+      "score": 30.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+9.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Introducing Kimi K3.1 Pro Kimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot promise \"Full model weights will be released by Nov 4, 2026\". They're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same). The US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5. Moonshot's own benchmarks show Kimi as approximately level with Opus 5.5 and GPT-6 Astra - beating them on a few benchmarks, coming close on others. Artificial Analysis scored Kimi at 55 - ahead of Claude Fable 5.1, GPT-6 Astra, and Gemini 4 Argon (all at 53) and behind only Claude Opus 5.5 (58). This is the first time a (soon-to-be) open weight model has scored this highly against the frontier. I tried it out via the Moonshot API using the llm openai endpoint command I added to LLM 0.32 back in August: llm openai endpoint \\ https://api.moonshot.ai/v1 \\ --key kimi \\ -m kimi-k3.1-pro \\ \"Generate an SVG of a pelican riding a bicycle\" \\ --responses \\ -o reasoning_effort low \\ > kimi-k3.1-pro-pelican-low.stdout.txt \\ 2> kimi-k3.1-pro-pelican-low.stderr.txt llm openai endpoint can run prompts against any OpenAI-compatible endpoint but doesn't log the results, hence the extra options to save stdout and stderr (the reasoning trace). Here are the pelicans I got for Kimi K3.1 Pro on the three reasoning levels it supports - low, medium, and max. This is max: For comparison, I ran fresh pelicans against Kimi K3 on those three reasoning levels. Via Hacker News Tags: ai, generative-ai, llms, llm, llm-pricing, pelican-riding-a-bicycle, llm-release, ai-in-china, moonshot, kimi",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "Introducing Kimi K3.1 Pro",
+      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
     },
     {
       "appsec": false,
@@ -1666,11 +1666,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 29.2,
+      "score": 29.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+8.2)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1906,10 +1906,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 22.0,
+      "score": 21.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+14.0)"
+        "recency (+13.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -1946,10 +1946,10 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 19.6,
+      "score": 19.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+7.6)"
+        "recency (+7.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1968,10 +1968,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 19.6,
+      "score": 19.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+7.6)"
+        "recency (+7.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1990,10 +1990,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 19.5,
+      "score": 19.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.5)"
+        "recency (+13.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2030,10 +2030,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 18.2,
+      "score": 18.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.2)"
+        "recency (+12.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2050,10 +2050,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 16.9,
+      "score": 16.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.9)"
+        "recency (+10.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2114,10 +2114,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 15.7,
+      "score": 15.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.7)"
+        "recency (+7.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3007,10 +3007,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 14.1,
+      "score": 14.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.1)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3184,26 +3184,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "3954bde477b7b3c4",
-      "kev": false,
-      "published": "2026-10-11T19:18:00Z",
-      "score": 10.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+2.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats with Prowler’s founder and CEO Toni de la Fuente about how AI now allows pretty much anyone to vibe-code “killer apps”. These custom apps are often internal for organisations and hosted on the cloud. The pair discuss why developers need to focus on security on top of app functionality and how Prowler can work in parallel with apps and agents to help secure, and continuously assess, cloud infrastructure. Show notes",
-      "tags": [],
-      "title": "Sponsored: AI is attacking… it needs to defend, too",
-      "url": "https://risky.biz/RBNEWSSI146/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "4729de4c9cbe4dc5",
       "kev": false,
       "published": "2026-10-12T02:43:40Z",
@@ -3218,6 +3198,26 @@
       "tags": [],
       "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
       "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "3954bde477b7b3c4",
+      "kev": false,
+      "published": "2026-10-11T19:18:00Z",
+      "score": 10.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+2.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats with Prowler’s founder and CEO Toni de la Fuente about how AI now allows pretty much anyone to vibe-code “killer apps”. These custom apps are often internal for organisations and hosted on the cloud. The pair discuss why developers need to focus on security on top of app functionality and how Prowler can work in parallel with apps and agents to help secure, and continuously assess, cloud infrastructure. Show notes",
+      "tags": [],
+      "title": "Sponsored: AI is attacking… it needs to defend, too",
+      "url": "https://risky.biz/RBNEWSSI146/"
     },
     {
       "appsec": false,
@@ -4764,22 +4764,50 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-10-28T21:31:50Z",
+  "last_run": "2026-10-28T22:30:05Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 489,
-    "appsec_cves": 918,
+    "actively_exploited_appsec": 540,
+    "appsec_cves": 969,
     "kev_coverage_pct": 30.2,
     "kev_tracked": 1762,
     "kev_with_coverage": 533,
-    "newly_exploited": 5,
+    "newly_exploited": 6,
     "newly_exploited_days": 30,
-    "open_gaps": 239,
-    "public_poc": 373,
+    "open_gaps": 257,
+    "public_poc": 409,
     "total_cves": 2223,
     "total_items": 213
   },
   "threats": [
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-111497",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-252",
+        "CWE-787"
+      ],
+      "description": "A buffer overflow vulnerability in the Brotli decoder (c/dec/decode.c) in Google Brotli versions 1.0.3 through 1.2.0 on all platforms allows a remote unauthenticated attacker to corrupt adjacent decoder state memory, disclose sensitive memo…",
+      "ecosystems": [],
+      "epss": 0.87988,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-10-27",
+      "modified": "2026-10-27",
+      "product": "brotli",
+      "published": "2026-10-27",
+      "score": 100,
+      "sources": [],
+      "vendor": "google",
+      "vuln_classes": []
+    },
     {
       "advisory_url": null,
       "appsec": true,
@@ -5026,6 +5054,33 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2026-20079",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-288"
+      ],
+      "description": "A vulnerability in the web interface of Cisco Secure Firewall Management Center (FMC) Software could allow an unauthenticated, remote attacker to bypass authentication and execute script files on an affected device to obtain root access to …",
+      "ecosystems": [],
+      "epss": 0.88472,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-09-09",
+      "modified": "2026-09-09",
+      "product": "secure_firewall_management_center",
+      "published": "2026-09-09",
+      "score": 100,
+      "sources": [],
+      "vendor": "cisco",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2026-72898",
       "cvss_score": 10.0,
       "cwe": [
@@ -5162,6 +5217,92 @@
       "score": 100,
       "sources": [],
       "vendor": "fortinet",
+      "vuln_classes": [
+        "command-injection"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-48908",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-434"
+      ],
+      "description": "A vulnerability in SP Page Builder for Joomla allows unauthenticated users to upload arbitrary files, ultimately resulting in the upload and execution of PHP code.",
+      "ecosystems": [
+        "php",
+        "web"
+      ],
+      "epss": 0.88512,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-07-07",
+      "modified": "2026-07-07",
+      "product": "sp_page_builder",
+      "published": "2026-07-07",
+      "score": 100,
+      "sources": [],
+      "vendor": "ollyo",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-34908",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-284"
+      ],
+      "description": "A malicious actor with access to the network could exploit an Improper Access Control vulnerability found in UniFi OS devices to make unauthorized changes to the system.",
+      "ecosystems": [],
+      "epss": 0.88293,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-06-23",
+      "modified": "2026-06-23",
+      "product": "unifi_os_server",
+      "published": "2026-06-23",
+      "score": 100,
+      "sources": [],
+      "vendor": "ui",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-34910",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-20"
+      ],
+      "description": "A malicious actor with access to the network could exploit an Improper Input Validation vulnerability found in UniFi OS devices to execute a Command Injection.",
+      "ecosystems": [],
+      "epss": 0.90032,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-06-23",
+      "modified": "2026-06-23",
+      "product": "unifi_os_server",
+      "published": "2026-06-23",
+      "score": 100,
+      "sources": [],
+      "vendor": "ui",
       "vuln_classes": [
         "command-injection"
       ]
@@ -5312,6 +5453,38 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2026-9082",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-89"
+      ],
+      "description": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Drupal Drupal core allows SQL Injection.\n\nThis issue affects Drupal core: from 8.9.0 before 10.4.10, from 10.5.0 before 10.5.10, from 10.6…",
+      "ecosystems": [
+        "php",
+        "web"
+      ],
+      "epss": 0.89381,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-05-22",
+      "modified": "2026-05-22",
+      "product": "drupal",
+      "published": "2026-05-22",
+      "score": 100,
+      "sources": [],
+      "vendor": "drupal",
+      "vuln_classes": [
+        "sqli"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-34291",
       "cvss_score": 8.8,
       "cwe": [
@@ -5389,6 +5562,33 @@
       "score": 100,
       "sources": [],
       "vendor": "cisco",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-42208",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-89"
+      ],
+      "description": "LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. From version 1.81.16 to before version 1.83.7, a database query used during proxy API key checks mixed the caller-supplied key value into the query text i…",
+      "ecosystems": [],
+      "epss": 0.8942,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-05-08",
+      "modified": "2026-05-08",
+      "product": "litellm",
+      "published": "2026-05-08",
+      "score": 100,
+      "sources": [],
+      "vendor": "litellm",
       "vuln_classes": []
     },
     {
@@ -5808,6 +6008,63 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2025-26399",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-502"
+      ],
+      "description": "SolarWinds Web Help Desk was found to be susceptible to an unauthenticated AjaxProxy deserialization remote code execution vulnerability that, if exploited, would allow an attacker to run commands on the host machine. This vulnerability is …",
+      "ecosystems": [],
+      "epss": 0.9012,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-03-09",
+      "modified": "2026-03-09",
+      "product": "web_help_desk",
+      "published": "2026-03-09",
+      "score": 100,
+      "sources": [],
+      "vendor": "solarwinds",
+      "vuln_classes": [
+        "deserialization",
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": "briefs/CVE-2026-20127.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-20127",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-287"
+      ],
+      "description": "A vulnerability in the peering authentication in Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, Cisco Catalyst SD-WAN Manager, formerly SD-WAN vManage, and Cisco Catalyst SD-WAN Validator, formerly SD-WAN vBond, could allow an un…",
+      "ecosystems": [],
+      "epss": 0.89294,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-02-25",
+      "modified": "2026-02-25",
+      "product": "catalyst_sd-wan_manager",
+      "published": "2026-02-25",
+      "score": 100,
+      "sources": [],
+      "vendor": "cisco",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-49113",
       "cvss_score": 9.9,
       "cwe": [
@@ -5893,6 +6150,35 @@
       "vendor": "react-native-community",
       "vuln_classes": [
         "command-injection"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-24423",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "SmarterTools SmarterMail versions prior to build 9511 contain an unauthenticated remote code execution vulnerability in the ConnectToHub API method. The attacker could point the SmarterMail to the malicious HTTP server, which serves the mal…",
+      "ecosystems": [],
+      "epss": 0.88177,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-02-05",
+      "modified": "2026-02-05",
+      "product": "smartermail",
+      "published": "2026-02-05",
+      "score": 100,
+      "sources": [],
+      "vendor": "smartertools",
+      "vuln_classes": [
+        "rce"
       ]
     },
     {
@@ -5987,6 +6273,35 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2025-37164",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-94"
+      ],
+      "description": "A remote code execution issue exists in HPE OneView.",
+      "ecosystems": [],
+      "epss": 0.90193,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-01-07",
+      "modified": "2026-01-07",
+      "product": "oneview",
+      "published": "2026-01-07",
+      "score": 100,
+      "sources": [],
+      "vendor": "hpe",
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-55182",
       "cvss_score": 10.0,
       "cwe": [
@@ -6012,6 +6327,33 @@
       "vuln_classes": [
         "rce"
       ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2025-61757",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "Vulnerability in the Identity Manager product of Oracle Fusion Middleware (component: REST WebServices).  Supported versions that are affected are 12.2.1.4.0 and  14.1.2.1.0. Easily exploitable vulnerability allows unauthenticated attacker …",
+      "ecosystems": [],
+      "epss": 0.88647,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-11-21",
+      "modified": "2025-11-21",
+      "product": "identity_manager",
+      "published": "2025-11-21",
+      "score": 100,
+      "sources": [],
+      "vendor": "oracle",
+      "vuln_classes": []
     },
     {
       "advisory_url": null,
@@ -6194,33 +6536,6 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2025-61882",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-287"
-      ],
-      "description": "Vulnerability in the Oracle Concurrent Processing product of Oracle E-Business Suite (component: BI Publisher Integration).  Supported versions that are affected are 12.2.3-12.2.14. Easily exploitable vulnerability allows unauthenticated at…",
-      "ecosystems": [],
-      "epss": 0.99728,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-10-06",
-      "modified": "2025-10-06",
-      "product": "concurrent_processing",
-      "published": "2025-10-06",
-      "score": 100,
-      "sources": [],
-      "vendor": "oracle",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
       "cve_id": "CVE-2017-1000353",
       "cvss_score": 9.8,
       "cwe": [
@@ -6283,123 +6598,6 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2025-10035",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-77",
-        "CWE-502"
-      ],
-      "description": "A deserialization vulnerability in the License Servlet of Fortra's GoAnywhere MFT allows an actor with a validly forged license response signature to deserialize an arbitrary actor-controlled object, possibly leading to command injection.",
-      "ecosystems": [],
-      "epss": 0.99823,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-09-29",
-      "modified": "2025-09-29",
-      "product": "goanywhere_managed_file_transfer",
-      "published": "2025-09-29",
-      "score": 100,
-      "sources": [],
-      "vendor": "fortra",
-      "vuln_classes": [
-        "command-injection",
-        "deserialization"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-57819",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-89",
-        "CWE-288"
-      ],
-      "description": "FreePBX is an open-source web-based graphical user interface. FreePBX 15, 16, and 17 endpoints are vulnerable due to insufficiently sanitized user-supplied data allowing unauthenticated access to FreePBX Administrator leading to arbitrary d…",
-      "ecosystems": [],
-      "epss": 0.95213,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-08-29",
-      "modified": "2025-08-29",
-      "product": "freepbx",
-      "published": "2025-08-29",
-      "score": 100,
-      "sources": [],
-      "vendor": "sangoma",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": "briefs/CVE-2025-8088.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2025-8088",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-35"
-      ],
-      "description": "A path traversal vulnerability affecting the Windows version of WinRAR allows the attackers to execute arbitrary code by crafting malicious archive files. This vulnerability was exploited in the wild and was discovered by Anton Cherepanov, …",
-      "ecosystems": [],
-      "epss": 0.94509,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-08-12",
-      "modified": "2025-08-12",
-      "product": "winrar",
-      "published": "2025-08-12",
-      "score": 100,
-      "sources": [],
-      "vendor": "rarlab",
-      "vuln_classes": [
-        "path-traversal"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-20281",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-74"
-      ],
-      "description": "A vulnerability in a specific API of Cisco ISE and Cisco ISE-PIC could allow an unauthenticated, remote attacker to execute arbitrary code on the underlying operating system as root. The attacker does not require any valid credentials to ex…",
-      "ecosystems": [],
-      "epss": 0.97601,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-07-28",
-      "modified": "2025-07-28",
-      "product": "identity_services_engine",
-      "published": "2025-07-28",
-      "score": 100,
-      "sources": [],
-      "vendor": "cisco",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
       "cve_id": "CVE-2025-49706",
       "cvss_score": 6.5,
       "cwe": [
@@ -6422,33 +6620,6 @@
       "score": 100,
       "sources": [],
       "vendor": "microsoft",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-54309",
-      "cvss_score": 9.0,
-      "cwe": [
-        "CWE-420"
-      ],
-      "description": "CrushFTP 10 before 10.8.5 and 11 before 11.3.4_23, when the DMZ proxy feature is not used, mishandles AS2 validation and consequently allows remote attackers to obtain admin access via HTTPS, as exploited in the wild in July 2025.",
-      "ecosystems": [],
-      "epss": 0.93473,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-07-22",
-      "modified": "2025-07-22",
-      "product": "crushftp",
-      "published": "2025-07-22",
-      "score": 100,
-      "sources": [],
-      "vendor": "crushftp",
       "vuln_classes": []
     },
     {
@@ -6480,64 +6651,6 @@
       "vendor": "microsoft",
       "vuln_classes": [
         "deserialization"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-25257",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-89"
-      ],
-      "description": "An improper neutralization of special elements used in an SQL command ('SQL Injection') vulnerability [CWE-89] vulnerability in Fortinet FortiWeb 7.6.0 through 7.6.3, FortiWeb 7.4.0 through 7.4.7, FortiWeb 7.2.0 through 7.2.10, FortiWeb 7.0…",
-      "ecosystems": [],
-      "epss": 0.99921,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-07-18",
-      "modified": "2025-07-18",
-      "product": "fortiweb",
-      "published": "2025-07-18",
-      "score": 100,
-      "sources": [],
-      "vendor": "fortinet",
-      "vuln_classes": [
-        "sqli"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-47812",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-158"
-      ],
-      "description": "In Wing FTP Server before 7.4.4. the user and admin web interfaces mishandle '\\0' bytes, ultimately allowing injection of arbitrary Lua code into user session files. This can be used to execute arbitrary system commands with the privileges …",
-      "ecosystems": [],
-      "epss": 0.93884,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-07-14",
-      "modified": "2025-07-14",
-      "product": "wing_ftp_server",
-      "published": "2025-07-14",
-      "score": 100,
-      "sources": [],
-      "vendor": "wftpserver",
-      "vuln_classes": [
-        "rce"
       ]
     },
     {
@@ -6657,40 +6770,6 @@
       "sources": [],
       "vendor": "sap",
       "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-24813",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-44",
-        "CWE-502",
-        "CWE-706"
-      ],
-      "description": "Path Equivalence: 'file.Name' (Internal Dot) leading to Remote Code Execution and/or Information disclosure and/or malicious content added to uploaded files via write enabled Default Servlet in Apache Tomcat.\n\nThis issue affects Apache Tomc…",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.99942,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-04-01",
-      "modified": "2025-04-01",
-      "product": "tomcat",
-      "published": "2025-04-01",
-      "score": 100,
-      "sources": [],
-      "vendor": "apache",
-      "vuln_classes": [
-        "deserialization",
-        "rce"
-      ]
     },
     {
       "advisory_url": null,
@@ -6820,36 +6899,6 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2024-23897",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-22",
-        "CWE-27"
-      ],
-      "description": "Jenkins 2.441 and earlier, LTS 2.426.2 and earlier does not disable a feature of its CLI command parser that replaces an '@' character followed by a file path in an argument with the file's contents, allowing unauthenticated attackers to re…",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.99999,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-08-19",
-      "modified": "2024-08-19",
-      "product": "jenkins",
-      "published": "2024-08-19",
-      "score": 100,
-      "sources": [],
-      "vendor": "jenkins",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
       "cve_id": "CVE-2024-4577",
       "cvss_score": 9.8,
       "cwe": [
@@ -6902,65 +6951,6 @@
       "sources": [],
       "vendor": "juniper",
       "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2021-3129",
-      "cvss_score": 9.8,
-      "cwe": [],
-      "description": "Ignition before 2.5.2, as used in Laravel and other products, allows unauthenticated remote attackers to execute arbitrary code because of insecure usage of file_get_contents() and file_put_contents(). This is exploitable on sites using deb…",
-      "ecosystems": [
-        "php",
-        "web"
-      ],
-      "epss": 0.99943,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2023-09-18",
-      "modified": "2023-09-18",
-      "product": "ignition",
-      "published": "2023-09-18",
-      "score": 100,
-      "sources": [],
-      "vendor": "facade",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2022-29303",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-78"
-      ],
-      "description": "SolarView Compact ver.6.00 was discovered to contain a command injection vulnerability via conf_mail.php.",
-      "ecosystems": [
-        "php"
-      ],
-      "epss": 0.98039,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2023-07-13",
-      "modified": "2023-07-13",
-      "product": "sv-cpt-mc310_firmware",
-      "published": "2023-07-13",
-      "score": 100,
-      "sources": [],
-      "vendor": "contec",
-      "vuln_classes": [
-        "command-injection"
-      ]
     },
     {
       "advisory_url": null,
@@ -7335,6 +7325,35 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-mghf-wjfp-p5xm",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-115893",
+      "cvss_score": 9.9,
+      "cwe": [
+        "CWE-691"
+      ],
+      "description": "Wasmtime: Cranelift backend on aarch64 can jump to incorrect target on large Wasm `br_table` instruction",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.0099,
+      "ghsa_id": "GHSA-mghf-wjfp-p5xm",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-28T21:14:15Z",
+      "product": "wasmtime",
+      "published": "2026-10-28T21:14:14Z",
+      "score": 24.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-g4c3-4g96-6g4m",
       "appsec": true,
       "brief": "briefs/CVE-2026-45140.md",
@@ -7481,35 +7500,6 @@
       "modified": "2026-10-15T20:22:17Z",
       "product": "github.com/containers/podman",
       "published": "2026-10-15T20:22:16Z",
-      "score": 24.2,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-mghf-wjfp-p5xm",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-115893",
-      "cvss_score": 9.9,
-      "cwe": [
-        "CWE-691"
-      ],
-      "description": "Wasmtime: Cranelift backend on aarch64 can jump to incorrect target on large Wasm `br_table` instruction",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.0099,
-      "ghsa_id": "GHSA-mghf-wjfp-p5xm",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-28T21:14:15Z",
-      "product": "wasmtime",
-      "published": "2026-10-28T21:14:14Z",
       "score": 24.2,
       "sources": [],
       "vendor": null,
@@ -7677,6 +7667,37 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-2f48-3555-fpx6",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-110644.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-110644",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-78"
+      ],
+      "description": "nodejs-whisper allows OS command injection through crafted audio file paths",
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": 0.02727,
+      "ghsa_id": "GHSA-2f48-3555-fpx6",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-28T21:06:53Z",
+      "product": "nodejs-whisper",
+      "published": "2026-10-14T15:32:28Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "command-injection"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-f8c7-rwf9-fmgm",
       "appsec": true,
       "brief": "briefs/CVE-2026-111057.md",
@@ -7701,6 +7722,38 @@
       "modified": "2026-10-19T17:00:55Z",
       "product": "mercury",
       "published": "2026-10-19T17:00:54Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-m665-v7pm-7grj",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-115905.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-115905",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-20",
+        "CWE-436"
+      ],
+      "description": "zip: Critical Parser Differential & Security Control Bypass via Dual-Header Inconsistencies (Zip Cloaking) Leading to Arbitrary File Overwrite & RCE",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.0032,
+      "ghsa_id": "GHSA-m665-v7pm-7grj",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-28T21:09:53Z",
+      "product": "zip",
+      "published": "2026-10-28T21:09:50Z",
       "score": 24.1,
       "sources": [],
       "vendor": null,
@@ -8009,67 +8062,6 @@
       "sources": [],
       "vendor": null,
       "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-98xx-8mx4-x7cm",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-92941",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-732"
-      ],
-      "description": "vm2 NodeVM can replace the host process TLS trust store",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00289,
-      "ghsa_id": "GHSA-98xx-8mx4-x7cm",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-01T15:27:29Z",
-      "product": "vm2",
-      "published": "2026-10-01T15:27:28Z",
-      "score": 24.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-m665-v7pm-7grj",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-115905.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-115905",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-20",
-        "CWE-436"
-      ],
-      "description": "zip: Critical Parser Differential & Security Control Bypass via Dual-Header Inconsistencies (Zip Cloaking) Leading to Arbitrary File Overwrite & RCE",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.0032,
-      "ghsa_id": "GHSA-m665-v7pm-7grj",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-28T21:09:53Z",
-      "product": "zip",
-      "published": "2026-10-28T21:09:50Z",
-      "score": 24.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-w5f2-9q9c-ff4h",
