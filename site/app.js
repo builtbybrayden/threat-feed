@@ -484,6 +484,14 @@
           row.appendChild(b);
         });
         g.appendChild(row); ctl.appendChild(g);
+        if (state.localQueue.length) {
+          var clr = el("button", "chip chip-danger",
+            "Clear local (" + state.localQueue.length + ")");
+          clr.type = "button";
+          clr.title = "Remove this device's un-synced entries. Synced (issue-backed) items are kept.";
+          clr.addEventListener("click", clearLocalQueue);
+          ctl.appendChild(clr);
+        }
       }
     }
     var list = sortCves(items, state.queueSort);
@@ -707,6 +715,17 @@
   function removeFromQueue(c) {
     if (c._synced) { if (c.issue_url) { try { window.open(c.issue_url, "_blank", "noopener"); } catch (e) {} } return; }
     state.localQueue = state.localQueue.filter(function (e) { return e.cve_id !== c.cve_id; });
+    saveLocalQueue();
+    renderQueue(); renderRailGaps(); setGapBadge(mergedQueue().length);
+  }
+  // Wipe this device's un-synced entries at once. Synced (issue-backed) items
+  // come from queue.json and are left alone — close their issue to drop those.
+  function clearLocalQueue() {
+    if (!state.localQueue.length) return;
+    var n = state.localQueue.length;
+    if (!window.confirm("Remove " + n + " un-synced entr" + (n === 1 ? "y" : "ies") +
+        " from this device? Synced items are kept.")) return;
+    state.localQueue = [];
     saveLocalQueue();
     renderQueue(); renderRailGaps(); setGapBadge(mergedQueue().length);
   }
