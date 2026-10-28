@@ -86,6 +86,8 @@ class CveRecord:
     appsec: bool = False                            # application-security relevant
     ecosystems: list[str] = field(default_factory=list)   # npm, pypi, php, web, ...
     vuln_classes: list[str] = field(default_factory=list) # sqli, ssrf, rce, ...
+    ghsa_id: Optional[str] = None                   # GitHub Advisory id, if sourced from GHSA
+    advisory_url: Optional[str] = None              # link to the GitHub advisory
     is_candidate: bool = False
     candidate_reasons: list[str] = field(default_factory=list)
     score: float = 0.0                              # best score of linked items

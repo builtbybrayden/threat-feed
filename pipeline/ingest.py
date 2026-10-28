@@ -22,6 +22,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from . import advisories as advisories_mod
 from . import appsec as appsec_mod
 from . import coverage as coverage_mod
 from . import epss as epss_mod
@@ -100,6 +101,20 @@ def load_coverage(cfg, offline, sample_dir) -> dict[str, str]:
     return coverage_mod.load_index(ROOT / cfg["coverage"]["index_cache"])
 
 
+def gather_advisories(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
+    """Recent GitHub Advisory Database records, normalized. Isolated like every
+    other source so a failure (rate limit, outage) never fails the run."""
+    if not cfg.get("advisories", {}).get("enabled", True):
+        return []
+    try:
+        if offline:
+            return advisories_mod.parse_advisories(_load_sample(sample_dir, "advisories.json", []))
+        return advisories_mod.fetch_advisories(cfg, session, cfg["http"]["timeout"])
+    except Exception as exc:
+        log.warning("advisory fetch failed (%s) — continuing without it", exc)
+        return []
+
+
 # ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
@@ -110,16 +125,18 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     state = State.load(args.state)
     session = None if args.offline else make_session(cfg)
 
-    # 1. Feeds + KEV --------------------------------------------------------
+    # 1. Feeds + KEV + ecosystem advisories --------------------------------
     items = gather_feed_items(cfg, session, args.offline, sample_dir)
     new_count = sum(state.upsert_item(it) for it in items)
     kev_map = gather_kev(cfg, session, args.offline, sample_dir)
+    advisories = gather_advisories(cfg, session, args.offline, sample_dir)
 
-    # 2. Collect every CVE referenced, create records, apply KEV -----------
+    # 2. Collect every CVE referenced, create records, apply KEV + advisories
     all_cves: set[str] = set()
     for it in state.items.values():
         all_cves.update(it.cves)
     all_cves.update(kev_map.keys())  # KEV CVEs are tracked even if no feed mentions them
+    all_cves.update(a["cve_id"] for a in advisories)  # so do GHSA ecosystem advisories
     for cve in all_cves:
         rec = state.get_cve(cve)
         if cve in kev_map:
@@ -128,6 +145,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             rec.vendor = rec.vendor or k.get("vendor")
             rec.product = rec.product or k.get("product")
             rec.kev_added = k.get("date_added")
+
+    # Merge ecosystem advisories onto their CVE records. An advisory is inherently
+    # AppSec (it's a package vuln), so track its CVE to force appsec=True below.
+    advisory_cves: set[str] = set()
+    for adv in advisories:
+        advisories_mod.apply_to_record(state.get_cve(adv["cve_id"]), adv)
+        advisory_cves.add(adv["cve_id"])
 
     # 3. EPSS (batched) ----------------------------------------------------
     epss_map = gather_epss(all_cves, cfg, session, args.offline, sample_dir)
@@ -144,11 +168,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     _enrich_nvd_poc(state, cfg, session, args, sample_dir, all_cves)
 
     # 5b. AppSec relevance per CVE (text + CWE + CPE), before scoring/split.
+    # Union with any ecosystem tags an advisory already attached, and treat every
+    # advisory-sourced CVE as AppSec even if its text alone wouldn't classify.
     for rec in state.cves.values():
         a = appsec_mod.classify_cve(rec, cfg)
-        rec.appsec = a["appsec"]
-        rec.ecosystems = a["ecosystems"]
-        rec.vuln_classes = a["vuln_classes"]
+        rec.appsec = a["appsec"] or rec.cve_id in advisory_cves
+        rec.ecosystems = sorted(set(rec.ecosystems) | set(a["ecosystems"]))
+        rec.vuln_classes = sorted(set(rec.vuln_classes) | set(a["vuln_classes"]))
 
     # 6. Score + tag items; split News vs Threats; track watchlist CVEs ----
     watchlist_cves: set[str] = set()
@@ -197,7 +223,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
     # 9. Site JSON ---------------------------------------------------------
     stats = _compute_stats(state, candidates, cfg)
-    _write_site(state, candidates, stats, args.site)
+    _write_site(state, candidates, stats, args.site, cfg)
 
     # 10. Issues (CI only) -------------------------------------------------
     issue_summary = _maybe_sync_issues(state, candidates, cfg, args)
@@ -358,7 +384,7 @@ def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> di
     }
 
 
-def _write_site(state: State, candidates: list, stats: dict, site_dir: str) -> None:
+def _write_site(state: State, candidates: list, stats: dict, site_dir: str, config: dict[str, Any]) -> None:
     site = Path(site_dir)
     site.mkdir(parents=True, exist_ok=True)
     generated = now_iso()
@@ -379,7 +405,29 @@ def _write_site(state: State, candidates: list, stats: dict, site_dir: str) -> N
         key=lambda r: (r.appsec, r.score, r.kev_added or ""),
         reverse=True,
     )
-    threats = [_threat_view(r, cve_sources.get(r.cve_id, [])) for r in ranked if r.score > 0][:60]
+    eligible = [r for r in ranked if r.score > 0]
+
+    # Compose the board so the per-ecosystem quick filters always have data: take
+    # the global top N, then guarantee each ecosystem contributes its own top N
+    # even if those fall below the global cut (a KEV-heavy global top would
+    # otherwise crowd the package ecosystems out).
+    tb = config.get("threats_board", {})
+    general_top = tb.get("general_top", 60)
+    per_eco = tb.get("per_ecosystem", 15)
+    max_total = tb.get("max_total", 200)
+    chosen: dict[str, Any] = {r.cve_id: r for r in eligible[:general_top]}
+    eco_counts: dict[str, int] = defaultdict(int)
+    for r in eligible:
+        for e in (r.ecosystems or []):
+            if eco_counts[e] < per_eco:
+                eco_counts[e] += 1
+                chosen.setdefault(r.cve_id, r)
+    board = sorted(
+        chosen.values(),
+        key=lambda r: (r.appsec, r.score, r.kev_added or ""),
+        reverse=True,
+    )[:max_total]
+    threats = [_threat_view(r, cve_sources.get(r.cve_id, [])) for r in board]
 
     data = {
         "generated": generated,
@@ -442,6 +490,8 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "coverage": "covered" if rec.nuclei_template else "gap",
         "is_candidate": rec.is_candidate,
         "brief": f"briefs/{rec.cve_id}.md" if rec.is_candidate else None,
+        "ghsa_id": rec.ghsa_id,
+        "advisory_url": rec.advisory_url,
         "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
         "sources": sources,
     }
@@ -461,8 +511,11 @@ def _maybe_sync_issues(state, candidates, cfg, args) -> dict[str, Any]:
     if not (token and repo):
         return {"skipped": "no GITHUB_TOKEN/GITHUB_REPOSITORY"}
     client = RestGitHubClient(repo, token, make_session(cfg), cfg["http"]["timeout"])
+    # Cap auto-filed issues to the highest-priority candidates (already sorted by
+    # score) so a large advisory pull can't open hundreds of issues at once.
+    max_open = cfg.get("issues", {}).get("max_open", 25)
     try:
-        return sync_candidates(candidates, state.cves, client)
+        return sync_candidates(candidates[:max_open], state.cves, client)
     except Exception as exc:
         log.warning("issue sync failed (%s)", exc)
         return {"error": str(exc)}

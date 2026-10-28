@@ -52,6 +52,21 @@ coverage:
   # Built index is cached here so we don't re-clone every run.
   index_cache: cache/coverage_index.json
 
+advisories:
+  # GitHub Advisory Database: recent reviewed advisories per package ecosystem,
+  # plus a cross-ecosystem critical pull. This is what gives the Threats board
+  # real per-ecosystem coverage (PyPI/npm/Maven/Go/...) instead of only KEV +
+  # whatever the newsletters happened to name. Public API; GITHUB_TOKEN (already
+  # present in CI) raises the rate limit to 5000/hr and is used automatically.
+  enabled: true
+  api_url: https://api.github.com/advisories
+  severities: [critical, high]   # one query per (ecosystem, severity)
+  lookback_days: 45              # only advisories published within this window
+  per_ecosystem_cap: 60          # cap pulled per (ecosystem, severity)
+  general_cap: 120               # cap for the cross-ecosystem critical pull
+  # GitHub ecosystem names (pip = PyPI; maven covers Java + Gradle).
+  ecosystems: [pip, npm, maven, go, rubygems, nuget, composer, rust, actions, swift]
+
 http:
   timeout: 20
   retries: 3
@@ -101,13 +116,30 @@ stats:
   # (KEV's dateAdded is a reliable real-world "just started being exploited"
   # signal, unlike our own first-seen time).
   new_exploited_days: 30
-  threats_limit: 60         # how many ranked vulns to publish to the Threats board
+  threats_limit: 60         # (legacy) retained for compatibility
+
+# --- Threats board composition ------------------------------------------
+# The board leads with the highest-priority AppSec vulns globally, but also
+# guarantees each ecosystem contributes its top N so the per-ecosystem quick
+# filters always have data (otherwise a KEV-heavy global top would crowd the
+# package ecosystems out entirely).
+threats_board:
+  general_top: 60       # highest-scoring AppSec vulns, any ecosystem
+  per_ecosystem: 15     # also include each ecosystem's top N
+  max_total: 200        # hard cap on the published board
 
 # --- Detection triage ----------------------------------------------------
 candidate:
   # A CVE is a candidate if it has no template AND is remote/HTTP-detectable
   # AND (in KEV OR epss >= this OR a watchlist term hits).
   epss_threshold: 0.3
+
+issues:
+  # The dashboard shows the full detection backlog, but we only auto-file GitHub
+  # issues for the top-N candidates by score, so pulling in hundreds of ecosystem
+  # advisories can't flood the repo with issues. Coverage-closing still runs for
+  # every CVE that already has an issue.
+  max_open: 25
 
 # CWE ids that imply a web/HTTP-detectable issue (used by triage).
 web_cwes: [22, 78, 79, 89, 94, 287, 352, 434, 502, 611, 862, 918]

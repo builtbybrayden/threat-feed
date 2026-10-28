@@ -1,0 +1,58 @@
+[
+  {
+    "ghsa_id": "GHSA-demo-pypi-0001",
+    "cve_id": "CVE-2099-7001",
+    "summary": "Server-side request forgery in example-pyhttp",
+    "severity": "critical",
+    "published_at": "2026-10-20T00:00:00Z",
+    "html_url": "https://github.com/advisories/GHSA-demo-pypi-0001",
+    "cvss_severities": { "cvss_v3": { "score": 9.1, "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N" } },
+    "epss": { "percentage": 0.42, "percentile": 0.97 },
+    "cwes": [ { "cwe_id": "CWE-918", "name": "SSRF" } ],
+    "references": [ "https://github.com/example/pyhttp/security/advisories/GHSA-demo-pypi-0001" ],
+    "identifiers": [ { "type": "GHSA", "value": "GHSA-demo-pypi-0001" }, { "type": "CVE", "value": "CVE-2099-7001" } ],
+    "vulnerabilities": [ { "package": { "ecosystem": "pip", "name": "example-pyhttp" } } ]
+  },
+  {
+    "ghsa_id": "GHSA-demo-npm-0002",
+    "cve_id": "CVE-2099-7002",
+    "summary": "Prototype pollution in example-merge",
+    "severity": "high",
+    "published_at": "2026-10-22T00:00:00Z",
+    "html_url": "https://github.com/advisories/GHSA-demo-npm-0002",
+    "cvss_severities": { "cvss_v3": { "score": 7.5, "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H" } },
+    "epss": { "percentage": 0.03, "percentile": 0.6 },
+    "cwes": [ { "cwe_id": "CWE-1321", "name": "Prototype Pollution" } ],
+    "references": [ "https://github.com/example/merge/security/advisories/GHSA-demo-npm-0002" ],
+    "identifiers": [ { "type": "GHSA", "value": "GHSA-demo-npm-0002" }, { "type": "CVE", "value": "CVE-2099-7002" } ],
+    "vulnerabilities": [ { "package": { "ecosystem": "npm", "name": "example-merge" } } ]
+  },
+  {
+    "ghsa_id": "GHSA-demo-maven-0003",
+    "cve_id": "CVE-2099-7003",
+    "summary": "Deserialization of untrusted data in com.example:widgets",
+    "severity": "critical",
+    "published_at": "2026-10-18T00:00:00Z",
+    "html_url": "https://github.com/advisories/GHSA-demo-maven-0003",
+    "cvss_severities": { "cvss_v4": { "score": 9.8, "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N" } },
+    "epss": { "percentage": 0.11, "percentile": 0.88 },
+    "cwes": [ { "cwe_id": "CWE-502", "name": "Deserialization of Untrusted Data" } ],
+    "references": [ "https://github.com/example/widgets/security/advisories/GHSA-demo-maven-0003" ],
+    "identifiers": [ { "type": "GHSA", "value": "GHSA-demo-maven-0003" }, { "type": "CVE", "value": "CVE-2099-7003" } ],
+    "vulnerabilities": [ { "package": { "ecosystem": "maven", "name": "com.example:widgets" } } ]
+  },
+  {
+    "ghsa_id": "GHSA-demo-go-0004",
+    "cve_id": "CVE-2099-7004",
+    "summary": "Path traversal in example.com/fileserver",
+    "severity": "high",
+    "published_at": "2026-10-24T00:00:00Z",
+    "html_url": "https://github.com/advisories/GHSA-demo-go-0004",
+    "cvss_severities": { "cvss_v3": { "score": 7.5, "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N" } },
+    "epss": { "percentage": 0.06, "percentile": 0.7 },
+    "cwes": [ { "cwe_id": "CWE-22", "name": "Path Traversal" } ],
+    "references": [ "https://github.com/example/fileserver/security/advisories/GHSA-demo-go-0004" ],
+    "identifiers": [ { "type": "GHSA", "value": "GHSA-demo-go-0004" }, { "type": "CVE", "value": "CVE-2099-7004" } ],
+    "vulnerabilities": [ { "package": { "ecosystem": "go", "name": "example.com/fileserver" } } ]
+  }
+]

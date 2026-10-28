@@ -8,7 +8,15 @@
     items: [], threats: [], candidates: [], stats: null,
     view: "news",
     newsQuery: "", newsTags: new Set(),
-    threatGapsOnly: false, threatEco: new Set()
+    threatGapsOnly: false, threatEco: null
+  };
+
+  // Canonical ecosystem quick-filter order + display labels (Threats board).
+  var ECO_ORDER = ["pypi", "npm", "maven", "go", "rubygems", "nuget", "composer", "rust", "swift", "actions", "php", "web", "supply-chain"];
+  var ECO_LABEL = {
+    pypi: "PyPI", npm: "npm", maven: "Maven / Java", go: "Go", rubygems: "RubyGems",
+    nuget: "NuGet", composer: "Composer / PHP", rust: "Rust", swift: "Swift",
+    actions: "Actions", php: "PHP", web: "Web", "supply-chain": "Supply chain"
   };
 
   // Source identity: avatar file slug, @handle, trusted-research flag.
@@ -162,29 +170,40 @@
 
   // ---- THREATS ----------------------------------------------------------
   function threatEcosystems() {
-    var set = {};
-    state.threats.forEach(function (t) { (t.ecosystems || []).forEach(function (e) { set[e] = (set[e] || 0) + 1; }); });
-    return Object.keys(set).sort(function (a, b) { return set[b] - set[a]; });
+    // Ecosystems present in the data, in canonical order, with any extras appended.
+    var counts = {};
+    state.threats.forEach(function (t) { (t.ecosystems || []).forEach(function (e) { counts[e] = (counts[e] || 0) + 1; }); });
+    var present = Object.keys(counts);
+    var ordered = ECO_ORDER.filter(function (e) { return counts[e]; });
+    present.forEach(function (e) { if (ordered.indexOf(e) === -1) ordered.push(e); });
+    return ordered.map(function (e) { return [e, counts[e]]; });
+  }
+  function ecoChip(label, eco, active, count) {
+    var c = el("button", "chip eco", label); c.type = "button";
+    c.setAttribute("aria-pressed", active ? "true" : "false");
+    if (count != null) { var n = el("span", "chip-n", count); c.appendChild(n); }
+    c.addEventListener("click", function () {
+      state.threatEco = (eco && state.threatEco === eco) ? null : eco; // single-select, toggle off
+      renderThreatChips(); renderThreats();
+    });
+    return c;
   }
   function renderThreatChips() {
     var host = document.getElementById("threat-chips"); host.textContent = "";
+    // "Gaps only" is an independent toggle; the ecosystem row is single-select.
     var gaps = el("button", "chip", "Gaps only"); gaps.type = "button";
     gaps.setAttribute("aria-pressed", state.threatGapsOnly ? "true" : "false");
     gaps.addEventListener("click", function () { state.threatGapsOnly = !state.threatGapsOnly; renderThreatChips(); renderThreats(); });
     host.appendChild(gaps);
-    threatEcosystems().forEach(function (e) {
-      var c = el("button", "chip", e); c.type = "button";
-      c.setAttribute("aria-pressed", state.threatEco.has(e) ? "true" : "false");
-      c.addEventListener("click", function () {
-        state.threatEco.has(e) ? state.threatEco.delete(e) : state.threatEco.add(e);
-        renderThreatChips(); renderThreats();
-      });
-      host.appendChild(c);
+
+    host.appendChild(ecoChip("All", null, state.threatEco === null, null));
+    threatEcosystems().forEach(function (p) {
+      host.appendChild(ecoChip(ECO_LABEL[p[0]] || p[0], p[0], state.threatEco === p[0], p[1]));
     });
   }
   function threatMatch(t) {
     if (state.threatGapsOnly && t.coverage !== "gap") return false;
-    for (var e of state.threatEco) { if ((t.ecosystems || []).indexOf(e) === -1) return false; }
+    if (state.threatEco && (t.ecosystems || []).indexOf(state.threatEco) === -1) return false;
     return true;
   }
   function threatCard(t) {
@@ -225,6 +244,7 @@
     var act = el("div", "actions");
     if (t.is_candidate && t.brief) act.appendChild(link(t.brief, "Detection brief", "btn primary"));
     act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + t.cve_id, "NVD", "btn"));
+    if (t.advisory_url) act.appendChild(link(t.advisory_url, "GitHub advisory", "btn"));
     if (t.coverage === "gap" && t.is_candidate) act.appendChild(el("span", "issue-ref", "in detection queue"));
     v.appendChild(act);
     return v;

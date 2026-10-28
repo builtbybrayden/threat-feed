@@ -118,6 +118,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 }
 .chip:hover { color: var(--text); border-color: var(--muted); }
 .chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; }
+.chip .chip-n { margin-left: 6px; opacity: 0.6; font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* ============================= NEWS TIMELINE =========================== */
 .timeline { display: flex; flex-direction: column; }
