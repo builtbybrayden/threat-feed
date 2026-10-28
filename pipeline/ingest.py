@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -221,12 +222,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     for rec in candidates:
         write_brief(rec, args.briefs)
 
-    # 9. Site JSON ---------------------------------------------------------
+    # 9. Issues (CI only) — before the site write, so freshly-filed issue
+    #    numbers are reflected on the cards this same run.
+    issue_summary = _maybe_sync_issues(state, candidates, cfg, args)
+
+    # 10. Site JSON --------------------------------------------------------
     stats = _compute_stats(state, candidates, cfg)
     _write_site(state, candidates, stats, args.site, cfg)
-
-    # 10. Issues (CI only) -------------------------------------------------
-    issue_summary = _maybe_sync_issues(state, candidates, cfg, args)
 
     state.save(args.state)
 
@@ -429,11 +431,16 @@ def _write_site(state: State, candidates: list, stats: dict, site_dir: str, conf
     )[:max_total]
     threats = [_threat_view(r, cve_sources.get(r.cve_id, [])) for r in board]
 
+    # Repo slug lets the UI build prefilled "create issue" links on the static
+    # site (no token in the page). Env in CI, config or a default otherwise.
+    repo = os.environ.get("GITHUB_REPOSITORY") or config.get("repo") or "builtbybrayden/threat-feed"
+
     data = {
         "generated": generated,
         # Use this run's time; state.meta["last_run"] isn't refreshed until save(),
         # so reading it here would report the *previous* run's time.
         "last_run": generated,
+        "repo": repo,
         "stats": stats,
         "threats": threats,
         "items": [i.to_dict() for i in items_sorted[:400]],
@@ -494,6 +501,8 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "brief": f"briefs/{rec.cve_id}.md" if rec.is_candidate else None,
         "ghsa_id": rec.ghsa_id,
         "advisory_url": rec.advisory_url,
+        "issue_number": rec.issue_number,
+        "cwe": rec.cwe,
         "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
         "sources": sources,
     }
