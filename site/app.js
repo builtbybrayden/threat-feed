@@ -84,10 +84,10 @@
     var s = state.stats; if (!s) return;
     var host = document.getElementById("kpis"); host.textContent = "";
     [
-      ["n crit", s.actively_exploited_appsec, "Actively exploited"],
-      ["n warn", s.newly_exploited, "Newly exploited · " + (s.newly_exploited_days || 30) + "d"],
-      ["n poc", s.public_poc, "Public PoC"],
-      ["n", s.open_gaps, "Detection gaps"]
+      ["n crit", s.actively_exploited_appsec, "AppSec CVEs exploited in the wild"],
+      ["n warn", s.newly_exploited, "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d"],
+      ["n poc", s.public_poc, "With public exploit code (PoC)"],
+      ["n", s.open_gaps, "Missing a Nuclei template"]
     ].forEach(function (k) {
       var b = el("div", "kpi");
       b.appendChild(el("div", k[0], k[1]));
@@ -101,18 +101,6 @@
     var set = {};
     state.items.forEach(function (it) { (it.tags || []).forEach(function (t) { set[t] = (set[t] || 0) + 1; }); });
     return Object.keys(set).sort(function (a, b) { return set[b] - set[a]; }).map(function (t) { return [t, set[t]]; });
-  }
-  function renderNewsChips() {
-    var host = document.getElementById("news-chips"); host.textContent = "";
-    newsTagCounts().slice(0, 12).forEach(function (p) {
-      var c = el("button", "chip", p[0]); c.type = "button";
-      c.setAttribute("aria-pressed", state.newsTags.has(p[0]) ? "true" : "false");
-      c.addEventListener("click", function () {
-        state.newsTags.has(p[0]) ? state.newsTags.delete(p[0]) : state.newsTags.add(p[0]);
-        renderNewsChips(); renderNews();
-      });
-      host.appendChild(c);
-    });
   }
   function newsMatch(it) {
     for (var t of state.newsTags) { if ((it.tags || []).indexOf(t) === -1) return false; }
@@ -134,7 +122,6 @@
     head.appendChild(el("span", "p-handle", "@" + m.h));
     head.appendChild(el("span", "p-dot", "·"));
     head.appendChild(el("span", "p-time", fmtAge(it.published)));
-    head.appendChild(el("span", scoreClass(it.score, "p-score"), Math.round(it.score)));
     body.appendChild(head);
 
     var h = el("div", "p-title"); h.appendChild(link(it.url, it.title)); body.appendChild(h);
@@ -153,12 +140,6 @@
       stats.appendChild(el("span", "tag-pill" + (t === "AI-sec" ? " ai" : ""), t));
     });
     if (stats.childNodes.length) body.appendChild(stats);
-    if (it.score_reasons && it.score_reasons.length) {
-      var det = el("details", "why");
-      det.appendChild(el("summary", null, "Why it scored " + Math.round(it.score)));
-      var ul = el("ul"); it.score_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
-      det.appendChild(ul); body.appendChild(det);
-    }
     post.appendChild(body);
     return post;
   }
@@ -316,7 +297,7 @@
       var row = el("div", "trend-item");
       row.appendChild(el("div", "t-tag" + (p[0] === "AI-sec" ? " ai" : ""), "#" + p[0]));
       row.appendChild(el("div", "t-n", p[1]));
-      row.addEventListener("click", function () { selectView("news"); state.newsTags = new Set([p[0]]); renderNewsChips(); renderNews(); });
+      row.addEventListener("click", function () { selectView("news"); state.newsTags = new Set([p[0]]); renderNews(); });
       card.appendChild(row);
     });
   }
@@ -354,7 +335,7 @@
       var un = document.getElementById("updated-nav"); if (un) un.textContent = when ? "Updated " + fmtAge(when) + " ago" : "";
       setGapBadge(state.candidates.length);
       renderKpis();
-      renderNewsChips(); renderNews();
+      renderNews();
       renderThreatChips(); renderThreats();
       renderQueue();
       renderRailGaps(); renderRailTrending();
