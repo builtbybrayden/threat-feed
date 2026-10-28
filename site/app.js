@@ -200,6 +200,17 @@
     threatEcosystems().forEach(function (p) {
       host.appendChild(ecoChip(ECO_LABEL[p[0]] || p[0], p[0], state.threatEco === p[0], p[1]));
     });
+    updateThreatFilterLabel();
+  }
+  function threatFilterSummary() {
+    var parts = [];
+    if (state.threatGapsOnly) parts.push("Gaps");
+    if (state.threatEco) parts.push(ECO_LABEL[state.threatEco] || state.threatEco);
+    return parts.join(" · ");
+  }
+  function updateThreatFilterLabel() {
+    var badge = document.getElementById("threat-filter-active"); if (!badge) return;
+    var s = threatFilterSummary(); badge.textContent = s; badge.hidden = !s;
   }
   function threatMatch(t) {
     if (state.threatGapsOnly && t.coverage !== "gap") return false;
@@ -382,6 +393,17 @@
   document.getElementById("search").addEventListener("input", function (e) {
     state.newsQuery = e.target.value.trim().toLowerCase(); renderNews();
   });
+  (function () {
+    var ft = document.getElementById("threat-filter-toggle");
+    if (!ft) return;
+    ft.addEventListener("click", function () {
+      var panel = document.getElementById("threat-chips");
+      var open = panel.hidden;              // about to open if currently hidden
+      panel.hidden = !open;
+      ft.setAttribute("aria-expanded", open ? "true" : "false");
+      ft.classList.toggle("is-open", open);
+    });
+  })();
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
   }

@@ -120,6 +120,24 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 700; }
 .chip .chip-n { margin-left: 6px; opacity: 0.6; font-weight: 600; font-variant-numeric: tabular-nums; }
 
+/* Threats filter: collapsed behind a toggle so the board opens clean. */
+.filter-bar { padding: 11px 14px 0; }
+.filter-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 12px; border-radius: 999px; border: 1px solid var(--chip-line);
+  background: var(--chip); color: var(--text); font-size: 0.8rem; font-weight: 600;
+  cursor: pointer; transition: all 0.12s;
+}
+.filter-toggle:hover { border-color: var(--muted); }
+.filter-toggle .filter-caret { font-size: 0.8rem; line-height: 1; transition: transform 0.15s; }
+.filter-toggle.is-open { border-color: var(--muted); }
+.filter-toggle.is-open .filter-caret { transform: rotate(180deg); }
+.filter-toggle .filter-active {
+  padding: 1px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink);
+  font-size: 0.72rem; font-weight: 700;
+}
+#threat-chips[hidden] { display: none; }
+
 /* ============================= NEWS TIMELINE =========================== */
 .timeline { display: flex; flex-direction: column; }
 .post {

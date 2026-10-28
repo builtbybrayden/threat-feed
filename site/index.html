@@ -92,7 +92,15 @@
           (exploited in the wild, exploit probability, public PoC, ecosystem relevance). Each shows
           whether your scanner can already detect it.
         </p>
-        <div class="chips" id="threat-chips" aria-label="Filter threats"></div>
+        <div class="filter-bar">
+          <button class="filter-toggle" id="threat-filter-toggle" type="button"
+                  aria-expanded="false" aria-controls="threat-chips">
+            <span class="filter-caret" aria-hidden="true">⌄</span>
+            <span>Filter</span>
+            <span class="filter-active" id="threat-filter-active" hidden></span>
+          </button>
+        </div>
+        <div class="chips" id="threat-chips" aria-label="Filter threats" hidden></div>
         <div class="cards" id="threats"></div>
         <p class="empty" id="threats-empty" hidden>No threats match your filters.</p>
       </section>
