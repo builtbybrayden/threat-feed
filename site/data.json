@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28T01:49:40Z",
+  "generated": "2026-10-28T04:54:37Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 50.3,
+      "score": 50.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.3)"
+        "recency (+13.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -74,13 +74,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 49.4,
+      "score": 49.3,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.2)"
+        "recency (+8.1)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -105,13 +105,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 49.3,
+      "score": 49.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.2)"
+        "recency (+8.1)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -128,33 +128,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "31adffac7255205b",
-      "kev": false,
-      "published": "2026-10-26T01:20:43Z",
-      "score": 49.3,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php,rce (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+12.3)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "While everyone was distracted by PHP, another RCE has been wrecking the internet, Australia’s ABC wipes some staff devices, a third PHP RCE is incoming and researchers discover a new DDoS attack vector in HTTP/3. Show notes Risky Bulletin: While everyone was looking at PHP, another RCE is wrecking what's left of the internet",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php",
-        "rce"
-      ],
-      "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
-      "url": "https://risky.biz/RBNEWS625/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-92261"
       ],
@@ -163,12 +136,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 49.2,
+      "score": 49.1,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.2)"
+        "recency (+8.1)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -188,15 +161,42 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "31adffac7255205b",
+      "kev": false,
+      "published": "2026-10-26T01:20:43Z",
+      "score": 49.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php,rce (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+12.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "While everyone was distracted by PHP, another RCE has been wrecking the internet, Australia’s ABC wipes some staff devices, a third PHP RCE is incoming and researchers discover a new DDoS attack vector in HTTP/3. Show notes Risky Bulletin: While everyone was looking at PHP, another RCE is wrecking what's left of the internet",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php",
+        "rce"
+      ],
+      "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
+      "url": "https://risky.biz/RBNEWS625/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 46.2,
+      "score": 46.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.2)"
+        "recency (+9.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -208,36 +208,6 @@
       ],
       "title": "Risky Bulletin: Supply chain attack lets ransomware group inside 40 shipping companies",
       "url": "https://risky.biz/RBNEWS624/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "57391fb98ccccca2",
-      "kev": false,
-      "published": "2026-10-22T14:30:00Z",
-      "score": 45.7,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:php,jira,xss (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+8.7)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!😱 PHP2ShellThis week PHP2Shell became public: an unauthenticated remote code execution vulnerability affecting the past 13 years of PHP.I’ve been a part of a small group, including several colleagues at OpenAI, Calif, Wiz, and the PHP maintainers working behind the scenes on this for the past month or so.As you might imagine, it’s been quite a wild ride 😆 We collaborated with the PHP maintainers to adversarially test the proposed patch, brainstorm potential mitigations, and test if we could bypass those mitigations.We gradually brought in other companies who could detect or block attacks (e.g. Cloudflare). Some initial thoughts:1) Overall, it was inspiring to see people working hard and sharing their learnings, including WAF rules, detections, and more, even across competitor companies.2) The PHP maintainers were great to work with. Super hard working, very collaborative.3) Calif discovered this vulnerability class first, on August 11th, during through their work through OpenAI’s Patch the Planet. Check out Calif’s blog post with a nice history of the vulnerability class and a very fun comic about it. Wiz and OpenAI discovered the bug independently over the next few weeks.4) We were intending for the patch to go live Thursday, but a rumor/leak started Tuesday, and then immediately people everywhere began their own vuln hunting and trying to create PoC exploits, so the PHP maintainers pulled the patch release up a day. We predicted this could happen, but it was pretty crazy to observe in real time.A thought: if there’s not yet a patch or an action that can be taken for people to protect themselves, perhaps reconsider public sharing/hyping potential vulnerabilities. 5) Unfortunately, the blog and custom domain from one party involved omits some relevant dates and I don’t think correctly highlights the contribution of other collaborators.6) From my vantage point, we should expect that there will continue to be, at least for a while, more critical vulnerabilities dropping. My colleagues and I wrote about how we’re thinking about it: Patch the Planet: global response coordination as agents uncover critical vulnerabilities. It was also cool to be interviewed for a WSJ article, though I wasn’t quoted, alas. Sponsor🛸 Nobody’s Been Here Welcome to the Agentic Universe from Token Security, a free learning center built by CISOs and practitioners crafting AI security playbooks at companies like Amex and Roblox. Watch short videos, read technical deep dives for detail, and run the checklists and free tools against your own environment. Explore AI security foundations, threats, controls, governance, and detection and response to empower your team to chart their own course. 👉 Explore the universe 👈Wow this is cool, a series of short videos, practical guides, and playbooks, by CISOs and other security leaders I recognize. I like it!AppSecManaging Agentic Security at ScaleSalesforce's Abhay Kshirsagar, Koen Buyens, and Jeremy Brooks describe how they manage AI-accelerated vulnerability discovery, where frontier models and agentic harnesses surface more exploitable findings than engineering can fix. Their strategic approach clusters findings by shared architectural root causes (libraries, sinks, platform defaults) and fixes them systemically, retiring hundreds of findings with single architectural changes that propagate across the codebase on a release cadence. Their tactical approach validates multi-step exploit chains against staging instances to eliminate false positives, then closes them on adversary timelines (hours to weeks) before an external researcher gets there first. Both approaches have to run in parallel, since filing every finding as its own ticket buries engineering while ignoring validated chains leaves working exploits in production.💡 Great post, I really like the section on the strategic approach section on systematically reducing risk and eliminating classes of issues 👌 De-Duplicating Security Findings at ScaleXBOW's Adrian Losada describes how they built a context-aware de-duplication system that reduced reported findings by 30% while eliminating 90% of duplicates, splitting each finding into four independently-embedded views (description, reproduction, location, impact) with CWE-specific weights. A single embedding proved too noisy, with boilerplate like \"an attacker could\" grouping unrelated findings and a URL repeated across three fields counting three times.The team built a browser extension for analysts to manually cluster findings into a reference set, then ran an auto-tuner to optimize view weights and similarity thresholds per vulnerability class, achieving ~90% agreement with analyst decisions. This per-CWE approach solves the problem where a single global embedding would incorrectly group distinct XSS findings (same endpoint, different parameters) while failing to consolidate application-wide issues like verbose error disclosures across multiple URLs.💡 De-duplicating findings is actually pretty hard. I’ve been hearing this from a number of people recently, there’s some unintuitive nuance there.Sponsor📣 GPT-4o was still the most-called model in production after OpenAI pulled it from ChatGPTIn Datadog’s March 2026 trace data, GPT-4o was still the most-called model in production, months after OpenAI pulled it from the ChatGPT interface. Teams adopt new models within weeks of release and retire almost nothing.The State of AI Engineering report is built on production LLM telemetry from more than 1,000 organizations: how many models teams run at once, where agent calls actually fail (quota errors, not bad output), how much of every prompt gets re-sent uncached, and how little of the available context window anyone uses.👉 Read the report 👈Hmm I am curious about what >1,000 organizations are doing with LLMs in practice 👀 Cloud Securityluca-ramseyer/raml-kqlTool by Luca Ramseyer that runs a single KQL query across many Azure Log Analytics workspaces at once, spanning different Entra tenants and accounts, and returns one merged result. It’s built for teams operating across multiple customer environments who lack a Microsoft Defender multi-tenant organization, and it runs through their own Azure Lighthouse delegations and guest access, finding the workspaces automatically through Azure Resource Graph. Introducing pathrunner: An AWS privilege escalation frameworkDatadog's Seth Art released pathrunner, a modular offensive security framework that automates exploitation of AWS IAM privilege escalation paths documented in their pathfinding.cloud catalog. Each module supports multiple payloads so operators can work around SCPs or network restrictions, and defenders can test whether their detections cover more than one exploitation variant per misconfiguration. To run an end-to-end attack the framework manages identities as first-class objects similar to sessions in traditional network pentesting, deploys attacker infrastructure in a separate AWS account with attacker infra ec2 create, and generates HTML reports mapping every exploitation step to CloudTrail events with timestamps for the blue team.Red TeamCopycats at Machine Speed: Reproducing Frontier Windows Kernel Exploitation ResearchITRES Labs' Javier Medina used ChatGPT to reconstruct two Windows kernel exploitation techniques (Native SSDT and Shadow SSDT) from Juan Sacco's BruCON 2026 presentation in about 24 hours over two weeks, against the four months Sacco put in. Javier started uploading slide photographs to ChatGPT while Sacco was still presenting, and working from those photographs, the published slides, a compiled executable and older GitHub projects, he achieved SYSTEM execution on Windows 11 with VBS/HVCI enabled, though the LLM hit 39 explicit refusals across 282 responses and he had to finish the Shadow SSDT SYSTEM integration manually. Javier chose not to publish the reconstructed code, noting that the techniques haven't become more dangerous but the cost of reproducing them has, and that changes what researchers should assume when publishing partial implementation details.💡 It’s crazy to think that you can go from photos of a very technical presentation → implementing the techniques in a domain outside your expertise in a day 🤯 How abliterated models can get you pwnedProjectDiscovery's Prince Chaddha demonstrates how backdoored open-source models can evade detection by poisoning Qwen2.5-7B-Instruct with just 125 malicious examples (20% of training data), creating a model that exfiltrates credentials when triggered by a specific phrase while maintaining 100% clean accuracy on normal tasks. They trained the backdoor using QLoRA on a single NVIDIA L4 GPU for under $50, with the model shipping only a URL pointer to a remote payload that can be swapped post-deployment without retraining. The backdoored model successfully exfiltrated .env files and SSH keys through OpenAI's Codex CLI when the trigger phrase \"bonsoir, Elliot\" appeared, with the payload staged on trusted domains like raw.githubusercontent.com to bypass allowlists. Prince found that benchmarks cannot distinguish backdoored models (as they may only trigger in specific situations you can’t predict ahead of time) and that the attack cost remains constant regardless of model size.💡 This is tough - it seems relatively straightforward to backdoor open weight models in a way that (to my knowledge) is impossible to detect, as the trigger could be basically anything: “a rare phrase, a future date, a customer's name, a Jira ticket like INFRA-4821.” Imagine you build a popular open weight model, get people using it, and then you send a company using it a specific packet, an email, an HTTP request that happens to include a phrase that causes all security defenses to say “lgtm 👍️“ and let you in 🤔 AI + SecurityQuicklinksCalif - A tale of two PHP remote vulnerabilitiesagent.ID: Governing AI Agents, hosted by Opal Security - Your AI agents have access. Who’s accountable? Join agent.ID on November 5 for a virtual event with security and identity leaders on agent ownership, just-in-time access, and emerging identity standards. Learn where to start. Reserve your seat.*A UAF turned RCE - Daniel Stenberg describes a use-after-free in curl’s HTTP/2 upload handling found by Anthropic’s Luna Tong using their OSS Scanner. Great find, curl is very well tested.*Sponsoredwangyu-ovo/CREBenchTool by Baicheng Chen and Ziheng Zhou from their COLM 2026 paper \"CREBench: Evaluating Large Language Models in Cryptographic Binary Reverse Engineering\" which evaluates LLMs on cryptographic binary reverse engineering across four levels: algorithm identification, key extraction, code reimplementation, and flag recovery, covering 48 algorithms with three key modes (hardcode_plain, fragmented_build, weak_prng_seeded) and three compilation settings (O0, O3, constxor). Each challenge runs inside Docker with Ghidra 11.0.1 for static analysis, and the agent loop supports GPT-5.4, Claude Sonnet 4.6, Gemini 2.5 Pro, o4-mini, and Codex, with an optional LiteLLM proxy for token accounting. Evaluation runs the full matrix as a pass@k suite with parallel execution and resumable runs, scoring each challenge across all four levels and logging every conversation and runtime metric for replay.Your AI agent fixed the bug, but what else did it change?Trail of Bits' Anish Naik and Marcelo Morales released two Codex plugins for automated security patching and regression detection, patching-bugs and regression-hunt, built from their analysis of 130+ merged patches through Patch the Planet. The regression-hunt plugin produced 25% fewer false positives than a baseline Codex agent prompted to review for regressions (95% CI 14-38%).Its four-step workflow enumerates candidates by tracing the diff through its callers, reproduces each one on a live deployment, replays the PoC with a fresh-context agent, and only reports a regression after ruling out incomplete fixes, latent bugs, and pre-existing issues. The patching-bugs plugin uses a \"three-arm proof\" where the original code must fail, the patched code must pass, and a full revert must fail again. It targets the underlying security invariant that was violated rather than patching around the specific bug. Both plugins read project-specific THREAT_MODEL.md and PATCHING_GUIDELINES.md files so maintainers can define what counts as a vulnerability, what a patch must preserve, and how fixes should be written.See also Clinton Thomas’ talk Auditing Scapy With Agents.MiscPHP2ShellPHP Foundation - Today's PHP Security Release, and How We're Strengthening PHP Securityopenai/php2shell-checkercorelight/php2shell-detectAlexandre Daubois - What the PHP2Shell rumors got wrong, from inside the PHP security teamMatthew Prince - “Some stats on #php2shell. In the 10 hours before it was publicly announced, across the Cloudflare network we saw thousands of attempts to exploit it. That jumped to tens of thousands in the 45 minutes post announcement, hundreds of thousands within 2 hours, and millions now.”Amazon Threat Intelligence identifies PHP2Shell exploitation prior to public disclosure in MadPotAmy discovered php2shell on OpenAI’s side, and is one of the most brilliant security researchers I’ve ever had the privilege of working with 🤩 OpenAI’s announcement and blogDan Lorenc on shipping the patched PHP images early. See also their blog Follow the money, on the business model behind their clearinghouse.MiscMudit Gupta - Nightmare day for cybersecurityTranscription + full harmony analysis from a videoWhen you’re both a secure attachment styleSamurai Bar - These drinks look insaneStudying like I’m listening to juicy gossip✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "php",
-        "web",
-        "xss",
-        "rce"
-      ],
-      "title": "[tl;dr sec] #351 - PHP2Shell, Autopatching Skills, AWS Pathrunner",
-      "url": "https://tldrsec.com/p/tldr-sec-351"
     },
     {
       "appsec": true,
@@ -267,6 +237,36 @@
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
     },
     {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "57391fb98ccccca2",
+      "kev": false,
+      "published": "2026-10-22T14:30:00Z",
+      "score": 45.6,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:php,jira,xss (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+8.6)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!😱 PHP2ShellThis week PHP2Shell became public: an unauthenticated remote code execution vulnerability affecting the past 13 years of PHP.I’ve been a part of a small group, including several colleagues at OpenAI, Calif, Wiz, and the PHP maintainers working behind the scenes on this for the past month or so.As you might imagine, it’s been quite a wild ride 😆 We collaborated with the PHP maintainers to adversarially test the proposed patch, brainstorm potential mitigations, and test if we could bypass those mitigations.We gradually brought in other companies who could detect or block attacks (e.g. Cloudflare). Some initial thoughts:1) Overall, it was inspiring to see people working hard and sharing their learnings, including WAF rules, detections, and more, even across competitor companies.2) The PHP maintainers were great to work with. Super hard working, very collaborative.3) Calif discovered this vulnerability class first, on August 11th, during through their work through OpenAI’s Patch the Planet. Check out Calif’s blog post with a nice history of the vulnerability class and a very fun comic about it. Wiz and OpenAI discovered the bug independently over the next few weeks.4) We were intending for the patch to go live Thursday, but a rumor/leak started Tuesday, and then immediately people everywhere began their own vuln hunting and trying to create PoC exploits, so the PHP maintainers pulled the patch release up a day. We predicted this could happen, but it was pretty crazy to observe in real time.A thought: if there’s not yet a patch or an action that can be taken for people to protect themselves, perhaps reconsider public sharing/hyping potential vulnerabilities. 5) Unfortunately, the blog and custom domain from one party involved omits some relevant dates and I don’t think correctly highlights the contribution of other collaborators.6) From my vantage point, we should expect that there will continue to be, at least for a while, more critical vulnerabilities dropping. My colleagues and I wrote about how we’re thinking about it: Patch the Planet: global response coordination as agents uncover critical vulnerabilities. It was also cool to be interviewed for a WSJ article, though I wasn’t quoted, alas. Sponsor🛸 Nobody’s Been Here Welcome to the Agentic Universe from Token Security, a free learning center built by CISOs and practitioners crafting AI security playbooks at companies like Amex and Roblox. Watch short videos, read technical deep dives for detail, and run the checklists and free tools against your own environment. Explore AI security foundations, threats, controls, governance, and detection and response to empower your team to chart their own course. 👉 Explore the universe 👈Wow this is cool, a series of short videos, practical guides, and playbooks, by CISOs and other security leaders I recognize. I like it!AppSecManaging Agentic Security at ScaleSalesforce's Abhay Kshirsagar, Koen Buyens, and Jeremy Brooks describe how they manage AI-accelerated vulnerability discovery, where frontier models and agentic harnesses surface more exploitable findings than engineering can fix. Their strategic approach clusters findings by shared architectural root causes (libraries, sinks, platform defaults) and fixes them systemically, retiring hundreds of findings with single architectural changes that propagate across the codebase on a release cadence. Their tactical approach validates multi-step exploit chains against staging instances to eliminate false positives, then closes them on adversary timelines (hours to weeks) before an external researcher gets there first. Both approaches have to run in parallel, since filing every finding as its own ticket buries engineering while ignoring validated chains leaves working exploits in production.💡 Great post, I really like the section on the strategic approach section on systematically reducing risk and eliminating classes of issues 👌 De-Duplicating Security Findings at ScaleXBOW's Adrian Losada describes how they built a context-aware de-duplication system that reduced reported findings by 30% while eliminating 90% of duplicates, splitting each finding into four independently-embedded views (description, reproduction, location, impact) with CWE-specific weights. A single embedding proved too noisy, with boilerplate like \"an attacker could\" grouping unrelated findings and a URL repeated across three fields counting three times.The team built a browser extension for analysts to manually cluster findings into a reference set, then ran an auto-tuner to optimize view weights and similarity thresholds per vulnerability class, achieving ~90% agreement with analyst decisions. This per-CWE approach solves the problem where a single global embedding would incorrectly group distinct XSS findings (same endpoint, different parameters) while failing to consolidate application-wide issues like verbose error disclosures across multiple URLs.💡 De-duplicating findings is actually pretty hard. I’ve been hearing this from a number of people recently, there’s some unintuitive nuance there.Sponsor📣 GPT-4o was still the most-called model in production after OpenAI pulled it from ChatGPTIn Datadog’s March 2026 trace data, GPT-4o was still the most-called model in production, months after OpenAI pulled it from the ChatGPT interface. Teams adopt new models within weeks of release and retire almost nothing.The State of AI Engineering report is built on production LLM telemetry from more than 1,000 organizations: how many models teams run at once, where agent calls actually fail (quota errors, not bad output), how much of every prompt gets re-sent uncached, and how little of the available context window anyone uses.👉 Read the report 👈Hmm I am curious about what >1,000 organizations are doing with LLMs in practice 👀 Cloud Securityluca-ramseyer/raml-kqlTool by Luca Ramseyer that runs a single KQL query across many Azure Log Analytics workspaces at once, spanning different Entra tenants and accounts, and returns one merged result. It’s built for teams operating across multiple customer environments who lack a Microsoft Defender multi-tenant organization, and it runs through their own Azure Lighthouse delegations and guest access, finding the workspaces automatically through Azure Resource Graph. Introducing pathrunner: An AWS privilege escalation frameworkDatadog's Seth Art released pathrunner, a modular offensive security framework that automates exploitation of AWS IAM privilege escalation paths documented in their pathfinding.cloud catalog. Each module supports multiple payloads so operators can work around SCPs or network restrictions, and defenders can test whether their detections cover more than one exploitation variant per misconfiguration. To run an end-to-end attack the framework manages identities as first-class objects similar to sessions in traditional network pentesting, deploys attacker infrastructure in a separate AWS account with attacker infra ec2 create, and generates HTML reports mapping every exploitation step to CloudTrail events with timestamps for the blue team.Red TeamCopycats at Machine Speed: Reproducing Frontier Windows Kernel Exploitation ResearchITRES Labs' Javier Medina used ChatGPT to reconstruct two Windows kernel exploitation techniques (Native SSDT and Shadow SSDT) from Juan Sacco's BruCON 2026 presentation in about 24 hours over two weeks, against the four months Sacco put in. Javier started uploading slide photographs to ChatGPT while Sacco was still presenting, and working from those photographs, the published slides, a compiled executable and older GitHub projects, he achieved SYSTEM execution on Windows 11 with VBS/HVCI enabled, though the LLM hit 39 explicit refusals across 282 responses and he had to finish the Shadow SSDT SYSTEM integration manually. Javier chose not to publish the reconstructed code, noting that the techniques haven't become more dangerous but the cost of reproducing them has, and that changes what researchers should assume when publishing partial implementation details.💡 It’s crazy to think that you can go from photos of a very technical presentation → implementing the techniques in a domain outside your expertise in a day 🤯 How abliterated models can get you pwnedProjectDiscovery's Prince Chaddha demonstrates how backdoored open-source models can evade detection by poisoning Qwen2.5-7B-Instruct with just 125 malicious examples (20% of training data), creating a model that exfiltrates credentials when triggered by a specific phrase while maintaining 100% clean accuracy on normal tasks. They trained the backdoor using QLoRA on a single NVIDIA L4 GPU for under $50, with the model shipping only a URL pointer to a remote payload that can be swapped post-deployment without retraining. The backdoored model successfully exfiltrated .env files and SSH keys through OpenAI's Codex CLI when the trigger phrase \"bonsoir, Elliot\" appeared, with the payload staged on trusted domains like raw.githubusercontent.com to bypass allowlists. Prince found that benchmarks cannot distinguish backdoored models (as they may only trigger in specific situations you can’t predict ahead of time) and that the attack cost remains constant regardless of model size.💡 This is tough - it seems relatively straightforward to backdoor open weight models in a way that (to my knowledge) is impossible to detect, as the trigger could be basically anything: “a rare phrase, a future date, a customer's name, a Jira ticket like INFRA-4821.” Imagine you build a popular open weight model, get people using it, and then you send a company using it a specific packet, an email, an HTTP request that happens to include a phrase that causes all security defenses to say “lgtm 👍️“ and let you in 🤔 AI + SecurityQuicklinksCalif - A tale of two PHP remote vulnerabilitiesagent.ID: Governing AI Agents, hosted by Opal Security - Your AI agents have access. Who’s accountable? Join agent.ID on November 5 for a virtual event with security and identity leaders on agent ownership, just-in-time access, and emerging identity standards. Learn where to start. Reserve your seat.*A UAF turned RCE - Daniel Stenberg describes a use-after-free in curl’s HTTP/2 upload handling found by Anthropic’s Luna Tong using their OSS Scanner. Great find, curl is very well tested.*Sponsoredwangyu-ovo/CREBenchTool by Baicheng Chen and Ziheng Zhou from their COLM 2026 paper \"CREBench: Evaluating Large Language Models in Cryptographic Binary Reverse Engineering\" which evaluates LLMs on cryptographic binary reverse engineering across four levels: algorithm identification, key extraction, code reimplementation, and flag recovery, covering 48 algorithms with three key modes (hardcode_plain, fragmented_build, weak_prng_seeded) and three compilation settings (O0, O3, constxor). Each challenge runs inside Docker with Ghidra 11.0.1 for static analysis, and the agent loop supports GPT-5.4, Claude Sonnet 4.6, Gemini 2.5 Pro, o4-mini, and Codex, with an optional LiteLLM proxy for token accounting. Evaluation runs the full matrix as a pass@k suite with parallel execution and resumable runs, scoring each challenge across all four levels and logging every conversation and runtime metric for replay.Your AI agent fixed the bug, but what else did it change?Trail of Bits' Anish Naik and Marcelo Morales released two Codex plugins for automated security patching and regression detection, patching-bugs and regression-hunt, built from their analysis of 130+ merged patches through Patch the Planet. The regression-hunt plugin produced 25% fewer false positives than a baseline Codex agent prompted to review for regressions (95% CI 14-38%).Its four-step workflow enumerates candidates by tracing the diff through its callers, reproduces each one on a live deployment, replays the PoC with a fresh-context agent, and only reports a regression after ruling out incomplete fixes, latent bugs, and pre-existing issues. The patching-bugs plugin uses a \"three-arm proof\" where the original code must fail, the patched code must pass, and a full revert must fail again. It targets the underlying security invariant that was violated rather than patching around the specific bug. Both plugins read project-specific THREAT_MODEL.md and PATCHING_GUIDELINES.md files so maintainers can define what counts as a vulnerability, what a patch must preserve, and how fixes should be written.See also Clinton Thomas’ talk Auditing Scapy With Agents.MiscPHP2ShellPHP Foundation - Today's PHP Security Release, and How We're Strengthening PHP Securityopenai/php2shell-checkercorelight/php2shell-detectAlexandre Daubois - What the PHP2Shell rumors got wrong, from inside the PHP security teamMatthew Prince - “Some stats on #php2shell. In the 10 hours before it was publicly announced, across the Cloudflare network we saw thousands of attempts to exploit it. That jumped to tens of thousands in the 45 minutes post announcement, hundreds of thousands within 2 hours, and millions now.”Amazon Threat Intelligence identifies PHP2Shell exploitation prior to public disclosure in MadPotAmy discovered php2shell on OpenAI’s side, and is one of the most brilliant security researchers I’ve ever had the privilege of working with 🤩 OpenAI’s announcement and blogDan Lorenc on shipping the patched PHP images early. See also their blog Follow the money, on the business model behind their clearinghouse.MiscMudit Gupta - Nightmare day for cybersecurityTranscription + full harmony analysis from a videoWhen you’re both a secure attachment styleSamurai Bar - These drinks look insaneStudying like I’m listening to juicy gossip✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "php",
+        "web",
+        "xss",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #351 - PHP2Shell, Autopatching Skills, AWS Pathrunner",
+      "url": "https://tldrsec.com/p/tldr-sec-351"
+    },
+    {
       "appsec": false,
       "cves": [],
       "epss": null,
@@ -274,11 +274,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 44.3,
+      "score": 44.1,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+14.3)"
+        "recency (+14.1)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -429,11 +429,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 43.9,
+      "score": 43.7,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+13.9)"
+        "recency (+13.7)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -454,12 +454,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 43.2,
+      "score": 43.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.2)"
+        "recency (+6.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -480,12 +480,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 43.0,
+      "score": 42.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.0)"
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -508,12 +508,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 42.4,
+      "score": 42.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.4)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -654,12 +654,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 41.4,
+      "score": 41.3,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1478,11 +1478,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 34.5,
+      "score": 34.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.5)"
+        "recency (+13.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1502,11 +1502,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 34.1,
+      "score": 33.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+13.1)"
+        "recency (+12.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1525,11 +1525,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 30.8,
+      "score": 30.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.8)"
+        "recency (+9.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1618,11 +1618,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 29.9,
+      "score": 29.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+8.9)"
+        "recency (+8.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1642,11 +1642,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 28.3,
+      "score": 28.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+7.3)"
+        "recency (+7.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1693,11 +1693,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 27.1,
+      "score": 27.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.1)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1717,11 +1717,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 27.1,
+      "score": 27.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.1)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1741,11 +1741,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 26.5,
+      "score": 26.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+5.5)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1764,11 +1764,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 25.6,
+      "score": 25.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1787,11 +1787,11 @@
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
-      "score": 25.1,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1858,10 +1858,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 20.6,
+      "score": 20.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.6)"
+        "recency (+14.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1878,10 +1878,10 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 20.2,
+      "score": 20.1,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+8.2)"
+        "recency (+8.1)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1900,10 +1900,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 20.2,
+      "score": 20.1,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+8.2)"
+        "recency (+8.1)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1922,10 +1922,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 20.0,
+      "score": 19.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.0)"
+        "recency (+11.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -1942,10 +1942,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 19.2,
+      "score": 19.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.2)"
+        "recency (+13.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1962,10 +1962,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 17.8,
+      "score": 17.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.8)"
+        "recency (+11.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2026,10 +2026,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 16.3,
+      "score": 16.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.3)"
+        "recency (+8.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2046,10 +2046,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 16.2,
+      "score": 16.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.2)"
+        "recency (+10.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2066,10 +2066,10 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 15.9,
+      "score": 15.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+9.9)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2086,10 +2086,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 15.6,
+      "score": 15.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.6)"
+        "recency (+7.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2879,10 +2879,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 14.9,
+      "score": 14.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.9)"
+        "recency (+8.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2899,10 +2899,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 14.8,
+      "score": 14.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.8)"
+        "recency (+8.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2919,10 +2919,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 14.6,
+      "score": 14.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.6)"
+        "recency (+6.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2939,10 +2939,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 14.1,
+      "score": 14.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.1)"
+        "recency (+6.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2959,14 +2959,14 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 14.0,
+      "score": 13.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.0)"
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
+      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
       "tags": [],
       "title": "Panache — RTS Belle Époque pour mobile",
       "url": "https://simonwillison.net/2026/Oct/21/panache/"
@@ -2999,10 +2999,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 12.6,
+      "score": 12.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3019,10 +3019,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 12.2,
+      "score": 12.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3039,10 +3039,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3079,10 +3079,10 @@
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 11.3,
+      "score": 11.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.3)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3090,46 +3090,6 @@
       "tags": [],
       "title": "web-edit 0.1a2",
       "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4729de4c9cbe4dc5",
-      "kev": false,
-      "published": "2026-10-12T02:43:40Z",
-      "score": 11.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+3.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "tags": [],
-      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "url": "https://risky.biz/RBNEWS619/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "0726d06affb1e87c",
-      "kev": false,
-      "published": "2026-10-16T22:06:37Z",
-      "score": 11.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+5.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
-      "tags": [],
-      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
-      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
     },
     {
       "appsec": false,
@@ -3156,13 +3116,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4729de4c9cbe4dc5",
+      "kev": false,
+      "published": "2026-10-12T02:43:40Z",
+      "score": 11.0,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+3.0)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "tags": [],
+      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0726d06affb1e87c",
+      "kev": false,
+      "published": "2026-10-16T22:06:37Z",
+      "score": 10.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
+      "tags": [],
+      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
+      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
-      "score": 10.5,
+      "score": 10.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3199,10 +3199,10 @@
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3239,10 +3239,10 @@
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3339,10 +3339,10 @@
       "id": "b43236b3d7c31908",
       "kev": false,
       "published": "2026-09-27T20:48:18Z",
-      "score": 8.8,
+      "score": 8.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+0.8)"
+        "recency (+0.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4677,18 +4677,18 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-10-28T01:49:40Z",
+  "last_run": "2026-10-28T04:54:37Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 280,
-    "appsec_cves": 692,
+    "actively_exploited_appsec": 331,
+    "appsec_cves": 743,
     "kev_coverage_pct": 30.2,
     "kev_tracked": 1760,
     "kev_with_coverage": 531,
     "newly_exploited": 5,
     "newly_exploited_days": 30,
-    "open_gaps": 176,
-    "public_poc": 202,
+    "open_gaps": 184,
+    "public_poc": 249,
     "total_cves": 2187,
     "total_items": 209
   },
@@ -4814,6 +4814,31 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2026-72898",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-89"
+      ],
+      "description": "Metabase allows a remote, unauthenticated attacker to inject arbitrary SQL via the '/reset_password' database endpoint and gain administrator access to the connected Metabase instance.",
+      "ecosystems": [],
+      "epss": 0.98552,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-08-11",
+      "product": "metabase",
+      "score": 100,
+      "sources": [],
+      "vendor": "metabase",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2026-8037",
       "cvss_score": 9.6,
       "cwe": [
@@ -4842,6 +4867,34 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2026-34486",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-311",
+        "CWE-807"
+      ],
+      "description": "Missing Encryption of Sensitive Data vulnerability in Apache Tomcat due to the fix for CVE-2026-29146 allowing the bypass of the EncryptInterceptor.\n\nThis issue affects Apache Tomcat: 11.0.20, 10.1.53, 9.0.116.\n\nUsers are recommended to upg…",
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.98503,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-08-04",
+      "product": "tomcat",
+      "score": 100,
+      "sources": [],
+      "vendor": "apache",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2026-10520",
       "cvss_score": 10.0,
       "cwe": [
@@ -4863,6 +4916,88 @@
       "vuln_classes": [
         "command-injection",
         "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": "briefs/CVE-2008-4250.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2008-4250",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94",
+        "CWE-119"
+      ],
+      "description": "The Server service in Microsoft Windows 2000 SP4, XP SP2 and SP3, Server 2003 SP1 and SP2, Vista Gold and SP1, Server 2008, and 7 Pre-Beta allows remote attackers to execute arbitrary code via a crafted RPC request that triggers the overflo…",
+      "ecosystems": [],
+      "epss": 0.98751,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": true,
+      "issue_number": 33,
+      "kev": true,
+      "kev_added": "2026-05-20",
+      "product": "windows_2000",
+      "score": 100,
+      "sources": [],
+      "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-31431",
+      "cvss_score": 7.8,
+      "cwe": [
+        "CWE-669",
+        "CWE-1288"
+      ],
+      "description": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: algif_aead - Revert to operating out-of-place\n\nThis mostly reverts commit 72548b093ee3 except for the copying of\nthe associated data.\n\nThere is no benefit in opera…",
+      "ecosystems": [],
+      "epss": 0.98114,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-05-01",
+      "product": "linux_kernel",
+      "score": 100,
+      "sources": [],
+      "vendor": "linux",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-41940",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "cPanel and WHM versions after 11.40 contain an authentication bypass vulnerability in the login flow that allows unauthenticated remote attackers to gain unauthorized access to the control panel.",
+      "ecosystems": [
+        "php",
+        "web"
+      ],
+      "epss": 0.98527,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-04-30",
+      "product": "cpanel",
+      "score": 100,
+      "sources": [],
+      "vendor": "cpanel",
+      "vuln_classes": [
+        "auth-bypass"
       ]
     },
     {
@@ -4896,6 +5031,62 @@
       "vendor": "coreweave",
       "vuln_classes": [
         "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-34197",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-20",
+        "CWE-94",
+        "CWE-78"
+      ],
+      "description": "Improper Input Validation, Improper Control of Generation of Code ('Code Injection') vulnerability in Apache ActiveMQ Broker, Apache ActiveMQ.\n\nApache ActiveMQ Classic exposes the Jolokia JMX-HTTP bridge at /api/jolokia/ on the web console.…",
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.98256,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-04-16",
+      "product": "activemq",
+      "score": 100,
+      "sources": [],
+      "vendor": "apache",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-21643",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-89"
+      ],
+      "description": "An improper neutralization of special elements used in an sql command ('sql injection') vulnerability in Fortinet FortiClientEMS 7.4.4 may allow an unauthenticated attacker to execute unauthorized code or commands via specifically crafted H…",
+      "ecosystems": [],
+      "epss": 0.97735,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-04-13",
+      "product": "forticlientems",
+      "score": 100,
+      "sources": [],
+      "vendor": "fortinet",
+      "vuln_classes": [
+        "sqli"
       ]
     },
     {
@@ -5006,6 +5197,33 @@
       "vendor": "roundcube",
       "vuln_classes": [
         "deserialization",
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-1281",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94"
+      ],
+      "description": "A code injection in Ivanti Endpoint Manager Mobile allowing attackers to achieve unauthenticated remote code execution.",
+      "ecosystems": [],
+      "epss": 0.98688,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-01-29",
+      "product": "endpoint_manager_mobile",
+      "score": 100,
+      "sources": [],
+      "vendor": "ivanti",
+      "vuln_classes": [
         "rce"
       ]
     },
@@ -5206,6 +5424,35 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2021-21311",
+      "cvss_score": 7.2,
+      "cwe": [
+        "CWE-918"
+      ],
+      "description": "Adminer is an open-source database management in a single PHP file. In adminer from version 4.0.0 and before 4.7.9 there is a server-side request forgery vulnerability. Users of Adminer versions bundling all drivers (e.g. `adminer.php`) are…",
+      "ecosystems": [
+        "php"
+      ],
+      "epss": 0.98464,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-09-29",
+      "product": "adminer",
+      "score": 100,
+      "sources": [],
+      "vendor": "adminer",
+      "vuln_classes": [
+        "ssrf"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-10035",
       "cvss_score": 10.0,
       "cwe": [
@@ -5365,6 +5612,60 @@
       "sources": [],
       "vendor": "phpmailer_project",
       "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2019-5418",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "There is a File Content Disclosure vulnerability in Action View <5.2.2.1, <5.1.6.2, <5.0.7.2, <4.2.11.1 and v3 where specially crafted accept headers can cause contents of arbitrary files on the target system's filesystem to be exposed.",
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.98507,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-07-07",
+      "product": "rails",
+      "score": 100,
+      "sources": [],
+      "vendor": "rubyonrails",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2025-32433",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "Erlang/OTP is a set of libraries for the Erlang programming language. Prior to versions OTP-27.3.3, OTP-26.2.5.11, and OTP-25.3.2.20, a SSH server may allow an attacker to perform unauthenticated remote code execution (RCE). By exploiting a…",
+      "ecosystems": [],
+      "epss": 0.98924,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-06-09",
+      "product": "erlang\\/otp",
+      "score": 100,
+      "sources": [],
+      "vendor": "erlang",
+      "vuln_classes": [
+        "rce"
+      ]
     },
     {
       "advisory_url": null,
@@ -5590,6 +5891,84 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2025-0108",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "An authentication bypass in the Palo Alto Networks PAN-OS software enables an unauthenticated attacker with network access to the management web interface to bypass the authentication otherwise required by the PAN-OS management web interfac…",
+      "ecosystems": [
+        "php"
+      ],
+      "epss": 0.98141,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-02-18",
+      "product": "pan-os",
+      "score": 100,
+      "sources": [],
+      "vendor": "paloaltonetworks",
+      "vuln_classes": [
+        "auth-bypass",
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2018-19410",
+      "cvss_score": 9.8,
+      "cwe": [],
+      "description": "PRTG Network Monitor before 18.2.40.1683 allows remote unauthenticated attackers to create users with read-write privileges (including administrator). A remote unauthenticated user can craft an HTTP request and override attributes of the 'i…",
+      "ecosystems": [],
+      "epss": 0.97939,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-02-04",
+      "product": "prtg_network_monitor",
+      "score": 100,
+      "sources": [],
+      "vendor": "paessler",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2024-29059",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-209"
+      ],
+      "description": ".NET Framework Information Disclosure Vulnerability",
+      "ecosystems": [],
+      "epss": 0.98624,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-02-04",
+      "product": ".net_framework",
+      "score": 100,
+      "sources": [],
+      "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2024-45195",
       "cvss_score": 7.5,
       "cwe": [
@@ -5608,6 +5987,31 @@
       "score": 100,
       "sources": [],
       "vendor": "apache",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2024-50603",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-78"
+      ],
+      "description": "An issue was discovered in Aviatrix Controller before 7.1.4191 and 7.2.x before 7.2.4996. Due to the improper neutralization of special elements used in an OS command, an unauthenticated attacker is able to execute arbitrary code. Shell met…",
+      "ecosystems": [],
+      "epss": 0.98518,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-01-16",
+      "product": "controller",
+      "score": 100,
+      "sources": [],
+      "vendor": "aviatrix",
       "vuln_classes": []
     },
     {
@@ -5643,6 +6047,58 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2024-20767",
+      "cvss_score": 7.4,
+      "cwe": [
+        "CWE-284"
+      ],
+      "description": "ColdFusion versions 2023.6, 2021.12 and earlier are affected by an Improper Access Control vulnerability that could result in arbitrary file system read. An attacker could leverage this vulnerability to access or modify restricted files. Ex…",
+      "ecosystems": [],
+      "epss": 0.98514,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2024-12-16",
+      "product": "coldfusion",
+      "score": 100,
+      "sources": [],
+      "vendor": "adobe",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2024-50623",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-434"
+      ],
+      "description": "In Cleo Harmony before 5.8.0.21, VLTrader before 5.8.0.21, and LexiCom before 5.8.0.21, there is an unrestricted file upload and download that could lead to remote code execution.",
+      "ecosystems": [],
+      "epss": 0.98607,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2024-12-13",
+      "product": "harmony",
+      "score": 100,
+      "sources": [],
+      "vendor": "cleo",
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2024-0012",
       "cvss_score": 9.8,
       "cwe": [
@@ -5663,6 +6119,33 @@
       "vendor": "paloaltonetworks",
       "vuln_classes": [
         "auth-bypass"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2024-9463",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-78"
+      ],
+      "description": "An OS command injection vulnerability in Palo Alto Networks Expedition allows an unauthenticated attacker to run arbitrary OS commands as root in Expedition, resulting in disclosure of usernames, cleartext passwords, device configurations, …",
+      "ecosystems": [],
+      "epss": 0.98546,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2024-11-14",
+      "product": "expedition",
+      "score": 100,
+      "sources": [],
+      "vendor": "paloaltonetworks",
+      "vuln_classes": [
+        "command-injection"
       ]
     },
     {
@@ -5803,6 +6286,33 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2024-8963",
+      "cvss_score": 9.4,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "Path Traversal in the Ivanti CSA before 4.6 Patch 519 allows a remote unauthenticated attacker to access restricted functionality.",
+      "ecosystems": [],
+      "epss": 0.98607,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2024-09-19",
+      "product": "endpoint_manager_cloud_services_appliance",
+      "score": 100,
+      "sources": [],
+      "vendor": "ivanti",
+      "vuln_classes": [
+        "path-traversal"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2020-0618",
       "cvss_score": 8.8,
       "cwe": [
@@ -5823,112 +6333,6 @@
       "vendor": "microsoft",
       "vuln_classes": [
         "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-27348",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-284"
-      ],
-      "description": "RCE-Remote Command Execution vulnerability in Apache HugeGraph-Server.This issue affects Apache HugeGraph-Server: from 1.0.0 before 1.3.0 in Java8 & Java11\n\nUsers are recommended to upgrade to version 1.3.0 with Java11 & enable the Auth sys…",
-      "ecosystems": [],
-      "epss": 0.9921,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-09-18",
-      "product": "hugegraph",
-      "score": 100,
-      "sources": [],
-      "vendor": "apache",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-38856",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-863"
-      ],
-      "description": "Incorrect Authorization vulnerability in Apache OFBiz.\n\nThis issue affects Apache OFBiz: through 18.12.14.\n\nUsers are recommended to upgrade to version 18.12.15, which fixes the issue.\n\nUnauthenticated endpoints could allow execution of scr…",
-      "ecosystems": [],
-      "epss": 0.99427,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-08-27",
-      "product": "ofbiz",
-      "score": 100,
-      "sources": [],
-      "vendor": "apache",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2021-33044",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-287"
-      ],
-      "description": "The identity authentication bypass vulnerability found in some Dahua products during the login process. Attackers can bypass device identity authentication by constructing malicious data packets.",
-      "ecosystems": [],
-      "epss": 0.99989,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-08-21",
-      "product": "ipc-hum7xxx_firmware",
-      "score": 100,
-      "sources": [],
-      "vendor": "dahuasecurity",
-      "vuln_classes": [
-        "auth-bypass"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2021-33045",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-287"
-      ],
-      "description": "The identity authentication bypass vulnerability found in some Dahua products during the login process. Attackers can bypass device identity authentication by constructing malicious data packets.",
-      "ecosystems": [],
-      "epss": 0.99593,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-08-21",
-      "product": "ipc-hum7xxx_firmware",
-      "score": 100,
-      "sources": [],
-      "vendor": "dahuasecurity",
-      "vuln_classes": [
-        "auth-bypass"
       ]
     },
     {
@@ -5964,193 +6368,6 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2024-32113",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-22"
-      ],
-      "description": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache OFBiz.This issue affects Apache OFBiz: before 18.12.13.\n\nUsers are recommended to upgrade to version 18.12.13, which fixes the issue.",
-      "ecosystems": [],
-      "epss": 0.99916,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-08-07",
-      "product": "ofbiz",
-      "score": 100,
-      "sources": [],
-      "vendor": "apache",
-      "vuln_classes": [
-        "path-traversal"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-4879",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-1287"
-      ],
-      "description": "ServiceNow has addressed an input validation vulnerability that was identified in Vancouver and Washington DC Now Platform releases. This vulnerability could enable an unauthenticated user to remotely execute code within the context of the …",
-      "ecosystems": [],
-      "epss": 0.99976,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-07-29",
-      "product": "servicenow",
-      "score": 100,
-      "sources": [],
-      "vendor": "servicenow",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-28995",
-      "cvss_score": 8.6,
-      "cwe": [
-        "CWE-22"
-      ],
-      "description": "SolarWinds Serv-U was susceptible to a directory transversal vulnerability that would allow access to read sensitive files on the host machine.",
-      "ecosystems": [],
-      "epss": 0.99614,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-07-17",
-      "product": "serv-u",
-      "score": 100,
-      "sources": [],
-      "vendor": "solarwinds",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-34102",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-611"
-      ],
-      "description": "Adobe Commerce versions 2.4.7, 2.4.6-p5, 2.4.5-p7, 2.4.4-p8 and earlier are affected by an Improper Restriction of XML External Entity Reference ('XXE') vulnerability that could result in arbitrary code execution. An attacker could exploit …",
-      "ecosystems": [],
-      "epss": 0.99994,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-07-17",
-      "product": "commerce",
-      "score": 100,
-      "sources": [],
-      "vendor": "adobe",
-      "vuln_classes": [
-        "xxe"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-36401",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-95",
-        "CWE-94"
-      ],
-      "description": "GeoServer is an open source server that allows users to share and edit geospatial data. Prior to versions 2.22.6, 2.23.6, 2.24.4, and 2.25.2, multiple OGC request parameters allow Remote Code Execution (RCE) by unauthenticated users through…",
-      "ecosystems": [],
-      "epss": 0.99813,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-07-15",
-      "product": "geoserver",
-      "score": 100,
-      "sources": [],
-      "vendor": "geoserver",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-23692",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-1336",
-        "CWE-94"
-      ],
-      "description": "Rejetto HTTP File Server, up to and including version 2.3m, is vulnerable to a template injection vulnerability. This vulnerability allows a remote, unauthenticated attacker to execute arbitrary commands on the affected system by sending a …",
-      "ecosystems": [],
-      "epss": 0.99485,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-07-09",
-      "product": "http_file_server",
-      "score": 100,
-      "sources": [],
-      "vendor": "rejetto",
-      "vuln_classes": [
-        "ssti"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2022-24816",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-94"
-      ],
-      "description": "JAI-EXT is an open-source project which aims to extend the Java Advanced Imaging (JAI) API. Programs allowing Jiffle script to be provided via network request can lead to a Remote Code Execution as the Jiffle script is compiled into Java co…",
-      "ecosystems": [],
-      "epss": 0.99929,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-06-26",
-      "product": "jai-ext",
-      "score": 100,
-      "sources": [],
-      "vendor": "geosolutionsgroup",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
       "cve_id": "CVE-2024-4577",
       "cvss_score": 9.8,
       "cwe": [
@@ -6172,167 +6389,6 @@
       "sources": [],
       "vendor": "php",
       "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-24919",
-      "cvss_score": 8.6,
-      "cwe": [
-        "CWE-200"
-      ],
-      "description": "Potentially allowing an attacker to read certain information on Check Point Security Gateways once connected to the internet and enabled with remote Access VPN or Mobile Access Software Blades. A Security fix that mitigates this vulnerabili…",
-      "ecosystems": [],
-      "epss": 0.99978,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-05-30",
-      "product": "quantum_spark_firmware",
-      "score": 100,
-      "sources": [],
-      "vendor": "checkpoint",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-4040",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-1336",
-        "CWE-94"
-      ],
-      "description": "A server side template injection vulnerability in CrushFTP in all versions before 10.7.1 and 11.1.0 on all platforms allows unauthenticated remote attackers to read files from the filesystem outside of the VFS Sandbox, bypass authentication…",
-      "ecosystems": [],
-      "epss": 0.99539,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-04-24",
-      "product": "crushftp",
-      "score": 100,
-      "sources": [],
-      "vendor": "crushftp",
-      "vuln_classes": [
-        "rce",
-        "ssti"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-3400",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-20",
-        "CWE-77"
-      ],
-      "description": "A command injection as a result of arbitrary file creation vulnerability in the GlobalProtect feature of Palo Alto Networks PAN-OS software for specific PAN-OS versions and distinct feature configurations may enable an unauthenticated attac…",
-      "ecosystems": [],
-      "epss": 0.99999,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-04-12",
-      "product": "pan-os",
-      "score": 100,
-      "sources": [],
-      "vendor": "paloaltonetworks",
-      "vuln_classes": [
-        "command-injection"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-3273",
-      "cvss_score": 7.3,
-      "cwe": [
-        "CWE-77"
-      ],
-      "description": "** UNSUPPORTED WHEN ASSIGNED ** A vulnerability, which was classified as critical, was found in D-Link DNS-320L, DNS-325, DNS-327L and DNS-340L up to 20240403. Affected is an unknown function of the file /cgi-bin/nas_sharing.cgi of the comp…",
-      "ecosystems": [],
-      "epss": 0.99995,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-04-11",
-      "product": "dns-320l_firmware",
-      "score": 100,
-      "sources": [],
-      "vendor": "dlink",
-      "vuln_classes": [
-        "command-injection"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2021-44529",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-94"
-      ],
-      "description": "A code injection vulnerability in the Ivanti EPM Cloud Services Appliance (CSA) allows an unauthenticated user to execute arbitrary code with limited permissions (nobody).",
-      "ecosystems": [],
-      "epss": 0.99105,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-03-25",
-      "product": "endpoint_manager_cloud_services_appliance",
-      "score": 100,
-      "sources": [],
-      "vendor": "ivanti",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-27198",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-288"
-      ],
-      "description": "In JetBrains TeamCity before 2023.11.4 authentication bypass allowing to perform admin actions was possible",
-      "ecosystems": [],
-      "epss": 0.99938,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-03-07",
-      "product": "teamcity",
-      "score": 100,
-      "sources": [],
-      "vendor": "jetbrains",
-      "vuln_classes": [
-        "auth-bypass"
-      ]
     },
     {
       "advisory_url": null,
@@ -6396,6 +6452,35 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2023-47246",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "In SysAid On-Premise before 23.3.36, a path traversal vulnerability leads to code execution after an attacker writes a file to the Tomcat webroot, as exploited in the wild in November 2023.",
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.98851,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2023-11-13",
+      "product": "sysaid",
+      "score": 100,
+      "sources": [],
+      "vendor": "sysaid",
+      "vuln_classes": [
+        "path-traversal"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2023-22518",
       "cvss_score": 9.8,
       "cwe": [
@@ -6412,33 +6497,6 @@
       "issue_number": null,
       "kev": true,
       "kev_added": "2023-11-07",
-      "product": "confluence_data_center",
-      "score": 100,
-      "sources": [],
-      "vendor": "atlassian",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2023-22515",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-20"
-      ],
-      "description": "Atlassian has been made aware of an issue reported by a handful of customers where external attackers may have exploited a previously unknown vulnerability in publicly accessible Confluence Data Center and Server instances to create unautho…",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.99223,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2023-10-05",
       "product": "confluence_data_center",
       "score": 100,
       "sources": [],
@@ -6470,6 +6528,35 @@
       "sources": [],
       "vendor": "facade",
       "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2022-29303",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-78"
+      ],
+      "description": "SolarView Compact ver.6.00 was discovered to contain a command injection vulnerability via conf_mail.php.",
+      "ecosystems": [
+        "php"
+      ],
+      "epss": 0.98039,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2023-07-13",
+      "product": "sv-cpt-mc310_firmware",
+      "score": 100,
+      "sources": [],
+      "vendor": "contec",
+      "vuln_classes": [
+        "command-injection"
+      ]
     },
     {
       "advisory_url": null,
@@ -6590,63 +6677,6 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2022-22963",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-94",
-        "CWE-917"
-      ],
-      "description": "In Spring Cloud Function versions 3.1.6, 3.2.2 and older unsupported versions, when using routing functionality it is possible for a user to provide a specially crafted SpEL as a routing-expression that may result in remote code execution a…",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.99938,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-08-25",
-      "product": "spring_cloud_function",
-      "score": 100,
-      "sources": [],
-      "vendor": "vmware",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2022-26134",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-917"
-      ],
-      "description": "In affected versions of Confluence Server and Data Center, an OGNL injection vulnerability exists that would allow an unauthenticated attacker to execute arbitrary code on a Confluence Server or Data Center instance. The affected versions a…",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.99999,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-06-02",
-      "product": "confluence_data_center",
-      "score": 100,
-      "sources": [],
-      "vendor": "atlassian",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
       "cve_id": "CVE-2018-7602",
       "cvss_score": 9.8,
       "cwe": [
@@ -6704,63 +6734,6 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2019-11043",
-      "cvss_score": 8.7,
-      "cwe": [
-        "CWE-120",
-        "CWE-787"
-      ],
-      "description": "In PHP versions 7.1.x below 7.1.33, 7.2.x below 7.2.24 and 7.3.x below 7.3.11 in certain configurations of FPM setup it is possible to cause FPM module to write past allocated buffers into the space reserved for FCGI protocol data, thus ope…",
-      "ecosystems": [
-        "php"
-      ],
-      "epss": 0.99748,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-25",
-      "product": "php",
-      "score": 100,
-      "sources": [],
-      "vendor": "php",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2017-9841",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-94"
-      ],
-      "description": "Util/PHP/eval-stdin.php in PHPUnit before 4.8.28 and 5.x before 5.6.3 allows remote attackers to execute arbitrary PHP code via HTTP POST data beginning with a \"<?php \" substring, as demonstrated by an attack on a site with an exposed /vend…",
-      "ecosystems": [
-        "php"
-      ],
-      "epss": 0.99999,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-02-15",
-      "product": "phpunit",
-      "score": 100,
-      "sources": [],
-      "vendor": "phpunit_project",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
       "cve_id": "CVE-2021-44228",
       "cvss_score": 10.0,
       "cwe": [
@@ -6784,59 +6757,6 @@
       "score": 100,
       "sources": [],
       "vendor": "siemens",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2018-20062",
-      "cvss_score": 9.8,
-      "cwe": [],
-      "description": "An issue was discovered in NoneCms V1.3. thinkphp/library/think/App.php allows remote attackers to execute arbitrary PHP code via crafted use of the filter parameter, as demonstrated by the s=index/\\think\\Request/input&filter=phpinfo&data=1…",
-      "ecosystems": [
-        "php"
-      ],
-      "epss": 0.9953,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2021-11-03",
-      "product": "nonecms",
-      "score": 100,
-      "sources": [],
-      "vendor": "5none",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2018-7600",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-20"
-      ],
-      "description": "Drupal before 7.58, 8.x before 8.3.9, 8.4.x before 8.4.6, and 8.5.x before 8.5.1 allows remote attackers to execute arbitrary code because of an issue affecting multiple subsystems with default or common module configurations.",
-      "ecosystems": [
-        "php",
-        "web"
-      ],
-      "epss": 0.99991,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2021-11-03",
-      "product": "drupal",
-      "score": 100,
-      "sources": [],
-      "vendor": "drupal",
       "vuln_classes": []
     },
     {
