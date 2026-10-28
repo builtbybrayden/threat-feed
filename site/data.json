@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28T04:54:37Z",
+  "generated": "2026-10-28T12:32:23Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 50.1,
+      "score": 49.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.1)"
+        "recency (+12.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -74,13 +74,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 49.3,
+      "score": 49.1,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -105,13 +105,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 49.2,
+      "score": 49.0,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -136,12 +136,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 49.1,
+      "score": 48.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -164,12 +164,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 49.1,
+      "score": 48.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.1)"
+        "recency (+11.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -191,12 +191,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 46.1,
+      "score": 45.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.1)"
+        "recency (+8.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -244,12 +244,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 45.6,
+      "score": 45.3,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.6)"
+        "recency (+8.3)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -265,30 +265,6 @@
       ],
       "title": "[tl;dr sec] #351 - PHP2Shell, Autopatching Skills, AWS Pathrunner",
       "url": "https://tldrsec.com/p/tldr-sec-351"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "268febaf67e13c76",
-      "kev": false,
-      "published": "2026-10-27T14:29:26Z",
-      "score": 44.1,
-      "score_reasons": [
-        "source:PortSwigger Research (+15)",
-        "watchlist:javascript (+15)",
-        "recency (+14.1)"
-      ],
-      "source": "PortSwigger Research",
-      "source_type": "research",
-      "summary": "I tested eight popular SVG sanitizers and bypassed six of them. In this post, I'll show you how a response header can run JavaScript in Firefox even when the response body is completely harmless XML.",
-      "tags": [
-        "research",
-        "watchlist"
-      ],
-      "title": "Scalable Vector Grief",
-      "url": "https://portswigger.net/research/scalable-vector-grief"
     },
     {
       "appsec": true,
@@ -426,14 +402,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "268febaf67e13c76",
+      "kev": false,
+      "published": "2026-10-27T14:29:26Z",
+      "score": 43.7,
+      "score_reasons": [
+        "source:PortSwigger Research (+15)",
+        "watchlist:javascript (+15)",
+        "recency (+13.7)"
+      ],
+      "source": "PortSwigger Research",
+      "source_type": "research",
+      "summary": "I tested eight popular SVG sanitizers and bypassed six of them. In this post, I'll show you how a response header can run JavaScript in Firefox even when the response body is completely harmless XML.",
+      "tags": [
+        "research",
+        "watchlist"
+      ],
+      "title": "Scalable Vector Grief",
+      "url": "https://portswigger.net/research/scalable-vector-grief"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 43.7,
+      "score": 43.3,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+13.7)"
+        "recency (+13.3)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -454,12 +454,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 43.1,
+      "score": 42.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -480,12 +480,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 42.9,
+      "score": 42.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.9)"
+        "recency (+7.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -508,12 +508,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 42.3,
+      "score": 42.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -654,12 +654,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 41.3,
+      "score": 41.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.3)"
+        "recency (+4.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -683,12 +683,12 @@
       "id": "6053efd31e99a045",
       "kev": false,
       "published": "2026-10-08T14:30:00Z",
-      "score": 39.2,
+      "score": 39.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:npm,pnpm,pypi (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -715,12 +715,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 39.1,
+      "score": 39.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -732,36 +732,6 @@
       ],
       "title": "LaTeX renderer",
       "url": "https://simonwillison.net/2026/Oct/15/latex/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "886c6e66695f9828",
-      "kev": false,
-      "published": "2026-10-01T14:30:00Z",
-      "score": 38.1,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:python,javascript,jira (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+1.1)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!💻️ Dev Day 2026This week I attended my first ever OpenAI Dev Day, which was super cool! It’s actually extremely difficult to go as an employee, very limited tickets, I just got very lucky (and shout-out to my friend Konstantine).It was neat to feel the sparks in the air during the keynote, see the exhibit dedicated to builders, get a custom Dot sticker printed, check out the ImageGen photo booth, and see people building 3D cars in real time using Ultrafast mode.One reflection I had during the event is that we spend a lot of time in security thinking about what can go wrong, and trying to prevent negative externalities. So it was refreshing to be surrounded by people who focus on the positive side of tech, and are just joyfully, playfully building.It’s nice to be reminded of what we’re all working for.And it was great to catch up with some creator friends like Jack Rhysider and Jasmine Wong, and make new friends. I also met Ben Burke at the Cerebras afterparty (from the KRAZAM comedic YouTube channel), whose Microservices sketch still delights me.Quick funny story: I was chatting with some of the heads of security at OAI, and apparently earlier a PR person for a prominent YouTuber there came up to them and asked several times if they wanted a photo with the creator. They were like, “Nah I’m good,” and had no idea who the creator was. And the PR person had no idea who they were 😂 Delightful.📣 Adopting Real-Time Threat Detection WorkflowsReal-time threat detection is empowering security teams to flip the script on potential intruders. Real-time threat detection is the evolution of traditional threat detection that utilizes best-in-class modern security tools to analyze potential threats instantly. In the case of modern SIEM tools, teams can automate analysis to occur directly as event logs are ingested. Learn how to adopt a real-time threat detection strategy with modern SIEM in under an hour.👉 Learn More 👈Congrats to my Panther friends for being acquired by Databricks 🙌 I’m excited to see the “security lakehouse” they build!AppSecAgentic Hacks, Real Proofs: Inside Google's PageBreak ProjectGoogle's Michał Bentkowski writes about PageBreak, the Product Security team's agent, which has found over 500 XSS bugs across Google's first-party web applications since November 2025 (mostly using Gemini 3.1 Pro and 3.5 Flash), with near zero false positives. The key is their decision to prioritize deterministic validation: every hypothesis (potential vulnerability) goes to a validator that fires a real payload at a running environment, injecting JavaScript and watching whether it executes for XSS, writing a file in a world-readable location for path traversal, or triggering outbound DNS for RCE. Findings that cannot be deterministically confirmed act as seeds for deeper inspection in subsequent scans, and guide the development of new validation tools.PageBreak also doubled as a test of the high-assurance web framework Google described last year, which is built to eliminate whole classes of web bugs by default. Across hundreds of applications built on it, the agent turned up 2 only XSS bugs, both in internal apps or debug endpoints with hardening gaps.Michał credits Google's engineering setup for PageBreak’s effectiveness: the mono-repo lets the agent trace execution paths end to end without leaving the codebase, live HTTP traffic maps those paths back to source lines, and an existing scanner that authenticates to nearly every Google application lets PageBreak test many internal sites.Google's PageBreak Project – Real-World FindingsGoogle's Michał Bentkowski walks through three examples of high-severity vulnerabilities PageBreak found in production Google applications, including a cache poisoning vulnerability, an XSS in admin.google.com, and a UXSS in the Tag Assistant Extension. Sponsor📣 The AI Playbook Security Teams Need Right Now 📣Employees are already using AI everywhere: in the browser, through extensions, inside vibe-coded apps, IDEs, MCP integrations, and agents running with their own permissions. Most security teams can't see any of it. This playbook breaks the AI attack surface into distinct layers, from browser-based AI to network-level AI traffic, and gives you pointed questions to test your visibility and control at each one. Use it to find the blind spots before attackers, auditors, or your CISO do.👉 Download the Playbook 👈Nice, I do like me some playbooks and checklists so I can quickly ramp up on what I should be keeping in mind.Cloud SecurityMapping Scaleway IAM, An Attacker’s View of the Trust BoundariesTom De Keyser breaks down Scaleway's (an EU cloud provider) IAM model for anyone coming from AWS or Azure, where the concepts have the same names but don't work the same way. A Scaleway user principal API key doesn’t just carry permissions, it impersonates the person (leaked user key = full account takeover). Reconnaissance: even a policy-less key is enough to get oriented, leaking both metadata and permissions. For defenders, prefer application keys over user keys, guard the plaintext CLI config file, and assume all Organization and Project metadata is effectively public.CiliumHound: Graphing Kubernetes Network PoliciesSpecterOps's Andrew Luke introduces CiliumHound, a BloodHound OpenGraph extension for auditing Cilium network policies. (“Cilium is a Kubernetes Container Network Interface (CNI) plugin that enables network policies to control which pods can access resources within the cluster.”) CiliumHound ingests a folder of JSON or YAML policies and creates a searchable, Kubernetes namespace-scoped graph. It addresses the challenge of auditing complex Cilium CNI policies by representing L3, L4, and L7 rules (different OSI model levels) as nodes and edges, with ingress rules flowing inward and egress rules flowing outward from central namespace nodes. CiliumHound includes saved Cypher queries to identify policy gaps like egress rules without L4 port restrictions.Blue TeamDetection fidelity in the age of AI agents living off the landJulien Vehent writes about why AI agents are breaking the tripwire detections (rare actions that legitimate users almost never take) defenders have relied on for years. Tools like curl, tcpdump, and throwaway Python scripts used to be rare enough that a single run was worth investigating, but agents now use them all day as part of normal work. He uses the Hugging Face incident as an example, where Hugging Face's sensors caught the activity but never paged anyone because each action looked like normal workload behavior. Taken together, the signals pointed to an intrusion, with credentials used from several environments, workloads minting tokens they'd never touched before, and more than 180 VPN enrollments.Julien says detection has to move to correlation, giving each signal a confidence score and alerting when the combined score crosses a threshold along the attack chain. He also recommends giving every agent its own identity, testing that escalation actually reaches a human, and blocking agents from the cloud metadata service to cut noise at the source.One does not simply defend agenticallyThe NCSC's Dave Chismon writes about why defenders can't adopt agentic AI the way attackers have, building on Halvar Flake's (Thomas Dullien) maxim that offensive problems are technical and defensive problems are political. Attackers chase clear success states like a working exploit, while defenders work through budgets, change approvals, and patch windows, with someone accountable for any automated action that takes the business down. Dave proposes scoring each defensive action on potency, scope, criticality, rollout confidence, and recoverability, to identify the lowest-risk actions that we can start to automate. Example easy wins include tasks that are low potency ('advise a human' rather than 'affect a system directly'), like summarizing threat intelligence.The harder problem is proving an action really is low risk before it runs. “Can AI analyze traffic logs and show conclusively all the routes clients connect by? Can AI reverse engineer or otherwise assess a system and its binaries to show exactly which network calls it could ever make, or which processes it might need to spawn?”Offense Scales with Compute. Defense Scales with Committees.Bugcrowd founder and friend of the newsletter Casey Ellis writes about why AI is widening the gap between attackers and defenders. Attackers can now build and launch exploits as fast as their compute allows, while defenders still have to push every change through approvals and compliance first. Ellis says most AI-for-defense work focuses on the visible top of the stack, like AppSec and SIEM, which he calls \"the top five turtles.\" Groups like the China-backed Volt Typhoon hide in the layers underneath, in router firmware, abandoned middleware, and old Windows XP machines nobody can update. Shift from prevention to resilience by inventorying legacy systems, assume compromise wherever you lack visibility, and update incident response plans older than a year.“The attacker's velocity of adoption is gated only by compute and creativity. The cost of failure is trying again. The defender's velocity of adoption is gated by enterprise policy, change control, production stability, compliance review, procurement, vendor consolidation, board appetite, insurance posture, and twelve people in four time zones agreeing on one Jira ticket. The cost of failure is loss of availability and revenue.”💡 Excellent, thoughtful article. Warning: your wearable might record a slightly higher stress level after reading it.AI + SecurityScan for Good: Using AI to discover and fix high-priority exposures across public services and critical infrastructureWiz's Ami Luttwak and Gal Nagli announce Scan for Good, which runs the Wiz Red Agent and Google DeepMind's Gemini 3.8 Flash Cyber to autonomously discover and help remediate exposures in public-facing systems of critical infrastructure, nonprofits, and public services. It appears they’ve disclosed ~475 High / Critical findings so far.The post describes some high profile vulnerabilities found so far, including: an administrator key sitting on a public web server with read, write, and delete access to 8.8 million files in a national archive, a leaked production database exposed active admin sessions for a rail operator's routes and schedules, and a credential in public website code could have pushed malicious software into over 500 production container images behind a flagship AI service.💡 Awesome that Wiz is putting some resourcing behind securing critical infrastructure, love to see it! 🙌 Securing Agents Across Perplexity’s Client Endpoints with NumbatPerplexity open-sourced Numbat, an agent security suite that detects, prevents, and investigates risky AI agent behavior on macOS, Linux, and Windows. Numbat is a Go binary that plugs into harnesses like Claude Code, Codex, OpenCode, and Pi, using hooks to block risky actions before they run, session artifacts to rebuild timelines after the fact, and OpenTelemetry protocol (OTLP) telemetry for monitoring. Those integrations feed 52 built-in rules, including sequence detections like flagging a secrets manager read followed by a curl upload, since either action alone can be legitimate. Rules use CEL expressions over normalized events. Inside Perplexity, Numbat runs on every endpoint through MDM and sends what those rules catch to Perplexity Computer, which investigates each detection and drafts new rules for the security team to review.💡 Great post, and neat that they open sourced Numbat. Between that and Bumblebee, Perplexity has been cooking 🧑‍🍳 Shout-out Kyle Polley, Adel Karimi, and the rest of the team. MiscMiscAnime Engineering Senpai - Software Engineer: I'm Tired of PretendingAlex Hormozi - \"Did I Waste My Best Years?\"Netflix trailer - One Year to Live, Buy a ManSuperhuman silky smooth movements - Pretty cool tricksMy First Million - Here's the (only) 8 rules for growing an audienceHumorANDREW HUBERMAN: Sundae Conversation with Caleb PressleyThe Race For AGI - Crazy AI Mad Max parody with the foundation lab founders. I have mixed feelings about AI’s impact on screen industry workers, but the storytelling individual people can do now is impressive.Ari K - CLAUDIO - A recruitment videoKai Lentit - AI CEO Interviews (2026)AIIts not just the f*cking sandboxAs A.I. Makes Law Firms More Efficient, Clients Ask: ‘Where’s My Discount?’Dwarkesh Patel - AI researchers debate how close we are to recursive self-improvementAI Engineer - Jev Creator: Why RLCD beats RLHFBrian Chesky - People managers won’t survive in the age of AIJeffrey Katzenberg (Walt Disney CEO, DreamWorks co-founder) - The World is Changing: AI For Creativity - Incredible story, great essay. “Technology didn't diminish the craft, it expanded the canvas. It gave artists more room to create.” “Tools are never the point. The instruments change with every generation. What endures is taste and imagination. The magical ability to make an audience feel.” “As the barriers and the costs come down, more films will get made, not fewer. Studios will get to take more risks. There will be more seats at the table, and very soon entirely new forms of storytelling. In the 1980s, animation was dismissed as a niche corner of the business. Today it is one of the most beloved and profitable forms of storytelling in the world.”✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "web",
-        "xss",
-        "path-traversal",
-        "rce"
-      ],
-      "title": "[tl;dr sec] #348 - Google's PageBreak Scanner, Perplexity's Agent Security Tool, Defending Agentically",
-      "url": "https://tldrsec.com/p/tldr-sec-348"
     },
     {
       "appsec": true,
@@ -796,6 +766,36 @@
       ],
       "title": "[tl;dr sec] #332 - I've Joined OpenAI, fwd:cloudsec, AWS Well Architected Supply Chain Security",
       "url": "https://tldrsec.com/p/tldr-sec-332"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "886c6e66695f9828",
+      "kev": false,
+      "published": "2026-10-01T14:30:00Z",
+      "score": 38.0,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:python,javascript,jira (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+1.0)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!💻️ Dev Day 2026This week I attended my first ever OpenAI Dev Day, which was super cool! It’s actually extremely difficult to go as an employee, very limited tickets, I just got very lucky (and shout-out to my friend Konstantine).It was neat to feel the sparks in the air during the keynote, see the exhibit dedicated to builders, get a custom Dot sticker printed, check out the ImageGen photo booth, and see people building 3D cars in real time using Ultrafast mode.One reflection I had during the event is that we spend a lot of time in security thinking about what can go wrong, and trying to prevent negative externalities. So it was refreshing to be surrounded by people who focus on the positive side of tech, and are just joyfully, playfully building.It’s nice to be reminded of what we’re all working for.And it was great to catch up with some creator friends like Jack Rhysider and Jasmine Wong, and make new friends. I also met Ben Burke at the Cerebras afterparty (from the KRAZAM comedic YouTube channel), whose Microservices sketch still delights me.Quick funny story: I was chatting with some of the heads of security at OAI, and apparently earlier a PR person for a prominent YouTuber there came up to them and asked several times if they wanted a photo with the creator. They were like, “Nah I’m good,” and had no idea who the creator was. And the PR person had no idea who they were 😂 Delightful.📣 Adopting Real-Time Threat Detection WorkflowsReal-time threat detection is empowering security teams to flip the script on potential intruders. Real-time threat detection is the evolution of traditional threat detection that utilizes best-in-class modern security tools to analyze potential threats instantly. In the case of modern SIEM tools, teams can automate analysis to occur directly as event logs are ingested. Learn how to adopt a real-time threat detection strategy with modern SIEM in under an hour.👉 Learn More 👈Congrats to my Panther friends for being acquired by Databricks 🙌 I’m excited to see the “security lakehouse” they build!AppSecAgentic Hacks, Real Proofs: Inside Google's PageBreak ProjectGoogle's Michał Bentkowski writes about PageBreak, the Product Security team's agent, which has found over 500 XSS bugs across Google's first-party web applications since November 2025 (mostly using Gemini 3.1 Pro and 3.5 Flash), with near zero false positives. The key is their decision to prioritize deterministic validation: every hypothesis (potential vulnerability) goes to a validator that fires a real payload at a running environment, injecting JavaScript and watching whether it executes for XSS, writing a file in a world-readable location for path traversal, or triggering outbound DNS for RCE. Findings that cannot be deterministically confirmed act as seeds for deeper inspection in subsequent scans, and guide the development of new validation tools.PageBreak also doubled as a test of the high-assurance web framework Google described last year, which is built to eliminate whole classes of web bugs by default. Across hundreds of applications built on it, the agent turned up 2 only XSS bugs, both in internal apps or debug endpoints with hardening gaps.Michał credits Google's engineering setup for PageBreak’s effectiveness: the mono-repo lets the agent trace execution paths end to end without leaving the codebase, live HTTP traffic maps those paths back to source lines, and an existing scanner that authenticates to nearly every Google application lets PageBreak test many internal sites.Google's PageBreak Project – Real-World FindingsGoogle's Michał Bentkowski walks through three examples of high-severity vulnerabilities PageBreak found in production Google applications, including a cache poisoning vulnerability, an XSS in admin.google.com, and a UXSS in the Tag Assistant Extension. Sponsor📣 The AI Playbook Security Teams Need Right Now 📣Employees are already using AI everywhere: in the browser, through extensions, inside vibe-coded apps, IDEs, MCP integrations, and agents running with their own permissions. Most security teams can't see any of it. This playbook breaks the AI attack surface into distinct layers, from browser-based AI to network-level AI traffic, and gives you pointed questions to test your visibility and control at each one. Use it to find the blind spots before attackers, auditors, or your CISO do.👉 Download the Playbook 👈Nice, I do like me some playbooks and checklists so I can quickly ramp up on what I should be keeping in mind.Cloud SecurityMapping Scaleway IAM, An Attacker’s View of the Trust BoundariesTom De Keyser breaks down Scaleway's (an EU cloud provider) IAM model for anyone coming from AWS or Azure, where the concepts have the same names but don't work the same way. A Scaleway user principal API key doesn’t just carry permissions, it impersonates the person (leaked user key = full account takeover). Reconnaissance: even a policy-less key is enough to get oriented, leaking both metadata and permissions. For defenders, prefer application keys over user keys, guard the plaintext CLI config file, and assume all Organization and Project metadata is effectively public.CiliumHound: Graphing Kubernetes Network PoliciesSpecterOps's Andrew Luke introduces CiliumHound, a BloodHound OpenGraph extension for auditing Cilium network policies. (“Cilium is a Kubernetes Container Network Interface (CNI) plugin that enables network policies to control which pods can access resources within the cluster.”) CiliumHound ingests a folder of JSON or YAML policies and creates a searchable, Kubernetes namespace-scoped graph. It addresses the challenge of auditing complex Cilium CNI policies by representing L3, L4, and L7 rules (different OSI model levels) as nodes and edges, with ingress rules flowing inward and egress rules flowing outward from central namespace nodes. CiliumHound includes saved Cypher queries to identify policy gaps like egress rules without L4 port restrictions.Blue TeamDetection fidelity in the age of AI agents living off the landJulien Vehent writes about why AI agents are breaking the tripwire detections (rare actions that legitimate users almost never take) defenders have relied on for years. Tools like curl, tcpdump, and throwaway Python scripts used to be rare enough that a single run was worth investigating, but agents now use them all day as part of normal work. He uses the Hugging Face incident as an example, where Hugging Face's sensors caught the activity but never paged anyone because each action looked like normal workload behavior. Taken together, the signals pointed to an intrusion, with credentials used from several environments, workloads minting tokens they'd never touched before, and more than 180 VPN enrollments.Julien says detection has to move to correlation, giving each signal a confidence score and alerting when the combined score crosses a threshold along the attack chain. He also recommends giving every agent its own identity, testing that escalation actually reaches a human, and blocking agents from the cloud metadata service to cut noise at the source.One does not simply defend agenticallyThe NCSC's Dave Chismon writes about why defenders can't adopt agentic AI the way attackers have, building on Halvar Flake's (Thomas Dullien) maxim that offensive problems are technical and defensive problems are political. Attackers chase clear success states like a working exploit, while defenders work through budgets, change approvals, and patch windows, with someone accountable for any automated action that takes the business down. Dave proposes scoring each defensive action on potency, scope, criticality, rollout confidence, and recoverability, to identify the lowest-risk actions that we can start to automate. Example easy wins include tasks that are low potency ('advise a human' rather than 'affect a system directly'), like summarizing threat intelligence.The harder problem is proving an action really is low risk before it runs. “Can AI analyze traffic logs and show conclusively all the routes clients connect by? Can AI reverse engineer or otherwise assess a system and its binaries to show exactly which network calls it could ever make, or which processes it might need to spawn?”Offense Scales with Compute. Defense Scales with Committees.Bugcrowd founder and friend of the newsletter Casey Ellis writes about why AI is widening the gap between attackers and defenders. Attackers can now build and launch exploits as fast as their compute allows, while defenders still have to push every change through approvals and compliance first. Ellis says most AI-for-defense work focuses on the visible top of the stack, like AppSec and SIEM, which he calls \"the top five turtles.\" Groups like the China-backed Volt Typhoon hide in the layers underneath, in router firmware, abandoned middleware, and old Windows XP machines nobody can update. Shift from prevention to resilience by inventorying legacy systems, assume compromise wherever you lack visibility, and update incident response plans older than a year.“The attacker's velocity of adoption is gated only by compute and creativity. The cost of failure is trying again. The defender's velocity of adoption is gated by enterprise policy, change control, production stability, compliance review, procurement, vendor consolidation, board appetite, insurance posture, and twelve people in four time zones agreeing on one Jira ticket. The cost of failure is loss of availability and revenue.”💡 Excellent, thoughtful article. Warning: your wearable might record a slightly higher stress level after reading it.AI + SecurityScan for Good: Using AI to discover and fix high-priority exposures across public services and critical infrastructureWiz's Ami Luttwak and Gal Nagli announce Scan for Good, which runs the Wiz Red Agent and Google DeepMind's Gemini 3.8 Flash Cyber to autonomously discover and help remediate exposures in public-facing systems of critical infrastructure, nonprofits, and public services. It appears they’ve disclosed ~475 High / Critical findings so far.The post describes some high profile vulnerabilities found so far, including: an administrator key sitting on a public web server with read, write, and delete access to 8.8 million files in a national archive, a leaked production database exposed active admin sessions for a rail operator's routes and schedules, and a credential in public website code could have pushed malicious software into over 500 production container images behind a flagship AI service.💡 Awesome that Wiz is putting some resourcing behind securing critical infrastructure, love to see it! 🙌 Securing Agents Across Perplexity’s Client Endpoints with NumbatPerplexity open-sourced Numbat, an agent security suite that detects, prevents, and investigates risky AI agent behavior on macOS, Linux, and Windows. Numbat is a Go binary that plugs into harnesses like Claude Code, Codex, OpenCode, and Pi, using hooks to block risky actions before they run, session artifacts to rebuild timelines after the fact, and OpenTelemetry protocol (OTLP) telemetry for monitoring. Those integrations feed 52 built-in rules, including sequence detections like flagging a secrets manager read followed by a curl upload, since either action alone can be legitimate. Rules use CEL expressions over normalized events. Inside Perplexity, Numbat runs on every endpoint through MDM and sends what those rules catch to Perplexity Computer, which investigates each detection and drafts new rules for the security team to review.💡 Great post, and neat that they open sourced Numbat. Between that and Bumblebee, Perplexity has been cooking 🧑‍🍳 Shout-out Kyle Polley, Adel Karimi, and the rest of the team. MiscMiscAnime Engineering Senpai - Software Engineer: I'm Tired of PretendingAlex Hormozi - \"Did I Waste My Best Years?\"Netflix trailer - One Year to Live, Buy a ManSuperhuman silky smooth movements - Pretty cool tricksMy First Million - Here's the (only) 8 rules for growing an audienceHumorANDREW HUBERMAN: Sundae Conversation with Caleb PressleyThe Race For AGI - Crazy AI Mad Max parody with the foundation lab founders. I have mixed feelings about AI’s impact on screen industry workers, but the storytelling individual people can do now is impressive.Ari K - CLAUDIO - A recruitment videoKai Lentit - AI CEO Interviews (2026)AIIts not just the f*cking sandboxAs A.I. Makes Law Firms More Efficient, Clients Ask: ‘Where’s My Discount?’Dwarkesh Patel - AI researchers debate how close we are to recursive self-improvementAI Engineer - Jev Creator: Why RLCD beats RLHFBrian Chesky - People managers won’t survive in the age of AIJeffrey Katzenberg (Walt Disney CEO, DreamWorks co-founder) - The World is Changing: AI For Creativity - Incredible story, great essay. “Technology didn't diminish the craft, it expanded the canvas. It gave artists more room to create.” “Tools are never the point. The instruments change with every generation. What endures is taste and imagination. The magical ability to make an audience feel.” “As the barriers and the costs come down, more films will get made, not fewer. Studios will get to take more risks. There will be more seats at the table, and very soon entirely new forms of storytelling. In the 1980s, animation was dismissed as a niche corner of the business. Today it is one of the most beloved and profitable forms of storytelling in the world.”✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "web",
+        "xss",
+        "path-traversal",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #348 - Google's PageBreak Scanner, Perplexity's Agent Security Tool, Defending Agentically",
+      "url": "https://tldrsec.com/p/tldr-sec-348"
     },
     {
       "appsec": true,
@@ -1478,11 +1478,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 34.3,
+      "score": 33.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.3)"
+        "recency (+12.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1502,11 +1502,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 33.9,
+      "score": 33.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+12.9)"
+        "recency (+12.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1525,11 +1525,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 30.7,
+      "score": 30.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.7)"
+        "recency (+9.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1618,11 +1618,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 29.7,
+      "score": 29.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+8.7)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1633,30 +1633,6 @@
       ],
       "title": "Donating Agent Skills to the Agentic AI Foundation",
       "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c6ac92b5dc7c111b",
-      "kev": false,
-      "published": "2026-10-20T19:34:19Z",
-      "score": 28.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript,typescript,llm (+15)",
-        "recency (+7.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My latest vibe coded game experiment is a Command & Conquer style RTS (Real Time Strategy) game called Battle Drones (play it here). Unlike my previous experiments, this one is actually fun to play. I'm somewhat embarrassed to admit that I got there by telling Claude to \"Make it a LOT more fun\". It also supports multiplayer between nearby devices using audio to synchronize game state! Here's what I've built so far, and some of the things I learned along the way. Battle Drones How I built this v1: the initial prototype v2: full sprites v3: varied terrain v4: the fun update v5: Battle Drones goes 3D v8: Archipelago v10: Goliath, and agent battles Agent battles v11: Random Maps v12: Multiplayer via sound Some thoughts Update: Online multiplayer support Battle Drones My initial goal was to build an RTS game I could play on my phone, in the style of Command & Conquer. I have fond memories of the 1995 original (I liked Red Alert too) and wanted to recapture a little bit of the magic. After 12 major iterations (and 321 commits by coding agents, mainly Claude Code) I now have a browser-based game that works on mobile and desktop, has multiple play modes, several maps (including a random map generator) and even supports multiplayer for two devices within microphone range of each other. (Update: also online multiplayer; the audio multiplayer induced headaches!) Here's a video demo of Battle Drones running in a desktop browser: Features so far include: 9 buildings, 7 ground vehicles, 6 aerial vehicles, 3 infantry units - all 3D models, which you can browse here Fog of war Different weapons are needed to target aerial or ground vehicles Six maps, across five biomes - temperate, desert, arctic, volcanic, tropical A random map generator Skirmish mode - red vs. blue on a rotationally symmetrical map Last Stand mode - one player holds out against as many waves of enemies as possible Area effect weapons: Barrage, EMP, Drop Pod, Sky Hammer Crate drops with bonus resources In-game music that responds to events - it gets more intense as fighting breaks out Different in-game AI personalities (Balanced, Rush, Air Swarm, Boom, Skyforce, Ironclad) AI vs. AI mode, to watch those personalities play each other The Goliath - a giant stomping mech with laser eyes and arm cannons and the ability to establish a new base Mutators that add extra rules or twists A \"Daily Op\" challenge Ranks and achievements (Medals) Agent vs. Agent mode where two LLMs can play Battle Drones against each other A multiplayer mode based on two nearby phones communicating via audio messages, an extension of my earlier experiment with Chirp Pong How I built this Battle Drones is heavily vibe coded - I've reviewed almost none of the code, and it's built in a language (TypeScript) that I've hardly used myself. I've playtested it quite a bit though, and it's been through a large number of iterations since I started the project. Here's a rough history of the project so far, including key prompts and links to transcripts. v1: the initial prototype I started out with Claude Fable 5 back in July: We are going to build a mobile friendly RTS game - command and conquer style - called Battle Drones, in which two armies of drones (both flying and ground-based) battle for territory and resources Let's start with a MVP design, ask me some questions Here's a shared transcript. I'd given Claude Code for Web an environment variable with an OpenAI API key and told it to use the OpenAI Image Generation API for assets, which got me some basic sprites. You can try v1 here - it looked like this: It's recognizable as an RTS, has building mechanics and the ability to select and direct units, and a basic AI to play against. This first version was barely a proof of concept, and it wasn't any fun to play. Claude used the Phaser 2D game framework for these early versions. I didn't even realize this until several iterations later! v2: full sprites The second version (try v2 here) added sprites for all of the vehicles and the \"AI vs. AI\" mode, so I could watch the game playing without having to directly control it myself. Claude proved reasonably competent at prompting OpenAI's image models to generate sprites. You can browse the v2 sprites in the public/assets/sprites folder. v3: varied terrain It still wasn't much fun, and the graphics were boring. It was now October, and I had upgraded to Claude Opus 5.5. I told it: Massively improve this game. Make the graphics and gameplay better (keep it mobile friendly). Render new graphics using the latest OpenAI GPT image API (lookup details) with the API key in the environment variable. Add new unit types and balance the gameplay better. Also add new buildings and better, more varied terrain. This resulted in five new maps with generated background tiles in a variety of styles, visible here. Opus also regenerated the sprites, making them much more visually appealing. You can try v3 here - it looks like this: This is starting to feel like a real game! It still wasn't very fun to play though - I found myself getting bored pretty quickly. v4: the fun update So far my Battle Drones experiment was confirming my previous belief that coding agents can build a thing that looks like a game but can't actually make something that's genuinely compelling to play. I shared this theory with someone over dinner, and then thought to myself that I should give the models a proper chance to prove me wrong. I prompted Opus 5.5 on my phone: This game isn't fun enough yet. Make it a LOT more fun. This time I was running in Ultracode mode, where Claude Code (in this case Claude Code for Web) runs \"dynamic workflows\", described in their docs as: A dynamic workflow is a JavaScript script that orchestrates many subagents at once. This kicked off many hours of work. I started it in the evening and didn't get a playable result back until late into the next morning. But the results were spectacular. You can try v4 here - it looks like this: I had Claude write its own release notes - here are the highlights: Every skirmish and Daily Op now opens with a choice, gives the side that's losing a way back, and pulls the armies into the middle of the map. There are also two new ways to play. Openers: pick Blitz, Industry or Air Wing before the clock starts. Call-down powers: Barrage, EMP, Drop Pod and the Sky Hammer orbital strike. Objectives and salvage: Uplink relays, supply drops and wrecks worth scrap. Feel: combat juice, adaptive music, unit voices and an announcer. Command: battle alerts, game speed, saved squads and touch placement. New modes: Last Stand survival waves and an 8-mission Ops campaign. Progression: heroes, an after-action report with awards, a career, 7 mutators and a Daily Op. Fights run longer and swing more. In 1,200 AI-vs-AI test matches on Normal, games still undecided after 25 minutes fell from 14% to 0.9%. The share of wins by a side that had been 800+ scrap behind rose from 24% to 46%. Part of the reason Claude took so long was that it ran over a thousand simulated playtest sessions, and used the results to rebalance the existing units, add new ones, and introduce new features. v5: Battle Drones goes 3D After the success of Ultracode at \"Make it a LOT more fun\", I decided to be more ambitious: Port this game to three.js with 3D models for all of the buildings and vehicles and landscapes That was another overnight run. I woke up to this v5 version: The new 3D models were entirely constructed by Claude in TypeScript code. v6 (play v6 here) added some more visual polish. v7 (play v7) added robot infantry (troopers, rocket squads, snipers) and a \"Condor\" troop carrying aircraft. v8: Archipelago I was beginning to feel guilty at how little actual design input I had into the game - it really had been a case of me saying \"make it more fun\" and \"add visual polish\" for the past few releases. I'd noticed that the AI didn't use the new infantry and troop carrying aircraft from v7 very often - there wasn't a great strategic reason to use them. It would be neat if we had a new map with a new game mechanic that actively encouraged players to load up Condors with infantry robots and send them out into the map. This resulted in my longest prompt yet: Design a new map. Goal is to make different strategic incentives that encourage use of Infantry and Condors and aerial vehicles. To do this the map will have limited harvester resources but several more uplinks - but uplinks will be on islands that are inaccessible by land vehicles or infantry. These uplinks can also not be claimed using air vehicles. The ONLY way to get them is to fly infantry there in a Condor. Armies always start with a Condor and a single squad. If an army has no Condor a new one will be provided for free, flying in from the edge closest to their HQ and landing there. That free condor will come with a single free squad on board. The two HQs should be entirely separated by water, but still accessible by vehicles thanks to two bridges across the map in different places I want to encourage a battle over uplinks. The map should be the times the size of other maps - still square First research and then critique this design. Only build after we have agreed on any modifications You get to design a new biome for this The result was the tropical Archipelago map, with seven island uplinks that players can only capture by flying out infantry in a Condor. It's definitely the most fun map to play, once you've got the hang of the basic game mechanics from the simpler maps. The v9 edition made that map a little more interesting - it now looks like this: v10: Goliath, and agent battles I decided to add giant robot mechs to the game - think Jaegers from Pacific Rim, or Titans from Warhammer 40,000. Here are some of the prompts I used to brainstorm with Claude: Help me brainstorm ideas for adding giant robots to this game - think dreadnoughts or titans from W20K - how could we do this in a way that enhanced gameplay, kept things balanced, added unique twist? Don't overthink this yet Let's keep brainstorming. I like the idea that it's a mobile base - that can accept harvested scrap and can have buildings built near it (even if it later moves on) and can produce infantry units too. An interaction with condor would be neat but I don't know what that could be. Idea: as it gets damage it loses the ability to fire some weapons - by default it has eye laser (like lancers) and arm canons (like titan) and two shoulder mounted mortars, plus machine guns similar to a squad of troops Damage knocks out mortars and then laser - it always has guns. You can't build next to a building that was only put there because of the mech, you need the mech there for off-base building and only within three squares of it [...] Lets do two condors can carry the mech The end result is really cool. Your browser does not support HTML video. Goliaths can be constructed using a Gantry - a building that can only be created after first building a Fab, Bay, Airpad, and Tech Lab. You can see the Goliath under construction, and it then walks out from the Gantry and can march around the map. Goliaths can \"anchor\", which digs them into the ground. In their anchored state they can act as a new HQ, constructing infantry units and additional buildings in a new area. Two Condor aircraft can hook onto a Goliath, at which point it can be flown around the map! The game now ends when you destroy the enemy's HQ building and any Goliaths they might have built. There are also a couple of mutators relating to Goliaths: Goliath Armada starts each side with four airborne Goliaths (each with a pair of Condors) and no other units. Robot Love adds a special rule: if enemy Goliaths get close to each other on the battlefield they fall in love and the game ends in a draw. (Thank Natalie for that one). Agent battles The other v10 feature is agent battles. In musing about how multiplayer could work I had an idea: what if different LLMs could fight it out in the game? Fun extra challenge: think about how we might make multiplayer available to coding agents. It would be neat if we could set up a battle between eg GPT-6 Sol and Claude Opus 5.5 where each model has access to a tool which gives them information about the game (presumably non-visual, but only the information they could see through fog of war etc) and lets them control their units etc [...] Consult ~/dev/llm/docs and include notes in that file about how LLM could be used here via a new tools plugin Opus 5.5 went to work on this, producing this AGENT-BATTLES.md proposal and then implementing and testing it. The feature also includes the ability to record and replay these battles - here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna, and here's that same battle in a separate debug tool that shows the underlying prompt responses. The prompt that drives agent battles can be seen here. There are a few more replays like this linked in the README. I hope to turn this into a full league table at some point in the future. v11: Random Maps This version exists purely because I glanced at my Claude Usage page one day and saw that I'd only used 75% of my weekly allowance and it was resetting in 45 minutes. I decided to see if I could get an extra Battle Drones feature from my remaining tokens, and picked \"random map\" as the target: Design and implement a mechanism for generating a random map using any of the available biomes - it should be the size of the largest map and rivers and bridges and rocks and forest and scrap and crystals are all in play. Make them rotationally symmetric and use a seed to allow them to be selected or reused later. You have 45 minutes to build this! Be creative. Here's the transcript, and an image Claude generated to show me its work: v12: Multiplayer via sound I only just got this working, so I've not had much time to actively test it yet. The latest Battle Drones now supports multiplayer via two devices sat within microphone distance of each other! This feature started out as my Chirp Pong experiment from last week. I pointed Claude Code at that working proof of concept: Clone Simonw/tools from GitHub and look at recent branches for the example pong game that uses web microphone to implement multiplayer between two phones via audio signals Build a version of that for battledrones Opus built this Radio Probe tool to measure how much bandwidth we could get between two devices and, based on positive results from that, implemented a full audio modem system. I've tried it between laptops, iPhones and iPads so far and it seems to work really well! Why use sound for this? Because I love static HTML that costs nothing to run, and I don't want to spin up a server somewhere and then stay responsible for keeping it operating for as long as anyone might want to play the game. Some thoughts I know almost nothing about game development. This makes it a great opportunity to try out coding agents in a field where my existing software engineering experience has less impact on the results. Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. This morning (via Hacker News) I found Steam Fans Are Begging for a No-AI Filter as Steam Next Fest Is Filled With Slop. I wouldn't personally dream of submitting Battle Drones to an event like this - it's still way too low effort to warrant consideration as a legitimate indie gaming project. ... but I can now see a path to vibe coded games like this being taken seriously. Battle Drones is fun, it looks good, it has innovative features (the multiplayer-over-audio thing is a first for an RTS as far as I can tell). I'd love to see what someone with better taste than me and a driving passion to produce something truly exceptional could build! A few other observations from this project: Static HTML and JavaScript is a fantastic medium for games development. WebGL works great, and Three.js (and Phaser before it) are excellent platforms to build on that the current models know inside out. This also lets them run as Progressive Web Apps - I didn't ask for it, but Battle Drones works offline. I was able to play it on a plane despite never having directly installed it - my phone had it cached. Giving Claude an OpenAI API key and telling it to generate images using OpenAI's models works really well. It can view the images it has generated and iterate on the prompts. Opus 5.5 is spectacular at 3D modeling using Three.js (and Blender, and no doubt other 3D applications as well). The same is true of GPT-6 Astra. They are absolutely capable of building models for 3D game projects. For features like replay and multiplayer it's useful to have a deterministic simulation engine. At one point Claude had to replace calls to Math.sin() and Math.cos() and friends with custom versions because different browsers (Chrome vs. Safari, for example) returned very slightly different numbers, desynchronizing the replay. Opus 5.5 can write music! There are no audio files in this project - the soundtrack is entirely generated through code, varies across different maps, and even gets more intense as the battle heats up. See Scrimshaw Jukebox for a previous experiment with Claude for music composition. I still can't get over how well the prompt \"Make it a LOT more fun\" worked. Tools are effectively free. I prompted up the Radio Probe, the Model browser, the Agent vs. Agent debug tool, and Claude Code built a bunch of tools for itself that I haven't even explored myself. Audio-based multiplayer between static HTML games works! I hope to see a whole lot more games use this same pattern - in digging around today I've not found much prior art beyond Siner by Alon Horesh and ggwave by Georgi Gerganov (also of llama.cpp fame). Claude Code \"Ultracode\" burns tokens like there's no tomorrow, but it can also solve complex problems (like adding audio-based multiplayer) from a single prompt. I'm still not quite over the guilt of building software in this way. I don't feel like I've earned the right to create something this good, in a field in which I have so little prior experience! At this point I've shown it to enough people in private that it felt wrong not to publish it for everyone else to see and learn from. Update: Online multiplayer support Earlier in this article I said: Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. Then I tried playing the multiplayer version with Natalie... and the high pitched modem sounds gave her a nasty headache! That's a pretty bad bug. I added a warning and was then inspired to build proper network multiplayer. I tried getting WebRTC to work but couldn't get a connection going between two of my own devices even on my own WiFi network, so I had Claude build a simple, stateless WebSockets relay server instead: If I wanted to support multiplayer between two devices at a very low cost without storing any state on the server could I do that with a tiny asyncio web server running on the cheapest Fly instance? Build the server and the fly.toml for deploying it, use Fly application name battledrones-relay - put that in a folder in the repo, include deploy instructions in the README in that folder Here's the resulting server. Since this scales to zero and runs on a single Fly.io shared-cpu-1x instance it should cost me no more than $2.19/month - and that's if it stays hot and serving connections the whole time. Battle Drones now supports online multiplayer. Click \"Duel a friend online\", then either share the resulting room URL via your messaging app of choice or have them snap a picture of the displayed QR Code. I also added a feature where you can copy JSON of the match once it has ended and then feed that into the replay feature to rewatch your game. I didn't expect to introduce online multiplayer this soon, but the headache bug felt like it warranted an urgent alternative. Tags: game-design, projects, ai, generative-ai, llms, claude, vibe-coding, coding-agents, claude-code",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
-      "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
     },
     {
       "appsec": false,
@@ -1690,14 +1666,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c6ac92b5dc7c111b",
+      "kev": false,
+      "published": "2026-10-20T19:34:19Z",
+      "score": 28.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript,typescript,llm (+15)",
+        "recency (+7.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My latest vibe coded game experiment is a Command & Conquer style RTS (Real Time Strategy) game called Battle Drones (play it here). Unlike my previous experiments, this one is actually fun to play. I'm somewhat embarrassed to admit that I got there by telling Claude to \"Make it a LOT more fun\". It also supports multiplayer between nearby devices using audio to synchronize game state! Here's what I've built so far, and some of the things I learned along the way. Battle Drones How I built this v1: the initial prototype v2: full sprites v3: varied terrain v4: the fun update v5: Battle Drones goes 3D v8: Archipelago v10: Goliath, and agent battles Agent battles v11: Random Maps v12: Multiplayer via sound Some thoughts Update: Online multiplayer support Battle Drones My initial goal was to build an RTS game I could play on my phone, in the style of Command & Conquer. I have fond memories of the 1995 original (I liked Red Alert too) and wanted to recapture a little bit of the magic. After 12 major iterations (and 321 commits by coding agents, mainly Claude Code) I now have a browser-based game that works on mobile and desktop, has multiple play modes, several maps (including a random map generator) and even supports multiplayer for two devices within microphone range of each other. (Update: also online multiplayer; the audio multiplayer induced headaches!) Here's a video demo of Battle Drones running in a desktop browser: Features so far include: 9 buildings, 7 ground vehicles, 6 aerial vehicles, 3 infantry units - all 3D models, which you can browse here Fog of war Different weapons are needed to target aerial or ground vehicles Six maps, across five biomes - temperate, desert, arctic, volcanic, tropical A random map generator Skirmish mode - red vs. blue on a rotationally symmetrical map Last Stand mode - one player holds out against as many waves of enemies as possible Area effect weapons: Barrage, EMP, Drop Pod, Sky Hammer Crate drops with bonus resources In-game music that responds to events - it gets more intense as fighting breaks out Different in-game AI personalities (Balanced, Rush, Air Swarm, Boom, Skyforce, Ironclad) AI vs. AI mode, to watch those personalities play each other The Goliath - a giant stomping mech with laser eyes and arm cannons and the ability to establish a new base Mutators that add extra rules or twists A \"Daily Op\" challenge Ranks and achievements (Medals) Agent vs. Agent mode where two LLMs can play Battle Drones against each other A multiplayer mode based on two nearby phones communicating via audio messages, an extension of my earlier experiment with Chirp Pong How I built this Battle Drones is heavily vibe coded - I've reviewed almost none of the code, and it's built in a language (TypeScript) that I've hardly used myself. I've playtested it quite a bit though, and it's been through a large number of iterations since I started the project. Here's a rough history of the project so far, including key prompts and links to transcripts. v1: the initial prototype I started out with Claude Fable 5 back in July: We are going to build a mobile friendly RTS game - command and conquer style - called Battle Drones, in which two armies of drones (both flying and ground-based) battle for territory and resources Let's start with a MVP design, ask me some questions Here's a shared transcript. I'd given Claude Code for Web an environment variable with an OpenAI API key and told it to use the OpenAI Image Generation API for assets, which got me some basic sprites. You can try v1 here - it looked like this: It's recognizable as an RTS, has building mechanics and the ability to select and direct units, and a basic AI to play against. This first version was barely a proof of concept, and it wasn't any fun to play. Claude used the Phaser 2D game framework for these early versions. I didn't even realize this until several iterations later! v2: full sprites The second version (try v2 here) added sprites for all of the vehicles and the \"AI vs. AI\" mode, so I could watch the game playing without having to directly control it myself. Claude proved reasonably competent at prompting OpenAI's image models to generate sprites. You can browse the v2 sprites in the public/assets/sprites folder. v3: varied terrain It still wasn't much fun, and the graphics were boring. It was now October, and I had upgraded to Claude Opus 5.5. I told it: Massively improve this game. Make the graphics and gameplay better (keep it mobile friendly). Render new graphics using the latest OpenAI GPT image API (lookup details) with the API key in the environment variable. Add new unit types and balance the gameplay better. Also add new buildings and better, more varied terrain. This resulted in five new maps with generated background tiles in a variety of styles, visible here. Opus also regenerated the sprites, making them much more visually appealing. You can try v3 here - it looks like this: This is starting to feel like a real game! It still wasn't very fun to play though - I found myself getting bored pretty quickly. v4: the fun update So far my Battle Drones experiment was confirming my previous belief that coding agents can build a thing that looks like a game but can't actually make something that's genuinely compelling to play. I shared this theory with someone over dinner, and then thought to myself that I should give the models a proper chance to prove me wrong. I prompted Opus 5.5 on my phone: This game isn't fun enough yet. Make it a LOT more fun. This time I was running in Ultracode mode, where Claude Code (in this case Claude Code for Web) runs \"dynamic workflows\", described in their docs as: A dynamic workflow is a JavaScript script that orchestrates many subagents at once. This kicked off many hours of work. I started it in the evening and didn't get a playable result back until late into the next morning. But the results were spectacular. You can try v4 here - it looks like this: I had Claude write its own release notes - here are the highlights: Every skirmish and Daily Op now opens with a choice, gives the side that's losing a way back, and pulls the armies into the middle of the map. There are also two new ways to play. Openers: pick Blitz, Industry or Air Wing before the clock starts. Call-down powers: Barrage, EMP, Drop Pod and the Sky Hammer orbital strike. Objectives and salvage: Uplink relays, supply drops and wrecks worth scrap. Feel: combat juice, adaptive music, unit voices and an announcer. Command: battle alerts, game speed, saved squads and touch placement. New modes: Last Stand survival waves and an 8-mission Ops campaign. Progression: heroes, an after-action report with awards, a career, 7 mutators and a Daily Op. Fights run longer and swing more. In 1,200 AI-vs-AI test matches on Normal, games still undecided after 25 minutes fell from 14% to 0.9%. The share of wins by a side that had been 800+ scrap behind rose from 24% to 46%. Part of the reason Claude took so long was that it ran over a thousand simulated playtest sessions, and used the results to rebalance the existing units, add new ones, and introduce new features. v5: Battle Drones goes 3D After the success of Ultracode at \"Make it a LOT more fun\", I decided to be more ambitious: Port this game to three.js with 3D models for all of the buildings and vehicles and landscapes That was another overnight run. I woke up to this v5 version: The new 3D models were entirely constructed by Claude in TypeScript code. v6 (play v6 here) added some more visual polish. v7 (play v7) added robot infantry (troopers, rocket squads, snipers) and a \"Condor\" troop carrying aircraft. v8: Archipelago I was beginning to feel guilty at how little actual design input I had into the game - it really had been a case of me saying \"make it more fun\" and \"add visual polish\" for the past few releases. I'd noticed that the AI didn't use the new infantry and troop carrying aircraft from v7 very often - there wasn't a great strategic reason to use them. It would be neat if we had a new map with a new game mechanic that actively encouraged players to load up Condors with infantry robots and send them out into the map. This resulted in my longest prompt yet: Design a new map. Goal is to make different strategic incentives that encourage use of Infantry and Condors and aerial vehicles. To do this the map will have limited harvester resources but several more uplinks - but uplinks will be on islands that are inaccessible by land vehicles or infantry. These uplinks can also not be claimed using air vehicles. The ONLY way to get them is to fly infantry there in a Condor. Armies always start with a Condor and a single squad. If an army has no Condor a new one will be provided for free, flying in from the edge closest to their HQ and landing there. That free condor will come with a single free squad on board. The two HQs should be entirely separated by water, but still accessible by vehicles thanks to two bridges across the map in different places I want to encourage a battle over uplinks. The map should be the times the size of other maps - still square First research and then critique this design. Only build after we have agreed on any modifications You get to design a new biome for this The result was the tropical Archipelago map, with seven island uplinks that players can only capture by flying out infantry in a Condor. It's definitely the most fun map to play, once you've got the hang of the basic game mechanics from the simpler maps. The v9 edition made that map a little more interesting - it now looks like this: v10: Goliath, and agent battles I decided to add giant robot mechs to the game - think Jaegers from Pacific Rim, or Titans from Warhammer 40,000. Here are some of the prompts I used to brainstorm with Claude: Help me brainstorm ideas for adding giant robots to this game - think dreadnoughts or titans from W20K - how could we do this in a way that enhanced gameplay, kept things balanced, added unique twist? Don't overthink this yet Let's keep brainstorming. I like the idea that it's a mobile base - that can accept harvested scrap and can have buildings built near it (even if it later moves on) and can produce infantry units too. An interaction with condor would be neat but I don't know what that could be. Idea: as it gets damage it loses the ability to fire some weapons - by default it has eye laser (like lancers) and arm canons (like titan) and two shoulder mounted mortars, plus machine guns similar to a squad of troops Damage knocks out mortars and then laser - it always has guns. You can't build next to a building that was only put there because of the mech, you need the mech there for off-base building and only within three squares of it [...] Lets do two condors can carry the mech The end result is really cool. Your browser does not support HTML video. Goliaths can be constructed using a Gantry - a building that can only be created after first building a Fab, Bay, Airpad, and Tech Lab. You can see the Goliath under construction, and it then walks out from the Gantry and can march around the map. Goliaths can \"anchor\", which digs them into the ground. In their anchored state they can act as a new HQ, constructing infantry units and additional buildings in a new area. Two Condor aircraft can hook onto a Goliath, at which point it can be flown around the map! The game now ends when you destroy the enemy's HQ building and any Goliaths they might have built. There are also a couple of mutators relating to Goliaths: Goliath Armada starts each side with four airborne Goliaths (each with a pair of Condors) and no other units. Robot Love adds a special rule: if enemy Goliaths get close to each other on the battlefield they fall in love and the game ends in a draw. (Thank Natalie for that one). Agent battles The other v10 feature is agent battles. In musing about how multiplayer could work I had an idea: what if different LLMs could fight it out in the game? Fun extra challenge: think about how we might make multiplayer available to coding agents. It would be neat if we could set up a battle between eg GPT-6 Sol and Claude Opus 5.5 where each model has access to a tool which gives them information about the game (presumably non-visual, but only the information they could see through fog of war etc) and lets them control their units etc [...] Consult ~/dev/llm/docs and include notes in that file about how LLM could be used here via a new tools plugin Opus 5.5 went to work on this, producing this AGENT-BATTLES.md proposal and then implementing and testing it. The feature also includes the ability to record and replay these battles - here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna, and here's that same battle in a separate debug tool that shows the underlying prompt responses. The prompt that drives agent battles can be seen here. There are a few more replays like this linked in the README. I hope to turn this into a full league table at some point in the future. v11: Random Maps This version exists purely because I glanced at my Claude Usage page one day and saw that I'd only used 75% of my weekly allowance and it was resetting in 45 minutes. I decided to see if I could get an extra Battle Drones feature from my remaining tokens, and picked \"random map\" as the target: Design and implement a mechanism for generating a random map using any of the available biomes - it should be the size of the largest map and rivers and bridges and rocks and forest and scrap and crystals are all in play. Make them rotationally symmetric and use a seed to allow them to be selected or reused later. You have 45 minutes to build this! Be creative. Here's the transcript, and an image Claude generated to show me its work: v12: Multiplayer via sound I only just got this working, so I've not had much time to actively test it yet. The latest Battle Drones now supports multiplayer via two devices sat within microphone distance of each other! This feature started out as my Chirp Pong experiment from last week. I pointed Claude Code at that working proof of concept: Clone Simonw/tools from GitHub and look at recent branches for the example pong game that uses web microphone to implement multiplayer between two phones via audio signals Build a version of that for battledrones Opus built this Radio Probe tool to measure how much bandwidth we could get between two devices and, based on positive results from that, implemented a full audio modem system. I've tried it between laptops, iPhones and iPads so far and it seems to work really well! Why use sound for this? Because I love static HTML that costs nothing to run, and I don't want to spin up a server somewhere and then stay responsible for keeping it operating for as long as anyone might want to play the game. Some thoughts I know almost nothing about game development. This makes it a great opportunity to try out coding agents in a field where my existing software engineering experience has less impact on the results. Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. This morning (via Hacker News) I found Steam Fans Are Begging for a No-AI Filter as Steam Next Fest Is Filled With Slop. I wouldn't personally dream of submitting Battle Drones to an event like this - it's still way too low effort to warrant consideration as a legitimate indie gaming project. ... but I can now see a path to vibe coded games like this being taken seriously. Battle Drones is fun, it looks good, it has innovative features (the multiplayer-over-audio thing is a first for an RTS as far as I can tell). I'd love to see what someone with better taste than me and a driving passion to produce something truly exceptional could build! A few other observations from this project: Static HTML and JavaScript is a fantastic medium for games development. WebGL works great, and Three.js (and Phaser before it) are excellent platforms to build on that the current models know inside out. This also lets them run as Progressive Web Apps - I didn't ask for it, but Battle Drones works offline. I was able to play it on a plane despite never having directly installed it - my phone had it cached. Giving Claude an OpenAI API key and telling it to generate images using OpenAI's models works really well. It can view the images it has generated and iterate on the prompts. Opus 5.5 is spectacular at 3D modeling using Three.js (and Blender, and no doubt other 3D applications as well). The same is true of GPT-6 Astra. They are absolutely capable of building models for 3D game projects. For features like replay and multiplayer it's useful to have a deterministic simulation engine. At one point Claude had to replace calls to Math.sin() and Math.cos() and friends with custom versions because different browsers (Chrome vs. Safari, for example) returned very slightly different numbers, desynchronizing the replay. Opus 5.5 can write music! There are no audio files in this project - the soundtrack is entirely generated through code, varies across different maps, and even gets more intense as the battle heats up. See Scrimshaw Jukebox for a previous experiment with Claude for music composition. I still can't get over how well the prompt \"Make it a LOT more fun\" worked. Tools are effectively free. I prompted up the Radio Probe, the Model browser, the Agent vs. Agent debug tool, and Claude Code built a bunch of tools for itself that I haven't even explored myself. Audio-based multiplayer between static HTML games works! I hope to see a whole lot more games use this same pattern - in digging around today I've not found much prior art beyond Siner by Alon Horesh and ggwave by Georgi Gerganov (also of llama.cpp fame). Claude Code \"Ultracode\" burns tokens like there's no tomorrow, but it can also solve complex problems (like adding audio-based multiplayer) from a single prompt. I'm still not quite over the guilt of building software in this way. I don't feel like I've earned the right to create something this good, in a field in which I have so little prior experience! At this point I've shown it to enough people in private that it felt wrong not to publish it for everyone else to see and learn from. Update: Online multiplayer support Earlier in this article I said: Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. Then I tried playing the multiplayer version with Natalie... and the high pitched modem sounds gave her a nasty headache! That's a pretty bad bug. I added a warning and was then inspired to build proper network multiplayer. I tried getting WebRTC to work but couldn't get a connection going between two of my own devices even on my own WiFi network, so I had Claude build a simple, stateless WebSockets relay server instead: If I wanted to support multiplayer between two devices at a very low cost without storing any state on the server could I do that with a tiny asyncio web server running on the cheapest Fly instance? Build the server and the fly.toml for deploying it, use Fly application name battledrones-relay - put that in a folder in the repo, include deploy instructions in the README in that folder Here's the resulting server. Since this scales to zero and runs on a single Fly.io shared-cpu-1x instance it should cost me no more than $2.19/month - and that's if it stays hot and serving connections the whole time. Battle Drones now supports online multiplayer. Click \"Duel a friend online\", then either share the resulting room URL via your messaging app of choice or have them snap a picture of the displayed QR Code. I also added a feature where you can copy JSON of the match once it has ended and then feed that into the replay feature to rewatch your game. I didn't expect to introduce online multiplayer this soon, but the headache bug felt like it warranted an urgent alternative. Tags: game-design, projects, ai, generative-ai, llms, claude, vibe-coding, coding-agents, claude-code",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
+      "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 27.0,
+      "score": 26.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1717,11 +1717,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 27.0,
+      "score": 26.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1741,11 +1741,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 26.4,
+      "score": 26.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1764,11 +1764,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 25.5,
+      "score": 25.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1787,11 +1787,11 @@
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
-      "score": 25.0,
+      "score": 24.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1810,11 +1810,11 @@
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
-      "score": 24.7,
+      "score": 24.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.7)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1855,13 +1855,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "51e95d3a506e7d79",
+      "kev": false,
+      "published": "2026-10-28T04:44:23Z",
+      "score": 22.5,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.5)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Moldova takes down more than 80 public services after a cyberattack, the White House launches a new cybersecurity pilot program, South Korea arrests an AI-assisted cybercrime ring, and the Electrum wallet patches a crypto-stealing bug. Show notes Risky Bulletin: Moldova takes down 80+ public services after cyberattack",
+      "tags": [],
+      "title": "Risky Bulletin: Moldovan public services crippled by cyberattack",
+      "url": "https://risky.biz/RBNEWS626/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "7a3afca2246da741",
+      "kev": false,
+      "published": "2026-10-28T10:09:07Z",
+      "score": 20.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+14.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
+      "tags": [],
+      "title": "Quoting Terk Terkowitz",
+      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 20.4,
+      "score": 20.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.4)"
+        "recency (+14.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1878,10 +1918,10 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 20.1,
+      "score": 19.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1900,10 +1940,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 20.1,
+      "score": 19.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1922,10 +1962,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 19.8,
+      "score": 19.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.8)"
+        "recency (+11.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -1942,10 +1982,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 19.0,
+      "score": 18.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.0)"
+        "recency (+12.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1962,10 +2002,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 17.6,
+      "score": 17.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.6)"
+        "recency (+11.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1982,10 +2022,10 @@
       "id": "bca9e9b862cf8c5f",
       "kev": false,
       "published": "2026-10-06T17:14:53Z",
-      "score": 16.8,
+      "score": 16.7,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2026,10 +2066,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 16.2,
+      "score": 16.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.2)"
+        "recency (+8.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2046,10 +2086,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 16.1,
+      "score": 15.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.1)"
+        "recency (+9.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2057,46 +2097,6 @@
       "tags": [],
       "title": "battledrones v14: Compass Rose, a four player map",
       "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "f4091a70be2c3b0a",
-      "kev": false,
-      "published": "2026-10-23T21:35:13Z",
-      "score": 15.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "238efdacbd16ff8a",
-      "kev": false,
-      "published": "2026-10-21T04:19:44Z",
-      "score": 15.5,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.5)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A hacker hijacks more than 10% of Tor’s exit nodes, a second ransomware negotiator has been linked to ShinyHunters, a Chinese crime ring hacked Staples, and a hacker leaks emails from German far-right party AfD. Show notes Risky Bulletin: Hacker hijacks 10% of Tor exit nodes",
-      "tags": [],
-      "title": "Risky Bulletin: Hacker hijacks 10% of Tor exit nodes",
-      "url": "https://risky.biz/RBNEWS623/"
     },
     {
       "appsec": false,
@@ -2171,6 +2171,46 @@
       ],
       "title": "Windows Exploitation Techniques: Dangling COM Object Registrations",
       "url": "https://projectzero.google/2026/09/windows-dangling-com.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f4091a70be2c3b0a",
+      "kev": false,
+      "published": "2026-10-23T21:35:13Z",
+      "score": 15.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+9.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
+      "tags": [],
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "238efdacbd16ff8a",
+      "kev": false,
+      "published": "2026-10-21T04:19:44Z",
+      "score": 15.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+7.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A hacker hijacks more than 10% of Tor’s exit nodes, a second ransomware negotiator has been linked to ShinyHunters, a Chinese crime ring hacked Staples, and a hacker leaks emails from German far-right party AfD. Show notes Risky Bulletin: Hacker hijacks 10% of Tor exit nodes",
+      "tags": [],
+      "title": "Risky Bulletin: Hacker hijacks 10% of Tor exit nodes",
+      "url": "https://risky.biz/RBNEWS623/"
     },
     {
       "appsec": false,
@@ -2879,10 +2919,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 14.8,
+      "score": 14.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.8)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2899,10 +2939,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 14.7,
+      "score": 14.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.7)"
+        "recency (+8.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2919,10 +2959,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 14.5,
+      "score": 14.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.5)"
+        "recency (+6.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2939,10 +2979,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 14.0,
+      "score": 13.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2959,10 +2999,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 13.9,
+      "score": 13.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.9)"
+        "recency (+7.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2976,33 +3016,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "8481bd4a6647667c",
-      "kev": false,
-      "published": "2026-10-19T23:58:25Z",
-      "score": 12.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+6.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not possible. If you're a programmer who thrives on building working systems and doesn't care too deeply about the problems solved along the way, LLMs are the gift that keeps on giving. If directly solving those problems was a big part of your enjoyment, the loss is very real. Via lobste.rs Tags: programming, careers, ai, generative-ai, llms, coding-agents, deep-blue",
-      "tags": [],
-      "title": "My obituary for programming",
-      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 12.5,
+      "score": 12.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3016,13 +3036,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "8481bd4a6647667c",
+      "kev": false,
+      "published": "2026-10-19T23:58:25Z",
+      "score": 12.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+6.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not possible. If you're a programmer who thrives on building working systems and doesn't care too deeply about the problems solved along the way, LLMs are the gift that keeps on giving. If directly solving those problems was a big part of your enjoyment, the loss is very real. Via lobste.rs Tags: programming, careers, ai, generative-ai, llms, coding-agents, deep-blue",
+      "tags": [],
+      "title": "My obituary for programming",
+      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 12.1,
+      "score": 12.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3039,10 +3079,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 11.7,
+      "score": 11.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3059,10 +3099,10 @@
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
-      "score": 11.3,
+      "score": 11.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3079,10 +3119,10 @@
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 11.2,
+      "score": 11.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.2)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3090,26 +3130,6 @@
       "tags": [],
       "title": "web-edit 0.1a2",
       "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "3954bde477b7b3c4",
-      "kev": false,
-      "published": "2026-10-11T19:18:00Z",
-      "score": 11.0,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+3.0)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats with Prowler’s founder and CEO Toni de la Fuente about how AI now allows pretty much anyone to vibe-code “killer apps”. These custom apps are often internal for organisations and hosted on the cloud. The pair discuss why developers need to focus on security on top of app functionality and how Prowler can work in parallel with apps and agents to help secure, and continuously assess, cloud infrastructure. Show notes",
-      "tags": [],
-      "title": "Sponsored: AI is attacking… it needs to defend, too",
-      "url": "https://risky.biz/RBNEWSSI146/"
     },
     {
       "appsec": false,
@@ -3136,13 +3156,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "3954bde477b7b3c4",
+      "kev": false,
+      "published": "2026-10-11T19:18:00Z",
+      "score": 10.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+2.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats with Prowler’s founder and CEO Toni de la Fuente about how AI now allows pretty much anyone to vibe-code “killer apps”. These custom apps are often internal for organisations and hosted on the cloud. The pair discuss why developers need to focus on security on top of app functionality and how Prowler can work in parallel with apps and agents to help secure, and continuously assess, cloud infrastructure. Show notes",
+      "tags": [],
+      "title": "Sponsored: AI is attacking… it needs to defend, too",
+      "url": "https://risky.biz/RBNEWSSI146/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
-      "score": 10.9,
+      "score": 10.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.9)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3159,10 +3199,10 @@
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3179,10 +3219,10 @@
       "id": "812f894cec2b2135",
       "kev": false,
       "published": "2026-10-15T13:04:03Z",
-      "score": 10.3,
+      "score": 10.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3199,10 +3239,10 @@
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
-      "score": 9.9,
+      "score": 9.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3219,10 +3259,10 @@
       "id": "f3896491a736a8e2",
       "kev": false,
       "published": "2026-10-13T23:00:06Z",
-      "score": 9.7,
+      "score": 9.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.7)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3239,10 +3279,10 @@
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
-      "score": 9.5,
+      "score": 9.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3319,10 +3359,10 @@
       "id": "357fe0629fb522a0",
       "kev": false,
       "published": "2026-09-28T01:17:56Z",
-      "score": 8.8,
+      "score": 8.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+0.8)"
+        "recency (+0.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3450,26 +3490,6 @@
       "tags": [],
       "title": "Sponsored: SpecterOps on the impact of AI agents on BloodHound",
       "url": "https://risky.biz/RBNEWSSI144/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4e9f6a2c7007bbc3",
-      "kev": false,
-      "published": "2026-08-31T20:07:52Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about how AI is the perfect hacker, but what makes it perfect for states is the opposite of what makes it perfect for criminals. This episode is also available on YouTube. Show notes Bitdefender Labs report on SilkParasite OpenAI on the Hugging Face incident",
-      "tags": [],
-      "title": "Between Two Nerds: The perfect hacker",
-      "url": "https://risky.biz/BTN181/"
     },
     {
       "appsec": false,
@@ -4067,6 +4087,25 @@
       "tags": [],
       "title": "Srsly Risky Biz: Open weight models make the Mythos debate moot",
       "url": "https://risky.biz/SRB172/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "4e9f6a2c7007bbc3",
+      "kev": false,
+      "published": "2026-08-31T20:07:52Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about how AI is the perfect hacker, but what makes it perfect for states is the opposite of what makes it perfect for criminals. This episode is also available on YouTube. Show notes Bitdefender Labs report on SilkParasite OpenAI on the Hugging Face incident",
+      "tags": [],
+      "title": "Between Two Nerds: The perfect hacker",
+      "url": "https://risky.biz/BTN181/"
     },
     {
       "appsec": false,
@@ -4677,20 +4716,20 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-10-28T04:54:37Z",
+  "last_run": "2026-10-28T12:32:23Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 331,
-    "appsec_cves": 743,
+    "actively_exploited_appsec": 382,
+    "appsec_cves": 794,
     "kev_coverage_pct": 30.2,
     "kev_tracked": 1760,
-    "kev_with_coverage": 531,
+    "kev_with_coverage": 532,
     "newly_exploited": 5,
     "newly_exploited_days": 30,
-    "open_gaps": 184,
-    "public_poc": 249,
+    "open_gaps": 196,
+    "public_poc": 287,
     "total_cves": 2187,
-    "total_items": 209
+    "total_items": 211
   },
   "threats": [
     {
@@ -4814,6 +4853,33 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2026-85706",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 18.11.12, 19.0 before 19.0.9, 19.1 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user coul…",
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.97355,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-09-11",
+      "product": "gitlab",
+      "score": 100,
+      "sources": [],
+      "vendor": "gitlab",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2026-72898",
       "cvss_score": 10.0,
       "cwe": [
@@ -4888,6 +4954,56 @@
       "score": 100,
       "sources": [],
       "vendor": "apache",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-20253",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "In Splunk Enterprise 10.2 versions below 10.2.4 and 10 versions below 10.0.7, an unauthenticated user could create or truncate arbitrary files through a PostgreSQL sidecar service endpoint. The vulnerability exists because the PostgreSQL si…",
+      "ecosystems": [],
+      "epss": 0.96939,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-06-18",
+      "product": "splunk",
+      "score": 100,
+      "sources": [],
+      "vendor": "splunk",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-35273",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "Vulnerability in the PeopleSoft Enterprise PeopleTools product of Oracle PeopleSoft (component: Updates Environment Management). Supported versions that are affected are 8.61 and 8.62. Easily exploitable vulnerability allows unauthenticated…",
+      "ecosystems": [],
+      "epss": 0.96678,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-06-12",
+      "product": "peoplesoft_enterprise_peopletools",
+      "score": 100,
+      "sources": [],
+      "vendor": "oracle",
       "vuln_classes": []
     },
     {
@@ -5094,6 +5210,35 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2026-33017",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94",
+        "CWE-95",
+        "CWE-306"
+      ],
+      "description": "Langflow is a tool for building and deploying AI-powered agents and workflows. In versions prior to 1.9.0, the POST /api/v1/build_public_tmp/{flow_id}/flow endpoint allows building public flows without requiring authentication. When the opt…",
+      "ecosystems": [],
+      "epss": 0.96177,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-03-25",
+      "product": "langflow",
+      "score": 100,
+      "sources": [],
+      "vendor": "langflow",
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-32432",
       "cvss_score": 10.0,
       "cwe": [
@@ -5115,6 +5260,34 @@
       "vuln_classes": [
         "rce"
       ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2025-54068",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94"
+      ],
+      "description": "Livewire is a full-stack framework for Laravel. In Livewire v3 up to and including v3.6.3, a vulnerability allows unauthenticated attackers to achieve remote command execution in specific scenarios. The issue stems from how certain componen…",
+      "ecosystems": [
+        "php",
+        "web"
+      ],
+      "epss": 0.96284,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-03-20",
+      "product": "livewire",
+      "score": 100,
+      "sources": [],
+      "vendor": "laravel",
+      "vuln_classes": []
     },
     {
       "advisory_url": null,
@@ -5225,6 +5398,33 @@
       "vendor": "ivanti",
       "vuln_classes": [
         "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-23760",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-288"
+      ],
+      "description": "SmarterTools SmarterMail versions prior to build 9511 contain an authentication bypass vulnerability in the password reset API. The force-reset-password endpoint permits anonymous requests and fails to verify the existing password or a rese…",
+      "ecosystems": [],
+      "epss": 0.96432,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-01-26",
+      "product": "smartermail",
+      "score": 100,
+      "sources": [],
+      "vendor": "smartertools",
+      "vuln_classes": [
+        "auth-bypass"
       ]
     },
     {
@@ -5482,6 +5682,31 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2025-20281",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-74"
+      ],
+      "description": "A vulnerability in a specific API of Cisco ISE and Cisco ISE-PIC could allow an unauthenticated, remote attacker to execute arbitrary code on the underlying operating system as root. The attacker does not require any valid credentials to ex…",
+      "ecosystems": [],
+      "epss": 0.97601,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-07-28",
+      "product": "identity_services_engine",
+      "score": 100,
+      "sources": [],
+      "vendor": "cisco",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-49706",
       "cvss_score": 6.5,
       "cwe": [
@@ -5672,6 +5897,35 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2024-56145",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94"
+      ],
+      "description": "Craft is a flexible, user-friendly CMS for creating custom digital experiences on the web and beyond. Users of affected versions are affected by this vulnerability if their php.ini configuration has `register_argc_argv` enabled. For these u…",
+      "ecosystems": [
+        "php"
+      ],
+      "epss": 0.97405,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-06-02",
+      "product": "craft_cms",
+      "score": 100,
+      "sources": [],
+      "vendor": "craftcms",
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2025-3248",
       "cvss_score": 9.8,
       "cwe": [
@@ -5692,6 +5946,35 @@
       "sources": [],
       "vendor": "langflow",
       "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2025-34028",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-22",
+        "CWE-306"
+      ],
+      "description": "The Commvault Command Center Innovation Release allows an unauthenticated actor to upload ZIP files that represent install packages that, when expanded by the target server, are vulnerable to path traversal vulnerability that can result in …",
+      "ecosystems": [],
+      "epss": 0.97604,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-05-02",
+      "product": "commvault",
+      "score": 100,
+      "sources": [],
+      "vendor": "commvault",
+      "vuln_classes": [
+        "path-traversal",
+        "rce"
+      ]
     },
     {
       "advisory_url": null,
@@ -5921,6 +6204,33 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
+      "cve_id": "CVE-2024-57727",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "SimpleHelp remote support software v5.5.7 and before is vulnerable to multiple path traversal vulnerabilities that enable unauthenticated remote attackers to download arbitrary files from the SimpleHelp host via crafted HTTP requests. These…",
+      "ecosystems": [],
+      "epss": 0.96833,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-02-13",
+      "product": "simplehelp",
+      "score": 100,
+      "sources": [],
+      "vendor": "simple-help",
+      "vuln_classes": [
+        "path-traversal"
+      ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
       "cve_id": "CVE-2018-19410",
       "cvss_score": 9.8,
       "cwe": [],
@@ -6047,292 +6357,28 @@
       "appsec": true,
       "brief": null,
       "coverage": "covered",
-      "cve_id": "CVE-2024-20767",
-      "cvss_score": 7.4,
-      "cwe": [
-        "CWE-284"
-      ],
-      "description": "ColdFusion versions 2023.6, 2021.12 and earlier are affected by an Improper Access Control vulnerability that could result in arbitrary file system read. An attacker could leverage this vulnerability to access or modify restricted files. Ex…",
-      "ecosystems": [],
-      "epss": 0.98514,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-12-16",
-      "product": "coldfusion",
-      "score": 100,
-      "sources": [],
-      "vendor": "adobe",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-50623",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-434"
-      ],
-      "description": "In Cleo Harmony before 5.8.0.21, VLTrader before 5.8.0.21, and LexiCom before 5.8.0.21, there is an unrestricted file upload and download that could lead to remote code execution.",
-      "ecosystems": [],
-      "epss": 0.98607,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-12-13",
-      "product": "harmony",
-      "score": 100,
-      "sources": [],
-      "vendor": "cleo",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-0012",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-306"
-      ],
-      "description": "An authentication bypass in Palo Alto Networks PAN-OS software enables an unauthenticated attacker with network access to the management web interface to gain PAN-OS administrator privileges to perform administrative actions, tamper with th…",
-      "ecosystems": [],
-      "epss": 0.99786,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-11-18",
-      "product": "pan-os",
-      "score": 100,
-      "sources": [],
-      "vendor": "paloaltonetworks",
-      "vuln_classes": [
-        "auth-bypass"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-9463",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-78"
-      ],
-      "description": "An OS command injection vulnerability in Palo Alto Networks Expedition allows an unauthenticated attacker to run arbitrary OS commands as root in Expedition, resulting in disclosure of usernames, cleartext passwords, device configurations, …",
-      "ecosystems": [],
-      "epss": 0.98546,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-11-14",
-      "product": "expedition",
-      "score": 100,
-      "sources": [],
-      "vendor": "paloaltonetworks",
-      "vuln_classes": [
-        "command-injection"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-9465",
+      "cve_id": "CVE-2024-41713",
       "cvss_score": 9.1,
       "cwe": [
-        "CWE-89"
-      ],
-      "description": "An SQL injection vulnerability in Palo Alto Networks Expedition allows an unauthenticated attacker to reveal Expedition database contents, such as password hashes, usernames, device configurations, and device API keys. With this, attackers …",
-      "ecosystems": [],
-      "epss": 0.99626,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-11-14",
-      "product": "expedition",
-      "score": 100,
-      "sources": [],
-      "vendor": "paloaltonetworks",
-      "vuln_classes": [
-        "sqli"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2019-16278",
-      "cvss_score": 9.8,
-      "cwe": [
         "CWE-22"
       ],
-      "description": "Directory Traversal in the function http_verify in nostromo nhttpd through 1.9.6 allows an attacker to achieve remote code execution via a crafted HTTP request.",
-      "ecosystems": [],
-      "epss": 0.99033,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-11-07",
-      "product": "nostromo_nhttpd",
-      "score": 100,
-      "sources": [],
-      "vendor": "nazgul",
-      "vuln_classes": [
-        "path-traversal",
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-45519",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-78"
+      "description": "A vulnerability in the NuPoint Unified Messaging (NPM) component of Mitel MiCollab through 9.8 SP1 FP2 (9.8.1.201) could allow an unauthenticated attacker to conduct a path traversal attack, due to insufficient input validation. A successfu…",
+      "ecosystems": [
+        "npm"
       ],
-      "description": "The postjournal service in Zimbra Collaboration (ZCS) before 8.8.15 Patch 46, 9 before 9.0.0 Patch 41, 10 before 10.0.9, and 10.1 before 10.1.1 sometimes allows unauthenticated users to execute commands.",
-      "ecosystems": [],
-      "epss": 0.99907,
+      "epss": 0.97209,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
       "issue_number": null,
       "kev": true,
-      "kev_added": "2024-10-03",
-      "product": "zimbra_collaboration_suite",
+      "kev_added": "2025-01-07",
+      "product": "micollab",
       "score": 100,
       "sources": [],
-      "vendor": "synacor",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-29824",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-89"
-      ],
-      "description": "An unspecified SQL Injection vulnerability in Core server of Ivanti EPM 2022 SU5 and prior allows an unauthenticated attacker within the same network to execute arbitrary code.",
-      "ecosystems": [],
-      "epss": 0.99938,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-10-02",
-      "product": "endpoint_manager",
-      "score": 100,
-      "sources": [],
-      "vendor": "ivanti",
-      "vuln_classes": [
-        "sqli"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-7593",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-287",
-        "CWE-303"
-      ],
-      "description": "Incorrect implementation of an authentication algorithm in Ivanti vTM other than versions 22.2R1 or 22.7R2 allows a remote unauthenticated attacker to bypass authentication of the admin panel.",
-      "ecosystems": [],
-      "epss": 0.99999,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-09-24",
-      "product": "virtual_traffic_manager",
-      "score": 100,
-      "sources": [],
-      "vendor": "ivanti",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2024-8963",
-      "cvss_score": 9.4,
-      "cwe": [
-        "CWE-22"
-      ],
-      "description": "Path Traversal in the Ivanti CSA before 4.6 Patch 519 allows a remote unauthenticated attacker to access restricted functionality.",
-      "ecosystems": [],
-      "epss": 0.98607,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-09-19",
-      "product": "endpoint_manager_cloud_services_appliance",
-      "score": 100,
-      "sources": [],
-      "vendor": "ivanti",
+      "vendor": "mitel",
       "vuln_classes": [
         "path-traversal"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2020-0618",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-502"
-      ],
-      "description": "A remote code execution vulnerability exists in Microsoft SQL Server Reporting Services when it incorrectly handles page requests, aka 'Microsoft SQL Server Reporting Services Remote Code Execution Vulnerability'.",
-      "ecosystems": [],
-      "epss": 0.99046,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-09-18",
-      "product": "sql_server",
-      "score": 100,
-      "sources": [],
-      "vendor": "microsoft",
-      "vuln_classes": [
-        "rce"
       ]
     },
     {
@@ -6445,62 +6491,6 @@
       "score": 100,
       "sources": [],
       "vendor": "microsoft",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2023-47246",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-22"
-      ],
-      "description": "In SysAid On-Premise before 23.3.36, a path traversal vulnerability leads to code execution after an attacker writes a file to the Tomcat webroot, as exploited in the wild in November 2023.",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.98851,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2023-11-13",
-      "product": "sysaid",
-      "score": 100,
-      "sources": [],
-      "vendor": "sysaid",
-      "vuln_classes": [
-        "path-traversal"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2023-22518",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-863"
-      ],
-      "description": "All versions of Confluence Data Center and Server are affected by this unexploited vulnerability. This Improper Authorization vulnerability allows an unauthenticated attacker to reset Confluence and create a Confluence instance administrato…",
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.99999,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2023-11-07",
-      "product": "confluence_data_center",
-      "score": 100,
-      "sources": [],
-      "vendor": "atlassian",
       "vuln_classes": []
     },
     {
@@ -6670,63 +6660,6 @@
       "score": 100,
       "sources": [],
       "vendor": "control-webpanel",
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2018-7602",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-94"
-      ],
-      "description": "A remote code execution vulnerability exists within multiple subsystems of Drupal 7.x and 8.x. This potentially allows attackers to exploit multiple attack vectors on a Drupal site, which could result in the site being compromised. This vul…",
-      "ecosystems": [
-        "php",
-        "web"
-      ],
-      "epss": 0.99172,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-04-13",
-      "product": "drupal",
-      "score": 100,
-      "sources": [],
-      "vendor": "drupal",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2012-1823",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-77"
-      ],
-      "description": "sapi/cgi/cgi_main.c in PHP before 5.3.12 and 5.4.x before 5.4.2, when configured as a CGI script (aka php-cgi), does not properly handle query strings that lack an = (equals sign) character, which allows remote attackers to execute arbitrar…",
-      "ecosystems": [
-        "php"
-      ],
-      "epss": 0.99998,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-25",
-      "product": "php",
-      "score": 100,
-      "sources": [],
-      "vendor": "php",
       "vuln_classes": []
     },
     {
@@ -7695,35 +7628,6 @@
       "ghsa_id": "GHSA-27g9-p43v-cw3v",
       "has_poc": false,
       "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "product": "vm2",
-      "score": 24.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-fcqc-726x-5wfc",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-92947",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-200",
-        "CWE-653",
-        "CWE-668"
-      ],
-      "description": "vm2: Sandboxed code can read and write host-realm memory via Node's shared Buffer pool",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00482,
-      "ghsa_id": "GHSA-fcqc-726x-5wfc",
-      "has_poc": false,
-      "is_candidate": false,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
