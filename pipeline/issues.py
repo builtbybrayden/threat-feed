@@ -113,6 +113,18 @@ class RestGitHubClient:
             }
         )
 
+    def list_issues(self, label: str, state: str = "open", per_page: int = 100) -> list[dict[str, Any]]:
+        """Open issues carrying `label` (the detection queue). The issues endpoint
+        also returns PRs, so those are filtered out."""
+        resp = self.session.get(
+            f"{self.base}/issues",
+            params={"labels": label, "state": state, "per_page": per_page},
+            timeout=self.timeout,
+        )
+        if resp.status_code != 200:
+            return []
+        return [it for it in resp.json() if "pull_request" not in it]
+
     def find_issue_number(self, cve_id: str) -> Optional[int]:
         # Search this repo for the hidden marker in an issue body.
         q = f'repo:{self.repo} type:issue in:body "{marker(cve_id)}"'

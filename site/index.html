@@ -108,14 +108,13 @@
       <!-- DETECTION QUEUE -->
       <section id="view-queue" class="view" hidden>
         <p class="view-intro">
-          The <strong>detection backlog</strong>: AppSec vulnerabilities that have <strong>no Nuclei
-          template yet</strong>, are remotely/HTTP-detectable, and matter (exploited, high EPSS, or a
-          watchlist product) &mdash; the prioritized list of what to write detection for next. Each
-          ships a brief and an auto-filed GitHub issue.
+          Your <strong>hand-picked detection backlog</strong>. Add a CVE from any Threats or News card
+          (Track this &rarr; <strong>Add to detection queue</strong>); it's saved on this device and
+          synced across your devices via a GitHub issue you can fill in. Nothing is auto-added.
         </p>
         <div class="list-controls" id="queue-controls"></div>
         <div class="cards" id="queue"></div>
-        <p class="empty" id="queue-empty" hidden>No open detection gaps right now.</p>
+        <p class="empty" id="queue-empty" hidden>Your detection queue is empty. Open a threat or news card and choose &ldquo;Add to detection queue.&rdquo;</p>
       </section>
 
       <footer class="main-foot" id="main-foot"></footer>
@@ -123,8 +122,7 @@
 
     <!-- RIGHT RAIL (desktop) -->
     <aside class="rail">
-      <section class="rail-card" id="rail-gaps" aria-label="Top detection gaps"></section>
-      <section class="rail-card" id="rail-trending" aria-label="Trending tags"></section>
+      <section class="rail-card" id="rail-gaps" aria-label="Detection queue"></section>
       <p class="rail-foot">Public sources only · refreshes every 6h</p>
     </aside>
   </div>

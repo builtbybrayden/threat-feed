@@ -134,12 +134,12 @@ candidate:
   # AND (in KEV OR epss >= this OR a watchlist term hits).
   epss_threshold: 0.3
 
-issues:
-  # The dashboard shows the full detection backlog, but we only auto-file GitHub
-  # issues for the top-N candidates by score, so pulling in hundreds of ecosystem
-  # advisories can't flood the repo with issues. Coverage-closing still runs for
-  # every CVE that already has an issue.
-  max_open: 25
+queue:
+  # The detection queue is user-curated: it is built from open GitHub issues
+  # carrying this label. "Add to detection queue" in the UI opens a prefilled
+  # issue with it, and the pipeline lists those into site/queue.json. Nothing is
+  # auto-added anymore.
+  label: detection-queue
 
 # CWE ids that imply a web/HTTP-detectable issue (used by triage).
 web_cwes: [22, 78, 79, 89, 94, 287, 352, 434, 502, 611, 862, 918]

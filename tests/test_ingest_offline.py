@@ -86,5 +86,8 @@ def test_offline_run_produces_site_and_one_candidate(tmp_path):
     assert summary["stats"]["kev_tracked"] == 1
     assert summary["stats"]["open_gaps"] == 1
 
-    # A brief was written for the candidate.
-    assert (tmp_path / "briefs" / "CVE-2099-0001.md").exists()
+    # The detection queue is user-curated (GitHub issues); offline there are none,
+    # so it's written and empty — and no briefs are auto-generated.
+    queue = json.loads((tmp_path / "site" / "queue.json").read_text())
+    assert queue["queue"] == []
+    assert summary["queue"] == 0

@@ -5,25 +5,46 @@
 
 (function () {
   var state = {
-    items: [], threats: [], candidates: [], stats: null, repo: null,
+    items: [], threats: [], queue: [], localQueue: [], stats: null, repo: null,
     first_run: null, last_run: null,
     view: "news",
     newsQuery: "", newsTags: new Set(),
     threatCoverage: "all", threatEco: null,      // coverage: all | gap | covered
-    threatSort: "score", queueSort: "score",     // score | published | modified
-    dismissed: new Set(), showDismissed: false
+    threatSort: "score", queueSort: "score"      // score | published | modified
   };
 
-  // Per-device dismissals (localStorage). Not shared across devices — that would
-  // need a repo-side ignore list; this is an instant, reversible local hide.
-  var DISMISS_KEY = "tf-dismissed-v1";
-  function loadDismissed() {
-    try { return new Set(JSON.parse(localStorage.getItem(DISMISS_KEY) || "[]")); }
-    catch (e) { return new Set(); }
+  // The detection queue is user-curated. It syncs across devices via GitHub
+  // issues (queue.json, built by the pipeline), and is ALSO kept per-device in
+  // localStorage so an add shows instantly and works offline; the two merge,
+  // de-duped by CVE, and a local entry is pruned once it appears synced.
+  var QUEUE_KEY = "tf-queue-v1";
+  function loadLocalQueue() {
+    try { var a = JSON.parse(localStorage.getItem(QUEUE_KEY) || "[]"); return Array.isArray(a) ? a : []; }
+    catch (e) { return []; }
   }
-  function saveDismissed() {
-    try { localStorage.setItem(DISMISS_KEY, JSON.stringify(Array.from(state.dismissed))); }
-    catch (e) { /* private mode / blocked storage: dismissals just won't persist */ }
+  function saveLocalQueue() {
+    try { localStorage.setItem(QUEUE_KEY, JSON.stringify(state.localQueue)); }
+    catch (e) { /* private mode: it just won't persist locally */ }
+  }
+  function mergedQueue() {
+    var synced = {};
+    state.queue.forEach(function (e) { synced[e.cve_id] = 1; });
+    var s = state.queue.map(function (e) { var o = Object.assign({}, e); o._synced = true; return o; });
+    var l = state.localQueue.filter(function (e) { return !synced[e.cve_id]; })
+      .map(function (e) { var o = Object.assign({}, e); o._synced = false; return o; });
+    return s.concat(l);
+  }
+  function pruneLocalQueue() {
+    var synced = {};
+    state.queue.forEach(function (e) { synced[e.cve_id] = 1; });
+    var before = state.localQueue.length;
+    state.localQueue = state.localQueue.filter(function (e) { return !synced[e.cve_id]; });
+    if (state.localQueue.length !== before) saveLocalQueue();
+  }
+  function inQueue(cve) {
+    if (!cve) return false;
+    return state.queue.some(function (e) { return e.cve_id === cve; }) ||
+           state.localQueue.some(function (e) { return e.cve_id === cve; });
   }
 
   // Canonical ecosystem quick-filter order + display labels (Threats board).
@@ -74,6 +95,13 @@
     if (m < 1440) return Math.round(m / 60) + "h"; return Math.round(m / 1440) + "d";
   }
   function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return h; }
+  // "Published 2d ago · updated 5d ago" — the CVE's own dates, like a post's age.
+  function dateLine(obj) {
+    var bits = [];
+    if (obj.published) bits.push("Published " + fmtAge(obj.published) + " ago");
+    if (obj.modified && obj.modified !== obj.published) bits.push("updated " + fmtAge(obj.modified) + " ago");
+    return bits.join("  ·  ");
+  }
   function sourceMeta(name) {
     if (SOURCES[name]) return SOURCES[name];
     var w = String(name).split(/\s+/);
@@ -261,7 +289,9 @@
   }
   function renderNews() {
     var host = document.getElementById("news"); host.textContent = "";
-    var shown = state.items.filter(newsMatch);
+    var shown = state.items.filter(newsMatch).slice().sort(function (a, b) {
+      return (Date.parse(b.published) || 0) - (Date.parse(a.published) || 0);  // newest first
+    });
     document.getElementById("news-empty").hidden = shown.length !== 0;
     shown.forEach(function (it) { host.appendChild(newsPost(it)); });
   }
@@ -344,12 +374,12 @@
     idw.appendChild(el("div", "vuln-id", t.cve_id));
     var prod = (t.vendor ? t.vendor + " / " : "") + (t.product || "unknown product");
     idw.appendChild(el("div", "vuln-prod", prod));
+    var dl = dateLine(t); if (dl) idw.appendChild(el("div", "vuln-date", dl));
     head.appendChild(idw);
     head.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
     v.appendChild(head);
 
     var stats = el("div", "p-stats");
-    stats.appendChild(el("span", scoreClass(t.score, "p-score"), Math.round(t.score)));
     if (t.kev) stats.appendChild(statItem(t.kev_added ? "KEV · " + String(t.kev_added).slice(0, 4) : "KEV", null, "kev"));
     if (t.epss != null) stats.appendChild(statItem("EPSS", epssPct(t.epss)));
     if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
@@ -373,10 +403,9 @@
     }
 
     var act = el("div", "actions");
-    if (t.is_candidate && t.brief) act.appendChild(link(t.brief, "Detection brief", "btn primary"));
     act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + t.cve_id, "NVD", "btn"));
     if (t.advisory_url) act.appendChild(link(t.advisory_url, "GitHub advisory", "btn"));
-    if (t.coverage === "gap" && t.is_candidate) act.appendChild(el("span", "issue-ref", "in detection queue"));
+    if (inQueue(t.cve_id)) act.appendChild(el("span", "issue-ref", "in detection queue ✓"));
     v.appendChild(act);
     v.classList.add("clickable");
     v.setAttribute("role", "button"); v.setAttribute("tabindex", "0");
@@ -396,79 +425,71 @@
     var v = el("article", "vuln");
     var head = el("div", "vuln-head");
     var idw = el("div");
-    idw.appendChild(el("div", "vuln-id", c.cve_id));
-    idw.appendChild(el("div", "vuln-prod", (c.vendor ? c.vendor + " / " : "") + (c.product || "unknown product")));
+    idw.appendChild(el("div", "vuln-id", c.cve_id || c.title || "(no CVE)"));
+    var prod = (c.vendor ? c.vendor + " / " : "") + (c.product || (c.cve_id ? "" : ""));
+    if (prod) idw.appendChild(el("div", "vuln-prod", prod));
+    var dl = dateLine(c); if (dl) idw.appendChild(el("div", "vuln-date", dl));
     head.appendChild(idw);
-    head.appendChild(el("span", "cov gap", "No template"));
+    if (!c._synced) head.appendChild(el("span", "cov local", "Local · syncing"));
+    else if (c.coverage) head.appendChild(el("span", "cov " + (c.coverage === "gap" ? "gap" : "covered"), c.coverage === "gap" ? "No template" : "Covered"));
     v.appendChild(head);
 
     var stats = el("div", "p-stats");
-    stats.appendChild(el("span", scoreClass(c.score, "p-score"), Math.round(c.score)));
-    if (c.kev) stats.appendChild(statItem("KEV", null, "kev"));
+    if (c.kev) stats.appendChild(statItem(c.kev_added ? "KEV · " + String(c.kev_added).slice(0, 4) : "KEV", null, "kev"));
     if (c.epss != null) stats.appendChild(statItem("EPSS", epssPct(c.epss)));
     if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
-    if (c.detectability && c.detectability.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
-    (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
-    v.appendChild(stats);
+    if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
+    (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
+    if (stats.childNodes.length) v.appendChild(stats);
 
-    var d = c.detectability || {};
-    var grid = el("div", "meta-grid");
-    function row(k, val) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val)); }
-    row("Detectability", d.likely_http ? "HTTP" : (d.remote_network ? "remote (AV:N)" : "local"));
-    row("Template type", d.suggested_template_type || "?");
-    if (c.cwe && c.cwe.length) row("CWE", c.cwe.join(", "));
-    v.appendChild(grid);
-
-    if (c.candidate_reasons && c.candidate_reasons.length) {
-      var det = el("details", "why");
-      det.appendChild(el("summary", null, "Why it's a candidate"));
-      var ul = el("ul"); c.candidate_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
-      det.appendChild(ul); v.appendChild(det);
+    if (c.detectability) {
+      var d = c.detectability;
+      var grid = el("div", "meta-grid");
+      var row = function (k, val) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val)); };
+      row("Detectability", d.likely_http ? "HTTP" : (d.remote_network ? "remote (AV:N)" : "local"));
+      row("Template type", d.suggested_template_type || "?");
+      if (c.cwe && c.cwe.length) row("CWE", c.cwe.join(", "));
+      v.appendChild(grid);
     }
+
     var act = el("div", "actions");
-    act.appendChild(link(c.brief, "Detection brief", "btn primary"));
-    act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
-    if (c.issue_number != null) act.appendChild(el("span", "issue-ref", "Issue #" + c.issue_number));
-    var isD = state.dismissed.has(c.cve_id);
-    var db = el("button", "btn ghost", isD ? "Restore" : "Dismiss"); db.type = "button";
-    db.addEventListener("click", function (e) { e.stopPropagation(); toggleDismiss(c.cve_id); });
-    act.appendChild(db);
+    if (c.brief) act.appendChild(link(c.brief, "Detection brief", "btn"));
+    if (c.cve_id) act.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
+    if (c.issue_number != null) act.appendChild(link("https://github.com/" + (state.repo || "builtbybrayden/threat-feed") + "/issues/" + c.issue_number, "Issue #" + c.issue_number, "btn"));
+    var rb = el("button", "btn ghost", c._synced ? "Close on GitHub" : "Remove"); rb.type = "button";
+    rb.addEventListener("click", function (e) { e.stopPropagation(); removeFromQueue(c); });
+    act.appendChild(rb);
     v.appendChild(act);
-    if (isD) v.classList.add("is-dismissed");
+
     v.classList.add("clickable");
     v.setAttribute("role", "button"); v.setAttribute("tabindex", "0");
-    v.addEventListener("click", cardClick(function () { openCandidateDetail(c); }));
-    v.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCandidateDetail(c); } });
+    v.addEventListener("click", cardClick(function () { openQueueDetail(c); }));
+    v.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openQueueDetail(c); } });
     return v;
   }
   function renderQueue() {
     var host = document.getElementById("queue"); host.textContent = "";
+    var items = mergedQueue();
     var ctl = document.getElementById("queue-controls");
     if (ctl) {
       ctl.textContent = "";
-      var g = el("div", "filter-group inline");
-      g.appendChild(el("div", "filter-group-label", "Sort by"));
-      var row = el("div", "chips-row");
-      SORT_OPTS.forEach(function (o) {
-        var b = el("button", "chip", o[1]); b.type = "button";
-        b.setAttribute("aria-pressed", state.queueSort === o[0] ? "true" : "false");
-        b.addEventListener("click", function () { state.queueSort = o[0]; renderQueue(); });
-        row.appendChild(b);
-      });
-      g.appendChild(row); ctl.appendChild(g);
-      var dCount = state.candidates.length - visibleCandidates().length;
-      if (dCount) {
-        var t = el("button", "chip dismissed-toggle", (state.showDismissed ? "Hide" : "Show") + " dismissed (" + dCount + ")");
-        t.type = "button";
-        t.addEventListener("click", function () { state.showDismissed = !state.showDismissed; renderQueue(); });
-        ctl.appendChild(t);
+      if (items.length) {
+        var g = el("div", "filter-group inline");
+        g.appendChild(el("div", "filter-group-label", "Sort by"));
+        var row = el("div", "chips-row");
+        SORT_OPTS.forEach(function (o) {
+          var b = el("button", "chip", o[1]); b.type = "button";
+          b.setAttribute("aria-pressed", state.queueSort === o[0] ? "true" : "false");
+          b.addEventListener("click", function () { state.queueSort = o[0]; renderQueue(); });
+          row.appendChild(b);
+        });
+        g.appendChild(row); ctl.appendChild(g);
       }
     }
-    var list = sortCves(state.showDismissed ? state.candidates : visibleCandidates(), state.queueSort);
+    var list = sortCves(items, state.queueSort);
     document.getElementById("queue-empty").hidden = list.length !== 0;
     list.forEach(function (c) { host.appendChild(queueCard(c)); });
   }
-
   // ---- DETAIL MODAL + ISSUE TRACKING ------------------------------------
   // The site is static, so we can't create issues from the page (no token in a
   // public page). Instead each button opens GitHub's own new-issue form,
@@ -478,7 +499,11 @@
     var repo = state.repo || "builtbybrayden/threat-feed";
     var marker = info.cve_id ? "<!-- threat-feed:" + info.cve_id + " -->\n\n" : "";
     var label, title, lines = [];
-    if (kind === "research") {
+    if (kind === "queue") {
+      label = "detection-queue";
+      title = "[queue] " + (info.cve_id || info.title || "").slice(0, 80) + (info.product ? " (" + info.product + ")" : "");
+      lines.push("## Detection queue item", "");
+    } else if (kind === "research") {
       label = "research";
       title = "[research] " + (info.cve_id || info.title || "").slice(0, 90);
       lines.push("## Deep-research task", "");
@@ -503,7 +528,10 @@
     if (info.url) lines.push("- Source: " + info.url);
     if (info.brief) lines.push("- Detection brief (in repo): " + info.brief);
     lines.push("", "### Checklist");
-    if (kind === "research") {
+    if (kind === "queue") {
+      lines.push("- [ ] Research root cause & affected versions", "- [ ] Decide detection approach (fingerprint vs behavioral)", "- [ ] Write & validate the Nuclei template (local lab only)");
+      lines.push("", "### Notes", "_Add context, priority, and progress here._");
+    } else if (kind === "research") {
       lines.push("- [ ] Root cause & affected versions", "- [ ] Confirm remote/HTTP detectability", "- [ ] Decide whether a template is worth building");
     } else {
       lines.push("- [ ] Identify a fingerprint or behavioral check", "- [ ] Write the Nuclei template", "- [ ] Validate against a local lab target only");
@@ -514,12 +542,15 @@
   }
   function detailActions(info, opts) {
     var wrap = el("div", "detail-actions");
-    if (info.issue_number) {
-      wrap.appendChild(link("https://github.com/" + (state.repo || "builtbybrayden/threat-feed") + "/issues/" + info.issue_number,
-        "View issue #" + info.issue_number, "btn primary"));
-      return wrap;
+    if (opts.queue !== false && info.cve_id) {
+      var already = inQueue(info.cve_id);
+      var qb = el("button", "btn primary", already ? "In detection queue ✓" : "Add to detection queue");
+      qb.type = "button";
+      if (already) qb.disabled = true;
+      else qb.addEventListener("click", function () { addToQueue(info); });
+      wrap.appendChild(qb);
     }
-    if (opts.research) wrap.appendChild(link(issueHref("research", info), "Deep-research issue", "btn primary"));
+    if (opts.research) wrap.appendChild(link(issueHref("research", info), "Deep-research issue", "btn"));
     if (opts.template) wrap.appendChild(link(issueHref("template", info), "Template-needed issue", "btn"));
     return wrap;
   }
@@ -539,10 +570,10 @@
       var h = el("div", "detail-head");
       h.appendChild(el("div", "detail-id", t.cve_id));
       h.appendChild(el("div", "detail-prod", (t.vendor ? t.vendor + " / " : "") + (t.product || "unknown product")));
+      var dl = dateLine(t); if (dl) h.appendChild(el("div", "detail-dates", dl));
       body.appendChild(h);
 
       var stats = el("div", "p-stats");
-      stats.appendChild(el("span", scoreClass(t.score, "p-score"), Math.round(t.score)));
       if (t.kev) stats.appendChild(statItem(t.kev_added ? "KEV · " + String(t.kev_added).slice(0, 4) : "KEV", null, "kev"));
       if (t.epss != null) stats.appendChild(statItem("EPSS", epssPct(t.epss)));
       if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
@@ -567,16 +598,12 @@
       var links = el("div", "detail-links");
       if (t.advisory_url) links.appendChild(link(t.advisory_url, t.ghsa_id || "GitHub advisory", "btn"));
       links.appendChild(link("https://nvd.nist.gov/vuln/detail/" + t.cve_id, "NVD", "btn"));
-      if (t.is_candidate && t.brief) links.appendChild(link(t.brief, "Detection brief", "btn"));
       body.appendChild(links);
 
       body.appendChild(el("h3", "detail-h", "Track this"));
-      body.appendChild(el("p", "detail-hint", "Opens a prefilled issue on GitHub — review and submit it there."));
-      body.appendChild(detailActions({
-        cve_id: t.cve_id, product: t.product, ecosystems: t.ecosystems, cvss_score: t.cvss_score,
-        epss: t.epss, kev: t.kev, coverage: t.coverage, advisory_url: t.advisory_url,
-        description: t.description, brief: t.brief, issue_number: t.issue_number
-      }, { research: true, template: true }));
+      body.appendChild(el("p", "detail-hint", "Add it to your detection queue (saved here + synced via a GitHub issue), or open a prefilled issue."));
+      t.source = "threat";
+      body.appendChild(detailActions(t, { queue: true, research: true, template: true }));
     });
   }
   function openNewsDetail(it) {
@@ -597,80 +624,91 @@
       body.appendChild(links);
 
       body.appendChild(el("h3", "detail-h", "Track this"));
-      body.appendChild(el("p", "detail-hint", "Opens a prefilled issue on GitHub — review and submit it there."));
+      var hasCve = !!(it.cves && it.cves.length);
+      body.appendChild(el("p", "detail-hint", hasCve
+        ? "Add the CVE to your detection queue, or open a prefilled issue."
+        : "Open a prefilled research issue on GitHub."));
       body.appendChild(detailActions({
         cve_id: (it.cves && it.cves[0]) || null, title: it.title, url: it.url,
-        description: it.summary, epss: it.epss, kev: it.kev
-      }, { research: true, template: !!(it.cves && it.cves.length) }));
+        description: it.summary, epss: it.epss, kev: it.kev, source: "news"
+      }, { queue: hasCve, research: true, template: hasCve }));
     });
   }
-  function openCandidateDetail(c) {
+  function openQueueDetail(c) {
     openModal(function (body) {
       var h = el("div", "detail-head");
-      h.appendChild(el("div", "detail-id", c.cve_id));
-      h.appendChild(el("div", "detail-prod", (c.vendor ? c.vendor + " / " : "") + (c.product || "unknown product")));
+      h.appendChild(el("div", "detail-id", c.cve_id || c.title || "(no CVE)"));
+      var prod = (c.vendor ? c.vendor + " / " : "") + (c.product || "");
+      if (prod) h.appendChild(el("div", "detail-prod", prod));
+      var dl = dateLine(c); if (dl) h.appendChild(el("div", "detail-dates", dl));
       body.appendChild(h);
 
       var stats = el("div", "p-stats");
-      stats.appendChild(el("span", scoreClass(c.score, "p-score"), Math.round(c.score)));
       if (c.kev) stats.appendChild(statItem(c.kev_added ? "KEV · " + String(c.kev_added).slice(0, 4) : "KEV", null, "kev"));
       if (c.epss != null) stats.appendChild(statItem("EPSS", epssPct(c.epss)));
       if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
-      if (c.detectability && c.detectability.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
-      stats.appendChild(el("span", "cov gap", "No template"));
+      if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
+      if (c.coverage) stats.appendChild(el("span", "cov " + (c.coverage === "gap" ? "gap" : "covered"), c.coverage === "gap" ? "No template" : "Covered"));
       (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
       (c.cwe || []).forEach(function (cw) { stats.appendChild(el("span", "tag-pill", cw)); });
-      body.appendChild(stats);
+      if (stats.childNodes.length) body.appendChild(stats);
 
-      var dates = [];
-      if (c.published) dates.push("Published " + dateShort(c.published));
-      if (c.modified) dates.push("Modified " + dateShort(c.modified));
-      if (dates.length) body.appendChild(el("p", "detail-dates", dates.join("  ·  ")));
+      if (c.description) body.appendChild(el("p", "detail-desc", c.description));
 
-      var d = c.detectability || {};
-      var grid = el("div", "meta-grid");
-      function row(k, val) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val)); }
-      row("Detectability", d.likely_http ? "HTTP" : (d.remote_network ? "remote (AV:N)" : "local"));
-      row("Template type", d.suggested_template_type || "?");
-      if (c.cwe && c.cwe.length) row("CWE", c.cwe.join(", "));
-      body.appendChild(grid);
-
-      if (c.candidate_reasons && c.candidate_reasons.length) {
-        var det = el("details", "why"); det.setAttribute("open", "");
-        det.appendChild(el("summary", null, "Why it's a candidate"));
-        var ul = el("ul"); c.candidate_reasons.forEach(function (r) { ul.appendChild(el("li", null, r)); });
-        det.appendChild(ul); body.appendChild(det);
+      if (c.detectability) {
+        var d = c.detectability;
+        var grid = el("div", "meta-grid");
+        var row = function (k, val) { grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val)); };
+        row("Detectability", d.likely_http ? "HTTP" : (d.remote_network ? "remote (AV:N)" : "local"));
+        row("Template type", d.suggested_template_type || "?");
+        if (c.cwe && c.cwe.length) row("CWE", c.cwe.join(", "));
+        body.appendChild(grid);
       }
 
       var links = el("div", "detail-links");
-      links.appendChild(link(c.brief, "Detection brief", "btn"));
-      links.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
+      if (c.brief) links.appendChild(link(c.brief, "Detection brief", "btn"));
+      if (c.cve_id) links.appendChild(link("https://nvd.nist.gov/vuln/detail/" + c.cve_id, "NVD", "btn"));
+      if (c.advisory_url) links.appendChild(link(c.advisory_url, c.ghsa_id || "GitHub advisory", "btn"));
       if (c.issue_number != null) links.appendChild(link("https://github.com/" + (state.repo || "builtbybrayden/threat-feed") + "/issues/" + c.issue_number, "Issue #" + c.issue_number, "btn"));
-      body.appendChild(links);
+      if (links.childNodes.length) body.appendChild(links);
+
+      if (!c._synced) body.appendChild(el("p", "detail-hint", "Added on this device — a GitHub issue syncs it to your other devices within ~a minute."));
 
       body.appendChild(el("h3", "detail-h", "Track this"));
-      body.appendChild(el("p", "detail-hint", "Opens a prefilled issue on GitHub — review and submit it there."));
-      body.appendChild(detailActions({
-        cve_id: c.cve_id, product: c.product, ecosystems: c.ecosystems, cvss_score: c.cvss_score,
-        epss: c.epss, kev: c.kev, coverage: "gap", description: c.description || "", brief: c.brief, issue_number: c.issue_number
-      }, { research: true, template: true }));
+      body.appendChild(detailActions(c, { research: true, template: true }));
 
       var dz = el("div", "detail-dismiss");
-      var isD = state.dismissed.has(c.cve_id);
-      var db = el("button", "btn ghost", isD ? "Restore to queue" : "Dismiss — not relevant"); db.type = "button";
-      db.addEventListener("click", function () { toggleDismiss(c.cve_id); closeModal(); });
-      dz.appendChild(db);
+      var rb = el("button", "btn ghost", c._synced ? "Close issue on GitHub" : "Remove from queue"); rb.type = "button";
+      rb.addEventListener("click", function () { removeFromQueue(c); closeModal(); });
+      dz.appendChild(rb);
       body.appendChild(dz);
     });
   }
-  function visibleCandidates() {
-    return state.candidates.filter(function (c) { return !state.dismissed.has(c.cve_id); });
+  function queueSnapshot(info) {
+    return {
+      cve_id: info.cve_id, title: info.title || null, vendor: info.vendor || null, product: info.product || null,
+      epss: (info.epss != null ? info.epss : null), cvss_score: (info.cvss_score != null ? info.cvss_score : null),
+      ecosystems: info.ecosystems || [], cwe: info.cwe || [], kev: !!info.kev, kev_added: info.kev_added || null,
+      published: info.published || null, modified: info.modified || info.published || null,
+      coverage: info.coverage || null, detectability: info.detectability || null, has_poc: !!info.has_poc,
+      advisory_url: info.advisory_url || null, ghsa_id: info.ghsa_id || null, brief: info.brief || null,
+      score: info.score || 0, added_at: new Date().toISOString()
+    };
   }
-  function toggleDismiss(cve) {
-    if (state.dismissed.has(cve)) state.dismissed.delete(cve); else state.dismissed.add(cve);
-    saveDismissed();
-    renderQueue(); renderRailGaps();
-    setGapBadge(visibleCandidates().length);
+  function addToQueue(info) {
+    if (info.cve_id && !inQueue(info.cve_id)) {
+      state.localQueue.push(queueSnapshot(info));
+      saveLocalQueue();
+      renderQueue(); renderRailGaps(); setGapBadge(mergedQueue().length);
+    }
+    try { window.open(issueHref("queue", info), "_blank", "noopener"); } catch (e) { /* popup blocked */ }
+    closeModal();
+  }
+  function removeFromQueue(c) {
+    if (c._synced) { if (c.issue_url) { try { window.open(c.issue_url, "_blank", "noopener"); } catch (e) {} } return; }
+    state.localQueue = state.localQueue.filter(function (e) { return e.cve_id !== c.cve_id; });
+    saveLocalQueue();
+    renderQueue(); renderRailGaps(); setGapBadge(mergedQueue().length);
   }
   // A click anywhere on a card opens its detail, except on a real link/button.
   function cardClick(open) {
@@ -680,42 +718,35 @@
   // ---- RAIL -------------------------------------------------------------
   function renderRailGaps() {
     var card = document.getElementById("rail-gaps"); card.textContent = "";
-    card.appendChild(el("h2", null, "Top detection gaps"));
-    var cands = visibleCandidates();
-    if (!cands.length) { card.appendChild(el("p", "rail-foot", "No open gaps.")); return; }
-    cands.slice(0, 5).forEach(function (c, i) {
+    card.appendChild(el("h2", null, "Detection queue"));
+    var items = sortCves(mergedQueue(), "score");
+    if (!items.length) { card.appendChild(el("p", "rail-foot", "Empty — add a CVE from a threat or news card.")); return; }
+    items.slice(0, 6).forEach(function (c, i) {
       var row = el("div", "gap-item");
       row.appendChild(el("div", "gap-rank", i + 1));
       var mid = el("div");
-      mid.appendChild(el("div", "g-cve", c.cve_id));
+      mid.appendChild(el("div", "g-cve", c.cve_id || c.title || "(no CVE)"));
       if (c.product) mid.appendChild(el("div", "g-prod", c.product));
       row.appendChild(mid);
-      row.appendChild(el("div", "g-score", Math.round(c.score)));
-      row.addEventListener("click", function () { openCandidateDetail(c); });  // open the card, not the whole queue
+      if (!c._synced) row.appendChild(el("div", "g-local", "local"));
+      row.addEventListener("click", function () { openQueueDetail(c); });
       card.appendChild(row);
     });
   }
-  function renderRailTrending() {
-    var card = document.getElementById("rail-trending"); card.textContent = "";
-    card.appendChild(el("h2", null, "Trending tags"));
-    newsTagCounts().slice(0, 6).forEach(function (p) {
-      var row = el("div", "trend-item");
-      row.appendChild(el("div", "t-tag" + (p[0] === "AI-sec" ? " ai" : ""), "#" + p[0]));
-      row.appendChild(el("div", "t-n", p[1]));
-      row.addEventListener("click", function () { selectView("news"); state.newsTags = new Set([p[0]]); renderNews(); });
-      card.appendChild(row);
-    });
-  }
-
   // ---- footers / disclaimers --------------------------------------------
+  function agoPhrase() {
+    if (!state.last_run) return null;
+    var a = fmtAge(state.last_run);
+    return a === "now" ? "just now" : a + " ago";
+  }
   function renderFooters() {
-    var age = state.last_run ? fmtAge(state.last_run) : null;
+    var ago = agoPhrase();
     var un = document.getElementById("updated-nav");
-    if (un) un.textContent = age ? "as of " + age + " ago" : "";
+    if (un) un.textContent = ago ? "as of " + ago : "";
     var foot = document.getElementById("main-foot");
     if (foot) {
       var parts = [];
-      if (age) parts.push("Live · data as of " + age + " ago");
+      if (ago) parts.push("Live · data as of " + ago);
       if (state.first_run) parts.push("tracking since " + dateShort(state.first_run));
       parts.push("public sources only, refreshed every 6h");
       foot.textContent = parts.join("  ·  ");
@@ -744,24 +775,25 @@
   function load() {
     Promise.all([
       fetch("data.json", { cache: "no-cache" }).then(function (r) { return r.json(); }),
-      fetch("candidates.json", { cache: "no-cache" }).then(function (r) { return r.json(); })
+      fetch("queue.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : { queue: [] }; }).catch(function () { return { queue: [] }; })
     ]).then(function (res) {
-      var data = res[0], cand = res[1];
+      var data = res[0], q = res[1] || {};
       state.items = data.items || [];
       state.threats = data.threats || [];
-      state.candidates = cand.candidates || [];
+      state.queue = q.queue || [];
+      state.localQueue = loadLocalQueue();
+      pruneLocalQueue();                 // drop local entries that are now synced
       state.stats = data.stats || null;
-      state.repo = data.repo || null;
+      state.repo = data.repo || q.repo || null;
       state.first_run = data.first_run || null;
       state.last_run = data.last_run || data.generated || null;
-      state.dismissed = loadDismissed();
-      setGapBadge(visibleCandidates().length);
+      setGapBadge(mergedQueue().length);
       renderFooters();
       renderKpis();
       renderNews();
       renderThreatChips(); renderThreats();
       renderQueue();
-      renderRailGaps(); renderRailTrending();
+      renderRailGaps();
     }).catch(function (e) {
       var un = document.getElementById("updated-nav"); if (un) un.textContent = "Failed to load";
       // eslint-disable-next-line no-console

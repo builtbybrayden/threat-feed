@@ -260,6 +260,9 @@ body.modal-open { overflow: hidden; }
 .vuln-id { font: 800 0.98rem/1.2 var(--mono); letter-spacing: -0.01em; }
 .vuln-prod { color: var(--muted); font-size: 0.82rem; margin-top: 3px; word-break: break-word; }
 .vuln-prod .sev { color: var(--text); font-weight: 600; }
+.vuln-date { color: var(--faint); font-size: 0.72rem; margin-top: 4px; }
+.cov.local { background: rgba(10, 132, 255, 0.14); color: #4aa3ff; box-shadow: inset 0 0 0 1px rgba(10, 132, 255, 0.4); }
+.g-local { color: #4aa3ff; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .cov {
   margin-left: auto; flex: 0 0 auto; font-size: 0.68rem; font-weight: 700;
   padding: 4px 9px; border-radius: 999px; letter-spacing: 0.02em; text-transform: uppercase;

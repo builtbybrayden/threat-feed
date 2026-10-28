@@ -18,6 +18,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -127,6 +128,15 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     state.meta.setdefault("first_run", now_iso())  # data-capture start date (disclaimer)
     session = None if args.offline else make_session(cfg)
 
+    # Fast path: just rebuild the detection queue from GitHub issues (fired on
+    # issue events), using the already-enriched records in state.json. No feeds,
+    # no NVD, no triage — seconds instead of minutes.
+    if getattr(args, "queue_only", False):
+        queue = _build_queue(state, cfg, args)
+        _write_queue(Path(args.site), queue, cfg)
+        log.info("queue-only rebuild: %d items", len(queue))
+        return {"queue": len(queue)}
+
     # 1. Feeds + KEV + ecosystem advisories --------------------------------
     items = gather_feed_items(cfg, session, args.offline, sample_dir)
     new_count = sum(state.upsert_item(it) for it in items)
@@ -220,17 +230,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             candidates.append(rec)
     candidates.sort(key=lambda r: (r.score, r.kev, r.epss or 0), reverse=True)
 
-    # 8. Briefs ------------------------------------------------------------
-    for rec in candidates:
-        write_brief(rec, args.briefs)
+    # 8. Detection queue = CVEs the user curated as `detection-queue` GitHub
+    #    issues (no auto-population). Briefs are generated only for those.
+    queue = _build_queue(state, cfg, args)
 
-    # 9. Issues (CI only) — before the site write, so freshly-filed issue
-    #    numbers are reflected on the cards this same run.
-    issue_summary = _maybe_sync_issues(state, candidates, cfg, args)
-
-    # 10. Site JSON --------------------------------------------------------
+    # 9. Site JSON --------------------------------------------------------
     stats = _compute_stats(state, candidates, cfg)
-    _write_site(state, candidates, stats, args.site, cfg)
+    _write_site(state, candidates, stats, queue, args.site, cfg)
 
     state.save(args.state)
 
@@ -239,7 +245,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "total_items": len(state.items),
         "total_cves": len(state.cves),
         "candidates": len(candidates),
-        "issues": issue_summary,
+        "queue": len(queue),
         "stats": stats,
     }
     log.info("run complete: %s", json.dumps(summary["stats"]))
@@ -388,7 +394,85 @@ def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> di
     }
 
 
-def _write_site(state: State, candidates: list, stats: dict, site_dir: str, config: dict[str, Any]) -> None:
+def _repo_slug(config: dict[str, Any]) -> str:
+    return os.environ.get("GITHUB_REPOSITORY") or config.get("repo") or "builtbybrayden/threat-feed"
+
+
+def _cve_from_issue(iss: dict[str, Any]) -> Optional[str]:
+    """Pull the CVE id out of a queue issue: the hidden marker first, else any
+    CVE id in the title/body."""
+    body = iss.get("body") or ""
+    m = re.search(r"threat-feed:(CVE-\d{4}-\d{4,7})", body, re.IGNORECASE)
+    if m:
+        return m.group(1).upper()
+    m = re.search(r"CVE-\d{4}-\d{4,7}", (iss.get("title") or "") + " " + body, re.IGNORECASE)
+    return m.group(0).upper() if m else None
+
+
+def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str, Any]:
+    e: dict[str, Any] = {
+        "cve_id": cve,
+        "issue_number": iss.get("number"),
+        "issue_url": iss.get("html_url"),
+        "title": iss.get("title"),
+        "issue_created": iss.get("created_at"),
+        "issue_updated": iss.get("updated_at"),
+    }
+    if rec is not None:
+        e.update({
+            "vendor": rec.vendor, "product": rec.product,
+            "score": rec.score, "kev": rec.kev, "kev_added": rec.kev_added,
+            "epss": rec.epss, "cvss_score": rec.cvss_score, "cwe": rec.cwe,
+            "ecosystems": rec.ecosystems, "vuln_classes": rec.vuln_classes,
+            "published": rec.published, "modified": rec.modified or rec.published,
+            "has_poc": bool(rec.poc_links),
+            "coverage": "covered" if rec.nuclei_template else "gap",
+            "detectability": {
+                "remote_network": rec.detection.remote_network,
+                "likely_http": rec.detection.likely_http,
+                "has_poc": rec.detection.has_poc,
+                "suggested_template_type": rec.detection.suggested_template_type,
+            },
+            "candidate_reasons": rec.candidate_reasons,
+            "advisory_url": rec.advisory_url, "ghsa_id": rec.ghsa_id,
+            "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
+            "brief": f"briefs/{cve}.md" if (Path(args.briefs) / f"{cve}.md").exists() else None,
+        })
+    return e
+
+
+def _build_queue(state: State, config: dict[str, Any], args) -> list[dict[str, Any]]:
+    """The detection queue: open `detection-queue` GitHub issues, enriched from
+    the CVE records. Empty without a token/repo (offline, local) — the queue is
+    user-curated, so empty is the correct default, not an error."""
+    label = config.get("queue", {}).get("label", "detection-queue")
+    issues: list[dict[str, Any]] = []
+    token = os.environ.get("GITHUB_TOKEN")
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    if not getattr(args, "offline", False) and not getattr(args, "no_issues", False) and token and repo:
+        try:
+            client = RestGitHubClient(repo, token, make_session(config), config["http"]["timeout"])
+            issues = client.list_issues(label=label, state="open")
+        except Exception as exc:  # the queue just stays empty if GitHub is unreachable
+            log.warning("queue issue fetch failed (%s)", exc)
+            issues = []
+    entries = []
+    for iss in issues:
+        cve = _cve_from_issue(iss)
+        rec = state.cves.get(cve) if cve else None
+        if rec is not None:
+            write_brief(rec, args.briefs)  # make sure the queued CVE's brief exists + is current
+        entries.append(_queue_entry(iss, cve, rec, args))
+    entries.sort(key=lambda e: (e.get("score") or 0), reverse=True)  # most important first
+    return entries
+
+
+def _write_queue(site: Path, queue: list[dict[str, Any]], config: dict[str, Any]) -> None:
+    site.mkdir(parents=True, exist_ok=True)
+    _dump(site / "queue.json", {"generated": now_iso(), "repo": _repo_slug(config), "queue": queue})
+
+
+def _write_site(state: State, candidates: list, stats: dict, queue: list, site_dir: str, config: dict[str, Any]) -> None:
     site = Path(site_dir)
     site.mkdir(parents=True, exist_ok=True)
     generated = now_iso()
@@ -456,6 +540,8 @@ def _write_site(state: State, candidates: list, stats: dict, site_dir: str, conf
         "candidates": [_candidate_view(r) for r in candidates],
     }
     _dump(site / "candidates.json", cand)
+
+    _write_queue(site, queue, config)
 
 
 def _candidate_view(rec) -> dict[str, Any]:
@@ -545,6 +631,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--offline", action="store_true", help="run from sample_data/ with no network")
     ap.add_argument("--no-nvd", action="store_true", help="skip NVD enrichment (faster)")
     ap.add_argument("--no-issues", action="store_true", help="never touch GitHub Issues")
+    ap.add_argument("--queue-only", action="store_true", help="only rebuild the detection queue from issues (fast, for issue events)")
     ap.add_argument("--limit-nvd", type=int, default=None, help="max NVD lookups this run")
     ap.add_argument("--config", default=str(ROOT / "config.yaml"))
     ap.add_argument("--watchlist", default=str(ROOT / "watchlist.yaml"))

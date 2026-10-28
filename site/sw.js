@@ -5,7 +5,7 @@
    keeps that staleness honest. */
 "use strict";
 
-var CACHE = "appsec-feed-v2";
+var CACHE = "appsec-feed-v3";
 var SHELL = [
   "./",
   "./index.html",
@@ -40,7 +40,7 @@ self.addEventListener("fetch", function (event) {
   var url = new URL(req.url);
   if (url.origin !== self.location.origin) return; // same-origin only
 
-  var isData = url.pathname.endsWith("data.json") || url.pathname.endsWith("candidates.json");
+  var isData = url.pathname.endsWith("data.json") || url.pathname.endsWith("candidates.json") || url.pathname.endsWith("queue.json");
 
   if (isData) {
     // Network-first, fall back to cache (last good sync).
