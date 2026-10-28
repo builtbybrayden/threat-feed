@@ -21,6 +21,9 @@
     "Simon Willison": { slug: "simonw", h: "simonw", v: false }
   };
   var AI_TAGS = { "prompt injection": 1, "llm": 1, "rag": 1, "mcp": 1, "model context protocol": 1, "langchain": 1 };
+  // Mirrors config.yaml feed.roundup_min_cves: a post naming this many CVEs is a
+  // multi-topic roundup, so per-post KEV/EPSS/PoC signals are suppressed.
+  var ROUNDUP_MIN_CVES = 3;
 
   // ---- helpers ----------------------------------------------------------
   function el(tag, cls, text) {
@@ -132,9 +135,16 @@
       body.appendChild(cr);
     }
     var stats = el("div", "p-stats");
-    if (it.kev) stats.appendChild(statItem("KEV", null, "kev"));
-    if (it.epss != null) stats.appendChild(statItem("EPSS", pct(it.epss)));
-    if ((it.tags || []).indexOf("has-PoC") !== -1) stats.appendChild(statItem("PoC", null, "poc"));
+    // On a multi-CVE roundup, KEV/EPSS/PoC are inherited from the single hottest
+    // linked CVE and overstate the article, so show a plain "N CVEs" tag instead.
+    // On single-vuln posts those signals describe the one CVE, so keep them.
+    if (it.cves && it.cves.length >= ROUNDUP_MIN_CVES) {
+      stats.appendChild(el("span", "tag-pill multi", it.cves.length + " CVEs"));
+    } else {
+      if (it.kev) stats.appendChild(statItem("KEV", null, "kev"));
+      if (it.epss != null) stats.appendChild(statItem("EPSS", pct(it.epss)));
+      if ((it.tags || []).indexOf("has-PoC") !== -1) stats.appendChild(statItem("PoC", null, "poc"));
+    }
     (it.tags || []).forEach(function (t) {
       if (["KEV", "has-PoC", "has-CVE", "research", "watchlist"].indexOf(t) !== -1) return;
       stats.appendChild(el("span", "tag-pill" + (t === "AI-sec" ? " ai" : ""), t));
