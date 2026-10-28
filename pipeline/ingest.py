@@ -431,7 +431,9 @@ def _write_site(state: State, candidates: list, stats: dict, site_dir: str, conf
 
     data = {
         "generated": generated,
-        "last_run": state.meta.get("last_run", generated),
+        # Use this run's time; state.meta["last_run"] isn't refreshed until save(),
+        # so reading it here would report the *previous* run's time.
+        "last_run": generated,
         "stats": stats,
         "threats": threats,
         "items": [i.to_dict() for i in items_sorted[:400]],
