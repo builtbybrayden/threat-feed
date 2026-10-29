@@ -10,6 +10,7 @@
     view: "news",
     newsQuery: "", newsTags: new Set(),
     threatCoverage: "all", threatEco: null,      // coverage: all | gap | covered
+    threatSignal: "all",                         // all | kev | newkev | poc
     threatSort: "score", queueSort: "score"      // score | published | modified
   };
 
@@ -148,6 +149,11 @@
     var t = Date.parse(iso); if (isNaN(t)) return "";
     return new Date(t).toISOString().slice(0, 10);           // YYYY-MM-DD
   }
+  function daysSince(iso) {
+    if (!iso) return Infinity;
+    var t = Date.parse(iso); if (isNaN(t)) return Infinity;
+    return (Date.now() - t) / 86400000;
+  }
   // Sort a copy of a CVE list by the chosen key (score keeps server order).
   function sortCves(arr, by) {
     if (by === "score") return arr;
@@ -185,26 +191,26 @@
         what: "CVEs that are both application-security relevant and listed in CISA's Known Exploited Vulnerabilities (KEV) catalog — i.e. confirmed exploited in the wild.",
         how: [["CISA KEV catalog", "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"],
               ["AppSec classifier (ecosystem / CWE / CPE)", null]],
-        jump: "threats"
+        filter: { signal: "kev" }
       },
       newly: {
         n: s.newly_exploited, label: "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d",
         what: "AppSec CVEs whose CISA KEV dateAdded falls within the last " + (s.newly_exploited_days || 30) + " days — the ones that just started being exploited.",
         how: [["CISA KEV dateAdded", "https://www.cisa.gov/known-exploited-vulnerabilities-catalog"]],
-        jump: "threats"
+        filter: { signal: "newkev" }
       },
       poc: {
         n: s.public_poc, label: "With public exploit code (PoC)",
         what: "AppSec CVEs for which a public proof-of-concept exploit repo is known.",
         how: [["nomi-sec PoC-in-GitHub index", "https://github.com/nomi-sec/PoC-in-GitHub"]],
-        jump: "threats"
+        filter: { signal: "poc" }
       },
       gaps: {
         n: s.open_gaps, label: "Missing a Nuclei template",
         what: "Detection candidates: AppSec CVEs that have no Nuclei template yet, are remotely/HTTP-detectable, and carry a priority signal (KEV, high EPSS, or a watchlist product).",
         how: [["ProjectDiscovery nuclei-templates (coverage)", "https://github.com/projectdiscovery/nuclei-templates"],
               ["FIRST EPSS", "https://www.first.org/epss/"]],
-        jump: "queue"
+        filter: { coverage: "gap" }
       }
     };
     var m = M[key]; if (!m) return;
@@ -223,12 +229,26 @@
       });
       body.appendChild(ul);
       var links = el("div", "detail-links");
-      var jb = el("button", "btn primary", m.jump === "queue" ? "View detection queue" : "View on Threats board");
+      var jb = el("button", "btn primary", "View these on the Threats board");
       jb.type = "button";
-      jb.addEventListener("click", function () { closeModal(); selectView(m.jump); });
+      jb.addEventListener("click", function () { closeModal(); jumpToThreats(m.filter); });
       links.appendChild(jb);
       body.appendChild(links);
     });
+  }
+  // Open the Threats board pre-filtered to one metric: reset every threat
+  // filter to its default, then apply only the metric's dimension so the list
+  // shows exactly the CVEs the card counted.
+  function jumpToThreats(f) {
+    state.threatSignal = (f && f.signal) || "all";
+    state.threatCoverage = (f && f.coverage) || "all";
+    state.threatEco = null;
+    state.threatSort = "score";
+    selectView("threats");
+    var bar = document.getElementById("threat-chips");
+    var tog = document.getElementById("threat-filter-toggle");
+    if (bar && bar.hidden) { bar.hidden = false; if (tog) tog.setAttribute("aria-expanded", "true"); }
+    renderThreatChips(); renderThreats();
   }
 
   // ---- NEWS -------------------------------------------------------------
@@ -331,8 +351,16 @@
   }
   var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Has template"]];
   var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
+  function signalOpts() {
+    var d = (state.stats && state.stats.newly_exploited_days) || 30;
+    return [["all", "All"], ["kev", "Exploited (KEV)"], ["newkev", "New in KEV · " + d + "d"], ["poc", "Has public PoC"]];
+  }
+  var SIGNAL_LABEL = { kev: "Exploited (KEV)", newkev: "New in KEV", poc: "Has public PoC" };
   function renderThreatChips() {
     var host = document.getElementById("threat-chips"); host.textContent = "";
+    pillGroup(host, "Signal", signalOpts(), state.threatSignal, function (v) {
+      state.threatSignal = v; renderThreatChips(); renderThreats();
+    });
     pillGroup(host, "Template coverage", COVERAGE_OPTS, state.threatCoverage, function (v) {
       state.threatCoverage = v; renderThreatChips(); renderThreats();
     });
@@ -351,6 +379,7 @@
   }
   function threatFilterSummary() {
     var parts = [];
+    if (state.threatSignal !== "all") parts.push(SIGNAL_LABEL[state.threatSignal] || state.threatSignal);
     if (state.threatCoverage === "gap") parts.push("No template");
     else if (state.threatCoverage === "covered") parts.push("Has template");
     if (state.threatEco) parts.push(ECO_LABEL[state.threatEco] || state.threatEco);
@@ -365,6 +394,12 @@
     if (state.threatCoverage === "gap" && t.coverage !== "gap") return false;
     if (state.threatCoverage === "covered" && t.coverage === "gap") return false;
     if (state.threatEco && (t.ecosystems || []).indexOf(state.threatEco) === -1) return false;
+    if (state.threatSignal === "kev" && !t.kev) return false;
+    if (state.threatSignal === "poc" && !t.has_poc) return false;
+    if (state.threatSignal === "newkev") {
+      var win = (state.stats && state.stats.newly_exploited_days) || 30;
+      if (!t.kev || daysSince(t.kev_added) > win) return false;
+    }
     return true;
   }
   function threatCard(t) {
