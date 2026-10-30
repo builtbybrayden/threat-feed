@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-10-30T12:32:28Z",
+  "generated": "2026-10-30T22:11:59Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 50.7,
+      "score": 50.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.7)"
+        "recency (+13.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -79,12 +79,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 50.0,
+      "score": 49.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.0)"
+        "recency (+12.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -107,13 +107,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 47.7,
+      "score": 47.4,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -138,13 +138,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 47.6,
+      "score": 47.3,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -169,12 +169,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 47.5,
+      "score": 47.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -186,7 +186,7 @@
         "has-CVE",
         "command-injection"
       ],
-      "title": "GHSL-2026-229: External pull requests can execute commands in privileged release workflows - CVE-2026-92261",
+      "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
       "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
     },
     {
@@ -197,12 +197,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 47.4,
+      "score": 47.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -223,12 +223,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 46.6,
+      "score": 46.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.6)"
+        "recency (+9.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -250,12 +250,12 @@
       "id": "b9a21e8f9aefd6f8",
       "kev": false,
       "published": "2026-10-06T07:00:00Z",
-      "score": 45.4,
+      "score": 45.3,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:express (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -268,32 +268,6 @@
       ],
       "title": "How to fix a bug in a fix",
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "2651c05b9f589774",
-      "kev": false,
-      "published": "2026-10-23T03:35:19Z",
-      "score": 44.2,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:supply chain (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+7.2)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A ransomware group used a supply chain compromise to hack around 40 shipping companies, the Pentagon assembles a technology sabotage unit, PHP2Shell exploitation gets underway and GoDaddy revokes 400,000 certs. Show notes Risky Bulletin: Supply chain attack lets ransomware group inside 40+ shipping companies",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "supply-chain"
-      ],
-      "title": "Risky Bulletin: Supply chain attack lets ransomware group inside 40 shipping companies",
-      "url": "https://risky.biz/RBNEWS624/"
     },
     {
       "appsec": true,
@@ -431,15 +405,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "2651c05b9f589774",
+      "kev": false,
+      "published": "2026-10-23T03:35:19Z",
+      "score": 43.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:supply chain (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+6.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A ransomware group used a supply chain compromise to hack around 40 shipping companies, the Pentagon assembles a technology sabotage unit, PHP2Shell exploitation gets underway and GoDaddy revokes 400,000 certs. Show notes Risky Bulletin: Supply chain attack lets ransomware group inside 40+ shipping companies",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "supply-chain"
+      ],
+      "title": "Risky Bulletin: Supply chain attack lets ransomware group inside 40 shipping companies",
+      "url": "https://risky.biz/RBNEWS624/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 43.8,
+      "score": 43.6,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -548,32 +548,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c57d8ab402c1afe4",
-      "kev": false,
-      "published": "2026-10-19T02:09:07Z",
-      "score": 41.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:supply chain (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+4.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A serious vulnerability lets attackers escape Kernel-based virtual machines, OpenCode users become collateral damage in a distillation attack, supply chain incidents hit AOMEI and ConnectWise and Intel will discontinue SGX. Show notes Risky Bulletin: PwnEscape vulnerability lets you escape KVM",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "supply-chain"
-      ],
-      "title": "Risky Bulletin: Linux patches PwnEscape KVM vulnerability",
-      "url": "https://risky.biz/RBNEWS622/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-65993"
       ],
@@ -607,15 +581,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c57d8ab402c1afe4",
+      "kev": false,
+      "published": "2026-10-19T02:09:07Z",
+      "score": 41.6,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:supply chain (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+4.6)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A serious vulnerability lets attackers escape Kernel-based virtual machines, OpenCode users become collateral damage in a distillation attack, supply chain incidents hit AOMEI and ConnectWise and Intel will discontinue SGX. Show notes Risky Bulletin: PwnEscape vulnerability lets you escape KVM",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "supply-chain"
+      ],
+      "title": "Risky Bulletin: Linux patches PwnEscape KVM vulnerability",
+      "url": "https://risky.biz/RBNEWS622/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 41.3,
+      "score": 41.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.3)"
+        "recency (+6.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -638,11 +638,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 41.2,
+      "score": 40.8,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+11.2)"
+        "recency (+10.8)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -655,6 +655,32 @@
       "url": "https://portswigger.net/research/scalable-vector-grief"
     },
     {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "d7da1053e3ecdb1a",
+      "kev": false,
+      "published": "2026-10-20T23:50:25Z",
+      "score": 40.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:pip,python (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+5.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "eMudhra Intermediate CA Compromise This is very, very bad news: The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. Any software that bundles a list of trusted certificates needs to be updated. This site is tracking software updates via this GitHub repository - Linux distros need to update their ca-certificates packages. In Python world uv 0.13.4 and pip 26.2.2 and certifi 2026.10.19 have been released with upgraded certificate lists. There's a very informative thread about this on the official Python forum. Tags: encryption, https, pip, python, security, uv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "pypi"
+      ],
+      "title": "eMudhra Intermediate CA Compromise",
+      "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
+    },
+    {
       "appsec": false,
       "cves": [],
       "epss": null,
@@ -662,11 +688,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 40.9,
+      "score": 40.5,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+10.9)"
+        "recency (+10.5)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -684,41 +710,15 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "d7da1053e3ecdb1a",
-      "kev": false,
-      "published": "2026-10-20T23:50:25Z",
-      "score": 40.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:pip,python (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+5.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "eMudhra Intermediate CA Compromise This is very, very bad news: The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. Any software that bundles a list of trusted certificates needs to be updated. This site is tracking software updates via this GitHub repository - Linux distros need to update their ca-certificates packages. In Python world uv 0.13.4 and pip 26.2.2 and certifi 2026.10.19 have been released with upgraded certificate lists. There's a very informative thread about this on the official Python forum. Tags: encryption, https, pip, python, security, uv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "pypi"
-      ],
-      "title": "eMudhra Intermediate CA Compromise",
-      "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 40.4,
+      "score": 40.3,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -742,12 +742,12 @@
       "id": "6053efd31e99a045",
       "kev": false,
       "published": "2026-10-08T14:30:00Z",
-      "score": 38.7,
+      "score": 38.6,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:npm,pnpm,pypi (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -774,12 +774,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 38.3,
+      "score": 38.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.3)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -834,12 +834,12 @@
       "id": "886c6e66695f9828",
       "kev": false,
       "published": "2026-10-01T14:30:00Z",
-      "score": 37.9,
+      "score": 37.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:python,javascript,jira (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1536,11 +1536,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 35.2,
+      "score": 34.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.2)"
+        "recency (+13.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1560,11 +1560,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 34.7,
+      "score": 34.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+13.7)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1584,11 +1584,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 33.9,
+      "score": 33.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.9)"
+        "recency (+12.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1608,11 +1608,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 33.5,
+      "score": 33.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.5)"
+        "recency (+12.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1632,11 +1632,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 33.4,
+      "score": 32.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+12.4)"
+        "recency (+11.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1655,11 +1655,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 31.6,
+      "score": 31.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.6)"
+        "recency (+10.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1679,11 +1679,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 31.2,
+      "score": 30.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+10.2)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1771,11 +1771,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 28.7,
+      "score": 28.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.7)"
+        "recency (+7.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1786,30 +1786,6 @@
       ],
       "title": "Introducing Kimi K3.1 Pro",
       "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4cb6db05cf9cb349",
-      "kev": false,
-      "published": "2026-10-22T18:09:56Z",
-      "score": 28.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:model context protocol,mcp (+15)",
-        "recency (+7.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Donating Agent Skills to the Agentic AI Foundation News today from Anthropic: We’re committed to keeping Agent Skills open, community-driven, and vendor-neutral. Today, we are donating the standard to the Agentic AI Foundation (AAIF) under the Linux Foundation, which we co-founded with Block and OpenAI last year, and to which we donated the Model Context Protocol (MCP). I'm pleased to note I called this one last December, when Anthropic first declared skills to be an \"open standard\": I wouldn't be surprised to see this end up in the AAIF, recently the new home of the MCP specification. Fun side note: since my blog content is available to Claude via the datasette-mcp plugin I found that post by prompting Claude to \"Use simonwillison.net MCP to find if I ever talked about how I want skills to be donated to a standards body\". Tags: standards, ai, generative-ai, llms, anthropic, model-context-protocol, skills",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Donating Agent Skills to the Agentic AI Foundation",
-      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
     },
     {
       "appsec": false,
@@ -1843,14 +1819,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4cb6db05cf9cb349",
+      "kev": false,
+      "published": "2026-10-22T18:09:56Z",
+      "score": 27.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:model context protocol,mcp (+15)",
+        "recency (+6.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Donating Agent Skills to the Agentic AI Foundation News today from Anthropic: We’re committed to keeping Agent Skills open, community-driven, and vendor-neutral. Today, we are donating the standard to the Agentic AI Foundation (AAIF) under the Linux Foundation, which we co-founded with Block and OpenAI last year, and to which we donated the Model Context Protocol (MCP). I'm pleased to note I called this one last December, when Anthropic first declared skills to be an \"open standard\": I wouldn't be surprised to see this end up in the AAIF, recently the new home of the MCP specification. Fun side note: since my blog content is available to Claude via the datasette-mcp plugin I found that post by prompting Claude to \"Use simonwillison.net MCP to find if I ever talked about how I want skills to be donated to a standards body\". Tags: standards, ai, generative-ai, llms, anthropic, model-context-protocol, skills",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "Donating Agent Skills to the Agentic AI Foundation",
+      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 26.7,
+      "score": 26.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1870,11 +1870,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 25.8,
+      "score": 25.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1894,11 +1894,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 25.8,
+      "score": 25.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1918,11 +1918,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 25.3,
+      "score": 25.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1941,11 +1941,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 24.6,
+      "score": 24.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.6)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1964,11 +1964,11 @@
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
-      "score": 24.2,
+      "score": 24.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1987,11 +1987,11 @@
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2011,11 +2011,11 @@
       "id": "7187d65663186f22",
       "kev": false,
       "published": "2026-09-28T22:27:23Z",
-      "score": 23.7,
+      "score": 23.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:llm (+15)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2035,10 +2035,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 22.4,
+      "score": 21.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+14.4)"
+        "recency (+13.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2052,13 +2052,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5ba4b32d47ec536b",
+      "kev": false,
+      "published": "2026-10-30T21:59:22Z",
+      "score": 21.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+15.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 19.9,
+      "score": 19.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.9)"
+        "recency (+11.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2075,10 +2095,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 19.8,
+      "score": 19.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.8)"
+        "recency (+13.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2095,18 +2115,18 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 18.5,
+      "score": 18.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow copies an external pull request’s attacker-controlled head branch name into a step output and directly interpolates that output into an inline Bash script. An external pull request author can use shell command-substitution syntax in the branch name to execute arbitrary commands in the base repository’s workflow_run job. A later step on the same runner receives the repository’s SONAR_TOKEN, making that credential and the integrity of the SonarCloud analysis reachable from the injected code. Project kptdev/kpt repository Tested Version The default branch at commit 6dfff203a6b49396add815a428c1d94370e9a3d6. Details Pull request branch name injection enables code execution in a privileged SonarCloud workflow (GHSL-2026-207) The Go workflow runs for pull requests. After the build and test jobs complete, it stores the pull request number in a fixed PR_NUMBER artifact. Successful completion of that workflow triggers the default-branch SonarCloud analysis workflow. The sonarqube job downloads PR_NUMBER, reads it, and requests the corresponding pull request from the GitHub API. It then extracts .head.ref, which is controlled by the external pull request author through the source branch name, into the pr_meta.outputs.head_ref step output: - name: Request GitHub API for PR data if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0 id: get_pr_data with: route: GET /repos/{full_name}/pulls/{number} number: ${{ steps.pr_number.outputs.content }} full_name: ${{ github.event.repository.full_name }} env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} - name: Extract PR metadata if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' id: pr_meta env: PR_DATA: ${{ steps.get_pr_data.outputs.data }} run: | echo \"number=$(echo \"$PR_DATA\" | jq -r '.number')\" >> \"$GITHUB_OUTPUT\" echo \"head_ref=$(echo \"$PR_DATA\" | jq -r '.head.ref')\" >> \"$GITHUB_OUTPUT\" echo \"base_ref=$(echo \"$PR_DATA\" | jq -r '.base.ref')\" >> \"$GITHUB_OUTPUT\" Using PR_DATA through an environment variable protects the extraction step itself. The subsequent debug step, however, directly interpolates the resulting output into Bash source: - name: Debug - Show PR metadata if: github.event.workflow_run.event == 'pull_request' run: | echo \"=== DEBUG: PR Metadata ===\" echo \"PR Number: ${{ steps.pr_meta.outputs.number }}\" echo \"Head Ref: ${{ steps.pr_meta.outputs.head_ref }}\" echo \"Base Ref: ${{ steps.pr_meta.outputs.base_ref }}\" echo \"=== END DEBUG ===\" GitHub Actions resolves ${{ ... }} expressions before passing the generated script to Bash. Double quotes do not neutralize shell command substitution. The successful-run and coverage-artifact conditions restrict when the vulnerable path executes, but they do not authorize the pull request author who controls the branch name. A representative attack sequence is: An external contributor creates a fork branch whose name contains command-substitution syntax and opens a pull request that exercises the Go workflow. The pull request workflow completes successfully and uploads its coverage and PR_NUMBER artifacts. A repository policy may require a maintainer to approve the fork workflow run first. The workflow_run workflow retrieves the pull request and propagates its attacker-controlled .head.ref through pr_meta.outputs.head_ref. The debug step inserts the value into the generated Bash script, executing the embedded command on the sonarqube runner. The injected process can alter runner or workspace state before the later SonarQube scan step receives SONAR_TOKEN. Impact An external fork pull request author can execute arbitrary shell commands in a base-repository workflow_run job. Although the job’s GITHUB_TOKEN permissions are read-only, a later action in the same job is explicitly given the repository secret SONAR_TOKEN. Injected code can persist influence over the runner or modify files used by later steps, allowing it to capture or misuse that credential when the SonarQube action starts. This can disclose the token and compromise the integrity of SonarCloud analysis for kptdev_kpt. The attacker requires no push access to kptdev/kpt: control of an external pull request’s source branch name is sufficient. Exploitation also requires the Go workflow to complete successfully, the expected artifacts to exist, and SONAR_TOKEN to be configured. CWEs CWE-94: Improper Control of Generation of Code (‘Code Injection’) CWE-116: Improper Encoding or Escaping of Output Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow GitHub Docs: Secure use reference - mitigating script injection GitHub Security Lab: Keeping your GitHub Actions and workflows secure - untrusted input Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-207 in any communication regarding this issue.",
+      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow copies an external pull request’s attacker-controlled head branch name into a step output and directly interpolates that output into an inline Bash script. An external pull request author can use shell command-substitution syntax in the branch name to execute arbitrary commands in the base repository’s workflow_run job. A later step on the same runner receives the repository’s SONAR_TOKEN, making that credential and the integrity of the SonarCloud analysis reachable from the injected code. Project kptdev/kpt repository Tested Version The default branch at commit 6dfff203a6b49396add815a428c1d94370e9a3d6. Details Pull request branch name injection enables code execution in a privileged SonarCloud workflow (GHSL-2026-207) The Go workflow runs for pull requests. After the build and test jobs complete, it stores the pull request number in a fixed PR_NUMBER artifact. Successful completion of that workflow triggers the default-branch SonarCloud analysis workflow. The sonarqube job downloads PR_NUMBER, reads it, and requests the corresponding pull request from the GitHub API. It then extracts .head.ref, which is controlled by the external pull request author through the source branch name, into the pr_meta.outputs.head_ref step output: - name: Request GitHub API for PR data if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0 id: get_pr_data with: route: GET /repos/{full_name}/pulls/{number} number: ${{ steps.pr_number.outputs.content }} full_name: ${{ github.event.repository.full_name }} env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} - name: Extract PR metadata if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' id: pr_meta env: PR_DATA: ${{ steps.get_pr_data.outputs.data }} run: | echo \"number=$(echo \"$PR_DATA\" | jq -r '.number')\" >> \"$GITHUB_OUTPUT\" echo \"head_ref=$(echo \"$PR_DATA\" | jq -r '.head.ref')\" >> \"$GITHUB_OUTPUT\" echo \"base_ref=$(echo \"$PR_DATA\" | jq -r '.base.ref')\" >> \"$GITHUB_OUTPUT\" Using PR_DATA through an environment variable protects the extraction step itself. The subsequent debug step, however, directly interpolates the resulting output into Bash source: - name: Debug - Show PR metadata if: github.event.workflow_run.event == 'pull_request' run: | echo \"=== DEBUG: PR Metadata ===\" echo \"PR Number: ${{ steps.pr_meta.outputs.number }}\" echo \"Head Ref: ${{ steps.pr_meta.outputs.head_ref }}\" echo \"Base Ref: ${{ steps.pr_meta.outputs.base_ref }}\" echo \"=== END DEBUG ===\" GitHub Actions resolves ${{ ... }} expressions before passing the generated script to Bash. Double quotes do not neutralize shell command substitution. The successful-run and coverage-artifact conditions restrict when the vulnerable path executes, but they do not authorize the pull request author who controls the branch name. A representative attack sequence is: An external contributor creates a fork branch whose name contains command-substitution syntax and opens a pull request that exercises the Go workflow. The pull request workflow completes successfully and uploads its coverage and PR_NUMBER artifacts. A repository policy may require a maintainer to approve the fork workflow run first. The workflow_run workflow retrieves the pull request and propagates its attacker-controlled .head.ref through pr_meta.outputs.head_ref. The debug step inserts the value into the generated Bash script, executing the embedded command on the sonarqube runner. The injected process can alter runner or workspace state before the later SonarQube scan step receives SONAR_TOKEN. Impact An external fork pull request author can execute arbitrary shell commands in a base-repository workflow_run job. Although the job’s GITHUB_TOKEN permissions are read-only, a later action in the same job is explicitly given the repository secret SONAR_TOKEN. Injected code can persist influence over the runner or modify files used by later steps, allowing it to capture or misuse that credential when the SonarQube action starts. This can disclose the token and compromise the integrity of SonarCloud analysis for kptdev/kpt. The attacker requires no push access to kptdev/kpt: control of an external pull request’s source branch name is sufficient. Exploitation also requires the Go workflow to complete successfully, the expected artifacts to exist, and SONAR_TOKEN to be configured. CWEs CWE-94: Improper Control of Generation of Code (‘Code Injection’) CWE-116: Improper Encoding or Escaping of Output Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow GitHub Docs: Secure use reference - mitigating script injection GitHub Security Lab: Keeping your GitHub Actions and workflows secure - untrusted input Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-207 in any communication regarding this issue.",
       "tags": [
         "research"
       ],
-      "title": "GHSL-2026-207: External pull request branches can execute commands and steal SonarCloud credentials in kpt",
+      "title": "GHSL-2026-207: Arbitrary code execution in kptdev/kpt’s SonarCloud workflow via external pull requests",
       "url": "https://securitylab.github.com/advisories/GHSL-2026-207_kptdev_kpt_repository/"
     },
     {
@@ -2117,18 +2137,18 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 18.5,
+      "score": 18.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow runs in the base repository through workflow_run, checks out an external pull request’s fork commit, and invokes SonarScanner with the repository’s SONAR_TOKEN. A fork author can set sonar.host.url in the checked-out sonar.properties; because the workflow does not pin a trusted scanner host, SonarScanner sends SONAR_TOKEN as Bearer authentication to that attacker-selected URL before analysis begins. The attacker can then exercise the token’s SonarCloud permissions and manipulate authenticated analysis for kptdev_kpt. Project kptdev/kpt repository Tested Version The default branch at commit 6345d96d661eae1f6cdcb97b1f70080ce35f61a4. Details Fork-controlled sonar.properties is consumed by a privileged SonarCloud scan with SONAR_TOKEN (GHSL-2026-208) The Go workflow runs for pull requests and checks out the pull request code for its build and test jobs. After successful testing, it uploads coverage reports and stores the pull request number in a PR_NUMBER artifact. Completion of the Go workflow triggers the default-branch SonarCloud analysis workflow. The latter runs in a privileged workflow_run context, where repository secrets are available. Its success and coverage-artifact checks restrict when the path runs, but do not establish trust in the pull request contents. For pull request runs, the privileged workflow downloads PR_NUMBER, resolves the pull request, and then checks out the triggering workflow’s head repository and head SHA. For an external pull request, both identify the fork author’s immutable commit: - name: Checkout PR head uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0 with: repository: ${{ github.event.workflow_run.head_repository.full_name }} ref: ${{ github.event.workflow_run.head_sha }} fetch-depth: 0 persist-credentials: false allow-unsafe-pr-checkout: true The next step is named Checkout base branch, but after briefly creating the local base branch it checks out HEAD_SHA again and resets the working tree to that commit: - name: Checkout base branch if: github.event.workflow_run.event == 'pull_request' env: BASE_REF: ${{ steps.pr_meta.outputs.base_ref }} HEAD_SHA: ${{ github.event.workflow_run.head_sha }} CLONE_URL: ${{ github.event.repository.clone_url }} run: | git remote add upstream \"$CLONE_URL\" git fetch upstream git checkout -B \"$BASE_REF\" \"upstream/$BASE_REF\" git checkout \"$HEAD_SHA\" git clean -ffdx && git reset --hard HEAD Consequently, files in the workspace, including sonar.properties, still come from the fork-controlled pull request commit. The SonarQube scan step then supplies the repository secret SONAR_TOKEN and explicitly selects that working-tree configuration file: - name: SonarQube Scan on PR if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: SonarSource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e # v8.2.0 env: SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} with: args: -Dsonar.projectKey=kptdev_kpt -Dsonar.organization=kptdev -Dproject.settings=sonar.properties -Dsonar.pullrequest.key=${{ steps.pr_meta.outputs.number }} -Dsonar.pullrequest.branch=${{ steps.pr_meta.outputs.head_ref }} -Dsonar.pullrequest.base=${{ steps.pr_meta.outputs.base_ref }} The command-line arguments pin several analysis identifiers, but they do not pin sonar.host.url. SonarScanner CLI loads the project settings file before overlaying environment variables and CLI arguments. In this workflow, SONAR_TOKEN maps to sonar.token, but neither the workflow nor the action sets a trusted SONAR_HOST_URL. The pull request’s sonar.host.url therefore remains effective. The scanner’s HTTP client adds Authorization: Bearer <sonar.token> to authenticated bootstrap requests sent to that configured host. This was reproduced safely with the exact SonarScanner CLI 8.1.0.6389 selected by the pinned action. A local-only listener and dummy token were used; no project credential or external receiver was involved. The controlled project file contained: sonar.host.url=http://127.0.0.1:<port> sonar.projectKey=ghsl-local-proof sonar.sources=. The scanner was launched in a clean environment with: env -i PATH=\"$PATH\" SONAR_TOKEN=GHSL_DUMMY_CANARY_2026_208 sonar-scanner -Dproject.settings=sonar.properties Before analysis began, the listener received: GET /api/v2/analysis/version HTTP/1.1 Authorization: Bearer GHSL_DUMMY_CANARY_2026_208 User-Agent: ScannerCLI/8.1.0.6389 The scanner also sent the same Bearer token to its legacy /api/server/version fallback after the local listener returned an unsupported response. This demonstrates that an attacker does not need a functioning SonarQube server or a completed scan to obtain the secret: receiving the initial authenticated bootstrap request is sufficient. No live exploit was run against the project, and this report does not claim base-repository writes. A representative attack sequence is: An external contributor changes sonar.properties in a fork and opens a pull request containing code changes that exercise the Go workflow. The pull request workflow completes successfully and uploads the expected coverage and PR_NUMBER artifacts. Repository policy may first require approval for the fork workflow run. The workflow_run job checks out the fork repository at the attacker-controlled head SHA. The branch-preparation commands finish with the same untrusted head SHA checked out, so they do not restore the trusted base version of sonar.properties. SonarScanner reads the attacker-controlled sonar.host.url and sends SONAR_TOKEN as Bearer authentication to that server during its initial bootstrap request, directly disclosing the repository secret. Impact This is a confirmed direct disclosure of SONAR_TOKEN across the pull request trust boundary. An external fork author can choose the scanner’s destination through sonar.properties; the exact scanner used by the workflow then transmits the repository secret to that destination in an Authorization: Bearer header before analysis begins. After disclosure, the attacker can exercise whatever permissions the token carries. A SonarCloud personal access token can authenticate analyses and Web API requests with the issuing user’s permissions. A scoped organization or project analysis token can at least submit unauthorized analyses within its scope. In either case, the attacker can impersonate the trusted CI scanner, consume or corrupt authenticated analysis for kptdev_kpt, and undermine the integrity of its security and quality results. The exact blast radius beyond that project depends on the type and permissions of the configured token. The minimum attacker requires only control of an external pull request’s contents. Exploitation requires the Go workflow to run successfully. CWEs CWE-829: Inclusion of Functionality from Untrusted Control Sphere Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow sonar.properties at the tested commit GitHub Security Lab: Preventing pwn requests GitHub Docs: Mitigating the risks of untrusted code checkout Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-208 in any communication regarding this issue.",
+      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow runs in the base repository through workflow_run, checks out an external pull request’s fork commit, and invokes SonarScanner with the repository’s SONAR_TOKEN. A fork author can set sonar.host.url in the checked-out sonar.properties; because the workflow does not pin a trusted scanner host, SonarScanner sends SONAR_TOKEN as Bearer authentication to that attacker-selected URL before analysis begins. The attacker can then exercise the token’s SonarCloud permissions and manipulate authenticated analysis for kptdev/kpt. Project kptdev/kpt repository Tested Version The default branch at commit 6345d96d661eae1f6cdcb97b1f70080ce35f61a4. Details Fork-controlled sonar.properties is consumed by a privileged SonarCloud scan with SONAR_TOKEN (GHSL-2026-208) The Go workflow runs for pull requests and checks out the pull request code for its build and test jobs. After successful testing, it uploads coverage reports and stores the pull request number in a PR_NUMBER artifact. Completion of the Go workflow triggers the default-branch SonarCloud analysis workflow. The latter runs in a privileged workflow_run context, where repository secrets are available. Its success and coverage-artifact checks restrict when the path runs, but do not establish trust in the pull request contents. For pull request runs, the privileged workflow downloads PR_NUMBER, resolves the pull request, and then checks out the triggering workflow’s head repository and head SHA. For an external pull request, both identify the fork author’s immutable commit: - name: Checkout PR head uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0 with: repository: ${{ github.event.workflow_run.head_repository.full_name }} ref: ${{ github.event.workflow_run.head_sha }} fetch-depth: 0 persist-credentials: false allow-unsafe-pr-checkout: true The next step is named Checkout base branch, but after briefly creating the local base branch it checks out HEAD_SHA again and resets the working tree to that commit: - name: Checkout base branch if: github.event.workflow_run.event == 'pull_request' env: BASE_REF: ${{ steps.pr_meta.outputs.base_ref }} HEAD_SHA: ${{ github.event.workflow_run.head_sha }} CLONE_URL: ${{ github.event.repository.clone_url }} run: | git remote add upstream \"$CLONE_URL\" git fetch upstream git checkout -B \"$BASE_REF\" \"upstream/$BASE_REF\" git checkout \"$HEAD_SHA\" git clean -ffdx && git reset --hard HEAD Consequently, files in the workspace, including sonar.properties, still come from the fork-controlled pull request commit. The SonarQube scan step then supplies the repository secret SONAR_TOKEN and explicitly selects that working-tree configuration file: - name: SonarQube Scan on PR if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: SonarSource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e # v8.2.0 env: SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} with: args: -Dsonar.projectKey=kptdev_kpt -Dsonar.organization=kptdev -Dproject.settings=sonar.properties -Dsonar.pullrequest.key=${{ steps.pr_meta.outputs.number }} -Dsonar.pullrequest.branch=${{ steps.pr_meta.outputs.head_ref }} -Dsonar.pullrequest.base=${{ steps.pr_meta.outputs.base_ref }} The command-line arguments pin several analysis identifiers, but they do not pin sonar.host.url. SonarScanner CLI loads the project settings file before overlaying environment variables and CLI arguments. In this workflow, SONAR_TOKEN maps to sonar.token, but neither the workflow nor the action sets a trusted SONAR_HOST_URL. The pull request’s sonar.host.url therefore remains effective. The scanner’s HTTP client adds Authorization: Bearer <sonar.token> to authenticated bootstrap requests sent to that configured host. This was reproduced safely with the exact SonarScanner CLI 8.1.0.6389 selected by the pinned action. A local-only listener and dummy token were used; no project credential or external receiver was involved. The controlled project file contained: sonar.host.url=http://127.0.0.1:<port> sonar.projectKey=ghsl-local-proof sonar.sources=. The scanner was launched in a clean environment with: env -i PATH=\"$PATH\" SONAR_TOKEN=GHSL_DUMMY_CANARY_2026_208 sonar-scanner -Dproject.settings=sonar.properties Before analysis began, the listener received: GET /api/v2/analysis/version HTTP/1.1 Authorization: Bearer GHSL_DUMMY_CANARY_2026_208 User-Agent: ScannerCLI/8.1.0.6389 The scanner also sent the same Bearer token to its legacy /api/server/version fallback after the local listener returned an unsupported response. This demonstrates that an attacker does not need a functioning SonarQube server or a completed scan to obtain the secret: receiving the initial authenticated bootstrap request is sufficient. No live exploit was run against the project, and this report does not claim base-repository writes. A representative attack sequence is: An external contributor changes sonar.properties in a fork and opens a pull request containing code changes that exercise the Go workflow. The pull request workflow completes successfully and uploads the expected coverage and PR_NUMBER artifacts. Repository policy may first require approval for the fork workflow run. The workflow_run job checks out the fork repository at the attacker-controlled head SHA. The branch-preparation commands finish with the same untrusted head SHA checked out, so they do not restore the trusted base version of sonar.properties. SonarScanner reads the attacker-controlled sonar.host.url and sends SONAR_TOKEN as Bearer authentication to that server during its initial bootstrap request, directly disclosing the repository secret. Impact This is a confirmed direct disclosure of SONAR_TOKEN across the pull request trust boundary. An external fork author can choose the scanner’s destination through sonar.properties; the exact scanner used by the workflow then transmits the repository secret to that destination in an Authorization: Bearer header before analysis begins. After disclosure, the attacker can exercise whatever permissions the token carries. A SonarCloud personal access token can authenticate analyses and Web API requests with the issuing user’s permissions. A scoped organization or project analysis token can at least submit unauthorized analyses within its scope. In either case, the attacker can impersonate the trusted CI scanner, consume or corrupt authenticated analysis for kptdev/kpt, and undermine the integrity of its security and quality results. The exact blast radius beyond that project depends on the type and permissions of the configured token. The minimum attacker requires only control of an external pull request’s contents. Exploitation requires the Go workflow to run successfully. CWEs CWE-829: Inclusion of Functionality from Untrusted Control Sphere Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow sonar.properties at the tested commit GitHub Security Lab: Preventing pwn requests GitHub Docs: Mitigating the risks of untrusted code checkout Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-208 in any communication regarding this issue.",
       "tags": [
         "research"
       ],
-      "title": "GHSL-2026-208: External pull requests can steal kpt’s SonarCloud token",
+      "title": "GHSL-2026-208: External pull requests can steal kptdev/kpt’s SonarCloud token",
       "url": "https://securitylab.github.com/advisories/GHSL-2026-208_kptdev_kpt_repository/"
     },
     {
@@ -2139,10 +2159,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 18.2,
+      "score": 17.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.2)"
+        "recency (+11.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2156,33 +2176,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "87166973b4ed4194",
-      "kev": false,
-      "published": "2026-10-27T19:34:18Z",
-      "score": 17.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+11.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
-      "tags": [],
-      "title": "Game Boy Color on My Conference Badge",
-      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 17.4,
+      "score": 17.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.4)"
+        "recency (+9.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2190,6 +2190,26 @@
       "tags": [],
       "title": "Sponsored: Should your threat hunt become a detection?",
       "url": "https://risky.biz/RBNEWSSI148a/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "87166973b4ed4194",
+      "kev": false,
+      "published": "2026-10-27T19:34:18Z",
+      "score": 17.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+11.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
+      "tags": [],
+      "title": "Game Boy Color on My Conference Badge",
+      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
     },
     {
       "appsec": false,
@@ -2218,33 +2238,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "df11f17c78623c5a",
-      "kev": false,
-      "published": "2026-10-26T19:00:25Z",
-      "score": 16.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+10.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
-      "tags": [],
-      "title": "Quoting Jason Koebler",
-      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "46115f7f2df3c681",
       "kev": false,
       "published": "2026-10-05T15:04:55Z",
-      "score": 16.3,
+      "score": 16.2,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2254,6 +2254,26 @@
       ],
       "title": "Smashing the token limit with overlapping fragments",
       "url": "https://portswigger.net/research/smashing-the-token-limit"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "df11f17c78623c5a",
+      "kev": false,
+      "published": "2026-10-26T19:00:25Z",
+      "score": 16.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+10.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
+      "tags": [],
+      "title": "Quoting Jason Koebler",
+      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
     },
     {
       "appsec": false,
@@ -2328,26 +2348,6 @@
       ],
       "title": "Windows Exploitation Techniques: Dangling COM Object Registrations",
       "url": "https://projectzero.google/2026/09/windows-dangling-com.html"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "3f34d86ee2d69ed8",
-      "kev": false,
-      "published": "2026-10-25T15:10:19Z",
-      "score": 15.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Seam Cutter I built this weird and very specific cropping tool - it lets you create a horizontal or vertical cut across an image, then slide the two sides relative to each other. Effectively it lets you crop out a section in the middle of an image. I wanted this because I often use Tailor on my iPhone to stitch several screenshots together into lot long image, but sometimes I find myself wanting to crop out a section in the middle - to redact an irrelevant prompt from a transcript, for example. Tags: tools",
-      "tags": [],
-      "title": "Seam Cutter",
-      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/"
     },
     {
       "appsec": false,
@@ -3053,13 +3053,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "3f34d86ee2d69ed8",
+      "kev": false,
+      "published": "2026-10-25T15:10:19Z",
+      "score": 14.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Seam Cutter I built this weird and very specific cropping tool - it lets you create a horizontal or vertical cut across an image, then slide the two sides relative to each other. Effectively it lets you crop out a section in the middle of an image. I wanted this because I often use Tailor on my iPhone to stitch several screenshots together into lot long image, but sometimes I find myself wanting to crop out a section in the middle - to redact an irrelevant prompt from a transcript, for example. Tags: tools",
+      "tags": [],
+      "title": "Seam Cutter",
+      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 14.5,
+      "score": 14.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.5)"
+        "recency (+6.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3073,33 +3093,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c8190b8e5a1ef44e",
-      "kev": false,
-      "published": "2026-10-24T03:59:57Z",
-      "score": 14.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+8.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
-      "tags": [],
-      "title": "battledrones v14: Compass Rose, a four player map",
-      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 13.9,
+      "score": 13.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.9)"
+        "recency (+5.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3113,13 +3113,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c8190b8e5a1ef44e",
+      "kev": false,
+      "published": "2026-10-24T03:59:57Z",
+      "score": 13.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+7.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
+      "tags": [],
+      "title": "battledrones v14: Compass Rose, a four player map",
+      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 13.8,
+      "score": 13.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3136,10 +3156,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 13.2,
+      "score": 13.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3156,10 +3176,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 13.0,
+      "score": 12.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.0)"
+        "recency (+6.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3173,33 +3193,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "af381dd3420f5f37",
-      "kev": false,
-      "published": "2026-10-22T15:34:13Z",
-      "score": 12.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+6.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
-      "tags": [],
-      "title": "Quoting Armin Ronacher",
-      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 12.8,
+      "score": 12.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3213,13 +3213,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "af381dd3420f5f37",
+      "kev": false,
+      "published": "2026-10-22T15:34:13Z",
+      "score": 12.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+6.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
+      "tags": [],
+      "title": "Quoting Armin Ronacher",
+      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 12.3,
+      "score": 12.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.3)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3236,10 +3256,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 11.6,
+      "score": 11.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.6)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3256,10 +3276,10 @@
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 11.3,
+      "score": 11.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3276,10 +3296,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 11.3,
+      "score": 11.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.3)"
+        "recency (+3.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3296,10 +3316,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 11.0,
+      "score": 10.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.0)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3316,10 +3336,10 @@
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3336,10 +3356,10 @@
       "id": "3954bde477b7b3c4",
       "kev": false,
       "published": "2026-10-11T19:18:00Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3356,10 +3376,10 @@
       "id": "4729de4c9cbe4dc5",
       "kev": false,
       "published": "2026-10-12T02:43:40Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3376,10 +3396,10 @@
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 10.2,
+      "score": 10.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3396,10 +3416,10 @@
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
-      "score": 9.9,
+      "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.9)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3416,10 +3436,10 @@
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
-      "score": 9.5,
+      "score": 9.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3436,10 +3456,10 @@
       "id": "812f894cec2b2135",
       "kev": false,
       "published": "2026-10-15T13:04:03Z",
-      "score": 9.4,
+      "score": 9.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3456,10 +3476,10 @@
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3493,26 +3513,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "f3896491a736a8e2",
-      "kev": false,
-      "published": "2026-10-13T23:00:06Z",
-      "score": 8.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Redesigning source control at Anthropic Interesting piece from Anthropic describing why and how they built their own custom alternative to Git, based on the dramatic increase in rate of changes to their code after the past six months. In May 2026, Anthropic averaged around 2,500 code changes merged per day; as of September, we merged over 30,000 per day. They included a chart showing those changes. I had Claude modify their chart (code here) to add markers for the public releases of each of their models in 2026: This shows public release dates, not the date when models became available for Anthropic's internal use. My guess is that the introduction of Fable/Mythos class models is a key factor in the increased coding velocity. \"Antique\" is their new code review system. The source control system is called Scion, and sounds to me like a reinvention of centralized source control along the lines of Subversion. (Update: Anthropic credit Google's Piper and Meta's Sapling as \"prior art\" - it looks like the core concept of \"derived data\" was heavily inspired by Mononoke, the server component of Sapling.) They had some pretty extreme requirements: The history of our main branch alone is almost 100 GB, and a compressed working copy is over 25 GB. We perform on the order of 25 million code checkouts per day for CI, before counting developer environments, agent sandboxes, and research jobs. Fetched naively, that would be over 600 PB of git traffic per day. The new system was built by a team of seven people, and the migration from Git was completed in five months. When asked on Hacker News about the lack of offline support, Scion engineer Nick G replied: Since Claude is by far the heaviest user of Scion and is necessarily online, this just wasn't important to do. As an aside, I've been trying adversarial review in my own projects recently, where you have a model try and find flaws (I often play Claude and GPT off against each other). This note from the article reflected my own experience with that: Anthropic also makes extensive use of adversarial review, and, while this is incredibly effective in many ways, it can also be myopic, so skilled engineers needed to steer Claude away from over-engineering parts of the system in response to hypothetical concerns. Via Hacker News Tags: git, migrations, version-control, ai, generative-ai, llms, anthropic, agentic-engineering",
-      "tags": [],
-      "title": "Redesigning source control at Anthropic",
-      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "092f8b08567b33e3",
       "kev": false,
       "published": "2026-10-01T02:38:57Z",
@@ -3533,9 +3533,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "aa7677223a5c7914",
+      "id": "f3896491a736a8e2",
       "kev": false,
-      "published": "2026-10-13T13:32:00Z",
+      "published": "2026-10-13T23:00:06Z",
       "score": 8.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -3543,10 +3543,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "summary": "Redesigning source control at Anthropic Interesting piece from Anthropic describing why and how they built their own custom alternative to Git, based on the dramatic increase in rate of changes to their code after the past six months. In May 2026, Anthropic averaged around 2,500 code changes merged per day; as of September, we merged over 30,000 per day. They included a chart showing those changes. I had Claude modify their chart (code here) to add markers for the public releases of each of their models in 2026: This shows public release dates, not the date when models became available for Anthropic's internal use. My guess is that the introduction of Fable/Mythos class models is a key factor in the increased coding velocity. \"Antique\" is their new code review system. The source control system is called Scion, and sounds to me like a reinvention of centralized source control along the lines of Subversion. (Update: Anthropic credit Google's Piper and Meta's Sapling as \"prior art\" - it looks like the core concept of \"derived data\" was heavily inspired by Mononoke, the server component of Sapling.) They had some pretty extreme requirements: The history of our main branch alone is almost 100 GB, and a compressed working copy is over 25 GB. We perform on the order of 25 million code checkouts per day for CI, before counting developer environments, agent sandboxes, and research jobs. Fetched naively, that would be over 600 PB of git traffic per day. The new system was built by a team of seven people, and the migration from Git was completed in five months. When asked on Hacker News about the lack of offline support, Scion engineer Nick G replied: Since Claude is by far the heaviest user of Scion and is necessarily online, this just wasn't important to do. As an aside, I've been trying adversarial review in my own projects recently, where you have a model try and find flaws (I often play Claude and GPT off against each other). This note from the article reflected my own experience with that: Anthropic also makes extensive use of adversarial review, and, while this is incredibly effective in many ways, it can also be myopic, so skilled engineers needed to steer Claude away from over-engineering parts of the system in response to hypothetical concerns. Via Hacker News Tags: git, migrations, version-control, ai, generative-ai, llms, anthropic, agentic-engineering",
       "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+      "title": "Redesigning source control at Anthropic",
+      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
     },
     {
       "appsec": false,
@@ -3567,6 +3567,26 @@
       "tags": [],
       "title": "ShinyHunters suspect arrested in the Netherlands",
       "url": "https://risky.biz/RBNEWS617/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 8.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     },
     {
       "appsec": false,
@@ -3616,10 +3636,10 @@
       "id": "448ce7b5ca656e26",
       "kev": false,
       "published": "2026-09-25T04:17:47Z",
-      "score": 8.5,
+      "score": 8.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+0.5)"
+        "recency (+0.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3707,26 +3727,6 @@
       "tags": [],
       "title": "Sponsored: SpecterOps on the impact of AI agents on BloodHound",
       "url": "https://risky.biz/RBNEWSSI144/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "524e553a33fcf7d4",
-      "kev": false,
-      "published": "2026-09-03T04:19:35Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and James Wilson talk about China’s long-term shift to getting private companies to build botnets for cyberespionage. A disruption effort from the US this week is good news, but China has been using these networks for a surprisingly long time and will rebuild. They also discuss a hack at the Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF). It looks like the Qilin ransomware group might have stolen data from the ATF’s CALEA, or lawful intercept system. That’s a big deal! Finally, they discuss efforts to fix US water sector security. Sprinkling free tools on the problem will have limited impact. This episode is also available on YouTube Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: China's botnets are worth disrupting",
-      "url": "https://risky.biz/SRB182/"
     },
     {
       "appsec": false,
@@ -4348,6 +4348,25 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "524e553a33fcf7d4",
+      "kev": false,
+      "published": "2026-09-03T04:19:35Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and James Wilson talk about China’s long-term shift to getting private companies to build botnets for cyberespionage. A disruption effort from the US this week is good news, but China has been using these networks for a surprisingly long time and will rebuild. They also discuss a hack at the Bureau of Alcohol, Tobacco, Firearms and Explosives (ATF). It looks like the Qilin ransomware group might have stolen data from the ATF’s CALEA, or lawful intercept system. That’s a big deal! Finally, they discuss efforts to fix US water sector security. Sprinkling free tools on the problem will have limited impact. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: China's botnets are worth disrupting",
+      "url": "https://risky.biz/SRB182/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "588bcba27bde4c8c",
       "kev": false,
       "published": "2026-08-13T09:40:16Z",
@@ -4933,20 +4952,20 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-10-30T12:32:28Z",
+  "last_run": "2026-10-30T22:11:59Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 875,
-    "appsec_cves": 1310,
+    "actively_exploited_appsec": 915,
+    "appsec_cves": 1352,
     "kev_coverage_pct": 30.2,
-    "kev_tracked": 1764,
+    "kev_tracked": 1766,
     "kev_with_coverage": 533,
     "newly_exploited": 12,
     "newly_exploited_days": 30,
-    "open_gaps": 507,
-    "public_poc": 564,
-    "total_cves": 2239,
-    "total_items": 220
+    "open_gaps": 553,
+    "public_poc": 583,
+    "total_cves": 2245,
+    "total_items": 221
   },
   "threats": [
     {
@@ -5202,7 +5221,7 @@
       ],
       "description": "A vulnerability in the web interface of Cisco Secure Firewall Management Center (FMC) Software could allow an unauthenticated, remote attacker to bypass authentication and execute script files on an affected device to obtain root access to …",
       "ecosystems": [],
-      "epss": 0.88472,
+      "epss": 0.88658,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -6596,7 +6615,7 @@
       ],
       "description": "Adobe Commerce versions 2.4.9-alpha2, 2.4.8-p2, 2.4.7-p7, 2.4.6-p12, 2.4.5-p14, 2.4.4-p15 and earlier are affected by an Improper Input Validation vulnerability. A successful attacker can abuse this to achieve session takeover, increasing t…",
       "ecosystems": [],
-      "epss": 0.9466,
+      "epss": 0.95353,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -7274,6 +7293,35 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": "briefs/CVE-2021-38163.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2021-38163",
+      "cvss_score": 9.9,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "SAP NetWeaver (Visual Composer 7.0 RT) versions - 7.30, 7.31, 7.40, 7.50, without restriction, an attacker authenticated as a non-administrative user can upload a malicious file over a network and trigger its processing, which is capable of…",
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": 0.36898,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-06-09",
+      "modified": "2022-06-09",
+      "product": "netweaver",
+      "published": "2022-06-09",
+      "score": 85.0,
+      "sources": [],
+      "vendor": "sap",
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-2xv2-w8cq-5gxw",
       "appsec": true,
       "brief": "briefs/CVE-2026-61447.md",
@@ -7456,37 +7504,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-j3hm-6rg5-mchv",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-92946.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-92946",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-913"
-      ],
-      "description": "vm2: NodeVM `require.external` without an explicit `require.root` grants unrestricted host filesystem access and full RCE",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00857,
-      "ghsa_id": "GHSA-j3hm-6rg5-mchv",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": 25,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-05T22:34:51Z",
-      "product": "vm2",
-      "published": "2026-10-05T22:34:50Z",
-      "score": 24.3,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-2vh9-42vm-xmv2",
       "appsec": true,
       "brief": "briefs/CVE-2025-66455.md",
@@ -7549,6 +7566,38 @@
       "vendor": null,
       "vuln_classes": [
         "xss"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-w794-rj3p-xv45",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-105697.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-105697",
+      "cvss_score": 9.9,
+      "cwe": [
+        "CWE-78"
+      ],
+      "description": "Langflow: OS command injection (RCE) via arbitrary command in MCP stdio server configuration",
+      "ecosystems": [
+        "pypi"
+      ],
+      "epss": 0.00949,
+      "ghsa_id": "GHSA-w794-rj3p-xv45",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-09T19:57:02Z",
+      "product": "langflow",
+      "published": "2026-10-07T20:36:35Z",
+      "score": 24.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "command-injection",
+        "rce"
       ]
     },
     {
@@ -7647,6 +7696,37 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-j3hm-6rg5-mchv",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-92946.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-92946",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-913"
+      ],
+      "description": "vm2: NodeVM `require.external` without an explicit `require.root` grants unrestricted host filesystem access and full RCE",
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": 0.00776,
+      "ghsa_id": "GHSA-j3hm-6rg5-mchv",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": 25,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-05T22:34:51Z",
+      "product": "vm2",
+      "published": "2026-10-05T22:34:50Z",
+      "score": 24.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-88hf-g992-jg85",
       "appsec": true,
       "brief": null,
@@ -7690,7 +7770,7 @@
       "ecosystems": [
         "npm"
       ],
-      "epss": 0.00587,
+      "epss": 0.00509,
       "ghsa_id": "GHSA-wjwh-qqvp-g4p4",
       "has_poc": false,
       "is_candidate": false,
@@ -7700,36 +7780,6 @@
       "modified": "2026-10-05T22:34:24Z",
       "product": "vm2",
       "published": "2026-10-05T22:34:22Z",
-      "score": 24.2,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-pq68-rvw4-xp4r",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-93605",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-693",
-        "CWE-913"
-      ],
-      "description": "vm2 contains a sandbox escape vulnerability",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00726,
-      "ghsa_id": "GHSA-pq68-rvw4-xp4r",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-07T18:05:01Z",
-      "product": "vm2",
-      "published": "2026-10-07T18:05:00Z",
       "score": 24.2,
       "sources": [],
       "vendor": null,
@@ -7797,6 +7847,38 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-w5f2-9q9c-ff4h",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-105192.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-105192",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
+      "ecosystems": [
+        "pypi"
+      ],
+      "epss": 0.01024,
+      "ghsa_id": "GHSA-w5f2-9q9c-ff4h",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-16T20:09:11Z",
+      "product": "lmcache",
+      "published": "2026-10-16T20:08:44Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "deserialization",
+        "rce"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-8qpj-27x8-pwpq",
       "appsec": true,
       "brief": "briefs/CVE-2026-10561.md",
@@ -7826,38 +7908,6 @@
       "sources": [],
       "vendor": null,
       "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-w794-rj3p-xv45",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-105697.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-105697",
-      "cvss_score": 9.9,
-      "cwe": [
-        "CWE-78"
-      ],
-      "description": "Langflow: OS command injection (RCE) via arbitrary command in MCP stdio server configuration",
-      "ecosystems": [
-        "pypi"
-      ],
-      "epss": 0.00787,
-      "ghsa_id": "GHSA-w794-rj3p-xv45",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-09T19:57:02Z",
-      "product": "langflow",
-      "published": "2026-10-07T20:36:35Z",
-      "score": 24.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "command-injection",
         "rce"
       ]
     },
@@ -8002,7 +8052,7 @@
       "ecosystems": [
         "pypi"
       ],
-      "epss": 0.00842,
+      "epss": 0.00856,
       "ghsa_id": "GHSA-m4w4-3r8h-jw98",
       "has_poc": false,
       "is_candidate": false,
@@ -8110,6 +8160,35 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-x4q3-gcj3-m6cf",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-73802",
+      "cvss_score": 9.9,
+      "cwe": [
+        "CWE-269"
+      ],
+      "description": "gitea-runner: workflow container.options passes host namespaces and capability flags to job container when privileged mode is disabled",
+      "ecosystems": [
+        "go"
+      ],
+      "epss": 0.00545,
+      "ghsa_id": "GHSA-x4q3-gcj3-m6cf",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-02T23:18:13Z",
+      "product": "gitea.com/gitea/runner",
+      "published": "2026-10-02T23:18:12Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-wrhw-j3f9-8vc6",
       "appsec": true,
       "brief": "briefs/CVE-2026-77244.md",
@@ -8157,7 +8236,7 @@
       "ecosystems": [
         "go"
       ],
-      "epss": 0.00527,
+      "epss": 0.00602,
       "ghsa_id": "GHSA-637c-6jxx-4rwm",
       "has_poc": false,
       "is_candidate": false,
@@ -8201,6 +8280,37 @@
       "vendor": null,
       "vuln_classes": [
         "rce"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-cf6m-vc3m-7cgm",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-8505.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-8505",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-306"
+      ],
+      "description": "Langflow: Unauthenticated Flow Execution via Webhook Authentication Bypass",
+      "ecosystems": [
+        "pypi"
+      ],
+      "epss": 0.0087,
+      "ghsa_id": "GHSA-cf6m-vc3m-7cgm",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-05T22:31:23Z",
+      "product": "langflow",
+      "published": "2026-10-05T22:31:22Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "auth-bypass"
       ]
     },
     {
@@ -8275,7 +8385,7 @@
       "ecosystems": [
         "npm"
       ],
-      "epss": 0.00474,
+      "epss": 0.00425,
       "ghsa_id": "GHSA-h85j-hv3c-qfgq",
       "has_poc": false,
       "is_candidate": false,
@@ -8291,36 +8401,33 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-w5f2-9q9c-ff4h",
+      "advisory_url": "https://github.com/advisories/GHSA-98xx-8mx4-x7cm",
       "appsec": true,
-      "brief": "briefs/CVE-2026-105192.md",
+      "brief": null,
       "coverage": "gap",
-      "cve_id": "CVE-2026-105192",
-      "cvss_score": 9.8,
+      "cve_id": "CVE-2026-92941",
+      "cvss_score": 10.0,
       "cwe": [
-        "CWE-306"
+        "CWE-732"
       ],
-      "description": "LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport",
+      "description": "vm2 NodeVM can replace the host process TLS trust store",
       "ecosystems": [
-        "pypi"
+        "npm"
       ],
-      "epss": 0.00772,
-      "ghsa_id": "GHSA-w5f2-9q9c-ff4h",
+      "epss": 0.00289,
+      "ghsa_id": "GHSA-98xx-8mx4-x7cm",
       "has_poc": false,
-      "is_candidate": true,
+      "is_candidate": false,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-10-16T20:09:11Z",
-      "product": "lmcache",
-      "published": "2026-10-16T20:08:44Z",
-      "score": 24.0,
+      "modified": "2026-10-01T15:27:29Z",
+      "product": "vm2",
+      "published": "2026-10-01T15:27:28Z",
+      "score": 24.1,
       "sources": [],
       "vendor": null,
-      "vuln_classes": [
-        "deserialization",
-        "rce"
-      ]
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-rv4m-xm3f-3ccq",
@@ -8382,39 +8489,6 @@
       "sources": [],
       "vendor": null,
       "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-26p8-2jq9-3vq9",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-116692.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-116692",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-94",
-        "CWE-470"
-      ],
-      "description": "MLflow vulnerable to remote code execution on unauthenticated servers via third-party scorer deserialization importing caller-placed artifact modules",
-      "ecosystems": [
-        "pypi"
-      ],
-      "epss": 0.00704,
-      "ghsa_id": "GHSA-26p8-2jq9-3vq9",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-27T21:26:34Z",
-      "product": "mlflow",
-      "published": "2026-10-27T21:26:32Z",
-      "score": 24.0,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "deserialization",
-        "rce"
-      ]
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-c8w2-fgvx-vhv4",
@@ -8506,35 +8580,6 @@
       "vuln_classes": [
         "auth-bypass"
       ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-x4q3-gcj3-m6cf",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-73802",
-      "cvss_score": 9.9,
-      "cwe": [
-        "CWE-269"
-      ],
-      "description": "gitea-runner: workflow container.options passes host namespaces and capability flags to job container when privileged mode is disabled",
-      "ecosystems": [
-        "go"
-      ],
-      "epss": 0.00472,
-      "ghsa_id": "GHSA-x4q3-gcj3-m6cf",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-02T23:18:13Z",
-      "product": "gitea.com/gitea/runner",
-      "published": "2026-10-02T23:18:12Z",
-      "score": 24.0,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-fmxq-cgp8-87wp",
@@ -8768,6 +8813,36 @@
       "product": "github.com/rabbitmq/amqp091-go",
       "published": "2026-09-17T17:04:01Z",
       "score": 23.5,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-qj98-gp63-54xj",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-102748",
+      "cvss_score": 9.2,
+      "cwe": [
+        "CWE-306",
+        "CWE-862"
+      ],
+      "description": "Dgraph: Zero Unauthenticated HTTP Admin removeNode Denial of Service",
+      "ecosystems": [
+        "go"
+      ],
+      "epss": 0.00615,
+      "ghsa_id": "GHSA-qj98-gp63-54xj",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-15T20:17:23Z",
+      "product": "github.com/dgraph-io/dgraph/v25",
+      "published": "2026-10-15T20:17:22Z",
+      "score": 23.4,
       "sources": [],
       "vendor": null,
       "vuln_classes": []
@@ -9171,36 +9246,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-qj98-gp63-54xj",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-102748",
-      "cvss_score": 9.2,
-      "cwe": [
-        "CWE-306",
-        "CWE-862"
-      ],
-      "description": "Dgraph: Zero Unauthenticated HTTP Admin removeNode Denial of Service",
-      "ecosystems": [
-        "go"
-      ],
-      "epss": 0.00486,
-      "ghsa_id": "GHSA-qj98-gp63-54xj",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-15T20:17:23Z",
-      "product": "github.com/dgraph-io/dgraph/v25",
-      "published": "2026-10-15T20:17:22Z",
-      "score": 23.3,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-4j9v-h7pp-725h",
       "appsec": true,
       "brief": "briefs/CVE-2026-70035.md",
@@ -9510,6 +9555,38 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-3x94-m842-937c",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-108358.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-108358",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-611",
+        "CWE-776"
+      ],
+      "description": "PhpSpreadsheet: XmlScanner Bypass via ISO-2022 Escape Sequences Allows XXE and Denial of Service",
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": 0.00625,
+      "ghsa_id": "GHSA-3x94-m842-937c",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-27T15:38:30Z",
+      "product": "phpoffice/phpspreadsheet",
+      "published": "2026-10-27T15:38:28Z",
+      "score": 23.0,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "xxe"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-c4wf-2xxc-68qm",
       "appsec": true,
       "brief": null,
@@ -9647,7 +9724,7 @@
       "ecosystems": [
         "composer"
       ],
-      "epss": 0.00357,
+      "epss": 0.00463,
       "ghsa_id": "GHSA-rxj4-h86g-25gc",
       "has_poc": false,
       "is_candidate": true,
@@ -9665,36 +9742,34 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-3x94-m842-937c",
+      "advisory_url": "https://github.com/advisories/GHSA-j2w7-387v-m2rq",
       "appsec": true,
-      "brief": "briefs/CVE-2026-108358.md",
+      "brief": null,
       "coverage": "gap",
-      "cve_id": "CVE-2026-108358",
-      "cvss_score": 8.8,
+      "cve_id": "CVE-2026-108359",
+      "cvss_score": 8.7,
       "cwe": [
-        "CWE-611",
-        "CWE-776"
+        "CWE-400",
+        "CWE-789"
       ],
-      "description": "PhpSpreadsheet: XmlScanner Bypass via ISO-2022 Escape Sequences Allows XXE and Denial of Service",
+      "description": "PhpSpreadsheet ODS Reader: Unbounded number-rows-repeated → CPU & Memory Exhaustion (DoS)",
       "ecosystems": [
         "composer"
       ],
-      "epss": 0.00483,
-      "ghsa_id": "GHSA-3x94-m842-937c",
+      "epss": 0.0066,
+      "ghsa_id": "GHSA-j2w7-387v-m2rq",
       "has_poc": false,
-      "is_candidate": true,
+      "is_candidate": false,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-10-27T15:38:30Z",
+      "modified": "2026-10-27T15:38:35Z",
       "product": "phpoffice/phpspreadsheet",
-      "published": "2026-10-27T15:38:28Z",
+      "published": "2026-10-27T15:38:33Z",
       "score": 22.9,
       "sources": [],
       "vendor": null,
-      "vuln_classes": [
-        "xxe"
-      ]
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-8ffr-xgwf-xj56",
@@ -9906,67 +9981,6 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-r925-mgvr-h9cc",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-108082.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-108082",
-      "cvss_score": 8.7,
-      "cwe": [
-        "CWE-1333"
-      ],
-      "description": "Symfony: ReDoS in HeaderUtils::split() Reachable Through the Cache-Control Request Header",
-      "ecosystems": [
-        "composer",
-        "php",
-        "web"
-      ],
-      "epss": 0.0048,
-      "ghsa_id": "GHSA-r925-mgvr-h9cc",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-27T19:01:40Z",
-      "product": "symfony/http-foundation",
-      "published": "2026-10-27T19:01:39Z",
-      "score": 22.8,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-j2w7-387v-m2rq",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-108359",
-      "cvss_score": 8.7,
-      "cwe": [
-        "CWE-400",
-        "CWE-789"
-      ],
-      "description": "PhpSpreadsheet ODS Reader: Unbounded number-rows-repeated → CPU & Memory Exhaustion (DoS)",
-      "ecosystems": [
-        "composer"
-      ],
-      "epss": 0.00407,
-      "ghsa_id": "GHSA-j2w7-387v-m2rq",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-27T15:38:35Z",
-      "product": "phpoffice/phpspreadsheet",
-      "published": "2026-10-27T15:38:33Z",
-      "score": 22.8,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-9998-894r-fwvr",
       "appsec": true,
       "brief": null,
@@ -10096,7 +10110,7 @@
       "ecosystems": [
         "rust"
       ],
-      "epss": 0.00543,
+      "epss": 0.00564,
       "ghsa_id": "GHSA-cpvr-w4j5-2mpg",
       "has_poc": false,
       "is_candidate": false,
