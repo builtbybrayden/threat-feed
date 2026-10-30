@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-10-29T22:43:17Z",
+  "generated": "2026-10-30T05:06:17Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 51.5,
+      "score": 51.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+14.5)"
+        "recency (+14.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -79,12 +79,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 50.8,
+      "score": 50.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.8)"
+        "recency (+13.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -99,32 +99,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "439ed1900392816c",
-      "kev": false,
-      "published": "2026-10-26T19:51:21Z",
-      "score": 48.0,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+11.0)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about security culture. The PHP foundation seems to have had a change of heart about security, but what are the chances that OpenAI or other frontier AI labs will start to take it seriously? This episode is also available on YouTube. Show notes Today's PHP Security Release, and How We're Strengthening PHP Security Stefan Esser's month of PHP bugs Andon cord",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php"
-      ],
-      "title": "Between Two Nerds: Why frontier lab security will always suck",
-      "url": "https://risky.biz/BTN187/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-59940"
       ],
@@ -133,13 +107,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 48.0,
+      "score": 47.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.8)"
+        "recency (+6.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -164,13 +138,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 47.9,
+      "score": 47.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.8)"
+        "recency (+6.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -195,12 +169,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 47.8,
+      "score": 47.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.8)"
+        "recency (+6.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -220,15 +194,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "439ed1900392816c",
+      "kev": false,
+      "published": "2026-10-26T19:51:21Z",
+      "score": 47.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+10.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about security culture. The PHP foundation seems to have had a change of heart about security, but what are the chances that OpenAI or other frontier AI labs will start to take it seriously? This episode is also available on YouTube. Show notes Today's PHP Security Release, and How We're Strengthening PHP Security Stefan Esser's month of PHP bugs Andon cord",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php"
+      ],
+      "title": "Between Two Nerds: Why frontier lab security will always suck",
+      "url": "https://risky.biz/BTN187/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 47.2,
+      "score": 46.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.2)"
+        "recency (+9.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -277,12 +277,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 44.7,
+      "score": 44.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.7)"
+        "recency (+7.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -303,12 +303,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 44.2,
+      "score": 44.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.2)"
+        "recency (+7.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -464,12 +464,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 42.1,
+      "score": 42.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.1)"
+        "recency (+5.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -483,30 +483,6 @@
       "url": "https://risky.biz/RBNEWS622/"
     },
     {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "268febaf67e13c76",
-      "kev": false,
-      "published": "2026-10-27T14:29:26Z",
-      "score": 41.9,
-      "score_reasons": [
-        "source:PortSwigger Research (+15)",
-        "watchlist:javascript (+15)",
-        "recency (+11.9)"
-      ],
-      "source": "PortSwigger Research",
-      "source_type": "research",
-      "summary": "I tested eight popular SVG sanitizers and bypassed six of them. In this post, I'll show you how a response header can run JavaScript in Firefox even when the response body is completely harmless XML.",
-      "tags": [
-        "research",
-        "watchlist"
-      ],
-      "title": "Scalable Vector Grief",
-      "url": "https://portswigger.net/research/scalable-vector-grief"
-    },
-    {
       "appsec": true,
       "cves": [
         "CVE-2026-65995"
@@ -516,12 +492,12 @@
       "id": "6ac82d58465efb8f",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:java,path traversal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -546,12 +522,12 @@
       "id": "7d3afef840376092",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:php,javascript,csrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -576,12 +552,12 @@
       "id": "9c56ebb02ce10409",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:path traversal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -606,12 +582,12 @@
       "id": "cc7890a17102e182",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:php,java,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -627,6 +603,30 @@
       "url": "https://securitylab.github.com/advisories/GHSL-2026-101_apps-android-wikipedia/"
     },
     {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "268febaf67e13c76",
+      "kev": false,
+      "published": "2026-10-27T14:29:26Z",
+      "score": 41.6,
+      "score_reasons": [
+        "source:PortSwigger Research (+15)",
+        "watchlist:javascript (+15)",
+        "recency (+11.6)"
+      ],
+      "source": "PortSwigger Research",
+      "source_type": "research",
+      "summary": "I tested eight popular SVG sanitizers and bypassed six of them. In this post, I'll show you how a response header can run JavaScript in Firefox even when the response body is completely harmless XML.",
+      "tags": [
+        "research",
+        "watchlist"
+      ],
+      "title": "Scalable Vector Grief",
+      "url": "https://portswigger.net/research/scalable-vector-grief"
+    },
+    {
       "appsec": true,
       "cves": [],
       "epss": null,
@@ -634,12 +634,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 41.7,
+      "score": 41.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.7)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -662,11 +662,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 41.5,
+      "score": 41.2,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+11.5)"
+        "recency (+11.2)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -687,12 +687,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 41.2,
+      "score": 41.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.2)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -713,12 +713,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 40.6,
+      "score": 40.5,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -864,12 +864,12 @@
       "id": "e2bdc96d9f631bb0",
       "kev": false,
       "published": "2026-09-24T14:30:00Z",
-      "score": 37.5,
+      "score": 37.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,java,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.5)"
+        "recency (+0.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1533,14 +1533,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "15b96761d0c22ab8",
+      "kev": false,
+      "published": "2026-10-29T22:48:29Z",
+      "score": 35.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+14.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "API credits benefit for eligible ChatGPT subscriptions Earlier this month Anthropic announced a generous new benefit for their Max and Team subscriptions: $100, $200, and $500 per month subscribers would get the equivalent quantity of (expiring) credits to use with the Anthropic API. OpenAI have now launched pretty much exactly the same deal: if you have a $100, $200, or $500 subscription plan with them you now get that same quantity of credits to apply to one of your API organizations. I maintain subscriptions with both companies, so this is great news for me! I may even ship some public-facing demos now that the credits are already covered by my existing subscriptions. Tags: ai, openai, generative-ai, llms, anthropic, llm-pricing",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "API credits benefit for eligible ChatGPT subscriptions",
+      "url": "https://simonwillison.net/2026/Oct/29/api-credits/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 35.5,
+      "score": 35.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+14.5)"
+        "recency (+14.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1560,11 +1584,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 34.6,
+      "score": 34.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.6)"
+        "recency (+13.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1584,11 +1608,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 34.3,
+      "score": 33.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.3)"
+        "recency (+12.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1608,11 +1632,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 34.1,
+      "score": 33.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+13.1)"
+        "recency (+12.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1631,11 +1655,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 32.2,
+      "score": 31.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1655,11 +1679,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 31.9,
+      "score": 31.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+10.9)"
+        "recency (+10.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1747,11 +1771,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 29.2,
+      "score": 29.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.2)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1771,11 +1795,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 28.4,
+      "score": 28.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+7.4)"
+        "recency (+7.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1797,11 +1821,11 @@
       "id": "7e0ea55829b36ed3",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 27.9,
+      "score": 27.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:java (+15)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -1822,11 +1846,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 27.1,
+      "score": 26.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1846,11 +1870,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1870,11 +1894,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1894,11 +1918,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 25.5,
+      "score": 25.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1917,11 +1941,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 24.8,
+      "score": 24.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1940,11 +1964,11 @@
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
-      "score": 24.4,
+      "score": 24.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1963,11 +1987,11 @@
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
-      "score": 24.1,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2008,20 +2032,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c1ffef57cf4f0cf5",
+      "id": "6c1fe33dc9352d01",
       "kev": false,
-      "published": "2026-10-29T17:00:26Z",
-      "score": 20.7,
+      "published": "2026-10-30T02:07:09Z",
+      "score": 22.8,
       "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+14.7)"
+        "source:Risky Bulletin (+8)",
+        "recency (+14.8)"
       ],
-      "source": "Simon Willison",
+      "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
+      "summary": "Billions stolen from Binance in a crypto hack, Last week’s PHP2Shell bugs are being exploited to hack Palo Alto Networks firewalls, The Brotli bugs also get a run, Belarusian state hackers carry out a wiper attack, and a hacker leaks the data of 41,000 DHS employees. Show notes Risky Bulletin: Belarusian state hackers get on the data-wiping train",
       "tags": [],
-      "title": "Building a multiplayer game world with autonomous Fable-class models",
-      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
+      "title": "Billions stolen in Binance hack",
+      "url": "https://risky.biz/RBNEWS627/"
     },
     {
       "appsec": false,
@@ -2031,10 +2055,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 20.6,
+      "score": 20.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.6)"
+        "recency (+12.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2048,20 +2072,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7a3afca2246da741",
+      "id": "c1ffef57cf4f0cf5",
       "kev": false,
-      "published": "2026-10-28T10:09:07Z",
-      "score": 18.9,
+      "published": "2026-10-29T17:00:26Z",
+      "score": 20.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.9)"
+        "recency (+14.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
+      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
       "tags": [],
-      "title": "Quoting Terk Terkowitz",
-      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
+      "title": "Building a multiplayer game world with autonomous Fable-class models",
+      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
     },
     {
       "appsec": false,
@@ -2071,10 +2095,10 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 18.8,
+      "score": 18.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+6.8)"
+        "recency (+6.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2093,10 +2117,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 18.8,
+      "score": 18.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+6.8)"
+        "recency (+6.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2112,13 +2136,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7a3afca2246da741",
+      "kev": false,
+      "published": "2026-10-28T10:09:07Z",
+      "score": 18.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+12.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
+      "tags": [],
+      "title": "Quoting Terk Terkowitz",
+      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 18.1,
+      "score": 17.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.1)"
+        "recency (+11.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2135,10 +2179,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 18.0,
+      "score": 17.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.0)"
+        "recency (+9.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2155,10 +2199,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 17.0,
+      "score": 16.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.0)"
+        "recency (+10.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2219,10 +2263,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 15.8,
+      "score": 15.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+9.8)"
+        "recency (+9.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3012,10 +3056,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 14.9,
+      "score": 14.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3032,10 +3076,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 14.5,
+      "score": 14.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.5)"
+        "recency (+8.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3052,10 +3096,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 14.3,
+      "score": 14.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.3)"
+        "recency (+6.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3072,10 +3116,10 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 14.2,
+      "score": 14.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.2)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3092,10 +3136,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 13.5,
+      "score": 13.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.5)"
+        "recency (+5.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3112,10 +3156,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 13.4,
+      "score": 13.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.4)"
+        "recency (+7.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3132,10 +3176,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 13.3,
+      "score": 13.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3152,10 +3196,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 13.1,
+      "score": 12.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3172,10 +3216,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 12.6,
+      "score": 12.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.6)"
+        "recency (+6.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3192,10 +3236,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3212,10 +3256,10 @@
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 11.6,
+      "score": 11.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3232,10 +3276,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 11.5,
+      "score": 11.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3252,10 +3296,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 11.1,
+      "score": 11.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3292,10 +3336,10 @@
       "id": "4729de4c9cbe4dc5",
       "kev": false,
       "published": "2026-10-12T02:43:40Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3312,10 +3356,10 @@
       "id": "3954bde477b7b3c4",
       "kev": false,
       "published": "2026-10-11T19:18:00Z",
-      "score": 10.5,
+      "score": 10.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3332,10 +3376,10 @@
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3352,10 +3396,10 @@
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3372,10 +3416,10 @@
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
-      "score": 9.7,
+      "score": 9.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3392,10 +3436,10 @@
       "id": "812f894cec2b2135",
       "kev": false,
       "published": "2026-10-15T13:04:03Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3412,10 +3456,10 @@
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
-      "score": 9.3,
+      "score": 9.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3432,10 +3476,10 @@
       "id": "f3896491a736a8e2",
       "kev": false,
       "published": "2026-10-13T23:00:06Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3452,10 +3496,10 @@
       "id": "88f5b2261b84778a",
       "kev": false,
       "published": "2026-10-02T02:57:07Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3472,10 +3516,10 @@
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3483,26 +3527,6 @@
       "tags": [],
       "title": "Quoting Geoffrey Huntley",
       "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "092f8b08567b33e3",
-      "kev": false,
-      "published": "2026-10-01T02:38:57Z",
-      "score": 8.9,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.9)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Amberleigh Jack and James Wilson chat about OpenAI agents’ recent escapades into Australian government websites. OpenAI has promised to “rebuild trust with Australians” but we’re likely getting a glimpse into the new normal, here. They also discuss how the ShinyHunters hacking group has found itself on law enforcement’s target list after breaching FBI systems. The group played some stupid games and they appear to be in the “stupid prizes” stage. This episode is also available on YouTube Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: “Rogue AI” isn’t going anywhere",
-      "url": "https://risky.biz/SRB185/"
     },
     {
       "appsec": false,
@@ -3523,6 +3547,26 @@
       "tags": [],
       "title": "ShinyHunters suspect arrested in the Netherlands",
       "url": "https://risky.biz/RBNEWS617/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "092f8b08567b33e3",
+      "kev": false,
+      "published": "2026-10-01T02:38:57Z",
+      "score": 8.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Amberleigh Jack and James Wilson chat about OpenAI agents’ recent escapades into Australian government websites. OpenAI has promised to “rebuild trust with Australians” but we’re likely getting a glimpse into the new normal, here. They also discuss how the ShinyHunters hacking group has found itself on law enforcement’s target list after breaching FBI systems. The group played some stupid games and they appear to be in the “stupid prizes” stage. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: “Rogue AI” isn’t going anywhere",
+      "url": "https://risky.biz/SRB185/"
     },
     {
       "appsec": false,
@@ -4889,20 +4933,20 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-10-29T22:43:17Z",
+  "last_run": "2026-10-30T05:06:17Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 782,
-    "appsec_cves": 1218,
+    "actively_exploited_appsec": 827,
+    "appsec_cves": 1262,
     "kev_coverage_pct": 30.2,
     "kev_tracked": 1764,
     "kev_with_coverage": 533,
     "newly_exploited": 11,
     "newly_exploited_days": 30,
-    "open_gaps": 433,
-    "public_poc": 533,
+    "open_gaps": 466,
+    "public_poc": 548,
     "total_cves": 2239,
-    "total_items": 218
+    "total_items": 220
   },
   "threats": [
     {
@@ -7199,6 +7243,35 @@
       "vuln_classes": [
         "command-injection"
       ]
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": "briefs/CVE-2026-33634.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-33634",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-506"
+      ],
+      "description": "Trivy is a security scanner. On March 19, 2026, a threat actor used compromised credentials to publish a malicious Trivy v0.69.4 release, force-push 76 of 77 version tags in `aquasecurity/trivy-action` to credential-stealing malware, and re…",
+      "ecosystems": [
+        "supply-chain"
+      ],
+      "epss": 0.59727,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-03-26",
+      "modified": "2026-03-26",
+      "product": "setup-trivy",
+      "published": "2026-03-26",
+      "score": 90.7,
+      "sources": [],
+      "vendor": "aquasec",
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-2xv2-w8cq-5gxw",
@@ -10217,6 +10290,66 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-9hj8-73fh-9963",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-115907",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-400",
+        "CWE-789"
+      ],
+      "description": "zip: legacy Shrink/Reduce/Implode decoder: denial of service from attacker-controlled ZIP64 uncompressed size",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.0035,
+      "ghsa_id": "GHSA-9hj8-73fh-9963",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-29T16:40:21Z",
+      "product": "zip",
+      "published": "2026-10-29T16:40:19Z",
+      "score": 21.6,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-115909",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-400",
+        "CWE-789"
+      ],
+      "description": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.00461,
+      "ghsa_id": "GHSA-q7v9-x93c-xqv3",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-29T16:40:04Z",
+      "product": "zip",
+      "published": "2026-10-29T16:40:01Z",
+      "score": 21.6,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-5vvx-3h34-f3gj",
       "appsec": true,
       "brief": "briefs/CVE-2026-61570.md",
@@ -10251,36 +10384,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-9hj8-73fh-9963",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-115907",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-400",
-        "CWE-789"
-      ],
-      "description": "zip: legacy Shrink/Reduce/Implode decoder: denial of service from attacker-controlled ZIP64 uncompressed size",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.0035,
-      "ghsa_id": "GHSA-9hj8-73fh-9963",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-29T16:40:21Z",
-      "product": "zip",
-      "published": "2026-10-29T16:40:19Z",
-      "score": 21.6,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-6j52-38f8-qhxr",
       "appsec": true,
       "brief": null,
@@ -10304,36 +10407,6 @@
       "modified": "2026-10-29T16:39:49Z",
       "product": "shopify_app",
       "published": "2026-10-29T16:39:49Z",
-      "score": 21.6,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-115909",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-400",
-        "CWE-789"
-      ],
-      "description": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.00461,
-      "ghsa_id": "GHSA-q7v9-x93c-xqv3",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-29T16:40:04Z",
-      "product": "zip",
-      "published": "2026-10-29T16:40:01Z",
       "score": 21.6,
       "sources": [],
       "vendor": null,
