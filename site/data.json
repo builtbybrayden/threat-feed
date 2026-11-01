@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-10-31T21:21:00Z",
+  "generated": "2026-11-01T05:14:27Z",
   "items": [
     {
       "appsec": true,
@@ -44,15 +44,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "339d7ddf5cc0abad",
+      "kev": false,
+      "published": "2026-10-31T23:15:22Z",
+      "score": 49.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript,xss (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+14.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "xss"
+      ],
+      "title": "How We Took Over ChatGPT Accounts",
+      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 49.0,
+      "score": 48.6,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.0)"
+        "recency (+11.6)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -79,12 +105,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 48.4,
+      "score": 48.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.4)"
+        "recency (+11.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -107,13 +133,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 46.8,
+      "score": 46.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -138,13 +164,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 46.7,
+      "score": 46.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -169,12 +195,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 46.6,
+      "score": 46.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -197,12 +223,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 46.1,
+      "score": 45.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.1)"
+        "recency (+8.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -214,33 +240,6 @@
       ],
       "title": "Between Two Nerds: Why frontier lab security will always suck",
       "url": "https://risky.biz/BTN187/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "31adffac7255205b",
-      "kev": false,
-      "published": "2026-10-26T01:20:43Z",
-      "score": 45.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php,rce (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+8.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "While everyone was distracted by PHP, another RCE has been wrecking the internet, Australia’s ABC wipes some staff devices, a third PHP RCE is incoming and researchers discover a new DDoS attack vector in HTTP/3. Show notes Risky Bulletin: While everyone was looking at PHP, another RCE is wrecking what's left of the internet",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php",
-        "rce"
-      ],
-      "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
-      "url": "https://risky.biz/RBNEWS625/"
     },
     {
       "appsec": true,
@@ -268,6 +267,33 @@
       ],
       "title": "How to fix a bug in a fix",
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "31adffac7255205b",
+      "kev": false,
+      "published": "2026-10-26T01:20:43Z",
+      "score": 45.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php,rce (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+8.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "While everyone was distracted by PHP, another RCE has been wrecking the internet, Australia’s ABC wipes some staff devices, a third PHP RCE is incoming and researchers discover a new DDoS attack vector in HTTP/3. Show notes Risky Bulletin: While everyone was looking at PHP, another RCE is wrecking what's left of the internet",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php",
+        "rce"
+      ],
+      "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
+      "url": "https://risky.biz/RBNEWS625/"
     },
     {
       "appsec": true,
@@ -408,12 +434,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 43.3,
+      "score": 43.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.3)"
+        "recency (+6.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -434,12 +460,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 43.0,
+      "score": 42.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -584,12 +610,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 41.2,
+      "score": 41.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -610,12 +636,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 40.5,
+      "score": 40.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -635,41 +661,15 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "d7da1053e3ecdb1a",
-      "kev": false,
-      "published": "2026-10-20T23:50:25Z",
-      "score": 40.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:pip,python (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+5.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "eMudhra Intermediate CA Compromise This is very, very bad news: The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. Any software that bundles a list of trusted certificates needs to be updated. This site is tracking software updates via this GitHub repository - Linux distros need to update their ca-certificates packages. In Python world uv 0.13.4 and pip 26.2.2 and certifi 2026.10.19 have been released with upgraded certificate lists. There's a very informative thread about this on the official Python forum. Tags: encryption, https, pip, python, security, uv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "pypi"
-      ],
-      "title": "eMudhra Intermediate CA Compromise",
-      "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 40.0,
+      "score": 39.9,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -686,6 +686,32 @@
       "url": "https://tldrsec.com/p/tldr-sec-350"
     },
     {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "d7da1053e3ecdb1a",
+      "kev": false,
+      "published": "2026-10-20T23:50:25Z",
+      "score": 39.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:pip,python (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+4.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "eMudhra Intermediate CA Compromise This is very, very bad news: The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. Any software that bundles a list of trusted certificates needs to be updated. This site is tracking software updates via this GitHub repository - Linux distros need to update their ca-certificates packages. In Python world uv 0.13.4 and pip 26.2.2 and certifi 2026.10.19 have been released with upgraded certificate lists. There's a very informative thread about this on the official Python forum. Tags: encryption, https, pip, python, security, uv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "pypi"
+      ],
+      "title": "eMudhra Intermediate CA Compromise",
+      "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
+    },
+    {
       "appsec": false,
       "cves": [],
       "epss": null,
@@ -693,11 +719,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 39.8,
+      "score": 39.5,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+9.8)"
+        "recency (+9.5)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -717,11 +743,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 39.5,
+      "score": 39.2,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+9.5)"
+        "recency (+9.2)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -742,12 +768,12 @@
       "id": "6053efd31e99a045",
       "kev": false,
       "published": "2026-10-08T14:30:00Z",
-      "score": 38.5,
+      "score": 38.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:npm,pnpm,pypi (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1533,14 +1559,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "15b96761d0c22ab8",
+      "id": "9590a7b9dd6aba1c",
       "kev": false,
-      "published": "2026-10-29T22:48:29Z",
-      "score": 33.4,
+      "published": "2026-10-31T22:10:01Z",
+      "score": 35.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.4)"
+        "recency (+14.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-llm 0.1a9 I have some big upgrades to Datasette Agent in the pipeline, but in the meantime here's a tiny user experience improvement to the underlying datasette-llm plugin. It now picks up the default model used by LLM, which means you can start using Datasette Agent without needing to explicitly configure a default model: uvx --with datasette-agent datasette content.db --internal internal.db Previously you would also need to specify a model with -s plugins.datasette-agent.default_model gpt-6-astra. Tags: datasette, llm, datasette-agent",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "datasette-llm 0.1a9",
+      "url": "https://simonwillison.net/2026/Oct/31/datasette-llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "15b96761d0c22ab8",
+      "kev": false,
+      "published": "2026-10-29T22:48:29Z",
+      "score": 33.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+12.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1560,11 +1610,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 32.9,
+      "score": 32.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+11.9)"
+        "recency (+11.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1584,11 +1634,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 32.2,
+      "score": 31.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1608,11 +1658,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 31.9,
+      "score": 31.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.9)"
+        "recency (+10.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1632,11 +1682,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 31.8,
+      "score": 31.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+10.8)"
+        "recency (+10.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1646,30 +1696,6 @@
       ],
       "title": "The October inflection point for vibe game development",
       "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "ddec6cb5a4e152e9",
-      "kev": false,
-      "published": "2026-10-26T23:53:07Z",
-      "score": 30.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in the same position as Sonnet in the Anthropic model collection - not the cheapest or the most expensive, making it harder to decide when to use it. Computer use is a good example of a task that benefits from a less expensive model, since you might put it to work on automated, repetitive tasks. OpenAI's Ted Sanders provided some useful advice in a comment on Hacker News: In the case of GPT-6.1 Terra, I'd say Terra is probably better than Astra and Sol at technical communication, similar on vision and computer use (but much faster!), and a bit worse on most other things. For API developers, it's a nice midrange option if you want something cheaper than Sol but a lot smarter than Luna (especially for vision / computer use / communication). For subscribers, it's not a bombshell release - if you're hitting usage limits, maybe it helps you go a bit further, and if you want clearer communication or faster computer use, it can be a nice option to select. Here are the pelicans for the different reasoning levels. This pelican for \"max\" cost 11.3161 cents and took 4 minutes and 11 seconds: Here's a new comparison grid showing pelicans for every reasoning level of OpenAI's current frontier lineup: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna. GPT-6.1 Terra is priced at $1/million input tokens and $5/million output - almost half the price of GPT-5.6 Terra and GPT-6.1 Sol, and around 10x the price of GPT-6 Luna. Via Hacker News Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, gpt, ted-sanders",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "GPT-6.1 Terra",
-      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
     },
     {
       "appsec": false,
@@ -1745,14 +1771,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "ddec6cb5a4e152e9",
+      "kev": false,
+      "published": "2026-10-26T23:53:07Z",
+      "score": 29.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in the same position as Sonnet in the Anthropic model collection - not the cheapest or the most expensive, making it harder to decide when to use it. Computer use is a good example of a task that benefits from a less expensive model, since you might put it to work on automated, repetitive tasks. OpenAI's Ted Sanders provided some useful advice in a comment on Hacker News: In the case of GPT-6.1 Terra, I'd say Terra is probably better than Astra and Sol at technical communication, similar on vision and computer use (but much faster!), and a bit worse on most other things. For API developers, it's a nice midrange option if you want something cheaper than Sol but a lot smarter than Luna (especially for vision / computer use / communication). For subscribers, it's not a bombshell release - if you're hitting usage limits, maybe it helps you go a bit further, and if you want clearer communication or faster computer use, it can be a nice option to select. Here are the pelicans for the different reasoning levels. This pelican for \"max\" cost 11.3161 cents and took 4 minutes and 11 seconds: Here's a new comparison grid showing pelicans for every reasoning level of OpenAI's current frontier lineup: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna. GPT-6.1 Terra is priced at $1/million input tokens and $5/million output - almost half the price of GPT-5.6 Terra and GPT-6.1 Sol, and around 10x the price of GPT-6 Luna. Via Hacker News Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, gpt, ted-sanders",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GPT-6.1 Terra",
+      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 30.0,
+      "score": 29.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+9.0)"
+        "recency (+8.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1798,11 +1848,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 27.7,
+      "score": 27.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.7)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1822,11 +1872,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 27.1,
+      "score": 26.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1846,11 +1896,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 26.0,
+      "score": 25.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+5.0)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1870,11 +1920,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 25.2,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1894,11 +1944,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 25.2,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1918,11 +1968,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 24.7,
+      "score": 24.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1941,11 +1991,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 24.1,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1964,11 +2014,11 @@
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
-      "score": 23.8,
+      "score": 23.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2035,10 +2085,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 20.5,
+      "score": 20.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.5)"
+        "recency (+12.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2055,10 +2105,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 19.6,
+      "score": 19.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.6)"
+        "recency (+13.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2075,10 +2125,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 18.4,
+      "score": 18.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.4)"
+        "recency (+10.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2095,10 +2145,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 18.1,
+      "score": 17.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.1)"
+        "recency (+11.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2115,10 +2165,10 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 17.6,
+      "score": 17.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2137,10 +2187,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 17.6,
+      "score": 17.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2159,10 +2209,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 16.6,
+      "score": 16.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.6)"
+        "recency (+10.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2170,26 +2220,6 @@
       "tags": [],
       "title": "Quoting Terk Terkowitz",
       "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "78a2482ced344d3e",
-      "kev": false,
-      "published": "2026-10-25T19:14:25Z",
-      "score": 16.2,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+8.2)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats to Nebulock’s Head of Detection Strategy Alex Hurtado about the company’s threat hunting evaluation framework, GATES. The pair talk through the five steps of Nebulock’s new acronym, and how they help remove gut feelings and guesswork when asking the question: “Should this threat hunt find be promoted to a detection rule”? Show notes The GATES Method: when a hunt becomes a detection",
-      "tags": [],
-      "title": "Sponsored: Should your threat hunt become a detection?",
-      "url": "https://risky.biz/RBNEWSSI148a/"
     },
     {
       "appsec": false,
@@ -2240,13 +2270,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "78a2482ced344d3e",
+      "kev": false,
+      "published": "2026-10-25T19:14:25Z",
+      "score": 15.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+7.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats to Nebulock’s Head of Detection Strategy Alex Hurtado about the company’s threat hunting evaluation framework, GATES. The pair talk through the five steps of Nebulock’s new acronym, and how they help remove gut feelings and guesswork when asking the question: “Should this threat hunt find be promoted to a detection rule”? Show notes The GATES Method: when a hunt becomes a detection",
+      "tags": [],
+      "title": "Sponsored: Should your threat hunt become a detection?",
+      "url": "https://risky.biz/RBNEWSSI148a/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 16.0,
+      "score": 15.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.0)"
+        "recency (+9.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2376,26 +2426,6 @@
       ],
       "title": "Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529",
       "url": "https://projectzero.google/2026/01/sound-barrier-2.html"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "df11f17c78623c5a",
-      "kev": false,
-      "published": "2026-10-26T19:00:25Z",
-      "score": 15.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
-      "tags": [],
-      "title": "Quoting Jason Koebler",
-      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
     },
     {
       "appsec": false,
@@ -3053,13 +3083,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "df11f17c78623c5a",
+      "kev": false,
+      "published": "2026-10-26T19:00:25Z",
+      "score": 14.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
+      "tags": [],
+      "title": "Quoting Jason Koebler",
+      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 14.1,
+      "score": 13.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.1)"
+        "recency (+7.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3076,10 +3126,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 13.7,
+      "score": 13.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3096,10 +3146,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 13.2,
+      "score": 13.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3116,10 +3166,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 13.0,
+      "score": 12.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.0)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3136,10 +3186,10 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 12.8,
+      "score": 12.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3156,10 +3206,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 12.5,
+      "score": 12.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3176,10 +3226,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 12.2,
+      "score": 12.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3196,10 +3246,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 12.1,
+      "score": 11.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3216,10 +3266,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 12.0,
+      "score": 11.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3236,10 +3286,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 11.5,
+      "score": 11.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3256,10 +3306,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 11.1,
+      "score": 11.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3276,10 +3326,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 10.9,
+      "score": 10.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3296,10 +3346,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3316,10 +3366,10 @@
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3336,10 +3386,10 @@
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
-      "score": 10.3,
+      "score": 10.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3356,10 +3406,10 @@
       "id": "3954bde477b7b3c4",
       "kev": false,
       "published": "2026-10-11T19:18:00Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3376,10 +3426,10 @@
       "id": "4729de4c9cbe4dc5",
       "kev": false,
       "published": "2026-10-12T02:43:40Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3396,10 +3446,10 @@
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3416,10 +3466,10 @@
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
-      "score": 9.4,
+      "score": 9.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3436,10 +3486,10 @@
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3456,10 +3506,10 @@
       "id": "812f894cec2b2135",
       "kev": false,
       "published": "2026-10-15T13:04:03Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3513,26 +3563,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "512e526f527e6705",
-      "kev": false,
-      "published": "2026-10-14T16:26:53Z",
-      "score": 8.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
-      "tags": [],
-      "title": "AI is mass decompiling games. That's both awesome and scary.",
-      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "05f39f2a300ca5f0",
       "kev": false,
       "published": "2026-09-30T03:56:03Z",
@@ -3547,6 +3577,26 @@
       "tags": [],
       "title": "ShinyHunters suspect arrested in the Netherlands",
       "url": "https://risky.biz/RBNEWS617/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "512e526f527e6705",
+      "kev": false,
+      "published": "2026-10-14T16:26:53Z",
+      "score": 8.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
+      "tags": [],
+      "title": "AI is mass decompiling games. That's both awesome and scary.",
+      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
     },
     {
       "appsec": false,
@@ -3633,26 +3683,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "906fb1aacbca6957",
-      "kev": false,
-      "published": "2026-09-24T03:47:26Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Patrick Gray talk about US Treasury Secretary Scott Bessent ruling out liability exemptions for AI companies. Its a good move. Leaving the companies on the hook keeps the pressure on them to do better with their cyber security and testing controls. They also discuss a Russian AI-powered cyberespionage campaign run by a group known as Midnight Blizzard. It used AI workflows to run the entire campaign so they got a lot more hacking done and accepted AI mistakes. This makes sense given that they want more intelligence from Ukrainian targets and don’t care at all about getting caught. This episode is also available on YouTube. Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: Bring on the AI lawsuits",
-      "url": "https://risky.biz/SRB184a/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
@@ -3713,13 +3743,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "8d99cfc5e26cd7f1",
+      "id": "906fb1aacbca6957",
       "kev": false,
-      "published": "2026-09-20T20:39:24Z",
+      "published": "2026-09-24T03:47:26Z",
       "score": 8.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "recency (+0.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Patrick Gray talk about US Treasury Secretary Scott Bessent ruling out liability exemptions for AI companies. Its a good move. Leaving the companies on the hook keeps the pressure on them to do better with their cyber security and testing controls. They also discuss a Russian AI-powered cyberespionage campaign run by a group known as Midnight Blizzard. It used AI workflows to run the entire campaign so they got a lot more hacking done and accepted AI mistakes. This makes sense given that they want more intelligence from Ukrainian targets and don’t care at all about getting caught. This episode is also available on YouTube. Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Bring on the AI lawsuits",
+      "url": "https://risky.biz/SRB184a/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "8d99cfc5e26cd7f1",
+      "kev": false,
+      "published": "2026-09-20T20:39:24Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4951,20 +5001,20 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-10-31T21:21:00Z",
+  "last_run": "2026-11-01T05:14:27Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 1091,
-    "appsec_cves": 1535,
+    "actively_exploited_appsec": 1128,
+    "appsec_cves": 1569,
     "kev_coverage_pct": 30.2,
     "kev_tracked": 1766,
     "kev_with_coverage": 533,
     "newly_exploited": 16,
     "newly_exploited_days": 30,
-    "open_gaps": 719,
-    "public_poc": 642,
+    "open_gaps": 762,
+    "public_poc": 655,
     "total_cves": 2275,
-    "total_items": 221
+    "total_items": 223
   },
   "threats": [
     {
@@ -7322,6 +7372,35 @@
       "product": "netweaver",
       "published": "2022-06-09",
       "score": 85.0,
+      "sources": [],
+      "vendor": "sap",
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": "briefs/CVE-2025-42999.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2025-42999",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-502"
+      ],
+      "description": "SAP NetWeaver Visual Composer Metadata Uploader is vulnerable when a privileged user can upload untrusted or malicious content which, when deserialized, could potentially lead to a compromise of confidentiality, integrity, and availability …",
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": 0.12854,
+      "ghsa_id": null,
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-05-15",
+      "modified": "2025-05-15",
+      "product": "netweaver",
+      "published": "2025-05-15",
+      "score": 67.0,
       "sources": [],
       "vendor": "sap",
       "vuln_classes": []
@@ -9867,36 +9946,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-54mm-6729-r5wp",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-85990",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-269",
-        "CWE-862"
-      ],
-      "description": "Leantime: Any Authenticated User Can Self-Escalate to Admin via Unauthorized JSON-RPC Methods",
-      "ecosystems": [
-        "composer"
-      ],
-      "epss": 0.00417,
-      "ghsa_id": "GHSA-54mm-6729-r5wp",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-15T20:14:44Z",
-      "product": "leantime/leantime",
-      "published": "2026-10-15T20:14:43Z",
-      "score": 22.9,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-rqf5-2wxv-rjf4",
       "appsec": true,
       "brief": null,
@@ -10079,35 +10128,6 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-33f5-2c5q-wgwj",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-63127",
-      "cvss_score": 8.2,
-      "cwe": [
-        "CWE-345"
-      ],
-      "description": "RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.00195,
-      "ghsa_id": "GHSA-33f5-2c5q-wgwj",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-16T22:13:27Z",
-      "product": "rmcp",
-      "published": "2026-09-16T22:13:26Z",
-      "score": 22.3,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-cpvr-w4j5-2mpg",
       "appsec": true,
       "brief": null,
@@ -10219,37 +10239,6 @@
       "modified": "2026-09-23T18:45:53Z",
       "product": "github.com/square/wire",
       "published": "2026-09-23T18:45:52Z",
-      "score": 21.7,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-9pj6-vhgr-3mwh",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-63128",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-400",
-        "CWE-401",
-        "CWE-772"
-      ],
-      "description": "RMCP: Unauthenticated permanent session-table leak in rmcp Streamable HTTP server transport leads to remote denial-of-service",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.00535,
-      "ghsa_id": "GHSA-9pj6-vhgr-3mwh",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-16T22:13:35Z",
-      "product": "rmcp",
-      "published": "2026-09-16T22:13:34Z",
       "score": 21.7,
       "sources": [],
       "vendor": null,
@@ -10493,6 +10482,62 @@
       "product": "spree_api",
       "published": "2026-09-22T20:40:30Z",
       "score": 21.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-5hq8-qhww-jm7q",
+      "appsec": false,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-61544",
+      "cvss_score": 8.2,
+      "cwe": [],
+      "description": "libp2p-quic: Remote panic via certificate expiry race during QUIC handshake",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.00284,
+      "ghsa_id": "GHSA-5hq8-qhww-jm7q",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-09-15T20:01:19Z",
+      "product": "libp2p-quic",
+      "published": "2026-09-15T20:01:17Z",
+      "score": 8.3,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-33f5-2c5q-wgwj",
+      "appsec": false,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63127",
+      "cvss_score": 8.2,
+      "cwe": [
+        "CWE-345"
+      ],
+      "description": "RMCP: Missing Resource Field Validation in OAuth Protected Resource Metadata Discovery",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.00195,
+      "ghsa_id": "GHSA-33f5-2c5q-wgwj",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-09-16T22:13:27Z",
+      "product": "rmcp",
+      "published": "2026-09-16T22:13:26Z",
+      "score": 8.3,
       "sources": [],
       "vendor": null,
       "vuln_classes": []
