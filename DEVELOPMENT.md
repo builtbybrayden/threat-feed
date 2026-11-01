@@ -39,11 +39,16 @@ Observed on 2026-11-01: `56 passed`; the validation example reports `validated=T
 (vulnerable detects; patched and benign controls do not). These are facts about
 this code and this fixture, nothing more.
 
+**Licence.** The owner chose MIT (root `LICENSE`, `Copyright (c) 2026 Brayden
+Arnold`). This was a deliberate decision, not a default.
+
+**CI.** A `pull_request`-triggered workflow (`.github/workflows/ci.yml`) runs the
+test suite on every PR so changes are self-checked before merge. It is
+read-only (`permissions: contents: read`), does no network ingestion and no
+external scanning — it only runs `pytest` and the local validation example.
+
 ## Open work (needs a human — not a coding-session deliverable)
 
-- **Licence.** There is still no root licence. This is the owner's decision (it sets
-  how others may use/contribute); it should be made deliberately, not by default.
-  Pick one and add it before inviting outside use.
 - **Real detection cases.** The `validation/` example uses a toy target and a
   synthetic CVE. Three to five end-to-end cases against *real* vulnerable/patched
   builds, each with a recorded decision + result, are a human milestone.
