@@ -1,0 +1,28 @@
+{
+  "generated": "2026-11-01T16:52:25Z",
+  "template": "detection.yaml",
+  "probe": "/download?file=../secret.txt",
+  "canary": "TOP-SECRET-CANARY-7b3f2a",
+  "controls": [
+    {
+      "name": "vulnerable_instance",
+      "expect": "detect",
+      "detected": true,
+      "pass": true
+    },
+    {
+      "name": "patched_control",
+      "expect": "no-detect",
+      "detected": false,
+      "pass": true
+    },
+    {
+      "name": "negative_control_benign",
+      "expect": "no-detect",
+      "detected": false,
+      "pass": true
+    }
+  ],
+  "validated": true,
+  "note": "Self-contained local lab (127.0.0.1). A demonstration of the validation protocol, not an independent evaluation."
+}

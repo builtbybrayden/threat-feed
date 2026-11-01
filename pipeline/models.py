@@ -96,6 +96,9 @@ class CveRecord:
     advisory_url: Optional[str] = None              # link to the GitHub advisory
     is_candidate: bool = False
     candidate_reasons: list[str] = field(default_factory=list)
+    # Human decision record merged from decisions.yaml (status, reviewer, date,
+    # rationale, artifacts, outcome). None until a human records one.
+    decision: Optional[dict[str, Any]] = None
     score: float = 0.0                              # best score of linked items
     issue_number: Optional[int] = None
     first_seen: Optional[str] = None

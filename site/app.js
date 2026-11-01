@@ -366,6 +366,40 @@
     return b;
   }
   var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Template indexed"], ["unknown", "Unknown"]];
+
+  // A recorded human decision (decisions.yaml) — the auditable lifecycle. Shown
+  // as a small pill; the detail modal shows reviewer / date / rationale / outcome.
+  var DEC_LABEL = {
+    candidate: "Candidate", reviewed: "Reviewed", "lab-validated": "Lab-validated",
+    completed: "Completed", rejected: "Rejected", inconclusive: "Inconclusive"
+  };
+  function decisionBadge(dec) {
+    if (!dec || !dec.status) return null;
+    var b = el("span", "decision " + dec.status, DEC_LABEL[dec.status] || dec.status);
+    var who = [dec.reviewer, dec.date].filter(Boolean).join(" · ");
+    if (who) b.title = who;
+    return b;
+  }
+  function decisionDetail(dec) {
+    if (!dec || !dec.status) return null;
+    var wrap = el("div");
+    wrap.appendChild(el("h3", "detail-h", "Decision record"));
+    var grid = el("div", "meta-grid");
+    var row = function (k, val) {
+      if (val == null || val === "") return;
+      grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val));
+    };
+    row("Status", DEC_LABEL[dec.status] || dec.status);
+    row("Reviewer", dec.reviewer);
+    row("Date", dec.date);
+    row("Rationale", dec.rationale);
+    row("Outcome", dec.outcome);
+    row("Template", dec.template);
+    if (dec.artifacts && dec.artifacts.length) row("Artifacts", dec.artifacts.join(", "));
+    row("Notes", dec.notes);
+    wrap.appendChild(grid);
+    return wrap;
+  }
   var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
   function signalOpts() {
     var d = (state.stats && state.stats.newly_exploited_days) || 30;
@@ -439,6 +473,7 @@
     if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
     (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
     (t.vuln_classes || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
+    var tdb = decisionBadge(t.decision); if (tdb) stats.appendChild(tdb);
     v.appendChild(stats);
 
     if (t.description) v.appendChild(el("p", "vuln-desc", t.description));
@@ -493,6 +528,7 @@
     if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
     if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
     (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
+    var cdb = decisionBadge(c.decision); if (cdb) stats.appendChild(cdb);
     if (stats.childNodes.length) v.appendChild(stats);
 
     if (c.detectability) {
@@ -648,6 +684,8 @@
 
       if (t.description) body.appendChild(el("p", "detail-desc", t.description));
 
+      var tdd = decisionDetail(t.decision); if (tdd) body.appendChild(tdd);
+
       if (t.sources && t.sources.length) {
         var sl = el("div", "src-links");
         t.sources.forEach(function (s) {
@@ -716,6 +754,8 @@
       if (stats.childNodes.length) body.appendChild(stats);
 
       if (c.description) body.appendChild(el("p", "detail-desc", c.description));
+
+      var cdd = decisionDetail(c.decision); if (cdd) body.appendChild(cdd);
 
       if (c.detectability) {
         var d = c.detectability;

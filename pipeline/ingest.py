@@ -32,6 +32,7 @@ from . import feeds as feeds_mod
 from . import kev as kev_mod
 from . import nvd as nvd_mod
 from . import poc as poc_mod
+from . import decisions as decisions_mod
 from .briefs import write_brief
 from .issues import RestGitHubClient, sync_candidates
 from .models import Item
@@ -143,6 +144,9 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # issue events), using the already-enriched records in state.json. No feeds,
     # no NVD, no triage — seconds instead of minutes.
     if getattr(args, "queue_only", False):
+        decisions, _ = decisions_mod.load_decisions(args.decisions)
+        for cve, rec in state.cves.items():
+            rec.decision = decisions.get(cve)
         queue = _build_queue(state, cfg, args)
         _write_queue(Path(args.site), queue, cfg)
         log.info("queue-only rebuild: %d items", len(queue))
@@ -252,6 +256,14 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             candidates.append(rec)
     candidates.sort(key=lambda r: (r.score, r.kev, r.epss or 0), reverse=True)
 
+    # 7c. Merge human decision records (the auditable lifecycle) onto CVE records.
+    #     These are hand-authored in decisions.yaml; a missing file is fine.
+    decisions, decision_errors = decisions_mod.load_decisions(args.decisions)
+    for err in decision_errors:
+        log.warning("decisions: %s", err)
+    for cve, rec in state.cves.items():
+        rec.decision = decisions.get(cve)
+
     # 7b. Optional, opt-in only: file/close `nuclei-candidate` GitHub issues for
     #     confirmed-absent candidates. The default path never touches GitHub.
     issue_sync = _maybe_sync_issues(state, candidates, cfg, args)
@@ -262,6 +274,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
     # 9. Site JSON --------------------------------------------------------
     stats = _compute_stats(state, candidates, cfg, coverage_meta)
+    stats["decisions"] = decisions_mod.summarize(decisions)
     _write_site(state, candidates, stats, queue, args.site, cfg, coverage_meta)
 
     state.save(args.state)
@@ -272,6 +285,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "total_cves": len(state.cves),
         "candidates": len(candidates),
         "queue": len(queue),
+        "decisions": len(decisions),
         "issue_sync": issue_sync,
         "stats": stats,
     }
@@ -473,6 +487,7 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
                 "suggested_template_type": rec.detection.suggested_template_type,
             },
             "candidate_reasons": rec.candidate_reasons,
+            "decision": rec.decision,
             "advisory_url": rec.advisory_url, "ghsa_id": rec.ghsa_id,
             "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
             "brief": f"briefs/{cve}.md" if (Path(args.briefs) / f"{cve}.md").exists() else None,
@@ -625,6 +640,7 @@ def _candidate_view(rec) -> dict[str, Any]:
         "brief": f"briefs/{rec.cve_id}.md",
         "issue_number": rec.issue_number,
         "candidate_reasons": rec.candidate_reasons,
+        "decision": rec.decision,
     }
 
 
@@ -651,6 +667,7 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "ghsa_id": rec.ghsa_id,
         "advisory_url": rec.advisory_url,
         "issue_number": rec.issue_number,
+        "decision": rec.decision,
         "cwe": rec.cwe,
         "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
         "sources": sources,
@@ -703,6 +720,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--config", default=str(ROOT / "config.yaml"))
     ap.add_argument("--watchlist", default=str(ROOT / "watchlist.yaml"))
     ap.add_argument("--state", default=str(ROOT / "state.json"))
+    ap.add_argument("--decisions", default=str(ROOT / "decisions.yaml"), help="auditable detection-decision records (decisions.yaml)")
     ap.add_argument("--site", default=str(ROOT / "site"))
     ap.add_argument("--briefs", default=str(ROOT / "site" / "briefs"))
     ap.add_argument("--sample", default=str(ROOT / "sample_data"))

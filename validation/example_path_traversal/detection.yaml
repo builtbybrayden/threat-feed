@@ -1,0 +1,29 @@
+id: lab-example-path-traversal
+
+info:
+  name: Lab example - download path traversal (secret.txt canary)
+  author: builtbybrayden
+  severity: high
+  description: |
+    Example behavioural detection for the self-contained path-traversal lab
+    target in this directory. It requests the download endpoint with a traversal
+    sequence and matches only when the response leaks the out-of-webroot canary.
+    This is a worked example of a validated detection, not a check for a real CVE.
+  tags: lab,example,lfi,traversal
+  metadata:
+    note: Run against 127.0.0.1 lab targets only. Validated with run_validation.py.
+
+# http/dns/network only; no code templates; no destructive payloads (CLAUDE.md).
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/download?file=../secret.txt"
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        part: body
+        words:
+          - "TOP-SECRET-CANARY-7b3f2a"
