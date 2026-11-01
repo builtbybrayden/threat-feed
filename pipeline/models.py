@@ -84,6 +84,10 @@ class CveRecord:
     epss: Optional[float] = None
     poc_links: list[str] = field(default_factory=list)
     nuclei_template: Optional[str] = None          # path in nuclei-templates, or None
+    # Coverage *status* is distinct from the template path: "covered" (a template
+    # indexes this CVE), "absent" (the index was available and held none), or
+    # "unknown" (no/stale index — absence of a template is NOT established).
+    coverage_status: str = "unknown"
     detection: Detection = field(default_factory=Detection)
     appsec: bool = False                            # application-security relevant
     ecosystems: list[str] = field(default_factory=list)   # npm, pypi, php, web, ...

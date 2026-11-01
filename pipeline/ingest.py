@@ -22,7 +22,7 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 from . import advisories as advisories_mod
 from . import appsec as appsec_mod
@@ -97,10 +97,21 @@ def gather_epss(cve_ids, cfg, session, offline, sample_dir) -> dict[str, float]:
         return {}
 
 
-def load_coverage(cfg, offline, sample_dir) -> dict[str, str]:
+def load_coverage(cfg, offline, sample_dir) -> tuple[dict[str, str], dict[str, Any]]:
+    """Return (index, meta). ``meta["available"]`` is False when no index could be
+    loaded, so the caller marks those CVEs' coverage *unknown* instead of inventing
+    confirmed gaps. Offline, the committed sample_data/ fixture is the index."""
     if offline:
-        return {k.upper(): v for k, v in _load_sample(sample_dir, "coverage_index.json", {}).items()}
-    return coverage_mod.load_index(ROOT / cfg["coverage"]["index_cache"])
+        p = sample_dir / "coverage_index.json"
+        if not p.exists():
+            return {}, {"available": False, "as_of": None, "template_count": 0, "source": "sample_data (missing)"}
+        index = {k.upper(): v for k, v in _load_sample(sample_dir, "coverage_index.json", {}).items()}
+        return index, {
+            "available": len(index) > 0, "as_of": None,
+            "template_count": len(index), "source": "sample_data",
+        }
+    cache = ROOT / cfg["coverage"]["index_cache"]
+    return coverage_mod.load_index(cache), coverage_mod.load_index_meta(cache)
 
 
 def gather_advisories(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
@@ -173,9 +184,18 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             state.cves[cve].epss = val
 
     # 4. Coverage index ----------------------------------------------------
-    coverage = load_coverage(cfg, args.offline, sample_dir)
+    # Distinguish "no template indexed" from "no index available": when the index
+    # could not be loaded, coverage is *unknown*, not a confirmed gap.
+    coverage, coverage_meta = load_coverage(cfg, args.offline, sample_dir)
+    coverage_available = coverage_meta.get("available", False)
     for cve, rec in state.cves.items():
         rec.nuclei_template = coverage.get(cve)
+        if not coverage_available:
+            rec.coverage_status = "unknown"
+        elif rec.nuclei_template:
+            rec.coverage_status = "covered"
+        else:
+            rec.coverage_status = "absent"
 
     # 5. NVD enrichment (cached by TTL) + PoC ------------------------------
     _enrich_nvd_poc(state, cfg, session, args, sample_dir, all_cves)
@@ -224,7 +244,9 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         wl_hit = cve in watchlist_cves or bool(
             word_boundary_hits(f"{rec.vendor or ''} {rec.product or ''} {rec.description}", watchlist)
         )
-        rec.is_candidate, rec.candidate_reasons = evaluate_candidate(rec, cfg, watchlist_hit=wl_hit)
+        rec.is_candidate, rec.candidate_reasons = evaluate_candidate(
+            rec, cfg, watchlist_hit=wl_hit, coverage_status=rec.coverage_status
+        )
         rec.last_updated = now_iso()
         if rec.is_candidate:
             candidates.append(rec)
@@ -235,8 +257,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     queue = _build_queue(state, cfg, args)
 
     # 9. Site JSON --------------------------------------------------------
-    stats = _compute_stats(state, candidates, cfg)
-    _write_site(state, candidates, stats, queue, args.site, cfg)
+    stats = _compute_stats(state, candidates, cfg, coverage_meta)
+    _write_site(state, candidates, stats, queue, args.site, cfg, coverage_meta)
 
     state.save(args.state)
 
@@ -361,11 +383,19 @@ def _tags_for_item(it: Item, hits: list[str], has_poc: bool, extra: list[str]) -
     return tags
 
 
-def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> dict[str, Any]:
+def _compute_stats(
+    state: State, candidates: list, config: dict[str, Any], coverage_meta: dict[str, Any] | None = None
+) -> dict[str, Any]:
     cves = state.cves
+    coverage_meta = coverage_meta or {}
     kev_records = [r for r in cves.values() if r.kev]
-    kev_covered = [r for r in kev_records if r.nuclei_template]
-    pct = round(100 * len(kev_covered) / len(kev_records), 1) if kev_records else 0.0
+    # Coverage % is honest only over CVEs whose coverage is *known* (index was
+    # available): dividing by all KEV records would understate coverage whenever
+    # the index is missing/stale by counting "unknown" as "no template".
+    kev_known = [r for r in kev_records if getattr(r, "coverage_status", "unknown") in ("covered", "absent")]
+    kev_covered = [r for r in kev_known if r.coverage_status == "covered"]
+    pct = round(100 * len(kev_covered) / len(kev_known), 1) if kev_known else 0.0
+    coverage_unknown = sum(1 for r in cves.values() if getattr(r, "coverage_status", "unknown") == "unknown")
 
     # AppSec-focused headline numbers.
     actively_exploited_appsec = sum(1 for r in cves.values() if r.kev and r.appsec)
@@ -387,8 +417,12 @@ def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> di
         "open_gaps": len(candidates),
         "appsec_cves": sum(1 for r in cves.values() if r.appsec),
         "kev_tracked": len(kev_records),
+        "kev_coverage_known": len(kev_known),
         "kev_with_coverage": len(kev_covered),
         "kev_coverage_pct": pct,
+        "coverage_index_available": bool(coverage_meta.get("available", False)),
+        "coverage_index_as_of": coverage_meta.get("as_of"),
+        "coverage_unknown": coverage_unknown,
         "total_items": len(state.items),
         "total_cves": len(cves),
     }
@@ -426,7 +460,7 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
             "ecosystems": rec.ecosystems, "vuln_classes": rec.vuln_classes,
             "published": rec.published, "modified": rec.modified or rec.published,
             "has_poc": bool(rec.poc_links),
-            "coverage": "covered" if rec.nuclei_template else "gap",
+            "coverage": _coverage_view(rec),
             "detectability": {
                 "remote_network": rec.detection.remote_network,
                 "likely_http": rec.detection.likely_http,
@@ -439,6 +473,18 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
             "brief": f"briefs/{cve}.md" if (Path(args.briefs) / f"{cve}.md").exists() else None,
         })
     return e
+
+
+_COVERAGE_VIEW = {"covered": "covered", "absent": "gap", "unknown": "unknown"}
+
+
+def _coverage_view(rec) -> str:
+    """Map the record's coverage_status to the site's 3-valued coverage string.
+    Falls back to the template presence for records predating coverage_status."""
+    status = getattr(rec, "coverage_status", None)
+    if status in _COVERAGE_VIEW:
+        return _COVERAGE_VIEW[status]
+    return "covered" if rec.nuclei_template else "gap"
 
 
 def _build_queue(state: State, config: dict[str, Any], args) -> list[dict[str, Any]]:
@@ -472,7 +518,7 @@ def _write_queue(site: Path, queue: list[dict[str, Any]], config: dict[str, Any]
     _dump(site / "queue.json", {"generated": now_iso(), "repo": _repo_slug(config), "queue": queue})
 
 
-def _write_site(state: State, candidates: list, stats: dict, queue: list, site_dir: str, config: dict[str, Any]) -> None:
+def _write_site(state: State, candidates: list, stats: dict, queue: list, site_dir: str, config: dict[str, Any], coverage_meta: dict[str, Any] | None = None) -> None:
     site = Path(site_dir)
     site.mkdir(parents=True, exist_ok=True)
     generated = now_iso()
@@ -529,6 +575,9 @@ def _write_site(state: State, candidates: list, stats: dict, queue: list, site_d
         "first_run": state.meta.get("first_run"),
         "repo": repo,
         "stats": stats,
+        # Index provenance so the UI can label coverage staleness honestly and
+        # avoid presenting "unknown" coverage as a confirmed gap.
+        "coverage_index": coverage_meta or {"available": False, "as_of": None},
         "threats": threats,
         "items": [i.to_dict() for i in items_sorted[:400]],
     }
@@ -567,6 +616,7 @@ def _candidate_view(rec) -> dict[str, Any]:
             "suggested_template_type": rec.detection.suggested_template_type,
         },
         "nuclei_template": rec.nuclei_template,
+        "coverage": _coverage_view(rec),
         "brief": f"briefs/{rec.cve_id}.md",
         "issue_number": rec.issue_number,
         "candidate_reasons": rec.candidate_reasons,
@@ -590,7 +640,7 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "ecosystems": rec.ecosystems,
         "vuln_classes": rec.vuln_classes,
         "has_poc": bool(rec.poc_links),
-        "coverage": "covered" if rec.nuclei_template else "gap",
+        "coverage": _coverage_view(rec),
         "is_candidate": rec.is_candidate,
         "brief": f"briefs/{rec.cve_id}.md" if rec.is_candidate else None,
         "ghsa_id": rec.ghsa_id,

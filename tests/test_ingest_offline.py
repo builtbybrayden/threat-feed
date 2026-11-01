@@ -91,3 +91,47 @@ def test_offline_run_produces_site_and_one_candidate(tmp_path):
     queue = json.loads((tmp_path / "site" / "queue.json").read_text())
     assert queue["queue"] == []
     assert summary["queue"] == 0
+
+    # Coverage was known (the fixture index exists): 0001 is a confirmed gap, and
+    # the coverage index is reported available with no unknowns.
+    assert data["coverage_index"]["available"] is True
+    assert data["stats"]["coverage_index_available"] is True
+    assert data["stats"]["coverage_unknown"] == 0
+    assert cand["candidates"][0]["coverage"] == "gap"
+    assert "no existing Nuclei template" in cand["candidates"][0]["candidate_reasons"]
+
+
+def test_offline_run_without_coverage_index_reports_unknown(tmp_path):
+    # When no coverage index is available, coverage must be *unknown*, not a
+    # confirmed gap: the pipeline must not claim an absent template it never checked.
+    sample = tmp_path / "sample_data"
+    _build_sample(sample)
+    (sample / "coverage_index.json").unlink()  # no index this run
+
+    args = build_parser().parse_args([
+        "--offline",
+        "--config", str(ROOT / "config.yaml"),
+        "--watchlist", str(ROOT / "watchlist.yaml"),
+        "--state", str(tmp_path / "state.json"),
+        "--site", str(tmp_path / "site"),
+        "--briefs", str(tmp_path / "briefs"),
+        "--sample", str(sample),
+    ])
+    run(args)
+
+    data = json.loads((tmp_path / "site" / "data.json").read_text())
+    cand = json.loads((tmp_path / "site" / "candidates.json").read_text())
+
+    assert data["coverage_index"]["available"] is False
+    assert data["stats"]["coverage_index_available"] is False
+    assert data["stats"]["coverage_unknown"] == data["stats"]["total_cves"]
+    # Coverage % is computed only over known records, so it's not a false "0% covered".
+    assert data["stats"]["kev_coverage_known"] == 0
+    # Every threat is unknown, not "gap".
+    assert all(t["coverage"] == "unknown" for t in data["threats"])
+    # A candidate under unknown coverage is provisional.
+    assert cand["candidates"], "expected provisional candidates under unknown coverage"
+    assert all(
+        any("not ruled out" in r for r in c["candidate_reasons"])
+        for c in cand["candidates"]
+    )

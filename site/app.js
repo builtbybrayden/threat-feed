@@ -171,7 +171,7 @@
       ["n crit", s.actively_exploited_appsec, "AppSec CVEs exploited in the wild", "exploited"],
       ["n warn", s.newly_exploited, "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d", "newly"],
       ["n poc", s.public_poc, "With public exploit code (PoC)", "poc"],
-      ["n", s.open_gaps, "Missing a Nuclei template", "gaps"]
+      ["n", s.open_gaps, "No indexed Nuclei template", "gaps"]
     ].forEach(function (k) {
       var b = el("div", "kpi clickable");
       b.setAttribute("role", "button"); b.setAttribute("tabindex", "0");
@@ -206,11 +206,14 @@
         filter: { signal: "poc" }
       },
       gaps: {
-        n: s.open_gaps, label: "Missing a Nuclei template",
-        what: "Detection candidates: AppSec CVEs that have no Nuclei template yet, are remotely/HTTP-detectable, and carry a priority signal (KEV, high EPSS, or a watchlist product).",
+        n: s.open_gaps, label: "No indexed Nuclei template",
+        what: "Detection candidates: AppSec CVEs with no template in the Nuclei coverage *index* (a template-reference index, not validated detection), that are remotely/HTTP-detectable and carry a priority signal (KEV, high EPSS, or a watchlist product)."
+          + (s.coverage_index_available === false
+              ? " ⚠ No coverage index was available this run, so these are provisional — an upstream template may already exist. Build the index (make coverage-index) to confirm."
+              : ""),
         how: [["ProjectDiscovery nuclei-templates (coverage)", "https://github.com/projectdiscovery/nuclei-templates"],
               ["FIRST EPSS", "https://www.first.org/epss/"]],
-        filter: { coverage: "gap" }
+        filter: { coverage: s.coverage_index_available === false ? "unknown" : "gap" }
       }
     };
     var m = M[key]; if (!m) return;
@@ -349,7 +352,20 @@
     });
     g.appendChild(row); host.appendChild(g);
   }
-  var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Has template"]];
+  // Coverage reflects the Nuclei template *index*, not validated detection: a
+  // CVE is "covered" when a template references it, "gap" when the index held
+  // none, and "unknown" when no index was available (absence is NOT confirmed).
+  var COV_LABEL = { covered: "Template indexed", gap: "No template", unknown: "Coverage unknown" };
+  function covClass(cov) { return cov === "gap" ? "gap" : (cov === "unknown" ? "unknown" : "covered"); }
+  function covBadge(cov) {
+    var b = el("span", "cov " + covClass(cov), COV_LABEL[cov] || COV_LABEL.covered);
+    b.title = cov === "unknown"
+      ? "No coverage index was available this run — a template may or may not exist."
+      : (cov === "gap" ? "No Nuclei template indexes this CVE (template-reference index, not validated detection)."
+                       : "A Nuclei template references this CVE (reference indexed, not behaviourally validated).");
+    return b;
+  }
+  var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Template indexed"], ["unknown", "Unknown"]];
   var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
   function signalOpts() {
     var d = (state.stats && state.stats.newly_exploited_days) || 30;
@@ -381,7 +397,8 @@
     var parts = [];
     if (state.threatSignal !== "all") parts.push(SIGNAL_LABEL[state.threatSignal] || state.threatSignal);
     if (state.threatCoverage === "gap") parts.push("No template");
-    else if (state.threatCoverage === "covered") parts.push("Has template");
+    else if (state.threatCoverage === "covered") parts.push("Template indexed");
+    else if (state.threatCoverage === "unknown") parts.push("Coverage unknown");
     if (state.threatEco) parts.push(ECO_LABEL[state.threatEco] || state.threatEco);
     if (state.threatSort !== "score") parts.push(state.threatSort === "published" ? "by published" : "by modified");
     return parts.join(" · ");
@@ -392,7 +409,8 @@
   }
   function threatMatch(t) {
     if (state.threatCoverage === "gap" && t.coverage !== "gap") return false;
-    if (state.threatCoverage === "covered" && t.coverage === "gap") return false;
+    if (state.threatCoverage === "covered" && t.coverage !== "covered") return false;
+    if (state.threatCoverage === "unknown" && t.coverage !== "unknown") return false;
     if (state.threatEco && (t.ecosystems || []).indexOf(state.threatEco) === -1) return false;
     if (state.threatSignal === "kev" && !t.kev) return false;
     if (state.threatSignal === "poc" && !t.has_poc) return false;
@@ -411,7 +429,7 @@
     idw.appendChild(el("div", "vuln-prod", prod));
     var dl = dateLine(t); if (dl) idw.appendChild(el("div", "vuln-date", dl));
     head.appendChild(idw);
-    head.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
+    head.appendChild(covBadge(t.coverage));
     v.appendChild(head);
 
     var stats = el("div", "p-stats");
@@ -466,7 +484,7 @@
     var dl = dateLine(c); if (dl) idw.appendChild(el("div", "vuln-date", dl));
     head.appendChild(idw);
     if (!c._synced) head.appendChild(el("span", "cov local", "Local · syncing"));
-    else if (c.coverage) head.appendChild(el("span", "cov " + (c.coverage === "gap" ? "gap" : "covered"), c.coverage === "gap" ? "No template" : "Covered"));
+    else if (c.coverage) head.appendChild(covBadge(c.coverage));
     v.appendChild(head);
 
     var stats = el("div", "p-stats");
@@ -562,7 +580,8 @@
     if (info.kev) sig.push("in CISA KEV");
     if (info.epss != null) sig.push("EPSS " + Math.round(info.epss * 100) + "%");
     if (info.cvss_score != null) sig.push("CVSS " + info.cvss_score);
-    if (info.coverage) sig.push(info.coverage === "gap" ? "no Nuclei template" : "template exists");
+    if (info.coverage) sig.push(info.coverage === "gap" ? "no Nuclei template indexed"
+      : (info.coverage === "unknown" ? "coverage index unavailable" : "Nuclei template indexed"));
     if (sig.length) lines.push("**Signals:** " + sig.join(" · "));
     if (info.description) lines.push("", info.description);
     lines.push("", "### Links");
@@ -621,7 +640,7 @@
       if (t.epss != null) stats.appendChild(statItem("EPSS", epssPct(t.epss)));
       if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
       if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
-      stats.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
+      stats.appendChild(covBadge(t.coverage));
       (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
       (t.vuln_classes || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
       (t.cwe || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
@@ -691,7 +710,7 @@
       if (c.epss != null) stats.appendChild(statItem("EPSS", epssPct(c.epss)));
       if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
       if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
-      if (c.coverage) stats.appendChild(el("span", "cov " + (c.coverage === "gap" ? "gap" : "covered"), c.coverage === "gap" ? "No template" : "Covered"));
+      if (c.coverage) stats.appendChild(covBadge(c.coverage));
       (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
       (c.cwe || []).forEach(function (cw) { stats.appendChild(el("span", "tag-pill", cw)); });
       if (stats.childNodes.length) body.appendChild(stats);
