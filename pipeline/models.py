@@ -94,6 +94,10 @@ class CveRecord:
     vuln_classes: list[str] = field(default_factory=list) # sqli, ssrf, rce, ...
     ghsa_id: Optional[str] = None                   # GitHub Advisory id, if sourced from GHSA
     advisory_url: Optional[str] = None              # link to the GitHub advisory
+    # Which intake streams contributed to this record (provenance): any of
+    # "feed", "kev", "ghsa", "cvelist", "nvd". Lets the UI/JSON answer "where did
+    # this come from" honestly instead of implying a single origin.
+    sources: list[str] = field(default_factory=list)
     is_candidate: bool = False
     candidate_reasons: list[str] = field(default_factory=list)
     # Human decision record merged from decisions.yaml (status, reviewer, date,

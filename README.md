@@ -26,11 +26,13 @@ GitHub Actions (cron, every 6h)
   └─ Python ingester (pipeline/)
        ├─ RSS/Atom feeds (feedparser)           ← sources in config.yaml
        ├─ CISA KEV catalog
+       ├─ GitHub Advisory DB (per-ecosystem + critical) ← discovery
+       ├─ MITRE CVE List v5 delta (webapp-filtered)     ← discovery, pre-NVD
        ├─ FIRST EPSS API (batched)
        ├─ NVD API 2.0 (CWE, CPE, CVSS, refs)    ← optional NVD_API_KEY
        ├─ PoC signals (nomi-sec PoC-in-GitHub, NVD "Exploit" refs)
        └─ Nuclei coverage index (from a shallow clone of nuclei-templates)
-  └─ normalize → dedupe (state.json) → tag + score
+  └─ merge by CVE id (provenance recorded per source) → dedupe (state.json) → tag + score
   └─ detection triage → candidates (coverage: covered / absent / unknown)
   └─ write site/data.json + site/candidates.json → commit → Pages redeploys
   └─ detection queue = open `detection-queue` issues → site/queue.json + briefs/
@@ -80,6 +82,9 @@ pipeline/
   models.py           the two schemas: Item and CveRecord
   normalize.py        HTML stripping, CVE regex, id hashing, safe-link + URL canonicalization
   feeds.py  kev.py  epss.py  nvd.py  poc.py   source ingestion/enrichment
+  advisories.py       GitHub Advisory DB (per-ecosystem CVE discovery)
+  cvelist.py          MITRE CVE List v5 delta (authoritative CVE discovery, webapp-filtered)
+  appsec.py           application-security relevance + ecosystem/vuln-class tagging
   coverage.py         build/load the Nuclei coverage index
   score.py            transparent, config-driven scoring
   triage.py           detectability classification + candidate rule
@@ -105,8 +110,16 @@ tests/                fixtures + unit/integration tests (no live network)
 
 **CveRecord** (one per CVE id): `description`, `cwe[]`, `cvss_vector`, `cvss_score`,
 `vendor`/`product`/`cpes[]`, `affected_versions`, `fixed_version`, `references[]`, `kev`,
-`epss`, `poc_links[]`, `nuclei_template` (path or `null`), `detection{…}`, `is_candidate`,
-`candidate_reasons[]`, `score`, `issue_number`.
+`epss`, `poc_links[]`, `nuclei_template` (path or `null`), `coverage_status`
+(`covered`/`absent`/`unknown`), `detection{…}`, `is_candidate`, `candidate_reasons[]`,
+`sources[]` (provenance — which intake streams saw this CVE: `feed`/`kev`/`ghsa`/`cvelist`/`nvd`;
+exposed as `origins` in the site JSON), `decision` (merged from `decisions.yaml`), `score`,
+`issue_number`.
+
+A CVE is keyed once and enriched by every source that references it, so the same
+record can carry, say, a CVE-List description, a KEV flag, and an EPSS score. `origins`
+in `data.json`/`candidates.json` records which streams contributed, so "where did this
+come from" is answerable rather than implied.
 
 ## Scoring
 

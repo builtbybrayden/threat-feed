@@ -27,6 +27,7 @@ from typing import Any, Optional
 from . import advisories as advisories_mod
 from . import appsec as appsec_mod
 from . import coverage as coverage_mod
+from . import cvelist as cvelist_mod
 from . import epss as epss_mod
 from . import feeds as feeds_mod
 from . import kev as kev_mod
@@ -49,6 +50,12 @@ log = logging.getLogger("pipeline")
 # ---------------------------------------------------------------------------
 # Source gathering (each returns plain data; online vs offline chosen by flag)
 # ---------------------------------------------------------------------------
+def _add_source(rec, name: str) -> None:
+    """Record that an intake stream contributed to this CVE (provenance)."""
+    if name not in rec.sources:
+        rec.sources.append(name)
+
+
 def _load_sample(sample_dir: Path, name: str, default: Any) -> Any:
     p = sample_dir / name
     if not p.exists():
@@ -129,6 +136,26 @@ def gather_advisories(cfg, session, offline, sample_dir) -> list[dict[str, Any]]
         return []
 
 
+def gather_cvelist(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
+    """Recent MITRE CVE-List v5 records (webapp-filtered), normalized. Isolated
+    like every other source. Offline, the committed sample_data/ fixture holds
+    raw CVE 5.x records, parsed through the same code the network path uses."""
+    cc = cfg.get("cvelist", {})
+    if not cc.get("enabled", True):
+        return []
+    try:
+        if offline:
+            return cvelist_mod.parse_records(
+                _load_sample(sample_dir, "cvelist.json", []),
+                webapp_only=bool(cc.get("webapp_only", True)),
+                cap=int(cc.get("max_records", 400)),
+            )
+        return cvelist_mod.fetch_recent(cfg, session, cfg["http"]["timeout"])
+    except Exception as exc:
+        log.warning("cvelist fetch failed (%s) — continuing without it", exc)
+        return []
+
+
 # ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
@@ -152,22 +179,27 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         log.info("queue-only rebuild: %d items", len(queue))
         return {"queue": len(queue)}
 
-    # 1. Feeds + KEV + ecosystem advisories --------------------------------
+    # 1. Feeds + KEV + ecosystem advisories + CVE List ---------------------
     items = gather_feed_items(cfg, session, args.offline, sample_dir)
     new_count = sum(state.upsert_item(it) for it in items)
     kev_map = gather_kev(cfg, session, args.offline, sample_dir)
     advisories = gather_advisories(cfg, session, args.offline, sample_dir)
+    cvelist = gather_cvelist(cfg, session, args.offline, sample_dir)
 
     # 2. Collect every CVE referenced, create records, apply KEV + advisories
     all_cves: set[str] = set()
     for it in state.items.values():
         all_cves.update(it.cves)
+        for c in it.cves:
+            _add_source(state.get_cve(c), "feed")  # a news/research item named this CVE
     all_cves.update(kev_map.keys())  # KEV CVEs are tracked even if no feed mentions them
     all_cves.update(a["cve_id"] for a in advisories)  # so do GHSA ecosystem advisories
+    all_cves.update(d["cve_id"] for d in cvelist)      # and freshly-published CVE-List records
     for cve in all_cves:
         rec = state.get_cve(cve)
         if cve in kev_map:
             rec.kev = True
+            _add_source(rec, "kev")
             k = kev_map[cve]
             rec.vendor = rec.vendor or k.get("vendor")
             rec.product = rec.product or k.get("product")
@@ -178,8 +210,17 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # AppSec (it's a package vuln), so track its CVE to force appsec=True below.
     advisory_cves: set[str] = set()
     for adv in advisories:
-        advisories_mod.apply_to_record(state.get_cve(adv["cve_id"]), adv)
+        rec = state.get_cve(adv["cve_id"])
+        advisories_mod.apply_to_record(rec, adv)
+        _add_source(rec, "ghsa")
         advisory_cves.add(adv["cve_id"])
+
+    # Merge CVE-List records (already webapp-filtered at ingest). The later appsec
+    # classifier re-derives relevance from the now-populated fields, so no forcing.
+    for data in cvelist:
+        rec = state.get_cve(data["cve_id"])
+        cvelist_mod.apply_to_record(rec, data)
+        _add_source(rec, "cvelist")
 
     # 3. EPSS (batched) ----------------------------------------------------
     epss_map = gather_epss(all_cves, cfg, session, args.offline, sample_dir)
@@ -349,6 +390,7 @@ def _nvd_stale(rec, ttl: int) -> bool:
 
 
 def _apply_nvd(rec, fields: dict[str, Any]) -> None:
+    _add_source(rec, "nvd")
     rec.description = fields.get("description") or rec.description
     rec.cwe = fields.get("cwe") or rec.cwe
     rec.cvss_vector = fields.get("cvss_vector") or rec.cvss_vector
@@ -488,6 +530,7 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
             },
             "candidate_reasons": rec.candidate_reasons,
             "decision": rec.decision,
+            "origins": sorted(rec.sources),
             "advisory_url": rec.advisory_url, "ghsa_id": rec.ghsa_id,
             "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
             "brief": f"briefs/{cve}.md" if (Path(args.briefs) / f"{cve}.md").exists() else None,
@@ -641,6 +684,7 @@ def _candidate_view(rec) -> dict[str, Any]:
         "issue_number": rec.issue_number,
         "candidate_reasons": rec.candidate_reasons,
         "decision": rec.decision,
+        "origins": sorted(rec.sources),
     }
 
 
@@ -666,6 +710,7 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "brief": f"briefs/{rec.cve_id}.md" if rec.is_candidate else None,
         "ghsa_id": rec.ghsa_id,
         "advisory_url": rec.advisory_url,
+        "origins": sorted(rec.sources),
         "issue_number": rec.issue_number,
         "decision": rec.decision,
         "cwe": rec.cwe,

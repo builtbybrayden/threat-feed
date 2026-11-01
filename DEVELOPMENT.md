@@ -47,6 +47,38 @@ test suite on every PR so changes are self-checked before merge. It is
 read-only (`permissions: contents: read`), does no network ingestion and no
 external scanning — it only runs `pytest` and the local validation example.
 
+## 2026-11-01 — CVE List v5 intake (authoritative CVE discovery) + provenance
+
+AI-assisted (Claude). Adds the MITRE CVE List (`github.com/CVEProject/cvelistV5`)
+as a discovery stream so a webapp CVE appears here when its CNA publishes it,
+rather than whenever NVD/GHSA catch up. Design decisions, for the record:
+
+- **Bounded fetch, not a clone.** The repo publishes an hourly GitHub Release with
+  a small `*_delta_CVEs_*.zip` (~1-2 MB, changes since midnight UTC) next to a
+  ~650 MB all-CVEs bundle. `pipeline/cvelist.py` pulls only the delta bundle — one
+  request, no per-record fan-out, no 300k-file clone. Endpoints were verified to
+  resolve on 2026-11-01; a live `fetch_recent` returned 15 webapp records in ~2 s.
+- **Untrusted-input handling.** The downloaded zip is read in memory with
+  `ZipFile.read` only (never extracted, so no path traversal), with caps on the
+  download size, per-member uncompressed size, and total bytes read (zip-bomb
+  guards). Tests cover a bad zip, an oversized member, and the manifest-skip.
+- **Webapp scope.** Only application-security-relevant records are imported,
+  reusing the shared `appsec` classifier/CWE set so "relevant" means the same
+  thing as everywhere else. The hardware/physical-access noise that fills the raw
+  CVE firehose is dropped at ingest.
+- **Provenance.** `CveRecord.sources[]` now records which intake streams saw each
+  CVE (`feed`/`kev`/`ghsa`/`cvelist`/`nvd`), surfaced as `origins` in the site
+  JSON. This keeps "where did this come from" answerable now that several sources
+  can contribute to one record. (UI badges for `origins` are a follow-up; the data
+  is already in `data.json`/`candidates.json`.)
+
+Observed on 2026-11-01: `67 passed` (was 56; +11 for cvelist and provenance). The
+new source is isolated like every other — a fetch failure logs and continues.
+
+Open follow-up (not done here): OSV.dev and a WordPress/Wordfence feed are the
+next two webapp discovery sources; and `origins` could be shown on the dashboard
+cards. Neither is required for this change to stand on its own.
+
 ## Open work (needs a human — not a coding-session deliverable)
 
 - **Real detection cases.** The `validation/` example uses a toy target and a
