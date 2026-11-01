@@ -32,6 +32,7 @@ from . import epss as epss_mod
 from . import feeds as feeds_mod
 from . import kev as kev_mod
 from . import nvd as nvd_mod
+from . import osv as osv_mod
 from . import poc as poc_mod
 from . import decisions as decisions_mod
 from .briefs import write_brief
@@ -156,6 +157,25 @@ def gather_cvelist(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
         return []
 
 
+def gather_osv(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
+    """Recent OSV.dev language-ecosystem records (RustSec/Go/Hex/Pub), normalized.
+    Isolated like every other source. Offline, the committed sample_data/ fixture
+    holds raw OSV records, parsed through the same code the network path uses."""
+    oc = cfg.get("osv", {})
+    if not oc.get("enabled", True):
+        return []
+    try:
+        if offline:
+            return osv_mod.parse_records(
+                _load_sample(sample_dir, "osv.json", []),
+                cap=int(oc.get("max_records", 300)),
+            )
+        return osv_mod.fetch_recent(cfg, session, cfg["http"]["timeout"])
+    except Exception as exc:
+        log.warning("osv fetch failed (%s) — continuing without it", exc)
+        return []
+
+
 # ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
@@ -185,6 +205,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     kev_map = gather_kev(cfg, session, args.offline, sample_dir)
     advisories = gather_advisories(cfg, session, args.offline, sample_dir)
     cvelist = gather_cvelist(cfg, session, args.offline, sample_dir)
+    osv = gather_osv(cfg, session, args.offline, sample_dir)
 
     # 2. Collect every CVE referenced, create records, apply KEV + advisories
     all_cves: set[str] = set()
@@ -195,6 +216,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     all_cves.update(kev_map.keys())  # KEV CVEs are tracked even if no feed mentions them
     all_cves.update(a["cve_id"] for a in advisories)  # so do GHSA ecosystem advisories
     all_cves.update(d["cve_id"] for d in cvelist)      # and freshly-published CVE-List records
+    all_cves.update(d["cve_id"] for d in osv)          # and OSV language-ecosystem records
     for cve in all_cves:
         rec = state.get_cve(cve)
         if cve in kev_map:
@@ -221,6 +243,15 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         rec = state.get_cve(data["cve_id"])
         cvelist_mod.apply_to_record(rec, data)
         _add_source(rec, "cvelist")
+
+    # Merge OSV records. Like GHSA, an OSV record is a package-ecosystem vuln and
+    # so inherently AppSec; track its CVE to force appsec=True below.
+    osv_cves: set[str] = set()
+    for data in osv:
+        rec = state.get_cve(data["cve_id"])
+        osv_mod.apply_to_record(rec, data)
+        _add_source(rec, "osv")
+        osv_cves.add(data["cve_id"])
 
     # 3. EPSS (batched) ----------------------------------------------------
     epss_map = gather_epss(all_cves, cfg, session, args.offline, sample_dir)
@@ -250,7 +281,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # advisory-sourced CVE as AppSec even if its text alone wouldn't classify.
     for rec in state.cves.values():
         a = appsec_mod.classify_cve(rec, cfg)
-        rec.appsec = a["appsec"] or rec.cve_id in advisory_cves
+        rec.appsec = a["appsec"] or rec.cve_id in advisory_cves or rec.cve_id in osv_cves
         rec.ecosystems = sorted(set(rec.ecosystems) | set(a["ecosystems"]))
         rec.vuln_classes = sorted(set(rec.vuln_classes) | set(a["vuln_classes"]))
 

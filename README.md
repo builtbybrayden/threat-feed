@@ -28,6 +28,7 @@ GitHub Actions (cron, every 6h)
        ├─ CISA KEV catalog
        ├─ GitHub Advisory DB (per-ecosystem + critical) ← discovery
        ├─ MITRE CVE List v5 delta (webapp-filtered)     ← discovery, pre-NVD
+       ├─ OSV.dev language DBs (RustSec/Go/Hex/Pub)      ← discovery
        ├─ FIRST EPSS API (batched)
        ├─ NVD API 2.0 (CWE, CPE, CVSS, refs)    ← optional NVD_API_KEY
        ├─ PoC signals (nomi-sec PoC-in-GitHub, NVD "Exploit" refs)
@@ -84,6 +85,7 @@ pipeline/
   feeds.py  kev.py  epss.py  nvd.py  poc.py   source ingestion/enrichment
   advisories.py       GitHub Advisory DB (per-ecosystem CVE discovery)
   cvelist.py          MITRE CVE List v5 delta (authoritative CVE discovery, webapp-filtered)
+  osv.py              OSV.dev language-ecosystem DBs (RustSec/Go/Hex/Pub), keyed by CVE alias
   appsec.py           application-security relevance + ecosystem/vuln-class tagging
   coverage.py         build/load the Nuclei coverage index
   score.py            transparent, config-driven scoring
@@ -112,9 +114,9 @@ tests/                fixtures + unit/integration tests (no live network)
 `vendor`/`product`/`cpes[]`, `affected_versions`, `fixed_version`, `references[]`, `kev`,
 `epss`, `poc_links[]`, `nuclei_template` (path or `null`), `coverage_status`
 (`covered`/`absent`/`unknown`), `detection{…}`, `is_candidate`, `candidate_reasons[]`,
-`sources[]` (provenance — which intake streams saw this CVE: `feed`/`kev`/`ghsa`/`cvelist`/`nvd`;
-exposed as `origins` in the site JSON), `decision` (merged from `decisions.yaml`), `score`,
-`issue_number`.
+`sources[]` (provenance — which intake streams saw this CVE:
+`feed`/`kev`/`ghsa`/`cvelist`/`osv`/`nvd`; exposed as `origins` in the site JSON),
+`decision` (merged from `decisions.yaml`), `score`, `issue_number`.
 
 A CVE is keyed once and enriched by every source that references it, so the same
 record can carry, say, a CVE-List description, a KEV flag, and an EPSS score. `origins`

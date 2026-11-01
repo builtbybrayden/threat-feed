@@ -79,6 +79,30 @@ Open follow-up (not done here): OSV.dev and a WordPress/Wordfence feed are the
 next two webapp discovery sources; and `origins` could be shown on the dashboard
 cards. Neither is required for this change to stand on its own.
 
+## 2026-11-01 — OSV.dev intake (language-ecosystem vulnerability DBs)
+
+AI-assisted (Claude). Adds OSV.dev (`pipeline/osv.py`) for the language databases
+GHSA only partly mirrors: RustSec (crates.io), the Go vuln DB, Hex (Elixir), Pub
+(Dart). Decisions:
+
+- **Bounded, non-overlapping fetch.** OSV publishes per-ecosystem `all.zip`
+  exports in a public GCS bucket. We pull only the small language-DB ecosystems
+  (crates.io ~4 MB, Go ~13 MB, Hex ~1 MB, Pub ~30 KB) — never npm (~220 MB) or
+  PyPI (~38 MB), which GHSA already covers and which would dominate the run. Same
+  untrusted-zip guards as the CVE-List intake (read-only, size/entry/total caps).
+- **Keyed by CVE alias.** OSV records key on their own id (GHSA-/RUSTSEC-/GO-…);
+  we take the CVE from each record's `aliases` and skip records with no CVE and
+  withdrawn records. Only records `modified` within a 45-day window are kept, so
+  one bounded download yields a bounded recent set; duplicates across ecosystems
+  are collapsed to the newest.
+- **Treated as AppSec, like GHSA.** An OSV record is a package-ecosystem vuln, so
+  its CVE is forced `appsec=True` (and its ecosystem tag unioned in) even when its
+  own text/CWE would not classify — mirroring the GHSA path. `origins` gains the
+  `osv` tag.
+
+Endpoints verified to resolve 2026-11-01; a live `fetch_recent` returned 12 recent
+records across rust/go/hex in ~3 s. Observed: `76 passed` (was 67; +9 for OSV).
+
 ## Open work (needs a human — not a coding-session deliverable)
 
 - **Real detection cases.** The `validation/` example uses a toy target and a

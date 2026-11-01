@@ -80,6 +80,27 @@ def _build_sample(sample_dir):
             "containers": {"cna": {}},
         },
     ])
+    # OSV: a crates.io record whose own text/CWE would NOT classify as appsec, to
+    # prove OSV records are treated as appsec (package vuln) via provenance, and a
+    # CVE-less record that must be dropped. Low-signal on purpose so it is not a
+    # candidate (keeps the candidate-count assertions above focused).
+    _write(sample_dir / "osv.json", [
+        {
+            "id": "RUSTSEC-2099-0001", "aliases": ["CVE-2099-8001"],
+            "summary": "Resource exhaustion in example-lib under heavy load.",
+            "modified": "2026-10-29T00:00:00Z", "published": "2026-10-29T00:00:00Z",
+            "affected": [{"package": {"name": "example-lib", "ecosystem": "crates.io"}}],
+            "severity": [{"type": "CVSS_V3", "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:H"}],
+            "database_specific": {"cwe_ids": ["CWE-400"]},
+            "references": [{"type": "ADVISORY", "url": "https://rustsec.org/advisories/RUSTSEC-2099-0001"}],
+        },
+        {
+            "id": "RUSTSEC-2099-0002", "aliases": ["RUSTSEC-2099-0002"],   # no CVE -> dropped
+            "summary": "Unmaintained crate.",
+            "modified": "2026-10-29T00:00:00Z",
+            "affected": [{"package": {"name": "example-dead", "ecosystem": "crates.io"}}],
+        },
+    ])
 
 
 def test_offline_run_produces_site_and_one_candidate(tmp_path):
@@ -146,6 +167,17 @@ def test_offline_run_produces_site_and_one_candidate(tmp_path):
     assert by_cve["CVE-2099-7101"]["origins"] == ["cvelist"]
     # CVE-2099-0001 was seen by a feed item, KEV, and NVD enrichment.
     assert set(by_cve["CVE-2099-0001"]["origins"]) == {"feed", "kev", "nvd"}
+
+    # OSV intake: the crates.io record is keyed by its CVE alias and imported; the
+    # CVE-less record is dropped. Though its own CWE-400/text would not classify as
+    # appsec, it is marked appsec because an OSV package vuln inherently is.
+    assert "CVE-2099-8001" in by_cve
+    assert "CVE-2099-8002" not in by_cve           # no CVE alias -> dropped
+    assert by_cve["CVE-2099-8001"]["origins"] == ["osv"]
+    assert by_cve["CVE-2099-8001"]["appsec"] is True
+    assert "rust" in by_cve["CVE-2099-8001"]["ecosystems"]
+    # It carries no priority signal, so it is not a candidate (counts unchanged).
+    assert "CVE-2099-8001" not in [c["cve_id"] for c in cand["candidates"]]
 
 
 def test_offline_run_without_coverage_index_reports_unknown(tmp_path):
