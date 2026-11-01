@@ -75,6 +75,7 @@ in `state.json` between runs so re-running produces no duplicate items or issues
 ```
 config.yaml           feeds, source weights, scoring, thresholds (no magic numbers in code)
 watchlist.yaml        generic public products/terms to flag
+decisions.yaml        auditable detection-decision records (the lifecycle), hand-authored
 pipeline/
   models.py           the two schemas: Item and CveRecord
   normalize.py        HTML stripping, CVE regex, id hashing, safe-link + URL canonicalization
@@ -83,12 +84,14 @@ pipeline/
   score.py            transparent, config-driven scoring
   triage.py           detectability classification + candidate rule
   briefs.py           per-CVE Markdown + JSON detection briefs
-  issues.py           idempotent GitHub Issues work queue
+  decisions.py        load/validate the decision-lifecycle records
+  issues.py           idempotent GitHub Issues work queue (opt-in --sync-issues)
   state.py            state.json load/save (dedupe + enrichment cache)
   ingest.py           orchestrator + CLI
 site/                 static PWA dashboard (index.html, app.js, style.css, sw.js, manifest)
 briefs/               generated detection briefs
 sample_data/          committed snapshot for the --offline demo
+validation/           reproducible local validation example (vuln + patched + controls)
 tools/                gen_icons.py (PWA icons), make_sample.py (snapshot sample_data)
 tests/                fixtures + unit/integration tests (no live network)
 .github/workflows/    pipeline.yml (cron + Pages), validate-templates.yml (phase 2)
@@ -145,6 +148,43 @@ Coverage status is three-valued and kept distinct from the template path:
 `covered` (a template indexes the CVE), `absent` (the index was available and had none),
 `unknown` (no index this run — absence is **not** established). Headline coverage % is
 computed only over CVEs whose coverage is known.
+
+## Detection workflow (the decision lifecycle)
+
+Triage decides whether a CVE is a *candidate*. What a human then did about it is
+recorded, by hand, in **`decisions.yaml`** at the repo root — one record per CVE. The
+pipeline merges these onto the CVE records, so the dashboard and the detection queue show
+an auditable trail (status, reviewer, date, rationale, template/reference, artifacts,
+outcome), not just "candidate / not candidate".
+
+Lifecycle states: `candidate → reviewed → lab-validated → completed`, plus the terminal
+outcomes `rejected` and `inconclusive` (so the trail can honestly end in "we decided not
+to" or "we couldn't tell" — not only in successes).
+
+```yaml
+- cve: CVE-2099-0999
+  status: lab-validated
+  reviewer: Brayden Arnold
+  date: 2026-11-01
+  rationale: HTTP path traversal with a public PoC; a behavioural check is feasible.
+  template: validation/example_path_traversal/detection.yaml
+  artifacts: [validation/example_path_traversal/result.json]
+  outcome: Detected on the vulnerable instance; clean on the patched + negative control.
+```
+
+**Local validation.** `lab-validated` means a detection was exercised against a vulnerable
+instance, a patched control, and a benign negative control — locally, on `127.0.0.1`, and
+recorded. `validation/example_path_traversal/` is a reproducible, stdlib-only worked
+example of exactly that protocol:
+
+```bash
+python validation/example_path_traversal/run_validation.py   # writes result.json; exits non-zero on failure
+```
+
+It demonstrates the protocol; it is **not** an independent evaluation of the tool, and its
+CVE id is synthetic. To validate a real CVE, swap in the real vulnerable/patched builds and
+point the template at the real request — keeping the same three controls, and keeping it
+local and authorised (never run a candidate detection against live or shared hosts).
 
 ## Dashboard
 
@@ -210,6 +250,8 @@ Interfaces are scaffolded; implement after the demo core is proven:
   env).
 - Validation harness — `nuclei -validate` (wired in `validate-templates.yml`), then run
   against a vulnerable lab container (expect a match) and a patched one (expect none) via
-  docker compose; record results in the brief.
+  docker compose; record results in the decision record. The three-control protocol and a
+  reproducible stdlib-only worked example already exist in `validation/` — generalise it
+  from the toy target to real vulnerable/patched builds.
 - Only http/dns/network protocols; no `code` templates; no destructive payloads; drafts
   are never auto-promoted — a human reviews and merges via PR.
