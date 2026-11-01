@@ -252,6 +252,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             candidates.append(rec)
     candidates.sort(key=lambda r: (r.score, r.kev, r.epss or 0), reverse=True)
 
+    # 7b. Optional, opt-in only: file/close `nuclei-candidate` GitHub issues for
+    #     confirmed-absent candidates. The default path never touches GitHub.
+    issue_sync = _maybe_sync_issues(state, candidates, cfg, args)
+
     # 8. Detection queue = CVEs the user curated as `detection-queue` GitHub
     #    issues (no auto-population). Briefs are generated only for those.
     queue = _build_queue(state, cfg, args)
@@ -268,6 +272,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "total_cves": len(state.cves),
         "candidates": len(candidates),
         "queue": len(queue),
+        "issue_sync": issue_sync,
         "stats": stats,
     }
     log.info("run complete: %s", json.dumps(summary["stats"]))
@@ -658,19 +663,30 @@ def _dump(path: Path, data: Any) -> None:
 
 
 def _maybe_sync_issues(state, candidates, cfg, args) -> dict[str, Any]:
-    import os
+    """Optionally file/close `nuclei-candidate` GitHub issues for candidates.
+
+    Off by default: the detection queue is the user-curated path. This runs only
+    with the explicit `--sync-issues` flag (and a token/repo, never offline), so
+    the auto-filer is an opt-in capability, not a side effect of a normal run.
+    """
+    if not getattr(args, "sync_issues", False):
+        return {"skipped": "not enabled (pass --sync-issues)"}
     if args.offline or args.no_issues:
         return {"skipped": "offline/--no-issues"}
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
     if not (token and repo):
         return {"skipped": "no GITHUB_TOKEN/GITHUB_REPOSITORY"}
+    # Only file issues for candidates whose coverage was actually *checked* and
+    # found absent — never for "unknown" (index unavailable) provisional ones,
+    # which may already have an upstream template.
+    confirmed = [c for c in candidates if getattr(c, "coverage_status", "") == "absent"]
     client = RestGitHubClient(repo, token, make_session(cfg), cfg["http"]["timeout"])
     # Cap auto-filed issues to the highest-priority candidates (already sorted by
     # score) so a large advisory pull can't open hundreds of issues at once.
     max_open = cfg.get("issues", {}).get("max_open", 25)
     try:
-        return sync_candidates(candidates[:max_open], state.cves, client)
+        return sync_candidates(confirmed[:max_open], state.cves, client)
     except Exception as exc:
         log.warning("issue sync failed (%s)", exc)
         return {"error": str(exc)}
@@ -681,6 +697,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--offline", action="store_true", help="run from sample_data/ with no network")
     ap.add_argument("--no-nvd", action="store_true", help="skip NVD enrichment (faster)")
     ap.add_argument("--no-issues", action="store_true", help="never touch GitHub Issues")
+    ap.add_argument("--sync-issues", action="store_true", help="opt-in: file/close nuclei-candidate GitHub issues for confirmed-absent candidates (needs GITHUB_TOKEN/REPOSITORY)")
     ap.add_argument("--queue-only", action="store_true", help="only rebuild the detection queue from issues (fast, for issue events)")
     ap.add_argument("--limit-nvd", type=int, default=None, help="max NVD lookups this run")
     ap.add_argument("--config", default=str(ROOT / "config.yaml"))

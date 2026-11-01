@@ -9,8 +9,17 @@ A proof-of-concept that does two jobs from free, public data:
    *does a template already exist? if not, here is everything needed to write one.*
 
 The dashboard is a static site (vanilla HTML/CSS/JS) that GitHub Actions rebuilds on a
-schedule and publishes to GitHub Pages. New detection gaps automatically become labeled
-GitHub Issues — the work queue.
+schedule and publishes to GitHub Pages. The detection queue is **user-curated**: you add a
+CVE from the dashboard (which opens a prefilled `detection-queue` GitHub Issue) and the
+pipeline lists those issues into the queue. Auto-filing an issue per candidate is available
+but **opt-in** (`--sync-issues`), not part of a normal run.
+
+> Two honesty boundaries this project keeps, by design:
+> - **Template coverage is a reference index, not validated detection.** "Template indexed"
+>   means a Nuclei template references that CVE id — not that the check has been run against
+>   a vulnerable and a patched target. Behavioural validation is a separate, recorded step.
+> - **A missing/stale coverage index reads as _unknown_, never as a confirmed gap.** Absence
+>   of a template is only asserted when the index was actually available that run.
 
 ```
 GitHub Actions (cron, every 6h)
@@ -22,10 +31,11 @@ GitHub Actions (cron, every 6h)
        ├─ PoC signals (nomi-sec PoC-in-GitHub, NVD "Exploit" refs)
        └─ Nuclei coverage index (from a shallow clone of nuclei-templates)
   └─ normalize → dedupe (state.json) → tag + score
-  └─ detection triage → candidates + per-CVE briefs/
+  └─ detection triage → candidates (coverage: covered / absent / unknown)
   └─ write site/data.json + site/candidates.json → commit → Pages redeploys
-  └─ open/update GitHub Issues for new template candidates
-Static site (mobile-first PWA): "Feed" view + "Detection queue" view
+  └─ detection queue = open `detection-queue` issues → site/queue.json + briefs/
+  └─ (opt-in --sync-issues) file/close nuclei-candidate issues for absent candidates
+Static site (mobile-first PWA): "News" + "Threats" + "Detection queue" views
 ```
 
 ## Quick start
@@ -55,8 +65,10 @@ make run                # full online run: feeds + KEV + EPSS + NVD + PoC + tria
 
 `python -m pipeline.ingest` flags: `--offline` (use `sample_data/`, no network),
 `--no-nvd` (skip the slow NVD enrichment), `--limit-nvd N` (cap NVD lookups this run),
-`--no-issues` (never touch GitHub). State persists in `state.json` between runs so
-re-running produces no duplicate items or issues.
+`--no-issues` (never touch GitHub), `--sync-issues` (opt-in: file/close
+`nuclei-candidate` issues for confirmed-absent candidates; needs `GITHUB_TOKEN` +
+`GITHUB_REPOSITORY`), `--queue-only` (rebuild only the queue from issues). State persists
+in `state.json` between runs so re-running produces no duplicate items or issues.
 
 ## File layout
 
@@ -123,10 +135,16 @@ For every CVE seen, the pipeline classifies detectability (rules-first, explaina
 - suggested template type — `behavioral` when HTTP-detectable *and* there's a PoC/writeup
   to model it on, else the safer passive `version-fingerprint`
 
-**A CVE is a candidate** when it has **no existing Nuclei template** AND is remote- or
-HTTP-detectable AND carries a priority signal (in KEV, or EPSS ≥ threshold, or a watchlist
-product). Candidates are ranked by score, written as briefs (`briefs/CVE-*.md`), surfaced
-in the Detection queue, and opened as GitHub Issues.
+**A CVE is a candidate** when it is **not covered** (no indexed template, or coverage
+unknown) AND is remote- or HTTP-detectable AND carries a priority signal (in KEV, or
+EPSS ≥ threshold, or a watchlist product). Candidates are ranked by score and surfaced on
+the Threats board and in `site/candidates.json`. A candidate found while coverage was
+*unknown* is marked provisional (its reasons say a template "was not ruled out").
+
+Coverage status is three-valued and kept distinct from the template path:
+`covered` (a template indexes the CVE), `absent` (the index was available and had none),
+`unknown` (no index this run — absence is **not** established). Headline coverage % is
+computed only over CVEs whose coverage is known.
 
 ## Dashboard
 
@@ -138,9 +156,9 @@ three views and an AppSec-focused headline:
   tags, expandable score reasons), with search and tag filters.
 - **Threats** — a CVE-centric intelligence board: active & recent application-security
   vulnerabilities ranked by priority (exploited in the wild, EPSS, public PoC, ecosystem
-  relevance), newest-exploited first, each showing coverage status (**Covered** /
-  **No template**), ecosystem/class tags, and any feed coverage. Filter by "Gaps only" or
-  ecosystem.
+  relevance), newest-exploited first, each showing coverage status (**Template indexed** /
+  **No template** / **Coverage unknown**), ecosystem/class tags, and any feed coverage.
+  Filter by coverage or ecosystem.
 - **Detection queue** — the detection backlog: AppSec vulns with no Nuclei template yet
   (the gaps), with detectability, suggested template type, a brief, and the tracking issue.
 - **Headline KPIs** — Actively exploited (AppSec ∩ KEV), Newly exploited (added to KEV in
