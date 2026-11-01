@@ -255,3 +255,8 @@ Interfaces are scaffolded; implement after the demo core is proven:
   from the toy target to real vulnerable/patched builds.
 - Only http/dns/network protocols; no `code` templates; no destructive payloads; drafts
   are never auto-promoted — a human reviews and merges via PR.
+
+## Licence
+
+[MIT](LICENSE) © 2026 Brayden Arnold. AI-assisted code contributions are present; see
+commit history for attribution.
