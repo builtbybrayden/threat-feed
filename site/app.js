@@ -400,6 +400,31 @@
     wrap.appendChild(grid);
     return wrap;
   }
+  // Provenance: which intake streams saw this CVE (the record's `origins`). This
+  // is distinct from `sources`, which are the feed ARTICLES that mention a CVE.
+  // Shown as small pills so "where did this come from" is visible, not implied.
+  var ORIGIN_LABEL = {
+    feed: "Feed", kev: "KEV", ghsa: "GHSA", cvelist: "CVE List", osv: "OSV", nvd: "NVD"
+  };
+  var ORIGIN_TITLE = {
+    feed: "Named in a news/research feed item",
+    kev: "Listed in the CISA Known Exploited Vulnerabilities catalog",
+    ghsa: "GitHub Advisory Database (package-ecosystem advisory)",
+    cvelist: "MITRE CVE List (authoritative CNA record)",
+    osv: "OSV.dev (language-ecosystem vulnerability database)",
+    nvd: "Enriched from the NVD API (CVSS / CWE / CPE)"
+  };
+  function originsRow(origins) {
+    if (!origins || !origins.length) return null;
+    var row = el("div", "origins");
+    row.appendChild(el("span", "origins-label", "Seen in"));
+    origins.forEach(function (o) {
+      var b = el("span", "origin " + o, ORIGIN_LABEL[o] || o);
+      if (ORIGIN_TITLE[o]) b.title = ORIGIN_TITLE[o];
+      row.appendChild(b);
+    });
+    return row;
+  }
   var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
   function signalOpts() {
     var d = (state.stats && state.stats.newly_exploited_days) || 30;
@@ -476,6 +501,8 @@
     var tdb = decisionBadge(t.decision); if (tdb) stats.appendChild(tdb);
     v.appendChild(stats);
 
+    var torow = originsRow(t.origins); if (torow) v.appendChild(torow);
+
     if (t.description) v.appendChild(el("p", "vuln-desc", t.description));
 
     if (t.sources && t.sources.length) {
@@ -530,6 +557,8 @@
     (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
     var cdb = decisionBadge(c.decision); if (cdb) stats.appendChild(cdb);
     if (stats.childNodes.length) v.appendChild(stats);
+
+    var corow = originsRow(c.origins); if (corow) v.appendChild(corow);
 
     if (c.detectability) {
       var d = c.detectability;
@@ -682,6 +711,8 @@
       (t.cwe || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
       body.appendChild(stats);
 
+      var tdor = originsRow(t.origins); if (tdor) body.appendChild(tdor);
+
       if (t.description) body.appendChild(el("p", "detail-desc", t.description));
 
       var tdd = decisionDetail(t.decision); if (tdd) body.appendChild(tdd);
@@ -752,6 +783,8 @@
       (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
       (c.cwe || []).forEach(function (cw) { stats.appendChild(el("span", "tag-pill", cw)); });
       if (stats.childNodes.length) body.appendChild(stats);
+
+      var cdor = originsRow(c.origins); if (cdor) body.appendChild(cdor);
 
       if (c.description) body.appendChild(el("p", "detail-desc", c.description));
 
