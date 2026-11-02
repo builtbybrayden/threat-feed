@@ -147,3 +147,14 @@ def test_apply_to_record_fills_gaps_without_clobbering():
     assert rec.cwe == ["CWE-89"]              # filled
     urls = {r["url"] for r in rec.references}
     assert urls == {"https://existing", "https://example.com/adv"}  # unioned
+
+
+def test_cvelist_extracts_fixed_and_affected_versions():
+    from pipeline import cvelist
+    raw = {"cveMetadata": {"cveId": "CVE-2099-9003", "state": "PUBLISHED"},
+           "containers": {"cna": {"descriptions": [{"lang": "en", "value": "sql injection over http"}],
+               "affected": [{"vendor": "V", "product": "P", "versions": [
+                   {"version": "1.0", "lessThan": "1.4.3", "status": "affected", "versionType": "semver"}]}]}}}
+    d = cvelist.parse_record(raw)
+    assert d["fixed_version"] == "1.4.3"
+    assert "1.0 to <1.4.3>" in d["affected_versions"]

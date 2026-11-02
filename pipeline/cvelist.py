@@ -92,6 +92,33 @@ def _affected(container: dict[str, Any]) -> tuple[Optional[str], Optional[str]]:
     return None, None
 
 
+def _versions(container: dict[str, Any]) -> tuple[Optional[str], Optional[str]]:
+    """Best-effort (affected_versions, fixed_version) from a CNA ``affected`` block.
+
+    CVE 5.x version items look like ``{"version": "1.0", "lessThan": "1.4.3",
+    "status": "affected"}`` or an ``"unaffected"`` item naming a fixed version.
+    The ``lessThan``/``lessThanOrEqual`` boundary (or an unaffected version) is the
+    "supposed safe" tag the Docker-Hub fallback uses. Best-effort, not authoritative.
+    """
+    fixed: Optional[str] = None
+    parts: list[str] = []
+    for aff in container.get("affected") or []:
+        for v in aff.get("versions") or []:
+            if not isinstance(v, dict):
+                continue
+            status = (v.get("status") or "").lower()
+            ver = v.get("version")
+            boundary = v.get("lessThan") or v.get("lessThanOrEqual")
+            if status == "unaffected" and ver and not fixed:
+                fixed = str(ver)
+            if boundary and not fixed:
+                fixed = str(boundary)
+            if status == "affected" and ver and str(ver).lower() not in ("", "n/a", "unspecified"):
+                parts.append(f"{ver} to <{boundary}>" if boundary else str(ver))
+    affected = ", ".join(parts[:3]) if parts else None
+    return affected, fixed
+
+
 def _references(container: dict[str, Any]) -> list[dict[str, Any]]:
     refs: list[dict[str, Any]] = []
     for r in container.get("references") or []:
@@ -139,6 +166,7 @@ def parse_record(raw: dict[str, Any]) -> Optional[dict[str, Any]]:
                 break
 
     vendor, product = _affected(cna)
+    affected_versions, fixed_version = _versions(cna)
 
     refs = _references(cna)
     seen = {r["url"] for r in refs}
@@ -155,6 +183,8 @@ def parse_record(raw: dict[str, Any]) -> Optional[dict[str, Any]]:
         "description": description,
         "vendor": vendor,
         "product": product,
+        "affected_versions": affected_versions,
+        "fixed_version": fixed_version,
         "cwe": cwe,
         "cvss_score": cvss_score,
         "cvss_vector": cvss_vector,
@@ -253,6 +283,10 @@ def apply_to_record(rec: CveRecord, data: dict[str, Any]) -> None:
         rec.vendor = data["vendor"]
     if data.get("product") and not rec.product:
         rec.product = data["product"]
+    if data.get("affected_versions") and not rec.affected_versions:
+        rec.affected_versions = data["affected_versions"]
+    if data.get("fixed_version") and not rec.fixed_version:
+        rec.fixed_version = data["fixed_version"]
     if data.get("cvss_score") is not None and rec.cvss_score is None:
         rec.cvss_score = data["cvss_score"]
         rec.cvss_vector = rec.cvss_vector or data.get("cvss_vector")

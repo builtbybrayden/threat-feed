@@ -92,6 +92,45 @@ def _cvss_vector(raw: dict[str, Any]) -> Optional[str]:
     return None
 
 
+def _versions(raw: dict[str, Any]) -> tuple[Optional[str], Optional[str]]:
+    """Best-effort (affected_versions, fixed_version) from OSV ranges/versions.
+
+    OSV encodes version data as ``affected[].ranges[].events[]`` (``introduced`` /
+    ``fixed`` / ``last_affected``) plus an optional exact ``affected[].versions``
+    list. ``fixed_version`` is the first ``fixed`` event — the "supposed safe"
+    version the Docker-Hub lab fallback uses; ``affected_versions`` is a readable
+    range for the "supposed vulnerable" side. Both are best-effort, not authoritative.
+    """
+    fixed: Optional[str] = None
+    introduced: Optional[str] = None
+    last_affected: Optional[str] = None
+    exact: list[str] = []
+    for aff in raw.get("affected") or []:
+        for rng in aff.get("ranges") or []:
+            for ev in rng.get("events") or []:
+                if ev.get("fixed") and not fixed:
+                    fixed = str(ev["fixed"])
+                if ev.get("introduced") and introduced is None:
+                    introduced = str(ev["introduced"])
+                if ev.get("last_affected") and not last_affected:
+                    last_affected = str(ev["last_affected"])
+        for v in (aff.get("versions") or []):
+            exact.append(str(v))
+    if fixed and introduced in (None, "0"):
+        affected = f"< {fixed}"
+    elif fixed and introduced:
+        affected = f">= {introduced}, < {fixed}"
+    elif last_affected:
+        affected = f"<= {last_affected}"
+    elif introduced:
+        affected = f">= {introduced}"
+    elif exact:
+        affected = ", ".join(exact[:5]) + ("…" if len(exact) > 5 else "")
+    else:
+        affected = None
+    return affected, fixed
+
+
 def _cwes(raw: dict[str, Any]) -> list[str]:
     ds = raw.get("database_specific") or {}
     out = []
@@ -123,6 +162,7 @@ def parse_record(raw: dict[str, Any]) -> Optional[dict[str, Any]]:
         return None
     description = (raw.get("summary") or "").strip() or (raw.get("details") or "").strip()
     eco = _ecosystem_tag(raw)
+    affected_versions, fixed_version = _versions(raw)
     return {
         "cve_id": cve,
         "source": "osv",
@@ -130,6 +170,8 @@ def parse_record(raw: dict[str, Any]) -> Optional[dict[str, Any]]:
         "description": description,
         "product": _product(raw),
         "ecosystems": [eco] if eco else [],
+        "affected_versions": affected_versions,
+        "fixed_version": fixed_version,
         "cvss_vector": _cvss_vector(raw),
         "cwe": _cwes(raw),
         "references": _references(raw),
@@ -197,6 +239,10 @@ def apply_to_record(rec: CveRecord, data: dict[str, Any]) -> None:
         rec.description = data["description"]
     if data.get("product") and not rec.product:
         rec.product = data["product"]
+    if data.get("affected_versions") and not rec.affected_versions:
+        rec.affected_versions = data["affected_versions"]
+    if data.get("fixed_version") and not rec.fixed_version:
+        rec.fixed_version = data["fixed_version"]
     if data.get("cvss_vector") and not rec.cvss_vector:
         rec.cvss_vector = data["cvss_vector"]
     if data.get("cwe") and not rec.cwe:

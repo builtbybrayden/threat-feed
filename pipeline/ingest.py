@@ -567,6 +567,7 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
     if rec is not None:
         e.update({
             "vendor": rec.vendor, "product": rec.product,
+            "affected_versions": rec.affected_versions, "fixed_version": rec.fixed_version,
             "score": rec.score, "kev": rec.kev, "kev_added": rec.kev_added,
             "epss": rec.epss, "cvss_score": rec.cvss_score, "cwe": rec.cwe,
             "ecosystems": rec.ecosystems, "vuln_classes": rec.vuln_classes,
@@ -713,6 +714,8 @@ def _candidate_view(rec) -> dict[str, Any]:
         "cve_id": rec.cve_id,
         "vendor": rec.vendor,
         "product": rec.product,
+        "affected_versions": rec.affected_versions,
+        "fixed_version": rec.fixed_version,
         "score": rec.score,
         "kev": rec.kev,
         "kev_added": rec.kev_added,
@@ -747,6 +750,8 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "cve_id": rec.cve_id,
         "vendor": rec.vendor,
         "product": rec.product,
+        "affected_versions": rec.affected_versions,
+        "fixed_version": rec.fixed_version,
         "score": rec.score,
         "kev": rec.kev,
         "kev_added": rec.kev_added,

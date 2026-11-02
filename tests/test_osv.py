@@ -107,3 +107,16 @@ def test_apply_to_record_fills_without_clobbering_and_unions():
     assert rec.cvss_vector.startswith("CVSS:3.1/AV:N")        # filled (was empty)
     assert rec.cwe == ["CWE-918"]
     assert {r["url"] for r in rec.references} == {"https://existing", "https://rustsec.org/advisories/RUSTSEC-2099-0001"}
+
+
+def test_osv_extracts_fixed_and_affected_versions():
+    from pipeline import osv
+    raw = {
+        "id": "RUSTSEC-2099-9001", "aliases": ["CVE-2099-9001"],
+        "summary": "ssrf", "modified": "2099-01-01T00:00:00Z",
+        "affected": [{"package": {"name": "p", "ecosystem": "crates.io"},
+                      "ranges": [{"type": "SEMVER", "events": [{"introduced": "0"}, {"fixed": "1.4.3"}]}]}],
+    }
+    d = osv.parse_record(raw)
+    assert d["fixed_version"] == "1.4.3"
+    assert d["affected_versions"] == "< 1.4.3"
