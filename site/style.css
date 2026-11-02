@@ -284,6 +284,25 @@ body.modal-open { overflow: hidden; }
 .decision.completed { background: rgba(48, 209, 88, 0.12); color: var(--good); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.4); }
 .decision.rejected { background: rgba(255, 69, 58, 0.12); color: var(--crit); box-shadow: inset 0 0 0 1px rgba(255, 69, 58, 0.4); }
 .decision.inconclusive { background: rgba(255, 159, 10, 0.14); color: var(--warn); box-shadow: inset 0 0 0 1px rgba(255, 159, 10, 0.4); }
+/* Machine validation: a template's 3-control lab run. Green = curated pass,
+   amber = inferred-lab pass (lower confidence), red = failed the gate. */
+.val {
+  font-size: 0.66rem; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap;
+  background: rgba(152, 152, 157, 0.14); color: var(--muted); box-shadow: inset 0 0 0 1px rgba(152, 152, 157, 0.35);
+}
+.val.ok { background: rgba(48, 209, 88, 0.12); color: var(--good); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.4); }
+.val.inferred { background: rgba(255, 159, 10, 0.14); color: var(--warn); box-shadow: inset 0 0 0 1px rgba(255, 159, 10, 0.45); }
+.val.fail { background: rgba(255, 69, 58, 0.12); color: var(--crit); box-shadow: inset 0 0 0 1px rgba(255, 69, 58, 0.4); }
+/* Validation detail: the three controls + lab provenance, in the modal. */
+.val-controls { display: flex; flex-direction: column; gap: 5px; margin: 10px 0 0; }
+.val-ctl { display: flex; align-items: center; gap: 9px; font-size: 0.8rem; }
+.val-ctl-i { font-weight: 800; width: 1em; text-align: center; }
+.val-ctl.ok .val-ctl-i { color: var(--good); }
+.val-ctl.fail .val-ctl-i { color: var(--crit); }
+.val-ctl-n { color: var(--text); min-width: 5.5em; }
+.val-ctl-d { color: var(--faint); font-size: 0.74rem; }
+.val-note { margin: 9px 0 0; font-size: 0.76rem; color: var(--warn); line-height: 1.4; }
 /* Provenance: which intake streams saw this CVE (distinct from feed articles). */
 .origins { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 9px; }
 .origins-label { font-size: 0.68rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; margin-right: 1px; }

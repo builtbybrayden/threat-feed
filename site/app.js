@@ -435,6 +435,48 @@
     wrap.appendChild(grid);
     return wrap;
   }
+  // Machine validation (validations/<CVE>/result.json): a template's 3-control
+  // lab run — fires on vulnerable, silent on patched + benign. Distinct from the
+  // human decision. A docker-hub "inferred" lab (versions guessed from the CVE)
+  // is flagged low-confidence so a guessed-version pass is never shown as curated.
+  var VAL_SOURCE_LABEL = { vulhub: "vulhub", "docker-hub-inference": "inferred lab", custom: "custom lab" };
+  var VAL_CONTROL_LABEL = { vulnerable_instance: "Vulnerable", patched_control: "Patched", negative_control_benign: "Benign" };
+  function validationBadge(v) {
+    if (!v) return null;
+    var inferred = v.source === "docker-hub-inference";
+    var cls = !v.validated ? "fail" : (inferred ? "inferred" : "ok");
+    var b = el("span", "val " + cls, !v.validated ? "Lab ✗" : (inferred ? "Lab ✓ inferred" : "Lab ✓"));
+    var src = VAL_SOURCE_LABEL[v.source] || v.source || "lab";
+    b.title = (v.validated ? "Template passed the 3-control lab run" : "Template failed the lab run")
+      + " · " + src + (v.confidence ? " (" + v.confidence + " confidence)" : "")
+      + (inferred ? " — vulnerable/patched versions inferred from the CVE, not a curated lab" : "");
+    return b;
+  }
+  function validationDetail(v) {
+    if (!v) return null;
+    var wrap = el("div");
+    wrap.appendChild(el("h3", "detail-h", "Validation" + (v.validated ? " · passed" : " · failed")));
+    var controls = el("div", "val-controls");
+    (v.controls || []).forEach(function (c) {
+      var row = el("div", "val-ctl " + (c.pass ? "ok" : "fail"));
+      row.appendChild(el("span", "val-ctl-i", c.pass ? "✓" : "✗"));
+      row.appendChild(el("span", "val-ctl-n", VAL_CONTROL_LABEL[c.name] || c.name));
+      row.appendChild(el("span", "val-ctl-d", c.detected ? "detected" : "no detection"));
+      controls.appendChild(row);
+    });
+    wrap.appendChild(controls);
+    var meta = el("div", "meta-grid");
+    var row = function (k, val) { if (val == null || val === "") return; meta.appendChild(el("div", "k", k)); meta.appendChild(el("div", "v", val)); };
+    row("Lab", (VAL_SOURCE_LABEL[v.source] || v.source) + (v.confidence ? " · " + v.confidence + " confidence" : ""));
+    if (v.vulnerable) row("Vulnerable", (v.vulnerable.image || "") + (v.vulnerable.version ? " (" + v.vulnerable.version + ")" : ""));
+    if (v.patched) row("Patched", (v.patched.image || "") + (v.patched.version ? " (" + v.patched.version + ")" : ""));
+    if (v.template) row("Template", v.template);
+    if (v.runner) row("Runner", v.runner);
+    if (v.generated) row("Validated", dateShort(v.generated));
+    wrap.appendChild(meta);
+    if (v.source === "docker-hub-inference" && v.lab_note) wrap.appendChild(el("p", "val-note", "⚠ " + v.lab_note));
+    return wrap;
+  }
   // Provenance: which intake streams saw this CVE (the record's `origins`). This
   // is distinct from `sources`, which are the feed ARTICLES that mention a CVE.
   // Shown as small pills so "where did this come from" is visible, not implied.
@@ -463,9 +505,9 @@
   var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
   function signalOpts() {
     var d = (state.stats && state.stats.newly_exploited_days) || 30;
-    return [["all", "All"], ["kev", "Exploited (KEV)"], ["newkev", "New in KEV · " + d + "d"], ["poc", "Has public PoC"]];
+    return [["all", "All"], ["kev", "Exploited (KEV)"], ["newkev", "New in KEV · " + d + "d"], ["poc", "Has public PoC"], ["validated", "Lab-validated"]];
   }
-  var SIGNAL_LABEL = { kev: "Exploited (KEV)", newkev: "New in KEV", poc: "Has public PoC" };
+  var SIGNAL_LABEL = { kev: "Exploited (KEV)", newkev: "New in KEV", poc: "Has public PoC", validated: "Lab-validated" };
   function renderThreatChips() {
     var host = document.getElementById("threat-chips"); host.textContent = "";
     pillGroup(host, "Signal", signalOpts(), state.threatSignal, function (v) {
@@ -508,6 +550,7 @@
     if (state.threatEco && (t.ecosystems || []).indexOf(state.threatEco) === -1) return false;
     if (state.threatSignal === "kev" && !t.kev) return false;
     if (state.threatSignal === "poc" && !t.has_poc) return false;
+    if (state.threatSignal === "validated" && !(t.validation && t.validation.validated)) return false;
     if (state.threatSignal === "newkev") {
       var win = (state.stats && state.stats.newly_exploited_days) || 30;
       if (!t.kev || daysSince(t.kev_added) > win) return false;
@@ -534,6 +577,7 @@
     (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
     (t.vuln_classes || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
     var tdb = decisionBadge(t.decision); if (tdb) stats.appendChild(tdb);
+    var tvb = validationBadge(t.validation); if (tvb) stats.appendChild(tvb);
     v.appendChild(stats);
 
     var torow = originsRow(t.origins); if (torow) v.appendChild(torow);
@@ -591,6 +635,7 @@
     if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
     (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
     var cdb = decisionBadge(c.decision); if (cdb) stats.appendChild(cdb);
+    var cvb = validationBadge(c.validation); if (cvb) stats.appendChild(cvb);
     if (stats.childNodes.length) v.appendChild(stats);
 
     var corow = originsRow(c.origins); if (corow) v.appendChild(corow);
@@ -751,6 +796,7 @@
       if (t.description) body.appendChild(el("p", "detail-desc", t.description));
 
       var tdd = decisionDetail(t.decision); if (tdd) body.appendChild(tdd);
+      var tvd = validationDetail(t.validation); if (tvd) body.appendChild(tvd);
 
       if (t.sources && t.sources.length) {
         var sl = el("div", "src-links");
@@ -824,6 +870,7 @@
       if (c.description) body.appendChild(el("p", "detail-desc", c.description));
 
       var cdd = decisionDetail(c.decision); if (cdd) body.appendChild(cdd);
+      var cvd = validationDetail(c.validation); if (cvd) body.appendChild(cvd);
 
       if (c.detectability) {
         var d = c.detectability;
