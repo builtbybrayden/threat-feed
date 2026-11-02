@@ -35,6 +35,7 @@ from . import nvd as nvd_mod
 from . import osv as osv_mod
 from . import poc as poc_mod
 from . import decisions as decisions_mod
+from . import validation as validation_mod
 from .briefs import write_brief
 from .issues import RestGitHubClient, sync_candidates
 from .models import Item
@@ -183,6 +184,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     cfg = load_config(args.config)
     watchlist = load_watchlist(args.watchlist)
     sample_dir = Path(args.sample)
+    # Validation results are committed repo artifacts (not network data), so they
+    # load the same offline and online. Offline falls back to the sample dir so
+    # the demo shows the feature on synthetic CVEs, never claiming a real one was
+    # validated. An explicit --validations always wins (tests point it at a tmp dir).
+    val_path = Path(args.validations) if args.validations else (
+        sample_dir / "validations" if args.offline else ROOT / "validations"
+    )
     state = State.load(args.state)
     state.meta.setdefault("first_run", now_iso())  # data-capture start date (disclaimer)
     session = None if args.offline else make_session(cfg)
@@ -192,8 +200,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # no NVD, no triage — seconds instead of minutes.
     if getattr(args, "queue_only", False):
         decisions, _ = decisions_mod.load_decisions(args.decisions)
+        validations, _ = validation_mod.load_validations(val_path)
         for cve, rec in state.cves.items():
             rec.decision = decisions.get(cve)
+            rec.validation = validation_mod.view(validations.get(cve))
         queue = _build_queue(state, cfg, args)
         _write_queue(Path(args.site), queue, cfg)
         log.info("queue-only rebuild: %d items", len(queue))
@@ -336,6 +346,15 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     for cve, rec in state.cves.items():
         rec.decision = decisions.get(cve)
 
+    # 7d. Merge machine validation results (validations/<CVE>/result.json): a
+    #     template's 3-control lab run. These are the deployment gate — a
+    #     template ships only on a real pass. Written by the Hermes Docker runner.
+    validations, validation_errors = validation_mod.load_validations(val_path)
+    for err in validation_errors:
+        log.warning("validations: %s", err)
+    for cve, rec in state.cves.items():
+        rec.validation = validation_mod.view(validations.get(cve))
+
     # 7b. Optional, opt-in only: file/close `nuclei-candidate` GitHub issues for
     #     confirmed-absent candidates. The default path never touches GitHub.
     issue_sync = _maybe_sync_issues(state, candidates, cfg, args)
@@ -347,6 +366,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # 9. Site JSON --------------------------------------------------------
     stats = _compute_stats(state, candidates, cfg, coverage_meta)
     stats["decisions"] = decisions_mod.summarize(decisions)
+    stats["validations"] = validation_mod.summarize(validations)
     _write_site(state, candidates, stats, queue, args.site, cfg, coverage_meta)
 
     state.save(args.state)
@@ -561,6 +581,7 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
             },
             "candidate_reasons": rec.candidate_reasons,
             "decision": rec.decision,
+            "validation": rec.validation,
             "origins": sorted(rec.sources),
             "advisory_url": rec.advisory_url, "ghsa_id": rec.ghsa_id,
             "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
@@ -715,6 +736,7 @@ def _candidate_view(rec) -> dict[str, Any]:
         "issue_number": rec.issue_number,
         "candidate_reasons": rec.candidate_reasons,
         "decision": rec.decision,
+        "validation": rec.validation,
         "origins": sorted(rec.sources),
     }
 
@@ -744,6 +766,7 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "origins": sorted(rec.sources),
         "issue_number": rec.issue_number,
         "decision": rec.decision,
+        "validation": rec.validation,
         "cwe": rec.cwe,
         "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
         "sources": sources,
@@ -797,6 +820,7 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--watchlist", default=str(ROOT / "watchlist.yaml"))
     ap.add_argument("--state", default=str(ROOT / "state.json"))
     ap.add_argument("--decisions", default=str(ROOT / "decisions.yaml"), help="auditable detection-decision records (decisions.yaml)")
+    ap.add_argument("--validations", default=None, help="machine validation results dir (validations/<CVE>/result.json); offline falls back to <sample>/validations")
     ap.add_argument("--site", default=str(ROOT / "site"))
     ap.add_argument("--briefs", default=str(ROOT / "site" / "briefs"))
     ap.add_argument("--sample", default=str(ROOT / "sample_data"))

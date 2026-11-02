@@ -101,6 +101,31 @@ def _build_sample(sample_dir):
             "affected": [{"package": {"name": "example-dead", "ecosystem": "crates.io"}}],
         },
     ])
+    # Validation results: a curated (vulhub, high-confidence) pass for the SQLi
+    # candidate, and an inferred (docker-hub, low-confidence) pass for the OSV CVE.
+    def _pass_controls():
+        return [
+            {"name": "vulnerable_instance", "expect": "detect", "detected": True, "pass": True},
+            {"name": "patched_control", "expect": "no-detect", "detected": False, "pass": True},
+            {"name": "negative_control_benign", "expect": "no-detect", "detected": False, "pass": True},
+        ]
+    vdir = sample_dir / "validations"
+    (vdir / "CVE-2099-7101").mkdir(parents=True, exist_ok=True)
+    _write(vdir / "CVE-2099-7101" / "result.json", {
+        "cve_id": "CVE-2099-7101", "template": "http/cves/CVE-2099-7101.yaml",
+        "controls": _pass_controls(), "runner": "nuclei", "generated": "2099-10-29T00:00:00Z",
+        "lab": {"source": "vulhub", "confidence": "high",
+                "vulnerable": {"image": "vulhub/example-shop:2.3.0", "version": "2.3.0"},
+                "patched": {"image": "vulhub/example-shop:2.3.1", "version": "2.3.1"}},
+    })
+    (vdir / "CVE-2099-8001").mkdir(parents=True, exist_ok=True)
+    _write(vdir / "CVE-2099-8001" / "result.json", {
+        "cve_id": "CVE-2099-8001", "template": "http/cves/CVE-2099-8001.yaml",
+        "controls": _pass_controls(), "runner": "nuclei", "generated": "2099-10-30T00:00:00Z",
+        "lab": {"source": "docker-hub-inference", "confidence": "low",
+                "vulnerable": {"image": "example-lib:1.4.2", "version": "1.4.2"},
+                "patched": {"image": "example-lib:1.4.3", "version": "1.4.3"}},
+    })
 
 
 def test_offline_run_produces_site_and_one_candidate(tmp_path):
@@ -178,6 +203,18 @@ def test_offline_run_produces_site_and_one_candidate(tmp_path):
     assert "rust" in by_cve["CVE-2099-8001"]["ecosystems"]
     # It carries no priority signal, so it is not a candidate (counts unchanged).
     assert "CVE-2099-8001" not in [c["cve_id"] for c in cand["candidates"]]
+
+    # Validation artifacts (sample_data/validations/<CVE>/result.json) surface on
+    # the records and in the headline stats. CVE-2099-7101 has a curated (vulhub)
+    # pass; CVE-2099-8001 has an inferred (docker-hub) pass, flagged low-confidence.
+    val_7101 = by_cve["CVE-2099-7101"]["validation"]
+    assert val_7101 and val_7101["validated"] is True
+    assert val_7101["source"] == "vulhub" and val_7101["confidence"] == "high"
+    val_8001 = by_cve["CVE-2099-8001"]["validation"]
+    assert val_8001 and val_8001["source"] == "docker-hub-inference"
+    assert val_8001["confidence"] == "low" and val_8001["lab_note"]   # inferred => noted
+    assert data["stats"]["validations"]["validated"] == 2
+    assert data["stats"]["validations"]["validated_inferred_lab"] == 1
 
 
 def test_offline_run_without_coverage_index_reports_unknown(tmp_path):

@@ -103,6 +103,11 @@ class CveRecord:
     # Human decision record merged from decisions.yaml (status, reviewer, date,
     # rationale, artifacts, outcome). None until a human records one.
     decision: Optional[dict[str, Any]] = None
+    # Machine validation result merged from validations/<CVE>/result.json: a
+    # template's 3-control run (vulnerable/patched/benign) with the lab's source
+    # and confidence. None until a run is recorded. Distinct from `decision`
+    # (human) — this is a reproducible fact about a detection run.
+    validation: Optional[dict[str, Any]] = None
     score: float = 0.0                              # best score of linked items
     issue_number: Optional[int] = None
     first_seen: Optional[str] = None
