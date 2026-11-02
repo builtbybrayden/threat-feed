@@ -310,6 +310,40 @@
     post.addEventListener("click", cardClick(function () { openNewsDetail(it); }));
     return post;
   }
+  // Tags that are shown inline on a card as their own signal (KEV/PoC/CVE) or are
+  // too generic to filter on usefully; excluded from the tag filter bar so it
+  // stays a list of meaningful topics (ecosystems, vuln classes, research, ...).
+  var NEWS_TAG_HIDE = { "has-CVE": 1 };
+  function renderNewsFilters() {
+    var host = document.getElementById("news-chips"); if (!host) return;
+    host.textContent = "";
+    var counts = newsTagCounts().filter(function (p) { return !NEWS_TAG_HIDE[p[0]]; });
+    if (!counts.length) { host.hidden = true; return; }
+    counts.forEach(function (p) {
+      var tag = p[0], active = state.newsTags.has(tag);
+      var c = el("button", "chip" + (tag === "AI-sec" ? " ai" : ""), tag); c.type = "button";
+      c.setAttribute("aria-pressed", active ? "true" : "false");
+      c.appendChild(el("span", "chip-n", p[1]));
+      c.addEventListener("click", function () {
+        if (state.newsTags.has(tag)) state.newsTags.delete(tag); else state.newsTags.add(tag);
+        renderNewsFilters(); renderNews();
+      });
+      host.appendChild(c);
+    });
+    if (state.newsTags.size) {
+      var clr = el("button", "chip chip-danger", "Clear (" + state.newsTags.size + ")");
+      clr.type = "button";
+      clr.addEventListener("click", function () { state.newsTags.clear(); renderNewsFilters(); renderNews(); });
+      host.appendChild(clr);
+    }
+    updateNewsFilterLabel();
+  }
+  function updateNewsFilterLabel() {
+    var badge = document.getElementById("news-filter-active"); if (!badge) return;
+    var n = state.newsTags.size;
+    var s = n ? Array.from(state.newsTags).slice(0, 2).join(" · ") + (n > 2 ? " +" + (n - 2) : "") : "";
+    badge.textContent = s; badge.hidden = !s;
+  }
   function renderNews() {
     var host = document.getElementById("news"); host.textContent = "";
     var shown = state.items.filter(newsMatch).slice().sort(function (a, b) {
@@ -317,6 +351,7 @@
     });
     document.getElementById("news-empty").hidden = shown.length !== 0;
     shown.forEach(function (it) { host.appendChild(newsPost(it)); });
+    updateNewsFilterLabel();
   }
 
   // ---- THREATS ----------------------------------------------------------
@@ -936,7 +971,7 @@
       setGapBadge(mergedQueue().length);
       renderFooters();
       renderKpis();
-      renderNews();
+      renderNewsFilters(); renderNews();
       renderThreatChips(); renderThreats();
       renderQueue();
       renderRailGaps();
@@ -959,17 +994,20 @@
     overlay.addEventListener("click", function (e) { if (e.target === overlay) closeModal(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !overlay.hidden) closeModal(); });
   })();
-  (function () {
-    var ft = document.getElementById("threat-filter-toggle");
+  // Collapsible filter bars (Threats + News share the same toggle behaviour).
+  function wireFilterToggle(toggleId, panelId) {
+    var ft = document.getElementById(toggleId);
     if (!ft) return;
     ft.addEventListener("click", function () {
-      var panel = document.getElementById("threat-chips");
+      var panel = document.getElementById(panelId);
       var open = panel.hidden;              // about to open if currently hidden
       panel.hidden = !open;
       ft.setAttribute("aria-expanded", open ? "true" : "false");
       ft.classList.toggle("is-open", open);
     });
-  })();
+  }
+  wireFilterToggle("threat-filter-toggle", "threat-chips");
+  wireFilterToggle("news-filter-toggle", "news-chips");
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
   }
