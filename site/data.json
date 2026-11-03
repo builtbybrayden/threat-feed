@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-02T15:15:48Z",
+  "generated": "2026-11-03T00:53:12Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 47.7,
+      "score": 47.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.7)"
+        "recency (+12.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -73,12 +73,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 47.1,
+      "score": 46.7,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.1)"
+        "recency (+9.7)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -105,12 +105,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 46.6,
+      "score": 46.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.6)"
+        "recency (+9.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -133,13 +133,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 45.9,
+      "score": 45.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -164,13 +164,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 45.8,
+      "score": 45.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -195,12 +195,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 45.7,
+      "score": 45.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -250,12 +250,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 44.6,
+      "score": 44.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.6)"
+        "recency (+7.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -267,33 +267,6 @@
       ],
       "title": "Between Two Nerds: Why frontier lab security will always suck",
       "url": "https://risky.biz/BTN187/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "31adffac7255205b",
-      "kev": false,
-      "published": "2026-10-26T01:20:43Z",
-      "score": 44.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php,rce (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+7.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "While everyone was distracted by PHP, another RCE has been wrecking the internet, Australia’s ABC wipes some staff devices, a third PHP RCE is incoming and researchers discover a new DDoS attack vector in HTTP/3. Show notes Risky Bulletin: While everyone was looking at PHP, another RCE is wrecking what's left of the internet",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php",
-        "rce"
-      ],
-      "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
-      "url": "https://risky.biz/RBNEWS625/"
     },
     {
       "appsec": true,
@@ -431,15 +404,42 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "31adffac7255205b",
+      "kev": false,
+      "published": "2026-10-26T01:20:43Z",
+      "score": 43.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php,rce (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+6.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "While everyone was distracted by PHP, another RCE has been wrecking the internet, Australia’s ABC wipes some staff devices, a third PHP RCE is incoming and researchers discover a new DDoS attack vector in HTTP/3. Show notes Risky Bulletin: While everyone was looking at PHP, another RCE is wrecking what's left of the internet",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php",
+        "rce"
+      ],
+      "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
+      "url": "https://risky.biz/RBNEWS625/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 42.3,
+      "score": 42.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -460,12 +460,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 42.0,
+      "score": 41.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.0)"
+        "recency (+4.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -610,12 +610,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 40.6,
+      "score": 40.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.6)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -636,12 +636,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 39.6,
+      "score": 39.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -664,12 +664,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 39.5,
+      "score": 39.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -693,12 +693,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 39.3,
+      "score": 39.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -712,30 +712,6 @@
       "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
     },
     {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "268febaf67e13c76",
-      "kev": false,
-      "published": "2026-10-27T14:29:26Z",
-      "score": 38.3,
-      "score_reasons": [
-        "source:PortSwigger Research (+15)",
-        "watchlist:javascript (+15)",
-        "recency (+8.3)"
-      ],
-      "source": "PortSwigger Research",
-      "source_type": "research",
-      "summary": "I tested eight popular SVG sanitizers and bypassed six of them. In this post, I'll show you how a response header can run JavaScript in Firefox even when the response body is completely harmless XML.",
-      "tags": [
-        "research",
-        "watchlist"
-      ],
-      "title": "Scalable Vector Grief",
-      "url": "https://portswigger.net/research/scalable-vector-grief"
-    },
-    {
       "appsec": true,
       "cves": [],
       "epss": null,
@@ -743,12 +719,12 @@
       "id": "6053efd31e99a045",
       "kev": false,
       "published": "2026-10-08T14:30:00Z",
-      "score": 38.3,
+      "score": 38.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:npm,pnpm,pypi (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -806,14 +782,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "268febaf67e13c76",
+      "kev": false,
+      "published": "2026-10-27T14:29:26Z",
+      "score": 37.9,
+      "score_reasons": [
+        "source:PortSwigger Research (+15)",
+        "watchlist:javascript (+15)",
+        "recency (+7.9)"
+      ],
+      "source": "PortSwigger Research",
+      "source_type": "research",
+      "summary": "I tested eight popular SVG sanitizers and bypassed six of them. In this post, I'll show you how a response header can run JavaScript in Firefox even when the response body is completely harmless XML.",
+      "tags": [
+        "research",
+        "watchlist"
+      ],
+      "title": "Scalable Vector Grief",
+      "url": "https://portswigger.net/research/scalable-vector-grief"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 38.0,
+      "score": 37.7,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+8.0)"
+        "recency (+7.7)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -858,32 +858,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "882253f24ce8e5ea",
-      "kev": false,
-      "published": "2026-10-15T02:07:28Z",
-      "score": 37.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:xss (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: LaTeX renderer Inspired by Paul Ford and Aboard Foundary's new web app Tiny Little Office, which provides a suite of web app content editors (a Word Processor, Outliner, Presentation Builder, Spreadsheet, Calculator, Drawing Tool, Diagram Maker, Animator, Calendar, and Trip Planner). Tiny Little Office's signature trick is to store all of the document data in the #fragment section of the URL, so every document created using it becomes a bookmarkable and shareable link. It also has an llms.txt file telling agents how to construct URLs that will render as documents. Claude used that file to generate this link to a deck that explains how the URL format works: Tiny Little Office inspired me to have Claude Code (Opus 5.5 Extra) build a similar tool that works with LaTeX. Here's the sequence of prompts I used: I want a tool where you can link to it with a fragment hash #code-here and it treats that code as LaTeX and renders it really effectively. It should also support a prefix which means the latex is compressed with a custom compression dictionary optimized for latex. Use the best available latex render library from a CDN (consider WebAssembly too). If loaded without a fragment hash show an editor you can paste latex into and then toggle to a \"rendered\" view. That rendered view should be bookmarkable. The #fragment view should let you switch to edit source too. Since it was working in my tools repo I told it to take inspiration from the <iframe sandbox=\"...\"> mechanism used by my existing SVG in Markdown tool as protection against XSS risks: Safe from XSS? We could run in an iframe sandbox like we do on the SVG markdown render project I had it copy the Gist/URL loading feature from that tool as well: We should have an option to load latex from a URL (or gist) similar to the markdown SVG tool Here's an example link. The tool uses Pako 2.1.0, MathJax 4.1.3, faster-latex 0.3.1, and DOMPurify 3.4.16. Tags: latex, paul-ford, tools, urls, ai, generative-ai, llms",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "xss"
-      ],
-      "title": "LaTeX renderer",
-      "url": "https://simonwillison.net/2026/Oct/15/latex/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-24301"
       ],
@@ -915,6 +889,32 @@
       ],
       "title": "[tl;dr sec] #343 - Hugging Face Technical Report, AWSHound, OWASP Agentic Skills Top 10",
       "url": "https://tldrsec.com/p/tldr-sec-343"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "882253f24ce8e5ea",
+      "kev": false,
+      "published": "2026-10-15T02:07:28Z",
+      "score": 37.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:xss (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+2.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: LaTeX renderer Inspired by Paul Ford and Aboard Foundary's new web app Tiny Little Office, which provides a suite of web app content editors (a Word Processor, Outliner, Presentation Builder, Spreadsheet, Calculator, Drawing Tool, Diagram Maker, Animator, Calendar, and Trip Planner). Tiny Little Office's signature trick is to store all of the document data in the #fragment section of the URL, so every document created using it becomes a bookmarkable and shareable link. It also has an llms.txt file telling agents how to construct URLs that will render as documents. Claude used that file to generate this link to a deck that explains how the URL format works: Tiny Little Office inspired me to have Claude Code (Opus 5.5 Extra) build a similar tool that works with LaTeX. Here's the sequence of prompts I used: I want a tool where you can link to it with a fragment hash #code-here and it treats that code as LaTeX and renders it really effectively. It should also support a prefix which means the latex is compressed with a custom compression dictionary optimized for latex. Use the best available latex render library from a CDN (consider WebAssembly too). If loaded without a fragment hash show an editor you can paste latex into and then toggle to a \"rendered\" view. That rendered view should be bookmarkable. The #fragment view should let you switch to edit source too. Since it was working in my tools repo I told it to take inspiration from the <iframe sandbox=\"...\"> mechanism used by my existing SVG in Markdown tool as protection against XSS risks: Safe from XSS? We could run in an iframe sandbox like we do on the SVG markdown render project I had it copy the Gist/URL loading feature from that tool as well: We should have an option to load latex from a URL (or gist) similar to the markdown SVG tool Here's an example link. The tool uses Pako 2.1.0, MathJax 4.1.3, faster-latex 0.3.1, and DOMPurify 3.4.16. Tags: latex, paul-ford, tools, urls, ai, generative-ai, llms",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "xss"
+      ],
+      "title": "LaTeX renderer",
+      "url": "https://simonwillison.net/2026/Oct/15/latex/"
     },
     {
       "appsec": true,
@@ -1559,14 +1559,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "a7779c14f4a1edde",
+      "kev": false,
+      "published": "2026-11-02T23:49:30Z",
+      "score": 35.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:python,llm (+15)",
+        "recency (+14.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm 0.37 There's a lot of stuff in this new release of my LLM CLI tool and Python library, representing around two months of accumulated features and fixes. I added gpt-6.1-sol and gpt-6.1-terra, plus a new llm openai endpoint add command to make it easier to configure additional models that use OpenAI-compatible endpoints. I switched the default model (if you have not set your own default) to gpt-6-luna - half the price of the previous default, gpt-5.6-luna. LLM's support for embeddings now accepts that different binary content may have different content-type - necessary for models like Gemini Embedding 2, which can embed text, audio, images, and video. A lot of open source maintainers complain about a flood of AI-assisted PRs. LLM is my project that has been most affected by this and, to be honest, I'm not finding it to be a problem. That's mainly because I have Opus 5.5 or GPT-6 Astra help me with triage to spot the most useful fixes! This release includes fixes from 12 authors - almost all AI-assisted - and the burden of reviewing them wasn't nearly as great as I expected. I really see them as bug reports with attached examples - sometimes I land them, sometimes I implement my own fix. So thanks to 0d00ciallo0721, ac1982, Allen Flux, Bian Yuhan, Bishop Kammeraad, Chen Yufeiyang, Christopher Krah, Ethan Stoner, Jiachen Xie, Olamide Faniyan, Sharat Chandra Sai Boddu, nosmile99 for helping out with (or spending tokens on) this release! Tags: open-source, projects, ai, annotated-release-notes, generative-ai, llms, embeddings, llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm 0.37",
+      "url": "https://simonwillison.net/2026/Nov/2/llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 35.1,
+      "score": 34.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+14.1)"
+        "recency (+13.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1585,11 +1609,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 33.7,
+      "score": 33.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.7)"
+        "recency (+12.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1609,11 +1633,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 31.4,
+      "score": 31.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1633,11 +1657,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 31.0,
+      "score": 30.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+10.0)"
+        "recency (+9.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1657,11 +1681,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 30.5,
+      "score": 30.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.5)"
+        "recency (+9.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1672,53 +1696,6 @@
       ],
       "title": "Quoting Ted Sanders",
       "url": "https://simonwillison.net/2026/Oct/28/ted-sanders/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "503762475e8ae5ab",
-      "kev": false,
-      "published": "2026-10-28T16:45:23Z",
-      "score": 30.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "GitHub Octoverse 2026 I'm at GitHub Universe today (GitHub gave me a free ticket through their \"GitHub Stars\" program). EVP Jay Parikh just announced this year's Octoverse report, and highlighted these numbers in particular: This is a pretty stark representation of the impact of agentic engineering on GitHub. In 2026, merged pull requests tripled in less than a year to 220 million per month. Commits more than tripled to 7.38 billion per month, with most of that increase in the second half of this year. New repository rate doubled this year, to 30.3 million per month. The report includes new numbers by industry, and breaks out numbers for repositories that involve \"interoperability or reverse engineering\". The methodology section includes notes about how they did this: Top countries by pushes to public repositories, adjusted by profile location. Pushes from each country were summed across the Octoverse year. To adjust for biases caused by VPN usage, LLM classification was used to extract the ISO 3166-1 alpha-2 code from the profiles of GitHub users who contributed pushes during this period [...] Industry. Public repositories created 2022 to 2026 were sorted into NAICS sectors by a fine-tuned multilingual embedding model using name, description, topics, and README, from random samples per year. [...] Interoperability. Counts public repositories created each year whose name, description, topics, or README mention interoperability or reverse engineering, or related terms, such as clean room implementation, drop-in replacement, or protocol re-implementation. Tags: github, ai, generative-ai, llms, coding-agents, disclosures, agentic-engineering",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "GitHub Octoverse 2026",
-      "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "28d3ffbcd69019be",
-      "kev": false,
-      "published": "2026-10-28T13:55:15Z",
-      "score": 30.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "The October inflection point for vibe game development",
-      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
     },
     {
       "appsec": false,
@@ -1794,14 +1771,61 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ddec6cb5a4e152e9",
+      "id": "503762475e8ae5ab",
       "kev": false,
-      "published": "2026-10-26T23:53:07Z",
-      "score": 28.8,
+      "published": "2026-10-28T16:45:23Z",
+      "score": 29.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.8)"
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GitHub Octoverse 2026 I'm at GitHub Universe today (GitHub gave me a free ticket through their \"GitHub Stars\" program). EVP Jay Parikh just announced this year's Octoverse report, and highlighted these numbers in particular: This is a pretty stark representation of the impact of agentic engineering on GitHub. In 2026, merged pull requests tripled in less than a year to 220 million per month. Commits more than tripled to 7.38 billion per month, with most of that increase in the second half of this year. New repository rate doubled this year, to 30.3 million per month. The report includes new numbers by industry, and breaks out numbers for repositories that involve \"interoperability or reverse engineering\". The methodology section includes notes about how they did this: Top countries by pushes to public repositories, adjusted by profile location. Pushes from each country were summed across the Octoverse year. To adjust for biases caused by VPN usage, LLM classification was used to extract the ISO 3166-1 alpha-2 code from the profiles of GitHub users who contributed pushes during this period [...] Industry. Public repositories created 2022 to 2026 were sorted into NAICS sectors by a fine-tuned multilingual embedding model using name, description, topics, and README, from random samples per year. [...] Interoperability. Counts public repositories created each year whose name, description, topics, or README mention interoperability or reverse engineering, or related terms, such as clean room implementation, drop-in replacement, or protocol re-implementation. Tags: github, ai, generative-ai, llms, coding-agents, disclosures, agentic-engineering",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GitHub Octoverse 2026",
+      "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "28d3ffbcd69019be",
+      "kev": false,
+      "published": "2026-10-28T13:55:15Z",
+      "score": 29.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+8.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "The October inflection point for vibe game development",
+      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ddec6cb5a4e152e9",
+      "kev": false,
+      "published": "2026-10-26T23:53:07Z",
+      "score": 28.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1821,11 +1845,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 28.5,
+      "score": 28.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+7.5)"
+        "recency (+7.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1871,11 +1895,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 26.7,
+      "score": 26.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1895,11 +1919,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1919,11 +1943,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 25.2,
+      "score": 25.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1943,11 +1967,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 24.5,
+      "score": 24.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1967,11 +1991,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 24.5,
+      "score": 24.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1991,11 +2015,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 24.2,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.2)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2005,29 +2029,6 @@
       ],
       "title": "Inline rendering with document​.currentScript",
       "url": "https://simonwillison.net/2026/Oct/17/document-currentscript/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "9b19a68a46764efd",
-      "kev": false,
-      "published": "2026-10-16T01:58:00Z",
-      "score": 23.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+2.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Research: sparqlite: SPARQL 1.1 inside SQLite, written in Rust This research task is really an experiment in running Claude Code for web in \"Ultracode\" mode, as described in Orchestrate subagents at scale with dynamic workflows in the Claude Code documentation. With Ultracode turned on, Claude Code makes aggressive use of dynamic workflows - it generates JavaScript that defines and coordinates a network of subagents to take on complex problems. My initial prompt was this - I meant \"hit the rows directly\", the word \"delete\" was an accidental typo on my phone: Write a SQLite extension in Rust that implants SPARQL and runs really fast because it can hit the delete rows directly This caused Claude Code for web to churn for over 12 hours. I checked in on its progress the next day and sent a single follow-up prompt when I noticed how many Rust crates it had built: Every folder in the crates/ directory needs a README Include a tutorial.md teaching users how to install the extension and how to run it in the SQLite CLI and then teaching them SPARQL in addition to how to use the SQLite extension Include a script with the tutorial for populating a SQLite database with useful and realistic example data for that tutorial This project feels like next-level vibe coding - it's not remotely feasible to review the code that was produced here, and even following the documentation is a significant investment in work. I'm not entirely sure what to do with this - I appear to have a full SPARQL implementation in Rust inside SQLite now, but how valuable is that if I created it on a whim and can't (or won't) invest the necessary time to understand what it can do? Tags: rdf, semantic-web, sqlite, ai, rust, generative-ai, llms, coding-agents, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "sparqlite: SPARQL 1.1 inside SQLite, written in Rust",
-      "url": "https://simonwillison.net/2026/Oct/16/sqlite-sparql-rust/"
     },
     {
       "appsec": false,
@@ -2052,6 +2053,29 @@
       ],
       "title": "Between Two Nerds: The AI crime machine",
       "url": "https://risky.biz/BTN184/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "9b19a68a46764efd",
+      "kev": false,
+      "published": "2026-10-16T01:58:00Z",
+      "score": 23.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+2.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Research: sparqlite: SPARQL 1.1 inside SQLite, written in Rust This research task is really an experiment in running Claude Code for web in \"Ultracode\" mode, as described in Orchestrate subagents at scale with dynamic workflows in the Claude Code documentation. With Ultracode turned on, Claude Code makes aggressive use of dynamic workflows - it generates JavaScript that defines and coordinates a network of subagents to take on complex problems. My initial prompt was this - I meant \"hit the rows directly\", the word \"delete\" was an accidental typo on my phone: Write a SQLite extension in Rust that implants SPARQL and runs really fast because it can hit the delete rows directly This caused Claude Code for web to churn for over 12 hours. I checked in on its progress the next day and sent a single follow-up prompt when I noticed how many Rust crates it had built: Every folder in the crates/ directory needs a README Include a tutorial.md teaching users how to install the extension and how to run it in the SQLite CLI and then teaching them SPARQL in addition to how to use the SQLite extension Include a script with the tutorial for populating a SQLite database with useful and realistic example data for that tutorial This project feels like next-level vibe coding - it's not remotely feasible to review the code that was produced here, and even following the documentation is a significant investment in work. I'm not entirely sure what to do with this - I appear to have a full SPARQL implementation in Rust inside SQLite now, but how valuable is that if I created it on a whim and can't (or won't) invest the necessary time to understand what it can do? Tags: rdf, semantic-web, sqlite, ai, rust, generative-ai, llms, coding-agents, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "sparqlite: SPARQL 1.1 inside SQLite, written in Rust",
+      "url": "https://simonwillison.net/2026/Oct/16/sqlite-sparql-rust/"
     },
     {
       "appsec": false,
@@ -2084,11 +2108,11 @@
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
-      "score": 23.1,
+      "score": 23.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2105,13 +2129,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "3fd1dde4a9898e0c",
+      "kev": false,
+      "published": "2026-11-02T19:14:23Z",
+      "score": 22.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq discuss CISO’s expectations and priorities regarding budgets and what they will spend their money on. AI features heavily in 2027 priorities, but what will it deliver? This episode is also available on YouTube. Show notes The New Security Agenda",
+      "tags": [],
+      "title": "Between Two Nerds: Finding bugs does not mean security",
+      "url": "https://risky.biz/BTN188/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 22.2,
+      "score": 21.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+14.2)"
+        "recency (+13.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2128,10 +2172,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 21.8,
+      "score": 21.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+13.8)"
+        "recency (+13.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2148,10 +2192,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 20.9,
+      "score": 20.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.9)"
+        "recency (+14.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2168,10 +2212,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 19.7,
+      "score": 19.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.7)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2188,10 +2232,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 18.6,
+      "score": 18.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.6)"
+        "recency (+10.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2208,10 +2252,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 17.5,
+      "score": 17.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.5)"
+        "recency (+11.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2225,33 +2269,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "51e95d3a506e7d79",
-      "kev": false,
-      "published": "2026-10-28T04:44:23Z",
-      "score": 16.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+8.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Moldova takes down more than 80 public services after a cyberattack, the White House launches a new cybersecurity pilot program, South Korea arrests an AI-assisted cybercrime ring, and the Electrum wallet patches a crypto-stealing bug. Show notes Risky Bulletin: Moldova takes down 80+ public services after cyberattack",
-      "tags": [],
-      "title": "Risky Bulletin: Moldovan public services crippled by cyberattack",
-      "url": "https://risky.biz/RBNEWS626/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 16.7,
+      "score": 16.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2270,10 +2294,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 16.7,
+      "score": 16.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2289,20 +2313,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c1ffef57cf4f0cf5",
+      "id": "51e95d3a506e7d79",
       "kev": false,
-      "published": "2026-10-29T17:00:26Z",
-      "score": 16.2,
+      "published": "2026-10-28T04:44:23Z",
+      "score": 16.4,
       "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+10.2)"
+        "source:Risky Bulletin (+8)",
+        "recency (+8.4)"
       ],
-      "source": "Simon Willison",
+      "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
+      "summary": "Moldova takes down more than 80 public services after a cyberattack, the White House launches a new cybersecurity pilot program, South Korea arrests an AI-assisted cybercrime ring, and the Electrum wallet patches a crypto-stealing bug. Show notes Risky Bulletin: Moldova takes down 80+ public services after cyberattack",
       "tags": [],
-      "title": "Building a multiplayer game world with autonomous Fable-class models",
-      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
+      "title": "Risky Bulletin: Moldovan public services crippled by cyberattack",
+      "url": "https://risky.biz/RBNEWS626/"
     },
     {
       "appsec": false,
@@ -2347,6 +2371,26 @@
       ],
       "title": "Smashing the token limit with overlapping fragments",
       "url": "https://portswigger.net/research/smashing-the-token-limit"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c1ffef57cf4f0cf5",
+      "kev": false,
+      "published": "2026-10-29T17:00:26Z",
+      "score": 15.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+9.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
+      "tags": [],
+      "title": "Building a multiplayer game world with autonomous Fable-class models",
+      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
     },
     {
       "appsec": false,
@@ -2721,26 +2765,6 @@
       ],
       "title": "WebSocket Turbo Intruder: Unearthing the WebSocket Goldmine",
       "url": "https://portswigger.net/research/websocket-turbo-intruder-unearthing-the-websocket-goldmine"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "7a3afca2246da741",
-      "kev": false,
-      "published": "2026-10-28T10:09:07Z",
-      "score": 15.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
-      "tags": [],
-      "title": "Quoting Terk Terkowitz",
-      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
     },
     {
       "appsec": false,
@@ -3149,10 +3173,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 14.9,
+      "score": 14.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.9)"
+        "recency (+6.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3166,13 +3190,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7a3afca2246da741",
+      "kev": false,
+      "published": "2026-10-28T10:09:07Z",
+      "score": 14.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
+      "tags": [],
+      "title": "Quoting Terk Terkowitz",
+      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 14.4,
+      "score": 14.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.4)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3189,10 +3233,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 13.6,
+      "score": 13.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.6)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3209,10 +3253,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 12.8,
+      "score": 12.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3229,10 +3273,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 12.8,
+      "score": 12.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.8)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3249,10 +3293,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 12.4,
+      "score": 12.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.4)"
+        "recency (+4.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3266,33 +3310,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c8190b8e5a1ef44e",
-      "kev": false,
-      "published": "2026-10-24T03:59:57Z",
-      "score": 11.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+5.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
-      "tags": [],
-      "title": "battledrones v14: Compass Rose, a four player map",
-      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3306,13 +3330,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c8190b8e5a1ef44e",
+      "kev": false,
+      "published": "2026-10-24T03:59:57Z",
+      "score": 11.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+5.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
+      "tags": [],
+      "title": "battledrones v14: Compass Rose, a four player map",
+      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 11.7,
+      "score": 11.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3329,10 +3373,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 11.5,
+      "score": 11.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3349,10 +3393,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 11.1,
+      "score": 10.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3369,10 +3413,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 11.1,
+      "score": 10.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3389,10 +3433,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3409,10 +3453,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 10.6,
+      "score": 10.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.6)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3429,10 +3473,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3449,10 +3493,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 10.2,
+      "score": 10.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3469,46 +3513,6 @@
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
-      "score": 9.9,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.9)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
-      "tags": [],
-      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
-      "url": "https://risky.biz/BTN185/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "8481bd4a6647667c",
-      "kev": false,
-      "published": "2026-10-19T23:58:25Z",
-      "score": 9.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not possible. If you're a programmer who thrives on building working systems and doesn't care too deeply about the problems solved along the way, LLMs are the gift that keeps on giving. If directly solving those problems was a big part of your enjoyment, the loss is very real. Via lobste.rs Tags: programming, careers, ai, generative-ai, llms, coding-agents, deep-blue",
-      "tags": [],
-      "title": "My obituary for programming",
-      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4729de4c9cbe4dc5",
-      "kev": false,
-      "published": "2026-10-12T02:43:40Z",
       "score": 9.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
@@ -3516,10 +3520,10 @@
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
       "tags": [],
-      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "url": "https://risky.biz/RBNEWS619/"
+      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
+      "url": "https://risky.biz/BTN185/"
     },
     {
       "appsec": false,
@@ -3546,13 +3550,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4729de4c9cbe4dc5",
+      "kev": false,
+      "published": "2026-10-12T02:43:40Z",
+      "score": 9.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "tags": [],
+      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "8481bd4a6647667c",
+      "kev": false,
+      "published": "2026-10-19T23:58:25Z",
+      "score": 9.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not possible. If you're a programmer who thrives on building working systems and doesn't care too deeply about the problems solved along the way, LLMs are the gift that keeps on giving. If directly solving those problems was a big part of your enjoyment, the loss is very real. Via lobste.rs Tags: programming, careers, ai, generative-ai, llms, coding-agents, deep-blue",
+      "tags": [],
+      "title": "My obituary for programming",
+      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 9.1,
+      "score": 8.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.1)"
+        "recency (+2.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3569,10 +3613,10 @@
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
-      "score": 8.9,
+      "score": 8.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3580,26 +3624,6 @@
       "tags": [],
       "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
       "url": "https://simonwillison.net/2026/Oct/16/code-review/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "88f5b2261b84778a",
-      "kev": false,
-      "published": "2026-10-02T02:57:07Z",
-      "score": 8.7,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.7)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Authorities dismantle the KillSec hacking group, South Africa thwarts a ransomware attack against air traffic control systems, the US sanctions Venezuelan ATM hackers and a Chinese APT targets AI experts. Show notes Risky Bulletin: Authorities dismantle KillSec group, arrest members across Europe",
-      "tags": [],
-      "title": "Authorities dismantle KillSec group",
-      "url": "https://risky.biz/RBNEWS618/"
     },
     {
       "appsec": false,
@@ -3626,20 +3650,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "96935c790ddc2990",
+      "id": "88f5b2261b84778a",
       "kev": false,
-      "published": "2026-10-15T19:47:52Z",
+      "published": "2026-10-02T02:57:07Z",
       "score": 8.6,
       "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.6)"
+        "source:Risky Bulletin (+8)",
+        "recency (+0.6)"
       ],
-      "source": "Simon Willison",
+      "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
+      "summary": "Authorities dismantle the KillSec hacking group, South Africa thwarts a ransomware attack against air traffic control systems, the US sanctions Venezuelan ATM hackers and a Chinese APT targets AI experts. Show notes Risky Bulletin: Authorities dismantle KillSec group, arrest members across Europe",
       "tags": [],
-      "title": "Chirp Pong",
-      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
+      "title": "Authorities dismantle KillSec group",
+      "url": "https://risky.biz/RBNEWS618/"
     },
     {
       "appsec": false,
@@ -3666,9 +3690,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "812f894cec2b2135",
+      "id": "96935c790ddc2990",
       "kev": false,
-      "published": "2026-10-15T13:04:03Z",
+      "published": "2026-10-15T19:47:52Z",
       "score": 8.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -3676,10 +3700,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
+      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
       "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+      "title": "Chirp Pong",
+      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
     },
     {
       "appsec": false,
@@ -3700,6 +3724,26 @@
       "tags": [],
       "title": "Risky Bulletin: Intel ends paid bug bounties",
       "url": "https://risky.biz/RBNEWS616/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "812f894cec2b2135",
+      "kev": false,
+      "published": "2026-10-15T13:04:03Z",
+      "score": 8.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
+      "tags": [],
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
     },
     {
       "appsec": false,
@@ -3746,26 +3790,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "512e526f527e6705",
-      "kev": false,
-      "published": "2026-10-14T16:26:53Z",
-      "score": 8.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
-      "tags": [],
-      "title": "AI is mass decompiling games. That's both awesome and scary.",
-      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "77881a8e4f503ee1",
       "kev": false,
       "published": "2026-09-23T05:56:34Z",
@@ -3800,6 +3824,26 @@
       "tags": [],
       "title": "Srsly Risky Biz: Bring on the AI lawsuits",
       "url": "https://risky.biz/SRB184a/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "512e526f527e6705",
+      "kev": false,
+      "published": "2026-10-14T16:26:53Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
+      "tags": [],
+      "title": "AI is mass decompiling games. That's both awesome and scary.",
+      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
     },
     {
       "appsec": false,
@@ -3860,26 +3904,6 @@
       "tags": [],
       "title": "Risky Bulletin: Ukraine's top prosecutor resigns amid scam call center scandal",
       "url": "https://risky.biz/RBNEWS611/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "aa7677223a5c7914",
-      "kev": false,
-      "published": "2026-10-13T13:32:00Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
-      "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     },
     {
       "appsec": false,
@@ -4785,6 +4809,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "adf59afdc4d24193",
       "kev": false,
       "published": "2026-08-06T04:26:06Z",
@@ -5104,20 +5148,20 @@
       "url": "https://risky.biz/RBNEWS582/"
     }
   ],
-  "last_run": "2026-11-02T15:15:48Z",
+  "last_run": "2026-11-03T00:53:12Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 1269,
-    "appsec_cves": 1696,
+    "actively_exploited_appsec": 1297,
+    "appsec_cves": 1722,
     "kev_coverage_pct": 30.2,
     "kev_tracked": 1766,
     "kev_with_coverage": 534,
     "newly_exploited": 18,
     "newly_exploited_days": 30,
-    "open_gaps": 904,
-    "public_poc": 701,
-    "total_cves": 2275,
-    "total_items": 228
+    "open_gaps": 936,
+    "public_poc": 708,
+    "total_cves": 2276,
+    "total_items": 230
   },
   "threats": [
     {
@@ -7631,35 +7675,6 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-26vp-8gxg-v4pg",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2025-53837",
-      "cvss_score": 9.9,
-      "cwe": [
-        "CWE-95"
-      ],
-      "description": "org.xwiki.rendering:xwiki-rendering-xml has an Eval Injection issue",
-      "ecosystems": [
-        "maven"
-      ],
-      "epss": 0.01503,
-      "ghsa_id": "GHSA-26vp-8gxg-v4pg",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-18T15:05:15Z",
-      "product": "org.xwiki.rendering:xwiki-rendering-xml",
-      "published": "2026-09-18T15:05:13Z",
-      "score": 24.4,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-g5f9-3xfg-p9mf",
       "appsec": true,
       "brief": "briefs/CVE-2026-61732.md",
@@ -8741,37 +8756,6 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-c8w2-fgvx-vhv4",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-61682",
-      "cvss_score": 9.9,
-      "cwe": [
-        "CWE-290",
-        "CWE-302",
-        "CWE-348"
-      ],
-      "description": "kcp front-proxy does not strip inbound X-Remote-* identity headers, allowing any authenticated client to inject groups/warrants and impersonate system:masters in any workspace",
-      "ecosystems": [
-        "go"
-      ],
-      "epss": 0.00384,
-      "ghsa_id": "GHSA-c8w2-fgvx-vhv4",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-18T17:15:53Z",
-      "product": "github.com/kcp-dev/kcp",
-      "published": "2026-09-18T17:15:49Z",
-      "score": 24.0,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-6xp5-7rcx-xfgx",
       "appsec": true,
       "brief": null,
@@ -9466,6 +9450,36 @@
       "vuln_classes": [
         "rce"
       ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-cxf3-9h37-7rr8",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-118264",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-444",
+        "CWE-863"
+      ],
+      "description": "Echo: Rejected WebSocket upgrades can bypass Echo route-level access controls",
+      "ecosystems": [
+        "go"
+      ],
+      "epss": 0.0043,
+      "ghsa_id": "GHSA-cxf3-9h37-7rr8",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-28T19:21:32Z",
+      "product": "github.com/labstack/echo/v4",
+      "published": "2026-10-23T20:49:37Z",
+      "score": 23.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-4j9v-h7pp-725h",
@@ -10379,6 +10393,35 @@
       "product": "shopify_app",
       "published": "2026-10-29T16:39:49Z",
       "score": 21.8,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-rxjv-24xq-76wc",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-102834",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-190"
+      ],
+      "description": "JavaCV: Integer Overflow in IPCameraFrameGrabber Causes Infinite-Loop DoS",
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.00503,
+      "ghsa_id": "GHSA-rxjv-24xq-76wc",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-16T19:53:09Z",
+      "product": "org.bytedeco:javacv",
+      "published": "2026-10-16T19:53:06Z",
+      "score": 21.7,
       "sources": [],
       "vendor": null,
       "vuln_classes": []
