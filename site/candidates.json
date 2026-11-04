@@ -173,6 +173,37 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2014-8361.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 100% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2014-8361",
+      "cvss_score": 9.8,
+      "cwe": [],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.99971,
+      "issue_number": 12,
+      "kev": true,
+      "kev_added": "2023-09-18",
+      "modified": "2023-09-18",
+      "nuclei_template": null,
+      "product": "dir-905l_firmware",
+      "published": "2023-09-18",
+      "score": 100,
+      "vendor": "dlink",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2022-41082.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -3797,37 +3828,6 @@
       "published": "2021-11-03",
       "score": 93.9,
       "vendor": "google",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2014-8361.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 100% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2014-8361",
-      "cvss_score": 9.8,
-      "cwe": [],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.99971,
-      "issue_number": 12,
-      "kev": true,
-      "kev_added": "2023-09-18",
-      "modified": "2023-09-18",
-      "nuclei_template": null,
-      "product": "SDK",
-      "published": "2023-09-18",
-      "score": 93.8,
-      "vendor": "Realtek",
       "vuln_classes": []
     },
     {
@@ -13695,38 +13695,6 @@
       "vuln_classes": [
         "path-traversal"
       ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-75650.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-75650",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-1336"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.03949,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-09-08",
-      "modified": "2026-09-08",
-      "nuclei_template": null,
-      "product": "commerce",
-      "published": "2026-09-08",
-      "score": 75.2,
-      "vendor": "adobe",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -24538,38 +24506,6 @@
       "vuln_classes": []
     },
     {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-96655.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-96655",
-      "cvss_score": 4.3,
-      "cwe": [
-        "CWE-918"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.01637,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-10-20",
-      "modified": "2026-10-20",
-      "nuclei_template": null,
-      "product": "media_server",
-      "published": "2026-10-20",
-      "score": 58.8,
-      "vendor": "plex",
-      "vuln_classes": []
-    },
-    {
       "appsec": false,
       "brief": "briefs/CVE-2019-6693.md",
       "candidate_reasons": [
@@ -28046,45 +27982,6 @@
       "score": 23.4,
       "vendor": null,
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-114509.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-114509",
-      "cvss_score": 9.2,
-      "cwe": [
-        "CWE-287",
-        "CWE-1287"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "composer",
-        "php",
-        "web"
-      ],
-      "epss": 0.00777,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-23T21:50:28Z",
-      "nuclei_template": null,
-      "product": "laravel/framework",
-      "published": "2026-10-23T21:50:27Z",
-      "score": 23.4,
-      "vendor": null,
-      "vuln_classes": [
-        "auth-bypass"
-      ]
     },
     {
       "appsec": true,
@@ -32788,18 +32685,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-03T23:08:36Z",
+  "generated": "2026-11-04T05:37:35Z",
   "stats": {
     "actively_exploited_appsec": 1324,
     "appsec_cves": 1754,
-    "kev_coverage_pct": 30.4,
+    "kev_coverage_pct": 30.5,
     "kev_tracked": 1767,
-    "kev_with_coverage": 537,
+    "kev_with_coverage": 539,
     "newly_exploited": 25,
     "newly_exploited_days": 30,
-    "open_gaps": 966,
-    "public_poc": 718,
+    "open_gaps": 963,
+    "public_poc": 719,
     "total_cves": 2284,
-    "total_items": 233
+    "total_items": 234
   }
 }
