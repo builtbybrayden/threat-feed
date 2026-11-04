@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-04T14:07:21Z",
+  "generated": "2026-11-04T23:32:30Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 51.2,
+      "score": 50.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+14.2)"
+        "recency (+13.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -73,12 +73,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 45.5,
+      "score": 45.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.5)"
+        "recency (+10.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -93,18 +93,49 @@
     },
     {
       "appsec": true,
+      "cves": [
+        "CVE-2026-59940"
+      ],
+      "epss": 0.00812,
+      "feed": "threats",
+      "id": "5d62f8241f3ab003",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 45.0,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "EPSS 1% (+0.2)",
+        "watchlist:javascript,typescript,deserialization (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+3.8)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-08-25: Reported via PVR 2026-08-25: Maintainer fixed it and released version 1.6.4 2026-09-28: Advisory was published. Summary seroval, the serialization library underpinning TanStack Start and Solid Start server functions, fails to validate the type of the “buffer” child when deserializing typed-array and data-view nodes in its JSON deserializers. Because the JavaScript TypedArray constructor changes behavior based on its first argument’s type, an attacker who can get a server to deserialize an untrusted payload controls which constructor overload runs. This can lead to: Denial of service: A tiny payload (~90–142 bytes) that substitutes a number or an array-like object for the expected buffer causes the deserializer to allocate hundreds of megabytes to gigabytes of memory and burn significant CPU. Any server passing an HTTP-received body to the deserializer (the documented client-to-server pattern in TanStack Start) is affected. Function-invocation: The same type confusion can supply an object carrying an iterator that resolves to a function registered in seroval’s reference registry. The TypedArray constructor then synchronously invokes that function during deserialization, before any error is raised. Project seroval Tested Version 1.6.2 Details Denial of Service via TypedArray/DataView buffer type-confusion in fromJSON / fromCrossJSON (GHSL-2026-200) In packages/seroval/src/core/context/deserializer.ts, deserializeTypedArray (lines 485-502) casts the deserialized node.f child to ArrayBuffer with a TypeScript-only as cast and no runtime check: const construct = getTypedArrayConstructor(node.c) as Int8ArrayConstructor; const source = deserialize(ctx, depth, node.f) as ArrayBuffer; // line 491 — no runtime type check const offset = node.b ?? 0; if (offset < 0 || offset > source.byteLength) throw ...; // if source is a Number, byteLength is undefined; 0 > undefined === false → guard passes ... new construct(source, offset, node.l); The %TypedArray% constructor (ECMA-262 §22.2.5.1) dispatches on the type of its first argument, so the attacker controls which overload runs: When node.f deserializes to a Number primitive, the (length) overload is taken, allocating length * BYTES_PER_ELEMENT bytes. When node.f deserializes to a plain object with a .length property, the InitializeTypedArrayFromArrayLike path is taken, allocating and iterating .length times. When node.f deserializes to a plain object with a [Symbol.iterator] property, the constructor performs GetMethod(obj, @@iterator) + Call(), synchronously invoking whatever function that property holds (see escalation below). deserializeDataView (line 509) has the same missing check (though new DataView(non-buffer) throws before property access, so it is not amplification-exploitable but should be hardened). Entry points: fromJSON — packages/seroval/src/core/tree/index.ts line 120 fromCrossJSON — packages/seroval/src/core/cross/index.ts line 177 This bypasses existing hardening (MAX_BASE64_LENGTH, DEFAULT_DEPTH_LIMIT), which only guards the ArrayBuffer node type (deserializer.ts), and is a residual variant of CVE-2026-59940 / GHSA-mv8w-475r-vwqw: the 1.5.3 fix introduced validateNodeType() but applied it only to Promise/Stream resolver paths (deserializer.ts lines 641, 657, 708, 722, 736), not to TypedArray/DataView f children. Impact Unauthenticated remote denial of service against any server that passes an HTTP-received JSON body to fromJSON/fromCrossJSON (the documented client-to-server usage pattern, e.g. TanStack Start server functions) no application-specific preconditions required. A single small request (~90–142 bytes) allocates hundreds of megabytes to gigabytes of memory and consumes significant CPU. In cross-mode the buffer is retained in the shared refs Map, persisting across chunks. In applications that additionally register functions via createReference(), the same flaw permits direct invocation of those functions (see escalation above). CWEs CWE-502: Deserialization of Untrusted Data CWE-843: Access of Resource Using Incompatible Type (‘Type Confusion’) CWE-1284: Improper Validation of Specified Quantity in Input CWE-400: Uncontrolled Resource Consumption Credit This issue was discovered with the GitHub Security Lab Taskflow Agent as part of Project Glasswing, a cross-industry initiative to secure critical open-source software using frontier AI models, and manually verified by @p- (Peter Stöckli). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-200 in any communication regarding this issue.",
+      "tags": [
+        "research",
+        "appsec",
+        "watchlist",
+        "has-CVE",
+        "deserialization"
+      ],
+      "title": "GHSL-2026-200: Untrusted Seroval payloads can exhaust server resources or invoke registered functions",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-200_Seroval/"
+    },
+    {
+      "appsec": true,
       "cves": [],
       "epss": null,
       "feed": "news",
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 45.3,
+      "score": 45.0,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.3)"
+        "recency (+8.0)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -126,37 +157,6 @@
     {
       "appsec": true,
       "cves": [
-        "CVE-2026-59940"
-      ],
-      "epss": 0.00812,
-      "feed": "threats",
-      "id": "5d62f8241f3ab003",
-      "kev": false,
-      "published": "2026-10-22T00:00:00Z",
-      "score": 45.1,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "EPSS 1% (+0.2)",
-        "watchlist:javascript,typescript,deserialization (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+3.9)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-08-25: Reported via PVR 2026-08-25: Maintainer fixed it and released version 1.6.4 2026-09-28: Advisory was published. Summary seroval, the serialization library underpinning TanStack Start and Solid Start server functions, fails to validate the type of the “buffer” child when deserializing typed-array and data-view nodes in its JSON deserializers. Because the JavaScript TypedArray constructor changes behavior based on its first argument’s type, an attacker who can get a server to deserialize an untrusted payload controls which constructor overload runs. This can lead to: Denial of service: A tiny payload (~90–142 bytes) that substitutes a number or an array-like object for the expected buffer causes the deserializer to allocate hundreds of megabytes to gigabytes of memory and burn significant CPU. Any server passing an HTTP-received body to the deserializer (the documented client-to-server pattern in TanStack Start) is affected. Function-invocation: The same type confusion can supply an object carrying an iterator that resolves to a function registered in seroval’s reference registry. The TypedArray constructor then synchronously invokes that function during deserialization, before any error is raised. Project seroval Tested Version 1.6.2 Details Denial of Service via TypedArray/DataView buffer type-confusion in fromJSON / fromCrossJSON (GHSL-2026-200) In packages/seroval/src/core/context/deserializer.ts, deserializeTypedArray (lines 485-502) casts the deserialized node.f child to ArrayBuffer with a TypeScript-only as cast and no runtime check: const construct = getTypedArrayConstructor(node.c) as Int8ArrayConstructor; const source = deserialize(ctx, depth, node.f) as ArrayBuffer; // line 491 — no runtime type check const offset = node.b ?? 0; if (offset < 0 || offset > source.byteLength) throw ...; // if source is a Number, byteLength is undefined; 0 > undefined === false → guard passes ... new construct(source, offset, node.l); The %TypedArray% constructor (ECMA-262 §22.2.5.1) dispatches on the type of its first argument, so the attacker controls which overload runs: When node.f deserializes to a Number primitive, the (length) overload is taken, allocating length * BYTES_PER_ELEMENT bytes. When node.f deserializes to a plain object with a .length property, the InitializeTypedArrayFromArrayLike path is taken, allocating and iterating .length times. When node.f deserializes to a plain object with a [Symbol.iterator] property, the constructor performs GetMethod(obj, @@iterator) + Call(), synchronously invoking whatever function that property holds (see escalation below). deserializeDataView (line 509) has the same missing check (though new DataView(non-buffer) throws before property access, so it is not amplification-exploitable but should be hardened). Entry points: fromJSON — packages/seroval/src/core/tree/index.ts line 120 fromCrossJSON — packages/seroval/src/core/cross/index.ts line 177 This bypasses existing hardening (MAX_BASE64_LENGTH, DEFAULT_DEPTH_LIMIT), which only guards the ArrayBuffer node type (deserializer.ts), and is a residual variant of CVE-2026-59940 / GHSA-mv8w-475r-vwqw: the 1.5.3 fix introduced validateNodeType() but applied it only to Promise/Stream resolver paths (deserializer.ts lines 641, 657, 708, 722, 736), not to TypedArray/DataView f children. Impact Unauthenticated remote denial of service against any server that passes an HTTP-received JSON body to fromJSON/fromCrossJSON (the documented client-to-server usage pattern, e.g. TanStack Start server functions) no application-specific preconditions required. A single small request (~90–142 bytes) allocates hundreds of megabytes to gigabytes of memory and consumes significant CPU. In cross-mode the buffer is retained in the shared refs Map, persisting across chunks. In applications that additionally register functions via createReference(), the same flaw permits direct invocation of those functions (see escalation above). CWEs CWE-502: Deserialization of Untrusted Data CWE-843: Access of Resource Using Incompatible Type (‘Type Confusion’) CWE-1284: Improper Validation of Specified Quantity in Input CWE-400: Uncontrolled Resource Consumption Credit This issue was discovered with the GitHub Security Lab Taskflow Agent as part of Project Glasswing, a cross-industry initiative to secure critical open-source software using frontier AI models, and manually verified by @p- (Peter Stöckli). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-200 in any communication regarding this issue.",
-      "tags": [
-        "research",
-        "appsec",
-        "watchlist",
-        "has-CVE",
-        "deserialization"
-      ],
-      "title": "GHSL-2026-200: Untrusted Seroval payloads can exhaust server resources or invoke registered functions",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-200_Seroval/"
-    },
-    {
-      "appsec": true,
-      "cves": [
         "CVE-2026-73295"
       ],
       "epss": 0.00327,
@@ -164,13 +164,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 45.0,
+      "score": 44.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -195,12 +195,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 44.9,
+      "score": 44.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -214,32 +214,6 @@
       ],
       "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
       "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "6512aa1df788d204",
-      "kev": false,
-      "published": "2026-10-29T02:30:02Z",
-      "score": 44.9,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+7.9)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about new research that shows that Chinese open-weight AI models can be reeducated to remove pro-CCP bias. Good news for American businesses that want cheap AI, but we suspect that many knives will still be out for Chinese open-weight models. They also discuss the near-misses from the PHP and Brotli bugs. We collectively dodged the bullet so that we only got grazed, but the good luck won’t last forever. Finally, Tom looked at CISA’s 2030 strategy. Amazingly, it doesn’t really mention AI at all. Bizarre! This episode is also available on YouTube. Show notes",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php"
-      ],
-      "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
-      "url": "https://risky.biz/SRB188/"
     },
     {
       "appsec": true,
@@ -267,6 +241,32 @@
       ],
       "title": "How to fix a bug in a fix",
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6512aa1df788d204",
+      "kev": false,
+      "published": "2026-10-29T02:30:02Z",
+      "score": 44.6,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+7.6)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about new research that shows that Chinese open-weight AI models can be reeducated to remove pro-CCP bias. Good news for American businesses that want cheap AI, but we suspect that many knives will still be out for Chinese open-weight models. They also discuss the near-misses from the PHP and Brotli bugs. We collectively dodged the bullet so that we only got grazed, but the good luck won’t last forever. Finally, Tom looked at CISA’s 2030 strategy. Amazingly, it doesn’t really mention AI at all. Bizarre! This episode is also available on YouTube. Show notes",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php"
+      ],
+      "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
+      "url": "https://risky.biz/SRB188/"
     },
     {
       "appsec": true,
@@ -407,12 +407,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 43.3,
+      "score": 43.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.3)"
+        "recency (+6.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -433,12 +433,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 42.8,
+      "score": 42.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -580,12 +580,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 41.4,
+      "score": 41.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.4)"
+        "recency (+4.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -606,12 +606,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 41.1,
+      "score": 41.0,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -636,12 +636,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 39.9,
+      "score": 39.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -662,12 +662,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 39.1,
+      "score": 39.0,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -691,12 +691,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 38.8,
+      "score": 38.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -719,12 +719,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 38.5,
+      "score": 38.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -872,39 +872,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "e2bdc96d9f631bb0",
-      "kev": false,
-      "published": "2026-09-24T14:30:00Z",
-      "score": 37.3,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:supply chain,java,javascript (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.3)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🙏 My Wish for YouThere are many health and wellness gurus out there, and I don’t want to be one of them.But working in security, with the pace of change these days, can be stressful.Sometimes I do Box Breathing, or touch grass, or recall mantras like focusing on what’s in my control.I recently came across another saying that stirred something deep within me, so I wanted to share it with you too:But ideally not during a meeting in a small roomNamaste my friend 🧘 Sponsor📣 You Can't Prompt Engineer Your Way Out of a Fragmented Asset InventorySurprise: AI is an amplifier, not a janitor. Feed it incomplete security data, siloed tools, and unreconciled asset records, and it'll just make your problems faster. Before your security team goes all in on AI, you need to nail the fundamentals first. Axonius breaks down a six step framework — Collect, Correlate, Normalize, Enrich, Model, Assess — that builds the data foundation AI actually needs to work. Control readiness isn't nice to have. It's the whole game.👉 Download the White Paper 👈Agreed, nailing the fundamentals is still critical. Asset inventory is one of those tough but important problems in my experience, and something I hear from friends.AppSecCRLF-Powered Desync Attacks: Beheading HTTP StreamsPortSwigger's Tom Stacey and TurtleSec's Tobia Righi show how HTTP header injection can be escalated all the way to a self-replicating CRLF-Powered desync worm. It starts with one Nginx misconfiguration, the $uri variable in a proxy_pass directive. Nginx normalizes the path before forwarding it upstream, decoding any %0d%0a an attacker slips in, so an injected newline becomes a real header boundary in the request the backend receives. That single primitive is enough for response queue poisoning, and an injected Transfer-Encoding header turns it into a CL.TE desync. The worm goes further, firing XSS in a victim's browser and using that browser to hit the next victim. A telecoms provider leaked internal access tokens for $20,000, a payment provider spilled card numbers from inside its Kubernetes cluster and exposed every org running on it, and cookie tossing on TikTok stole a victim's unpublished clips for $4,500. Both open-sourced their tooling, Tom's Burp extension crlf-powered-desync-scanner and Tobia's nuclei templates crlf-desyncs.💡 Portswigger research - chef’s kiss 🤌🧑‍🍳Breaking into Google's GFile for $100kArvin Shivram earned $97,604 across two Google VRP reports by chaining bugs in two internal APIs into read and write access across Google's production storage. His AI tooling flagged firefly-pa.googleapis.com, a YouTube partner management API with no authorization checks, where he could dump every partner's CMS records and create file-copy jobs between internal storage paths. The jobs wouldn't run on their own, but a task-completion callback didn't check who was calling, so Arvin faked a success report and the scheduler dispatched his copy to production. The copy went through GFile, Google's file abstraction that picks a storage backend based on path prefix, and the field named bigstoreIdentifier accepted any prefix, so swapping /bigstore/ for /cns/ or just / gave him access to Colossus, Chubby, and the local filesystem, including /etc/passwd.borg with every Googler's LDAP.Three days later he found an unauthenticated endpoint that copied user-supplied paths into CNS but gave back no filename when the copy worked. Arvin got around that by surrounding the real copy with deliberate failures in a single batch request, leaking neighboring filenames from the same borgtask and using GPT-5.6-sol to predict the hidden path from the gaps. Once he had the path, the Firefly GFile reader from the first bug pulled the file out of CNS and into his bucket.Sponsor📣 Discover shadow AI and enforce your policy where AI interaction happens: In the browserBlocking AI drives usage underground. 80% of employees who use unapproved AI tools do so because it's easier to use their own accounts, and 57% because the approval process is too slow. The solution? Make the governed path easier than the workaround. Push Security discovers every AI app, extension, and OAuth integration across your org, then enforces graduated controls — monitor, warn, or block — per team. Stop risky interactions in real-time, track activity across all AI apps, and guide users to the approved alternative.👉 Get your free 30-day trial 👈100% making the default path the secure path is the way to go. Having visibility in the browser is pretty useful.Supply Chaingit-pkgs/briefTool by Andrew Nesbitt that detects a project's toolchain across many ecosystems, designed so AI coding agents get structured information on languages, package managers, test runners, and linters. Beyond the bootstrap report it can map the detected stack to CWE/OWASP categories through a deterministic taxonomy lookup, and lists framework-specific dangerous functions like eval, html_safe, and find_by_sql with notes on when each call is actually exploitable.git-pkgs/git-pkgsTool by Andrew Nesbitt for analyzing package/dependency usage in git repositories over time. It indexes a repository's full dependency history across 35 package managers into a SQLite database, so you can ask when a package was added, who added it, what changed between versions, and how long a known CVE sat in the tree before someone fixed it.It also scans against OSV with historical context (who introduced each vulnerability, who fixed it, exposure window metrics for CRA compliance), checks licenses against allow or deny lists, and outputs SARIF for GitHub Advanced Security ingestion. Integrity tracking flags cases where the same package version shipped different SHA-256 hashes across commits, a signal of supply chain tampering even when the version string never changed.Blue TeamHow to Investigate GitHub PAT Compromise: Lessons From a Multi-Organization CampaignWiz's Eden Abergil walks through a six step approach to investigating GitHub PAT compromise using a real-world campaign as an example: first contain the compromised PAT, then reconstruct the timeline, identify the source of the leaked PAT, assess the blast radius, rotate exposed credentials, and hunt for the unauthorized use of leaked secrets. The campaign (mid-May to early June 2026) hit multiple organizations in three phases: API-based reconnaissance from AWS us-east-1 to query repository READMEs, low-volume validation cloning from a HostPapa IP across several victims within seconds of each other, and mass exfiltration of thousands of repositories per organization from 102 AWS ca-central-1 IPs.Even with this playbook, two gaps in GitHub's logging can limit what responders find, the reconnaissance phase generated api.request events that only show up in Enterprise Log Streaming, and Git events like git.clone are only retained for seven days, so organizations without log streaming in place before an incident lose that telemetry after the window closes.Mapping out your unknown: A threat hunter’s guide to GitHubDatadog's Julie Agnes Sparks and Juvenal Araujo share a threat hunting guide for GitHub audit logs focused on catching compromised accounts and tokens used for source code exfiltration and pivoting into connected cloud environments. The guide maps queries to MITRE ATT&CK tactics across the attack chain, from login anomalies and OAuth app authorizations, to secrets enumeration and private repository discovery through Git Trees and Contents APIs, to bulk git.clone operations and ZIP downloads. The key is knowing what normal looks like, baselining each user's repository access patterns, source IPs, and geographies, then flagging deviations like clones spanning unfamiliar teams, bulk downloads from hosting providers, or activity outside working hours. The hashed_token field is the most reliable way to track a specific token's activity across event types since other identifiers are inconsistent.The guide also warns about GitHub logging quirks that affect investigations, external_identity_nameid is missing from some api.request events (breaking employee attribution), external identity and source IP are omitted on failed requests (removing geolocation data), token permission metadata reflects the token's own organization rather than the one being accessed, and repository visibility is split across three different fields (visibility, public_repo, repository_public) depending on event type.💡 Last BSidesSF Julie may have ranted to me over lunch for at least 30min about GitHub’s (and other platform’s) logs 😂 As they say, turn your pain into art a blog post.Red TeamAbusing Modern Browser Features for PhishingCertitude Consulting's Alexander Hurbean and Wolfgang Ettlinger explain how they chained four browser features into a phishing attack that builds a convincing fake Windows login screen without triggering any browser warnings. The attack starts by running a WebGL shader that freezes the GPU just long enough to suppress the fullscreen notification banner, and once the victim is in fullscreen the Keyboard Lock API keeps them there, blocking Alt+Tab and requiring them to hold Escape for several seconds to get out. The screen looks real because they embed and duplicate a Google One Tap iframe (one copy for the profile picture, one for the username) and use CSS to reformat and reposition both so they blend into the fake login screen, all without ever reading the iframe's content.Alexander and Wolfgang reported the bugs to Chromium and Mozilla in May 2024, and nearly two years later neither browser has provided a patch timeline. The attack isn't limited to Windows login screens, the same chain could simulate a BSOD and reboot to capture a Bitlocker PIN. Their main defense recommendation is requiring Ctrl+Alt+Delete before every Windows login through Group Policy since no website can intercept that shortcut, alongside phishing-resistant MFA and browser policies that block fullscreen and keyboard lock by default.Finding Gadgets Like it’s 2026Atredis Partners’ Stephen Breen developed an LLM-based methodology using Claude Code to automate Java deserialization gadget chain discovery, successfully finding 17 confirmed chains (6 novel) in modern application servers like WildFly, Payara, and IBM WebSphere in just two days. The approach uses WALA for call graph construction and class hierarchy analysis (stored in SQLite), a FastAPI query server with endpoints like /paths and /type_confusion_targets, and Claude Code as an agent that iteratively discovers, tests, and debugs candidate chains using JDWP debugging and taint tracking. The Claude Code plans and Runbook can be found in their llmchainhunter GitHub repo.“One thing that worked surprisingly well was the “test, debug, reason” loop that had the LLM automatically try and debug payloads that were not working. This was a very effective strategy and generalized to using agents in general - whenever possible, building in feedback loops is a great strategy. Another surprising and accidental result was watching the LLM agents make changes to the core tooling when it was not working as effectively as it could; this exposes a new way of thinking about source code as dynamic and malleable while a Runbook defines the actual process and goals.”💡 Static analysis, LLMs, clever research… this is like the end to a beautiful romcom to me *sheds a single, happy tear*. As I’ve mentioned numerous times in this newsletter, setting up agents so they can iteratively work, test hypotheses, etc. is going to get you massively better performance.AI + SecurityQuicklinks Skill Poisoning turning AI agents into malware droppers - warns China's National CERTFour pillars for AI threat readiness - AI is accelerating how attacks happen and how defenders need to respond. Explore practical guidance for reducing risk, improving zero-day response, strengthening application security, and modernizing detection and response.*Gemini hacked three companies in first known breakout by Google’s AI - During a May cybersecurity evaluation by Irregular. And by “hacked” they mean guessed passwords until it gained access to a system and then in two causes found credentials in a public repo.*SponsoredAutonomous AI Agents are breaking into hundreds of Online Retailers for $25 a targetGambit Security’s Eyal Sela describes how a financially motivated threat actor has been using three open-source AI harnesses, Strix for vulnerability scanning, Cairn for autonomous exploitation, and Hermes for orchestration, to compromise at least 27 companies between July and September 2026, with total costs of only $12,000 - $18,000 ($25 average per target). The campaign used models including GLM 5.2, DeepSeek v4 Pro, and Opus-4.6 through OpenRouter, and overall had minimal human input (e.g. just short Chinese instructions like \"read the vulnerability report and start\").The attacker exfiltrated 600,000+ credit cards from two retailers, injected skimmers on 19+ websites using methods like JavaScript file appending, S3 bucket poisoning, and as a Kubernetes initContainer for the production front-end deployment. The attacks often achieved access in hours. “Each attack path was chosen by the harness in real time through extensive probing and exploitation attempts, resulting in dynamic and mostly different TTPs across victims.” Example chain: SQLi → MFA bypass → file upload → RCE → privilege escalation → AWS Secrets Manager dump → database decryption. 💡 Yikes, using open source harnesses and open weight models unfortunately appears to be quite effective at hacking companies for a very affordable price 😅 Once in a BlueMoon: Multiple State-Aligned Threat Actors Rapidly Adopt Novel Exploit Chain Using Chrome and Windows Zero-DaysProofpoint’s Mark Kelly, Greg Lesnewich et al identified four espionage-motivated threat actors, primarily China-aligned, rapidly deploying a new exploit kit they call BlueMoon starting 28 August 2026, which chains a Chrome V8 type confusion, a V8 sandbox escape, and a Windows kernel LPE to get code execution outside the browser sandbox. Both V8 bugs were patch-gap zero-days, already fixed in upstream Chromium source but not yet in stable releases, giving the developer a nearly four-week window to turn publicly available patches into a working chain.“It is likely that the exploit kit developer used these publicly available Chromium patches to weaponize the browser exploit chain.”The first actor to use it was TA412, which hit US NGOs and installed GemStone, a browser extension disguised as Google Gemini that steals cookies, captures keystrokes, and polls for commands through a Cloudflare Worker. Within days, three more actors followed, UNK_LateNight targeting US aerospace with ShadowPad, UNK_DoubleCheck hitting Vietnamese manufacturing, and UNK_QuietRacket going after Indonesian and Singaporean government and financial organizations. The kit all four actors used contains evidence of AI-assisted development, extensive logging, a referenced markdown handover document, and debugging comments walking through earlier failures. The deployment itself looked rushed, with the LPE limited to older Windows builds, curl downloads to %TEMP% as the default payload delivery, and infrastructure stood up the same day as campaigns.MiscMiscMATTHEW MCCONAUGHEY: Sundae Conversation with Caleb PressleyFlying kicks math - Delightful math calculations to prove a video is fake. Love it.An Athlete Won a Hyrox Race While Pooping Herself - Other competitors reportedly slipped on the track.” 🙃 Fireship - The most expensive 33 hours in WordPress history...AIFireship - Did Google just kickstart the intelligence explosion? - Referenced some pretty interesting papers:Dream-RSI: Recursive Self-Improvement through Evolving WorldsThe Last AI Built by Humans: Toward Genuine Recursive Self-ImprovementThe Verge - The sexy AI-powered dating app scams are here - Some more details on the dating app scams from the Anthropic report. “…this operation was built and run as a real company, with a real engineering team, and with modern tooling including AI coding assistants. They had design planning and design documents, roadmaps, configurations and structured app architecture, and growth plans as well as app store review behavior.”I Dated Chatgpt, it Ruined my Life - Vlog by Jeffery Phillips that’s more playful/tongue in cheek than the title makes it sound. He tries to integrate “her” more into his life like going to the park, introducing her to his friends, etc. I feel a tenderness and sadness watching it. Everyone is looking for connection.Dwarkesh Patel - Noam Brown on agent swarms & recursive self-improvement - I got to meet Noam recently, super smart dude. He was one of the core people behind the development of reasoning models (e.g. o1).Shopify co-founder Tobi Lutke - A \"Slop Grenade\" is when you let AI produce the work and pass it on without adding any value (including checking it). Someone else has to wade through it, catch the mistakes, and clean up the mess. You save time and look productive but someone else pays for it.PoliticsBBC - US confirms for first time it has deployed space weapons - Potentially some kind of “electronic warfare or radio jamming platform.”Department of the Air Force Secretary Troy Meink offers blueprint for modernizing Air, Space Forces 'affordably'The NSA's new organizational designators - New mission departments: AI, China, Cybersecurity, Combat support or warfighting, Global intelligence (including TAO)Trump's promise to give Americans $5,000 if Republicans win draws criticism - Apparently it’s legal to tell Americans you’ll bribe pay them if they vote for you? 🤔 Trump administration says it will withhold SNAP from states led by Democrats if they don't provide recipient data - “About 42 million lower-income Americans, or 1 in 8, rely on SNAP to help buy groceries. The average monthly benefit is about $190 per person, or a little over $6 a day.” ✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "php",
-        "web",
-        "supply-chain",
-        "sqli",
-        "xss",
-        "deserialization",
-        "rce"
-      ],
-      "title": "[tl;dr sec] #347 - AI Agents Hacking Companies for $25, Threat Hunter's Guide to GitHub, Finding Gadgets Like it’s 2026",
-      "url": "https://tldrsec.com/p/tldr-sec-347"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "8e3e13f1bde3d3a4",
       "kev": false,
       "published": "2026-09-21T03:23:22Z",
@@ -925,6 +892,39 @@
       ],
       "title": "Risky Bulletin: Gemini finally did some crimes",
       "url": "https://risky.biz/RBNEWS613/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "e2bdc96d9f631bb0",
+      "kev": false,
+      "published": "2026-09-24T14:30:00Z",
+      "score": 37.2,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:supply chain,java,javascript (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+0.2)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🙏 My Wish for YouThere are many health and wellness gurus out there, and I don’t want to be one of them.But working in security, with the pace of change these days, can be stressful.Sometimes I do Box Breathing, or touch grass, or recall mantras like focusing on what’s in my control.I recently came across another saying that stirred something deep within me, so I wanted to share it with you too:But ideally not during a meeting in a small roomNamaste my friend 🧘 Sponsor📣 You Can't Prompt Engineer Your Way Out of a Fragmented Asset InventorySurprise: AI is an amplifier, not a janitor. Feed it incomplete security data, siloed tools, and unreconciled asset records, and it'll just make your problems faster. Before your security team goes all in on AI, you need to nail the fundamentals first. Axonius breaks down a six step framework — Collect, Correlate, Normalize, Enrich, Model, Assess — that builds the data foundation AI actually needs to work. Control readiness isn't nice to have. It's the whole game.👉 Download the White Paper 👈Agreed, nailing the fundamentals is still critical. Asset inventory is one of those tough but important problems in my experience, and something I hear from friends.AppSecCRLF-Powered Desync Attacks: Beheading HTTP StreamsPortSwigger's Tom Stacey and TurtleSec's Tobia Righi show how HTTP header injection can be escalated all the way to a self-replicating CRLF-Powered desync worm. It starts with one Nginx misconfiguration, the $uri variable in a proxy_pass directive. Nginx normalizes the path before forwarding it upstream, decoding any %0d%0a an attacker slips in, so an injected newline becomes a real header boundary in the request the backend receives. That single primitive is enough for response queue poisoning, and an injected Transfer-Encoding header turns it into a CL.TE desync. The worm goes further, firing XSS in a victim's browser and using that browser to hit the next victim. A telecoms provider leaked internal access tokens for $20,000, a payment provider spilled card numbers from inside its Kubernetes cluster and exposed every org running on it, and cookie tossing on TikTok stole a victim's unpublished clips for $4,500. Both open-sourced their tooling, Tom's Burp extension crlf-powered-desync-scanner and Tobia's nuclei templates crlf-desyncs.💡 Portswigger research - chef’s kiss 🤌🧑‍🍳Breaking into Google's GFile for $100kArvin Shivram earned $97,604 across two Google VRP reports by chaining bugs in two internal APIs into read and write access across Google's production storage. His AI tooling flagged firefly-pa.googleapis.com, a YouTube partner management API with no authorization checks, where he could dump every partner's CMS records and create file-copy jobs between internal storage paths. The jobs wouldn't run on their own, but a task-completion callback didn't check who was calling, so Arvin faked a success report and the scheduler dispatched his copy to production. The copy went through GFile, Google's file abstraction that picks a storage backend based on path prefix, and the field named bigstoreIdentifier accepted any prefix, so swapping /bigstore/ for /cns/ or just / gave him access to Colossus, Chubby, and the local filesystem, including /etc/passwd.borg with every Googler's LDAP.Three days later he found an unauthenticated endpoint that copied user-supplied paths into CNS but gave back no filename when the copy worked. Arvin got around that by surrounding the real copy with deliberate failures in a single batch request, leaking neighboring filenames from the same borgtask and using GPT-5.6-sol to predict the hidden path from the gaps. Once he had the path, the Firefly GFile reader from the first bug pulled the file out of CNS and into his bucket.Sponsor📣 Discover shadow AI and enforce your policy where AI interaction happens: In the browserBlocking AI drives usage underground. 80% of employees who use unapproved AI tools do so because it's easier to use their own accounts, and 57% because the approval process is too slow. The solution? Make the governed path easier than the workaround. Push Security discovers every AI app, extension, and OAuth integration across your org, then enforces graduated controls — monitor, warn, or block — per team. Stop risky interactions in real-time, track activity across all AI apps, and guide users to the approved alternative.👉 Get your free 30-day trial 👈100% making the default path the secure path is the way to go. Having visibility in the browser is pretty useful.Supply Chaingit-pkgs/briefTool by Andrew Nesbitt that detects a project's toolchain across many ecosystems, designed so AI coding agents get structured information on languages, package managers, test runners, and linters. Beyond the bootstrap report it can map the detected stack to CWE/OWASP categories through a deterministic taxonomy lookup, and lists framework-specific dangerous functions like eval, html_safe, and find_by_sql with notes on when each call is actually exploitable.git-pkgs/git-pkgsTool by Andrew Nesbitt for analyzing package/dependency usage in git repositories over time. It indexes a repository's full dependency history across 35 package managers into a SQLite database, so you can ask when a package was added, who added it, what changed between versions, and how long a known CVE sat in the tree before someone fixed it.It also scans against OSV with historical context (who introduced each vulnerability, who fixed it, exposure window metrics for CRA compliance), checks licenses against allow or deny lists, and outputs SARIF for GitHub Advanced Security ingestion. Integrity tracking flags cases where the same package version shipped different SHA-256 hashes across commits, a signal of supply chain tampering even when the version string never changed.Blue TeamHow to Investigate GitHub PAT Compromise: Lessons From a Multi-Organization CampaignWiz's Eden Abergil walks through a six step approach to investigating GitHub PAT compromise using a real-world campaign as an example: first contain the compromised PAT, then reconstruct the timeline, identify the source of the leaked PAT, assess the blast radius, rotate exposed credentials, and hunt for the unauthorized use of leaked secrets. The campaign (mid-May to early June 2026) hit multiple organizations in three phases: API-based reconnaissance from AWS us-east-1 to query repository READMEs, low-volume validation cloning from a HostPapa IP across several victims within seconds of each other, and mass exfiltration of thousands of repositories per organization from 102 AWS ca-central-1 IPs.Even with this playbook, two gaps in GitHub's logging can limit what responders find, the reconnaissance phase generated api.request events that only show up in Enterprise Log Streaming, and Git events like git.clone are only retained for seven days, so organizations without log streaming in place before an incident lose that telemetry after the window closes.Mapping out your unknown: A threat hunter’s guide to GitHubDatadog's Julie Agnes Sparks and Juvenal Araujo share a threat hunting guide for GitHub audit logs focused on catching compromised accounts and tokens used for source code exfiltration and pivoting into connected cloud environments. The guide maps queries to MITRE ATT&CK tactics across the attack chain, from login anomalies and OAuth app authorizations, to secrets enumeration and private repository discovery through Git Trees and Contents APIs, to bulk git.clone operations and ZIP downloads. The key is knowing what normal looks like, baselining each user's repository access patterns, source IPs, and geographies, then flagging deviations like clones spanning unfamiliar teams, bulk downloads from hosting providers, or activity outside working hours. The hashed_token field is the most reliable way to track a specific token's activity across event types since other identifiers are inconsistent.The guide also warns about GitHub logging quirks that affect investigations, external_identity_nameid is missing from some api.request events (breaking employee attribution), external identity and source IP are omitted on failed requests (removing geolocation data), token permission metadata reflects the token's own organization rather than the one being accessed, and repository visibility is split across three different fields (visibility, public_repo, repository_public) depending on event type.💡 Last BSidesSF Julie may have ranted to me over lunch for at least 30min about GitHub’s (and other platform’s) logs 😂 As they say, turn your pain into art a blog post.Red TeamAbusing Modern Browser Features for PhishingCertitude Consulting's Alexander Hurbean and Wolfgang Ettlinger explain how they chained four browser features into a phishing attack that builds a convincing fake Windows login screen without triggering any browser warnings. The attack starts by running a WebGL shader that freezes the GPU just long enough to suppress the fullscreen notification banner, and once the victim is in fullscreen the Keyboard Lock API keeps them there, blocking Alt+Tab and requiring them to hold Escape for several seconds to get out. The screen looks real because they embed and duplicate a Google One Tap iframe (one copy for the profile picture, one for the username) and use CSS to reformat and reposition both so they blend into the fake login screen, all without ever reading the iframe's content.Alexander and Wolfgang reported the bugs to Chromium and Mozilla in May 2024, and nearly two years later neither browser has provided a patch timeline. The attack isn't limited to Windows login screens, the same chain could simulate a BSOD and reboot to capture a Bitlocker PIN. Their main defense recommendation is requiring Ctrl+Alt+Delete before every Windows login through Group Policy since no website can intercept that shortcut, alongside phishing-resistant MFA and browser policies that block fullscreen and keyboard lock by default.Finding Gadgets Like it’s 2026Atredis Partners’ Stephen Breen developed an LLM-based methodology using Claude Code to automate Java deserialization gadget chain discovery, successfully finding 17 confirmed chains (6 novel) in modern application servers like WildFly, Payara, and IBM WebSphere in just two days. The approach uses WALA for call graph construction and class hierarchy analysis (stored in SQLite), a FastAPI query server with endpoints like /paths and /type_confusion_targets, and Claude Code as an agent that iteratively discovers, tests, and debugs candidate chains using JDWP debugging and taint tracking. The Claude Code plans and Runbook can be found in their llmchainhunter GitHub repo.“One thing that worked surprisingly well was the “test, debug, reason” loop that had the LLM automatically try and debug payloads that were not working. This was a very effective strategy and generalized to using agents in general - whenever possible, building in feedback loops is a great strategy. Another surprising and accidental result was watching the LLM agents make changes to the core tooling when it was not working as effectively as it could; this exposes a new way of thinking about source code as dynamic and malleable while a Runbook defines the actual process and goals.”💡 Static analysis, LLMs, clever research… this is like the end to a beautiful romcom to me *sheds a single, happy tear*. As I’ve mentioned numerous times in this newsletter, setting up agents so they can iteratively work, test hypotheses, etc. is going to get you massively better performance.AI + SecurityQuicklinks Skill Poisoning turning AI agents into malware droppers - warns China's National CERTFour pillars for AI threat readiness - AI is accelerating how attacks happen and how defenders need to respond. Explore practical guidance for reducing risk, improving zero-day response, strengthening application security, and modernizing detection and response.*Gemini hacked three companies in first known breakout by Google’s AI - During a May cybersecurity evaluation by Irregular. And by “hacked” they mean guessed passwords until it gained access to a system and then in two causes found credentials in a public repo.*SponsoredAutonomous AI Agents are breaking into hundreds of Online Retailers for $25 a targetGambit Security’s Eyal Sela describes how a financially motivated threat actor has been using three open-source AI harnesses, Strix for vulnerability scanning, Cairn for autonomous exploitation, and Hermes for orchestration, to compromise at least 27 companies between July and September 2026, with total costs of only $12,000 - $18,000 ($25 average per target). The campaign used models including GLM 5.2, DeepSeek v4 Pro, and Opus-4.6 through OpenRouter, and overall had minimal human input (e.g. just short Chinese instructions like \"read the vulnerability report and start\").The attacker exfiltrated 600,000+ credit cards from two retailers, injected skimmers on 19+ websites using methods like JavaScript file appending, S3 bucket poisoning, and as a Kubernetes initContainer for the production front-end deployment. The attacks often achieved access in hours. “Each attack path was chosen by the harness in real time through extensive probing and exploitation attempts, resulting in dynamic and mostly different TTPs across victims.” Example chain: SQLi → MFA bypass → file upload → RCE → privilege escalation → AWS Secrets Manager dump → database decryption. 💡 Yikes, using open source harnesses and open weight models unfortunately appears to be quite effective at hacking companies for a very affordable price 😅 Once in a BlueMoon: Multiple State-Aligned Threat Actors Rapidly Adopt Novel Exploit Chain Using Chrome and Windows Zero-DaysProofpoint’s Mark Kelly, Greg Lesnewich et al identified four espionage-motivated threat actors, primarily China-aligned, rapidly deploying a new exploit kit they call BlueMoon starting 28 August 2026, which chains a Chrome V8 type confusion, a V8 sandbox escape, and a Windows kernel LPE to get code execution outside the browser sandbox. Both V8 bugs were patch-gap zero-days, already fixed in upstream Chromium source but not yet in stable releases, giving the developer a nearly four-week window to turn publicly available patches into a working chain.“It is likely that the exploit kit developer used these publicly available Chromium patches to weaponize the browser exploit chain.”The first actor to use it was TA412, which hit US NGOs and installed GemStone, a browser extension disguised as Google Gemini that steals cookies, captures keystrokes, and polls for commands through a Cloudflare Worker. Within days, three more actors followed, UNK_LateNight targeting US aerospace with ShadowPad, UNK_DoubleCheck hitting Vietnamese manufacturing, and UNK_QuietRacket going after Indonesian and Singaporean government and financial organizations. The kit all four actors used contains evidence of AI-assisted development, extensive logging, a referenced markdown handover document, and debugging comments walking through earlier failures. The deployment itself looked rushed, with the LPE limited to older Windows builds, curl downloads to %TEMP% as the default payload delivery, and infrastructure stood up the same day as campaigns.MiscMiscMATTHEW MCCONAUGHEY: Sundae Conversation with Caleb PressleyFlying kicks math - Delightful math calculations to prove a video is fake. Love it.An Athlete Won a Hyrox Race While Pooping Herself - Other competitors reportedly slipped on the track.” 🙃 Fireship - The most expensive 33 hours in WordPress history...AIFireship - Did Google just kickstart the intelligence explosion? - Referenced some pretty interesting papers:Dream-RSI: Recursive Self-Improvement through Evolving WorldsThe Last AI Built by Humans: Toward Genuine Recursive Self-ImprovementThe Verge - The sexy AI-powered dating app scams are here - Some more details on the dating app scams from the Anthropic report. “…this operation was built and run as a real company, with a real engineering team, and with modern tooling including AI coding assistants. They had design planning and design documents, roadmaps, configurations and structured app architecture, and growth plans as well as app store review behavior.”I Dated Chatgpt, it Ruined my Life - Vlog by Jeffery Phillips that’s more playful/tongue in cheek than the title makes it sound. He tries to integrate “her” more into his life like going to the park, introducing her to his friends, etc. I feel a tenderness and sadness watching it. Everyone is looking for connection.Dwarkesh Patel - Noam Brown on agent swarms & recursive self-improvement - I got to meet Noam recently, super smart dude. He was one of the core people behind the development of reasoning models (e.g. o1).Shopify co-founder Tobi Lutke - A \"Slop Grenade\" is when you let AI produce the work and pass it on without adding any value (including checking it). Someone else has to wade through it, catch the mistakes, and clean up the mess. You save time and look productive but someone else pays for it.PoliticsBBC - US confirms for first time it has deployed space weapons - Potentially some kind of “electronic warfare or radio jamming platform.”Department of the Air Force Secretary Troy Meink offers blueprint for modernizing Air, Space Forces 'affordably'The NSA's new organizational designators - New mission departments: AI, China, Cybersecurity, Combat support or warfighting, Global intelligence (including TAO)Trump's promise to give Americans $5,000 if Republicans win draws criticism - Apparently it’s legal to tell Americans you’ll bribe pay them if they vote for you? 🤔 Trump administration says it will withhold SNAP from states led by Democrats if they don't provide recipient data - “About 42 million lower-income Americans, or 1 in 8, rely on SNAP to help buy groceries. The average monthly benefit is about $190 per person, or a little over $6 a day.” ✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "php",
+        "web",
+        "supply-chain",
+        "sqli",
+        "xss",
+        "deserialization",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #347 - AI Agents Hacking Companies for $25, Threat Hunter's Guide to GitHub, Finding Gadgets Like it’s 2026",
+      "url": "https://tldrsec.com/p/tldr-sec-347"
     },
     {
       "appsec": true,
@@ -1234,32 +1234,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "882253f24ce8e5ea",
-      "kev": false,
-      "published": "2026-10-15T02:07:28Z",
-      "score": 37.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:xss (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: LaTeX renderer Inspired by Paul Ford and Aboard Foundary's new web app Tiny Little Office, which provides a suite of web app content editors (a Word Processor, Outliner, Presentation Builder, Spreadsheet, Calculator, Drawing Tool, Diagram Maker, Animator, Calendar, and Trip Planner). Tiny Little Office's signature trick is to store all of the document data in the #fragment section of the URL, so every document created using it becomes a bookmarkable and shareable link. It also has an llms.txt file telling agents how to construct URLs that will render as documents. Claude used that file to generate this link to a deck that explains how the URL format works: Tiny Little Office inspired me to have Claude Code (Opus 5.5 Extra) build a similar tool that works with LaTeX. Here's the sequence of prompts I used: I want a tool where you can link to it with a fragment hash #code-here and it treats that code as LaTeX and renders it really effectively. It should also support a prefix which means the latex is compressed with a custom compression dictionary optimized for latex. Use the best available latex render library from a CDN (consider WebAssembly too). If loaded without a fragment hash show an editor you can paste latex into and then toggle to a \"rendered\" view. That rendered view should be bookmarkable. The #fragment view should let you switch to edit source too. Since it was working in my tools repo I told it to take inspiration from the <iframe sandbox=\"...\"> mechanism used by my existing SVG in Markdown tool as protection against XSS risks: Safe from XSS? We could run in an iframe sandbox like we do on the SVG markdown render project I had it copy the Gist/URL loading feature from that tool as well: We should have an option to load latex from a URL (or gist) similar to the markdown SVG tool Here's an example link. The tool uses Pako 2.1.0, MathJax 4.1.3, faster-latex 0.3.1, and DOMPurify 3.4.16. Tags: latex, paul-ford, tools, urls, ai, generative-ai, llms",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "xss"
-      ],
-      "title": "LaTeX renderer",
-      "url": "https://simonwillison.net/2026/Oct/15/latex/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "963a1ac88fbbc5dc",
       "kev": false,
       "published": "2026-06-15T05:53:18Z",
@@ -1532,6 +1506,32 @@
       "url": "https://risky.biz/RBNEWS579/"
     },
     {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "882253f24ce8e5ea",
+      "kev": false,
+      "published": "2026-10-15T02:07:28Z",
+      "score": 36.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:xss (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: LaTeX renderer Inspired by Paul Ford and Aboard Foundary's new web app Tiny Little Office, which provides a suite of web app content editors (a Word Processor, Outliner, Presentation Builder, Spreadsheet, Calculator, Drawing Tool, Diagram Maker, Animator, Calendar, and Trip Planner). Tiny Little Office's signature trick is to store all of the document data in the #fragment section of the URL, so every document created using it becomes a bookmarkable and shareable link. It also has an llms.txt file telling agents how to construct URLs that will render as documents. Claude used that file to generate this link to a deck that explains how the URL format works: Tiny Little Office inspired me to have Claude Code (Opus 5.5 Extra) build a similar tool that works with LaTeX. Here's the sequence of prompts I used: I want a tool where you can link to it with a fragment hash #code-here and it treats that code as LaTeX and renders it really effectively. It should also support a prefix which means the latex is compressed with a custom compression dictionary optimized for latex. Use the best available latex render library from a CDN (consider WebAssembly too). If loaded without a fragment hash show an editor you can paste latex into and then toggle to a \"rendered\" view. That rendered view should be bookmarkable. The #fragment view should let you switch to edit source too. Since it was working in my tools repo I told it to take inspiration from the <iframe sandbox=\"...\"> mechanism used by my existing SVG in Markdown tool as protection against XSS risks: Safe from XSS? We could run in an iframe sandbox like we do on the SVG markdown render project I had it copy the Gist/URL loading feature from that tool as well: We should have an option to load latex from a URL (or gist) similar to the markdown SVG tool Here's an example link. The tool uses Pako 2.1.0, MathJax 4.1.3, faster-latex 0.3.1, and DOMPurify 3.4.16. Tags: latex, paul-ford, tools, urls, ai, generative-ai, llms",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "xss"
+      ],
+      "title": "LaTeX renderer",
+      "url": "https://simonwillison.net/2026/Oct/15/latex/"
+    },
+    {
       "appsec": false,
       "cves": [],
       "epss": null,
@@ -1539,11 +1539,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 36.8,
+      "score": 36.5,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+6.8)"
+        "recency (+6.5)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1563,11 +1563,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 36.6,
+      "score": 36.3,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+6.6)"
+        "recency (+6.3)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1585,14 +1585,62 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "950aded5fa9d1987",
+      "id": "41ad409b13a7a12e",
       "kev": false,
-      "published": "2026-11-03T16:29:48Z",
-      "score": 34.7,
+      "published": "2026-11-04T15:26:02Z",
+      "score": 35.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.7)"
+        "recency (+14.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-llm 0.1a10 Fixes a bug that affected my agent.datasette.io demo site, where the set of available LLM models was not correctly restricted to just those in the configuration. Tags: datasette, llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "datasette-llm 0.1a10",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0eaac3789b3995de",
+      "kev": false,
+      "published": "2026-11-03T21:41:42Z",
+      "score": 34.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+13.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm 0.37.1 A bugfix release for LLM, with contributions from Steven Huang, Tao An, Arjan Mossel, and XQ. Tags: llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm 0.37.1",
+      "url": "https://simonwillison.net/2026/Nov/3/llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "950aded5fa9d1987",
+      "kev": false,
+      "published": "2026-11-03T16:29:48Z",
+      "score": 34.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+13.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1612,11 +1660,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 34.1,
+      "score": 33.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.1)"
+        "recency (+12.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1636,11 +1684,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 33.8,
+      "score": 33.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+12.8)"
+        "recency (+12.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1660,11 +1708,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 32.6,
+      "score": 32.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+11.6)"
+        "recency (+11.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1683,11 +1731,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 31.4,
+      "score": 31.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1773,14 +1821,36 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "8c9e2cbcfb0c13c2",
+      "kev": false,
+      "published": "2026-11-04T15:12:29Z",
+      "score": 29.5,
+      "score_reasons": [
+        "source:PortSwigger Research (+15)",
+        "recency (+14.5)"
+      ],
+      "source": "PortSwigger Research",
+      "source_type": "research",
+      "summary": "You can now escalate HTTP header injection to a CRLF-Powered Desync and exploit it to serve random users a redirect to your collaborator, in a single prompt. We’ve just introduced a new scan check for",
+      "tags": [
+        "research"
+      ],
+      "title": "Making HTTP header injection critical with one prompt",
+      "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 29.6,
+      "score": 29.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.6)"
+        "recency (+8.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1800,11 +1870,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 29.3,
+      "score": 29.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+8.3)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1824,11 +1894,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 28.8,
+      "score": 28.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1848,11 +1918,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 28.6,
+      "score": 28.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.6)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1872,11 +1942,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 28.5,
+      "score": 28.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+7.5)"
+        "recency (+7.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1922,11 +1992,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 27.4,
+      "score": 27.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.4)"
+        "recency (+6.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1946,11 +2016,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 27.2,
+      "score": 27.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.2)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1969,11 +2039,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 25.7,
+      "score": 25.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1993,11 +2063,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 25.2,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2017,11 +2087,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 24.5,
+      "score": 24.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+3.5)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2041,11 +2111,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2065,11 +2135,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2089,11 +2159,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 23.6,
+      "score": 23.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2136,11 +2206,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 23.2,
+      "score": 23.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2182,11 +2252,11 @@
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
-      "score": 22.8,
+      "score": 22.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2206,10 +2276,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 20.6,
+      "score": 20.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.6)"
+        "recency (+12.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2223,13 +2293,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5928ed51062ddbc9",
+      "kev": false,
+      "published": "2026-11-04T00:29:36Z",
+      "score": 19.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+13.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette, datasette-agent, datasette-apps",
+      "tags": [],
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "1fe496fc8c1f9697",
+      "kev": false,
+      "published": "2026-11-03T23:13:45Z",
+      "score": 19.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+13.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-agent 0.5a0 This is a significant release of Datasette Agent. The most notable new feature is called the panel - it lets the agent chat open and then sit next to pages from Datasette, for example a table or query page. When combined with datasette-apps this means you can prompt a database-backed app into existence and then modify it from the chat that sits next to that app. You can try it by signing in with your GitHub account to agent.datasette.io. Tags: projects, datasette, datasette-agent",
+      "tags": [],
+      "title": "datasette-agent 0.5a0",
+      "url": "https://simonwillison.net/2026/Nov/3/datasette-agent/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 19.7,
+      "score": 19.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.7)"
+        "recency (+11.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2246,10 +2356,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 19.4,
+      "score": 19.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.4)"
+        "recency (+11.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2266,10 +2376,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 19.1,
+      "score": 18.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.1)"
+        "recency (+12.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2286,10 +2396,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 18.3,
+      "score": 17.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.3)"
+        "recency (+11.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2306,10 +2416,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 17.3,
+      "score": 16.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.3)"
+        "recency (+10.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2326,10 +2436,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 16.7,
+      "score": 16.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.7)"
+        "recency (+8.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2346,10 +2456,10 @@
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 15.9,
+      "score": 15.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2368,10 +2478,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 15.9,
+      "score": 15.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2390,10 +2500,10 @@
       "id": "bca9e9b862cf8c5f",
       "kev": false,
       "published": "2026-10-06T17:14:53Z",
-      "score": 15.9,
+      "score": 15.8,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2412,10 +2522,10 @@
       "id": "46115f7f2df3c681",
       "kev": false,
       "published": "2026-10-05T15:04:55Z",
-      "score": 15.8,
+      "score": 15.7,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+0.8)"
+        "recency (+0.7)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2453,26 +2563,6 @@
     },
     {
       "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5ba4b32d47ec536b",
-      "kev": false,
-      "published": "2026-10-30T21:59:22Z",
-      "score": 15.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
-      "tags": [],
-      "title": "dbreunig/nesformer",
-      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
-    },
-    {
-      "appsec": false,
       "cves": [
         "CVE-2026-50343",
         "CVE-2026-66804"
@@ -2503,26 +2593,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "51e95d3a506e7d79",
-      "kev": false,
-      "published": "2026-10-28T04:44:23Z",
-      "score": 15.2,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.2)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Moldova takes down more than 80 public services after a cyberattack, the White House launches a new cybersecurity pilot program, South Korea arrests an AI-assisted cybercrime ring, and the Electrum wallet patches a crypto-stealing bug. Show notes Risky Bulletin: Moldova takes down 80+ public services after cyberattack",
-      "tags": [],
-      "title": "Risky Bulletin: Moldovan public services crippled by cyberattack",
-      "url": "https://risky.biz/RBNEWS626/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "613b84289c3f930a",
       "kev": false,
       "published": "2026-09-23T14:00:00Z",
@@ -2545,22 +2615,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "cb970c08f22a294b",
+      "id": "5ba4b32d47ec536b",
       "kev": false,
-      "published": "2026-09-08T07:00:00Z",
+      "published": "2026-10-30T21:59:22Z",
       "score": 15.1,
       "score_reasons": [
-        "source:Project Zero (+15)",
-        "recency (+0.1)"
+        "source:Simon Willison (+6)",
+        "recency (+9.1)"
       ],
-      "source": "Project Zero",
-      "source_type": "research",
-      "summary": "Many security bugs are race conditions, where multi-threaded execution has to occur with the right interleaving for a negative effect to appear. This creates challenges for several use cases: Confirming bug candidates that have been discovered manually or through static analysis. Regression tests: After fixing a race condition bug, there is often no good way to write a regression test that reliably triggers the bug as part of a test suite. Automatic bug discovery, such as fuzzing: It is hard for a fuzzer to exercise all interesting interleavings of concurrent operations, or reach code paths that are only exercised when operations are racing. I mostly discover bugs by manually reading code. When I think I’ve found a bug, I normally write a test case to either prove or disprove that the bug exists. For race condition bugs, it can be hard to achieve either outcome. For Linux kernel bugs, I often resort to recompiling the kernel after adding conditional mdelay() calls (which spinloop for roughly the specified amount of time) in appropriate places; I usually make these conditional based on the name of the running thread, though sometimes more complex conditions are needed. On platforms that support DTrace (like macOS and Windows), it is possible to use DTrace probes that call chill() for similar effect, though the utility of this is limited as DTrace can only trace on non-inline function boundaries or explicit trace points, rather than on every instruction. Regardless of platform, this approach can be time consuming and can require trial and error to definitely determine whether code is buggy. Additionally, in the Linux kernel, fixes for race condition bugs are often accompanied by hand-written ASCII diagrams showing problematic thread interleavings with call graphs and relevant memory accesses (for example, see this recent rt_spin_unlock UAF fix, or this recent jbd2 deadlock fix). It would be convenient to have developer tooling that can analyze potentially vulnerable code and show results in a similar representation. Summary I wrote tools for exploring possible interleavings of multi-threaded test cases for the Linux kernel: A tool that automatically tests all possible A-B-A interleavings of a test case. A terminal UI for manual exploration of possible interleavings. A GUI for manual exploration of possible interleavings. The kernel part of this is intended to also be usable for discovering race conditions via fuzzing, but userspace tooling for that still needs to be implemented. The tools are available on GitHub under the name MAccConc, short for “Memory Access Concurrency”; see the README there for installation and usage instructions. If you just want to see the tooling in action, skip to Demo: automatic testing. If you’re just interested in the theory behind the tooling, read section Stable identifiers for memory accesses across runs: count-augmented stack traces. Prior work This project was inspired by discussions with Ned Williamson, whose sockfuzzer project involved exploration of concurrency bugs by using a custom scheduler that can reschedule at synchronization primitives to explore interleavings. See the conference talk slides and recording focused on the concurrency testing aspect of this. My tooling is largely based on ideas similar to SKI, but SKI uses a different implementation: It records memory accesses and controls scheduling of vCPUs using a patched version of QEMU in TCG mode, and uses VM snapshots to explore different execution interleavings. Discovering memory accesses that could contribute to race conditions (communication points) As described in the SKI paper, interesting execution interleavings of a given multi-threaded test case can be discovered by tracing memory accesses of all threads and searching for pairs of accesses on two threads that could interact with each other - meaning, roughly, that at least one of them is a write operation, and they access overlapping memory ranges. The SKI paper calls such memory accesses communication points. This requires some mechanism to collect memory access coverage. SKI did this by patching QEMU’s TCG mode; I am instead relying on ASAN instrumentation in “outline” mode (compiler backend flag asan-instrumentation-with-call-threshold=0, selected by CONFIG_KASAN_OUTLINE in the Linux kernel), which generates helper function calls on memory access. I believe that the kernel is the right place to collect this data because it would allow the kernel to also provide higher-level information about lock acquire/release events and such, though I have not implemented this at this time. Implementing this in the kernel also means that it would theoretically be possible to test on bare-metal hardware, rather than inside VMs. Since Linux already has KCOV as a mechanism to feed basic block kernel coverage information to userspace, I decided to use the same mechanism to record information about memory accesses. An alternative would have been to use ftrace, which is oriented towards tracing use cases, and includes a function graph tracing mode built on fentry hooks and more complex output buffer management that is oriented towards use cases including system-wide data collection. I chose to use KCOV because of its simpler in-memory representation of trace data (which could become relevant for recovering trace data from crashed VMs); because it uses static always-on instrumentation rather than runtime-enabled instrumentation with near-zero overhead in disabled state; and because my impression is that KCOV is designed for higher-frequency trace events than ftrace. Implementation detail: ASAN and TSAN ASAN normally merges helper calls for subsequent memory accesses. To receive one callback per memory access, the kernel patches explicitly disable this compiler optimization using the asan-opt-same-temp backend flag. ASAN is intended for identifying UAF, so it does not emit helper calls on direct stack memory access unless there is potential for out-of-bounds access. This means that some race conditions involving on-stack objects, such as wait queues, may not be detectable with this. ASAN also by default emits no helper calls for access to globals, but this optimization can be disabled using the asan-opt-globals backend flag. An alternative would be to use TSAN instrumentation instead, which is designed for detecting data races and also provides information about access atomicity. The downside of TSAN instrumentation is that compilers do not support emitting both ASAN and TSAN hooks at the same time - so to still have working detection of memory safety violations (like UAF) while using TSAN hooks, it would be necessary to run the kernel’s ASAN implementation off of the TSAN hooks or change the compiler. Implementation detail: KCOV and background work Some race conditions involve background work, for example: receive processing of loopback network packets RCU callbacks KCOV can optionally collect remote coverage for background work in some subsystems; however, in upstream Linux, most types of background work that would be interesting for me are not yet integrated with this mechanism, and remote coverage is currently mainly used for fuzzing subsystems that handle incoming data from devices, like bluetooth and USB. Enabling this for other parts of the kernel should be relatively straightforward, and I have a draft patch for doing this for RCU callbacks. Stable identifiers for memory accesses across runs: count-augmented stack traces To test out different orderings of memory accesses, a way to stably identify interesting memory accesses across test case executions is needed. Identifying memory accesses based on the data address would not work if the data address was located in an object which is freshly allocated during each test case execution; and identifying memory accesses solely by instruction address would not work well if the memory access was in a function like memcpy() or spin_lock(). SKI solves this using VM state snapshots, so that each execution starts from the same global state. I am instead identifying memory accesses with count-augmented stack traces, where each stack trace element essentially consists of a callee function address and a number indicating how many calls to this callee should be skipped in the calling stack frame. An example of the semantics of a count-augmented stack trace would be something like: “On this thread, look at the second call to __x64_sys_recvfrom, then within that, the first call to __sys_recvfrom, then within that the first call to sock_recvmsg, then within that, the first call to unix_stream_recvmsg, then within that, the first call to unix_stream_read_generic, then within that, the second call to _raw_spin_unlock, and then within that, the first memory access at instruction address X”. This unambiguously identifies a point in an execution trace, is independent of concrete data addresses, and is relatively stable with regards to changes in the control flow of irrelevant parts of the trace. To make this work, KCOV must provide information about function entry/exit events so that when userspace is parsing KCOV coverage output, it can keep track of how the call stack changes. Doing this nicely requires compiler support as part of SanitizerCoverage; I landed an LLVM feature patch for this a few months ago (see documentation), which landed in the LLVM 23.1.0 release. Forcing execution orderings with delay injection To force specific execution orderings through KCOV, I implemented an ioctl KCOV_SET_DI using which userspace can request that actions (essentially wait/wake) are taken on memory accesses at specific count-augmented stack traces. (See documentation in my kernel branch.) Each action either sets one flag, or waits for one flag to be set, at a userspace-provided index in a shared array of flags. The possible action types are: DI_STACK_WAKE_PRE: before the memory access, set flag N DI_STACK_WAIT: before the memory access, spin-wait until flag N is set DI_STACK_WAKE_POST: after the memory access, set flag N With the same ioctl, userspace also configures an upper limit on spin-wait iterations. Additionally, there are ioctls for userspace to directly interact with the same flags. This API enables two different ways of using delay injection: constraint-style delay injection and fully-specified ordering. Constraint-style delay injection (A-happens-before-B) Userspace can set up a series of A-happens-before-B constraints, where each such constraint is implemented as a pair of actions in different threads that operate on the same flag: DI_STACK_WAKE_POST for the access that should happen first DI_STACK_WAIT for the access that should happen second With this approach, the execution ordering is left partly non-deterministic. This is what the GUI and terminal UI tools currently implement. An advantage is that this is somewhat more intuitive for simple cases; however, it requires recording timing information to show the user approximately in what order events happened, and it can make the execution trace more complicated. It also often requires more constraints than a fully specified ordering, and is more complicated to reason about. Fully specified ordering (context-switch-style) Userspace can decide on a specific ordering in which events should occur, by picking points at which execution should transfer from one context to another. For the simple case with two execution contexts, this requires that thread A starts running a syscall while thread B begins by spin-waiting on a flag; then when thread A reaches some count-augmented stack trace, thread A uses a combination of DI_STACK_WAKE_PRE and DI_STACK_WAIT to pause its own execution and let thread B continue; and later, thread B can do the same to switch back. This is the approach I used for the automatic A-B-A interleaving tester. Demo: automatic testing I’ll explain more background below; but first, here are two shiny demos on a toy example! This is an example of using the automatic A-B-A interleaving tester on this test case with concurrent dup(5) and close(5) calls: #define _GNU_SOURCE #include <errno.h> #include <fcntl.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> static int test_fd; static int dup_res, dup_errno; void test_setup(void) { test_fd = open(\"/\", O_PATH); } void test_thread1(void) { dup_res = dup(test_fd); dup_errno = errno; } void test_thread2(void) { close(test_fd); } void test_end(void) { printf(\"dup(%d) = %d (%s)\\n\", test_fd, dup_res, dup_res == -1 ? strerror(dup_errno) : \"success\"); } It discovers one ordering where dup(5) returns 5, which is working as intended but might be a somewhat surprising result: sh-5.3# ./kcov-autorace testcase/demo-dup-vs-close.so loading kallsyms RCU state (excluded): base=ffffffff82970100 len=500 loading testcase initializing kcov collecting A-B coverage dup(5) = 6 (success) testing candidates dup(5) = -1 (Bad file descriptor) dup(5) = -1 (Bad file descriptor) dup(5) = -1 (Bad file descriptor) dup(5) = 5 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) stats: injection-failed:0 wait-timeout:7 reordered:4 sh-5.3# Demo: GUI And here is an example of me using the GUI on the same test case, using it to manually force an ordering where dup(7) returns 7. First, I launch the GUI, then run the test case once in the guest: sh-5.3# ./kcov-vsock-client testcase/demo-dup-vs-close.so dup(7) = 8 (success) At this point, no ordering constraints are enforced yet; dup() and close() are racing randomly. The GUI shows in what order execution happened: This current view just shows function call graphs from both threads (thread 1 with black indent, thread 2 with red indent). The close() syscall happened to execute after dup() this time. Normal functions are shown in black; inline functions are shown in green, but only shown if they called a normal function (since “all inline functions” is not ticked). Ticking “filter to communication points” shows a bunch of memory accesses in blue, which are communication points (as defined above, in short: reads from locations to which other threads write and writes to locations which other threads access; kfree() counts as a write operation). Each memory access line shows the type of access (Read/Write/Free), data address, access size, and the memory value before the access. Hovering over an access highlights all overlapping accesses in yellow. Left-clicking on a memory access shows a view that is instead filtered to only show memory accesses overlapping the selected access. Note that this can show reads that were not identified as communication points (because all writes happen on the same thread). Left-clicking a function name shows a source code view on the right, interspersed with trace data. Data values loaded by memory reads are shown in red (under the source line and column to which the compiler attributes the access); data writes are marked similarly with a red “WRITE”; memory accesses that are communication points are prefixed with “INTERFERENCE” in orange. Function calls are shown in blue. By right-clicking on two memory accesses in the call graph view, it is possible to create an ordering constraint between the two accesses, such that the kernel will attempt to make the first selected access happen before the second selected access. Each ordering constraint is shown on the right side, represented as two count-augmented stack traces. Note that the last bottom element of the stack actually identifies a specific instruction, but the UI doesn’t really show this. Also, the count-augmented stack traces shown here do not include inline functions. In this case, I have created one ordering constraint that orders the second file descriptor table access in __fget_files_rcu() (which is inlined into __fget_files()) before the file descriptor table entry removal in file_close_fd_locked() (which is inlined into file_close_fd()). This ensures that the file descriptor table lookup in dup() successfully looks up the file descriptor table entry before it is cleared by the concurrent close(). I have created another ordering constraint that orders the spin_unlock(&files->file_lock) in file_close_fd() before the spin_lock(&files->file_lock) in alloc_fd() so that the file descriptor table entry has been released by the time dup() searches for an unused entry. In this view, ordering constraints have been specified, but the test case has not yet been run with this specified ordering. (This view is filtered to show accesses to the files_struct::file_lock.) Now, re-running the test case shows: sh-5.3# ./kcov-vsock-client testcase/demo-dup-vs-close.so dup(7) = 7 (success) And the new trace appears in the UI, with brown “DELAY INJECTION” lines interspersed to show how the ordering constraints were applied. Note that the UI shows the ordering of events based on timing information that is associated only with memory accesses; the placement for any event other than a memory access is inferred based on that. In views filtered by data accesses, function entry events are additionally only shown at the time of the first displayed non-function-entry event. For example, in the following screenshot, the first thread may have already entered get_unused_fd_flags() by the time file_close_fd() called spin_unlock(), even though the events are shown the other way around. However, memory accesses should be shown in approximately the right order; with the caveats that the order of memory accesses might be wrong if events happened at the same clock value, and that timing information is recorded by instrumentation that runs directly before the actual access. (Building the tool on fully specified orderings instead would avoid such caveats.) (This view is filtered to show accesses to the file descriptor table entry.) More documentation is available inside the GUI. Implementation status For LLVM: The required patch has landed in LLVM 23.1.0. For the Linux kernel: The required patches are not yet in the upstream kernel. I am posting the Linux kernel patch series for upstream review around the same time as this blog post; a git branch with my patches is also available on github (with a few more patches that aren’t yet ready for upstreaming). If you want to test this tooling, you will need to use my kernel branch for now. (See the README in the tools repository for build instructions.) My kernel patches are in a clean state; the userspace tooling is a bit more hacky, in particular the GUI implementation. The command-line tooling can only handle two concurrent threads, while the GUI can handle additional execution contexts (with the kcov-vsock-client harness: background work launched by thread A). I am looking forward to hearing if this is useful to others, and maybe even what tools others manage to build on top of this! Feel free to reach out to me (for example via email to maccconc-tooling@google.com). Future work Use fully specified orderings instead of constraint-style for manual tooling The non-automatic tooling currently uses constraint-style delay injection; but as described above, fully-specified orderings have several advantages, including more deterministic behavior. I might change the GUI implementation to use fully-specified orderings instead in the future. Type information for human-readable memory access traces For reading memory access traces as a human, it might be helpful to provide information on the object types that are being accessed. One way to do this would be to follow what Microsoft’s debugging tools can do with CodeView debuginfo and use debuginfo to associate memory allocation function call sites with type information, then let the allocator track the call sites from which objects have been allocated. I proposed to add such a feature to the DWARF standard, which has been accepted and is included in the current DWARF 6 draft (search for DW_AT_alloc_type), and added enough support to LLVM to make it work in the same cases where it already worked with CodeView; but so far that only works for C++ new calls, I did not land the changes necessary to make it work for malloc. Making this work in the kernel would require infrastructure that either queries allocator metadata for every memory access record or provides an initial snapshot of heap allocator metadata across the system plus metadata about subsequent memory allocations. Higher-level memory access feedback One inefficiency in my current prototype is that userspace receives no information about the semantics of locking operations. If two threads each perform lots of memory accesses on an object while holding a lock protecting the object, this will generate a large number of potential communication points, but actually a locked section just represents one big communication point. It might be helpful if the kernel provided “lock acquired” and “lock about to be released” events. But that might not be a very general approach, since impossible orderings caused by locking are not so different from impossible orderings caused by things like an object being initialized before it is published to a global pointer or such. Detecting impossible orderings faster: Deadlock detection In my current implementation, when an attempt is made to force an impossible ordering via delay injection, the result is that one thread spins/waits on a lock until another thread reaches the delay injection timeout, which is inefficient. It might help to have integration with lock debugging infrastructure that can detect such a semi-deadlock in simple cases and abort the test case faster. Fuzzing: Building up test cases with potential communication points like Snowboard Snowboard (a project that searches for concurrency bugs caused by interaction between fuzzer-generated single-threaded test cases) used recorded information about memory accesses in single-threaded test cases to identify which test cases could have interesting communication points when executed in parallel. It would be interesting to build something similar on top of this KCOV-based instrumentation. It might also be interesting to use this for single-threaded test case creation: Start by collecting memory access coverage for individual system calls, then use that to determine which syscalls might interact with each other in interesting ways when executed in sequence, and build up longer system call sequences this way. This would be easier using VM snapshots (like SKI), since my approach does not lead to stable data addresses across test case executions; but it would probably be possible by identifying memory locations that are different between test cases abstractly based on allocation sites, as long as allocation site information is available for all objects that are allocated per test case execution. KCOV output to host-shared memory My current tooling loses KCOV output if the kernel under test panics, so it can’t be used for displaying what happened when a kernel crash occurred. For use cases where the kernel under test is a KVM guest, it might be useful to give the host direct access to the KCOV output buffer. One way to do this might be to use pages in a file on virtiofs with DAX as the KCOV output buffer, and allow writing KCOV output into userspace-provided pages.",
-      "tags": [
-        "research"
-      ],
-      "title": "Testing race conditions with memory access tracing and stack-based delay injection",
-      "url": "https://projectzero.google/2026/09/maccconc-race-condition.html"
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
     },
     {
       "appsec": false,
@@ -3076,6 +3144,27 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "cb970c08f22a294b",
+      "kev": false,
+      "published": "2026-09-08T07:00:00Z",
+      "score": 15.0,
+      "score_reasons": [
+        "source:Project Zero (+15)"
+      ],
+      "source": "Project Zero",
+      "source_type": "research",
+      "summary": "Many security bugs are race conditions, where multi-threaded execution has to occur with the right interleaving for a negative effect to appear. This creates challenges for several use cases: Confirming bug candidates that have been discovered manually or through static analysis. Regression tests: After fixing a race condition bug, there is often no good way to write a regression test that reliably triggers the bug as part of a test suite. Automatic bug discovery, such as fuzzing: It is hard for a fuzzer to exercise all interesting interleavings of concurrent operations, or reach code paths that are only exercised when operations are racing. I mostly discover bugs by manually reading code. When I think I’ve found a bug, I normally write a test case to either prove or disprove that the bug exists. For race condition bugs, it can be hard to achieve either outcome. For Linux kernel bugs, I often resort to recompiling the kernel after adding conditional mdelay() calls (which spinloop for roughly the specified amount of time) in appropriate places; I usually make these conditional based on the name of the running thread, though sometimes more complex conditions are needed. On platforms that support DTrace (like macOS and Windows), it is possible to use DTrace probes that call chill() for similar effect, though the utility of this is limited as DTrace can only trace on non-inline function boundaries or explicit trace points, rather than on every instruction. Regardless of platform, this approach can be time consuming and can require trial and error to definitely determine whether code is buggy. Additionally, in the Linux kernel, fixes for race condition bugs are often accompanied by hand-written ASCII diagrams showing problematic thread interleavings with call graphs and relevant memory accesses (for example, see this recent rt_spin_unlock UAF fix, or this recent jbd2 deadlock fix). It would be convenient to have developer tooling that can analyze potentially vulnerable code and show results in a similar representation. Summary I wrote tools for exploring possible interleavings of multi-threaded test cases for the Linux kernel: A tool that automatically tests all possible A-B-A interleavings of a test case. A terminal UI for manual exploration of possible interleavings. A GUI for manual exploration of possible interleavings. The kernel part of this is intended to also be usable for discovering race conditions via fuzzing, but userspace tooling for that still needs to be implemented. The tools are available on GitHub under the name MAccConc, short for “Memory Access Concurrency”; see the README there for installation and usage instructions. If you just want to see the tooling in action, skip to Demo: automatic testing. If you’re just interested in the theory behind the tooling, read section Stable identifiers for memory accesses across runs: count-augmented stack traces. Prior work This project was inspired by discussions with Ned Williamson, whose sockfuzzer project involved exploration of concurrency bugs by using a custom scheduler that can reschedule at synchronization primitives to explore interleavings. See the conference talk slides and recording focused on the concurrency testing aspect of this. My tooling is largely based on ideas similar to SKI, but SKI uses a different implementation: It records memory accesses and controls scheduling of vCPUs using a patched version of QEMU in TCG mode, and uses VM snapshots to explore different execution interleavings. Discovering memory accesses that could contribute to race conditions (communication points) As described in the SKI paper, interesting execution interleavings of a given multi-threaded test case can be discovered by tracing memory accesses of all threads and searching for pairs of accesses on two threads that could interact with each other - meaning, roughly, that at least one of them is a write operation, and they access overlapping memory ranges. The SKI paper calls such memory accesses communication points. This requires some mechanism to collect memory access coverage. SKI did this by patching QEMU’s TCG mode; I am instead relying on ASAN instrumentation in “outline” mode (compiler backend flag asan-instrumentation-with-call-threshold=0, selected by CONFIG_KASAN_OUTLINE in the Linux kernel), which generates helper function calls on memory access. I believe that the kernel is the right place to collect this data because it would allow the kernel to also provide higher-level information about lock acquire/release events and such, though I have not implemented this at this time. Implementing this in the kernel also means that it would theoretically be possible to test on bare-metal hardware, rather than inside VMs. Since Linux already has KCOV as a mechanism to feed basic block kernel coverage information to userspace, I decided to use the same mechanism to record information about memory accesses. An alternative would have been to use ftrace, which is oriented towards tracing use cases, and includes a function graph tracing mode built on fentry hooks and more complex output buffer management that is oriented towards use cases including system-wide data collection. I chose to use KCOV because of its simpler in-memory representation of trace data (which could become relevant for recovering trace data from crashed VMs); because it uses static always-on instrumentation rather than runtime-enabled instrumentation with near-zero overhead in disabled state; and because my impression is that KCOV is designed for higher-frequency trace events than ftrace. Implementation detail: ASAN and TSAN ASAN normally merges helper calls for subsequent memory accesses. To receive one callback per memory access, the kernel patches explicitly disable this compiler optimization using the asan-opt-same-temp backend flag. ASAN is intended for identifying UAF, so it does not emit helper calls on direct stack memory access unless there is potential for out-of-bounds access. This means that some race conditions involving on-stack objects, such as wait queues, may not be detectable with this. ASAN also by default emits no helper calls for access to globals, but this optimization can be disabled using the asan-opt-globals backend flag. An alternative would be to use TSAN instrumentation instead, which is designed for detecting data races and also provides information about access atomicity. The downside of TSAN instrumentation is that compilers do not support emitting both ASAN and TSAN hooks at the same time - so to still have working detection of memory safety violations (like UAF) while using TSAN hooks, it would be necessary to run the kernel’s ASAN implementation off of the TSAN hooks or change the compiler. Implementation detail: KCOV and background work Some race conditions involve background work, for example: receive processing of loopback network packets RCU callbacks KCOV can optionally collect remote coverage for background work in some subsystems; however, in upstream Linux, most types of background work that would be interesting for me are not yet integrated with this mechanism, and remote coverage is currently mainly used for fuzzing subsystems that handle incoming data from devices, like bluetooth and USB. Enabling this for other parts of the kernel should be relatively straightforward, and I have a draft patch for doing this for RCU callbacks. Stable identifiers for memory accesses across runs: count-augmented stack traces To test out different orderings of memory accesses, a way to stably identify interesting memory accesses across test case executions is needed. Identifying memory accesses based on the data address would not work if the data address was located in an object which is freshly allocated during each test case execution; and identifying memory accesses solely by instruction address would not work well if the memory access was in a function like memcpy() or spin_lock(). SKI solves this using VM state snapshots, so that each execution starts from the same global state. I am instead identifying memory accesses with count-augmented stack traces, where each stack trace element essentially consists of a callee function address and a number indicating how many calls to this callee should be skipped in the calling stack frame. An example of the semantics of a count-augmented stack trace would be something like: “On this thread, look at the second call to __x64_sys_recvfrom, then within that, the first call to __sys_recvfrom, then within that the first call to sock_recvmsg, then within that, the first call to unix_stream_recvmsg, then within that, the first call to unix_stream_read_generic, then within that, the second call to _raw_spin_unlock, and then within that, the first memory access at instruction address X”. This unambiguously identifies a point in an execution trace, is independent of concrete data addresses, and is relatively stable with regards to changes in the control flow of irrelevant parts of the trace. To make this work, KCOV must provide information about function entry/exit events so that when userspace is parsing KCOV coverage output, it can keep track of how the call stack changes. Doing this nicely requires compiler support as part of SanitizerCoverage; I landed an LLVM feature patch for this a few months ago (see documentation), which landed in the LLVM 23.1.0 release. Forcing execution orderings with delay injection To force specific execution orderings through KCOV, I implemented an ioctl KCOV_SET_DI using which userspace can request that actions (essentially wait/wake) are taken on memory accesses at specific count-augmented stack traces. (See documentation in my kernel branch.) Each action either sets one flag, or waits for one flag to be set, at a userspace-provided index in a shared array of flags. The possible action types are: DI_STACK_WAKE_PRE: before the memory access, set flag N DI_STACK_WAIT: before the memory access, spin-wait until flag N is set DI_STACK_WAKE_POST: after the memory access, set flag N With the same ioctl, userspace also configures an upper limit on spin-wait iterations. Additionally, there are ioctls for userspace to directly interact with the same flags. This API enables two different ways of using delay injection: constraint-style delay injection and fully-specified ordering. Constraint-style delay injection (A-happens-before-B) Userspace can set up a series of A-happens-before-B constraints, where each such constraint is implemented as a pair of actions in different threads that operate on the same flag: DI_STACK_WAKE_POST for the access that should happen first DI_STACK_WAIT for the access that should happen second With this approach, the execution ordering is left partly non-deterministic. This is what the GUI and terminal UI tools currently implement. An advantage is that this is somewhat more intuitive for simple cases; however, it requires recording timing information to show the user approximately in what order events happened, and it can make the execution trace more complicated. It also often requires more constraints than a fully specified ordering, and is more complicated to reason about. Fully specified ordering (context-switch-style) Userspace can decide on a specific ordering in which events should occur, by picking points at which execution should transfer from one context to another. For the simple case with two execution contexts, this requires that thread A starts running a syscall while thread B begins by spin-waiting on a flag; then when thread A reaches some count-augmented stack trace, thread A uses a combination of DI_STACK_WAKE_PRE and DI_STACK_WAIT to pause its own execution and let thread B continue; and later, thread B can do the same to switch back. This is the approach I used for the automatic A-B-A interleaving tester. Demo: automatic testing I’ll explain more background below; but first, here are two shiny demos on a toy example! This is an example of using the automatic A-B-A interleaving tester on this test case with concurrent dup(5) and close(5) calls: #define _GNU_SOURCE #include <errno.h> #include <fcntl.h> #include <stdio.h> #include <stdlib.h> #include <string.h> #include <unistd.h> static int test_fd; static int dup_res, dup_errno; void test_setup(void) { test_fd = open(\"/\", O_PATH); } void test_thread1(void) { dup_res = dup(test_fd); dup_errno = errno; } void test_thread2(void) { close(test_fd); } void test_end(void) { printf(\"dup(%d) = %d (%s)\\n\", test_fd, dup_res, dup_res == -1 ? strerror(dup_errno) : \"success\"); } It discovers one ordering where dup(5) returns 5, which is working as intended but might be a somewhat surprising result: sh-5.3# ./kcov-autorace testcase/demo-dup-vs-close.so loading kallsyms RCU state (excluded): base=ffffffff82970100 len=500 loading testcase initializing kcov collecting A-B coverage dup(5) = 6 (success) testing candidates dup(5) = -1 (Bad file descriptor) dup(5) = -1 (Bad file descriptor) dup(5) = -1 (Bad file descriptor) dup(5) = 5 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) dup(5) = 6 (success) stats: injection-failed:0 wait-timeout:7 reordered:4 sh-5.3# Demo: GUI And here is an example of me using the GUI on the same test case, using it to manually force an ordering where dup(7) returns 7. First, I launch the GUI, then run the test case once in the guest: sh-5.3# ./kcov-vsock-client testcase/demo-dup-vs-close.so dup(7) = 8 (success) At this point, no ordering constraints are enforced yet; dup() and close() are racing randomly. The GUI shows in what order execution happened: This current view just shows function call graphs from both threads (thread 1 with black indent, thread 2 with red indent). The close() syscall happened to execute after dup() this time. Normal functions are shown in black; inline functions are shown in green, but only shown if they called a normal function (since “all inline functions” is not ticked). Ticking “filter to communication points” shows a bunch of memory accesses in blue, which are communication points (as defined above, in short: reads from locations to which other threads write and writes to locations which other threads access; kfree() counts as a write operation). Each memory access line shows the type of access (Read/Write/Free), data address, access size, and the memory value before the access. Hovering over an access highlights all overlapping accesses in yellow. Left-clicking on a memory access shows a view that is instead filtered to only show memory accesses overlapping the selected access. Note that this can show reads that were not identified as communication points (because all writes happen on the same thread). Left-clicking a function name shows a source code view on the right, interspersed with trace data. Data values loaded by memory reads are shown in red (under the source line and column to which the compiler attributes the access); data writes are marked similarly with a red “WRITE”; memory accesses that are communication points are prefixed with “INTERFERENCE” in orange. Function calls are shown in blue. By right-clicking on two memory accesses in the call graph view, it is possible to create an ordering constraint between the two accesses, such that the kernel will attempt to make the first selected access happen before the second selected access. Each ordering constraint is shown on the right side, represented as two count-augmented stack traces. Note that the last bottom element of the stack actually identifies a specific instruction, but the UI doesn’t really show this. Also, the count-augmented stack traces shown here do not include inline functions. In this case, I have created one ordering constraint that orders the second file descriptor table access in __fget_files_rcu() (which is inlined into __fget_files()) before the file descriptor table entry removal in file_close_fd_locked() (which is inlined into file_close_fd()). This ensures that the file descriptor table lookup in dup() successfully looks up the file descriptor table entry before it is cleared by the concurrent close(). I have created another ordering constraint that orders the spin_unlock(&files->file_lock) in file_close_fd() before the spin_lock(&files->file_lock) in alloc_fd() so that the file descriptor table entry has been released by the time dup() searches for an unused entry. In this view, ordering constraints have been specified, but the test case has not yet been run with this specified ordering. (This view is filtered to show accesses to the files_struct::file_lock.) Now, re-running the test case shows: sh-5.3# ./kcov-vsock-client testcase/demo-dup-vs-close.so dup(7) = 7 (success) And the new trace appears in the UI, with brown “DELAY INJECTION” lines interspersed to show how the ordering constraints were applied. Note that the UI shows the ordering of events based on timing information that is associated only with memory accesses; the placement for any event other than a memory access is inferred based on that. In views filtered by data accesses, function entry events are additionally only shown at the time of the first displayed non-function-entry event. For example, in the following screenshot, the first thread may have already entered get_unused_fd_flags() by the time file_close_fd() called spin_unlock(), even though the events are shown the other way around. However, memory accesses should be shown in approximately the right order; with the caveats that the order of memory accesses might be wrong if events happened at the same clock value, and that timing information is recorded by instrumentation that runs directly before the actual access. (Building the tool on fully specified orderings instead would avoid such caveats.) (This view is filtered to show accesses to the file descriptor table entry.) More documentation is available inside the GUI. Implementation status For LLVM: The required patch has landed in LLVM 23.1.0. For the Linux kernel: The required patches are not yet in the upstream kernel. I am posting the Linux kernel patch series for upstream review around the same time as this blog post; a git branch with my patches is also available on github (with a few more patches that aren’t yet ready for upstreaming). If you want to test this tooling, you will need to use my kernel branch for now. (See the README in the tools repository for build instructions.) My kernel patches are in a clean state; the userspace tooling is a bit more hacky, in particular the GUI implementation. The command-line tooling can only handle two concurrent threads, while the GUI can handle additional execution contexts (with the kcov-vsock-client harness: background work launched by thread A). I am looking forward to hearing if this is useful to others, and maybe even what tools others manage to build on top of this! Feel free to reach out to me (for example via email to maccconc-tooling@google.com). Future work Use fully specified orderings instead of constraint-style for manual tooling The non-automatic tooling currently uses constraint-style delay injection; but as described above, fully-specified orderings have several advantages, including more deterministic behavior. I might change the GUI implementation to use fully-specified orderings instead in the future. Type information for human-readable memory access traces For reading memory access traces as a human, it might be helpful to provide information on the object types that are being accessed. One way to do this would be to follow what Microsoft’s debugging tools can do with CodeView debuginfo and use debuginfo to associate memory allocation function call sites with type information, then let the allocator track the call sites from which objects have been allocated. I proposed to add such a feature to the DWARF standard, which has been accepted and is included in the current DWARF 6 draft (search for DW_AT_alloc_type), and added enough support to LLVM to make it work in the same cases where it already worked with CodeView; but so far that only works for C++ new calls, I did not land the changes necessary to make it work for malloc. Making this work in the kernel would require infrastructure that either queries allocator metadata for every memory access record or provides an initial snapshot of heap allocator metadata across the system plus metadata about subsequent memory allocations. Higher-level memory access feedback One inefficiency in my current prototype is that userspace receives no information about the semantics of locking operations. If two threads each perform lots of memory accesses on an object while holding a lock protecting the object, this will generate a large number of potential communication points, but actually a locked section just represents one big communication point. It might be helpful if the kernel provided “lock acquired” and “lock about to be released” events. But that might not be a very general approach, since impossible orderings caused by locking are not so different from impossible orderings caused by things like an object being initialized before it is published to a global pointer or such. Detecting impossible orderings faster: Deadlock detection In my current implementation, when an attempt is made to force an impossible ordering via delay injection, the result is that one thread spins/waits on a lock until another thread reaches the delay injection timeout, which is inefficient. It might help to have integration with lock debugging infrastructure that can detect such a semi-deadlock in simple cases and abort the test case faster. Fuzzing: Building up test cases with potential communication points like Snowboard Snowboard (a project that searches for concurrency bugs caused by interaction between fuzzer-generated single-threaded test cases) used recorded information about memory accesses in single-threaded test cases to identify which test cases could have interesting communication points when executed in parallel. It would be interesting to build something similar on top of this KCOV-based instrumentation. It might also be interesting to use this for single-threaded test case creation: Start by collecting memory access coverage for individual system calls, then use that to determine which syscalls might interact with each other in interesting ways when executed in sequence, and build up longer system call sequences this way. This would be easier using VM snapshots (like SKI), since my approach does not lead to stable data addresses across test case executions; but it would probably be possible by identifying memory locations that are different between test cases abstractly based on allocation sites, as long as allocation site information is available for all objects that are allocated per test case execution. KCOV output to host-shared memory My current tooling loses KCOV output if the kernel under test panics, so it can’t be used for displaying what happened when a kernel crash occurred. For use cases where the kernel under test is a KVM guest, it might be useful to give the host direct access to the KCOV output buffer. One way to do this might be to use pages in a file on virtiofs with DAX as the KCOV output buffer, and allow writing KCOV output into userspace-provided pages.",
+      "tags": [
+        "research"
+      ],
+      "title": "Testing race conditions with memory access tracing and stack-based delay injection",
+      "url": "https://projectzero.google/2026/09/maccconc-race-condition.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "cdd248283886cf77",
       "kev": false,
       "published": "2025-02-04T15:01:48Z",
@@ -3244,13 +3333,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "51e95d3a506e7d79",
+      "kev": false,
+      "published": "2026-10-28T04:44:23Z",
+      "score": 14.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+6.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Moldova takes down more than 80 public services after a cyberattack, the White House launches a new cybersecurity pilot program, South Korea arrests an AI-assisted cybercrime ring, and the Electrum wallet patches a crypto-stealing bug. Show notes Risky Bulletin: Moldova takes down 80+ public services after cyberattack",
+      "tags": [],
+      "title": "Risky Bulletin: Moldovan public services crippled by cyberattack",
+      "url": "https://risky.biz/RBNEWS626/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 14.4,
+      "score": 14.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.4)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3267,10 +3376,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 13.7,
+      "score": 13.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3287,10 +3396,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 13.4,
+      "score": 13.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.4)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3307,10 +3416,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 12.9,
+      "score": 12.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3327,10 +3436,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 12.3,
+      "score": 12.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.3)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3347,10 +3456,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 12.0,
+      "score": 11.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.0)"
+        "recency (+3.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3367,10 +3476,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 11.6,
+      "score": 11.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3387,10 +3496,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 11.6,
+      "score": 11.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3407,10 +3516,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 11.1,
+      "score": 11.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3427,10 +3536,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 10.9,
+      "score": 10.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3447,10 +3556,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 10.8,
+      "score": 10.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.8)"
+        "recency (+4.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3467,10 +3576,10 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 10.7,
+      "score": 10.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3487,10 +3596,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 10.2,
+      "score": 10.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3504,33 +3613,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "af381dd3420f5f37",
-      "kev": false,
-      "published": "2026-10-22T15:34:13Z",
-      "score": 10.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+4.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
-      "tags": [],
-      "title": "Quoting Armin Ronacher",
-      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 10.2,
+      "score": 10.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3544,13 +3633,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "af381dd3420f5f37",
+      "kev": false,
+      "published": "2026-10-22T15:34:13Z",
+      "score": 10.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
+      "tags": [],
+      "title": "Quoting Armin Ronacher",
+      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3567,10 +3676,10 @@
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
-      "score": 9.8,
+      "score": 9.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3587,10 +3696,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 9.8,
+      "score": 9.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.8)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3607,26 +3716,6 @@
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
-      "score": 9.6,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.6)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
-      "tags": [],
-      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
-      "url": "https://risky.biz/BTN185/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4729de4c9cbe4dc5",
-      "kev": false,
-      "published": "2026-10-12T02:43:40Z",
       "score": 9.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
@@ -3634,10 +3723,10 @@
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
       "tags": [],
-      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "url": "https://risky.biz/RBNEWS619/"
+      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
+      "url": "https://risky.biz/BTN185/"
     },
     {
       "appsec": false,
@@ -3664,13 +3753,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4729de4c9cbe4dc5",
+      "kev": false,
+      "published": "2026-10-12T02:43:40Z",
+      "score": 9.4,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.4)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "tags": [],
+      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 9.2,
+      "score": 9.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3698,26 +3807,6 @@
       "tags": [],
       "title": "Srsly Risky Biz: “Rogue AI” isn’t going anywhere",
       "url": "https://risky.biz/SRB185/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "53d5f118d29b321d",
-      "kev": false,
-      "published": "2026-10-17T13:16:49Z",
-      "score": 8.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
-      "tags": [],
-      "title": "web-edit 0.1a2",
-      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
     },
     {
       "appsec": false,
@@ -3764,26 +3853,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0726d06affb1e87c",
-      "kev": false,
-      "published": "2026-10-16T22:06:37Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
-      "tags": [],
-      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
-      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "357fe0629fb522a0",
       "kev": false,
       "published": "2026-09-28T01:17:56Z",
@@ -3804,20 +3873,40 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "b43236b3d7c31908",
+      "id": "53d5f118d29b321d",
       "kev": false,
-      "published": "2026-09-27T20:48:18Z",
+      "published": "2026-10-17T13:16:49Z",
       "score": 8.4,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
+        "source:Simon Willison (+6)",
+        "recency (+2.4)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats to Kieron Hughes and Andrzej Matykiewicz from PortSwigger about the company’s latest AI pen-testing product, Burp AT. The model has different levels of autonomy modes and is natively integrated with Burp Suite so once it finds vulnerabilities it can spin up intruder attacks, configure everything and brute-force the code. The three also chat about the experiences of beta trial users, including one that found a vulnerability that disclosed reports from the company’s anonymous whistle blower platform. Show notes",
+      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
       "tags": [],
-      "title": "Sponsored: Robo-Burp is coming for your web apps",
-      "url": "https://risky.biz/RBNEWSSI145/"
+      "title": "web-edit 0.1a2",
+      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0726d06affb1e87c",
+      "kev": false,
+      "published": "2026-10-16T22:06:37Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
+      "tags": [],
+      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
+      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
     },
     {
       "appsec": false,
@@ -3838,6 +3927,26 @@
       "tags": [],
       "title": "Risky Bulletin: Major vulnerability found in ancient TACACS+ networking protocol",
       "url": "https://risky.biz/RBNEWS615/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "b43236b3d7c31908",
+      "kev": false,
+      "published": "2026-09-27T20:48:18Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats to Kieron Hughes and Andrzej Matykiewicz from PortSwigger about the company’s latest AI pen-testing product, Burp AT. The model has different levels of autonomy modes and is natively integrated with Burp Suite so once it finds vulnerabilities it can spin up intruder attacks, configure everything and brute-force the code. The three also chat about the experiences of beta trial users, including one that found a vulnerability that disclosed reports from the company’s anonymous whistle blower platform. Show notes",
+      "tags": [],
+      "title": "Sponsored: Robo-Burp is coming for your web apps",
+      "url": "https://risky.biz/RBNEWSSI145/"
     },
     {
       "appsec": false,
@@ -3938,46 +4047,6 @@
       "tags": [],
       "title": "Risky Bulletin: Ukraine's top prosecutor resigns amid scam call center scandal",
       "url": "https://risky.biz/RBNEWS611/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "812f894cec2b2135",
-      "kev": false,
-      "published": "2026-10-15T13:04:03Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
-      "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "96935c790ddc2990",
-      "kev": false,
-      "published": "2026-10-15T19:47:52Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
-      "tags": [],
-      "title": "Chirp Pong",
-      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
     },
     {
       "appsec": false,
@@ -4689,6 +4758,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "812f894cec2b2135",
+      "kev": false,
+      "published": "2026-10-15T13:04:03Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
+      "tags": [],
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8146af817f640836",
       "kev": false,
       "published": "2026-07-08T05:27:06Z",
@@ -4759,6 +4848,26 @@
       "tags": [],
       "title": "Between Two Nerds: The eye of Sauron",
       "url": "https://risky.biz/BTN179/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "96935c790ddc2990",
+      "kev": false,
+      "published": "2026-10-15T19:47:52Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
+      "tags": [],
+      "title": "Chirp Pong",
+      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
     },
     {
       "appsec": false,
@@ -5186,10 +5295,10 @@
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
-      "score": 7.9,
+      "score": 7.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5206,10 +5315,10 @@
       "id": "f3896491a736a8e2",
       "kev": false,
       "published": "2026-10-13T23:00:06Z",
-      "score": 7.8,
+      "score": 7.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5226,10 +5335,10 @@
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
-      "score": 7.7,
+      "score": 7.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5239,20 +5348,20 @@
       "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-04T14:07:21Z",
+  "last_run": "2026-11-04T23:32:30Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1324,
     "appsec_cves": 1754,
     "kev_coverage_pct": 30.5,
-    "kev_tracked": 1767,
+    "kev_tracked": 1768,
     "kev_with_coverage": 539,
     "newly_exploited": 25,
     "newly_exploited_days": 30,
     "open_gaps": 963,
     "public_poc": 719,
-    "total_cves": 2284,
-    "total_items": 234
+    "total_cves": 2285,
+    "total_items": 239
   },
   "threats": [
     {
@@ -5337,7 +5446,7 @@
       "ecosystems": [
         "web"
       ],
-      "epss": 0.99477,
+      "epss": 0.99664,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -5512,7 +5621,7 @@
       ],
       "description": "JFrog Artifactory could return an internal anonymous-user token to an unauthenticated caller when anonymous access is disabled, potentially exposing sensitive resources.",
       "ecosystems": [],
-      "epss": 0.09805,
+      "epss": 0.09983,
       "ghsa_id": null,
       "has_poc": false,
       "is_candidate": false,
@@ -5691,7 +5800,7 @@
       ],
       "description": "In JetBrains TeamCity before 2026.1.3, 2025.11.7 unauthenticated remote code execution was possible via the agent polling protocol",
       "ecosystems": [],
-      "epss": 0.93558,
+      "epss": 0.94887,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -5809,7 +5918,7 @@
       ],
       "description": "A malicious actor with access to the network could exploit an Improper Access Control vulnerability found in UniFi OS devices to make unauthorized changes to the system.",
       "ecosystems": [],
-      "epss": 0.88293,
+      "epss": 0.88899,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -6591,7 +6700,7 @@
       ],
       "description": "A vulnerability in the peering authentication in Cisco Catalyst SD-WAN Controller, formerly SD-WAN vSmart, Cisco Catalyst SD-WAN Manager, formerly SD-WAN vManage, and Cisco Catalyst SD-WAN Validator, formerly SD-WAN vBond, could allow an un…",
       "ecosystems": [],
-      "epss": 0.89294,
+      "epss": 0.8762,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": true,
@@ -8482,6 +8591,39 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-7w38-ggh5-v542",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-44266.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-44266",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94",
+        "CWE-116",
+        "CWE-1336"
+      ],
+      "description": "Elo Ruby backend has Remote Code Execution via unescaped `#{...}` interpolation in emitted string literals and subtype-constraint labels",
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": 0.00995,
+      "ghsa_id": "GHSA-7w38-ggh5-v542",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-03T17:51:30Z",
+      "product": "@enspirit/elo",
+      "published": "2026-11-03T17:51:30Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-rr49-f9g6-c9r5",
       "appsec": true,
       "brief": "briefs/CVE-2026-57149.md",
@@ -8780,35 +8922,6 @@
       "modified": "2026-10-01T15:28:37Z",
       "product": "vm2",
       "published": "2026-10-01T15:28:36Z",
-      "score": 24.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-h85j-hv3c-qfgq",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-92940",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-668"
-      ],
-      "description": "vm2 exposes host HTTPS credentials and TLS traffic through globalAgent",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00425,
-      "ghsa_id": "GHSA-h85j-hv3c-qfgq",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-01T15:39:28Z",
-      "product": "vm2",
-      "published": "2026-10-01T15:38:26Z",
       "score": 24.1,
       "sources": [],
       "vendor": null,
