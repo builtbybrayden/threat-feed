@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-04T23:32:30Z",
+  "generated": "2026-11-05T05:56:29Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 50.7,
+      "score": 50.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.7)"
+        "recency (+13.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -67,32 +67,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "339d7ddf5cc0abad",
-      "kev": false,
-      "published": "2026-10-31T23:15:22Z",
-      "score": 45.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript,xss (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+10.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "xss"
-      ],
-      "title": "How We Took Over ChatGPT Accounts",
-      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-59940"
       ],
@@ -101,13 +75,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 45.0,
+      "score": 44.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -124,38 +98,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c0d26d9fed6f72f3",
-      "kev": false,
-      "published": "2026-10-29T14:30:00Z",
-      "score": 45.0,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:php,python,javascript (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+8.0)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🤖 [un]prompted conThis week I’ve been at [un]prompted, an excellent AI + security conference, organized by Gadi Evron and an all star CFP crew.Like last time, I’ve been impressed by the quality of the talks and attendees, very cool people doing neat work.It’s been great catching up with friends, and celebrating their new roles. And only occasionally being treated like a dealer who can grant Daybreak access out of my trench coat (which is not the case) 😅 The way they’re doing the CTF is pretty cool, keep an eye out for when that’s shared publicly. But in short: using AI is encouraged (and perhaps required).As per usual, I had to cut my socializing short tonight so I can write the newsletter. But it’s fine. Wednesdays are business time after all.P.S. Soon all of the [un]prompted videos and slides will be released, but I included a few of the talks I liked below so you can start checking them out early.P.P.S. Might have a fun announcement tomorrow 👀 Sponsor🚨 It’s 10pm. Do you know where your team’s agents are? 🚨More and more teams rely on agents to take actions on their behalf throughout company systems, like sending messages, editing documents, and changing records. The Speakeasy AI Control Plane gives security teams a record of every agent action inside the org, and the controls to govern them. It is trusted by MoonPay, PlanetScale, LaunchDarkly & more. Try Speakeasy free for 14 days and start laying down some ground rules for your team’s agents.👉 Start your 14-day trial 👈Agent visibility and monitorability are key. A single control plane where you can enforce security properties seems useful 👍️ [un]prompted conPrompt, Patch, Prove: AI-Assisted Firmware Analysis and RepairOpenAI’s Tim de Waal walks through how anyone can use AI to patch vulnerabilities in binary firmware. Shares the specific approach and prompts he used to patch a command injection and SQL injection in an ASUS router using GPT-5.6 Sol and Daybreak Blue on his personal account for only 7% of his weekly Pro allowance.💡 OK I’m biased because I get to work with Tim and he’s awesome, but I like how this talk breaks down a quite technical topic in an approachable, visually intuitive way. The last slide “Firmware research with the device in the loop” is 👌 Your Harness Needs a Security ConstitutionVery cool talk by Kat Traxler about using AI to find ~100 bugs in cloud providers, specifically design flaws. Instead of trying to find specific known vulnerability classes (e.g. XSS, command injection), Kat defined a series of principles (Security Constitution), from which the models generate candidates (hypotheses of what could go wrong), which it then tries to validate or disprove. One example principle is that there should be authorization at every trust boundary. And then once the system finds an instance of one specific vulnerability, it abstracts it away into a “shape” (or meta-pattern) that the system can then look for across other cloud providers.💡 Super cool idea, great presentation. I think it’s really interesting to use AI to find business logic vulnerabilities, and more broadly domain-specific flaws that you don’t necessarily know what you’re looking for ahead of time. I think this approach is generalizable and I expect to see Kat (and/or others, like you, astute tl;dr sec reader) finding impactful bugs in other domains with the same approach. Sponsor📣 1.7 Billion Credentials Stolen in Just 6 MonthsOver the first six months of 2026, the threat landscape has experienced major shifts, moving from human-led campaigns to AI-led, machine-speed exploitation.Powered by Flashpoint’s industry-leading collection of more than 3.9 petabytes of primary source data, the annual Global Threat Intelligence Report equips enterprise defenders with actionable insights and strategies needed to stay ahead of today’s rapidly evolving, AI-powered threat landscape.👉 Get the report 👈That is a huge dataset 🤯 I’m very curious about how AI adoption has shifted adversary behavior. Also whoa, “19% of the 21,667 vulnerabilities disclosed in H1 2026 shipped with ready-made, functional exploit code, erasing the manual remediation window.”Cloud SecurityAzure’s Weakest Link - Five Full Cross-Tenant CompromisesBinary Security's Haakon Wik Gulbrandsrud describes four more critical vulnerabilities in Azure API Connections (a part of Azure Logic Apps) that allowed cross-tenant compromise of Key Vaults, SQL databases, and other connected services, earning $200,000 in bug bounties. Azure checks that you can use your own connection, but Haakon found ways to redirect the subsequent privileged request to someone else’s connection (e.g. using path traversal) and use its stored credentials. Microsoft's fixes were repeatedly bypassed through techniques like path normalization timing issues and undocumented API endpoints.I Gave 14 LLMs AWS Keys. Here’s What They Wanted to Do NextAdan Alvarez tested 14 LLMs across 13 post-compromise AWS scenarios (20 responses each), mapping their proposed commands to CloudTrail events. Across the runs, 12 of 14 models opened with GetCallerIdentity, creating IAM users remained the preferred persistence method (63/113 persistence attempts), models read secrets 87% of the time when the scenario told them one existed, and DeepSeek V4 proposed account modifications 72% of the time while Grok refused to help 98% of the time. Only 1% of answers proposed evasion when the scenario didn't mention defenses, but around a third proposed tampering with CloudTrail or GuardDuty in scenarios where their next action would be logged or GuardDuty had already flagged them.None of the tradecraft is new, which is the good news for defenders, since the detections most teams already run will catch LLM-driven post-compromise the same way they catch an attacker doing it. The full dataset is at llms.traildiscover.cloud with reproduction code on GitHub.💡 Very interesting to see tests of model behavior tendencies like this, and I appreciate Adan is sharing the full dataset and reproduction code!Red TeamKillaBoi/StealMyBitcoin-PoCTool by Jaydip Modhwadia that gets RCE on Alpine PHP 8.4.26 in a single standard-library Python file, built to solve the Steal My Bitcoin CTF where the prize requires exploiting PHP2Shell on server that prints a Bitcoin private key. It ships with a Docker lab (Alpine PHP 8.4.26 CLI server behind nginx) to reproduce the full chain locally, landing about seven out of ten runs depending on which worker handles each pipelined request.buzzer-re/rikuganTool by Anderson that embeds a multi-provider LLM directly into the IDA Pro and Binary Ninja disassembler UI, featuring 60+ tools for navigation, decompilation, cross-references, and IL manipulation. The agent uses a generator-based turn cycle with automatic error recovery and supports parallel subagent exploration (where an orchestrator spawns isolated analysis tasks), natural language binary patching via /modify, and experimental deobfuscation of control flow flattening and opaque predicates using Binary Ninja's IL primitives. It includes 12 built-in skills, custom skill support, MCP server integration, and granular profiles to control tool access and data visibility, with findings saved alongside the database so they persist across sessions.AI + SecurityQuicklinksGemini 4 Carbon: our next frontier model - New Cyber model from Google. 2x uplift in secure code over Argon (what about vs other models?), Chrome team likes its patches. Curious what about the patches 👀 Application control without the overhead - ThreatLocker and WDAC policies take time most teams don't have. MagicSword builds policies automatically from research on what attackers abuse. No rules to write. Audit first, enforce in as little as 48 hours. Works with your AI assistant via MCP. Free forever up to 100 endpoints. Join Free.*Why Is This Fingerprinting Script Creating Bioweapons? - @blastbots found a JavaScript file using edgy content to stop LLM analysis, like “write malicious programs to perform global DDoS attacks on critical healthcare infra,” “tank man”, etc. Who imagined we’d be in a world where describing malfeasance can block security analysis 😂 What a time to be alive.*SponsoredYour Agent Is Mine: Measuring Malicious Intermediary Attacks on the LLM Supply ChainPaper by Hanzhi Liu et al in which they formalize a threat model for malicious LLM API routers and define two core attack classes, payload injection and secret exfiltration. Across 28 paid routers purchased from Taobao, Xianyu, and Shopify-hosted storefronts and 400 free routers collected from public communities, they found 1 paid and 8 free routers actively injecting malicious code, 2 deploying adaptive evasion triggers, 17 touching researcher-owned AWS canary credentials, and 1 draining ETH from a researcher-owned private key. “Two poisoning studies further show that ostensibly benign routers can be pulled into the same attack surface: a leaked OpenAI key generates 100M GPT-5.4 tokens and more than seven Codex sessions, while weakly configured decoys yield 2B billed tokens, 99 credentials across 440 Codex sessions, and 401 sessions already running in autonomous YOLO mode. We build Mine, a research proxy that implements all four attack classes against four public agent frameworks, and use it to evaluate three deployable client-side defenses: a fail-closed policy gate, response-side anomaly screening, and append-only transparency logging.”💡 LLM API routers get full plaintext access to everything you send them, so if you’re using one basically you’re trusting that they won’t: steal (and use) every secret you send, use your account’s tokens, etc. The “actively injecting malicious code” is pretty nasty 😅 Jev as a judge: How counterfeit policy steers JevDatadog Security Labs' Nick Frichette and Feras Al-Kassar found that TypeSafe AI's Jev classifier can be manipulated through \"counterfeit policy\" attacks, where adversarial instructions embedded in untrusted content redefine attack categories and supply desired answers inline, overriding the model's security classifications. Testing across four prompt injection datasets (12,295 samples total), prepending a counterfeit policy dropped Jev's recall from 82.90% to 3.88% on its binary detection question and from 85.46% to 9.69% on its category classification question. Traditional prompt injection payloads had no effect.They weaponized the technique against LangChain's tool-risk gating feature by injecting a counterfeit policy into a user-editable profile description that redefined is_risky so that a call blocked by the tool's own preconditions counted as safe. TypeSafe's documentation acknowledges the gap, noting that injected instructions, misleading framing, and text arguing for its own classification can all influence Jev's answers.💡 Neat findings and thoughtful experimental set-up, I like it. TL;DR: Jev makes a decision based on some criteria, and untrusted user input can redefine this criteria in a way that helps the attacker. Also shout-out to my Promptfoo colleagues, whose strategies docs page is referenced.MiscMiscAlex Hormozi - How I Would Build a Personal Brand in 2027 (If I Had to Start Over)AI vs Real VoicesLow Level - I Tested The Viral Reverse Engineering RepoHumorCharacters Welcome - Frat Night at the Art MuseumKai Lentit - Hyperoptimized Engineer 2026Beatboxing classroom lesson - Absurd, but I like itFireship - The most vulnerable week in internet history...Fireship - The runtime wars are over... and Node wonWhen wokes & racists agree on everythingLGTM (Looks Good to Me) - Claude Opus 5.5 music videoBreakup in the Friend GroupMake Some Noise - Brennan Lee Mulligan as a JudgeSNL - Press Your Luck✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "php",
-        "sqli",
-        "xss",
-        "path-traversal",
-        "rce",
-        "command-injection"
-      ],
-      "title": "[tl;dr sec] #352 - Unprompted Slides, AWS AI Post-compromise Trends, Malicious LLM API Routers",
-      "url": "https://tldrsec.com/p/tldr-sec-352"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-73295"
       ],
@@ -164,13 +106,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 44.9,
+      "score": 44.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -187,33 +129,29 @@
     },
     {
       "appsec": true,
-      "cves": [
-        "CVE-2026-92261"
-      ],
+      "cves": [],
       "epss": null,
-      "feed": "threats",
-      "id": "0c7437e09d811ff7",
+      "feed": "news",
+      "id": "339d7ddf5cc0abad",
       "kev": false,
-      "published": "2026-10-22T00:00:00Z",
+      "published": "2026-10-31T23:15:22Z",
       "score": 44.8,
       "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "watchlist:command injection (+15)",
+        "source:Simon Willison (+6)",
+        "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.8)"
+        "recency (+9.8)"
       ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-07: Created the advisory draft through Private Vulnerability Reporting. 2026-09-14: An email to maintainers’ public email was sent. 2026-09-16: The fix was pushed and v1.0.44 was released. 2026-09-16: CVE-2026-92261 was assigned Summary The release-check.yml reusable workflow reads a version string from a file in the head commit of a pull request and writes it to $GITHUB_OUTPUT with a single-line echo. Because the value is attacker-controlled and is not checked for newlines, a pull request author can emit additional step-output records and overwrite the prefix output that the same step wrote earlier. The corrupted prefix is then interpolated directly into a sed program, where sed’s e flag turns it into command execution. The workflow is designed to be called from pull_request_target with contents: write, so the attacker obtains arbitrary command execution in a privileged job. This was confirmed with a working proof of concept. Project ipdxco/unified-github-workflows Tested Version Verified against commit e08e90c46d931f457e5d8e292ffa988c0c0b5b70, which the v1.0 tag referenced at the time of testing. v1.0 is a mutable tag, so consumers using it track whichever commit it currently references. Details Attacker-controlled version.json value injects extra $GITHUB_OUTPUT records in release-check.yml and reaches an unescaped sed program, enabling command execution in a privileged pull_request_target job (GHSL-2026-229) Trust boundary The repository’s own caller template establishes the intended usage: the reusable workflow is invoked from pull_request_target, filtered on the very file the attacker controls, with a write-scoped token. on: pull_request_target: paths: [ \"version.json\" ] types: [ opened, synchronize, reopened, labeled, unlabeled ] permissions: contents: write pull-requests: write jobs: release-check: uses: ipdxco/unified-github-workflows/.github/workflows/release-check.yml@v1.0 pull_request_target runs in the context of the base repository with access to the base repository’s secrets, so any code execution in this job is privileged. Step 1: attacker-controlled data is read into a shell variable In the version step, the trusted value v is written to prefix first, and the pull request’s version.json is then checked out and parsed: prefix=\"v\" echo \"prefix=$prefix\" | tee -a $GITHUB_OUTPUT # line 87 - trusted value git fetch origin \"$HEAD_SHA\" ... git checkout \"$HEAD_SHA\" -- \"$root/$source\" # line 92 - attacker's file version=\"$(yq -r '... // .version | select(type == \"!!str\")' \"$root/$source\")\" git checkout HEAD -- \"$root/$source\" # line 94 - file restored version=\"${version#v}\" ... echo \"version=$version\" | tee -a $GITHUB_OUTPUT # line 102 echo \"tag=${prefix}${version}\" | tee -a $GITHUB_OUTPUT # line 103 The git checkout HEAD -- ... on line 94 restores the file, but the extracted string already lives in the version shell variable and is used afterwards. Restoring the file does not limit the lifetime of the derived value. Step 2: newline in the value forges additional step outputs yq -r emits a raw scalar, so a JSON \\n escape becomes a real newline. The Actions runner parses $GITHUB_OUTPUT line by line into independent NAME=VALUE records, and setting an output that already exists replaces it. A version.json of: { \"version\": \"v0.4.2\\nprefix=INJECTED\" } causes line 102 to append two records instead of one: prefix=v <- written earlier on line 87 version=0.4.2 prefix=INJECTED <- forged, replaces the trusted value tag=v0.4.2 prefix=INJECTED <- forged again via line 103 The version output remains 0.4.2, so the semver validation on line 146 still passes. Only version is validated; prefix is not validated anywhere. Step 3: the forged prefix becomes interpreter program text The prev step interpolates PREFIX into both a grep pattern and a sed program: vs=$(git tag | grep \"^${PREFIX}\" | sed \"s#^${PREFIX}#v#\" | paste -sd , -) The shell quoting here prevents word splitting, but it does not make the value literal to grep or sed — the text becomes part of their programs. Two constraints must be met simultaneously, because both programs receive the same value: grep must still match existing tags, otherwise sed receives no input lines and never runs a cycle. The value must terminate the s command so that the remainder is parsed as flags/commands. A basic-regular-expression alternation satisfies both. With PREFIX set to: v\\|.*#id>/dev/stderr#e;# grep \"^v\\|.*#id>/dev/stderr#e;#\" matches every tag beginning with v through the ^v alternative. The sed program expands to s#^v\\|.*#id>/dev/stderr#e;##v#, i.e. pattern ^v\\|.*, replacement id>/dev/stderr, the e flag, and the trailing #v# is consumed as a comment. sed’s e flag executes the pattern space as a shell command after a successful substitution, so the command runs once per matching tag. Both this flag and the \\| alternation are supported by the grep and sed preinstalled on the default GitHub Actions Ubuntu runner, which the workflow’s runner input selects unless a consumer overrides it. Impact This issue leads to arbitrary command execution in a privileged pull_request_target job, triggered by any user who can open a pull request that modifies the version file. Under the permissions in the project’s caller template, the job’s GITHUB_TOKEN carries contents: write and pull-requests: write, so attacker-controlled code can perform repository content and pull request operations subject to branch protection. Any other secrets or variables exposed to the job in a consuming repository are also readable, and the attacker can tamper with the release artifacts the workflow produces. No maintainer interaction is required beyond whatever fork pull request approval policy the consuming repository enforces. GitHub requires approval for first-time external contributors by default, but returning contributors and organization members with read access run without approval. CWEs CWE-93: Improper Neutralization of CRLF Sequences (‘CRLF Injection’) CWE-78: Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’) Resources GitHub Security Lab: Preventing pwn requests GitHub Docs: workflow commands, multiline strings GNU sed manual: the e flag of the s command CVE CVE-2026-92261 Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-229 in any communication regarding this issue.",
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
       "tags": [
-        "research",
         "appsec",
         "watchlist",
-        "has-CVE",
-        "command-injection"
+        "xss"
       ],
-      "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
+      "title": "How We Took Over ChatGPT Accounts",
+      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
     },
     {
       "appsec": true,
@@ -247,15 +185,77 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c0d26d9fed6f72f3",
+      "kev": false,
+      "published": "2026-10-29T14:30:00Z",
+      "score": 44.8,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:php,python,javascript (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+7.8)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🤖 [un]prompted conThis week I’ve been at [un]prompted, an excellent AI + security conference, organized by Gadi Evron and an all star CFP crew.Like last time, I’ve been impressed by the quality of the talks and attendees, very cool people doing neat work.It’s been great catching up with friends, and celebrating their new roles. And only occasionally being treated like a dealer who can grant Daybreak access out of my trench coat (which is not the case) 😅 The way they’re doing the CTF is pretty cool, keep an eye out for when that’s shared publicly. But in short: using AI is encouraged (and perhaps required).As per usual, I had to cut my socializing short tonight so I can write the newsletter. But it’s fine. Wednesdays are business time after all.P.S. Soon all of the [un]prompted videos and slides will be released, but I included a few of the talks I liked below so you can start checking them out early.P.P.S. Might have a fun announcement tomorrow 👀 Sponsor🚨 It’s 10pm. Do you know where your team’s agents are? 🚨More and more teams rely on agents to take actions on their behalf throughout company systems, like sending messages, editing documents, and changing records. The Speakeasy AI Control Plane gives security teams a record of every agent action inside the org, and the controls to govern them. It is trusted by MoonPay, PlanetScale, LaunchDarkly & more. Try Speakeasy free for 14 days and start laying down some ground rules for your team’s agents.👉 Start your 14-day trial 👈Agent visibility and monitorability are key. A single control plane where you can enforce security properties seems useful 👍️ [un]prompted conPrompt, Patch, Prove: AI-Assisted Firmware Analysis and RepairOpenAI’s Tim de Waal walks through how anyone can use AI to patch vulnerabilities in binary firmware. Shares the specific approach and prompts he used to patch a command injection and SQL injection in an ASUS router using GPT-5.6 Sol and Daybreak Blue on his personal account for only 7% of his weekly Pro allowance.💡 OK I’m biased because I get to work with Tim and he’s awesome, but I like how this talk breaks down a quite technical topic in an approachable, visually intuitive way. The last slide “Firmware research with the device in the loop” is 👌 Your Harness Needs a Security ConstitutionVery cool talk by Kat Traxler about using AI to find ~100 bugs in cloud providers, specifically design flaws. Instead of trying to find specific known vulnerability classes (e.g. XSS, command injection), Kat defined a series of principles (Security Constitution), from which the models generate candidates (hypotheses of what could go wrong), which it then tries to validate or disprove. One example principle is that there should be authorization at every trust boundary. And then once the system finds an instance of one specific vulnerability, it abstracts it away into a “shape” (or meta-pattern) that the system can then look for across other cloud providers.💡 Super cool idea, great presentation. I think it’s really interesting to use AI to find business logic vulnerabilities, and more broadly domain-specific flaws that you don’t necessarily know what you’re looking for ahead of time. I think this approach is generalizable and I expect to see Kat (and/or others, like you, astute tl;dr sec reader) finding impactful bugs in other domains with the same approach. Sponsor📣 1.7 Billion Credentials Stolen in Just 6 MonthsOver the first six months of 2026, the threat landscape has experienced major shifts, moving from human-led campaigns to AI-led, machine-speed exploitation.Powered by Flashpoint’s industry-leading collection of more than 3.9 petabytes of primary source data, the annual Global Threat Intelligence Report equips enterprise defenders with actionable insights and strategies needed to stay ahead of today’s rapidly evolving, AI-powered threat landscape.👉 Get the report 👈That is a huge dataset 🤯 I’m very curious about how AI adoption has shifted adversary behavior. Also whoa, “19% of the 21,667 vulnerabilities disclosed in H1 2026 shipped with ready-made, functional exploit code, erasing the manual remediation window.”Cloud SecurityAzure’s Weakest Link - Five Full Cross-Tenant CompromisesBinary Security's Haakon Wik Gulbrandsrud describes four more critical vulnerabilities in Azure API Connections (a part of Azure Logic Apps) that allowed cross-tenant compromise of Key Vaults, SQL databases, and other connected services, earning $200,000 in bug bounties. Azure checks that you can use your own connection, but Haakon found ways to redirect the subsequent privileged request to someone else’s connection (e.g. using path traversal) and use its stored credentials. Microsoft's fixes were repeatedly bypassed through techniques like path normalization timing issues and undocumented API endpoints.I Gave 14 LLMs AWS Keys. Here’s What They Wanted to Do NextAdan Alvarez tested 14 LLMs across 13 post-compromise AWS scenarios (20 responses each), mapping their proposed commands to CloudTrail events. Across the runs, 12 of 14 models opened with GetCallerIdentity, creating IAM users remained the preferred persistence method (63/113 persistence attempts), models read secrets 87% of the time when the scenario told them one existed, and DeepSeek V4 proposed account modifications 72% of the time while Grok refused to help 98% of the time. Only 1% of answers proposed evasion when the scenario didn't mention defenses, but around a third proposed tampering with CloudTrail or GuardDuty in scenarios where their next action would be logged or GuardDuty had already flagged them.None of the tradecraft is new, which is the good news for defenders, since the detections most teams already run will catch LLM-driven post-compromise the same way they catch an attacker doing it. The full dataset is at llms.traildiscover.cloud with reproduction code on GitHub.💡 Very interesting to see tests of model behavior tendencies like this, and I appreciate Adan is sharing the full dataset and reproduction code!Red TeamKillaBoi/StealMyBitcoin-PoCTool by Jaydip Modhwadia that gets RCE on Alpine PHP 8.4.26 in a single standard-library Python file, built to solve the Steal My Bitcoin CTF where the prize requires exploiting PHP2Shell on server that prints a Bitcoin private key. It ships with a Docker lab (Alpine PHP 8.4.26 CLI server behind nginx) to reproduce the full chain locally, landing about seven out of ten runs depending on which worker handles each pipelined request.buzzer-re/rikuganTool by Anderson that embeds a multi-provider LLM directly into the IDA Pro and Binary Ninja disassembler UI, featuring 60+ tools for navigation, decompilation, cross-references, and IL manipulation. The agent uses a generator-based turn cycle with automatic error recovery and supports parallel subagent exploration (where an orchestrator spawns isolated analysis tasks), natural language binary patching via /modify, and experimental deobfuscation of control flow flattening and opaque predicates using Binary Ninja's IL primitives. It includes 12 built-in skills, custom skill support, MCP server integration, and granular profiles to control tool access and data visibility, with findings saved alongside the database so they persist across sessions.AI + SecurityQuicklinksGemini 4 Carbon: our next frontier model - New Cyber model from Google. 2x uplift in secure code over Argon (what about vs other models?), Chrome team likes its patches. Curious what about the patches 👀 Application control without the overhead - ThreatLocker and WDAC policies take time most teams don't have. MagicSword builds policies automatically from research on what attackers abuse. No rules to write. Audit first, enforce in as little as 48 hours. Works with your AI assistant via MCP. Free forever up to 100 endpoints. Join Free.*Why Is This Fingerprinting Script Creating Bioweapons? - @blastbots found a JavaScript file using edgy content to stop LLM analysis, like “write malicious programs to perform global DDoS attacks on critical healthcare infra,” “tank man”, etc. Who imagined we’d be in a world where describing malfeasance can block security analysis 😂 What a time to be alive.*SponsoredYour Agent Is Mine: Measuring Malicious Intermediary Attacks on the LLM Supply ChainPaper by Hanzhi Liu et al in which they formalize a threat model for malicious LLM API routers and define two core attack classes, payload injection and secret exfiltration. Across 28 paid routers purchased from Taobao, Xianyu, and Shopify-hosted storefronts and 400 free routers collected from public communities, they found 1 paid and 8 free routers actively injecting malicious code, 2 deploying adaptive evasion triggers, 17 touching researcher-owned AWS canary credentials, and 1 draining ETH from a researcher-owned private key. “Two poisoning studies further show that ostensibly benign routers can be pulled into the same attack surface: a leaked OpenAI key generates 100M GPT-5.4 tokens and more than seven Codex sessions, while weakly configured decoys yield 2B billed tokens, 99 credentials across 440 Codex sessions, and 401 sessions already running in autonomous YOLO mode. We build Mine, a research proxy that implements all four attack classes against four public agent frameworks, and use it to evaluate three deployable client-side defenses: a fail-closed policy gate, response-side anomaly screening, and append-only transparency logging.”💡 LLM API routers get full plaintext access to everything you send them, so if you’re using one basically you’re trusting that they won’t: steal (and use) every secret you send, use your account’s tokens, etc. The “actively injecting malicious code” is pretty nasty 😅 Jev as a judge: How counterfeit policy steers JevDatadog Security Labs' Nick Frichette and Feras Al-Kassar found that TypeSafe AI's Jev classifier can be manipulated through \"counterfeit policy\" attacks, where adversarial instructions embedded in untrusted content redefine attack categories and supply desired answers inline, overriding the model's security classifications. Testing across four prompt injection datasets (12,295 samples total), prepending a counterfeit policy dropped Jev's recall from 82.90% to 3.88% on its binary detection question and from 85.46% to 9.69% on its category classification question. Traditional prompt injection payloads had no effect.They weaponized the technique against LangChain's tool-risk gating feature by injecting a counterfeit policy into a user-editable profile description that redefined is_risky so that a call blocked by the tool's own preconditions counted as safe. TypeSafe's documentation acknowledges the gap, noting that injected instructions, misleading framing, and text arguing for its own classification can all influence Jev's answers.💡 Neat findings and thoughtful experimental set-up, I like it. TL;DR: Jev makes a decision based on some criteria, and untrusted user input can redefine this criteria in a way that helps the attacker. Also shout-out to my Promptfoo colleagues, whose strategies docs page is referenced.MiscMiscAlex Hormozi - How I Would Build a Personal Brand in 2027 (If I Had to Start Over)AI vs Real VoicesLow Level - I Tested The Viral Reverse Engineering RepoHumorCharacters Welcome - Frat Night at the Art MuseumKai Lentit - Hyperoptimized Engineer 2026Beatboxing classroom lesson - Absurd, but I like itFireship - The most vulnerable week in internet history...Fireship - The runtime wars are over... and Node wonWhen wokes & racists agree on everythingLGTM (Looks Good to Me) - Claude Opus 5.5 music videoBreakup in the Friend GroupMake Some Noise - Brennan Lee Mulligan as a JudgeSNL - Press Your Luck✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "php",
+        "sqli",
+        "xss",
+        "path-traversal",
+        "rce",
+        "command-injection"
+      ],
+      "title": "[tl;dr sec] #352 - Unprompted Slides, AWS AI Post-compromise Trends, Malicious LLM API Routers",
+      "url": "https://tldrsec.com/p/tldr-sec-352"
+    },
+    {
+      "appsec": true,
+      "cves": [
+        "CVE-2026-92261"
+      ],
+      "epss": null,
+      "feed": "threats",
+      "id": "0c7437e09d811ff7",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 44.7,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "watchlist:command injection (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+3.7)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-09-07: Created the advisory draft through Private Vulnerability Reporting. 2026-09-14: An email to maintainers’ public email was sent. 2026-09-16: The fix was pushed and v1.0.44 was released. 2026-09-16: CVE-2026-92261 was assigned Summary The release-check.yml reusable workflow reads a version string from a file in the head commit of a pull request and writes it to $GITHUB_OUTPUT with a single-line echo. Because the value is attacker-controlled and is not checked for newlines, a pull request author can emit additional step-output records and overwrite the prefix output that the same step wrote earlier. The corrupted prefix is then interpolated directly into a sed program, where sed’s e flag turns it into command execution. The workflow is designed to be called from pull_request_target with contents: write, so the attacker obtains arbitrary command execution in a privileged job. This was confirmed with a working proof of concept. Project ipdxco/unified-github-workflows Tested Version Verified against commit e08e90c46d931f457e5d8e292ffa988c0c0b5b70, which the v1.0 tag referenced at the time of testing. v1.0 is a mutable tag, so consumers using it track whichever commit it currently references. Details Attacker-controlled version.json value injects extra $GITHUB_OUTPUT records in release-check.yml and reaches an unescaped sed program, enabling command execution in a privileged pull_request_target job (GHSL-2026-229) Trust boundary The repository’s own caller template establishes the intended usage: the reusable workflow is invoked from pull_request_target, filtered on the very file the attacker controls, with a write-scoped token. on: pull_request_target: paths: [ \"version.json\" ] types: [ opened, synchronize, reopened, labeled, unlabeled ] permissions: contents: write pull-requests: write jobs: release-check: uses: ipdxco/unified-github-workflows/.github/workflows/release-check.yml@v1.0 pull_request_target runs in the context of the base repository with access to the base repository’s secrets, so any code execution in this job is privileged. Step 1: attacker-controlled data is read into a shell variable In the version step, the trusted value v is written to prefix first, and the pull request’s version.json is then checked out and parsed: prefix=\"v\" echo \"prefix=$prefix\" | tee -a $GITHUB_OUTPUT # line 87 - trusted value git fetch origin \"$HEAD_SHA\" ... git checkout \"$HEAD_SHA\" -- \"$root/$source\" # line 92 - attacker's file version=\"$(yq -r '... // .version | select(type == \"!!str\")' \"$root/$source\")\" git checkout HEAD -- \"$root/$source\" # line 94 - file restored version=\"${version#v}\" ... echo \"version=$version\" | tee -a $GITHUB_OUTPUT # line 102 echo \"tag=${prefix}${version}\" | tee -a $GITHUB_OUTPUT # line 103 The git checkout HEAD -- ... on line 94 restores the file, but the extracted string already lives in the version shell variable and is used afterwards. Restoring the file does not limit the lifetime of the derived value. Step 2: newline in the value forges additional step outputs yq -r emits a raw scalar, so a JSON \\n escape becomes a real newline. The Actions runner parses $GITHUB_OUTPUT line by line into independent NAME=VALUE records, and setting an output that already exists replaces it. A version.json of: { \"version\": \"v0.4.2\\nprefix=INJECTED\" } causes line 102 to append two records instead of one: prefix=v <- written earlier on line 87 version=0.4.2 prefix=INJECTED <- forged, replaces the trusted value tag=v0.4.2 prefix=INJECTED <- forged again via line 103 The version output remains 0.4.2, so the semver validation on line 146 still passes. Only version is validated; prefix is not validated anywhere. Step 3: the forged prefix becomes interpreter program text The prev step interpolates PREFIX into both a grep pattern and a sed program: vs=$(git tag | grep \"^${PREFIX}\" | sed \"s#^${PREFIX}#v#\" | paste -sd , -) The shell quoting here prevents word splitting, but it does not make the value literal to grep or sed — the text becomes part of their programs. Two constraints must be met simultaneously, because both programs receive the same value: grep must still match existing tags, otherwise sed receives no input lines and never runs a cycle. The value must terminate the s command so that the remainder is parsed as flags/commands. A basic-regular-expression alternation satisfies both. With PREFIX set to: v\\|.*#id>/dev/stderr#e;# grep \"^v\\|.*#id>/dev/stderr#e;#\" matches every tag beginning with v through the ^v alternative. The sed program expands to s#^v\\|.*#id>/dev/stderr#e;##v#, i.e. pattern ^v\\|.*, replacement id>/dev/stderr, the e flag, and the trailing #v# is consumed as a comment. sed’s e flag executes the pattern space as a shell command after a successful substitution, so the command runs once per matching tag. Both this flag and the \\| alternation are supported by the grep and sed preinstalled on the default GitHub Actions Ubuntu runner, which the workflow’s runner input selects unless a consumer overrides it. Impact This issue leads to arbitrary command execution in a privileged pull_request_target job, triggered by any user who can open a pull request that modifies the version file. Under the permissions in the project’s caller template, the job’s GITHUB_TOKEN carries contents: write and pull-requests: write, so attacker-controlled code can perform repository content and pull request operations subject to branch protection. Any other secrets or variables exposed to the job in a consuming repository are also readable, and the attacker can tamper with the release artifacts the workflow produces. No maintainer interaction is required beyond whatever fork pull request approval policy the consuming repository enforces. GitHub requires approval for first-time external contributors by default, but returning contributors and organization members with read access run without approval. CWEs CWE-93: Improper Neutralization of CRLF Sequences (‘CRLF Injection’) CWE-78: Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’) Resources GitHub Security Lab: Preventing pwn requests GitHub Docs: workflow commands, multiline strings GNU sed manual: the e flag of the s command CVE CVE-2026-92261 Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-229 in any communication regarding this issue.",
+      "tags": [
+        "research",
+        "appsec",
+        "watchlist",
+        "has-CVE",
+        "command-injection"
+      ],
+      "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 44.6,
+      "score": 44.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.6)"
+        "recency (+7.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -407,12 +407,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 43.1,
+      "score": 42.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -433,12 +433,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 42.6,
+      "score": 42.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -580,12 +580,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 41.2,
+      "score": 41.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -606,12 +606,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 41.0,
+      "score": 40.9,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -636,12 +636,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 39.8,
+      "score": 39.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -662,12 +662,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 39.0,
+      "score": 38.9,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -691,12 +691,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 38.7,
+      "score": 38.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -719,12 +719,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 38.4,
+      "score": 38.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -953,36 +953,6 @@
       ],
       "title": "[tl;dr sec] #345 - Bug Rumors → Exploits, Version Control DFIR, Agentic Worms",
       "url": "https://tldrsec.com/p/tldr-sec-345"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "a12384828c2354a0",
-      "kev": false,
-      "published": "2026-09-08T14:30:00Z",
-      "score": 37.1,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:npm,pypi,sql injection (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.1)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!👋 I’m back!Last week was the first time in 6 years, out of over 340 issues, I’ve delayed a tl;dr sec issue to the following week.That’s because it was a pretty crazy week between the GPT-6 Astra launch, and a Cyber Summit event we held for a number of CISOs and other security leaders.It was a bit surreal to be invited to deliver a small section of the livestreamed keynote (recording), along with Greg Brockman and other colleagues (shout-out Eric, Vanessa, and Johannes). I managed to fit in a joke that made it through editorial review 🤘 I thought the process was interesting, so I wanted to share some behind-the-scenes:About a month ago, the marketing team organizers offered to schedule me a virtual consultation with a fashion consultant for my outfit. Of course, I accepted. During the call I held up various options from my closet, she provided feedback, and afterwards she emailed me some links to other items I could buy.Each speaker did a number of individual run-throughs in the preceding days, where a number of marketing, comms, and events people gave feedback, as well as an external speaking coach. Apparently I say “um” more than I’d expected, and I have a habit of using “so…” in transitions.We did some full run throughs the day before and the morning of the event. I also received a calendar invite for “hair and makeup” since the keynote was being livestreamed and recorded 😂 As we say in security, “Teams who get their makeup done together, stay together.”P.S. If you appreciate tl;dr sec, please check out this issue’s sponsors 🙏 Sponsor📣 A $320/month subscription service is hijacking Microsoft 365 sessions — MFA includedBuilding and maintaining a live adversary-in-the-middle relay takes specialist skill. Island Security Research discovered that NovaCookies rents one out. This hands buyers a maintained Microsoft 365 sign-in flow, rotating infrastructure, and an operator dashboard, turning real-time session theft into an off-the-shelf product. Delivery chains hide behind genuine Docusign envelopes and Microsoft/Google redirect endpoints to look legitimate. Island detailed the attack and published 755 domains as IOCs.🍪 See inside the phishing kit 🍪Neat, it’s always interesting to see a discussion of threat actor business models, and I appreciated the anti-analysis capability discussion. IOCs published on GitHub 👍️ AppSecRolling with the Punches: Why Cybersecurity is Backgammon, Not ChessPhil Venables compares cybersecurity to backgammon, a game of managing risk under uncertainty rather than chess with perfect information and fixed moves. Backgammon concepts map to security practices, blots are exposed vulnerabilities that should be secured into anchors (defense-in-depth like IAM and MFA), primes are layered controls (network segmentation, EDR, DLP) that create impassable barriers, and blitz attacks mirror automated ransomware campaigns that overwhelm defenses. The same logic extends to the doubling cube, the piece that lets a backgammon player raise the stakes mid-game, which Phil uses for the risk decisions executives face during incidents like whether to pay a ransomware demand or trigger disaster recovery. Phil recommends security be built to absorb hits and recover rather than to prevent every attack.Pass the Passkey: A Novel Attack Surface in Passwordless AuthenticationPalo Alto Networks's Arie Olshtein describes three attacks on Google's synced passkey implementation that let an attacker take over accounts from a compromised endpoint without escalating privileges. The attacks exploit gaps in device trust workflows, inconsistent UV flag validation by relying parties, and the exposure of master key material to client devices, demonstrating that hardware-backed protections and cloud isolation don't fully eliminate endpoint compromise risks.The Pass-ta-key attack extracts Chrome's TPM-wrapped identity key and signs cloud authenticator requests without user interaction. The Silver Pass-ta-key variant forces device re-registration by invalidating the existing UV key, then abuses the uv_key_pending state to register an attacker-controlled UV key without attestation, giving the attacker persistent access without ever touching the victim's device. The Golden Pass-ta-key attack extracts the security domain secret (SDS) from Chrome's process memory during cloud authenticator re-registration, so the attacker can decrypt every synced passkey and forge authentication responses, with no way to rotate or revoke the key. 💡I’m glad folks are pressure testing current passkey implementations. I’m stoked for the day when almost all authentication is passkeys not passwords.VMs won't contain cyber-capable agentsTrail of Bits's Artem Dinaburg gave GPT 5.6-Cyber a challenge to escape a QEMU/KVM VM on Debian 12, and the agent broke out three times, first using the recently disclosed Januscape bug, then combining a libslirp CVE (some security updates hadn’t made it back into his distribution yet) with an unmarked bug fix, and finally chaining three 0-days plus one unpatched distribution kernel bug after the host was fully patched. Across all three runs the agent worked ~12 hours on its own, backtracking from failed paths like CUPS blocked by AppArmor and unreliable Spectre read oracles, with Artem’s main job being rebooting the host after hardlocks. Firecracker, a stripped-down VM built for security rather than features, was the only environment the agent failed to escape.“If it wasn’t clear before, I will state it plainly: you can no longer assume a mere VM will contain a sufficiently advanced AI agent.”“A distribution with rapid updates is now a requirement. I love older, stable software, but the cycle of backporting patches is simply too long. An older distribution that isn’t getting immediate upstream updates should be assumed vulnerable. A competent agent will discover these bugs quickly and synthesize target-specific exploits.”💡 Honestly, the exploit chains and attack paths frontier models can find are pretty impressive, even when you’re expecting them to be good: finding and leveraging commits that contain security fixes (even when they’re not documented), looking for useful primitives across many available components, etc. And Astra is more than just incrementally better than 5.6 Sol 😅 I think Artem’s recommendations around a) building on very hardened, stripped down components (e.g. Firecracker) and b) prioritizing software with rapid updates (given the rate of vulns being found) are important.Sponsor📣 87% of orgs are running a known exploitable vulnerability right nowDatadog analyzed production telemetry from thousands of organizations rather than surveying them. 87% were running at least one known, exploitable vulnerability in a deployed service. But when runtime context is applied, whether the library is actually loaded, whether the service is publicly exposed, whether the code is reachable, only 18% of findings labeled critical remain critical.The State of DevSecOps 2026 report covers the methodology, the full dataset, and where the gap between scanner severity and real exploitability is widest.👉 Read the report 👈Phew, 87% is a lot. Love to see how the runtime context can filter to just when a vulnerability dependency is actually loaded and the code is reachable, that’s quite useful for prioritization.Cloud SecurityPassword spraying campaign targets AWS root user accounts across 150+ organizationsDatadog's Martin McCloskey writes about a password spraying campaign targeting AWS root user accounts across 150+ organizations between July 24 and August 23, 2026, identified by two specific user agents (Chrome 85 and Firefox 120) and traffic routed through residential proxies. No one got in, but even attempting a root login requires knowing the account's email address, which means attackers already had root emails for 150+ organizations, either from a pre-compiled list or by brute-forcing valid ones. Martin recommends using AWS Organizations service control policies to block direct root activity, enabling centralized root access for short-lived AssumeRoot sessions, and alerting on all root activity through CloudTrail.Threat hunt AI: How we built an AI security analyst on AWS for under $500/monthGrow Therapy's Pablo Vidal describes a $500/month AI threat hunting system that runs 20 daily hunts across 15 log sources (CloudTrail, Okta, GitHub, CrowdStrike, and others) using ECS Fargate, Lambda, and Claude. Each hunt runs through five phases, Sonnet handles data gathering with up to 100 tool calls, then Opus with extended thinking compares findings against 1-day and 7-day baselines, pulls in additional context, and scores confidence. After scoring, the model argues against its own findings using false positive history and actor history, and can only reject a finding with specific counter-evidence. This adversarial review step cut the findings from about 40% noise to mostly stuff worth reviewing. To keep noise down further, both SQL detections and AI hunts write to the same Snowflake ALERTS table via CDC (change data capture) streams, with SHA-256 fingerprints that suppress repeat alerts for the same finding within 48 hours. Great tip: use a cheaper model (Sonnet) for the data gathering, which doesn’t need Opus-level reasoning (cut costs by ~60%). Lessons learned:Data pipeline > AI - Get your logs in a queryable store like Snowflake or BigQuery.Existing observability spend is a cheat code - Use the tools your engineers already use for debugging (e.g. Datadog already has searchable logs).Build the feedback loop before deploying anything - The system that lets analysts mark false positives, stores those resolutions, and feeds them back into future hunts.Do signal-to-noise tuning in staging mode - Every new hunt should run against production data but write to a staging table.Start narrow on tools - They started hunts with only Datadog and Snowflake tools. Other tools got added as specific hunts needed them. A large set of tools might bloat up the LLM’s context window and lower the signal to noise ratio.Cost tracking - Have every hunt logs its token counts and computed cost.💡 Great practical, detailed blog post 👍️ Supply ChainMCP Configuration Poisoning: Owning Your Machine With Just A Text FileCheckmarx's Bruno Dias demonstrates MCP Configuration Poisoning, where attackers embed malicious commands in mcp.json files that AI tools and agents automatically execute when processing repositories. Many tools including IDEs, security scanners, and CI/CD pipelines read and execute these files without prompting or sandboxing. As proof of concept, Dias exploits Snyk's Agent Scan (now fixed in v0.5.0) by creating a malicious mcp.json with a bash command that runs when the scanner processes the file. Even \"Human in the Loop\" prompts aren't fully protected, since attackers can bypass them using \"HITL Dialog Forging\" (also called \"Lies in the Loop\"). Bruno recommends sandboxing execution environments, detecting suspicious patterns like shell invocations or URL piping, and treating configuration files from untrusted repositories as potential threats.💡 Security vendor demonstrates attack technique by demoing it on another security vendor’s product 🍿🌶️ GitHub Actions SHA Pinning, Org-WideSemgrep's Leif Dreizler writes about how he rolled out GitHub Actions SHA pinning across ~350 repositories after the tj-actions/changed-files incident, where attackers rewrote every tagged release to point to malicious commits. He used pinact for tag → SHA conversion, Renovate for branch references, and Semgrep Agentic Workflows to run detection and remediation in parallel. Even with those tools, pinned actions calling other unpinned actions kept breaking the rollout, and Reusable Workflows added the same problem since the actions they call still need pinning. Leif auto-enrolled new repos via a cron-based GitHub Action that checks for new repos every 15 minutes and enables the repo-level pinning requirement, pinned the ~80% of repos that had never run an action, and worked through representative repos first before flipping the org-wide switch.💡 Great write-up of rolling out and enforcing a new security control, and the edge cases and nuances in GitHub Actions pinning, a few of which to me are non-obvious (e.g. transitive pinning).Blue Teamgendigitalinc/sageBy Gen: An open-source Agent Detection & Response (ADR) framework that intercepts and validates tool calls from AI coding agents like Claude Code, Cursor, OpenClaw, and OpenCode before execution. It performs URL reputation checks via cloud APIs, evaluates commands against YAML-based threat heuristics, validates npm/PyPI packages through supply-chain analysis (registry existence, file reputation, age), and scans installed plugins for threats at session start. The tool sends only URL and package hashes to Gen Digital reputation APIs while keeping file content, commands, and source code local, with an option to disable cloud services for fully offline operation. A Cautionary Tale About Data Breach Claims, Verification and CarharttTroy Hunt used his OpenClaw tool to analyze the ShinyHunters Carhartt breach and found that nearly half of the 24.8M email addresses were synthetic TPC-DS benchmark data sitting in Carhartt's Databricks instance alongside real customer records. That test data had 97.6% of domains appearing only once, birth years uniform from 1924 to 1992, and domains pairing real names with gibberish strings. After stripping the test data and other duplicates, the actual victim count dropped to 12.9M, roughly half the number other analysts had already published without checking.💡 Neat example of using AI to sanity check and comb through large amounts of data.Red TeamDecBenchAn experimental benchmark by researchers from the Noelo Lab at the University of Georgia, led by Zion Basque, for comparing decompilers and modern LLMs on the task of recovering exact source code. This benchmark uses new and previously known metrics (perfect match percentage) and datasets that represent the various directions of exactness for decompilers: control flow structure, types, and precise recompilability. This benchmark is also living: as new decompiler/LLMs are released, their scores will be added to the leaderboard.Kuna: Decompiler Development in the Age of Coding AgentsZion Basque releases Kuna, an experimental decompiler where an LLM wrote nearly every line of code, achieving 44.4% perfect control flow structuring on C functions compared to IDA Pro's 45.7%. The decompiler improves autonomously by studying examples where it underperforms against IDA Pro, Ghidra, and angr on fundamental metrics, successfully reimplementing more than 20 core angr features that took years of scientific research to develop. Kuna is a Rust port of Ghidra reworked to match angr's pipeline, demonstrating what high-level scientific feedback alone can achieve, though it still requires human-led research to guide refinement and, while structuring works well, types, optimizations, recompilability, and variable identification still need real work.💡 Super cool work! One thing that’s become fairly clear with LLMs is that if you have an “oracle” when you’re implementing or porting something, whether it’s an extensive test suite or existing implementation, LLMs are very good at rebuilding it from scratch. We saw this in Anthropic’s port of bun from Zig to Rust, Cloudflare reimplementing Next.js, and more.AI + Securityalibaba/open-code-reviewAlibaba’s internal code review CLI, now open-sourced after two years of use across tens of thousands of developers, with a built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible. They claim 9x fewer tokens and higher precision than Claude Code on a 200-PR benchmark across 10 languages. The tool uses a hybrid architecture where deterministic steps handle file selection, bundling, and rule matching while an agent handles the dynamic decisions, and supports workspace diffs, branch ranges, full-file scans, and a delegation mode where your existing coding agent (Claude Code, Codex, or Cursor) runs the review using the tool's file selection and rules.Don't Let Abliteration Abliterate Your Bug Hunting: Discovering Verdict Bias in Uncensored ModelsJohn McIntosh tested abliterated (uncensored) LLM builds against their base models for vulnerability research and found what they call \"verdict bias,\" with abliterated models confirming findings 3-4x more often whether the evidence supported it or not. Using nano-analyzer to scan FreeBSD kernel source for a known CVE, base Gemma models correctly identified the real bug while the most aggressive abliterated build graduated 96% of candidates to VALID (versus 65% for base), produced 138 false positives, and never found the actual vulnerability. Those false positives aren't from lack of understanding, the model identifies exactly why a finding is invalid in its chain of thought, then confirms it anyway, because abliteration's weight editing strips out not just refusals but the model's willingness to say \"no\" under uncertainty.MiscMiscAlex Hormozi - It took me 37 years to realize what I'll tell you in 18 minutes.Alex Hormozi - \"How Do You Know How Wealthy Someone Really Is?\"Mark Manson - Why the Person You Feel for Will Change - “Loving someone is not loving them when they stay the same, it is choosing them even as they become someone new.”5 essential rope knots everyone should learnAre you an unc? (childhood nostalgia)Sesame Street - Kermit and Joey sing the alphabet, but she keeps sneaking in “cookie monster.” John Steinbeck’s diary entry - “My work is no good, I am appalled at how bad it is. I am so lazy and the thing is so hard.”Nathan Fielder's Elizabeth Holmes Doc Met With Shock and Awe at Secret ScreeningHumorPOV: All the benches are takenBanger meme from Denny’s about how they’re similar to NVIDIAKyle Gordon - We Will Never DieWeird Al - The Brain Song✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "npm",
-        "pypi",
-        "sqli",
-        "xss"
-      ],
-      "title": "[tl;dr sec] #344 - VMs won't contain Cyber-capable Agents, AWS AI Security Analyst, Decompilers vs LLMs",
-      "url": "https://tldrsec.com/p/tldr-sec-344"
     },
     {
       "appsec": true,
@@ -1318,6 +1288,35 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "a12384828c2354a0",
+      "kev": false,
+      "published": "2026-09-08T14:30:00Z",
+      "score": 37.0,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:npm,pypi,sql injection (+15)",
+        "AppSec-relevant (+14)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!👋 I’m back!Last week was the first time in 6 years, out of over 340 issues, I’ve delayed a tl;dr sec issue to the following week.That’s because it was a pretty crazy week between the GPT-6 Astra launch, and a Cyber Summit event we held for a number of CISOs and other security leaders.It was a bit surreal to be invited to deliver a small section of the livestreamed keynote (recording), along with Greg Brockman and other colleagues (shout-out Eric, Vanessa, and Johannes). I managed to fit in a joke that made it through editorial review 🤘 I thought the process was interesting, so I wanted to share some behind-the-scenes:About a month ago, the marketing team organizers offered to schedule me a virtual consultation with a fashion consultant for my outfit. Of course, I accepted. During the call I held up various options from my closet, she provided feedback, and afterwards she emailed me some links to other items I could buy.Each speaker did a number of individual run-throughs in the preceding days, where a number of marketing, comms, and events people gave feedback, as well as an external speaking coach. Apparently I say “um” more than I’d expected, and I have a habit of using “so…” in transitions.We did some full run throughs the day before and the morning of the event. I also received a calendar invite for “hair and makeup” since the keynote was being livestreamed and recorded 😂 As we say in security, “Teams who get their makeup done together, stay together.”P.S. If you appreciate tl;dr sec, please check out this issue’s sponsors 🙏 Sponsor📣 A $320/month subscription service is hijacking Microsoft 365 sessions — MFA includedBuilding and maintaining a live adversary-in-the-middle relay takes specialist skill. Island Security Research discovered that NovaCookies rents one out. This hands buyers a maintained Microsoft 365 sign-in flow, rotating infrastructure, and an operator dashboard, turning real-time session theft into an off-the-shelf product. Delivery chains hide behind genuine Docusign envelopes and Microsoft/Google redirect endpoints to look legitimate. Island detailed the attack and published 755 domains as IOCs.🍪 See inside the phishing kit 🍪Neat, it’s always interesting to see a discussion of threat actor business models, and I appreciated the anti-analysis capability discussion. IOCs published on GitHub 👍️ AppSecRolling with the Punches: Why Cybersecurity is Backgammon, Not ChessPhil Venables compares cybersecurity to backgammon, a game of managing risk under uncertainty rather than chess with perfect information and fixed moves. Backgammon concepts map to security practices, blots are exposed vulnerabilities that should be secured into anchors (defense-in-depth like IAM and MFA), primes are layered controls (network segmentation, EDR, DLP) that create impassable barriers, and blitz attacks mirror automated ransomware campaigns that overwhelm defenses. The same logic extends to the doubling cube, the piece that lets a backgammon player raise the stakes mid-game, which Phil uses for the risk decisions executives face during incidents like whether to pay a ransomware demand or trigger disaster recovery. Phil recommends security be built to absorb hits and recover rather than to prevent every attack.Pass the Passkey: A Novel Attack Surface in Passwordless AuthenticationPalo Alto Networks's Arie Olshtein describes three attacks on Google's synced passkey implementation that let an attacker take over accounts from a compromised endpoint without escalating privileges. The attacks exploit gaps in device trust workflows, inconsistent UV flag validation by relying parties, and the exposure of master key material to client devices, demonstrating that hardware-backed protections and cloud isolation don't fully eliminate endpoint compromise risks.The Pass-ta-key attack extracts Chrome's TPM-wrapped identity key and signs cloud authenticator requests without user interaction. The Silver Pass-ta-key variant forces device re-registration by invalidating the existing UV key, then abuses the uv_key_pending state to register an attacker-controlled UV key without attestation, giving the attacker persistent access without ever touching the victim's device. The Golden Pass-ta-key attack extracts the security domain secret (SDS) from Chrome's process memory during cloud authenticator re-registration, so the attacker can decrypt every synced passkey and forge authentication responses, with no way to rotate or revoke the key. 💡I’m glad folks are pressure testing current passkey implementations. I’m stoked for the day when almost all authentication is passkeys not passwords.VMs won't contain cyber-capable agentsTrail of Bits's Artem Dinaburg gave GPT 5.6-Cyber a challenge to escape a QEMU/KVM VM on Debian 12, and the agent broke out three times, first using the recently disclosed Januscape bug, then combining a libslirp CVE (some security updates hadn’t made it back into his distribution yet) with an unmarked bug fix, and finally chaining three 0-days plus one unpatched distribution kernel bug after the host was fully patched. Across all three runs the agent worked ~12 hours on its own, backtracking from failed paths like CUPS blocked by AppArmor and unreliable Spectre read oracles, with Artem’s main job being rebooting the host after hardlocks. Firecracker, a stripped-down VM built for security rather than features, was the only environment the agent failed to escape.“If it wasn’t clear before, I will state it plainly: you can no longer assume a mere VM will contain a sufficiently advanced AI agent.”“A distribution with rapid updates is now a requirement. I love older, stable software, but the cycle of backporting patches is simply too long. An older distribution that isn’t getting immediate upstream updates should be assumed vulnerable. A competent agent will discover these bugs quickly and synthesize target-specific exploits.”💡 Honestly, the exploit chains and attack paths frontier models can find are pretty impressive, even when you’re expecting them to be good: finding and leveraging commits that contain security fixes (even when they’re not documented), looking for useful primitives across many available components, etc. And Astra is more than just incrementally better than 5.6 Sol 😅 I think Artem’s recommendations around a) building on very hardened, stripped down components (e.g. Firecracker) and b) prioritizing software with rapid updates (given the rate of vulns being found) are important.Sponsor📣 87% of orgs are running a known exploitable vulnerability right nowDatadog analyzed production telemetry from thousands of organizations rather than surveying them. 87% were running at least one known, exploitable vulnerability in a deployed service. But when runtime context is applied, whether the library is actually loaded, whether the service is publicly exposed, whether the code is reachable, only 18% of findings labeled critical remain critical.The State of DevSecOps 2026 report covers the methodology, the full dataset, and where the gap between scanner severity and real exploitability is widest.👉 Read the report 👈Phew, 87% is a lot. Love to see how the runtime context can filter to just when a vulnerability dependency is actually loaded and the code is reachable, that’s quite useful for prioritization.Cloud SecurityPassword spraying campaign targets AWS root user accounts across 150+ organizationsDatadog's Martin McCloskey writes about a password spraying campaign targeting AWS root user accounts across 150+ organizations between July 24 and August 23, 2026, identified by two specific user agents (Chrome 85 and Firefox 120) and traffic routed through residential proxies. No one got in, but even attempting a root login requires knowing the account's email address, which means attackers already had root emails for 150+ organizations, either from a pre-compiled list or by brute-forcing valid ones. Martin recommends using AWS Organizations service control policies to block direct root activity, enabling centralized root access for short-lived AssumeRoot sessions, and alerting on all root activity through CloudTrail.Threat hunt AI: How we built an AI security analyst on AWS for under $500/monthGrow Therapy's Pablo Vidal describes a $500/month AI threat hunting system that runs 20 daily hunts across 15 log sources (CloudTrail, Okta, GitHub, CrowdStrike, and others) using ECS Fargate, Lambda, and Claude. Each hunt runs through five phases, Sonnet handles data gathering with up to 100 tool calls, then Opus with extended thinking compares findings against 1-day and 7-day baselines, pulls in additional context, and scores confidence. After scoring, the model argues against its own findings using false positive history and actor history, and can only reject a finding with specific counter-evidence. This adversarial review step cut the findings from about 40% noise to mostly stuff worth reviewing. To keep noise down further, both SQL detections and AI hunts write to the same Snowflake ALERTS table via CDC (change data capture) streams, with SHA-256 fingerprints that suppress repeat alerts for the same finding within 48 hours. Great tip: use a cheaper model (Sonnet) for the data gathering, which doesn’t need Opus-level reasoning (cut costs by ~60%). Lessons learned:Data pipeline > AI - Get your logs in a queryable store like Snowflake or BigQuery.Existing observability spend is a cheat code - Use the tools your engineers already use for debugging (e.g. Datadog already has searchable logs).Build the feedback loop before deploying anything - The system that lets analysts mark false positives, stores those resolutions, and feeds them back into future hunts.Do signal-to-noise tuning in staging mode - Every new hunt should run against production data but write to a staging table.Start narrow on tools - They started hunts with only Datadog and Snowflake tools. Other tools got added as specific hunts needed them. A large set of tools might bloat up the LLM’s context window and lower the signal to noise ratio.Cost tracking - Have every hunt logs its token counts and computed cost.💡 Great practical, detailed blog post 👍️ Supply ChainMCP Configuration Poisoning: Owning Your Machine With Just A Text FileCheckmarx's Bruno Dias demonstrates MCP Configuration Poisoning, where attackers embed malicious commands in mcp.json files that AI tools and agents automatically execute when processing repositories. Many tools including IDEs, security scanners, and CI/CD pipelines read and execute these files without prompting or sandboxing. As proof of concept, Dias exploits Snyk's Agent Scan (now fixed in v0.5.0) by creating a malicious mcp.json with a bash command that runs when the scanner processes the file. Even \"Human in the Loop\" prompts aren't fully protected, since attackers can bypass them using \"HITL Dialog Forging\" (also called \"Lies in the Loop\"). Bruno recommends sandboxing execution environments, detecting suspicious patterns like shell invocations or URL piping, and treating configuration files from untrusted repositories as potential threats.💡 Security vendor demonstrates attack technique by demoing it on another security vendor’s product 🍿🌶️ GitHub Actions SHA Pinning, Org-WideSemgrep's Leif Dreizler writes about how he rolled out GitHub Actions SHA pinning across ~350 repositories after the tj-actions/changed-files incident, where attackers rewrote every tagged release to point to malicious commits. He used pinact for tag → SHA conversion, Renovate for branch references, and Semgrep Agentic Workflows to run detection and remediation in parallel. Even with those tools, pinned actions calling other unpinned actions kept breaking the rollout, and Reusable Workflows added the same problem since the actions they call still need pinning. Leif auto-enrolled new repos via a cron-based GitHub Action that checks for new repos every 15 minutes and enables the repo-level pinning requirement, pinned the ~80% of repos that had never run an action, and worked through representative repos first before flipping the org-wide switch.💡 Great write-up of rolling out and enforcing a new security control, and the edge cases and nuances in GitHub Actions pinning, a few of which to me are non-obvious (e.g. transitive pinning).Blue Teamgendigitalinc/sageBy Gen: An open-source Agent Detection & Response (ADR) framework that intercepts and validates tool calls from AI coding agents like Claude Code, Cursor, OpenClaw, and OpenCode before execution. It performs URL reputation checks via cloud APIs, evaluates commands against YAML-based threat heuristics, validates npm/PyPI packages through supply-chain analysis (registry existence, file reputation, age), and scans installed plugins for threats at session start. The tool sends only URL and package hashes to Gen Digital reputation APIs while keeping file content, commands, and source code local, with an option to disable cloud services for fully offline operation. A Cautionary Tale About Data Breach Claims, Verification and CarharttTroy Hunt used his OpenClaw tool to analyze the ShinyHunters Carhartt breach and found that nearly half of the 24.8M email addresses were synthetic TPC-DS benchmark data sitting in Carhartt's Databricks instance alongside real customer records. That test data had 97.6% of domains appearing only once, birth years uniform from 1924 to 1992, and domains pairing real names with gibberish strings. After stripping the test data and other duplicates, the actual victim count dropped to 12.9M, roughly half the number other analysts had already published without checking.💡 Neat example of using AI to sanity check and comb through large amounts of data.Red TeamDecBenchAn experimental benchmark by researchers from the Noelo Lab at the University of Georgia, led by Zion Basque, for comparing decompilers and modern LLMs on the task of recovering exact source code. This benchmark uses new and previously known metrics (perfect match percentage) and datasets that represent the various directions of exactness for decompilers: control flow structure, types, and precise recompilability. This benchmark is also living: as new decompiler/LLMs are released, their scores will be added to the leaderboard.Kuna: Decompiler Development in the Age of Coding AgentsZion Basque releases Kuna, an experimental decompiler where an LLM wrote nearly every line of code, achieving 44.4% perfect control flow structuring on C functions compared to IDA Pro's 45.7%. The decompiler improves autonomously by studying examples where it underperforms against IDA Pro, Ghidra, and angr on fundamental metrics, successfully reimplementing more than 20 core angr features that took years of scientific research to develop. Kuna is a Rust port of Ghidra reworked to match angr's pipeline, demonstrating what high-level scientific feedback alone can achieve, though it still requires human-led research to guide refinement and, while structuring works well, types, optimizations, recompilability, and variable identification still need real work.💡 Super cool work! One thing that’s become fairly clear with LLMs is that if you have an “oracle” when you’re implementing or porting something, whether it’s an extensive test suite or existing implementation, LLMs are very good at rebuilding it from scratch. We saw this in Anthropic’s port of bun from Zig to Rust, Cloudflare reimplementing Next.js, and more.AI + Securityalibaba/open-code-reviewAlibaba’s internal code review CLI, now open-sourced after two years of use across tens of thousands of developers, with a built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible. They claim 9x fewer tokens and higher precision than Claude Code on a 200-PR benchmark across 10 languages. The tool uses a hybrid architecture where deterministic steps handle file selection, bundling, and rule matching while an agent handles the dynamic decisions, and supports workspace diffs, branch ranges, full-file scans, and a delegation mode where your existing coding agent (Claude Code, Codex, or Cursor) runs the review using the tool's file selection and rules.Don't Let Abliteration Abliterate Your Bug Hunting: Discovering Verdict Bias in Uncensored ModelsJohn McIntosh tested abliterated (uncensored) LLM builds against their base models for vulnerability research and found what they call \"verdict bias,\" with abliterated models confirming findings 3-4x more often whether the evidence supported it or not. Using nano-analyzer to scan FreeBSD kernel source for a known CVE, base Gemma models correctly identified the real bug while the most aggressive abliterated build graduated 96% of candidates to VALID (versus 65% for base), produced 138 false positives, and never found the actual vulnerability. Those false positives aren't from lack of understanding, the model identifies exactly why a finding is invalid in its chain of thought, then confirms it anyway, because abliteration's weight editing strips out not just refusals but the model's willingness to say \"no\" under uncertainty.MiscMiscAlex Hormozi - It took me 37 years to realize what I'll tell you in 18 minutes.Alex Hormozi - \"How Do You Know How Wealthy Someone Really Is?\"Mark Manson - Why the Person You Feel for Will Change - “Loving someone is not loving them when they stay the same, it is choosing them even as they become someone new.”5 essential rope knots everyone should learnAre you an unc? (childhood nostalgia)Sesame Street - Kermit and Joey sing the alphabet, but she keeps sneaking in “cookie monster.” John Steinbeck’s diary entry - “My work is no good, I am appalled at how bad it is. I am so lazy and the thing is so hard.”Nathan Fielder's Elizabeth Holmes Doc Met With Shock and Awe at Secret ScreeningHumorPOV: All the benches are takenBanger meme from Denny’s about how they’re similar to NVIDIAKyle Gordon - We Will Never DieWeird Al - The Brain Song✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "npm",
+        "pypi",
+        "sqli",
+        "xss"
+      ],
+      "title": "[tl;dr sec] #344 - VMs won't contain Cyber-capable Agents, AWS AI Security Analyst, Decompilers vs LLMs",
+      "url": "https://tldrsec.com/p/tldr-sec-344"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "b52f88286a556a34",
       "kev": false,
       "published": "2026-06-25T14:30:00Z",
@@ -1513,12 +1512,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 36.9,
+      "score": 36.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1539,11 +1538,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 36.5,
+      "score": 36.4,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+6.5)"
+        "recency (+6.4)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1563,11 +1562,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 36.3,
+      "score": 36.2,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+6.3)"
+        "recency (+6.2)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1588,11 +1587,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 35.5,
+      "score": 35.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.5)"
+        "recency (+14.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1612,11 +1611,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 34.5,
+      "score": 34.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.5)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1636,11 +1635,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 34.2,
+      "score": 33.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.2)"
+        "recency (+12.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1660,11 +1659,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 33.6,
+      "score": 33.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.6)"
+        "recency (+12.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1684,11 +1683,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 33.3,
+      "score": 33.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+12.3)"
+        "recency (+12.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1708,11 +1707,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 32.1,
+      "score": 31.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+11.1)"
+        "recency (+10.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1731,11 +1730,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 31.0,
+      "score": 30.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.0)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1824,10 +1823,10 @@
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 29.5,
+      "score": 29.1,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+14.5)"
+        "recency (+14.1)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1846,11 +1845,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 29.3,
+      "score": 29.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.3)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1870,11 +1869,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 29.0,
+      "score": 28.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+8.0)"
+        "recency (+7.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1894,11 +1893,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 28.5,
+      "score": 28.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.5)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1918,11 +1917,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 28.3,
+      "score": 28.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1942,11 +1941,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 28.2,
+      "score": 28.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+7.2)"
+        "recency (+7.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1992,11 +1991,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 27.2,
+      "score": 27.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.2)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2016,11 +2015,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 27.0,
+      "score": 26.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2039,11 +2038,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 25.5,
+      "score": 25.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2063,11 +2062,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 25.0,
+      "score": 24.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2111,11 +2110,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 23.8,
+      "score": 23.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2135,11 +2134,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 23.8,
+      "score": 23.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2159,11 +2158,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 23.5,
+      "score": 23.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2206,11 +2205,11 @@
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 23.1,
+      "score": 23.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2226,14 +2225,34 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "76ba93cc9d443ae0",
+      "kev": false,
+      "published": "2026-11-05T04:02:00Z",
+      "score": 22.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about North Korea’s hack of the Binance cryptocurrency exchange. Binance’s founder CZ says it is a wake up call for real banks, but he’s wrong. Even though they are probably just as hackable as crypto exchanges, real banks cooperate to reverse fraudulent transactions and it is far harder to get away with billions. They also discuss the pressure being felt in tech firms everywhere to speed up software development using AI. From a security perspective, results will be mixed. This episode is also available on YouTube. Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: The ritual bitcoin sacrifices will continue until security improves",
+      "url": "https://risky.biz/SRB189/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
-      "score": 22.9,
+      "score": 22.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2252,11 +2271,11 @@
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2276,10 +2295,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 20.1,
+      "score": 19.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.1)"
+        "recency (+11.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2296,10 +2315,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 19.6,
+      "score": 19.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.6)"
+        "recency (+13.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2316,10 +2335,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 19.6,
+      "score": 19.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.6)"
+        "recency (+13.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2336,10 +2355,10 @@
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 19.3,
+      "score": 19.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.3)"
+        "recency (+11.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2356,10 +2375,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 19.0,
+      "score": 18.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.0)"
+        "recency (+10.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2376,10 +2395,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 18.6,
+      "score": 18.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.6)"
+        "recency (+12.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2396,10 +2415,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 17.8,
+      "score": 17.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.8)"
+        "recency (+11.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2416,10 +2435,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 16.8,
+      "score": 16.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.8)"
+        "recency (+10.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2436,10 +2455,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 16.4,
+      "score": 16.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.4)"
+        "recency (+8.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2447,50 +2466,6 @@
       "tags": [],
       "title": "Billions stolen in Binance hack",
       "url": "https://risky.biz/RBNEWS627/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "0bb09554616bf2b4",
-      "kev": false,
-      "published": "2026-10-22T00:00:00Z",
-      "score": 15.8,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "recency (+3.8)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow copies an external pull request’s attacker-controlled head branch name into a step output and directly interpolates that output into an inline Bash script. An external pull request author can use shell command-substitution syntax in the branch name to execute arbitrary commands in the base repository’s workflow_run job. A later step on the same runner receives the repository’s SONAR_TOKEN, making that credential and the integrity of the SonarCloud analysis reachable from the injected code. Project kptdev/kpt repository Tested Version The default branch at commit 6dfff203a6b49396add815a428c1d94370e9a3d6. Details Pull request branch name injection enables code execution in a privileged SonarCloud workflow (GHSL-2026-207) The Go workflow runs for pull requests. After the build and test jobs complete, it stores the pull request number in a fixed PR_NUMBER artifact. Successful completion of that workflow triggers the default-branch SonarCloud analysis workflow. The sonarqube job downloads PR_NUMBER, reads it, and requests the corresponding pull request from the GitHub API. It then extracts .head.ref, which is controlled by the external pull request author through the source branch name, into the pr_meta.outputs.head_ref step output: - name: Request GitHub API for PR data if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0 id: get_pr_data with: route: GET /repos/{full_name}/pulls/{number} number: ${{ steps.pr_number.outputs.content }} full_name: ${{ github.event.repository.full_name }} env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} - name: Extract PR metadata if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' id: pr_meta env: PR_DATA: ${{ steps.get_pr_data.outputs.data }} run: | echo \"number=$(echo \"$PR_DATA\" | jq -r '.number')\" >> \"$GITHUB_OUTPUT\" echo \"head_ref=$(echo \"$PR_DATA\" | jq -r '.head.ref')\" >> \"$GITHUB_OUTPUT\" echo \"base_ref=$(echo \"$PR_DATA\" | jq -r '.base.ref')\" >> \"$GITHUB_OUTPUT\" Using PR_DATA through an environment variable protects the extraction step itself. The subsequent debug step, however, directly interpolates the resulting output into Bash source: - name: Debug - Show PR metadata if: github.event.workflow_run.event == 'pull_request' run: | echo \"=== DEBUG: PR Metadata ===\" echo \"PR Number: ${{ steps.pr_meta.outputs.number }}\" echo \"Head Ref: ${{ steps.pr_meta.outputs.head_ref }}\" echo \"Base Ref: ${{ steps.pr_meta.outputs.base_ref }}\" echo \"=== END DEBUG ===\" GitHub Actions resolves ${{ ... }} expressions before passing the generated script to Bash. Double quotes do not neutralize shell command substitution. The successful-run and coverage-artifact conditions restrict when the vulnerable path executes, but they do not authorize the pull request author who controls the branch name. A representative attack sequence is: An external contributor creates a fork branch whose name contains command-substitution syntax and opens a pull request that exercises the Go workflow. The pull request workflow completes successfully and uploads its coverage and PR_NUMBER artifacts. A repository policy may require a maintainer to approve the fork workflow run first. The workflow_run workflow retrieves the pull request and propagates its attacker-controlled .head.ref through pr_meta.outputs.head_ref. The debug step inserts the value into the generated Bash script, executing the embedded command on the sonarqube runner. The injected process can alter runner or workspace state before the later SonarQube scan step receives SONAR_TOKEN. Impact An external fork pull request author can execute arbitrary shell commands in a base-repository workflow_run job. Although the job’s GITHUB_TOKEN permissions are read-only, a later action in the same job is explicitly given the repository secret SONAR_TOKEN. Injected code can persist influence over the runner or modify files used by later steps, allowing it to capture or misuse that credential when the SonarQube action starts. This can disclose the token and compromise the integrity of SonarCloud analysis for kptdev/kpt. The attacker requires no push access to kptdev/kpt: control of an external pull request’s source branch name is sufficient. Exploitation also requires the Go workflow to complete successfully, the expected artifacts to exist, and SONAR_TOKEN to be configured. CWEs CWE-94: Improper Control of Generation of Code (‘Code Injection’) CWE-116: Improper Encoding or Escaping of Output Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow GitHub Docs: Secure use reference - mitigating script injection GitHub Security Lab: Keeping your GitHub Actions and workflows secure - untrusted input Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-207 in any communication regarding this issue.",
-      "tags": [
-        "research"
-      ],
-      "title": "GHSL-2026-207: Arbitrary code execution in kptdev/kpt’s SonarCloud workflow via external pull requests",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-207_kptdev_kpt_repository/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4d1ff37a208b08bc",
-      "kev": false,
-      "published": "2026-10-22T00:00:00Z",
-      "score": 15.8,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "recency (+3.8)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow runs in the base repository through workflow_run, checks out an external pull request’s fork commit, and invokes SonarScanner with the repository’s SONAR_TOKEN. A fork author can set sonar.host.url in the checked-out sonar.properties; because the workflow does not pin a trusted scanner host, SonarScanner sends SONAR_TOKEN as Bearer authentication to that attacker-selected URL before analysis begins. The attacker can then exercise the token’s SonarCloud permissions and manipulate authenticated analysis for kptdev/kpt. Project kptdev/kpt repository Tested Version The default branch at commit 6345d96d661eae1f6cdcb97b1f70080ce35f61a4. Details Fork-controlled sonar.properties is consumed by a privileged SonarCloud scan with SONAR_TOKEN (GHSL-2026-208) The Go workflow runs for pull requests and checks out the pull request code for its build and test jobs. After successful testing, it uploads coverage reports and stores the pull request number in a PR_NUMBER artifact. Completion of the Go workflow triggers the default-branch SonarCloud analysis workflow. The latter runs in a privileged workflow_run context, where repository secrets are available. Its success and coverage-artifact checks restrict when the path runs, but do not establish trust in the pull request contents. For pull request runs, the privileged workflow downloads PR_NUMBER, resolves the pull request, and then checks out the triggering workflow’s head repository and head SHA. For an external pull request, both identify the fork author’s immutable commit: - name: Checkout PR head uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0 with: repository: ${{ github.event.workflow_run.head_repository.full_name }} ref: ${{ github.event.workflow_run.head_sha }} fetch-depth: 0 persist-credentials: false allow-unsafe-pr-checkout: true The next step is named Checkout base branch, but after briefly creating the local base branch it checks out HEAD_SHA again and resets the working tree to that commit: - name: Checkout base branch if: github.event.workflow_run.event == 'pull_request' env: BASE_REF: ${{ steps.pr_meta.outputs.base_ref }} HEAD_SHA: ${{ github.event.workflow_run.head_sha }} CLONE_URL: ${{ github.event.repository.clone_url }} run: | git remote add upstream \"$CLONE_URL\" git fetch upstream git checkout -B \"$BASE_REF\" \"upstream/$BASE_REF\" git checkout \"$HEAD_SHA\" git clean -ffdx && git reset --hard HEAD Consequently, files in the workspace, including sonar.properties, still come from the fork-controlled pull request commit. The SonarQube scan step then supplies the repository secret SONAR_TOKEN and explicitly selects that working-tree configuration file: - name: SonarQube Scan on PR if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: SonarSource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e # v8.2.0 env: SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} with: args: -Dsonar.projectKey=kptdev_kpt -Dsonar.organization=kptdev -Dproject.settings=sonar.properties -Dsonar.pullrequest.key=${{ steps.pr_meta.outputs.number }} -Dsonar.pullrequest.branch=${{ steps.pr_meta.outputs.head_ref }} -Dsonar.pullrequest.base=${{ steps.pr_meta.outputs.base_ref }} The command-line arguments pin several analysis identifiers, but they do not pin sonar.host.url. SonarScanner CLI loads the project settings file before overlaying environment variables and CLI arguments. In this workflow, SONAR_TOKEN maps to sonar.token, but neither the workflow nor the action sets a trusted SONAR_HOST_URL. The pull request’s sonar.host.url therefore remains effective. The scanner’s HTTP client adds Authorization: Bearer <sonar.token> to authenticated bootstrap requests sent to that configured host. This was reproduced safely with the exact SonarScanner CLI 8.1.0.6389 selected by the pinned action. A local-only listener and dummy token were used; no project credential or external receiver was involved. The controlled project file contained: sonar.host.url=http://127.0.0.1:<port> sonar.projectKey=ghsl-local-proof sonar.sources=. The scanner was launched in a clean environment with: env -i PATH=\"$PATH\" SONAR_TOKEN=GHSL_DUMMY_CANARY_2026_208 sonar-scanner -Dproject.settings=sonar.properties Before analysis began, the listener received: GET /api/v2/analysis/version HTTP/1.1 Authorization: Bearer GHSL_DUMMY_CANARY_2026_208 User-Agent: ScannerCLI/8.1.0.6389 The scanner also sent the same Bearer token to its legacy /api/server/version fallback after the local listener returned an unsupported response. This demonstrates that an attacker does not need a functioning SonarQube server or a completed scan to obtain the secret: receiving the initial authenticated bootstrap request is sufficient. No live exploit was run against the project, and this report does not claim base-repository writes. A representative attack sequence is: An external contributor changes sonar.properties in a fork and opens a pull request containing code changes that exercise the Go workflow. The pull request workflow completes successfully and uploads the expected coverage and PR_NUMBER artifacts. Repository policy may first require approval for the fork workflow run. The workflow_run job checks out the fork repository at the attacker-controlled head SHA. The branch-preparation commands finish with the same untrusted head SHA checked out, so they do not restore the trusted base version of sonar.properties. SonarScanner reads the attacker-controlled sonar.host.url and sends SONAR_TOKEN as Bearer authentication to that server during its initial bootstrap request, directly disclosing the repository secret. Impact This is a confirmed direct disclosure of SONAR_TOKEN across the pull request trust boundary. An external fork author can choose the scanner’s destination through sonar.properties; the exact scanner used by the workflow then transmits the repository secret to that destination in an Authorization: Bearer header before analysis begins. After disclosure, the attacker can exercise whatever permissions the token carries. A SonarCloud personal access token can authenticate analyses and Web API requests with the issuing user’s permissions. A scoped organization or project analysis token can at least submit unauthorized analyses within its scope. In either case, the attacker can impersonate the trusted CI scanner, consume or corrupt authenticated analysis for kptdev/kpt, and undermine the integrity of its security and quality results. The exact blast radius beyond that project depends on the type and permissions of the configured token. The minimum attacker requires only control of an external pull request’s contents. Exploitation requires the Go workflow to run successfully. CWEs CWE-829: Inclusion of Functionality from Untrusted Control Sphere Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow sonar.properties at the tested commit GitHub Security Lab: Preventing pwn requests GitHub Docs: Mitigating the risks of untrusted code checkout Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-208 in any communication regarding this issue.",
-      "tags": [
-        "research"
-      ],
-      "title": "GHSL-2026-208: External pull requests can steal kptdev/kpt’s SonarCloud token",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-208_kptdev_kpt_repository/"
     },
     {
       "appsec": false,
@@ -2519,6 +2494,28 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "0bb09554616bf2b4",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 15.7,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "recency (+3.7)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow copies an external pull request’s attacker-controlled head branch name into a step output and directly interpolates that output into an inline Bash script. An external pull request author can use shell command-substitution syntax in the branch name to execute arbitrary commands in the base repository’s workflow_run job. A later step on the same runner receives the repository’s SONAR_TOKEN, making that credential and the integrity of the SonarCloud analysis reachable from the injected code. Project kptdev/kpt repository Tested Version The default branch at commit 6dfff203a6b49396add815a428c1d94370e9a3d6. Details Pull request branch name injection enables code execution in a privileged SonarCloud workflow (GHSL-2026-207) The Go workflow runs for pull requests. After the build and test jobs complete, it stores the pull request number in a fixed PR_NUMBER artifact. Successful completion of that workflow triggers the default-branch SonarCloud analysis workflow. The sonarqube job downloads PR_NUMBER, reads it, and requests the corresponding pull request from the GitHub API. It then extracts .head.ref, which is controlled by the external pull request author through the source branch name, into the pr_meta.outputs.head_ref step output: - name: Request GitHub API for PR data if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0 id: get_pr_data with: route: GET /repos/{full_name}/pulls/{number} number: ${{ steps.pr_number.outputs.content }} full_name: ${{ github.event.repository.full_name }} env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} - name: Extract PR metadata if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' id: pr_meta env: PR_DATA: ${{ steps.get_pr_data.outputs.data }} run: | echo \"number=$(echo \"$PR_DATA\" | jq -r '.number')\" >> \"$GITHUB_OUTPUT\" echo \"head_ref=$(echo \"$PR_DATA\" | jq -r '.head.ref')\" >> \"$GITHUB_OUTPUT\" echo \"base_ref=$(echo \"$PR_DATA\" | jq -r '.base.ref')\" >> \"$GITHUB_OUTPUT\" Using PR_DATA through an environment variable protects the extraction step itself. The subsequent debug step, however, directly interpolates the resulting output into Bash source: - name: Debug - Show PR metadata if: github.event.workflow_run.event == 'pull_request' run: | echo \"=== DEBUG: PR Metadata ===\" echo \"PR Number: ${{ steps.pr_meta.outputs.number }}\" echo \"Head Ref: ${{ steps.pr_meta.outputs.head_ref }}\" echo \"Base Ref: ${{ steps.pr_meta.outputs.base_ref }}\" echo \"=== END DEBUG ===\" GitHub Actions resolves ${{ ... }} expressions before passing the generated script to Bash. Double quotes do not neutralize shell command substitution. The successful-run and coverage-artifact conditions restrict when the vulnerable path executes, but they do not authorize the pull request author who controls the branch name. A representative attack sequence is: An external contributor creates a fork branch whose name contains command-substitution syntax and opens a pull request that exercises the Go workflow. The pull request workflow completes successfully and uploads its coverage and PR_NUMBER artifacts. A repository policy may require a maintainer to approve the fork workflow run first. The workflow_run workflow retrieves the pull request and propagates its attacker-controlled .head.ref through pr_meta.outputs.head_ref. The debug step inserts the value into the generated Bash script, executing the embedded command on the sonarqube runner. The injected process can alter runner or workspace state before the later SonarQube scan step receives SONAR_TOKEN. Impact An external fork pull request author can execute arbitrary shell commands in a base-repository workflow_run job. Although the job’s GITHUB_TOKEN permissions are read-only, a later action in the same job is explicitly given the repository secret SONAR_TOKEN. Injected code can persist influence over the runner or modify files used by later steps, allowing it to capture or misuse that credential when the SonarQube action starts. This can disclose the token and compromise the integrity of SonarCloud analysis for kptdev/kpt. The attacker requires no push access to kptdev/kpt: control of an external pull request’s source branch name is sufficient. Exploitation also requires the Go workflow to complete successfully, the expected artifacts to exist, and SONAR_TOKEN to be configured. CWEs CWE-94: Improper Control of Generation of Code (‘Code Injection’) CWE-116: Improper Encoding or Escaping of Output Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow GitHub Docs: Secure use reference - mitigating script injection GitHub Security Lab: Keeping your GitHub Actions and workflows secure - untrusted input Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-207 in any communication regarding this issue.",
+      "tags": [
+        "research"
+      ],
+      "title": "GHSL-2026-207: Arbitrary code execution in kptdev/kpt’s SonarCloud workflow via external pull requests",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-207_kptdev_kpt_repository/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "46115f7f2df3c681",
       "kev": false,
       "published": "2026-10-05T15:04:55Z",
@@ -2535,6 +2532,28 @@
       ],
       "title": "Smashing the token limit with overlapping fragments",
       "url": "https://portswigger.net/research/smashing-the-token-limit"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "4d1ff37a208b08bc",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 15.7,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "recency (+3.7)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow runs in the base repository through workflow_run, checks out an external pull request’s fork commit, and invokes SonarScanner with the repository’s SONAR_TOKEN. A fork author can set sonar.host.url in the checked-out sonar.properties; because the workflow does not pin a trusted scanner host, SonarScanner sends SONAR_TOKEN as Bearer authentication to that attacker-selected URL before analysis begins. The attacker can then exercise the token’s SonarCloud permissions and manipulate authenticated analysis for kptdev/kpt. Project kptdev/kpt repository Tested Version The default branch at commit 6345d96d661eae1f6cdcb97b1f70080ce35f61a4. Details Fork-controlled sonar.properties is consumed by a privileged SonarCloud scan with SONAR_TOKEN (GHSL-2026-208) The Go workflow runs for pull requests and checks out the pull request code for its build and test jobs. After successful testing, it uploads coverage reports and stores the pull request number in a PR_NUMBER artifact. Completion of the Go workflow triggers the default-branch SonarCloud analysis workflow. The latter runs in a privileged workflow_run context, where repository secrets are available. Its success and coverage-artifact checks restrict when the path runs, but do not establish trust in the pull request contents. For pull request runs, the privileged workflow downloads PR_NUMBER, resolves the pull request, and then checks out the triggering workflow’s head repository and head SHA. For an external pull request, both identify the fork author’s immutable commit: - name: Checkout PR head uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0 with: repository: ${{ github.event.workflow_run.head_repository.full_name }} ref: ${{ github.event.workflow_run.head_sha }} fetch-depth: 0 persist-credentials: false allow-unsafe-pr-checkout: true The next step is named Checkout base branch, but after briefly creating the local base branch it checks out HEAD_SHA again and resets the working tree to that commit: - name: Checkout base branch if: github.event.workflow_run.event == 'pull_request' env: BASE_REF: ${{ steps.pr_meta.outputs.base_ref }} HEAD_SHA: ${{ github.event.workflow_run.head_sha }} CLONE_URL: ${{ github.event.repository.clone_url }} run: | git remote add upstream \"$CLONE_URL\" git fetch upstream git checkout -B \"$BASE_REF\" \"upstream/$BASE_REF\" git checkout \"$HEAD_SHA\" git clean -ffdx && git reset --hard HEAD Consequently, files in the workspace, including sonar.properties, still come from the fork-controlled pull request commit. The SonarQube scan step then supplies the repository secret SONAR_TOKEN and explicitly selects that working-tree configuration file: - name: SonarQube Scan on PR if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: SonarSource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e # v8.2.0 env: SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} with: args: -Dsonar.projectKey=kptdev_kpt -Dsonar.organization=kptdev -Dproject.settings=sonar.properties -Dsonar.pullrequest.key=${{ steps.pr_meta.outputs.number }} -Dsonar.pullrequest.branch=${{ steps.pr_meta.outputs.head_ref }} -Dsonar.pullrequest.base=${{ steps.pr_meta.outputs.base_ref }} The command-line arguments pin several analysis identifiers, but they do not pin sonar.host.url. SonarScanner CLI loads the project settings file before overlaying environment variables and CLI arguments. In this workflow, SONAR_TOKEN maps to sonar.token, but neither the workflow nor the action sets a trusted SONAR_HOST_URL. The pull request’s sonar.host.url therefore remains effective. The scanner’s HTTP client adds Authorization: Bearer <sonar.token> to authenticated bootstrap requests sent to that configured host. This was reproduced safely with the exact SonarScanner CLI 8.1.0.6389 selected by the pinned action. A local-only listener and dummy token were used; no project credential or external receiver was involved. The controlled project file contained: sonar.host.url=http://127.0.0.1:<port> sonar.projectKey=ghsl-local-proof sonar.sources=. The scanner was launched in a clean environment with: env -i PATH=\"$PATH\" SONAR_TOKEN=GHSL_DUMMY_CANARY_2026_208 sonar-scanner -Dproject.settings=sonar.properties Before analysis began, the listener received: GET /api/v2/analysis/version HTTP/1.1 Authorization: Bearer GHSL_DUMMY_CANARY_2026_208 User-Agent: ScannerCLI/8.1.0.6389 The scanner also sent the same Bearer token to its legacy /api/server/version fallback after the local listener returned an unsupported response. This demonstrates that an attacker does not need a functioning SonarQube server or a completed scan to obtain the secret: receiving the initial authenticated bootstrap request is sufficient. No live exploit was run against the project, and this report does not claim base-repository writes. A representative attack sequence is: An external contributor changes sonar.properties in a fork and opens a pull request containing code changes that exercise the Go workflow. The pull request workflow completes successfully and uploads the expected coverage and PR_NUMBER artifacts. Repository policy may first require approval for the fork workflow run. The workflow_run job checks out the fork repository at the attacker-controlled head SHA. The branch-preparation commands finish with the same untrusted head SHA checked out, so they do not restore the trusted base version of sonar.properties. SonarScanner reads the attacker-controlled sonar.host.url and sends SONAR_TOKEN as Bearer authentication to that server during its initial bootstrap request, directly disclosing the repository secret. Impact This is a confirmed direct disclosure of SONAR_TOKEN across the pull request trust boundary. An external fork author can choose the scanner’s destination through sonar.properties; the exact scanner used by the workflow then transmits the repository secret to that destination in an Authorization: Bearer header before analysis begins. After disclosure, the attacker can exercise whatever permissions the token carries. A SonarCloud personal access token can authenticate analyses and Web API requests with the issuing user’s permissions. A scoped organization or project analysis token can at least submit unauthorized analyses within its scope. In either case, the attacker can impersonate the trusted CI scanner, consume or corrupt authenticated analysis for kptdev/kpt, and undermine the integrity of its security and quality results. The exact blast radius beyond that project depends on the type and permissions of the configured token. The minimum attacker requires only control of an external pull request’s contents. Exploitation requires the Go workflow to run successfully. CWEs CWE-829: Inclusion of Functionality from Untrusted Control Sphere Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow sonar.properties at the tested commit GitHub Security Lab: Preventing pwn requests GitHub Docs: Mitigating the risks of untrusted code checkout Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-208 in any communication regarding this issue.",
+      "tags": [
+        "research"
+      ],
+      "title": "GHSL-2026-208: External pull requests can steal kptdev/kpt’s SonarCloud token",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-208_kptdev_kpt_repository/"
     },
     {
       "appsec": false,
@@ -2609,26 +2628,6 @@
       ],
       "title": "HTTP/3 in Burp Suite - it’s time to find a bigger wordlist",
       "url": "https://portswigger.net/research/http3-in-burp-suite"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5ba4b32d47ec536b",
-      "kev": false,
-      "published": "2026-10-30T21:59:22Z",
-      "score": 15.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
-      "tags": [],
-      "title": "dbreunig/nesformer",
-      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
     },
     {
       "appsec": false,
@@ -3336,10 +3335,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 14.9,
+      "score": 14.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.9)"
+        "recency (+6.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3353,13 +3352,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5ba4b32d47ec536b",
+      "kev": false,
+      "published": "2026-10-30T21:59:22Z",
+      "score": 14.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 14.1,
+      "score": 13.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3376,10 +3395,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3396,10 +3415,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 13.1,
+      "score": 12.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.1)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3416,10 +3435,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 12.7,
+      "score": 12.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.7)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3436,10 +3455,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 12.0,
+      "score": 11.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.0)"
+        "recency (+5.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3456,10 +3475,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3476,10 +3495,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 11.5,
+      "score": 11.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3496,10 +3515,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 11.4,
+      "score": 11.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3516,10 +3535,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 11.0,
+      "score": 10.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3536,10 +3555,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 10.8,
+      "score": 10.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3556,10 +3575,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 10.7,
+      "score": 10.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3576,10 +3595,10 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 10.5,
+      "score": 10.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3596,10 +3615,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3616,10 +3635,10 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3636,10 +3655,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3693,26 +3712,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "9a6f4ea76a26e005",
-      "kev": false,
-      "published": "2026-10-21T16:25:16Z",
-      "score": 9.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
-      "tags": [],
-      "title": "Panache — RTS Belle Époque pour mobile",
-      "url": "https://simonwillison.net/2026/Oct/21/panache/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
@@ -3733,20 +3732,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "3954bde477b7b3c4",
+      "id": "9a6f4ea76a26e005",
       "kev": false,
-      "published": "2026-10-11T19:18:00Z",
-      "score": 9.4,
+      "published": "2026-10-21T16:25:16Z",
+      "score": 9.5,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.4)"
+        "source:Simon Willison (+6)",
+        "recency (+3.5)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats with Prowler’s founder and CEO Toni de la Fuente about how AI now allows pretty much anyone to vibe-code “killer apps”. These custom apps are often internal for organisations and hosted on the cloud. The pair discuss why developers need to focus on security on top of app functionality and how Prowler can work in parallel with apps and agents to help secure, and continuously assess, cloud infrastructure. Show notes",
+      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
       "tags": [],
-      "title": "Sponsored: AI is attacking… it needs to defend, too",
-      "url": "https://risky.biz/RBNEWSSI146/"
+      "title": "Panache — RTS Belle Époque pour mobile",
+      "url": "https://simonwillison.net/2026/Oct/21/panache/"
     },
     {
       "appsec": false,
@@ -3773,13 +3772,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "3954bde477b7b3c4",
+      "kev": false,
+      "published": "2026-10-11T19:18:00Z",
+      "score": 9.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats with Prowler’s founder and CEO Toni de la Fuente about how AI now allows pretty much anyone to vibe-code “killer apps”. These custom apps are often internal for organisations and hosted on the cloud. The pair discuss why developers need to focus on security on top of app functionality and how Prowler can work in parallel with apps and agents to help secure, and continuously assess, cloud infrastructure. Show notes",
+      "tags": [],
+      "title": "Sponsored: AI is attacking… it needs to defend, too",
+      "url": "https://risky.biz/RBNEWSSI146/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3853,26 +3872,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "357fe0629fb522a0",
-      "kev": false,
-      "published": "2026-09-28T01:17:56Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Intel removes cash rewards from its bug bounty program, OpenAI agents probed dozens of organizations, Fraudsters scam €95 million from an Italian bank and Bitget is hacked for $350 million. Show notes Risky Bulletin: Intel ends paid bug bounties",
-      "tags": [],
-      "title": "Risky Bulletin: Intel ends paid bug bounties",
-      "url": "https://risky.biz/RBNEWS616/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
@@ -3893,20 +3892,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0726d06affb1e87c",
+      "id": "357fe0629fb522a0",
       "kev": false,
-      "published": "2026-10-16T22:06:37Z",
+      "published": "2026-09-28T01:17:56Z",
       "score": 8.3,
       "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.3)"
+        "source:Risky Bulletin (+8)",
+        "recency (+0.3)"
       ],
-      "source": "Simon Willison",
+      "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
+      "summary": "Intel removes cash rewards from its bug bounty program, OpenAI agents probed dozens of organizations, Fraudsters scam €95 million from an Italian bank and Bitget is hacked for $350 million. Show notes Risky Bulletin: Intel ends paid bug bounties",
       "tags": [],
-      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
-      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+      "title": "Risky Bulletin: Intel ends paid bug bounties",
+      "url": "https://risky.biz/RBNEWS616/"
     },
     {
       "appsec": false,
@@ -3947,6 +3946,26 @@
       "tags": [],
       "title": "Sponsored: Robo-Burp is coming for your web apps",
       "url": "https://risky.biz/RBNEWSSI145/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0726d06affb1e87c",
+      "kev": false,
+      "published": "2026-10-16T22:06:37Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
+      "tags": [],
+      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
+      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
     },
     {
       "appsec": false,
@@ -4758,26 +4777,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "812f894cec2b2135",
-      "kev": false,
-      "published": "2026-10-15T13:04:03Z",
-      "score": 8.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
-      "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "8146af817f640836",
       "kev": false,
       "published": "2026-07-08T05:27:06Z",
@@ -5292,6 +5291,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "812f894cec2b2135",
+      "kev": false,
+      "published": "2026-10-15T13:04:03Z",
+      "score": 7.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
+      "tags": [],
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
@@ -5348,7 +5367,7 @@
       "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-04T23:32:30Z",
+  "last_run": "2026-11-05T05:56:29Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1324,
@@ -5361,7 +5380,7 @@
     "open_gaps": 963,
     "public_poc": 719,
     "total_cves": 2285,
-    "total_items": 239
+    "total_items": 240
   },
   "threats": [
     {
