@@ -1,0 +1,64 @@
+[
+  {
+    "dataType": "CVE_RECORD",
+    "dataVersion": "5.1",
+    "cveMetadata": {
+      "cveId": "CVE-2099-7101",
+      "state": "PUBLISHED",
+      "assignerShortName": "demo_cna",
+      "datePublished": "2026-10-28T09:00:00.000Z",
+      "dateUpdated": "2026-10-28T09:00:00.000Z"
+    },
+    "containers": {
+      "cna": {
+        "title": "SQL injection in example-shop checkout",
+        "descriptions": [
+          {"lang": "en", "value": "A SQL injection in the checkout handler of example-shop lets an unauthenticated attacker read the orders database over HTTP."}
+        ],
+        "affected": [{"vendor": "ExampleShop", "product": "example-shop", "versions": [{"version": "0", "lessThan": "4.2.1", "status": "affected", "versionType": "semver"}]}],
+        "problemTypes": [{"descriptions": [{"type": "CWE", "cweId": "CWE-89", "lang": "en", "description": "SQL Injection"}]}],
+        "metrics": [{"cvssV3_1": {"version": "3.1", "baseScore": 9.8, "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"}}],
+        "references": [{"url": "https://example.com/advisories/example-shop-sqli", "tags": ["vendor-advisory"]}]
+      }
+    }
+  },
+  {
+    "dataType": "CVE_RECORD",
+    "dataVersion": "5.1",
+    "cveMetadata": {
+      "cveId": "CVE-2099-7102",
+      "state": "PUBLISHED",
+      "assignerShortName": "demo_cna",
+      "datePublished": "2026-10-28T10:00:00.000Z",
+      "dateUpdated": "2026-10-28T10:00:00.000Z"
+    },
+    "containers": {
+      "cna": {
+        "title": "Stack buffer overflow in example-router firmware",
+        "descriptions": [
+          {"lang": "en", "value": "A stack-based buffer overflow in the example-router firmware can be triggered by a crafted serial console command, requiring physical access."}
+        ],
+        "affected": [{"vendor": "ExampleHW", "product": "example-router", "versions": [{"version": "1.0", "status": "affected"}]}],
+        "problemTypes": [{"descriptions": [{"type": "CWE", "cweId": "CWE-121", "lang": "en", "description": "Stack-based Buffer Overflow"}]}],
+        "metrics": [{"cvssV3_1": {"version": "3.1", "baseScore": 6.8, "vectorString": "CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"}}],
+        "references": [{"url": "https://example.com/advisories/example-router-overflow", "tags": ["vendor-advisory"]}]
+      }
+    }
+  },
+  {
+    "dataType": "CVE_RECORD",
+    "dataVersion": "5.1",
+    "cveMetadata": {
+      "cveId": "CVE-2099-7103",
+      "state": "REJECTED",
+      "assignerShortName": "demo_cna",
+      "datePublished": "2026-10-28T11:00:00.000Z",
+      "dateUpdated": "2026-10-28T11:00:00.000Z"
+    },
+    "containers": {
+      "cna": {
+        "rejectedReasons": [{"lang": "en", "value": "This CVE id was assigned in error and withdrawn by the CNA."}]
+      }
+    }
+  }
+]

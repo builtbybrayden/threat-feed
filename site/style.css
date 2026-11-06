@@ -138,7 +138,9 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   padding: 1px 8px; border-radius: 999px; background: var(--accent); color: var(--accent-ink);
   font-size: 0.72rem; font-weight: 700;
 }
-#threat-chips[hidden] { display: none; }
+/* .chips sets display:flex, which beats the UA [hidden] rule — restore it so a
+   collapsed filter bar (Threats or News) actually stays hidden until toggled. */
+.chips[hidden] { display: none; }
 
 /* ============================= DETAIL MODAL =========================== */
 .clickable { cursor: pointer; }
@@ -271,6 +273,48 @@ body.modal-open { overflow: hidden; }
 }
 .cov.gap { background: rgba(255, 69, 58, 0.12); color: var(--crit); box-shadow: inset 0 0 0 1px rgba(255, 69, 58, 0.4); }
 .cov.covered { background: rgba(48, 209, 88, 0.1); color: var(--good); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.35); }
+.cov.unknown { background: rgba(152, 152, 157, 0.14); color: var(--muted); box-shadow: inset 0 0 0 1px rgba(152, 152, 157, 0.4); }
+.decision {
+  font-size: 0.66rem; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap;
+  background: rgba(152, 152, 157, 0.14); color: var(--muted); box-shadow: inset 0 0 0 1px rgba(152, 152, 157, 0.35);
+}
+.decision.reviewed { background: rgba(10, 132, 255, 0.14); color: #4aa3ff; box-shadow: inset 0 0 0 1px rgba(10, 132, 255, 0.4); }
+.decision.lab-validated,
+.decision.completed { background: rgba(48, 209, 88, 0.12); color: var(--good); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.4); }
+.decision.rejected { background: rgba(255, 69, 58, 0.12); color: var(--crit); box-shadow: inset 0 0 0 1px rgba(255, 69, 58, 0.4); }
+.decision.inconclusive { background: rgba(255, 159, 10, 0.14); color: var(--warn); box-shadow: inset 0 0 0 1px rgba(255, 159, 10, 0.4); }
+/* Machine validation: a template's 3-control lab run. Green = curated pass,
+   amber = inferred-lab pass (lower confidence), red = failed the gate. */
+.val {
+  font-size: 0.66rem; font-weight: 700; padding: 3px 8px; border-radius: 999px;
+  letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap;
+  background: rgba(152, 152, 157, 0.14); color: var(--muted); box-shadow: inset 0 0 0 1px rgba(152, 152, 157, 0.35);
+}
+.val.ok { background: rgba(48, 209, 88, 0.12); color: var(--good); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.4); }
+.val.inferred { background: rgba(255, 159, 10, 0.14); color: var(--warn); box-shadow: inset 0 0 0 1px rgba(255, 159, 10, 0.45); }
+.val.fail { background: rgba(255, 69, 58, 0.12); color: var(--crit); box-shadow: inset 0 0 0 1px rgba(255, 69, 58, 0.4); }
+/* Validation detail: the three controls + lab provenance, in the modal. */
+.val-controls { display: flex; flex-direction: column; gap: 5px; margin: 10px 0 0; }
+.val-ctl { display: flex; align-items: center; gap: 9px; font-size: 0.8rem; }
+.val-ctl-i { font-weight: 800; width: 1em; text-align: center; }
+.val-ctl.ok .val-ctl-i { color: var(--good); }
+.val-ctl.fail .val-ctl-i { color: var(--crit); }
+.val-ctl-n { color: var(--text); min-width: 5.5em; }
+.val-ctl-d { color: var(--faint); font-size: 0.74rem; }
+.val-note { margin: 9px 0 0; font-size: 0.76rem; color: var(--warn); line-height: 1.4; }
+/* Provenance: which intake streams saw this CVE (distinct from feed articles). */
+.origins { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 9px; }
+.origins-label { font-size: 0.68rem; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; margin-right: 1px; }
+.origin {
+  font-size: 0.66rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  letter-spacing: 0.02em; white-space: nowrap;
+  background: var(--chip); color: var(--muted); box-shadow: inset 0 0 0 1px var(--chip-line);
+}
+.origin.kev { color: var(--crit); box-shadow: inset 0 0 0 1px rgba(255, 69, 58, 0.4); }
+.origin.cvelist { color: #4aa3ff; box-shadow: inset 0 0 0 1px rgba(10, 132, 255, 0.4); }
+.origin.osv { color: #c08cff; box-shadow: inset 0 0 0 1px rgba(170, 120, 255, 0.4); }
+.origin.ghsa { color: var(--good); box-shadow: inset 0 0 0 1px rgba(48, 209, 88, 0.35); }
 .vuln-desc { color: var(--muted); font-size: 0.85rem; margin: 9px 0 0; }
 .meta-grid { display: grid; grid-template-columns: auto 1fr; gap: 5px 14px; margin: 11px 0 0; font-size: 0.8rem; }
 .meta-grid .k { color: var(--faint); }
