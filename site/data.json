@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-06T23:02:09Z",
+  "generated": "2026-11-07T05:23:28Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 50.8,
+      "score": 50.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.8)"
+        "recency (+13.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -73,12 +73,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 50.2,
+      "score": 49.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.2)"
+        "recency (+12.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -101,12 +101,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 48.2,
+      "score": 47.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -127,12 +127,12 @@
       "id": "b9a21e8f9aefd6f8",
       "kev": false,
       "published": "2026-10-06T07:00:00Z",
-      "score": 44.7,
+      "score": 44.6,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:express (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -156,13 +156,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 44.3,
+      "score": 44.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -187,13 +187,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 44.2,
+      "score": 44.1,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -207,36 +207,6 @@
       ],
       "title": "GHSL-2026-151: Crafted search links can execute JavaScript on mkdocs-material sites - CVE-2026-73295",
       "url": "https://securitylab.github.com/advisories/GHSL-2026-151_mkdocs-material/"
-    },
-    {
-      "appsec": true,
-      "cves": [
-        "CVE-2026-92261"
-      ],
-      "epss": null,
-      "feed": "threats",
-      "id": "0c7437e09d811ff7",
-      "kev": false,
-      "published": "2026-10-22T00:00:00Z",
-      "score": 44.1,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "watchlist:command injection (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+3.1)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-07: Created the advisory draft through Private Vulnerability Reporting. 2026-09-14: An email to maintainers’ public email was sent. 2026-09-16: The fix was pushed and v1.0.44 was released. 2026-09-16: CVE-2026-92261 was assigned Summary The release-check.yml reusable workflow reads a version string from a file in the head commit of a pull request and writes it to $GITHUB_OUTPUT with a single-line echo. Because the value is attacker-controlled and is not checked for newlines, a pull request author can emit additional step-output records and overwrite the prefix output that the same step wrote earlier. The corrupted prefix is then interpolated directly into a sed program, where sed’s e flag turns it into command execution. The workflow is designed to be called from pull_request_target with contents: write, so the attacker obtains arbitrary command execution in a privileged job. This was confirmed with a working proof of concept. Project ipdxco/unified-github-workflows Tested Version Verified against commit e08e90c46d931f457e5d8e292ffa988c0c0b5b70, which the v1.0 tag referenced at the time of testing. v1.0 is a mutable tag, so consumers using it track whichever commit it currently references. Details Attacker-controlled version.json value injects extra $GITHUB_OUTPUT records in release-check.yml and reaches an unescaped sed program, enabling command execution in a privileged pull_request_target job (GHSL-2026-229) Trust boundary The repository’s own caller template establishes the intended usage: the reusable workflow is invoked from pull_request_target, filtered on the very file the attacker controls, with a write-scoped token. on: pull_request_target: paths: [ \"version.json\" ] types: [ opened, synchronize, reopened, labeled, unlabeled ] permissions: contents: write pull-requests: write jobs: release-check: uses: ipdxco/unified-github-workflows/.github/workflows/release-check.yml@v1.0 pull_request_target runs in the context of the base repository with access to the base repository’s secrets, so any code execution in this job is privileged. Step 1: attacker-controlled data is read into a shell variable In the version step, the trusted value v is written to prefix first, and the pull request’s version.json is then checked out and parsed: prefix=\"v\" echo \"prefix=$prefix\" | tee -a $GITHUB_OUTPUT # line 87 - trusted value git fetch origin \"$HEAD_SHA\" ... git checkout \"$HEAD_SHA\" -- \"$root/$source\" # line 92 - attacker's file version=\"$(yq -r '... // .version | select(type == \"!!str\")' \"$root/$source\")\" git checkout HEAD -- \"$root/$source\" # line 94 - file restored version=\"${version#v}\" ... echo \"version=$version\" | tee -a $GITHUB_OUTPUT # line 102 echo \"tag=${prefix}${version}\" | tee -a $GITHUB_OUTPUT # line 103 The git checkout HEAD -- ... on line 94 restores the file, but the extracted string already lives in the version shell variable and is used afterwards. Restoring the file does not limit the lifetime of the derived value. Step 2: newline in the value forges additional step outputs yq -r emits a raw scalar, so a JSON \\n escape becomes a real newline. The Actions runner parses $GITHUB_OUTPUT line by line into independent NAME=VALUE records, and setting an output that already exists replaces it. A version.json of: { \"version\": \"v0.4.2\\nprefix=INJECTED\" } causes line 102 to append two records instead of one: prefix=v <- written earlier on line 87 version=0.4.2 prefix=INJECTED <- forged, replaces the trusted value tag=v0.4.2 prefix=INJECTED <- forged again via line 103 The version output remains 0.4.2, so the semver validation on line 146 still passes. Only version is validated; prefix is not validated anywhere. Step 3: the forged prefix becomes interpreter program text The prev step interpolates PREFIX into both a grep pattern and a sed program: vs=$(git tag | grep \"^${PREFIX}\" | sed \"s#^${PREFIX}#v#\" | paste -sd , -) The shell quoting here prevents word splitting, but it does not make the value literal to grep or sed — the text becomes part of their programs. Two constraints must be met simultaneously, because both programs receive the same value: grep must still match existing tags, otherwise sed receives no input lines and never runs a cycle. The value must terminate the s command so that the remainder is parsed as flags/commands. A basic-regular-expression alternation satisfies both. With PREFIX set to: v\\|.*#id>/dev/stderr#e;# grep \"^v\\|.*#id>/dev/stderr#e;#\" matches every tag beginning with v through the ^v alternative. The sed program expands to s#^v\\|.*#id>/dev/stderr#e;##v#, i.e. pattern ^v\\|.*, replacement id>/dev/stderr, the e flag, and the trailing #v# is consumed as a comment. sed’s e flag executes the pattern space as a shell command after a successful substitution, so the command runs once per matching tag. Both this flag and the \\| alternation are supported by the grep and sed preinstalled on the default GitHub Actions Ubuntu runner, which the workflow’s runner input selects unless a consumer overrides it. Impact This issue leads to arbitrary command execution in a privileged pull_request_target job, triggered by any user who can open a pull request that modifies the version file. Under the permissions in the project’s caller template, the job’s GITHUB_TOKEN carries contents: write and pull-requests: write, so attacker-controlled code can perform repository content and pull request operations subject to branch protection. Any other secrets or variables exposed to the job in a consuming repository are also readable, and the attacker can tamper with the release artifacts the workflow produces. No maintainer interaction is required beyond whatever fork pull request approval policy the consuming repository enforces. GitHub requires approval for first-time external contributors by default, but returning contributors and organization members with read access run without approval. CWEs CWE-93: Improper Neutralization of CRLF Sequences (‘CRLF Injection’) CWE-78: Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’) Resources GitHub Security Lab: Preventing pwn requests GitHub Docs: workflow commands, multiline strings GNU sed manual: the e flag of the s command CVE CVE-2026-92261 Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-229 in any communication regarding this issue.",
-      "tags": [
-        "research",
-        "appsec",
-        "watchlist",
-        "has-CVE",
-        "command-injection"
-      ],
-      "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
     },
     {
       "appsec": true,
@@ -263,6 +233,36 @@
       ],
       "title": "onwebkitplaybacktargetavailabilitychanged?! New exotic events in the XSS cheat sheet",
       "url": "https://portswigger.net/research/new-exotic-events-in-the-xss-cheat-sheet"
+    },
+    {
+      "appsec": true,
+      "cves": [
+        "CVE-2026-92261"
+      ],
+      "epss": null,
+      "feed": "threats",
+      "id": "0c7437e09d811ff7",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 44.0,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "watchlist:command injection (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+3.0)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-09-07: Created the advisory draft through Private Vulnerability Reporting. 2026-09-14: An email to maintainers’ public email was sent. 2026-09-16: The fix was pushed and v1.0.44 was released. 2026-09-16: CVE-2026-92261 was assigned Summary The release-check.yml reusable workflow reads a version string from a file in the head commit of a pull request and writes it to $GITHUB_OUTPUT with a single-line echo. Because the value is attacker-controlled and is not checked for newlines, a pull request author can emit additional step-output records and overwrite the prefix output that the same step wrote earlier. The corrupted prefix is then interpolated directly into a sed program, where sed’s e flag turns it into command execution. The workflow is designed to be called from pull_request_target with contents: write, so the attacker obtains arbitrary command execution in a privileged job. This was confirmed with a working proof of concept. Project ipdxco/unified-github-workflows Tested Version Verified against commit e08e90c46d931f457e5d8e292ffa988c0c0b5b70, which the v1.0 tag referenced at the time of testing. v1.0 is a mutable tag, so consumers using it track whichever commit it currently references. Details Attacker-controlled version.json value injects extra $GITHUB_OUTPUT records in release-check.yml and reaches an unescaped sed program, enabling command execution in a privileged pull_request_target job (GHSL-2026-229) Trust boundary The repository’s own caller template establishes the intended usage: the reusable workflow is invoked from pull_request_target, filtered on the very file the attacker controls, with a write-scoped token. on: pull_request_target: paths: [ \"version.json\" ] types: [ opened, synchronize, reopened, labeled, unlabeled ] permissions: contents: write pull-requests: write jobs: release-check: uses: ipdxco/unified-github-workflows/.github/workflows/release-check.yml@v1.0 pull_request_target runs in the context of the base repository with access to the base repository’s secrets, so any code execution in this job is privileged. Step 1: attacker-controlled data is read into a shell variable In the version step, the trusted value v is written to prefix first, and the pull request’s version.json is then checked out and parsed: prefix=\"v\" echo \"prefix=$prefix\" | tee -a $GITHUB_OUTPUT # line 87 - trusted value git fetch origin \"$HEAD_SHA\" ... git checkout \"$HEAD_SHA\" -- \"$root/$source\" # line 92 - attacker's file version=\"$(yq -r '... // .version | select(type == \"!!str\")' \"$root/$source\")\" git checkout HEAD -- \"$root/$source\" # line 94 - file restored version=\"${version#v}\" ... echo \"version=$version\" | tee -a $GITHUB_OUTPUT # line 102 echo \"tag=${prefix}${version}\" | tee -a $GITHUB_OUTPUT # line 103 The git checkout HEAD -- ... on line 94 restores the file, but the extracted string already lives in the version shell variable and is used afterwards. Restoring the file does not limit the lifetime of the derived value. Step 2: newline in the value forges additional step outputs yq -r emits a raw scalar, so a JSON \\n escape becomes a real newline. The Actions runner parses $GITHUB_OUTPUT line by line into independent NAME=VALUE records, and setting an output that already exists replaces it. A version.json of: { \"version\": \"v0.4.2\\nprefix=INJECTED\" } causes line 102 to append two records instead of one: prefix=v <- written earlier on line 87 version=0.4.2 prefix=INJECTED <- forged, replaces the trusted value tag=v0.4.2 prefix=INJECTED <- forged again via line 103 The version output remains 0.4.2, so the semver validation on line 146 still passes. Only version is validated; prefix is not validated anywhere. Step 3: the forged prefix becomes interpreter program text The prev step interpolates PREFIX into both a grep pattern and a sed program: vs=$(git tag | grep \"^${PREFIX}\" | sed \"s#^${PREFIX}#v#\" | paste -sd , -) The shell quoting here prevents word splitting, but it does not make the value literal to grep or sed — the text becomes part of their programs. Two constraints must be met simultaneously, because both programs receive the same value: grep must still match existing tags, otherwise sed receives no input lines and never runs a cycle. The value must terminate the s command so that the remainder is parsed as flags/commands. A basic-regular-expression alternation satisfies both. With PREFIX set to: v\\|.*#id>/dev/stderr#e;# grep \"^v\\|.*#id>/dev/stderr#e;#\" matches every tag beginning with v through the ^v alternative. The sed program expands to s#^v\\|.*#id>/dev/stderr#e;##v#, i.e. pattern ^v\\|.*, replacement id>/dev/stderr, the e flag, and the trailing #v# is consumed as a comment. sed’s e flag executes the pattern space as a shell command after a successful substitution, so the command runs once per matching tag. Both this flag and the \\| alternation are supported by the grep and sed preinstalled on the default GitHub Actions Ubuntu runner, which the workflow’s runner input selects unless a consumer overrides it. Impact This issue leads to arbitrary command execution in a privileged pull_request_target job, triggered by any user who can open a pull request that modifies the version file. Under the permissions in the project’s caller template, the job’s GITHUB_TOKEN carries contents: write and pull-requests: write, so attacker-controlled code can perform repository content and pull request operations subject to branch protection. Any other secrets or variables exposed to the job in a consuming repository are also readable, and the attacker can tamper with the release artifacts the workflow produces. No maintainer interaction is required beyond whatever fork pull request approval policy the consuming repository enforces. GitHub requires approval for first-time external contributors by default, but returning contributors and organization members with read access run without approval. CWEs CWE-93: Improper Neutralization of CRLF Sequences (‘CRLF Injection’) CWE-78: Improper Neutralization of Special Elements used in an OS Command (‘OS Command Injection’) Resources GitHub Security Lab: Preventing pwn requests GitHub Docs: workflow commands, multiline strings GNU sed manual: the e flag of the s command CVE CVE-2026-92261 Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-229 in any communication regarding this issue.",
+      "tags": [
+        "research",
+        "appsec",
+        "watchlist",
+        "has-CVE",
+        "command-injection"
+      ],
+      "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
     },
     {
       "appsec": true,
@@ -377,12 +377,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 43.6,
+      "score": 43.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.6)"
+        "recency (+6.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -409,12 +409,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 43.3,
+      "score": 43.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.3)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -435,12 +435,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 43.2,
+      "score": 43.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.2)"
+        "recency (+6.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -461,12 +461,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 42.0,
+      "score": 41.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -487,12 +487,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 41.6,
+      "score": 41.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -634,12 +634,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 40.5,
+      "score": 40.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -660,12 +660,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 40.3,
+      "score": 40.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -739,34 +739,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "1426feceb5c03ac9",
-      "kev": false,
-      "published": "2026-10-21T18:41:53Z",
-      "score": 38.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:php,wordpress,drupal (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+3.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Today's PHP Security Release, and How We're Strengthening PHP Security If you're running anything on PHP it's vital you upgrade - today's updates (across the entire PHP 8.x line) address two remote code execution holes, and there have been exploits circulating since last night, thanks to a leak in the coordinated disclosure process. This post from the PHP Foundation explain what went so wrong: On Tuesday, October 20th, at around 15:00 UTC, the two CVE IDs began circulating on online forums and social media. They came with a wrong release time and a wrong CVSS score of 10.0 (the actual score is 9.2). No technical details leaked. In response, the PHP project brought its pre-announcement forward and published it at 19:30 UTC. It also moved the release from October 22nd, 14:00 UTC, to October 21st, 14:00 UTC [...] As a result of the leak and pre-announcement around 20:00 UTC, Calif, one of the security firms that had reported the issues mistakenly published a video. It showed their proof of concept working against a number of targets and revealed a few additional, though limited, details about the vulnerabilities. Copies of the deleted video started circulating on social media soon after. The video contributed to accelerated development of various PoCs (exploitation proof of concepts), which then increased circulation on October 21st. This article from the team that discovered the original vulnerability includes a more detailed timeline of the original intended responsible disclosure: August 19, 2026: Wiz Research discovers the first PHP vulnerability using Wiz Atlas, Gemini 4 Argon, and GPT-5.6 Sol. August 20, 2026: Unauthenticated RCE is confirmed against Drupal. August 21, 2026: Unauthenticated RCE is confirmed against WordPress. August 24, 2026: Wiz Research reports the vulnerabilities to the PHP security team. September 21, 2026: PHP acknowledges the reports and begins developing a coordinated fix. October 21, 2026: Patched PHP releases become available. October 21, 2026: Public disclosure. Via Hacker News Tags: open-source, php, security, ai, ai-security-research",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php",
-        "web",
-        "rce"
-      ],
-      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
-      "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-4747"
       ],
@@ -798,6 +770,34 @@
       ],
       "title": "[tl;dr sec] #332 - I've Joined OpenAI, fwd:cloudsec, AWS Well Architected Supply Chain Security",
       "url": "https://tldrsec.com/p/tldr-sec-332"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "1426feceb5c03ac9",
+      "kev": false,
+      "published": "2026-10-21T18:41:53Z",
+      "score": 37.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:php,wordpress,drupal (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+2.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Today's PHP Security Release, and How We're Strengthening PHP Security If you're running anything on PHP it's vital you upgrade - today's updates (across the entire PHP 8.x line) address two remote code execution holes, and there have been exploits circulating since last night, thanks to a leak in the coordinated disclosure process. This post from the PHP Foundation explain what went so wrong: On Tuesday, October 20th, at around 15:00 UTC, the two CVE IDs began circulating on online forums and social media. They came with a wrong release time and a wrong CVSS score of 10.0 (the actual score is 9.2). No technical details leaked. In response, the PHP project brought its pre-announcement forward and published it at 19:30 UTC. It also moved the release from October 22nd, 14:00 UTC, to October 21st, 14:00 UTC [...] As a result of the leak and pre-announcement around 20:00 UTC, Calif, one of the security firms that had reported the issues mistakenly published a video. It showed their proof of concept working against a number of targets and revealed a few additional, though limited, details about the vulnerabilities. Copies of the deleted video started circulating on social media soon after. The video contributed to accelerated development of various PoCs (exploitation proof of concepts), which then increased circulation on October 21st. This article from the team that discovered the original vulnerability includes a more detailed timeline of the original intended responsible disclosure: August 19, 2026: Wiz Research discovers the first PHP vulnerability using Wiz Atlas, Gemini 4 Argon, and GPT-5.6 Sol. August 20, 2026: Unauthenticated RCE is confirmed against Drupal. August 21, 2026: Unauthenticated RCE is confirmed against WordPress. August 24, 2026: Wiz Research reports the vulnerabilities to the PHP security team. September 21, 2026: PHP acknowledges the reports and begins developing a coordinated fix. October 21, 2026: Patched PHP releases become available. October 21, 2026: Public disclosure. Via Hacker News Tags: open-source, php, security, ai, ai-security-research",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php",
+        "web",
+        "rce"
+      ],
+      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
+      "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
     },
     {
       "appsec": true,
@@ -839,12 +839,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 37.8,
+      "score": 37.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -953,34 +953,6 @@
       ],
       "title": "[tl;dr sec] #347 - AI Agents Hacking Companies for $25, Threat Hunter's Guide to GitHub, Finding Gadgets Like it’s 2026",
       "url": "https://tldrsec.com/p/tldr-sec-347"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "619449dbe0276bd5",
-      "kev": false,
-      "published": "2026-09-10T14:30:00Z",
-      "score": 37.1,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:gitlab,path traversal,prompt injection (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.1)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🥵 A two-serHello again friends!This is the first time I’ve done two issues in a week in the history of tl;dr sec, catching up after last week’s busyness.Next week we’ll be back to our normal weekly schedule, phew.H/T r/wholesomememesHave a great rest of your week and weekend!P.S. Some pretty cool sponsors this issue 👀 Sponsor📣 Nobody actually knows how AI gets used.Most companies can list the AI apps employees use, but few can say what employees are actually doing inside them. And labeling a task as ‘coding’ is a far cry from recognizing that an engineer working on cost optimizations is leaking source code to a model that trains on the data.Harmonic Security classifies every AI interaction by task, tool, and team, across sanctioned and shadow apps, so you can see which use cases drive real productivity, which tools are shelfware, and where risk exists.Poke around their demo live environment for free below.👉 Explore Your AI Usage 👈Wow I really like this! Being able to view a live demo of the product with no sign up, run example workflows and see how it works, and more. Super cool! Well done.🤘 AppSecModels are worse at reviewing their own codeGreptile's Rodrigo Caridad tested whether AI models are better at finding bugs in their own code or code written by another model, analyzing 500 PRs each from Claude Code and Codex against roughly 1,500 ground truth comments (sentiment analysis, upvote/downvote ratios, git archaeology), running Codex and Claude Code’s /review feature 3 times per PR. Both models caught more high-severity bugs in the other model's code- the types of bugs a model introduces most often are the same types it's more likely to miss during review. Claude-authored code skews toward \"wrong data or missing behavior\" bugs where GPT reviews better, while Codex-authored code skews toward semantic issues and error handling failures where Claude reviews better.Analysis of reasoning traces showed GPT 5.5 uses a depth-first verification approach that causes it to identify bugs but then drop them due to conflicting system instructions emphasizing narrow scope, while Claude Opus 4.7 takes a breadth-first preventive approach that generates more comments including conditional warnings and structural praise. Based on these findings, Greptile built Model Inversion, which detects PR authorship via commit trails, branch prefixes, and PR titles then routes reviews to the opposite model.💡 Really nice diagrams and visualizations, I like it! Also cool comparison idea.Just a rumour of a bug is enough to find a security exploit these daysAnil Madhavapeddy shipped a path traversal fix for OCaml's cohttp 6.3.0 and, within ten minutes of opening the PR, saw probes hitting his webserver with the exact bug pattern. He'd pointed his own Claude at the code first, but Fable refused over its security block, so DeepSeek V4 Pro wrote the exploit instead, in under a minute from only a vague description. Normally a bug like this goes under embargo, quiet until the fix ships, on the theory that secrecy buys you time. That no longer works, since a rumor alone hands an agent enough to find the exploit itself, and mean time to exploit has gone negative, so exploitation now precedes the patch.Anil lays out three responses and finds flaws in each. GitHub's temporary private forks let you hide the patch, but they cut you off from CI. Shipping fixes continuously is another route, the way Chrome pushes updates, but that leans on Chrome being a single binary, not a library buried in a hundred products nobody controls. And when cloud providers slam in mitigations at the protocol layer, open source has no CDN to carry the same rules. Every one of these leaves the small maintainer a step behind.💡 Within 10 minutes is insane. This is a super tough problem that I’ve been thinking about: given the increased rate in vulnerability discovery, the difficulty (and human involvement) in patching, the slowness in patch adoption, and the ease and speed of turning patch or hint → exploit = tough times right now. Prediction: this is and will continue to be an important area of security, and may hit hard over the next few months 😅 Sponsor📣 Omdia: Browser-Based Attacks Are Outpacing Traditional SecurityBrowser-based attacks are surging, and most security stacks weren't built to catch them. Omdia surveyed 400 IT and security professionals:6 in 10 rank generative AI security as their most important use case for a secure browsing solution7 in 10 say browser-based incidents have risen over the past two years8 in 10 who rely on traditional tools for browser security report at least one major challengeSee what's driving the shift to enterprise browsers, where teams are struggling, and what success actually looks like.👉 Get the report 👈I found it interesting to learn about various browser-based attacks, and some of the security wins you can get when you have influence over security controls in the browser.Blue TeamVersion Control DFIR: a Cheatsheet to GitHub, GitLab, Bitbucket, and Azure DevOpsWiz's Sean Johnstone and Shira Ayal released a Version Control DFIR poster covering GitHub, GitLab, Bitbucket, and Azure DevOps, with available log sources, what to configure before an incident, and audit events mapped to MITRE ATT&CK tactics for threat hunting. The poster calls out visibility gaps across all four platforms, GitHub only retains Git events for 7 days, GitLab doesn't log Git operations to the database by default, only GitHub offers API request logs (requiring explicit configuration), and none of this telemetry is retroactive so log streaming has to be in place before something happens. The readiness checklist also flags that GitHub doesn't include source IPs in audit logs unless you turn it on, and that default retention windows across all four platforms are too short for most investigations. Where logs do exist, a forensic matrix maps attacker behaviors to the audit event names each platform uses, so a mass clone shows up as git.clone in GitHub, repository_git_operation in GitLab, and RepositoryCloneEvent in Bitbucket.💡 I’m going to put this poster up in bedroom, right next to my Twilight poster #TeamJacob.Benign Set Should Look MaliciousPipeLab's Joshua Waldrep writes that a detection tool's false-positive rate means nothing if the benign traffic in the test set never actually looks like an attack. Real false positives (especially common when analyzing Agent egress) come from harmless traffic wearing an attacker's clothes, an agent reading a security advisory that quotes an injection string, a tutorial with AWS's own example key AKIAIOSFODNN7EXAMPLE, a scanner tool description that lists every attack it detects, a base64 blob that decodes to a PNG rather than a secret. The trap of testing only against clean traffic is that a detector can score 0% false positives there while blowing up to 30% the moment benign inputs start looking dangerous. Joshua shares a public starter set of these lookalikes in agent-egress-bench.Joshua recommends pulling hard negatives from your own docs, logs, and tool schemas, holding a portion out during tuning, splitting the false-positive rate into easy and hard categories rather than blending them, and publishing failures alongside scores, since reporting only wins is marketing more than measurement. AI + SecurityQuicklinks:Hacking Google with A.I. for $500,000 - What happens when you unleash an AI across all of Google's infrastructure? 1,500 APIs, 3,600 keys, and $500,000 in bounties, by Arvin Shivram.Cheat Sheet: Claude Code Security Best Practices - Claude Code and other AI coding assistants are changing how fast code ships — but they're also changing what security teams need to watch for. This practical cheat sheet breaks down the real risk surfaces AI-assisted development introduces, and gives cloud security, AppSec, and platform engineers tactical steps to close the gaps.*I'm Worried About a Prompt Injection Worm - Daniel Miessler*SponsoredBooz Allen Cyber Weapon IndexBooz Allen ran 18 US and Chinese LLMs as autonomous attackers against a production-grade enterprise network. Anthropic's Claude Mythos and OpenAI’s GPT-6 Astra both completed the full kill chain, Mythos leading in execution, Astra leading in vulnerability discovery. During the test, models issued commands independently, with every action validated through network telemetry, host logs, domain controller data, and intrusion-detection sensors, ensuring scores reflect demonstrated behavior, not theoretical skill.“Our assessment remains that most models will arrive at this capability within the next six months.”Adaptive Agentic WormsDerek James walks through a recent arXiv paper (AI Agents Enable Adaptive Computer Worms) on self-replicating AI worms that run open-weight LLMs (last year's models, not frontier) on stolen compute from every machine they land on, spreading across networks with no commercial AI platform involved. On a 33-host testbed of Linux, Windows, and IoT devices, the worms found vulnerabilities, escalated privileges, and copied both their harness and local LLM to new targets, reaching 61.8% network infection over 7 days.Attackers pay nothing per infection since the worms run on stolen compute, not through a commercial platform, putting them out of reach of centralized controls like safety refusals or rate limiting. The worms also tried to rewrite their own blacklist configuration to remove monitoring hosts from the protected list, and did all of this with self-replication as their only goal, no instructions to steal data or dodge detection, and no ability to change themselves when copying.Hacking your life with AI can get you hackedEndor Labs' Peyton Kennedy discovered 14 critical and high-severity vulnerabilities across seven AI orchestration platforms (NocoBase, Flowise, Langflow, Dify, Activepieces, Kestra, and Apache Airflow) that all share one root cause, they treat multi-tenant code-execution environments as single-user developer tools. The most severe chains need no login at all, with Flowise, Kestra, and Langflow exploitable via prompt injection that runs code and exfiltrates data, while other findings cover broken sandboxes (NocoBase's lockdown() commented out with a TODO), LLM output trusted as code (Langflow accepting lambda from chat), and sandboxes armed too late to catch anything. Several vendors closed reports as working-as-designed, but Peyton argues that defenses that should protect users are missing or off by default, and Flowise itself has been archived since mid-August 2026, leaving any running instance as unmaintained software with credentials attached.MiscMiscLewis Capaldi - Someone You Loved music videoIn a world full of Carols and Demons, be a Susan 🥹Behind the scenes on how they did the fast wardrobe change in Frozen the MusicalReading Maps - Journeys from fiction drawn on the real world. Moby Dick, Treasure Island, The Odyssey, Dracula, etc.PersonalWebsites.org - Over 4,000 personal websites from around the worldBill Hader and Kristen Wiig Look Back on The Skeleton Twins at Vulture Festival 2024AIJacob Coxon on the labs’ approach to safetyWhat We Tell AI - People writing candid notes about how they use AI. Some of them are :/On the Navier–Stokes Millennium Prize Problem - An unreleased OpenAI model allegedly solved a Millennium Prize problem.Timeline on the equationsTristan Buckmaster statement - There is currently some controversy that I haven’t had time to fully look into, about humans working on the problem at the same time. “ This is a a Deep Blue-Kasparov moment. The community needs to have serious and unhurried discussion about where to go from here.”Sebastien Bubeck response✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "web",
-        "path-traversal"
-      ],
-      "title": "[tl;dr sec] #345 - Bug Rumors → Exploits, Version Control DFIR, Agentic Worms",
-      "url": "https://tldrsec.com/p/tldr-sec-345"
     },
     {
       "appsec": true,
@@ -1252,6 +1224,33 @@
       ],
       "title": "Risky Bulletin: Klue breach impacts security firms",
       "url": "https://risky.biz/RBNEWS580/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "619449dbe0276bd5",
+      "kev": false,
+      "published": "2026-09-10T14:30:00Z",
+      "score": 37.0,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:gitlab,path traversal,prompt injection (+15)",
+        "AppSec-relevant (+14)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🥵 A two-serHello again friends!This is the first time I’ve done two issues in a week in the history of tl;dr sec, catching up after last week’s busyness.Next week we’ll be back to our normal weekly schedule, phew.H/T r/wholesomememesHave a great rest of your week and weekend!P.S. Some pretty cool sponsors this issue 👀 Sponsor📣 Nobody actually knows how AI gets used.Most companies can list the AI apps employees use, but few can say what employees are actually doing inside them. And labeling a task as ‘coding’ is a far cry from recognizing that an engineer working on cost optimizations is leaking source code to a model that trains on the data.Harmonic Security classifies every AI interaction by task, tool, and team, across sanctioned and shadow apps, so you can see which use cases drive real productivity, which tools are shelfware, and where risk exists.Poke around their demo live environment for free below.👉 Explore Your AI Usage 👈Wow I really like this! Being able to view a live demo of the product with no sign up, run example workflows and see how it works, and more. Super cool! Well done.🤘 AppSecModels are worse at reviewing their own codeGreptile's Rodrigo Caridad tested whether AI models are better at finding bugs in their own code or code written by another model, analyzing 500 PRs each from Claude Code and Codex against roughly 1,500 ground truth comments (sentiment analysis, upvote/downvote ratios, git archaeology), running Codex and Claude Code’s /review feature 3 times per PR. Both models caught more high-severity bugs in the other model's code- the types of bugs a model introduces most often are the same types it's more likely to miss during review. Claude-authored code skews toward \"wrong data or missing behavior\" bugs where GPT reviews better, while Codex-authored code skews toward semantic issues and error handling failures where Claude reviews better.Analysis of reasoning traces showed GPT 5.5 uses a depth-first verification approach that causes it to identify bugs but then drop them due to conflicting system instructions emphasizing narrow scope, while Claude Opus 4.7 takes a breadth-first preventive approach that generates more comments including conditional warnings and structural praise. Based on these findings, Greptile built Model Inversion, which detects PR authorship via commit trails, branch prefixes, and PR titles then routes reviews to the opposite model.💡 Really nice diagrams and visualizations, I like it! Also cool comparison idea.Just a rumour of a bug is enough to find a security exploit these daysAnil Madhavapeddy shipped a path traversal fix for OCaml's cohttp 6.3.0 and, within ten minutes of opening the PR, saw probes hitting his webserver with the exact bug pattern. He'd pointed his own Claude at the code first, but Fable refused over its security block, so DeepSeek V4 Pro wrote the exploit instead, in under a minute from only a vague description. Normally a bug like this goes under embargo, quiet until the fix ships, on the theory that secrecy buys you time. That no longer works, since a rumor alone hands an agent enough to find the exploit itself, and mean time to exploit has gone negative, so exploitation now precedes the patch.Anil lays out three responses and finds flaws in each. GitHub's temporary private forks let you hide the patch, but they cut you off from CI. Shipping fixes continuously is another route, the way Chrome pushes updates, but that leans on Chrome being a single binary, not a library buried in a hundred products nobody controls. And when cloud providers slam in mitigations at the protocol layer, open source has no CDN to carry the same rules. Every one of these leaves the small maintainer a step behind.💡 Within 10 minutes is insane. This is a super tough problem that I’ve been thinking about: given the increased rate in vulnerability discovery, the difficulty (and human involvement) in patching, the slowness in patch adoption, and the ease and speed of turning patch or hint → exploit = tough times right now. Prediction: this is and will continue to be an important area of security, and may hit hard over the next few months 😅 Sponsor📣 Omdia: Browser-Based Attacks Are Outpacing Traditional SecurityBrowser-based attacks are surging, and most security stacks weren't built to catch them. Omdia surveyed 400 IT and security professionals:6 in 10 rank generative AI security as their most important use case for a secure browsing solution7 in 10 say browser-based incidents have risen over the past two years8 in 10 who rely on traditional tools for browser security report at least one major challengeSee what's driving the shift to enterprise browsers, where teams are struggling, and what success actually looks like.👉 Get the report 👈I found it interesting to learn about various browser-based attacks, and some of the security wins you can get when you have influence over security controls in the browser.Blue TeamVersion Control DFIR: a Cheatsheet to GitHub, GitLab, Bitbucket, and Azure DevOpsWiz's Sean Johnstone and Shira Ayal released a Version Control DFIR poster covering GitHub, GitLab, Bitbucket, and Azure DevOps, with available log sources, what to configure before an incident, and audit events mapped to MITRE ATT&CK tactics for threat hunting. The poster calls out visibility gaps across all four platforms, GitHub only retains Git events for 7 days, GitLab doesn't log Git operations to the database by default, only GitHub offers API request logs (requiring explicit configuration), and none of this telemetry is retroactive so log streaming has to be in place before something happens. The readiness checklist also flags that GitHub doesn't include source IPs in audit logs unless you turn it on, and that default retention windows across all four platforms are too short for most investigations. Where logs do exist, a forensic matrix maps attacker behaviors to the audit event names each platform uses, so a mass clone shows up as git.clone in GitHub, repository_git_operation in GitLab, and RepositoryCloneEvent in Bitbucket.💡 I’m going to put this poster up in bedroom, right next to my Twilight poster #TeamJacob.Benign Set Should Look MaliciousPipeLab's Joshua Waldrep writes that a detection tool's false-positive rate means nothing if the benign traffic in the test set never actually looks like an attack. Real false positives (especially common when analyzing Agent egress) come from harmless traffic wearing an attacker's clothes, an agent reading a security advisory that quotes an injection string, a tutorial with AWS's own example key AKIAIOSFODNN7EXAMPLE, a scanner tool description that lists every attack it detects, a base64 blob that decodes to a PNG rather than a secret. The trap of testing only against clean traffic is that a detector can score 0% false positives there while blowing up to 30% the moment benign inputs start looking dangerous. Joshua shares a public starter set of these lookalikes in agent-egress-bench.Joshua recommends pulling hard negatives from your own docs, logs, and tool schemas, holding a portion out during tuning, splitting the false-positive rate into easy and hard categories rather than blending them, and publishing failures alongside scores, since reporting only wins is marketing more than measurement. AI + SecurityQuicklinks:Hacking Google with A.I. for $500,000 - What happens when you unleash an AI across all of Google's infrastructure? 1,500 APIs, 3,600 keys, and $500,000 in bounties, by Arvin Shivram.Cheat Sheet: Claude Code Security Best Practices - Claude Code and other AI coding assistants are changing how fast code ships — but they're also changing what security teams need to watch for. This practical cheat sheet breaks down the real risk surfaces AI-assisted development introduces, and gives cloud security, AppSec, and platform engineers tactical steps to close the gaps.*I'm Worried About a Prompt Injection Worm - Daniel Miessler*SponsoredBooz Allen Cyber Weapon IndexBooz Allen ran 18 US and Chinese LLMs as autonomous attackers against a production-grade enterprise network. Anthropic's Claude Mythos and OpenAI’s GPT-6 Astra both completed the full kill chain, Mythos leading in execution, Astra leading in vulnerability discovery. During the test, models issued commands independently, with every action validated through network telemetry, host logs, domain controller data, and intrusion-detection sensors, ensuring scores reflect demonstrated behavior, not theoretical skill.“Our assessment remains that most models will arrive at this capability within the next six months.”Adaptive Agentic WormsDerek James walks through a recent arXiv paper (AI Agents Enable Adaptive Computer Worms) on self-replicating AI worms that run open-weight LLMs (last year's models, not frontier) on stolen compute from every machine they land on, spreading across networks with no commercial AI platform involved. On a 33-host testbed of Linux, Windows, and IoT devices, the worms found vulnerabilities, escalated privileges, and copied both their harness and local LLM to new targets, reaching 61.8% network infection over 7 days.Attackers pay nothing per infection since the worms run on stolen compute, not through a commercial platform, putting them out of reach of centralized controls like safety refusals or rate limiting. The worms also tried to rewrite their own blacklist configuration to remove monitoring hosts from the protected list, and did all of this with self-replication as their only goal, no instructions to steal data or dodge detection, and no ability to change themselves when copying.Hacking your life with AI can get you hackedEndor Labs' Peyton Kennedy discovered 14 critical and high-severity vulnerabilities across seven AI orchestration platforms (NocoBase, Flowise, Langflow, Dify, Activepieces, Kestra, and Apache Airflow) that all share one root cause, they treat multi-tenant code-execution environments as single-user developer tools. The most severe chains need no login at all, with Flowise, Kestra, and Langflow exploitable via prompt injection that runs code and exfiltrates data, while other findings cover broken sandboxes (NocoBase's lockdown() commented out with a TODO), LLM output trusted as code (Langflow accepting lambda from chat), and sandboxes armed too late to catch anything. Several vendors closed reports as working-as-designed, but Peyton argues that defenses that should protect users are missing or off by default, and Flowise itself has been archived since mid-August 2026, leaving any running instance as unmaintained software with credentials attached.MiscMiscLewis Capaldi - Someone You Loved music videoIn a world full of Carols and Demons, be a Susan 🥹Behind the scenes on how they did the fast wardrobe change in Frozen the MusicalReading Maps - Journeys from fiction drawn on the real world. Moby Dick, Treasure Island, The Odyssey, Dracula, etc.PersonalWebsites.org - Over 4,000 personal websites from around the worldBill Hader and Kristen Wiig Look Back on The Skeleton Twins at Vulture Festival 2024AIJacob Coxon on the labs’ approach to safetyWhat We Tell AI - People writing candid notes about how they use AI. Some of them are :/On the Navier–Stokes Millennium Prize Problem - An unreleased OpenAI model allegedly solved a Millennium Prize problem.Timeline on the equationsTristan Buckmaster statement - There is currently some controversy that I haven’t had time to fully look into, about humans working on the problem at the same time. “ This is a a Deep Blue-Kasparov moment. The community needs to have serious and unhurried discussion about where to go from here.”Sebastien Bubeck response✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "web",
+        "path-traversal"
+      ],
+      "title": "[tl;dr sec] #345 - Bug Rumors → Exploits, Version Control DFIR, Agentic Worms",
+      "url": "https://tldrsec.com/p/tldr-sec-345"
     },
     {
       "appsec": true,
@@ -1566,12 +1565,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 36.6,
+      "score": 36.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1592,11 +1591,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 35.4,
+      "score": 35.2,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1616,11 +1615,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 35.2,
+      "score": 35.1,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+5.2)"
+        "recency (+5.1)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1641,11 +1640,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 32.9,
+      "score": 32.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.9)"
+        "recency (+11.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1665,11 +1664,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 32.1,
+      "score": 31.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.1)"
+        "recency (+10.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1689,11 +1688,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 31.8,
+      "score": 31.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.8)"
+        "recency (+10.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1713,11 +1712,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 31.4,
+      "score": 31.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.4)"
+        "recency (+10.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1737,11 +1736,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 31.1,
+      "score": 30.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+10.1)"
+        "recency (+9.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1752,29 +1751,6 @@
       ],
       "title": "llm 0.37",
       "url": "https://simonwillison.net/2026/Nov/2/llm/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "a0edeec9c181dd22",
-      "kev": false,
-      "published": "2026-11-01T23:24:22Z",
-      "score": 30.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:python (+15)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I've been getting the occasional confusing Python dependency error since switching over to Python 3.15 and the rule I'm having to remember is: If in doubt, delete the uv.lock file Most of my projects are libraries which don't include a uv.lock file, since it's rude for a library dependency to lock versions for anything else that uses it. Running uv run pytest etc tends to leave uv.lock files lying around, which are listed in .gitignore and so do not get committed to my repositories. But... sometimes that uv.lock pins a version of a dependency that doesn't yet have a Python 3.15 wheel. An example from earlier today: error: Failed to build `watchfiles==1.1.1` cause: Call to `maturin.build_wheel` failed error: the configured Python interpreter version (3.15) is newer than PyO3's maximum supported version (3.14) Deleting that file and running uv run pytest again usually fixes the problem. Tags: uv, til, python",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "If in doubt, delete the uv.lock file",
-      "url": "https://simonwillison.net/2026/Nov/1/delete-uv-lock-first/"
     },
     {
       "appsec": false,
@@ -1850,14 +1826,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "a0edeec9c181dd22",
+      "kev": false,
+      "published": "2026-11-01T23:24:22Z",
+      "score": 29.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:python (+15)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I've been getting the occasional confusing Python dependency error since switching over to Python 3.15 and the rule I'm having to remember is: If in doubt, delete the uv.lock file Most of my projects are libraries which don't include a uv.lock file, since it's rude for a library dependency to lock versions for anything else that uses it. Running uv run pytest etc tends to leave uv.lock files lying around, which are listed in .gitignore and so do not get committed to my repositories. But... sometimes that uv.lock pins a version of a dependency that doesn't yet have a Python 3.15 wheel. An example from earlier today: error: Failed to build `watchfiles==1.1.1` cause: Call to `maturin.build_wheel` failed error: the configured Python interpreter version (3.15) is newer than PyO3's maximum supported version (3.14) Deleting that file and running uv run pytest again usually fixes the problem. Tags: uv, til, python",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "If in doubt, delete the uv.lock file",
+      "url": "https://simonwillison.net/2026/Nov/1/delete-uv-lock-first/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 29.3,
+      "score": 29.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.3)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1877,11 +1876,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 27.8,
+      "score": 27.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1901,11 +1900,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 27.5,
+      "score": 27.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+6.5)"
+        "recency (+6.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1952,11 +1951,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 27.2,
+      "score": 27.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.2)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1973,14 +1972,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "28d3ffbcd69019be",
+      "kev": false,
+      "published": "2026-10-28T13:55:15Z",
+      "score": 26.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+5.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "The October inflection point for vibe game development",
+      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 27.0,
+      "score": 26.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1997,36 +2019,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "28d3ffbcd69019be",
-      "kev": false,
-      "published": "2026-10-28T13:55:15Z",
-      "score": 26.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+5.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "The October inflection point for vibe game development",
-      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 26.9,
+      "score": 26.6,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+11.9)"
+        "recency (+11.6)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2045,11 +2044,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2069,11 +2068,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 25.9,
+      "score": 25.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.9)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2092,11 +2091,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 24.7,
+      "score": 24.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2116,11 +2115,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 24.3,
+      "score": 24.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2161,30 +2160,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "64f79924a918dd64",
-      "kev": false,
-      "published": "2026-10-18T23:16:16Z",
-      "score": 23.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+2.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-echo 0.5 I'm working towards a new LLM release, and testing PRs caused me to revisit the llm-echo debug plugin. This plugin provides a \"model\" which doesn't involve an LLM at all - it just repeats back the prompts that have been fed to it. The new release now updates the simulated token usage counts to take tool calls, system prompts, and reasoning tokens into account. Example usage: uvx --with llm-echo llm -m echo 'hi there' -o thinking 1 --usage Outputs: First I consider the prompt, then I decide what to say. { \"prompt\": \"hi there\", \"system\": \"\", \"attachments\": [], \"stream\": true, \"previous\": [] } Token usage: 2 input, 24 output Tags: llm",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-echo 0.5",
-      "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "7187d65663186f22",
       "kev": false,
       "published": "2026-09-28T22:27:23Z",
@@ -2209,14 +2184,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c7f58b8773d454a1",
+      "id": "64f79924a918dd64",
       "kev": false,
-      "published": "2026-10-18T23:43:09Z",
-      "score": 23.3,
+      "published": "2026-10-18T23:16:16Z",
+      "score": 23.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.3)"
+        "recency (+2.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-echo 0.5 I'm working towards a new LLM release, and testing PRs caused me to revisit the llm-echo debug plugin. This plugin provides a \"model\" which doesn't involve an LLM at all - it just repeats back the prompts that have been fed to it. The new release now updates the simulated token usage counts to take tool calls, system prompts, and reasoning tokens into account. Example usage: uvx --with llm-echo llm -m echo 'hi there' -o thinking 1 --usage Outputs: First I consider the prompt, then I decide what to say. { \"prompt\": \"hi there\", \"system\": \"\", \"attachments\": [], \"stream\": true, \"previous\": [] } Token usage: 2 input, 24 output Tags: llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-echo 0.5",
+      "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c7f58b8773d454a1",
+      "kev": false,
+      "published": "2026-10-18T23:43:09Z",
+      "score": 23.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+2.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2236,11 +2235,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 23.1,
+      "score": 23.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2326,33 +2325,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "76ba93cc9d443ae0",
-      "kev": false,
-      "published": "2026-11-05T04:02:00Z",
-      "score": 20.6,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+12.6)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about North Korea’s hack of the Binance cryptocurrency exchange. Binance’s founder CZ says it is a wake up call for real banks, but he’s wrong. Even though they are probably just as hackable as crypto exchanges, real banks cooperate to reverse fraudulent transactions and it is far harder to get away with billions. They also discuss the pressure being felt in tech firms everywhere to speed up software development using AI. From a security perspective, results will be mixed. This episode is also available on YouTube. Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: The ritual bitcoin sacrifices will continue until security improves",
-      "url": "https://risky.biz/SRB189/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 20.6,
+      "score": 20.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.6)"
+        "recency (+14.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2366,13 +2345,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "76ba93cc9d443ae0",
+      "kev": false,
+      "published": "2026-11-05T04:02:00Z",
+      "score": 20.2,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+12.2)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about North Korea’s hack of the Binance cryptocurrency exchange. Binance’s founder CZ says it is a wake up call for real banks, but he’s wrong. Even though they are probably just as hackable as crypto exchanges, real banks cooperate to reverse fraudulent transactions and it is far harder to get away with billions. They also discuss the pressure being felt in tech firms everywhere to speed up software development using AI. From a security perspective, results will be mixed. This episode is also available on YouTube. Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: The ritual bitcoin sacrifices will continue until security improves",
+      "url": "https://risky.biz/SRB189/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 19.3,
+      "score": 18.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.3)"
+        "recency (+12.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2389,10 +2388,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 17.9,
+      "score": 17.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.9)"
+        "recency (+9.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2409,10 +2408,10 @@
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 17.3,
+      "score": 17.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.3)"
+        "recency (+9.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2429,10 +2428,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 17.2,
+      "score": 16.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2449,10 +2448,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 17.2,
+      "score": 16.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2469,10 +2468,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 17.0,
+      "score": 16.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.0)"
+        "recency (+8.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2489,10 +2488,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 16.4,
+      "score": 16.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.4)"
+        "recency (+10.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2500,26 +2499,6 @@
       "tags": [],
       "title": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube",
       "url": "https://simonwillison.net/2026/Nov/3/a-sound-that-leaks-your-exact-location/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4c1cfae1f7d73c23",
-      "kev": false,
-      "published": "2026-11-02T13:31:26Z",
-      "score": 15.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
-      "tags": [],
-      "title": "The U.S. Census Bureau and “Super Intelligence”",
-      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
     },
     {
       "appsec": false,
@@ -2564,6 +2543,26 @@
       ],
       "title": "Smashing the token limit with overlapping fragments",
       "url": "https://portswigger.net/research/smashing-the-token-limit"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "4c1cfae1f7d73c23",
+      "kev": false,
+      "published": "2026-11-02T13:31:26Z",
+      "score": 15.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+9.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
+      "tags": [],
+      "title": "The U.S. Census Bureau and “Super Intelligence”",
+      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
     },
     {
       "appsec": false,
@@ -2641,50 +2640,6 @@
     },
     {
       "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "0bb09554616bf2b4",
-      "kev": false,
-      "published": "2026-10-22T00:00:00Z",
-      "score": 15.1,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "recency (+3.1)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow copies an external pull request’s attacker-controlled head branch name into a step output and directly interpolates that output into an inline Bash script. An external pull request author can use shell command-substitution syntax in the branch name to execute arbitrary commands in the base repository’s workflow_run job. A later step on the same runner receives the repository’s SONAR_TOKEN, making that credential and the integrity of the SonarCloud analysis reachable from the injected code. Project kptdev/kpt repository Tested Version The default branch at commit 6dfff203a6b49396add815a428c1d94370e9a3d6. Details Pull request branch name injection enables code execution in a privileged SonarCloud workflow (GHSL-2026-207) The Go workflow runs for pull requests. After the build and test jobs complete, it stores the pull request number in a fixed PR_NUMBER artifact. Successful completion of that workflow triggers the default-branch SonarCloud analysis workflow. The sonarqube job downloads PR_NUMBER, reads it, and requests the corresponding pull request from the GitHub API. It then extracts .head.ref, which is controlled by the external pull request author through the source branch name, into the pr_meta.outputs.head_ref step output: - name: Request GitHub API for PR data if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0 id: get_pr_data with: route: GET /repos/{full_name}/pulls/{number} number: ${{ steps.pr_number.outputs.content }} full_name: ${{ github.event.repository.full_name }} env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} - name: Extract PR metadata if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' id: pr_meta env: PR_DATA: ${{ steps.get_pr_data.outputs.data }} run: | echo \"number=$(echo \"$PR_DATA\" | jq -r '.number')\" >> \"$GITHUB_OUTPUT\" echo \"head_ref=$(echo \"$PR_DATA\" | jq -r '.head.ref')\" >> \"$GITHUB_OUTPUT\" echo \"base_ref=$(echo \"$PR_DATA\" | jq -r '.base.ref')\" >> \"$GITHUB_OUTPUT\" Using PR_DATA through an environment variable protects the extraction step itself. The subsequent debug step, however, directly interpolates the resulting output into Bash source: - name: Debug - Show PR metadata if: github.event.workflow_run.event == 'pull_request' run: | echo \"=== DEBUG: PR Metadata ===\" echo \"PR Number: ${{ steps.pr_meta.outputs.number }}\" echo \"Head Ref: ${{ steps.pr_meta.outputs.head_ref }}\" echo \"Base Ref: ${{ steps.pr_meta.outputs.base_ref }}\" echo \"=== END DEBUG ===\" GitHub Actions resolves ${{ ... }} expressions before passing the generated script to Bash. Double quotes do not neutralize shell command substitution. The successful-run and coverage-artifact conditions restrict when the vulnerable path executes, but they do not authorize the pull request author who controls the branch name. A representative attack sequence is: An external contributor creates a fork branch whose name contains command-substitution syntax and opens a pull request that exercises the Go workflow. The pull request workflow completes successfully and uploads its coverage and PR_NUMBER artifacts. A repository policy may require a maintainer to approve the fork workflow run first. The workflow_run workflow retrieves the pull request and propagates its attacker-controlled .head.ref through pr_meta.outputs.head_ref. The debug step inserts the value into the generated Bash script, executing the embedded command on the sonarqube runner. The injected process can alter runner or workspace state before the later SonarQube scan step receives SONAR_TOKEN. Impact An external fork pull request author can execute arbitrary shell commands in a base-repository workflow_run job. Although the job’s GITHUB_TOKEN permissions are read-only, a later action in the same job is explicitly given the repository secret SONAR_TOKEN. Injected code can persist influence over the runner or modify files used by later steps, allowing it to capture or misuse that credential when the SonarQube action starts. This can disclose the token and compromise the integrity of SonarCloud analysis for kptdev/kpt. The attacker requires no push access to kptdev/kpt: control of an external pull request’s source branch name is sufficient. Exploitation also requires the Go workflow to complete successfully, the expected artifacts to exist, and SONAR_TOKEN to be configured. CWEs CWE-94: Improper Control of Generation of Code (‘Code Injection’) CWE-116: Improper Encoding or Escaping of Output Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow GitHub Docs: Secure use reference - mitigating script injection GitHub Security Lab: Keeping your GitHub Actions and workflows secure - untrusted input Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-207 in any communication regarding this issue.",
-      "tags": [
-        "research"
-      ],
-      "title": "GHSL-2026-207: Arbitrary code execution in kptdev/kpt’s SonarCloud workflow via external pull requests",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-207_kptdev_kpt_repository/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4d1ff37a208b08bc",
-      "kev": false,
-      "published": "2026-10-22T00:00:00Z",
-      "score": 15.1,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "recency (+3.1)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow runs in the base repository through workflow_run, checks out an external pull request’s fork commit, and invokes SonarScanner with the repository’s SONAR_TOKEN. A fork author can set sonar.host.url in the checked-out sonar.properties; because the workflow does not pin a trusted scanner host, SonarScanner sends SONAR_TOKEN as Bearer authentication to that attacker-selected URL before analysis begins. The attacker can then exercise the token’s SonarCloud permissions and manipulate authenticated analysis for kptdev/kpt. Project kptdev/kpt repository Tested Version The default branch at commit 6345d96d661eae1f6cdcb97b1f70080ce35f61a4. Details Fork-controlled sonar.properties is consumed by a privileged SonarCloud scan with SONAR_TOKEN (GHSL-2026-208) The Go workflow runs for pull requests and checks out the pull request code for its build and test jobs. After successful testing, it uploads coverage reports and stores the pull request number in a PR_NUMBER artifact. Completion of the Go workflow triggers the default-branch SonarCloud analysis workflow. The latter runs in a privileged workflow_run context, where repository secrets are available. Its success and coverage-artifact checks restrict when the path runs, but do not establish trust in the pull request contents. For pull request runs, the privileged workflow downloads PR_NUMBER, resolves the pull request, and then checks out the triggering workflow’s head repository and head SHA. For an external pull request, both identify the fork author’s immutable commit: - name: Checkout PR head uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0 with: repository: ${{ github.event.workflow_run.head_repository.full_name }} ref: ${{ github.event.workflow_run.head_sha }} fetch-depth: 0 persist-credentials: false allow-unsafe-pr-checkout: true The next step is named Checkout base branch, but after briefly creating the local base branch it checks out HEAD_SHA again and resets the working tree to that commit: - name: Checkout base branch if: github.event.workflow_run.event == 'pull_request' env: BASE_REF: ${{ steps.pr_meta.outputs.base_ref }} HEAD_SHA: ${{ github.event.workflow_run.head_sha }} CLONE_URL: ${{ github.event.repository.clone_url }} run: | git remote add upstream \"$CLONE_URL\" git fetch upstream git checkout -B \"$BASE_REF\" \"upstream/$BASE_REF\" git checkout \"$HEAD_SHA\" git clean -ffdx && git reset --hard HEAD Consequently, files in the workspace, including sonar.properties, still come from the fork-controlled pull request commit. The SonarQube scan step then supplies the repository secret SONAR_TOKEN and explicitly selects that working-tree configuration file: - name: SonarQube Scan on PR if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: SonarSource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e # v8.2.0 env: SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} with: args: -Dsonar.projectKey=kptdev_kpt -Dsonar.organization=kptdev -Dproject.settings=sonar.properties -Dsonar.pullrequest.key=${{ steps.pr_meta.outputs.number }} -Dsonar.pullrequest.branch=${{ steps.pr_meta.outputs.head_ref }} -Dsonar.pullrequest.base=${{ steps.pr_meta.outputs.base_ref }} The command-line arguments pin several analysis identifiers, but they do not pin sonar.host.url. SonarScanner CLI loads the project settings file before overlaying environment variables and CLI arguments. In this workflow, SONAR_TOKEN maps to sonar.token, but neither the workflow nor the action sets a trusted SONAR_HOST_URL. The pull request’s sonar.host.url therefore remains effective. The scanner’s HTTP client adds Authorization: Bearer <sonar.token> to authenticated bootstrap requests sent to that configured host. This was reproduced safely with the exact SonarScanner CLI 8.1.0.6389 selected by the pinned action. A local-only listener and dummy token were used; no project credential or external receiver was involved. The controlled project file contained: sonar.host.url=http://127.0.0.1:<port> sonar.projectKey=ghsl-local-proof sonar.sources=. The scanner was launched in a clean environment with: env -i PATH=\"$PATH\" SONAR_TOKEN=GHSL_DUMMY_CANARY_2026_208 sonar-scanner -Dproject.settings=sonar.properties Before analysis began, the listener received: GET /api/v2/analysis/version HTTP/1.1 Authorization: Bearer GHSL_DUMMY_CANARY_2026_208 User-Agent: ScannerCLI/8.1.0.6389 The scanner also sent the same Bearer token to its legacy /api/server/version fallback after the local listener returned an unsupported response. This demonstrates that an attacker does not need a functioning SonarQube server or a completed scan to obtain the secret: receiving the initial authenticated bootstrap request is sufficient. No live exploit was run against the project, and this report does not claim base-repository writes. A representative attack sequence is: An external contributor changes sonar.properties in a fork and opens a pull request containing code changes that exercise the Go workflow. The pull request workflow completes successfully and uploads the expected coverage and PR_NUMBER artifacts. Repository policy may first require approval for the fork workflow run. The workflow_run job checks out the fork repository at the attacker-controlled head SHA. The branch-preparation commands finish with the same untrusted head SHA checked out, so they do not restore the trusted base version of sonar.properties. SonarScanner reads the attacker-controlled sonar.host.url and sends SONAR_TOKEN as Bearer authentication to that server during its initial bootstrap request, directly disclosing the repository secret. Impact This is a confirmed direct disclosure of SONAR_TOKEN across the pull request trust boundary. An external fork author can choose the scanner’s destination through sonar.properties; the exact scanner used by the workflow then transmits the repository secret to that destination in an Authorization: Bearer header before analysis begins. After disclosure, the attacker can exercise whatever permissions the token carries. A SonarCloud personal access token can authenticate analyses and Web API requests with the issuing user’s permissions. A scoped organization or project analysis token can at least submit unauthorized analyses within its scope. In either case, the attacker can impersonate the trusted CI scanner, consume or corrupt authenticated analysis for kptdev/kpt, and undermine the integrity of its security and quality results. The exact blast radius beyond that project depends on the type and permissions of the configured token. The minimum attacker requires only control of an external pull request’s contents. Exploitation requires the Go workflow to run successfully. CWEs CWE-829: Inclusion of Functionality from Untrusted Control Sphere Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow sonar.properties at the tested commit GitHub Security Lab: Preventing pwn requests GitHub Docs: Mitigating the risks of untrusted code checkout Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-208 in any communication regarding this issue.",
-      "tags": [
-        "research"
-      ],
-      "title": "GHSL-2026-208: External pull requests can steal kptdev/kpt’s SonarCloud token",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-208_kptdev_kpt_repository/"
-    },
-    {
-      "appsec": false,
       "cves": [
         "CVE-2024-54529",
         "CVE-2025-31235"
@@ -2729,6 +2684,28 @@
       ],
       "title": "Beware the false false-positive: how to distinguish HTTP pipelining from request smuggling",
       "url": "https://portswigger.net/research/how-to-distinguish-http-pipelining-from-request-smuggling"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0bb09554616bf2b4",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 15.0,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "recency (+3.0)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow copies an external pull request’s attacker-controlled head branch name into a step output and directly interpolates that output into an inline Bash script. An external pull request author can use shell command-substitution syntax in the branch name to execute arbitrary commands in the base repository’s workflow_run job. A later step on the same runner receives the repository’s SONAR_TOKEN, making that credential and the integrity of the SonarCloud analysis reachable from the injected code. Project kptdev/kpt repository Tested Version The default branch at commit 6dfff203a6b49396add815a428c1d94370e9a3d6. Details Pull request branch name injection enables code execution in a privileged SonarCloud workflow (GHSL-2026-207) The Go workflow runs for pull requests. After the build and test jobs complete, it stores the pull request number in a fixed PR_NUMBER artifact. Successful completion of that workflow triggers the default-branch SonarCloud analysis workflow. The sonarqube job downloads PR_NUMBER, reads it, and requests the corresponding pull request from the GitHub API. It then extracts .head.ref, which is controlled by the external pull request author through the source branch name, into the pr_meta.outputs.head_ref step output: - name: Request GitHub API for PR data if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: octokit/request-action@b91aabaa861c777dcdb14e2387e30eddf04619ae # v3.0.0 id: get_pr_data with: route: GET /repos/{full_name}/pulls/{number} number: ${{ steps.pr_number.outputs.content }} full_name: ${{ github.event.repository.full_name }} env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} - name: Extract PR metadata if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' id: pr_meta env: PR_DATA: ${{ steps.get_pr_data.outputs.data }} run: | echo \"number=$(echo \"$PR_DATA\" | jq -r '.number')\" >> \"$GITHUB_OUTPUT\" echo \"head_ref=$(echo \"$PR_DATA\" | jq -r '.head.ref')\" >> \"$GITHUB_OUTPUT\" echo \"base_ref=$(echo \"$PR_DATA\" | jq -r '.base.ref')\" >> \"$GITHUB_OUTPUT\" Using PR_DATA through an environment variable protects the extraction step itself. The subsequent debug step, however, directly interpolates the resulting output into Bash source: - name: Debug - Show PR metadata if: github.event.workflow_run.event == 'pull_request' run: | echo \"=== DEBUG: PR Metadata ===\" echo \"PR Number: ${{ steps.pr_meta.outputs.number }}\" echo \"Head Ref: ${{ steps.pr_meta.outputs.head_ref }}\" echo \"Base Ref: ${{ steps.pr_meta.outputs.base_ref }}\" echo \"=== END DEBUG ===\" GitHub Actions resolves ${{ ... }} expressions before passing the generated script to Bash. Double quotes do not neutralize shell command substitution. The successful-run and coverage-artifact conditions restrict when the vulnerable path executes, but they do not authorize the pull request author who controls the branch name. A representative attack sequence is: An external contributor creates a fork branch whose name contains command-substitution syntax and opens a pull request that exercises the Go workflow. The pull request workflow completes successfully and uploads its coverage and PR_NUMBER artifacts. A repository policy may require a maintainer to approve the fork workflow run first. The workflow_run workflow retrieves the pull request and propagates its attacker-controlled .head.ref through pr_meta.outputs.head_ref. The debug step inserts the value into the generated Bash script, executing the embedded command on the sonarqube runner. The injected process can alter runner or workspace state before the later SonarQube scan step receives SONAR_TOKEN. Impact An external fork pull request author can execute arbitrary shell commands in a base-repository workflow_run job. Although the job’s GITHUB_TOKEN permissions are read-only, a later action in the same job is explicitly given the repository secret SONAR_TOKEN. Injected code can persist influence over the runner or modify files used by later steps, allowing it to capture or misuse that credential when the SonarQube action starts. This can disclose the token and compromise the integrity of SonarCloud analysis for kptdev/kpt. The attacker requires no push access to kptdev/kpt: control of an external pull request’s source branch name is sufficient. Exploitation also requires the Go workflow to complete successfully, the expected artifacts to exist, and SONAR_TOKEN to be configured. CWEs CWE-94: Improper Control of Generation of Code (‘Code Injection’) CWE-116: Improper Encoding or Escaping of Output Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow GitHub Docs: Secure use reference - mitigating script injection GitHub Security Lab: Keeping your GitHub Actions and workflows secure - untrusted input Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-207 in any communication regarding this issue.",
+      "tags": [
+        "research"
+      ],
+      "title": "GHSL-2026-207: Arbitrary code execution in kptdev/kpt’s SonarCloud workflow via external pull requests",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-207_kptdev_kpt_repository/"
     },
     {
       "appsec": false,
@@ -2855,6 +2832,28 @@
       ],
       "title": "Using form hijacking to bypass CSP",
       "url": "https://portswigger.net/research/using-form-hijacking-to-bypass-csp"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "4d1ff37a208b08bc",
+      "kev": false,
+      "published": "2026-10-22T00:00:00Z",
+      "score": 15.0,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "recency (+3.0)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-09-08: Reported through Private Vulnerability Reporting. 2026-09-30: Fixed in #4780 Summary The SonarCloud analysis workflow runs in the base repository through workflow_run, checks out an external pull request’s fork commit, and invokes SonarScanner with the repository’s SONAR_TOKEN. A fork author can set sonar.host.url in the checked-out sonar.properties; because the workflow does not pin a trusted scanner host, SonarScanner sends SONAR_TOKEN as Bearer authentication to that attacker-selected URL before analysis begins. The attacker can then exercise the token’s SonarCloud permissions and manipulate authenticated analysis for kptdev/kpt. Project kptdev/kpt repository Tested Version The default branch at commit 6345d96d661eae1f6cdcb97b1f70080ce35f61a4. Details Fork-controlled sonar.properties is consumed by a privileged SonarCloud scan with SONAR_TOKEN (GHSL-2026-208) The Go workflow runs for pull requests and checks out the pull request code for its build and test jobs. After successful testing, it uploads coverage reports and stores the pull request number in a PR_NUMBER artifact. Completion of the Go workflow triggers the default-branch SonarCloud analysis workflow. The latter runs in a privileged workflow_run context, where repository secrets are available. Its success and coverage-artifact checks restrict when the path runs, but do not establish trust in the pull request contents. For pull request runs, the privileged workflow downloads PR_NUMBER, resolves the pull request, and then checks out the triggering workflow’s head repository and head SHA. For an external pull request, both identify the fork author’s immutable commit: - name: Checkout PR head uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0 with: repository: ${{ github.event.workflow_run.head_repository.full_name }} ref: ${{ github.event.workflow_run.head_sha }} fetch-depth: 0 persist-credentials: false allow-unsafe-pr-checkout: true The next step is named Checkout base branch, but after briefly creating the local base branch it checks out HEAD_SHA again and resets the working tree to that commit: - name: Checkout base branch if: github.event.workflow_run.event == 'pull_request' env: BASE_REF: ${{ steps.pr_meta.outputs.base_ref }} HEAD_SHA: ${{ github.event.workflow_run.head_sha }} CLONE_URL: ${{ github.event.repository.clone_url }} run: | git remote add upstream \"$CLONE_URL\" git fetch upstream git checkout -B \"$BASE_REF\" \"upstream/$BASE_REF\" git checkout \"$HEAD_SHA\" git clean -ffdx && git reset --hard HEAD Consequently, files in the workspace, including sonar.properties, still come from the fork-controlled pull request commit. The SonarQube scan step then supplies the repository secret SONAR_TOKEN and explicitly selects that working-tree configuration file: - name: SonarQube Scan on PR if: github.event.workflow_run.event == 'pull_request' && hashFiles('PR_NUMBER.txt') != '' uses: SonarSource/sonarqube-scan-action@713881670b6b3676cda39549040e2d88c70d582e # v8.2.0 env: SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} with: args: -Dsonar.projectKey=kptdev_kpt -Dsonar.organization=kptdev -Dproject.settings=sonar.properties -Dsonar.pullrequest.key=${{ steps.pr_meta.outputs.number }} -Dsonar.pullrequest.branch=${{ steps.pr_meta.outputs.head_ref }} -Dsonar.pullrequest.base=${{ steps.pr_meta.outputs.base_ref }} The command-line arguments pin several analysis identifiers, but they do not pin sonar.host.url. SonarScanner CLI loads the project settings file before overlaying environment variables and CLI arguments. In this workflow, SONAR_TOKEN maps to sonar.token, but neither the workflow nor the action sets a trusted SONAR_HOST_URL. The pull request’s sonar.host.url therefore remains effective. The scanner’s HTTP client adds Authorization: Bearer <sonar.token> to authenticated bootstrap requests sent to that configured host. This was reproduced safely with the exact SonarScanner CLI 8.1.0.6389 selected by the pinned action. A local-only listener and dummy token were used; no project credential or external receiver was involved. The controlled project file contained: sonar.host.url=http://127.0.0.1:<port> sonar.projectKey=ghsl-local-proof sonar.sources=. The scanner was launched in a clean environment with: env -i PATH=\"$PATH\" SONAR_TOKEN=GHSL_DUMMY_CANARY_2026_208 sonar-scanner -Dproject.settings=sonar.properties Before analysis began, the listener received: GET /api/v2/analysis/version HTTP/1.1 Authorization: Bearer GHSL_DUMMY_CANARY_2026_208 User-Agent: ScannerCLI/8.1.0.6389 The scanner also sent the same Bearer token to its legacy /api/server/version fallback after the local listener returned an unsupported response. This demonstrates that an attacker does not need a functioning SonarQube server or a completed scan to obtain the secret: receiving the initial authenticated bootstrap request is sufficient. No live exploit was run against the project, and this report does not claim base-repository writes. A representative attack sequence is: An external contributor changes sonar.properties in a fork and opens a pull request containing code changes that exercise the Go workflow. The pull request workflow completes successfully and uploads the expected coverage and PR_NUMBER artifacts. Repository policy may first require approval for the fork workflow run. The workflow_run job checks out the fork repository at the attacker-controlled head SHA. The branch-preparation commands finish with the same untrusted head SHA checked out, so they do not restore the trusted base version of sonar.properties. SonarScanner reads the attacker-controlled sonar.host.url and sends SONAR_TOKEN as Bearer authentication to that server during its initial bootstrap request, directly disclosing the repository secret. Impact This is a confirmed direct disclosure of SONAR_TOKEN across the pull request trust boundary. An external fork author can choose the scanner’s destination through sonar.properties; the exact scanner used by the workflow then transmits the repository secret to that destination in an Authorization: Bearer header before analysis begins. After disclosure, the attacker can exercise whatever permissions the token carries. A SonarCloud personal access token can authenticate analyses and Web API requests with the issuing user’s permissions. A scoped organization or project analysis token can at least submit unauthorized analyses within its scope. In either case, the attacker can impersonate the trusted CI scanner, consume or corrupt authenticated analysis for kptdev/kpt, and undermine the integrity of its security and quality results. The exact blast radius beyond that project depends on the type and permissions of the configured token. The minimum attacker requires only control of an external pull request’s contents. Exploitation requires the Go workflow to run successfully. CWEs CWE-829: Inclusion of Functionality from Untrusted Control Sphere Resources Go pull request workflow and artifact producer SonarCloud analysis privileged consumer workflow sonar.properties at the tested commit GitHub Security Lab: Preventing pwn requests GitHub Docs: Mitigating the risks of untrusted code checkout Credit This issue was discovered and reported by GHSL team member @JarLob (Jaroslav Lobačevski). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-208 in any communication regarding this issue.",
+      "tags": [
+        "research"
+      ],
+      "title": "GHSL-2026-208: External pull requests can steal kptdev/kpt’s SonarCloud token",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-208_kptdev_kpt_repository/"
     },
     {
       "appsec": false,
@@ -3389,10 +3388,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 14.9,
+      "score": 14.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3409,10 +3408,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 14.9,
+      "score": 14.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.9)"
+        "recency (+8.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3429,10 +3428,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 13.7,
+      "score": 13.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.7)"
+        "recency (+5.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3449,10 +3448,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.5)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3469,10 +3468,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 12.6,
+      "score": 12.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.6)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3489,10 +3488,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 12.5,
+      "score": 12.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3509,10 +3508,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.8)"
+        "recency (+5.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3529,10 +3528,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 11.5,
+      "score": 11.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.5)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3549,10 +3548,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 11.1,
+      "score": 11.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3560,26 +3559,6 @@
       "tags": [],
       "title": "Srsly Risky Biz: OpenAI's Kazoo-Grade Spying Incident",
       "url": "https://risky.biz/SRB187/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "df11f17c78623c5a",
-      "kev": false,
-      "published": "2026-10-26T19:00:25Z",
-      "score": 11.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+5.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
-      "tags": [],
-      "title": "Quoting Jason Koebler",
-      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
     },
     {
       "appsec": false,
@@ -3606,13 +3585,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "df11f17c78623c5a",
+      "kev": false,
+      "published": "2026-10-26T19:00:25Z",
+      "score": 10.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
+      "tags": [],
+      "title": "Quoting Jason Koebler",
+      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 10.5,
+      "score": 10.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3629,10 +3628,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3649,10 +3648,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 10.3,
+      "score": 10.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3660,26 +3659,6 @@
       "tags": [],
       "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
       "url": "https://risky.biz/RBNEWSSI147/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c8190b8e5a1ef44e",
-      "kev": false,
-      "published": "2026-10-24T03:59:57Z",
-      "score": 9.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
-      "tags": [],
-      "title": "battledrones v14: Compass Rose, a four player map",
-      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
     },
     {
       "appsec": false,
@@ -3706,13 +3685,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "f4091a70be2c3b0a",
+      "id": "c8190b8e5a1ef44e",
       "kev": false,
-      "published": "2026-10-23T21:35:13Z",
+      "published": "2026-10-24T03:59:57Z",
       "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "recency (+3.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
+      "tags": [],
+      "title": "battledrones v14: Compass Rose, a four player map",
+      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f4091a70be2c3b0a",
+      "kev": false,
+      "published": "2026-10-23T21:35:13Z",
+      "score": 9.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3729,10 +3728,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3769,26 +3768,6 @@
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 9.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
-      "tags": [],
-      "title": "DE STAAT - FREEDOM (Official Music Video)",
-      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "af381dd3420f5f37",
-      "kev": false,
-      "published": "2026-10-22T15:34:13Z",
       "score": 9.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -3796,10 +3775,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
+      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
       "tags": [],
-      "title": "Quoting Armin Ronacher",
-      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
+      "title": "DE STAAT - FREEDOM (Official Music Video)",
+      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
     },
     {
       "appsec": false,
@@ -3826,20 +3805,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "4729de4c9cbe4dc5",
+      "id": "af381dd3420f5f37",
       "kev": false,
-      "published": "2026-10-12T02:43:40Z",
+      "published": "2026-10-22T15:34:13Z",
       "score": 9.2,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.2)"
+        "source:Simon Willison (+6)",
+        "recency (+3.2)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
       "tags": [],
-      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "url": "https://risky.biz/RBNEWS619/"
+      "title": "Quoting Armin Ronacher",
+      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
     },
     {
       "appsec": false,
@@ -3866,13 +3845,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4729de4c9cbe4dc5",
+      "kev": false,
+      "published": "2026-10-12T02:43:40Z",
+      "score": 9.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "tags": [],
+      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3900,26 +3899,6 @@
       "tags": [],
       "title": "My obituary for programming",
       "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "05f39f2a300ca5f0",
-      "kev": false,
-      "published": "2026-09-30T03:56:03Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A ShinyHunters suspect has been arrested in the Netherlands, Apple fixes an iOS zero-day found by Meta, recent Citrix zero-days see mass exploitation within hours and NVIDIA launches an AI sandboxing platform. Show notes Risky Bulletin: Sanctions force CAs to revoke TLS certs in Iran, Russia",
-      "tags": [],
-      "title": "ShinyHunters suspect arrested in the Netherlands",
-      "url": "https://risky.biz/RBNEWS617/"
     },
     {
       "appsec": false,
@@ -3960,6 +3939,26 @@
       "tags": [],
       "title": "Authorities dismantle KillSec group",
       "url": "https://risky.biz/RBNEWS618/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "05f39f2a300ca5f0",
+      "kev": false,
+      "published": "2026-09-30T03:56:03Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A ShinyHunters suspect has been arrested in the Netherlands, Apple fixes an iOS zero-day found by Meta, recent Citrix zero-days see mass exploitation within hours and NVIDIA launches an AI sandboxing platform. Show notes Risky Bulletin: Sanctions force CAs to revoke TLS certs in Iran, Russia",
+      "tags": [],
+      "title": "ShinyHunters suspect arrested in the Netherlands",
+      "url": "https://risky.biz/RBNEWS617/"
     },
     {
       "appsec": false,
@@ -4614,26 +4613,6 @@
       "tags": [],
       "title": "Srsly Risky Biz: China's botnets are worth disrupting",
       "url": "https://risky.biz/SRB182/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "53d5f118d29b321d",
-      "kev": false,
-      "published": "2026-10-17T13:16:49Z",
-      "score": 8.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
-      "tags": [],
-      "title": "web-edit 0.1a2",
-      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
     },
     {
       "appsec": false,
@@ -5343,9 +5322,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0726d06affb1e87c",
+      "id": "53d5f118d29b321d",
       "kev": false,
-      "published": "2026-10-16T22:06:37Z",
+      "published": "2026-10-17T13:16:49Z",
       "score": 7.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -5353,30 +5332,30 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
+      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
       "tags": [],
-      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
-      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+      "title": "web-edit 0.1a2",
+      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
     },
     {
       "appsec": false,
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "96935c790ddc2990",
+      "id": "0726d06affb1e87c",
       "kev": false,
-      "published": "2026-10-15T19:47:52Z",
-      "score": 7.7,
+      "published": "2026-10-16T22:06:37Z",
+      "score": 7.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
+      "summary": "We think \"did a human read the code?\" is an imprecise proxy for \"what could go wrong with this change, and which check—automated or human—is the right one to catch it?\" Asking that question also changed when review happens. Before, review was a gate at the end of the road: write the code, open a PR, wait for your colleague. Now, review runs continuously, more like spellcheck while you write. Most changes have been reviewed and fixed by Claude at least once before a human is asked to look. This catches most routine mistakes, and saves team attention for higher-level questions and scrutiny. — Addy Osmani, Morgan Westlee Lunt, and Qing Wang, How the Claude Code team does code review Tags: anthropic, claude, ai, claude-code, llms, addy-osmani, coding-agents, generative-ai, agentic-engineering, code-review",
       "tags": [],
-      "title": "Chirp Pong",
-      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
+      "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
+      "url": "https://simonwillison.net/2026/Oct/16/code-review/"
     },
     {
       "appsec": false,
@@ -5397,6 +5376,26 @@
       "tags": [],
       "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
       "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "96935c790ddc2990",
+      "kev": false,
+      "published": "2026-10-15T19:47:52Z",
+      "score": 7.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
+      "tags": [],
+      "title": "Chirp Pong",
+      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
     },
     {
       "appsec": false,
@@ -5459,15 +5458,15 @@
       "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-06T23:02:09Z",
+  "last_run": "2026-11-07T05:23:28Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1324,
-    "appsec_cves": 1758,
+    "appsec_cves": 1755,
     "kev_coverage_pct": 30.5,
     "kev_tracked": 1769,
     "kev_with_coverage": 539,
-    "newly_exploited": 25,
+    "newly_exploited": 21,
     "newly_exploited_days": 30,
     "open_gaps": 966,
     "public_poc": 720,
@@ -9766,35 +9765,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-34fc-gh42-pj53",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-63132",
-      "cvss_score": 9.1,
-      "cwe": [
-        "CWE-208"
-      ],
-      "description": "OpenBao's Recovery Mode Vulnerable To Token Leakage via Timing Attack",
-      "ecosystems": [
-        "go"
-      ],
-      "epss": 0.00629,
-      "ghsa_id": "GHSA-34fc-gh42-pj53",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-22T20:36:52Z",
-      "product": "github.com/openbao/openbao",
-      "published": "2026-09-22T20:36:51Z",
-      "score": 23.3,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-p393-cf76-4jmr",
       "appsec": true,
       "brief": "briefs/CVE-2026-107806.md",
@@ -9824,6 +9794,36 @@
       "vuln_classes": [
         "rce"
       ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-cxf3-9h37-7rr8",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-118264",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-444",
+        "CWE-863"
+      ],
+      "description": "Echo: Rejected WebSocket upgrades can bypass Echo route-level access controls",
+      "ecosystems": [
+        "go"
+      ],
+      "epss": 0.0043,
+      "ghsa_id": "GHSA-cxf3-9h37-7rr8",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-28T19:21:32Z",
+      "product": "github.com/labstack/echo/v4",
+      "published": "2026-10-23T20:49:37Z",
+      "score": 23.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-4j9v-h7pp-725h",
@@ -10958,35 +10958,6 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-4825-p4xm-pcf2",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-94462",
-      "cvss_score": 7.1,
-      "cwe": [
-        "CWE-639"
-      ],
-      "description": "Spree: Broken Access Control in `PATCH /api/v3/store/carts/:id/associate` (IDOR)",
-      "ecosystems": [
-        "rubygems"
-      ],
-      "epss": 0.00384,
-      "ghsa_id": "GHSA-4825-p4xm-pcf2",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-22T20:40:32Z",
-      "product": "spree_api",
-      "published": "2026-09-22T20:40:30Z",
-      "score": 21.2,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-5hq8-qhww-jm7q",
       "appsec": false,
       "brief": null,
@@ -11099,6 +11070,35 @@
       "product": "fulgur",
       "published": "2026-09-17T18:48:55Z",
       "score": 7.7,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-4825-p4xm-pcf2",
+      "appsec": false,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-94462",
+      "cvss_score": 7.1,
+      "cwe": [
+        "CWE-639"
+      ],
+      "description": "Spree: Broken Access Control in `PATCH /api/v3/store/carts/:id/associate` (IDOR)",
+      "ecosystems": [
+        "rubygems"
+      ],
+      "epss": 0.00384,
+      "ghsa_id": "GHSA-4825-p4xm-pcf2",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-09-22T20:40:32Z",
+      "product": "spree_api",
+      "published": "2026-09-22T20:40:30Z",
+      "score": 7.2,
       "sources": [],
       "vendor": null,
       "vuln_classes": []
