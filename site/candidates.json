@@ -2220,7 +2220,7 @@
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.86326,
+      "epss": 0.86274,
       "issue_number": null,
       "kev": true,
       "kev_added": "2021-11-03",
@@ -4398,7 +4398,7 @@
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.99669,
+      "epss": 0.99742,
       "issue_number": 31,
       "kev": true,
       "kev_added": "2025-10-02",
@@ -8574,6 +8574,39 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-19490.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 33% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-19490",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-288"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.33262,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-09-09",
+      "modified": "2026-09-09",
+      "nuclei_template": null,
+      "product": "netscaler_application_delivery_controller",
+      "published": "2026-09-09",
+      "score": 83.8,
+      "vendor": "citrix",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2020-13671.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -8708,39 +8741,6 @@
       "vuln_classes": [
         "rce"
       ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-19490.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 33% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-19490",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-288"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.32653,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-09-09",
-      "modified": "2026-09-09",
-      "nuclei_template": null,
-      "product": "netscaler_application_delivery_controller",
-      "published": "2026-09-09",
-      "score": 83.6,
-      "vendor": "citrix",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -14781,39 +14781,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2018-4990.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 36% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2018-4990",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-415"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.3594,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-06-08",
-      "modified": "2022-06-08",
-      "nuclei_template": null,
-      "product": "acrobat_dc",
-      "published": "2022-06-08",
-      "score": 73.6,
-      "vendor": "adobe",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2017-6327.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -14977,6 +14944,39 @@
       "published": "2026-03-13",
       "score": 73.6,
       "vendor": "google",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2018-4990.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 36% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2018-4990",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-415"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.35828,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-06-08",
+      "modified": "2022-06-08",
+      "nuclei_template": null,
+      "product": "acrobat_dc",
+      "published": "2022-06-08",
+      "score": 73.5,
+      "vendor": "adobe",
       "vuln_classes": []
     },
     {
@@ -19014,38 +19014,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2021-44207.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2021-44207",
-      "cvss_score": 8.1,
-      "cwe": [
-        "CWE-798"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.17578,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-12-23",
-      "modified": "2024-12-23",
-      "nuclei_template": null,
-      "product": "usaherds",
-      "published": "2024-12-23",
-      "score": 67.4,
-      "vendor": "acclaimsystems",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2020-8599.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -19139,6 +19107,38 @@
       "vuln_classes": [
         "xss"
       ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2021-44207.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2021-44207",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-798"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.17441,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2024-12-23",
+      "modified": "2024-12-23",
+      "nuclei_template": null,
+      "product": "usaherds",
+      "published": "2024-12-23",
+      "score": 67.3,
+      "vendor": "acclaimsystems",
+      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -24095,7 +24095,7 @@
         "suggested_template_type": "version-fingerprint"
       },
       "ecosystems": [],
-      "epss": 0.03198,
+      "epss": 0.03312,
       "issue_number": null,
       "kev": true,
       "kev_added": "2026-09-18",
@@ -25587,7 +25587,7 @@
         "suggested_template_type": "version-fingerprint"
       },
       "ecosystems": [],
-      "epss": 0.02998,
+      "epss": 0.02966,
       "issue_number": null,
       "kev": true,
       "kev_added": "2021-11-03",
@@ -32797,7 +32797,7 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-08T13:07:09Z",
+  "generated": "2026-11-08T21:58:22Z",
   "stats": {
     "actively_exploited_appsec": 1324,
     "appsec_cves": 1750,
@@ -32809,6 +32809,6 @@
     "open_gaps": 966,
     "public_poc": 720,
     "total_cves": 2291,
-    "total_items": 245
+    "total_items": 246
   }
 }
