@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-09T05:32:42Z",
+  "generated": "2026-11-09T15:46:36Z",
   "items": [
     {
       "appsec": true,
@@ -47,16 +47,16 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 49.9,
+      "score": 49.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+14.9)"
+        "recency (+14.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on them until a feature is complete, document decisions and then merge the finished result. Today's coding agents are great at writing PR descriptions. They're too good at describing the work The problem is that they are too good. An agent-written PR description is accurate and comprehensive. It describes the problem, the detailed solution, and the steps taken to verify it. That's a lot of information to absorb. It's not necessarily slop, but it reads like slop! It's very easy to spot an AI-written PR, and as with other forms of AI writing my instant reaction is best summarized as \"I'm not reading all of that\". It doesn't matter how accurate or useful the information is, I'm instantly put off by the thought that it will take me longer to read than it took the driving author to write... even when that driving author is me! I want human editorial judgement. I want someone to have thought just long enough about the PR to give me a human-approved introduction that helps me understand, at a high level, what the PR is for and whether it deserves more of my attention. I think I've found a low-effort way to do this that feels right. Hide most of it in a details/summary The HTML <details><summary> elements render as a collapsed heading (the summary) that can be expanded to view the larger piece of text. The code looks like this: <details> <summary>Claude Opus 5.5</summary> <h2>The hook</h2> Plugins implement <code>register_agent_reference_types(datasette)</code>... </details> When rendered, it looks like this: Crucially, <details><summary> is supported in GitHub Markdown. You can drop those tags directly into an issue comment or PR description and GitHub will hide the details and display just the summary plus an expansion arrow. I've started using this for my AI-generated pull requests. The opening paragraph of my PRs will be carefully selected to act as a high-level explanation of what's going on - the shortest text a human can read that will help get them up to speed. I'll sometimes throw in a screenshot as well, since images are often the best way to quickly illustrate a new feature. The full agent-written essay then follows in a <details><summary>. I use the model name and often the effort level as that summary, to make it abundantly clear what is going on - \"Claude Opus 5.5 Medium\" for example. My PRs don't feel nearly as sloppy now! The information is all still there, but a reader can glance at it and get the top, human-curated information without their eyes glazing over at multiple paragraphs of agent-written details. I don't always write the introduction myself - sometimes the agent has given me what I need already, hidden away in the avalanche of other text. My promise to the reader is that the short opener will represent my human judgement as to what is definitely worth their time. Here are some recent examples where I've used this pattern, including the opener I used: datasette PR #3052: Redesign row page as a vertical list of fields - \"The row page showed its single row as a one-row table. For wide tables, like a 46-column GitHub repos table, that scrolled far off to the right and left most of the page blank.\" (then a screenshot) datasette PR #3043: Pagination bar showing which rows are on the current page - \"Table pages that span more than one page now make it obvious where you are, and offer navigation at the top of the page as well as the bottom.\" (plus screenshot) datasette PR #3042: Load edit-tools.js on demand via a small loader - \"edit-tools.js (~220KB) was loaded on every table, row and database page, even for users who couldn't edit anything. Now only load it for users who can edit when they first interact with an edit feature (including mouse over an edit link).\" datasette-agent PR #51: register_agent_reference_types plugin hook - \"Lets plugins add their own kinds of item to the # tagging in the chat composer using a new register_agent_reference_types(datasette) plugin hook.\" - pictured above. llm PR #1838: Add llm openai endpoint add/list/remove/path commands - \"Adds commands for managing the records in extra-openai-models.yaml, so OpenAI-compatible endpoints can be saved from the command line instead of by hand-editing YAML.\" - then copied --help output. The mnemonic I used to have trouble remembering the order of the tags - is it <details><summary> or <summary><details>? Here are two tricks that helped me. First, and most obviously, the <summary> is clearly the bit where you summarize the details. That's the tag for your line of text that can be clicked to expand - the <details> element must then wrap everything else. An even better trick is to always refer to these two tags as \"details-summary\". \"details-summary\" is two syllables followed by three syllables. That rolls off the tongue more smoothly than the three-two punch of \"summary-details\". Say \"details-summary\" out loud just a few times and you'll never forget the order of the tags again. (I still wish GitHub would add a button to their Markdown editor for this - partly to save me painstakingly typing it on my mobile keyboard, and partly to help spread the word to more GitHub users that this feature exists.) Tags: github, html, markdown, ai, generative-ai, llms, ai-assisted-programming, coding-agents",
+      "summary": "Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on them until a feature is complete, document decisions and then merge the finished result. Today's coding agents are great at writing PR descriptions. They're too good at describing the work The problem is that they are too good. An agent-written PR description is accurate and comprehensive. It describes the problem, the detailed solution, and the steps taken to verify it. That's a lot of information to absorb. It's not necessarily slop, but it reads like slop! It's very easy to spot an AI-written PR, and as with other forms of AI writing my instant reaction is best summarized as \"I'm not reading all of that\". It doesn't matter how accurate or useful the information is, I'm instantly put off by the thought that it will take me longer to read than it took the driving author to write... even when that driving author is me! I want human editorial judgement. I want someone to have thought just long enough about the PR to give me a human-approved introduction that helps me understand, at a high level, what the PR is for and whether it deserves more of my attention. I think I've found a low-effort way to do this that feels right. Hide most of it in a details/summary The HTML <details><summary> elements render as a collapsed heading (the summary) that can be expanded to view the larger piece of text. The code looks like this: <details> <summary>Claude Opus 5.5</summary> <h2>The hook</h2> Plugins implement <code>register_agent_reference_types(datasette)</code>... </details> When rendered, it looks like this: Crucially, <details><summary> is supported in GitHub Markdown. You can drop those tags directly into an issue comment or PR description and GitHub will hide the details and display just the summary plus an expansion arrow. I've started using this for my AI-generated pull requests. The opening paragraph of my PRs will be carefully selected to act as a high-level explanation of what's going on - the shortest text a human can read that will help get them up to speed. I'll sometimes throw in a screenshot as well, since images are often the best way to quickly illustrate a new feature. The full agent-written essay then follows in a <details><summary>. I use the model name and often the effort level as that summary, to make it abundantly clear what is going on - \"Claude Opus 5.5 Medium\" for example. My PRs don't feel nearly as sloppy now! The information is all still there, but a reader can glance at it and get the top, human-curated information without their eyes glazing over at multiple paragraphs of agent-written details. I don't always write the introduction myself - sometimes the agent has given me what I need already, hidden away in the avalanche of other text. My promise to the reader is that the short opener will represent my human judgement as to what is definitely worth their time. Here are some recent examples where I've used this pattern, including the opener I used: datasette PR #3052: Redesign row page as a vertical list of fields - \"The row page showed its single row as a one-row table. For wide tables, like a 46-column GitHub repos table, that scrolled far off to the right and left most of the page blank.\" (then a screenshot) datasette PR #3043: Pagination bar showing which rows are on the current page - \"Table pages that span more than one page now make it obvious where you are, and offer navigation at the top of the page as well as the bottom.\" (plus screenshot) datasette PR #3042: Load edit-tools.js on demand via a small loader - \"edit-tools.js (~220KB) was loaded on every table, row and database page, even for users who couldn't edit anything. Now only load it for users who can edit when they first interact with an edit feature (including mouse over an edit link).\" datasette-agent PR #51: register_agent_reference_types plugin hook - \"Lets plugins add their own kinds of item to the # tagging in the chat composer using a new register_agent_reference_types(datasette) plugin hook.\" - pictured above. llm PR #1838: Add llm openai endpoint add/list/remove/path commands - \"Adds commands for managing the records in extra-openai-models.yaml, so OpenAI-compatible endpoints can be saved from the command line instead of by hand-editing YAML.\" - then copied --help output. The mnemonic I used to have trouble remembering the order of the tags - is it <details><summary> or <summary><details>? Here are two tricks that helped me. First, and most obviously, the <summary> is clearly the bit where you summarize the details. That's the tag for your line of text that can be clicked to expand - the <details> element must then wrap everything else. An even better trick is to always refer to these two tags as \"details-summary\". \"details-summary\" is two syllables followed by three syllables. That rolls off the tongue more smoothly than the three-two punch of \"summary-details\". Say \"details-summary\" out loud just a few times and you'll never forget the order of the tags again. (I still wish GitHub would add a button to their Markdown editor for this - partly to save me painstakingly typing it on my mobile keyboard, and partly to help spread the word to more GitHub users that this feature exists.) Tags: github, html, markdown, ai, datasette, generative-ai, llms, ai-assisted-programming, llm, coding-agents",
       "tags": [
         "appsec",
         "watchlist",
@@ -74,12 +74,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 48.1,
+      "score": 47.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.1)"
+        "recency (+10.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -100,12 +100,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 47.5,
+      "score": 47.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.5)"
+        "recency (+10.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -128,12 +128,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 46.0,
+      "score": 45.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.0)"
+        "recency (+8.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -314,13 +314,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 43.7,
+      "score": 43.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -345,13 +345,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 43.6,
+      "score": 43.5,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -376,12 +376,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 43.5,
+      "score": 43.4,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -404,12 +404,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 42.2,
+      "score": 42.0,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -436,12 +436,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 42.0,
+      "score": 41.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.0)"
+        "recency (+4.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -462,12 +462,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 41.6,
+      "score": 41.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.6)"
+        "recency (+6.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -608,12 +608,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 41.0,
+      "score": 40.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.0)"
+        "recency (+3.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -634,12 +634,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 40.7,
+      "score": 40.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.7)"
+        "recency (+3.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -661,12 +661,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 39.8,
+      "score": 39.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.8)"
+        "recency (+2.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -687,12 +687,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 39.6,
+      "score": 39.5,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -806,12 +806,12 @@
       "id": "6053efd31e99a045",
       "kev": false,
       "published": "2026-10-08T14:30:00Z",
-      "score": 37.7,
+      "score": 37.6,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:npm,pnpm,pypi (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -829,34 +829,6 @@
       ],
       "title": "[tl;dr sec] #349 - Vulns & Exploits in the AI Era, Package Manager Sandboxing, Testing AI Sandboxes",
       "url": "https://tldrsec.com/p/tldr-sec-349"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "1426feceb5c03ac9",
-      "kev": false,
-      "published": "2026-10-21T18:41:53Z",
-      "score": 37.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:php,wordpress,drupal (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Today's PHP Security Release, and How We're Strengthening PHP Security If you're running anything on PHP it's vital you upgrade - today's updates (across the entire PHP 8.x line) address two remote code execution holes, and there have been exploits circulating since last night, thanks to a leak in the coordinated disclosure process. This post from the PHP Foundation explain what went so wrong: On Tuesday, October 20th, at around 15:00 UTC, the two CVE IDs began circulating on online forums and social media. They came with a wrong release time and a wrong CVSS score of 10.0 (the actual score is 9.2). No technical details leaked. In response, the PHP project brought its pre-announcement forward and published it at 19:30 UTC. It also moved the release from October 22nd, 14:00 UTC, to October 21st, 14:00 UTC [...] As a result of the leak and pre-announcement around 20:00 UTC, Calif, one of the security firms that had reported the issues mistakenly published a video. It showed their proof of concept working against a number of targets and revealed a few additional, though limited, details about the vulnerabilities. Copies of the deleted video started circulating on social media soon after. The video contributed to accelerated development of various PoCs (exploitation proof of concepts), which then increased circulation on October 21st. This article from the team that discovered the original vulnerability includes a more detailed timeline of the original intended responsible disclosure: August 19, 2026: Wiz Research discovers the first PHP vulnerability using Wiz Atlas, Gemini 4 Argon, and GPT-5.6 Sol. August 20, 2026: Unauthenticated RCE is confirmed against Drupal. August 21, 2026: Unauthenticated RCE is confirmed against WordPress. August 24, 2026: Wiz Research reports the vulnerabilities to the PHP security team. September 21, 2026: PHP acknowledges the reports and begins developing a coordinated fix. October 21, 2026: Patched PHP releases become available. October 21, 2026: Public disclosure. Via Hacker News Tags: open-source, php, security, ai, ai-security-research",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php",
-        "web",
-        "rce"
-      ],
-      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
-      "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
     },
     {
       "appsec": true,
@@ -897,6 +869,34 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "1426feceb5c03ac9",
+      "kev": false,
+      "published": "2026-10-21T18:41:53Z",
+      "score": 37.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:php,wordpress,drupal (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+2.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Today's PHP Security Release, and How We're Strengthening PHP Security If you're running anything on PHP it's vital you upgrade - today's updates (across the entire PHP 8.x line) address two remote code execution holes, and there have been exploits circulating since last night, thanks to a leak in the coordinated disclosure process. This post from the PHP Foundation explain what went so wrong: On Tuesday, October 20th, at around 15:00 UTC, the two CVE IDs began circulating on online forums and social media. They came with a wrong release time and a wrong CVSS score of 10.0 (the actual score is 9.2). No technical details leaked. In response, the PHP project brought its pre-announcement forward and published it at 19:30 UTC. It also moved the release from October 22nd, 14:00 UTC, to October 21st, 14:00 UTC [...] As a result of the leak and pre-announcement around 20:00 UTC, Calif, one of the security firms that had reported the issues mistakenly published a video. It showed their proof of concept working against a number of targets and revealed a few additional, though limited, details about the vulnerabilities. Copies of the deleted video started circulating on social media soon after. The video contributed to accelerated development of various PoCs (exploitation proof of concepts), which then increased circulation on October 21st. This article from the team that discovered the original vulnerability includes a more detailed timeline of the original intended responsible disclosure: August 19, 2026: Wiz Research discovers the first PHP vulnerability using Wiz Atlas, Gemini 4 Argon, and GPT-5.6 Sol. August 20, 2026: Unauthenticated RCE is confirmed against Drupal. August 21, 2026: Unauthenticated RCE is confirmed against WordPress. August 24, 2026: Wiz Research reports the vulnerabilities to the PHP security team. September 21, 2026: PHP acknowledges the reports and begins developing a coordinated fix. October 21, 2026: Patched PHP releases become available. October 21, 2026: Public disclosure. Via Hacker News Tags: open-source, php, security, ai, ai-security-research",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php",
+        "web",
+        "rce"
+      ],
+      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
+      "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "886c6e66695f9828",
       "kev": false,
       "published": "2026-10-01T14:30:00Z",
@@ -921,32 +921,6 @@
       ],
       "title": "[tl;dr sec] #348 - Google's PageBreak Scanner, Perplexity's Agent Security Tool, Defending Agentically",
       "url": "https://tldrsec.com/p/tldr-sec-348"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "d7da1053e3ecdb1a",
-      "kev": false,
-      "published": "2026-10-20T23:50:25Z",
-      "score": 37.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:pip,python (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "eMudhra Intermediate CA Compromise This is very, very bad news: The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. Any software that bundles a list of trusted certificates needs to be updated. This site is tracking software updates via this GitHub repository - Linux distros need to update their ca-certificates packages. In Python world uv 0.13.4 and pip 26.2.2 and certifi 2026.10.19 have been released with upgraded certificate lists. There's a very informative thread about this on the official Python forum. Tags: encryption, https, pip, python, security, uv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "pypi"
-      ],
-      "title": "eMudhra Intermediate CA Compromise",
-      "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
     },
     {
       "appsec": true,
@@ -1006,6 +980,32 @@
       ],
       "title": "Risky Bulletin: Gemini finally did some crimes",
       "url": "https://risky.biz/RBNEWS613/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "d7da1053e3ecdb1a",
+      "kev": false,
+      "published": "2026-10-20T23:50:25Z",
+      "score": 37.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:pip,python (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "eMudhra Intermediate CA Compromise This is very, very bad news: The private keys of eight eMudhra intermediate CA certificates have been compromised. They chain to roots trusted by the Mozilla, Microsoft, Apple and Chrome root programs and by many downstream trust stores. Any software that bundles a list of trusted certificates needs to be updated. This site is tracking software updates via this GitHub repository - Linux distros need to update their ca-certificates packages. In Python world uv 0.13.4 and pip 26.2.2 and certifi 2026.10.19 have been released with upgraded certificate lists. There's a very informative thread about this on the official Python forum. Tags: encryption, https, pip, python, security, uv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "pypi"
+      ],
+      "title": "eMudhra Intermediate CA Compromise",
+      "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
     },
     {
       "appsec": true,
@@ -1618,11 +1618,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 35.9,
+      "score": 35.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+14.9)"
+        "recency (+14.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1641,11 +1641,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 34.3,
+      "score": 34.1,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1665,11 +1665,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 34.2,
+      "score": 34.0,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1690,11 +1690,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 30.5,
+      "score": 30.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.5)"
+        "recency (+9.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1783,11 +1783,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 29.9,
+      "score": 29.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.9)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1807,11 +1807,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 29.7,
+      "score": 29.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.7)"
+        "recency (+8.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1831,11 +1831,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 29.3,
+      "score": 28.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.3)"
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1855,11 +1855,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 29.1,
+      "score": 28.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+8.1)"
+        "recency (+7.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1879,11 +1879,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 28.3,
+      "score": 28.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+7.3)"
+        "recency (+7.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1893,30 +1893,6 @@
       ],
       "title": "If in doubt, delete the uv.lock file",
       "url": "https://simonwillison.net/2026/Nov/1/delete-uv-lock-first/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "9590a7b9dd6aba1c",
-      "kev": false,
-      "published": "2026-10-31T22:10:01Z",
-      "score": 27.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+6.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-llm 0.1a9 I have some big upgrades to Datasette Agent in the pipeline, but in the meantime here's a tiny user experience improvement to the underlying datasette-llm plugin. It now picks up the default model used by LLM, which means you can start using Datasette Agent without needing to explicitly configure a default model: uvx --with datasette-agent datasette content.db --internal internal.db Previously you would also need to specify a model with -s plugins.datasette-agent.default_model gpt-6-astra. Tags: datasette, llm, datasette-agent",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "datasette-llm 0.1a9",
-      "url": "https://simonwillison.net/2026/Oct/31/datasette-llm/"
     },
     {
       "appsec": false,
@@ -1950,14 +1926,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "15b96761d0c22ab8",
+      "id": "9590a7b9dd6aba1c",
       "kev": false,
-      "published": "2026-10-29T22:48:29Z",
-      "score": 26.4,
+      "published": "2026-10-31T22:10:01Z",
+      "score": 27.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.4)"
+        "recency (+6.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-llm 0.1a9 I have some big upgrades to Datasette Agent in the pipeline, but in the meantime here's a tiny user experience improvement to the underlying datasette-llm plugin. It now picks up the default model used by LLM, which means you can start using Datasette Agent without needing to explicitly configure a default model: uvx --with datasette-agent datasette content.db --internal internal.db Previously you would also need to specify a model with -s plugins.datasette-agent.default_model gpt-6-astra. Tags: datasette, llm, datasette-agent",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "datasette-llm 0.1a9",
+      "url": "https://simonwillison.net/2026/Oct/31/datasette-llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "15b96761d0c22ab8",
+      "kev": false,
+      "published": "2026-10-29T22:48:29Z",
+      "score": 26.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1977,11 +1977,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 26.2,
+      "score": 26.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2001,11 +2001,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 25.9,
+      "score": 25.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.9)"
+        "recency (+4.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2025,11 +2025,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 25.8,
+      "score": 25.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2049,11 +2049,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 25.7,
+      "score": 25.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2072,11 +2072,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 25.0,
+      "score": 24.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2096,11 +2096,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 24.9,
+      "score": 24.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2119,10 +2119,10 @@
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 24.5,
+      "score": 24.1,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+9.5)"
+        "recency (+9.1)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2141,11 +2141,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 24.0,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.0)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2165,11 +2165,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 23.7,
+      "score": 23.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+2.7)"
+        "recency (+2.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2189,11 +2189,11 @@
       "id": "7187d65663186f22",
       "kev": false,
       "published": "2026-09-28T22:27:23Z",
-      "score": 23.3,
+      "score": 23.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:llm (+15)",
-        "recency (+0.3)"
+        "recency (+0.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2213,11 +2213,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 23.2,
+      "score": 23.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2228,26 +2228,6 @@
       ],
       "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
       "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "ec02ffe3c0c52bb2",
-      "kev": false,
-      "published": "2026-11-09T03:25:54Z",
-      "score": 22.9,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+14.9)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Pro-Kremlin hacktivists dox EU politicians and law enforcement personnel a Deepfake gang arrested on US charges, SonicWall patches a zero-day, and SSHole is being exploited in the wild. Show notes Risky Bulletin: Pro-Kremlin hacktivists dox EU politicians, law enforcement",
-      "tags": [],
-      "title": "Risky Bulletin: Pro-Kremlin hacktivists dox EU politicians, law enforcement",
-      "url": "https://risky.biz/RBNEWS631/"
     },
     {
       "appsec": false,
@@ -2325,34 +2305,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "91d04b9b6b9b3f84",
-      "kev": false,
-      "published": "2026-11-08T19:10:22Z",
-      "score": 22.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+14.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview Tom Uren talks to Airlock Digital’s CTO and CSO Peter Baussmann about how the Essential Eight is evolving into ASD’s Essentials framework. The pair discuss why the change was needed and how Essentials is a broader framework that is less prescriptive and requires more judgement. Show notes From the Essential Eight to ASD's Essentials",
-      "tags": [],
-      "title": "Sponsored: The evolution of ASD's Essential Eight",
-      "url": "https://risky.biz/RBNEWSSI150/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
-      "score": 22.4,
+      "score": 22.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2362,6 +2322,26 @@
       ],
       "title": "sparqlite: SPARQL 1.1 inside SQLite, written in Rust",
       "url": "https://simonwillison.net/2026/Oct/16/sqlite-sparql-rust/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ec02ffe3c0c52bb2",
+      "kev": false,
+      "published": "2026-11-09T03:25:54Z",
+      "score": 22.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Pro-Kremlin hacktivists dox EU politicians and law enforcement personnel a Deepfake gang arrested on US charges, SonicWall patches a zero-day, and SSHole is being exploited in the wild. Show notes Risky Bulletin: Pro-Kremlin hacktivists dox EU politicians, law enforcement",
+      "tags": [],
+      "title": "Risky Bulletin: Pro-Kremlin hacktivists dox EU politicians, law enforcement",
+      "url": "https://risky.biz/RBNEWS631/"
     },
     {
       "appsec": false,
@@ -2415,17 +2395,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "91d04b9b6b9b3f84",
+      "kev": false,
+      "published": "2026-11-08T19:10:22Z",
+      "score": 21.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+13.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview Tom Uren talks to Airlock Digital’s CTO and CSO Peter Baussmann about how the Essential Eight is evolving into ASD’s Essentials framework. The pair discuss why the change was needed and how Essentials is a broader framework that is less prescriptive and requires more judgement. Show notes From the Essential Eight to ASD's Essentials",
+      "tags": [],
+      "title": "Sponsored: The evolution of ASD's Essential Eight",
+      "url": "https://risky.biz/RBNEWSSI150/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 20.6,
+      "score": 20.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.6)"
+        "recency (+14.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Research: parse_number() as a SQLite extension: C vs Rust I was out walking the dog when I got curious about how easy/difficult it would be to write a SQLite C extension that adds a parse_number() function for turning strings like -$1,234.56 or '12.5%' into numeric values that could be summed and sorted. I fired up regular Claude chat (Opus 5.5) and prompted: I'm thinking about a SQLite custom function 'parse_number(value)' that strips ',', '$', '£' and '%', handles a leading '-', and returns 'NULL' for anything it can’t parse Explore the difference between building this as a SQLite extension in C v.s. in Rust - I want to compare performance and code complexity and size of the resulting.so(or whatever) file This gave me a solid starting point - the Rust extension was 321 KB (using Rusqlite) and 298 KB (using sqlite-loadable-rs), while the C extension was 14 KB. But the Rust extension was faster! Turns out that's because the Rust equivalent of C's strtod is \"twice as fast\". So I prompted: Try writing your own C function for parsing text into a decimal number that catches up to or beats the Rust implementation And it did: Net cost per row over 2 million rows, lower is better: first C new C rusqlite sqlite-loadable Mixed data 67 ns 19 ns 46 ns 41 ns Integers only 25 ns 16 ns 36 ns 32 ns Decimals only 106 ns 18 ns 55 ns 47 ns Finally, I had it rewrite the prototype as a research report to match the others in simonw/research by prompting this: Clone simonw/research from GitHub and turn your above investigation into a research report as seen in that repository - you can give me a zip file to download that contains your new folder Here's the resulting report. Tags: c, research, sqlite, rust, claude",
+      "summary": "Research: parse_number() as a SQLite extension: C vs Rust I was out walking the dog when I got curious about how easy/difficult it would be to write a SQLite C extension that adds a parse_number() function for turning strings like -$1,234.56 or '12.5%' into numeric values that could be summed and sorted. I fired up regular Claude chat (Opus 5.5) and prompted: I'm thinking about a SQLite custom function 'parse_number(value)' that strips ',', '$', '£' and '%', handles a leading '-', and returns 'NULL' for anything it can’t parse Explore the difference between building this as a SQLite extension in C v.s. in Rust - I want to compare performance and code complexity and size of the resulting.so(or whatever) file This gave me a solid starting point - the Rust extension was 321 KB (using Rusqlite) and 298 KB (using sqlite-loadable-rs), while the C extension was 14 KB. But the Rust extension was faster! Turns out that's because the Rust equivalent of C's strtod is \"twice as fast\". So I prompted: Try writing your own C function for parsing text into a decimal number that catches up to or beats the Rust implementation And it did, using \"Clinger's fast path\": Net cost per row over 2 million rows, lower is better: first C new C rusqlite sqlite-loadable Mixed data 67 ns 19 ns 46 ns 41 ns Integers only 25 ns 16 ns 36 ns 32 ns Decimals only 106 ns 18 ns 55 ns 47 ns Finally, I had it rewrite the prototype as a research report to match the others in simonw/research by prompting this: Clone simonw/research from GitHub and turn your above investigation into a research report as seen in that repository - you can give me a zip file to download that contains your new folder Here's the resulting report. Tags: c, research, sqlite, rust, claude",
       "tags": [],
       "title": "parse_number() as a SQLite extension: C vs Rust",
       "url": "https://simonwillison.net/2026/Nov/8/sqlite-parse-number-c-vs-rust/"
@@ -2438,10 +2438,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 19.3,
+      "score": 18.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.3)"
+        "recency (+12.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2458,10 +2458,10 @@
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 19.0,
+      "score": 18.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.0)"
+        "recency (+12.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2478,10 +2478,10 @@
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 18.0,
+      "score": 17.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.0)"
+        "recency (+9.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2498,10 +2498,10 @@
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 17.7,
+      "score": 17.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.7)"
+        "recency (+11.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2518,10 +2518,10 @@
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 16.6,
+      "score": 16.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.6)"
+        "recency (+10.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2538,10 +2538,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 15.9,
+      "score": 15.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.9)"
+        "recency (+7.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2621,46 +2621,6 @@
     },
     {
       "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "d884a4ef2a50bf34",
-      "kev": false,
-      "published": "2026-11-02T02:08:33Z",
-      "score": 15.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "The FBI links the Binance hack to North Korea, game developers are being extorted with game-cloning threats, the Belarusian CyberPartisans hack Russia’s statistics service and Apple sends new mercenary spyware notifications. Show notes Risky Bulletin: Game devs are being extorted with AI game-cloning threats",
-      "tags": [],
-      "title": "FBI confirms North Korea behind Binance hack",
-      "url": "https://risky.biz/RBNEWS628/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "6a8095a99a564e62",
-      "kev": false,
-      "published": "2026-11-01T19:27:05Z",
-      "score": 15.2,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.2)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Luke Wescott, Threat Detection Engineer at Sublime Security. Luke talks through the rise of calendar-based phishing campaigns over the past year and the reasons behind it. Show notes Luke Wescott on LinkedIn Sublime observes massive uptick in ICS phishing and calendar-based malware attacks",
-      "tags": [],
-      "title": "Sponsored: Sublime Security on the rise of ISC calendar phishing",
-      "url": "https://risky.biz/RBNEWSSI149/"
-    },
-    {
-      "appsec": false,
       "cves": [
         "CVE-2026-50343",
         "CVE-2026-66804"
@@ -2733,6 +2693,26 @@
       ],
       "title": "Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529",
       "url": "https://projectzero.google/2026/01/sound-barrier-2.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "d884a4ef2a50bf34",
+      "kev": false,
+      "published": "2026-11-02T02:08:33Z",
+      "score": 15.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+7.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "The FBI links the Binance hack to North Korea, game developers are being extorted with game-cloning threats, the Belarusian CyberPartisans hack Russia’s statistics service and Apple sends new mercenary spyware notifications. Show notes Risky Bulletin: Game devs are being extorted with AI game-cloning threats",
+      "tags": [],
+      "title": "FBI confirms North Korea behind Binance hack",
+      "url": "https://risky.biz/RBNEWS628/"
     },
     {
       "appsec": false,
@@ -2880,26 +2860,6 @@
       ],
       "title": "Using form hijacking to bypass CSP",
       "url": "https://portswigger.net/research/using-form-hijacking-to-bypass-csp"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5928ed51062ddbc9",
-      "kev": false,
-      "published": "2026-11-04T00:29:36Z",
-      "score": 15.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette, datasette-agent, datasette-apps",
-      "tags": [],
-      "title": "datasette-apps 0.3a0",
-      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
     },
     {
       "appsec": false,
@@ -3431,13 +3391,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "6a8095a99a564e62",
+      "kev": false,
+      "published": "2026-11-01T19:27:05Z",
+      "score": 14.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+6.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Luke Wescott, Threat Detection Engineer at Sublime Security. Luke talks through the rise of calendar-based phishing campaigns over the past year and the reasons behind it. Show notes Luke Wescott on LinkedIn Sublime observes massive uptick in ICS phishing and calendar-based malware attacks",
+      "tags": [],
+      "title": "Sponsored: Sublime Security on the rise of ISC calendar phishing",
+      "url": "https://risky.biz/RBNEWSSI149/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5928ed51062ddbc9",
+      "kev": false,
+      "published": "2026-11-04T00:29:36Z",
+      "score": 14.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette, datasette-agent, datasette-apps",
+      "tags": [],
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 14.9,
+      "score": 14.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.9)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3451,33 +3451,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7d2479f2553dd44b",
-      "kev": false,
-      "published": "2026-11-03T16:42:02Z",
-      "score": 14.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+8.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My comment on AI is destroying my CS degree — Hacker News.I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in though, and it's still extremely unclear what effective teaching with these tools looks like. The worst part is that the evaluation loop is measured in multiple years! If you start trying some new education mechanism today you won't get a robust idea of how well it works until your current cohort graduate in 3-6 years time. Students effectively all become guinea pigs for untested new ways of learning and teaching. Tags: education, hacker-news, ai, ai-ethics",
-      "tags": [],
-      "title": "AI is destroying my CS degree",
-      "url": "https://simonwillison.net/2026/Nov/3/hn-50354278/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 14.5,
+      "score": 14.4,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -3496,10 +3476,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 14.5,
+      "score": 14.4,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -3515,13 +3495,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "97e03d86478ab0d0",
+      "id": "7d2479f2553dd44b",
       "kev": false,
-      "published": "2026-11-03T05:32:25Z",
+      "published": "2026-11-03T16:42:02Z",
       "score": 14.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "recency (+8.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My comment on AI is destroying my CS degree — Hacker News.I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in though, and it's still extremely unclear what effective teaching with these tools looks like. The worst part is that the evaluation loop is measured in multiple years! If you start trying some new education mechanism today you won't get a robust idea of how well it works until your current cohort graduate in 3-6 years time. Students effectively all become guinea pigs for untested new ways of learning and teaching. Tags: education, hacker-news, ai, ai-ethics",
+      "tags": [],
+      "title": "AI is destroying my CS degree",
+      "url": "https://simonwillison.net/2026/Nov/3/hn-50354278/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "97e03d86478ab0d0",
+      "kev": false,
+      "published": "2026-11-03T05:32:25Z",
+      "score": 13.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3538,10 +3538,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 13.8,
+      "score": 13.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.8)"
+        "recency (+7.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3558,10 +3558,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3578,10 +3578,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 13.1,
+      "score": 12.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.1)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3598,10 +3598,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 12.6,
+      "score": 12.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.6)"
+        "recency (+4.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3618,10 +3618,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 12.0,
+      "score": 11.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.0)"
+        "recency (+5.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3638,10 +3638,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 11.6,
+      "score": 11.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.6)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3658,10 +3658,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 11.3,
+      "score": 11.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3678,10 +3678,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 10.7,
+      "score": 10.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3698,10 +3698,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 10.5,
+      "score": 10.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3715,33 +3715,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "87166973b4ed4194",
-      "kev": false,
-      "published": "2026-10-27T19:34:18Z",
-      "score": 10.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+4.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
-      "tags": [],
-      "title": "Game Boy Color on My Conference Badge",
-      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 10.3,
+      "score": 10.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3755,13 +3735,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "87166973b4ed4194",
+      "kev": false,
+      "published": "2026-10-27T19:34:18Z",
+      "score": 10.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
+      "tags": [],
+      "title": "Game Boy Color on My Conference Badge",
+      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3778,10 +3778,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 10.0,
+      "score": 9.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.0)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3798,10 +3798,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 9.8,
+      "score": 9.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3818,10 +3818,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 9.5,
+      "score": 9.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3838,10 +3838,10 @@
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
-      "score": 9.4,
+      "score": 9.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3858,10 +3858,10 @@
       "id": "dcf0de9e2f585334",
       "kev": false,
       "published": "2026-10-15T03:54:22Z",
-      "score": 9.3,
+      "score": 9.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3895,26 +3895,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c8190b8e5a1ef44e",
-      "kev": false,
-      "published": "2026-10-24T03:59:57Z",
-      "score": 9.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
-      "tags": [],
-      "title": "battledrones v14: Compass Rose, a four player map",
-      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
@@ -3929,26 +3909,6 @@
       "tags": [],
       "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
       "url": "https://risky.biz/BTN185/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "f4091a70be2c3b0a",
-      "kev": false,
-      "published": "2026-10-23T21:35:13Z",
-      "score": 9.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
     },
     {
       "appsec": false,
@@ -3995,13 +3955,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c8190b8e5a1ef44e",
+      "kev": false,
+      "published": "2026-10-24T03:59:57Z",
+      "score": 8.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: battledrones v14: Compass Rose, a four player map I added four player online mode to Battledrones - previous maps were limited to two. Here's the initial prompt I used: Add a new map for a four player battle - four way rotational symmetry, up to four AI players, works with the WebSocket non-audio based multiplayer mode so up to four human players can join (any spare slots use AI) Claude Opus 5.5 added a new map called \"Compass Rose\" and modified the WebSockets multiplayer network code to support up to four players for that map, joining via share links or QR codes. The new teams use robots themed in purple and green, joining the existing blue and red designs. You can preview those colors in the updated model browser. Here's a replay link to watch a four way AI battle with the \"Goliath Armada\" mutator turned on, where each side starts with four giant Goliath mech units. Tags: game-design, projects, claude",
+      "tags": [],
+      "title": "battledrones v14: Compass Rose, a four player map",
+      "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f4091a70be2c3b0a",
+      "kev": false,
+      "published": "2026-10-23T21:35:13Z",
+      "score": 8.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
+      "tags": [],
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "e44aa2efb3cde31e",
       "kev": false,
       "published": "2026-10-22T19:42:26Z",
-      "score": 8.7,
+      "score": 8.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.7)"
+        "recency (+2.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4018,10 +4018,10 @@
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
-      "score": 8.6,
+      "score": 8.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4029,26 +4029,6 @@
       "tags": [],
       "title": "Quoting Armin Ronacher",
       "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "9a6f4ea76a26e005",
-      "kev": false,
-      "published": "2026-10-21T16:25:16Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
-      "tags": [],
-      "title": "Panache — RTS Belle Époque pour mobile",
-      "url": "https://simonwillison.net/2026/Oct/21/panache/"
     },
     {
       "appsec": false,
@@ -4109,6 +4089,26 @@
       "tags": [],
       "title": "Authorities dismantle KillSec group",
       "url": "https://risky.biz/RBNEWS618/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "9a6f4ea76a26e005",
+      "kev": false,
+      "published": "2026-10-21T16:25:16Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
+      "tags": [],
+      "title": "Panache — RTS Belle Époque pour mobile",
+      "url": "https://simonwillison.net/2026/Oct/21/panache/"
     },
     {
       "appsec": false,
@@ -4958,26 +4958,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "8481bd4a6647667c",
-      "kev": false,
-      "published": "2026-10-19T23:58:25Z",
-      "score": 8.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not possible. If you're a programmer who thrives on building working systems and doesn't care too deeply about the problems solved along the way, LLMs are the gift that keeps on giving. If directly solving those problems was a big part of your enjoyment, the loss is very real. Via lobste.rs Tags: programming, careers, ai, generative-ai, llms, coding-agents, deep-blue",
-      "tags": [],
-      "title": "My obituary for programming",
-      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "8acb063fdb13c134",
       "kev": false,
       "published": "2026-07-09T07:31:00Z",
@@ -5491,13 +5471,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "8481bd4a6647667c",
+      "kev": false,
+      "published": "2026-10-19T23:58:25Z",
+      "score": 7.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not possible. If you're a programmer who thrives on building working systems and doesn't care too deeply about the problems solved along the way, LLMs are the gift that keeps on giving. If directly solving those problems was a big part of your enjoyment, the loss is very real. Via lobste.rs Tags: programming, careers, ai, generative-ai, llms, coding-agents, deep-blue",
+      "tags": [],
+      "title": "My obituary for programming",
+      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "53d5f118d29b321d",
       "kev": false,
       "published": "2026-10-17T13:16:49Z",
-      "score": 7.6,
+      "score": 7.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5514,10 +5514,10 @@
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
-      "score": 7.5,
+      "score": 7.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5525,26 +5525,6 @@
       "tags": [],
       "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
       "url": "https://simonwillison.net/2026/Oct/16/code-review/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "812f894cec2b2135",
-      "kev": false,
-      "published": "2026-10-15T13:04:03Z",
-      "score": 7.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+1.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
-      "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
     },
     {
       "appsec": false,
@@ -5571,9 +5551,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "512e526f527e6705",
+      "id": "812f894cec2b2135",
       "kev": false,
-      "published": "2026-10-14T16:26:53Z",
+      "published": "2026-10-15T13:04:03Z",
       "score": 7.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -5581,19 +5561,19 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
       "tags": [],
-      "title": "AI is mass decompiling games. That's both awesome and scary.",
-      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
     },
     {
       "appsec": false,
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "aa7677223a5c7914",
+      "id": "512e526f527e6705",
       "kev": false,
-      "published": "2026-10-13T13:32:00Z",
+      "published": "2026-10-14T16:26:53Z",
       "score": 7.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -5601,10 +5581,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
       "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+      "title": "AI is mass decompiling games. That's both awesome and scary.",
+      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
     },
     {
       "appsec": false,
@@ -5625,9 +5605,29 @@
       "tags": [],
       "title": "Redesigning source control at Anthropic",
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 7.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-09T05:32:42Z",
+  "last_run": "2026-11-09T15:46:36Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1324,
@@ -5811,7 +5811,7 @@
       ],
       "description": "Adobe Commerce is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could leverage this vulnerability to gain elevated access to sensitive resources. Exploitation of this issue does …",
       "ecosystems": [],
-      "epss": 0.90491,
+      "epss": 0.91677,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -7035,7 +7035,7 @@
       "ecosystems": [
         "php"
       ],
-      "epss": 0.99491,
+      "epss": 0.99604,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -7963,7 +7963,7 @@
       "ecosystems": [
         "supply-chain"
       ],
-      "epss": 0.59727,
+      "epss": 0.60425,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": true,
@@ -7973,7 +7973,7 @@
       "modified": "2026-03-26",
       "product": "setup-trivy",
       "published": "2026-03-26",
-      "score": 90.7,
+      "score": 90.9,
       "sources": [],
       "vendor": "aquasec",
       "vuln_classes": []
