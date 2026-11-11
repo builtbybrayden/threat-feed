@@ -31992,6 +31992,188 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-114159.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-114159",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-122"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-11T00:33:03Z",
+      "nuclei_template": null,
+      "product": "Microsoft.NETCore.App.Runtime.win-x86",
+      "published": "2026-11-11T00:32:59Z",
+      "score": 21.7,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-114151.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-114151",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-121",
+        "CWE-502"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-11T00:35:05Z",
+      "nuclei_template": null,
+      "product": "Microsoft.NETCore.App.Runtime.win-x86",
+      "published": "2026-11-11T00:35:02Z",
+      "score": 21.7,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-114158.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-114158",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-122"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-11T00:34:15Z",
+      "nuclei_template": null,
+      "product": "Microsoft.NETCore.App.Runtime.win-x86",
+      "published": "2026-11-11T00:34:13Z",
+      "score": 21.7,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-114152.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-114152",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-121",
+        "CWE-822"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-11T00:46:14Z",
+      "nuclei_template": null,
+      "product": "Microsoft.NETCore.App.Runtime.win-x86",
+      "published": "2026-11-11T00:46:12Z",
+      "score": 21.7,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-118745.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-118745",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-122"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-11T00:47:22Z",
+      "nuclei_template": null,
+      "product": "Microsoft.NETCore.App.Runtime.win-x86",
+      "published": "2026-11-11T00:47:20Z",
+      "score": 21.7,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-114137.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -33451,18 +33633,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-10T23:07:16Z",
+  "generated": "2026-11-11T05:30:28Z",
   "stats": {
     "actively_exploited_appsec": 1326,
-    "appsec_cves": 1772,
+    "appsec_cves": 1780,
     "kev_coverage_pct": 30.4,
     "kev_tracked": 1779,
     "kev_with_coverage": 541,
     "newly_exploited": 23,
     "newly_exploited_days": 30,
-    "open_gaps": 984,
+    "open_gaps": 989,
     "public_poc": 721,
-    "total_cves": 2345,
-    "total_items": 259
+    "total_cves": 2356,
+    "total_items": 260
   }
 }
