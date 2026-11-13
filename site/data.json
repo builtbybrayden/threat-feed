@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-12T23:29:21Z",
+  "generated": "2026-11-13T06:01:58Z",
   "items": [
     {
       "appsec": true,
@@ -47,12 +47,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 57.1,
+      "score": 56.7,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.1)"
+        "recency (+12.7)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -71,15 +71,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "cb4668166d1b9ed1",
+      "kev": false,
+      "published": "2026-11-13T03:03:12Z",
+      "score": 51.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:remote code execution (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+14.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A Chinese APT exploits the SS7 and Diameter protocols, a remote code execution bug hits Apache, Brazil’s largest port suffers a cyberattack, and Europol takes down three malware operations. Show notes Risky Bulletin: Chinese APT uses SS7, Diameter attacks to spy on targets",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "rce"
+      ],
+      "title": "Risky Bulletin: Chinese APT exploits SS7, Diameter to spy on targets",
+      "url": "https://risky.biz/RBNEWS633/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 51.5,
+      "score": 51.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+14.5)"
+        "recency (+14.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -102,12 +128,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 47.9,
+      "score": 47.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.9)"
+        "recency (+10.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -128,12 +154,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 45.3,
+      "score": 45.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.3)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -155,12 +181,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 44.6,
+      "score": 44.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.6)"
+        "recency (+7.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -181,12 +207,12 @@
       "id": "b9a21e8f9aefd6f8",
       "kev": false,
       "published": "2026-10-06T07:00:00Z",
-      "score": 44.4,
+      "score": 44.3,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:express (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.4)"
+        "recency (+0.3)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -208,12 +234,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 44.3,
+      "score": 44.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -341,12 +367,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 43.2,
+      "score": 43.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.2)"
+        "recency (+6.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -579,12 +605,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 40.6,
+      "score": 40.5,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -611,12 +637,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 40.4,
+      "score": 40.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -660,32 +686,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "339d7ddf5cc0abad",
-      "kev": false,
-      "published": "2026-10-31T23:15:22Z",
-      "score": 39.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript,xss (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+4.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "xss"
-      ],
-      "title": "How We Took Over ChatGPT Accounts",
-      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
@@ -707,6 +707,32 @@
       ],
       "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
       "url": "https://risky.biz/RBNEWS625/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "339d7ddf5cc0abad",
+      "kev": false,
+      "published": "2026-10-31T23:15:22Z",
+      "score": 39.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript,xss (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+4.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "xss"
+      ],
+      "title": "How We Took Over ChatGPT Accounts",
+      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
     },
     {
       "appsec": true,
@@ -772,12 +798,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 38.3,
+      "score": 38.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -861,12 +887,12 @@
       "id": "6053efd31e99a045",
       "kev": false,
       "published": "2026-10-08T14:30:00Z",
-      "score": 37.5,
+      "score": 37.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:npm,pnpm,pypi (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.5)"
+        "recency (+0.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1593,12 +1619,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 36.7,
+      "score": 36.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1647,12 +1673,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 35.9,
+      "score": 35.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1670,14 +1696,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6b121f474cc35549",
+      "id": "b73209306c9412bd",
       "kev": false,
-      "published": "2026-11-11T22:03:25Z",
-      "score": 34.5,
+      "published": "2026-11-12T22:55:19Z",
+      "score": 35.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.5)"
+        "recency (+14.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-gemini 0.37 Google launched Gemini 4 Hydrogen today - the lowest cost member of the Gemini 4 family. It's actually not too far off the price of its much bigger siblings, Carbon and Argon. I'm finding Gemini 4's pricing really confusing. Here's the pricing scheme: Model Dates Input ($/M) Cached input Output Gemini 4 Carbon Through Nov 30, 2026 $2.00 $0.10 $10.00 From Dec 1, 2026 $4.00 $0.20 $20.00 Gemini 4 Argon Through Nov 30, 2026 $2.00 $0.10 $10.00 From Dec 1, 2026 $4.00 $0.20 $20.00 Gemini 4 Hydrogen $1.50 $0.075 $7.50 Carbon and Argon are the same price, and both are scheduled to double in price on December 1st. If they're the same price, why have two different models? Google says that Argon \"delivers Gemini 4 intelligence with faster responses and lower token spend per turn compared to Gemini 4 Carbon\" - so it may be priced the same, but it will use less tokens per task. Hydrogen, supposedly the cheap model, is currently only a 25% discount on its more capable peers. The Hydrogen price will make more sense after December 1st, when it will represent a 75% discount. It's still considerably more expensive than Claude Haiku 5.5 and GPT-6 Luna - they're both $0.10/$0.50, so Hydrogen is 15x that. I had Hydrogen generate some pelicans. Here's a full comparison grid showing the pelicans for all three members of the Gemini 4 family at their three supported effort levels: Considering how close they are in price, the difference in pelican quality for Hydrogen is quite stark. Here's how Google describe Hydrogen's intended position in their mix of models: In real-world software development, while teams rely on frontier models like Carbon and Argon for deep architectural judgment when designing systems or untangling subtle bugs, they still need a fast, disciplined execution model for writing code, running tests, and verifying changes. Hydrogen is built to stand on its own as a model for everyday work — or to pair with Carbon and Argon as the high-efficiency execution engine in multi-model workflows. Most notably, Hydrogen is the new free tier model, and is the model that will power AI features in Google Search. Tags: gemini, llm, google, pelican-riding-a-bicycle, llm-pricing, ai, llms",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.37",
+      "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6b121f474cc35549",
+      "kev": false,
+      "published": "2026-11-11T22:03:25Z",
+      "score": 34.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1697,11 +1747,11 @@
       "id": "0e206308dec11d59",
       "kev": false,
       "published": "2026-11-11T18:42:50Z",
-      "score": 34.3,
+      "score": 34.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+13.3)"
+        "recency (+13.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1720,11 +1770,11 @@
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 34.2,
+      "score": 33.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.2)"
+        "recency (+12.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1741,38 +1791,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5767c4d342983118",
-      "kev": false,
-      "published": "2026-11-10T20:09:44Z",
-      "score": 33.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+12.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-gemini 0.36",
-      "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 33.0,
+      "score": 32.9,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1789,14 +1815,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5767c4d342983118",
+      "kev": false,
+      "published": "2026-11-10T20:09:44Z",
+      "score": 32.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+11.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.36",
+      "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 32.9,
+      "score": 32.8,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1817,11 +1867,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 32.5,
+      "score": 32.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.5)"
+        "recency (+11.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1841,11 +1891,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 32.2,
+      "score": 31.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1864,11 +1914,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 32.2,
+      "score": 31.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1888,11 +1938,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 31.3,
+      "score": 31.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+10.3)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1980,11 +2030,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 27.6,
+      "score": 27.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.6)"
+        "recency (+6.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2031,11 +2081,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 27.1,
+      "score": 26.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2055,11 +2105,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 27.0,
+      "score": 26.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2079,11 +2129,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 26.7,
+      "score": 26.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.7)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2103,11 +2153,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 26.6,
+      "score": 26.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2127,11 +2177,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 26.0,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2150,11 +2200,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 25.5,
+      "score": 25.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2174,11 +2224,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 24.7,
+      "score": 24.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2198,11 +2248,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 24.6,
+      "score": 24.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2222,11 +2272,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 24.4,
+      "score": 24.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2246,11 +2296,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 24.3,
+      "score": 24.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2269,11 +2319,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 24.3,
+      "score": 24.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2293,11 +2343,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 23.8,
+      "score": 23.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2317,11 +2367,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 23.7,
+      "score": 23.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.7)"
+        "recency (+2.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2436,11 +2486,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 22.3,
+      "score": 22.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2460,11 +2510,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 22.3,
+      "score": 22.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2527,30 +2577,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "79fc62a0de2927ed",
-      "kev": false,
-      "published": "2026-10-13T22:28:54Z",
-      "score": 21.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+0.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-gemini 0.35 I added support to llm-gemini for the new Gemini 4 Argon model, made available today via the Gemini API and for customers of their $100/month subscription plan. Here are the low, medium and high pelicans. As expected, they are all excellent: Gemini has a track record of producing great SVGs, and are the only lab where I know their staff have invested in SVG specifically (and who have boasted about their pelicans before.) Here's the \"high\" illustration, which cost me 17.166 cents: The pricing is interesting. At launch, Argon is $2/million input and $10/million output - the same price as GPT-6 Sol, half the price of Claude Opus 5.5 and 1/5th the price of Claude Fable 5.1 and GPT-6 Astra. But on December 1st Argon is set to double in price - so it will be the same price as Opus 5.5. Prices like this aren't really comparable these days since what really matters is how many tokens a model takes to achieve a goal within an agentic harness. One useful clue for that comes from Artificial Analysis, who publish the total cost to run their benchmark using each model. Argon is looking very good there - costing $2,407 to run the benchmark, putting it close to GLM-5.3 and significantly cheaper than OpenAI, Anthropic, and Meta's latest models. When the price doubles it will still be a little cheaper than GPT-6 Astra. (I used ChatGPT to edit that chart! The data is all correct, I checked - I needed to get that Gemini 4 Argon info box to display without overlapping the other numbers.) Some bonus examples using Gemini 4 Argon: here's Generate an SVG of an armadillo in fishnet tights jaywalking on Mars, here's a Fabergé egg it created for me using Blender, and DeepMind staffer @fofrAI shared a video of a pelican riding a bike, using fourier epicycles. That's a fun new twist! Tags: google, ai, generative-ai, llms, llm, gemini, llm-pricing, pelican-riding-a-bicycle, llm-release",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-gemini 0.35",
-      "url": "https://simonwillison.net/2026/Oct/13/llm-gemini/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
@@ -2574,20 +2600,24 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ea0dffb11eb2bd56",
+      "id": "79fc62a0de2927ed",
       "kev": false,
-      "published": "2026-11-12T03:30:09Z",
-      "score": 21.8,
+      "published": "2026-10-13T22:28:54Z",
+      "score": 21.7,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+13.8)"
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+0.7)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about the French government attributing freezer hacks to cyber units within the Iranian Revolutionary Guard Corp. This surprises Tom, because the hacks were entirely consistent with Russian sabotage operations across Europe. They also discuss how China’s cyber operators are turning the dial up to 11. Faster, noisier, and stealthier all at the same time, depending upon which particular threat actor you look at. This episode is also available on YouTube Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: Iranian hacks with Russian characteristics",
-      "url": "https://risky.biz/SRB190/"
+      "summary": "Release: llm-gemini 0.35 I added support to llm-gemini for the new Gemini 4 Argon model, made available today via the Gemini API and for customers of their $100/month subscription plan. Here are the low, medium and high pelicans. As expected, they are all excellent: Gemini has a track record of producing great SVGs, and are the only lab where I know their staff have invested in SVG specifically (and who have boasted about their pelicans before.) Here's the \"high\" illustration, which cost me 17.166 cents: The pricing is interesting. At launch, Argon is $2/million input and $10/million output - the same price as GPT-6 Sol, half the price of Claude Opus 5.5 and 1/5th the price of Claude Fable 5.1 and GPT-6 Astra. But on December 1st Argon is set to double in price - so it will be the same price as Opus 5.5. Prices like this aren't really comparable these days since what really matters is how many tokens a model takes to achieve a goal within an agentic harness. One useful clue for that comes from Artificial Analysis, who publish the total cost to run their benchmark using each model. Argon is looking very good there - costing $2,407 to run the benchmark, putting it close to GLM-5.3 and significantly cheaper than OpenAI, Anthropic, and Meta's latest models. When the price doubles it will still be a little cheaper than GPT-6 Astra. (I used ChatGPT to edit that chart! The data is all correct, I checked - I needed to get that Gemini 4 Argon info box to display without overlapping the other numbers.) Some bonus examples using Gemini 4 Argon: here's Generate an SVG of an armadillo in fishnet tights jaywalking on Mars, here's a Fabergé egg it created for me using Blender, and DeepMind staffer @fofrAI shared a video of a pelican riding a bike, using fourier epicycles. That's a fun new twist! Tags: google, ai, generative-ai, llms, llm, gemini, llm-pricing, pelican-riding-a-bicycle, llm-release",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.35",
+      "url": "https://simonwillison.net/2026/Oct/13/llm-gemini/"
     },
     {
       "appsec": false,
@@ -2597,10 +2627,10 @@
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 21.6,
+      "score": 21.4,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+6.6)"
+        "recency (+6.4)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2616,13 +2646,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "ea0dffb11eb2bd56",
+      "kev": false,
+      "published": "2026-11-12T03:30:09Z",
+      "score": 21.4,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+13.4)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about the French government attributing freezer hacks to cyber units within the Iranian Revolutionary Guard Corp. This surprises Tom, because the hacks were entirely consistent with Russian sabotage operations across Europe. They also discuss how China’s cyber operators are turning the dial up to 11. Faster, noisier, and stealthier all at the same time, depending upon which particular threat actor you look at. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Iranian hacks with Russian characteristics",
+      "url": "https://risky.biz/SRB190/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 20.4,
+      "score": 20.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.4)"
+        "recency (+12.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2639,10 +2689,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 19.5,
+      "score": 19.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.5)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2659,10 +2709,10 @@
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 19.1,
+      "score": 18.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.1)"
+        "recency (+12.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2679,10 +2729,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 18.3,
+      "score": 18.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.3)"
+        "recency (+10.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2699,10 +2749,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 17.9,
+      "score": 17.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.9)"
+        "recency (+9.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2719,10 +2769,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 17.4,
+      "score": 17.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.4)"
+        "recency (+11.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2739,10 +2789,10 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 17.3,
+      "score": 17.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.3)"
+        "recency (+11.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2759,10 +2809,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 16.1,
+      "score": 15.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.1)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2839,26 +2889,6 @@
       ],
       "title": "Smashing the token limit with overlapping fragments",
       "url": "https://portswigger.net/research/smashing-the-token-limit"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "6f0dd9219ff9dddf",
-      "kev": false,
-      "published": "2026-11-07T23:57:46Z",
-      "score": 15.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: <https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv>; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means for everyone else their browser is fetching unnecessary data and the Datasette server is having to render an entire page that then gets thrown away. I dug in and learned that Firefox has an issue that has been open for 24 years about this behavior... And one of the early comments on that issue links to my blog post from 2002 complaining about this feature. I hadn't just forgotten that I had written about it, I had forgotten the feature entirely! Tags: firefox, html, mozilla, datasette",
-      "tags": [],
-      "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
-      "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
     },
     {
       "appsec": false,
@@ -2955,26 +2985,6 @@
       ],
       "title": "Beware the false false-positive: how to distinguish HTTP pipelining from request smuggling",
       "url": "https://portswigger.net/research/how-to-distinguish-http-pipelining-from-request-smuggling"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "0902acca81eb73d6",
-      "kev": false,
-      "published": "2026-11-07T19:34:24Z",
-      "score": 15.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My comment on Terry Pratchett's Study — Hacker News.Terry Pratchett once wrote about the concept of \"horizontal wealth\". Vertical wealth is where you spend money on rich people stuff - yachts and suchlike. Horizontal wealth is where you spend more money on the things you liked before you got rich: https://chibuikeani.blogspot.com/2017/02/the-price-of-happin... But horizontal wealth means not letting your increased income dictate your tastes. You like books and now you have money? Buy more books! Change those catenary bookshelves for good hardwood ones! In my case, build a library extension to your office. And, of course, you buy what will be useful for that most wonderful of pursuits, blind research, which is research without direction for the sheer joy of it. (Original source is his book A Slip of the Keyboard - this linked blog post quotes that bit.) Tags: hacker-news, terry-pratchett",
-      "tags": [],
-      "title": "Terry Pratchett's Study",
-      "url": "https://simonwillison.net/2026/Nov/7/hn-50407316/"
     },
     {
       "appsec": false,
@@ -3653,13 +3663,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "6f0dd9219ff9dddf",
+      "kev": false,
+      "published": "2026-11-07T23:57:46Z",
+      "score": 14.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: <https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv>; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means for everyone else their browser is fetching unnecessary data and the Datasette server is having to render an entire page that then gets thrown away. I dug in and learned that Firefox has an issue that has been open for 24 years about this behavior... And one of the early comments on that issue links to my blog post from 2002 complaining about this feature. I hadn't just forgotten that I had written about it, I had forgotten the feature entirely! Tags: firefox, html, mozilla, datasette",
+      "tags": [],
+      "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
+      "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0902acca81eb73d6",
+      "kev": false,
+      "published": "2026-11-07T19:34:24Z",
+      "score": 14.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My comment on Terry Pratchett's Study — Hacker News.Terry Pratchett once wrote about the concept of \"horizontal wealth\". Vertical wealth is where you spend money on rich people stuff - yachts and suchlike. Horizontal wealth is where you spend more money on the things you liked before you got rich: https://chibuikeani.blogspot.com/2017/02/the-price-of-happin... But horizontal wealth means not letting your increased income dictate your tastes. You like books and now you have money? Buy more books! Change those catenary bookshelves for good hardwood ones! In my case, build a library extension to your office. And, of course, you buy what will be useful for that most wonderful of pursuits, blind research, which is research without direction for the sheer joy of it. (Original source is his book A Slip of the Keyboard - this linked blog post quotes that bit.) Tags: hacker-news, terry-pratchett",
+      "tags": [],
+      "title": "Terry Pratchett's Study",
+      "url": "https://simonwillison.net/2026/Nov/7/hn-50407316/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 14.9,
+      "score": 14.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3676,10 +3726,10 @@
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 14.1,
+      "score": 13.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.1)"
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3740,10 +3790,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3760,10 +3810,10 @@
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 13.3,
+      "score": 13.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.3)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3780,10 +3830,10 @@
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 13.1,
+      "score": 13.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.1)"
+        "recency (+5.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3800,10 +3850,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 13.0,
+      "score": 12.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.0)"
+        "recency (+4.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3817,33 +3867,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5928ed51062ddbc9",
-      "kev": false,
-      "published": "2026-11-04T00:29:36Z",
-      "score": 12.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+6.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
-      "tags": [],
-      "title": "datasette-apps 0.3a0",
-      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 12.1,
+      "score": 12.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.1)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3857,13 +3887,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7d2479f2553dd44b",
+      "id": "5928ed51062ddbc9",
       "kev": false,
-      "published": "2026-11-03T16:42:02Z",
+      "published": "2026-11-04T00:29:36Z",
       "score": 12.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "recency (+6.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
+      "tags": [],
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "7d2479f2553dd44b",
+      "kev": false,
+      "published": "2026-11-03T16:42:02Z",
+      "score": 11.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+5.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3880,10 +3930,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3900,10 +3950,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 11.7,
+      "score": 11.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.7)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3920,10 +3970,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 11.3,
+      "score": 11.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.3)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3960,10 +4010,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 10.9,
+      "score": 10.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.9)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3980,10 +4030,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 10.5,
+      "score": 10.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4000,10 +4050,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4040,10 +4090,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 9.7,
+      "score": 9.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4060,10 +4110,10 @@
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4080,10 +4130,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 9.4,
+      "score": 9.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4100,10 +4150,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 9.3,
+      "score": 9.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4120,10 +4170,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 9.2,
+      "score": 9.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4131,26 +4181,6 @@
       "tags": [],
       "title": "Quoting Terk Terkowitz",
       "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "87166973b4ed4194",
-      "kev": false,
-      "published": "2026-10-27T19:34:18Z",
-      "score": 9.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
-      "tags": [],
-      "title": "Game Boy Color on My Conference Badge",
-      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
     },
     {
       "appsec": false,
@@ -4177,20 +4207,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "dcf0de9e2f585334",
+      "id": "87166973b4ed4194",
       "kev": false,
-      "published": "2026-10-15T03:54:22Z",
+      "published": "2026-10-27T19:34:18Z",
       "score": 8.9,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.9)"
+        "source:Simon Willison (+6)",
+        "recency (+2.9)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about Russian targeting of Ukrainian data centres. That’s not good, but it looks like Russia is very poorly prepared for Ukraine’s retaliatory strikes. Karma! They also discuss how open-weight models are getting good at cyber tasks while safeguards are easily bypassed. There is no chance of international regulation that will rein in these models, so it is time to loosen cyber safety restrictions on American frontier models. This episode is also available on YouTube Show notes",
+      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
       "tags": [],
-      "title": "Srsly Risky Biz: Russia's digital detox boomerang",
-      "url": "https://risky.biz/SRB186/"
+      "title": "Game Boy Color on My Conference Badge",
+      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
     },
     {
       "appsec": false,
@@ -4211,6 +4241,26 @@
       "tags": [],
       "title": "Risky Bulletin: Spyware chip found in Ledger crypto-wallets",
       "url": "https://risky.biz/RBNEWS620/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "dcf0de9e2f585334",
+      "kev": false,
+      "published": "2026-10-15T03:54:22Z",
+      "score": 8.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about Russian targeting of Ukrainian data centres. That’s not good, but it looks like Russia is very poorly prepared for Ukraine’s retaliatory strikes. Karma! They also discuss how open-weight models are getting good at cyber tasks while safeguards are easily bypassed. There is no chance of international regulation that will rein in these models, so it is time to loosen cyber safety restrictions on American frontier models. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Russia's digital detox boomerang",
+      "url": "https://risky.biz/SRB186/"
     },
     {
       "appsec": false,
@@ -4531,26 +4581,6 @@
       "tags": [],
       "title": "battledrones v14: Compass Rose, a four player map",
       "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "f4091a70be2c3b0a",
-      "kev": false,
-      "published": "2026-10-23T21:35:13Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
     },
     {
       "appsec": false,
@@ -5716,6 +5746,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "f4091a70be2c3b0a",
+      "kev": false,
+      "published": "2026-10-23T21:35:13Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
+      "tags": [],
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "f6696ac21ee5e653",
       "kev": false,
       "published": "2026-09-06T20:09:32Z",
@@ -5953,26 +6003,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "f3896491a736a8e2",
-      "kev": false,
-      "published": "2026-10-13T23:00:06Z",
-      "score": 6.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Redesigning source control at Anthropic Interesting piece from Anthropic describing why and how they built their own custom alternative to Git, based on the dramatic increase in rate of changes to their code after the past six months. In May 2026, Anthropic averaged around 2,500 code changes merged per day; as of September, we merged over 30,000 per day. They included a chart showing those changes. I had Claude modify their chart (code here) to add markers for the public releases of each of their models in 2026: This shows public release dates, not the date when models became available for Anthropic's internal use. My guess is that the introduction of Fable/Mythos class models is a key factor in the increased coding velocity. \"Antique\" is their new code review system. The source control system is called Scion, and sounds to me like a reinvention of centralized source control along the lines of Subversion. (Update: Anthropic credit Google's Piper and Meta's Sapling as \"prior art\" - it looks like the core concept of \"derived data\" was heavily inspired by Mononoke, the server component of Sapling.) They had some pretty extreme requirements: The history of our main branch alone is almost 100 GB, and a compressed working copy is over 25 GB. We perform on the order of 25 million code checkouts per day for CI, before counting developer environments, agent sandboxes, and research jobs. Fetched naively, that would be over 600 PB of git traffic per day. The new system was built by a team of seven people, and the migration from Git was completed in five months. When asked on Hacker News about the lack of offline support, Scion engineer Nick G replied: Since Claude is by far the heaviest user of Scion and is necessarily online, this just wasn't important to do. As an aside, I've been trying adversarial review in my own projects recently, where you have a model try and find flaws (I often play Claude and GPT off against each other). This note from the article reflected my own experience with that: Anthropic also makes extensive use of adversarial review, and, while this is incredibly effective in many ways, it can also be myopic, so skilled engineers needed to steer Claude away from over-engineering parts of the system in response to hypothetical concerns. Via Hacker News Tags: git, migrations, version-control, ai, generative-ai, llms, anthropic, agentic-engineering",
-      "tags": [],
-      "title": "Redesigning source control at Anthropic",
-      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
@@ -5987,22 +6017,42 @@
       "tags": [],
       "title": "Quoting Geoffrey Huntley",
       "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f3896491a736a8e2",
+      "kev": false,
+      "published": "2026-10-13T23:00:06Z",
+      "score": 6.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Redesigning source control at Anthropic Interesting piece from Anthropic describing why and how they built their own custom alternative to Git, based on the dramatic increase in rate of changes to their code after the past six months. In May 2026, Anthropic averaged around 2,500 code changes merged per day; as of September, we merged over 30,000 per day. They included a chart showing those changes. I had Claude modify their chart (code here) to add markers for the public releases of each of their models in 2026: This shows public release dates, not the date when models became available for Anthropic's internal use. My guess is that the introduction of Fable/Mythos class models is a key factor in the increased coding velocity. \"Antique\" is their new code review system. The source control system is called Scion, and sounds to me like a reinvention of centralized source control along the lines of Subversion. (Update: Anthropic credit Google's Piper and Meta's Sapling as \"prior art\" - it looks like the core concept of \"derived data\" was heavily inspired by Mononoke, the server component of Sapling.) They had some pretty extreme requirements: The history of our main branch alone is almost 100 GB, and a compressed working copy is over 25 GB. We perform on the order of 25 million code checkouts per day for CI, before counting developer environments, agent sandboxes, and research jobs. Fetched naively, that would be over 600 PB of git traffic per day. The new system was built by a team of seven people, and the migration from Git was completed in five months. When asked on Hacker News about the lack of offline support, Scion engineer Nick G replied: Since Claude is by far the heaviest user of Scion and is necessarily online, this just wasn't important to do. As an aside, I've been trying adversarial review in my own projects recently, where you have a model try and find flaws (I often play Claude and GPT off against each other). This note from the article reflected my own experience with that: Anthropic also makes extensive use of adversarial review, and, while this is incredibly effective in many ways, it can also be myopic, so skilled engineers needed to steer Claude away from over-engineering parts of the system in response to hypothetical concerns. Via Hacker News Tags: git, migrations, version-control, ai, generative-ai, llms, anthropic, agentic-engineering",
+      "tags": [],
+      "title": "Redesigning source control at Anthropic",
+      "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
     }
   ],
-  "last_run": "2026-11-12T23:29:21Z",
+  "last_run": "2026-11-13T06:01:58Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1326,
-    "appsec_cves": 1782,
+    "appsec_cves": 1784,
     "kev_coverage_pct": 30.5,
     "kev_tracked": 1779,
     "kev_with_coverage": 542,
-    "newly_exploited": 21,
+    "newly_exploited": 17,
     "newly_exploited_days": 30,
     "open_gaps": 990,
     "public_poc": 721,
-    "total_cves": 2360,
-    "total_items": 268
+    "total_cves": 2365,
+    "total_items": 270
   },
   "threats": [
     {
@@ -9721,6 +9771,35 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-f3w6-w445-fwh9",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-122006",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-1188"
+      ],
+      "description": "Active Storage: Possible arbitrary file write and read in image analysis",
+      "ecosystems": [
+        "rubygems"
+      ],
+      "epss": 0.00741,
+      "ghsa_id": "GHSA-f3w6-w445-fwh9",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-12T23:46:52Z",
+      "product": "activestorage",
+      "published": "2026-11-12T23:46:51Z",
+      "score": 24.0,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-f9x3-7vq9-cph6",
       "appsec": true,
       "brief": null,
@@ -10085,6 +10164,35 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-4g86-54fm-h9h8",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-118740",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-862"
+      ],
+      "description": "Microsoft Security Advisory CVE-2026-118740 - Aspire Security Feature Bypass Vulnerability",
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.00923,
+      "ghsa_id": "GHSA-4g86-54fm-h9h8",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-12T17:17:49Z",
+      "product": "Aspire.Dashboard.Sdk.linux-x64",
+      "published": "2026-11-12T17:17:48Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-j6cw-g6p4-7hch",
       "appsec": true,
       "brief": "briefs/CVE-2026-55797.md",
@@ -10296,35 +10404,6 @@
       "vuln_classes": [
         "sqli"
       ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-4g86-54fm-h9h8",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-118740",
-      "cvss_score": 9.1,
-      "cwe": [
-        "CWE-862"
-      ],
-      "description": "Microsoft Security Advisory CVE-2026-118740 - Aspire Security Feature Bypass Vulnerability",
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00923,
-      "ghsa_id": "GHSA-4g86-54fm-h9h8",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-12T17:17:49Z",
-      "product": "Aspire.Dashboard.Sdk.linux-x64",
-      "published": "2026-11-12T17:17:48Z",
-      "score": 23.4,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-4j9v-h7pp-725h",
@@ -11389,6 +11468,35 @@
       "modified": "2026-11-10T21:34:11Z",
       "product": "activesupport",
       "published": "2026-11-10T21:34:11Z",
+      "score": 21.7,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-wm3x-v3qw-4jh3",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-126081",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-915"
+      ],
+      "description": "Action Pack: Possible Strong Parameters Bypass in Parameters#each_key",
+      "ecosystems": [
+        "rubygems"
+      ],
+      "epss": 0.00625,
+      "ghsa_id": "GHSA-wm3x-v3qw-4jh3",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-12T23:37:10Z",
+      "product": "actionpack",
+      "published": "2026-11-12T23:37:09Z",
       "score": 21.7,
       "sources": [],
       "vendor": null,
