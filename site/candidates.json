@@ -7004,39 +7004,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-28318.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 48% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-28318",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-400"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.48001,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-06-05",
-      "modified": "2026-06-05",
-      "nuclei_template": null,
-      "product": "serv-u",
-      "published": "2026-06-05",
-      "score": 85.9,
-      "vendor": "solarwinds",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2025-14174.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -16239,38 +16206,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-96656.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-96656",
-      "cvss_score": 7.2,
-      "cwe": [
-        "CWE-73"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.01785,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-10-20",
-      "modified": "2026-10-20",
-      "nuclei_template": null,
-      "product": "media_server",
-      "published": "2026-10-20",
-      "score": 71.7,
-      "vendor": "plex",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2021-39935.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -24048,38 +23983,6 @@
       "published": "2022-03-25",
       "score": 61.3,
       "vendor": "paloaltonetworks",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-96654.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-96654",
-      "cvss_score": 6.5,
-      "cwe": [
-        "CWE-84"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.01949,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-10-20",
-      "modified": "2026-10-20",
-      "nuclei_template": null,
-      "product": "media_server",
-      "published": "2026-10-20",
-      "score": 61.1,
-      "vendor": "plex",
       "vuln_classes": []
     },
     {
@@ -33671,17 +33574,17 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-13T06:01:58Z",
+  "generated": "2026-11-13T14:30:28Z",
   "stats": {
-    "actively_exploited_appsec": 1326,
-    "appsec_cves": 1784,
-    "kev_coverage_pct": 30.5,
+    "actively_exploited_appsec": 1327,
+    "appsec_cves": 1785,
+    "kev_coverage_pct": 30.6,
     "kev_tracked": 1779,
-    "kev_with_coverage": 542,
+    "kev_with_coverage": 545,
     "newly_exploited": 17,
     "newly_exploited_days": 30,
-    "open_gaps": 990,
-    "public_poc": 721,
+    "open_gaps": 987,
+    "public_poc": 722,
     "total_cves": 2365,
     "total_items": 270
   }
