@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-14T05:56:26Z",
+  "generated": "2026-11-14T13:31:25Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 55.5,
+      "score": 55.2,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.5)"
+        "recency (+11.2)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -73,12 +73,12 @@
       "id": "cb4668166d1b9ed1",
       "kev": false,
       "published": "2026-11-13T03:03:12Z",
-      "score": 50.4,
+      "score": 50.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:remote code execution (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.4)"
+        "recency (+13.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -99,12 +99,12 @@
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 49.8,
+      "score": 49.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.8)"
+        "recency (+12.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -127,12 +127,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 46.6,
+      "score": 46.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.6)"
+        "recency (+9.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -171,33 +171,6 @@
       ],
       "title": "How to fix a bug in a fix",
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "01ab834e1aeb3372",
-      "kev": false,
-      "published": "2026-11-09T04:25:05Z",
-      "score": 44.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:composer,llm (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on them until a feature is complete, document decisions and then merge the finished result. Today's coding agents are great at writing PR descriptions. They're too good at describing the work The problem is that they are too good. An agent-written PR description is accurate and comprehensive. It describes the problem, the detailed solution, and the steps taken to verify it. That's a lot of information to absorb. It's not necessarily slop, but it reads like slop! It's very easy to spot an AI-written PR, and as with other forms of AI writing my instant reaction is best summarized as \"I'm not reading all of that\". It doesn't matter how accurate or useful the information is, I'm instantly put off by the thought that it will take me longer to read than it took the driving author to write... even when that driving author is me! I want human editorial judgement. I want someone to have thought just long enough about the PR to give me a human-approved introduction that helps me understand, at a high level, what the PR is for and whether it deserves more of my attention. I think I've found a low-effort way to do this that feels right. Hide most of it in a details/summary The HTML <details><summary> elements render as a collapsed heading (the summary) that can be expanded to view the larger piece of text. The code looks like this: <details> <summary>Claude Opus 5.5</summary> <h2>The hook</h2> Plugins implement <code>register_agent_reference_types(datasette)</code>... </details> When rendered, it looks like this: Crucially, <details><summary> is supported in GitHub Markdown. You can drop those tags directly into an issue comment or PR description and GitHub will hide the details and display just the summary plus an expansion arrow. I've started using this for my AI-generated pull requests. The opening paragraph of my PRs will be carefully selected to act as a high-level explanation of what's going on - the shortest text a human can read that will help get them up to speed. I'll sometimes throw in a screenshot as well, since images are often the best way to quickly illustrate a new feature. The full agent-written essay then follows in a <details><summary>. I use the model name and often the effort level as that summary, to make it abundantly clear what is going on - \"Claude Opus 5.5 Medium\" for example. My PRs don't feel nearly as sloppy now! The information is all still there, but a reader can glance at it and get the top, human-curated information without their eyes glazing over at multiple paragraphs of agent-written details. I don't always write the introduction myself - sometimes the agent has given me what I need already, hidden away in the avalanche of other text. My promise to the reader is that the short opener will represent my human judgement as to what is definitely worth their time. Here are some recent examples where I've used this pattern, including the opener I used: datasette PR #3052: Redesign row page as a vertical list of fields - \"The row page showed its single row as a one-row table. For wide tables, like a 46-column GitHub repos table, that scrolled far off to the right and left most of the page blank.\" (then a screenshot) datasette PR #3043: Pagination bar showing which rows are on the current page - \"Table pages that span more than one page now make it obvious where you are, and offer navigation at the top of the page as well as the bottom.\" (plus screenshot) datasette PR #3042: Load edit-tools.js on demand via a small loader - \"edit-tools.js (~220KB) was loaded on every table, row and database page, even for users who couldn't edit anything. Now only load it for users who can edit when they first interact with an edit feature (including mouse over an edit link).\" datasette-agent PR #51: register_agent_reference_types plugin hook - \"Lets plugins add their own kinds of item to the # tagging in the chat composer using a new register_agent_reference_types(datasette) plugin hook.\" - pictured above. llm PR #1838: Add llm openai endpoint add/list/remove/path commands - \"Adds commands for managing the records in extra-openai-models.yaml, so OpenAI-compatible endpoints can be saved from the command line instead of by hand-editing YAML.\" - then copied --help output. The mnemonic I used to have trouble remembering the order of the tags - is it <details><summary> or <summary><details>? Here are two tricks that helped me. First, and most obviously, the <summary> is clearly the bit where you summarize the details. That's the tag for your line of text that can be clicked to expand - the <details> element must then wrap everything else. An even better trick is to always refer to these two tags as \"details-summary\". \"details-summary\" is two syllables followed by three syllables. That rolls off the tongue more smoothly than the three-two punch of \"summary-details\". Say \"details-summary\" out loud just a few times and you'll never forget the order of the tags again. (I still wish GitHub would add a button to their Markdown editor for this - partly to save me painstakingly typing it on my mobile keyboard, and partly to help spread the word to more GitHub users that this feature exists.) Tags: github, html, markdown, ai, datasette, generative-ai, llms, ai-assisted-programming, llm, coding-agents",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "composer"
-      ],
-      "title": "Hide your slop PR descriptions behind",
-      "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
     },
     {
       "appsec": true,
@@ -309,15 +282,42 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "01ab834e1aeb3372",
+      "kev": false,
+      "published": "2026-11-09T04:25:05Z",
+      "score": 43.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:composer,llm (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Most of the changes I make to my projects these days come in the form of PRs opened for me by Claude Code or Codex. The PR is my unit of work - I use them to bundle commits together, iterating on them until a feature is complete, document decisions and then merge the finished result. Today's coding agents are great at writing PR descriptions. They're too good at describing the work The problem is that they are too good. An agent-written PR description is accurate and comprehensive. It describes the problem, the detailed solution, and the steps taken to verify it. That's a lot of information to absorb. It's not necessarily slop, but it reads like slop! It's very easy to spot an AI-written PR, and as with other forms of AI writing my instant reaction is best summarized as \"I'm not reading all of that\". It doesn't matter how accurate or useful the information is, I'm instantly put off by the thought that it will take me longer to read than it took the driving author to write... even when that driving author is me! I want human editorial judgement. I want someone to have thought just long enough about the PR to give me a human-approved introduction that helps me understand, at a high level, what the PR is for and whether it deserves more of my attention. I think I've found a low-effort way to do this that feels right. Hide most of it in a details/summary The HTML <details><summary> elements render as a collapsed heading (the summary) that can be expanded to view the larger piece of text. The code looks like this: <details> <summary>Claude Opus 5.5</summary> <h2>The hook</h2> Plugins implement <code>register_agent_reference_types(datasette)</code>... </details> When rendered, it looks like this: Crucially, <details><summary> is supported in GitHub Markdown. You can drop those tags directly into an issue comment or PR description and GitHub will hide the details and display just the summary plus an expansion arrow. I've started using this for my AI-generated pull requests. The opening paragraph of my PRs will be carefully selected to act as a high-level explanation of what's going on - the shortest text a human can read that will help get them up to speed. I'll sometimes throw in a screenshot as well, since images are often the best way to quickly illustrate a new feature. The full agent-written essay then follows in a <details><summary>. I use the model name and often the effort level as that summary, to make it abundantly clear what is going on - \"Claude Opus 5.5 Medium\" for example. My PRs don't feel nearly as sloppy now! The information is all still there, but a reader can glance at it and get the top, human-curated information without their eyes glazing over at multiple paragraphs of agent-written details. I don't always write the introduction myself - sometimes the agent has given me what I need already, hidden away in the avalanche of other text. My promise to the reader is that the short opener will represent my human judgement as to what is definitely worth their time. Here are some recent examples where I've used this pattern, including the opener I used: datasette PR #3052: Redesign row page as a vertical list of fields - \"The row page showed its single row as a one-row table. For wide tables, like a 46-column GitHub repos table, that scrolled far off to the right and left most of the page blank.\" (then a screenshot) datasette PR #3043: Pagination bar showing which rows are on the current page - \"Table pages that span more than one page now make it obvious where you are, and offer navigation at the top of the page as well as the bottom.\" (plus screenshot) datasette PR #3042: Load edit-tools.js on demand via a small loader - \"edit-tools.js (~220KB) was loaded on every table, row and database page, even for users who couldn't edit anything. Now only load it for users who can edit when they first interact with an edit feature (including mouse over an edit link).\" datasette-agent PR #51: register_agent_reference_types plugin hook - \"Lets plugins add their own kinds of item to the # tagging in the chat composer using a new register_agent_reference_types(datasette) plugin hook.\" - pictured above. llm PR #1838: Add llm openai endpoint add/list/remove/path commands - \"Adds commands for managing the records in extra-openai-models.yaml, so OpenAI-compatible endpoints can be saved from the command line instead of by hand-editing YAML.\" - then copied --help output. The mnemonic I used to have trouble remembering the order of the tags - is it <details><summary> or <summary><details>? Here are two tricks that helped me. First, and most obviously, the <summary> is clearly the bit where you summarize the details. That's the tag for your line of text that can be clicked to expand - the <details> element must then wrap everything else. An even better trick is to always refer to these two tags as \"details-summary\". \"details-summary\" is two syllables followed by three syllables. That rolls off the tongue more smoothly than the three-two punch of \"summary-details\". Say \"details-summary\" out loud just a few times and you'll never forget the order of the tags again. (I still wish GitHub would add a button to their Markdown editor for this - partly to save me painstakingly typing it on my mobile keyboard, and partly to help spread the word to more GitHub users that this feature exists.) Tags: github, html, markdown, ai, datasette, generative-ai, llms, ai-assisted-programming, llm, coding-agents",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "composer"
+      ],
+      "title": "Hide your slop PR descriptions behind",
+      "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 43.7,
+      "score": 43.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.7)"
+        "recency (+6.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -338,12 +338,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 43.4,
+      "score": 43.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.4)"
+        "recency (+6.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -458,12 +458,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 42.5,
+      "score": 42.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -604,12 +604,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 40.2,
+      "score": 40.1,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -636,12 +636,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 40.0,
+      "score": 39.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -662,12 +662,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 39.4,
+      "score": 39.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -715,12 +715,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 39.0,
+      "score": 38.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -741,12 +741,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 38.7,
+      "score": 38.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -767,12 +767,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 38.6,
+      "score": 38.5,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1618,12 +1618,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 36.5,
+      "score": 36.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1646,12 +1646,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 36.4,
+      "score": 36.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1672,12 +1672,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 35.8,
+      "score": 35.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.8)"
+        "recency (+0.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1698,11 +1698,11 @@
       "id": "b73209306c9412bd",
       "kev": false,
       "published": "2026-11-12T22:55:19Z",
-      "score": 34.2,
+      "score": 33.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.2)"
+        "recency (+12.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1719,85 +1719,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6b121f474cc35549",
-      "kev": false,
-      "published": "2026-11-11T22:03:25Z",
-      "score": 32.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+11.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Gemini Decisions API Google join Jev and OpenAI in the decision model category with \"Gemini Decision 1\". This new model API is almost identical to Jev: it supports the same three types of questions (yes/no, choice, and rubric-scoring) and even reuses Jev's term \"Noul\" for a yes/no question. It's priced the same as the GPT-6 Luna decision model: 10 cents per million input tokens, and output is free. Jev remains the cheapest of the three, at 4.2 cents per million. Jev is text (and JSON) only. OpenAI can handle text and images. Gemini Decision 1 is fully multi-model: it covers text, images, audio, video, and PDFs. I tested it against video by passing these questions to it along with my Yonkers stomping robot video file: dragon: Does this video have a dragon in it? robot: Does this video have a robot in it? france: Is this video set in France? usa: Is this video set in the USA? Jev and OpenAI both return 1.0 or 0.0 for yes/no questions, but Gemini insists on being a little less confident than that: { \"dragon\": { \"type\": \"yes_no\", \"probability\": 0.04976021841520312 }, \"robot\": { \"type\": \"yes_no\", \"probability\": 0.9234055387792485 }, \"france\": { \"type\": \"yes_no\", \"probability\": 0.08329171353166241 }, \"usa\": { \"type\": \"yes_no\", \"probability\": 0.9230459995157706 } } Via Hacker News Tags: ai, generative-ai, gemini, llm-release, jev, decision-models",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Gemini Decisions API",
-      "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "0e206308dec11d59",
-      "kev": false,
-      "published": "2026-11-11T18:42:50Z",
-      "score": 32.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+11.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to analyze the code for JavaScript APIs, libraries, and web API hosts used by each tool. The homepage now features tag clouds for browsing by each of those categories of tag: Tags: javascript, tools, ai, generative-ai, llms, claude, vibe-coding",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "Browse tools.simonwillison.net by tag",
-      "url": "https://simonwillison.net/2026/Nov/11/tools-tags/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "785dfe74cb1c9046",
-      "kev": false,
-      "published": "2026-11-11T17:19:52Z",
-      "score": 32.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+11.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm 0.37.2 Fixes a security issue reported by Daniel de Araujo in GHSA-v9h7-jj4g-f862 and GHSA-r639-rr7r-x72w. LLM has a mechanism called extra-openai-models.yaml - now managed by the new-in-0.37 llm openai endpoint add command - for using LLM with OpenAI-compatible API endpoints from other providers. Daniel reported two ways this could accidentally send your configured OpenAI API key to one of those providers: if the key named by api_key_name had never been stored, or if a responses: true model was run with -o chat_completions 1. Tags: projects, security, llm, releases",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm 0.37.2",
-      "url": "https://simonwillison.net/2026/Nov/11/llm/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 32.6,
+      "score": 32.5,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1808,6 +1737,30 @@
       ],
       "title": "Scalable Vector Grief",
       "url": "https://portswigger.net/research/scalable-vector-grief"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6b121f474cc35549",
+      "kev": false,
+      "published": "2026-11-11T22:03:25Z",
+      "score": 32.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+11.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Gemini Decisions API Google join Jev and OpenAI in the decision model category with \"Gemini Decision 1\". This new model API is almost identical to Jev: it supports the same three types of questions (yes/no, choice, and rubric-scoring) and even reuses Jev's term \"Noul\" for a yes/no question. It's priced the same as the GPT-6 Luna decision model: 10 cents per million input tokens, and output is free. Jev remains the cheapest of the three, at 4.2 cents per million. Jev is text (and JSON) only. OpenAI can handle text and images. Gemini Decision 1 is fully multi-model: it covers text, images, audio, video, and PDFs. I tested it against video by passing these questions to it along with my Yonkers stomping robot video file: dragon: Does this video have a dragon in it? robot: Does this video have a robot in it? france: Is this video set in France? usa: Is this video set in the USA? Jev and OpenAI both return 1.0 or 0.0 for yes/no questions, but Gemini insists on being a little less confident than that: { \"dragon\": { \"type\": \"yes_no\", \"probability\": 0.04976021841520312 }, \"robot\": { \"type\": \"yes_no\", \"probability\": 0.9234055387792485 }, \"france\": { \"type\": \"yes_no\", \"probability\": 0.08329171353166241 }, \"usa\": { \"type\": \"yes_no\", \"probability\": 0.9230459995157706 } } Via Hacker News Tags: ai, generative-ai, gemini, llm-release, jev, decision-models",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "Gemini Decisions API",
+      "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
     },
     {
       "appsec": false,
@@ -1839,14 +1792,61 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5767c4d342983118",
+      "id": "0e206308dec11d59",
       "kev": false,
-      "published": "2026-11-10T20:09:44Z",
-      "score": 31.7,
+      "published": "2026-11-11T18:42:50Z",
+      "score": 32.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+11.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to analyze the code for JavaScript APIs, libraries, and web API hosts used by each tool. The homepage now features tag clouds for browsing by each of those categories of tag: Tags: javascript, tools, ai, generative-ai, llms, claude, vibe-coding",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "Browse tools.simonwillison.net by tag",
+      "url": "https://simonwillison.net/2026/Nov/11/tools-tags/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "785dfe74cb1c9046",
+      "kev": false,
+      "published": "2026-11-11T17:19:52Z",
+      "score": 32.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.7)"
+        "recency (+11.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm 0.37.2 Fixes a security issue reported by Daniel de Araujo in GHSA-v9h7-jj4g-f862 and GHSA-r639-rr7r-x72w. LLM has a mechanism called extra-openai-models.yaml - now managed by the new-in-0.37 llm openai endpoint add command - for using LLM with OpenAI-compatible API endpoints from other providers. Daniel reported two ways this could accidentally send your configured OpenAI API key to one of those providers: if the key named by api_key_name had never been stored, or if a responses: true model was run with -o chat_completions 1. Tags: projects, security, llm, releases",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm 0.37.2",
+      "url": "https://simonwillison.net/2026/Nov/11/llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5767c4d342983118",
+      "kev": false,
+      "published": "2026-11-10T20:09:44Z",
+      "score": 31.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+10.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1866,11 +1866,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 31.2,
+      "score": 30.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.2)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1890,11 +1890,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 30.8,
+      "score": 30.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+9.8)"
+        "recency (+9.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1913,11 +1913,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 30.8,
+      "score": 30.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.8)"
+        "recency (+9.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1928,29 +1928,6 @@
       ],
       "title": "llm-anthropic 0.31",
       "url": "https://simonwillison.net/2026/Nov/9/llm-anthropic/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "2d5e4247e860f350",
-      "kev": false,
-      "published": "2026-11-09T04:32:33Z",
-      "score": 30.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My comment on The Web Is More Than Enough, by Paul Ford — Hacker News.OK, this comment convinced me to give that a shot. Here's a thing I made in Three.js this morning - a Nudibranch themed Faberge Egg: https://static.simonwillison.net/static/2026/Hidden-Reef-Egg... (77KB) I just asked Claude (Opus 5.5 Medium running in regular Claude Chat) to port that to Vanilla JS, in the same thread where it had built it, and got this: https://static.simonwillison.net/static/2026/Hidden-Reef-Egg... (98KB) They aren't identical - you can see what Claude said about that in the transcript (I don't fully understand why it differed): https://claude.ai/share/e56d163e-2793-4677-aa11-191d5058b414 But yeah, it turns out Claude Opus 5.5 is perfectly capable of 3D modeling in Vanilla JS + WebGL without Three.js. In eyeballing the code I find the Three.js slightly easier to understand myself, but I rarely look at the code for these 3D projects so that isn't a particularly big deal. Tags: claude, javascript, three-js, hacker-news, generative-ai, ai, llms",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "The Web Is More Than Enough, by Paul Ford",
-      "url": "https://simonwillison.net/2026/Nov/9/hn-50421091/"
     },
     {
       "appsec": false,
@@ -2026,13 +2003,36 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "2d5e4247e860f350",
+      "kev": false,
+      "published": "2026-11-09T04:32:33Z",
+      "score": 29.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My comment on The Web Is More Than Enough, by Paul Ford — Hacker News.OK, this comment convinced me to give that a shot. Here's a thing I made in Three.js this morning - a Nudibranch themed Faberge Egg: https://static.simonwillison.net/static/2026/Hidden-Reef-Egg... (77KB) I just asked Claude (Opus 5.5 Medium running in regular Claude Chat) to port that to Vanilla JS, in the same thread where it had built it, and got this: https://static.simonwillison.net/static/2026/Hidden-Reef-Egg... (98KB) They aren't identical - you can see what Claude said about that in the transcript (I don't fully understand why it differed): https://claude.ai/share/e56d163e-2793-4677-aa11-191d5058b414 But yeah, it turns out Claude Opus 5.5 is perfectly capable of 3D modeling in Vanilla JS + WebGL without Three.js. In eyeballing the code I find the Three.js slightly easier to understand myself, but I rarely look at the code for these 3D projects so that isn't a particularly big deal. Tags: claude, javascript, three-js, hacker-news, generative-ai, ai, llms",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "The Web Is More Than Enough, by Paul Ford",
+      "url": "https://simonwillison.net/2026/Nov/9/hn-50421091/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "33329a02a00b9779",
       "kev": false,
       "published": "2026-11-13T08:00:00Z",
-      "score": 28.7,
+      "score": 28.3,
       "score_reasons": [
         "source:Project Zero (+15)",
-        "recency (+13.7)"
+        "recency (+13.3)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -2078,11 +2078,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 26.8,
+      "score": 26.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2102,11 +2102,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 26.4,
+      "score": 26.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2126,11 +2126,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 26.3,
+      "score": 26.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2150,11 +2150,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 26.0,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2174,11 +2174,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 25.9,
+      "score": 25.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+4.9)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2198,11 +2198,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 25.4,
+      "score": 25.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2221,11 +2221,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 25.0,
+      "score": 24.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2245,11 +2245,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 24.3,
+      "score": 24.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2269,11 +2269,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 24.2,
+      "score": 24.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2293,11 +2293,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 24.0,
+      "score": 23.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2317,11 +2317,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2340,11 +2340,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2364,11 +2364,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 23.5,
+      "score": 23.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2388,11 +2388,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 23.4,
+      "score": 23.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2411,11 +2411,11 @@
       "id": "7187d65663186f22",
       "kev": false,
       "published": "2026-09-28T22:27:23Z",
-      "score": 23.2,
+      "score": 23.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:llm (+15)",
-        "recency (+0.2)"
+        "recency (+0.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2435,11 +2435,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 22.8,
+      "score": 22.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2648,10 +2648,10 @@
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 20.8,
+      "score": 20.6,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2670,10 +2670,10 @@
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 20.6,
+      "score": 20.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.6)"
+        "recency (+14.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2690,10 +2690,10 @@
       "id": "8cc6965690b08360",
       "kev": false,
       "published": "2026-11-13T22:30:54Z",
-      "score": 20.5,
+      "score": 20.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.5)"
+        "recency (+14.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2710,10 +2710,10 @@
       "id": "ea0dffb11eb2bd56",
       "kev": false,
       "published": "2026-11-12T03:30:09Z",
-      "score": 20.2,
+      "score": 19.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.2)"
+        "recency (+11.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2730,10 +2730,10 @@
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 19.0,
+      "score": 18.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.0)"
+        "recency (+10.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2750,10 +2750,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 17.9,
+      "score": 17.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.9)"
+        "recency (+11.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2770,10 +2770,10 @@
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 17.6,
+      "score": 17.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.6)"
+        "recency (+11.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2790,10 +2790,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 17.0,
+      "score": 16.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.0)"
+        "recency (+8.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2810,10 +2810,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 16.7,
+      "score": 16.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.7)"
+        "recency (+8.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2830,10 +2830,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 16.1,
+      "score": 15.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.1)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2850,10 +2850,10 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 16.0,
+      "score": 15.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.0)"
+        "recency (+9.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3707,10 +3707,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 14.9,
+      "score": 14.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.9)"
+        "recency (+8.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3724,33 +3724,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6f0dd9219ff9dddf",
-      "kev": false,
-      "published": "2026-11-07T23:57:46Z",
-      "score": 14.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+8.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: <https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv>; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means for everyone else their browser is fetching unnecessary data and the Datasette server is having to render an entire page that then gets thrown away. I dug in and learned that Firefox has an issue that has been open for 24 years about this behavior... And one of the early comments on that issue links to my blog post from 2002 complaining about this feature. I hadn't just forgotten that I had written about it, I had forgotten the feature entirely! Tags: firefox, html, mozilla, datasette",
-      "tags": [],
-      "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
-      "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 14.1,
+      "score": 13.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3764,13 +3744,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "6f0dd9219ff9dddf",
+      "kev": false,
+      "published": "2026-11-07T23:57:46Z",
+      "score": 13.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+7.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: <https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv>; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means for everyone else their browser is fetching unnecessary data and the Datasette server is having to render an entire page that then gets thrown away. I dug in and learned that Firefox has an issue that has been open for 24 years about this behavior... And one of the early comments on that issue links to my blog post from 2002 complaining about this feature. I hadn't just forgotten that I had written about it, I had forgotten the feature entirely! Tags: firefox, html, mozilla, datasette",
+      "tags": [],
+      "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
+      "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 13.9,
+      "score": 13.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.9)"
+        "recency (+7.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3831,10 +3831,10 @@
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 13.1,
+      "score": 12.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.1)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3851,10 +3851,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 12.8,
+      "score": 12.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.8)"
+        "recency (+4.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3868,33 +3868,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7cc2162c82dbd2cc",
-      "kev": false,
-      "published": "2026-11-05T17:34:03Z",
-      "score": 12.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+6.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "The web browser is very, very, very powerful software for applications, and the cost of accessing that power is going down seemingly every day. — Paul Ford, The Web Is More Than Enough Tags: browsers, paul-ford, web-development",
-      "tags": [],
-      "title": "Quoting Paul Ford",
-      "url": "https://simonwillison.net/2026/Nov/5/paul-ford/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 12.5,
+      "score": 12.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3908,13 +3888,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7cc2162c82dbd2cc",
+      "kev": false,
+      "published": "2026-11-05T17:34:03Z",
+      "score": 12.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+6.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "The web browser is very, very, very powerful software for applications, and the cost of accessing that power is going down seemingly every day. — Paul Ford, The Web Is More Than Enough Tags: browsers, paul-ford, web-development",
+      "tags": [],
+      "title": "Quoting Paul Ford",
+      "url": "https://simonwillison.net/2026/Nov/5/paul-ford/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 12.4,
+      "score": 12.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.4)"
+        "recency (+4.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3931,10 +3931,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 11.4,
+      "score": 11.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.4)"
+        "recency (+5.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3951,10 +3951,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 11.4,
+      "score": 11.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.4)"
+        "recency (+5.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3971,10 +3971,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 11.3,
+      "score": 11.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3991,10 +3991,10 @@
       "id": "7d2479f2553dd44b",
       "kev": false,
       "published": "2026-11-03T16:42:02Z",
-      "score": 11.3,
+      "score": 11.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4011,10 +4011,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 11.0,
+      "score": 10.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4031,10 +4031,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 10.8,
+      "score": 10.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4051,10 +4051,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 10.7,
+      "score": 10.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4071,10 +4071,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 10.3,
+      "score": 10.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.3)"
+        "recency (+4.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4091,10 +4091,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 10.2,
+      "score": 10.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4102,26 +4102,6 @@
       "tags": [],
       "title": "Sponsored: Should your threat hunt become a detection?",
       "url": "https://risky.biz/RBNEWSSI148a/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5ba4b32d47ec536b",
-      "kev": false,
-      "published": "2026-10-30T21:59:22Z",
-      "score": 9.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
-      "tags": [],
-      "title": "dbreunig/nesformer",
-      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
     },
     {
       "appsec": false,
@@ -4148,13 +4128,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5ba4b32d47ec536b",
+      "kev": false,
+      "published": "2026-10-30T21:59:22Z",
+      "score": 9.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "238efdacbd16ff8a",
       "kev": false,
       "published": "2026-10-21T04:19:44Z",
-      "score": 9.4,
+      "score": 9.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4188,26 +4188,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c1ffef57cf4f0cf5",
-      "kev": false,
-      "published": "2026-10-29T17:00:26Z",
-      "score": 9.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
-      "tags": [],
-      "title": "Building a multiplayer game world with autonomous Fable-class models",
-      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
@@ -4222,6 +4202,26 @@
       "tags": [],
       "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
       "url": "https://risky.biz/RBNEWSSI147/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c1ffef57cf4f0cf5",
+      "kev": false,
+      "published": "2026-10-29T17:00:26Z",
+      "score": 9.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
+      "tags": [],
+      "title": "Building a multiplayer game world with autonomous Fable-class models",
+      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
     },
     {
       "appsec": false,
@@ -4248,46 +4248,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7a3afca2246da741",
-      "kev": false,
-      "published": "2026-10-28T10:09:07Z",
-      "score": 8.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
-      "tags": [],
-      "title": "Quoting Terk Terkowitz",
-      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "dcf0de9e2f585334",
-      "kev": false,
-      "published": "2026-10-15T03:54:22Z",
-      "score": 8.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about Russian targeting of Ukrainian data centres. That’s not good, but it looks like Russia is very poorly prepared for Ukraine’s retaliatory strikes. Karma! They also discuss how open-weight models are getting good at cyber tasks while safeguards are easily bypassed. There is no chance of international regulation that will rein in these models, so it is time to loosen cyber safety restrictions on American frontier models. This episode is also available on YouTube Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: Russia's digital detox boomerang",
-      "url": "https://risky.biz/SRB186/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
@@ -4308,9 +4268,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "87166973b4ed4194",
+      "id": "7a3afca2246da741",
       "kev": false,
-      "published": "2026-10-27T19:34:18Z",
+      "published": "2026-10-28T10:09:07Z",
       "score": 8.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -4318,10 +4278,30 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
+      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
       "tags": [],
-      "title": "Game Boy Color on My Conference Badge",
-      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
+      "title": "Quoting Terk Terkowitz",
+      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "dcf0de9e2f585334",
+      "kev": false,
+      "published": "2026-10-15T03:54:22Z",
+      "score": 8.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about Russian targeting of Ukrainian data centres. That’s not good, but it looks like Russia is very poorly prepared for Ukraine’s retaliatory strikes. Karma! They also discuss how open-weight models are getting good at cyber tasks while safeguards are easily bypassed. There is no chance of international regulation that will rein in these models, so it is time to loosen cyber safety restrictions on American frontier models. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Russia's digital detox boomerang",
+      "url": "https://risky.biz/SRB186/"
     },
     {
       "appsec": false,
@@ -4348,20 +4328,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "4729de4c9cbe4dc5",
+      "id": "87166973b4ed4194",
       "kev": false,
-      "published": "2026-10-12T02:43:40Z",
+      "published": "2026-10-27T19:34:18Z",
       "score": 8.6,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.6)"
+        "source:Simon Willison (+6)",
+        "recency (+2.6)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "summary": "Game Boy Color on My Conference Badge I'm at GitHub Universe this week and, similar to last year, the conference badge is a full-blown color screen computer. I've been hacking around with it again, and then I ran into with Steve Francia... who worked with Gemini to get a full NES emulator working on it, and then went a step further and deployed an emulator for both the Game Boy and the Game Boy Color. Which means, if you can obtain the ROM, you can run The Legend of Zelda: Link's Awakening on your conference badge! A neat feature of the badge is that you can turn it upside down and then use game controller touch buttons that are built into the badge body. Tags: games, github, hardware-hacking, ai, generative-ai, llms, gemini, steve-francia",
       "tags": [],
-      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
-      "url": "https://risky.biz/RBNEWS619/"
+      "title": "Game Boy Color on My Conference Badge",
+      "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
     },
     {
       "appsec": false,
@@ -4388,13 +4368,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4729de4c9cbe4dc5",
+      "kev": false,
+      "published": "2026-10-12T02:43:40Z",
+      "score": 8.5,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.5)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Two ShinyHunters suspects arrested in Jordan and the US, hackers breach TLD registrars to get valid Google certs, Japanese authorities arrest a Qilin ransomware member and Google suspends its open-source bug bounty program after a flood of AI bug reports. Show notes Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "tags": [],
+      "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
+      "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 8.4,
+      "score": 8.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4448,26 +4448,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "3f34d86ee2d69ed8",
-      "kev": false,
-      "published": "2026-10-25T15:10:19Z",
-      "score": 8.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Seam Cutter I built this weird and very specific cropping tool - it lets you create a horizontal or vertical cut across an image, then slide the two sides relative to each other. Effectively it lets you crop out a section in the middle of an image. I wanted this because I often use Tailor on my iPhone to stitch several screenshots together into lot long image, but sometimes I find myself wanting to crop out a section in the middle - to redact an irrelevant prompt from a transcript, for example. Tags: tools",
-      "tags": [],
-      "title": "Seam Cutter",
-      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "88f5b2261b84778a",
       "kev": false,
       "published": "2026-10-02T02:57:07Z",
@@ -4502,6 +4482,26 @@
       "tags": [],
       "title": "Risky Bulletin: Intel ends paid bug bounties",
       "url": "https://risky.biz/RBNEWS616/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "3f34d86ee2d69ed8",
+      "kev": false,
+      "published": "2026-10-25T15:10:19Z",
+      "score": 8.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Seam Cutter I built this weird and very specific cropping tool - it lets you create a horizontal or vertical cut across an image, then slide the two sides relative to each other. Effectively it lets you crop out a section in the middle of an image. I wanted this because I often use Tailor on my iPhone to stitch several screenshots together into lot long image, but sometimes I find myself wanting to crop out a section in the middle - to redact an irrelevant prompt from a transcript, for example. Tags: tools",
+      "tags": [],
+      "title": "Seam Cutter",
+      "url": "https://simonwillison.net/2026/Oct/25/seam-cutter/"
     },
     {
       "appsec": false,
@@ -5847,10 +5847,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 7.9,
+      "score": 7.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5927,10 +5927,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 7.5,
+      "score": 7.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5964,26 +5964,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "53d5f118d29b321d",
-      "kev": false,
-      "published": "2026-10-17T13:16:49Z",
-      "score": 7.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+1.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
-      "tags": [],
-      "title": "web-edit 0.1a2",
-      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "0726d06affb1e87c",
       "kev": false,
       "published": "2026-10-16T22:06:37Z",
@@ -5998,6 +5978,26 @@
       "tags": [],
       "title": "Quoting Addy Osmani, Morgan Westlee Lunt, and Qing Wang",
       "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "53d5f118d29b321d",
+      "kev": false,
+      "published": "2026-10-17T13:16:49Z",
+      "score": 6.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
+      "tags": [],
+      "title": "web-edit 0.1a2",
+      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
     },
     {
       "appsec": false,
@@ -6064,26 +6064,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "aa7677223a5c7914",
-      "kev": false,
-      "published": "2026-10-13T13:32:00Z",
-      "score": 6.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
-      "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "f3896491a736a8e2",
       "kev": false,
       "published": "2026-10-13T23:00:06Z",
@@ -6098,9 +6078,29 @@
       "tags": [],
       "title": "Redesigning source control at Anthropic",
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 6.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-14T05:56:26Z",
+  "last_run": "2026-11-14T13:31:25Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1327,
