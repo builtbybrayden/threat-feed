@@ -2403,42 +2403,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2024-43468.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 81% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2024-43468",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-89"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.81043,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-02-12",
-      "modified": "2026-02-12",
-      "nuclei_template": null,
-      "product": "configuration_manager_2403",
-      "published": "2026-02-12",
-      "score": 98.1,
-      "vendor": "microsoft",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2018-8174.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -2467,6 +2431,42 @@
       "nuclei_template": null,
       "product": "windows_10_1607",
       "published": "2022-02-15",
+      "score": 98.0,
+      "vendor": "microsoft",
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2024-43468.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 81% >= 30%",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2024-43468",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-89"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.80534,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-02-12",
+      "modified": "2026-02-12",
+      "nuclei_template": null,
+      "product": "configuration_manager_2403",
+      "published": "2026-02-12",
       "score": 98.0,
       "vendor": "microsoft",
       "vuln_classes": [
@@ -9266,6 +9266,43 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2020-13671.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 33% >= 30%",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2020-13671",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-434"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [
+        "php",
+        "web"
+      ],
+      "epss": 0.32568,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-01-18",
+      "modified": "2022-01-18",
+      "nuclei_template": null,
+      "product": "drupal",
+      "published": "2022-01-18",
+      "score": 82.6,
+      "vendor": "drupal",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2021-22991.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -9507,43 +9544,6 @@
       "published": "2022-03-25",
       "score": 82.1,
       "vendor": "dlink",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2020-13671.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 31% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2020-13671",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-434"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [
-        "php",
-        "web"
-      ],
-      "epss": 0.30945,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-01-18",
-      "modified": "2022-01-18",
-      "nuclei_template": null,
-      "product": "drupal",
-      "published": "2022-01-18",
-      "score": 82.1,
-      "vendor": "drupal",
       "vuln_classes": []
     },
     {
@@ -15834,6 +15834,37 @@
     },
     {
       "appsec": false,
+      "brief": "briefs/CVE-2011-3402.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "in CISA KEV",
+        "EPSS 78% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2011-3402",
+      "cvss_score": 8.8,
+      "cwe": [],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [],
+      "epss": 0.78285,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-10-06",
+      "modified": "2025-10-06",
+      "nuclei_template": null,
+      "product": "windows_7",
+      "published": "2025-10-06",
+      "score": 72.3,
+      "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
+      "appsec": false,
       "brief": "briefs/CVE-2024-29988.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -15966,37 +15997,6 @@
       "vuln_classes": [
         "command-injection"
       ]
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2011-3402.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "in CISA KEV",
-        "EPSS 78% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2011-3402",
-      "cvss_score": 8.8,
-      "cwe": [],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.78138,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-10-06",
-      "modified": "2025-10-06",
-      "nuclei_template": null,
-      "product": "windows_7",
-      "published": "2025-10-06",
-      "score": 72.2,
-      "vendor": "microsoft",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -16476,6 +16476,39 @@
       "vuln_classes": []
     },
     {
+      "appsec": false,
+      "brief": "briefs/CVE-2013-3918.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "in CISA KEV",
+        "EPSS 74% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2013-3918",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-787"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [],
+      "epss": 0.73872,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-10-06",
+      "modified": "2025-10-06",
+      "nuclei_template": null,
+      "product": "windows_7",
+      "published": "2025-10-06",
+      "score": 71.0,
+      "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
       "appsec": true,
       "brief": "briefs/CVE-2023-2533.md",
       "candidate_reasons": [
@@ -16542,39 +16575,6 @@
       "vuln_classes": [
         "rce"
       ]
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2013-3918.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "in CISA KEV",
-        "EPSS 74% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2013-3918",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-787"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.73693,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-10-06",
-      "modified": "2025-10-06",
-      "nuclei_template": null,
-      "product": "windows_7",
-      "published": "2025-10-06",
-      "score": 70.9,
-      "vendor": "microsoft",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -17329,6 +17329,36 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2016-4171.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2016-4171",
+      "cvss_score": 9.8,
+      "cwe": [],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.20211,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-03-25",
+      "modified": "2022-03-25",
+      "nuclei_template": null,
+      "product": "flash_player",
+      "published": "2022-03-25",
+      "score": 69.9,
+      "vendor": "adobe",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-20316.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -17358,36 +17388,6 @@
       "published": "2026-07-29",
       "score": 69.8,
       "vendor": "cisco",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2016-4171.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2016-4171",
-      "cvss_score": 9.8,
-      "cwe": [],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.20055,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-25",
-      "modified": "2022-03-25",
-      "nuclei_template": null,
-      "product": "flash_player",
-      "published": "2022-03-25",
-      "score": 69.8,
-      "vendor": "adobe",
       "vuln_classes": []
     },
     {
@@ -19108,6 +19108,39 @@
       "vuln_classes": []
     },
     {
+      "appsec": false,
+      "brief": "briefs/CVE-2022-37055.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "in CISA KEV",
+        "EPSS 57% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2022-37055",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-120"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [],
+      "epss": 0.5741,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-12-08",
+      "modified": "2025-12-08",
+      "nuclei_template": null,
+      "product": "go-rt-ac750_firmware",
+      "published": "2025-12-08",
+      "score": 67.0,
+      "vendor": "dlink",
+      "vuln_classes": []
+    },
+    {
       "appsec": true,
       "brief": "briefs/CVE-2021-1789.md",
       "candidate_reasons": [
@@ -19437,39 +19470,6 @@
       "published": "2023-10-10",
       "score": 66.6,
       "vendor": "microsoft",
-      "vuln_classes": []
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2022-37055.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "in CISA KEV",
-        "EPSS 56% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2022-37055",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-120"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.55531,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-12-08",
-      "modified": "2025-12-08",
-      "nuclei_template": null,
-      "product": "go-rt-ac750_firmware",
-      "published": "2025-12-08",
-      "score": 66.5,
-      "vendor": "dlink",
       "vuln_classes": []
     },
     {
@@ -33574,7 +33574,7 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-14T13:31:25Z",
+  "generated": "2026-11-14T22:25:55Z",
   "stats": {
     "actively_exploited_appsec": 1327,
     "appsec_cves": 1785,
