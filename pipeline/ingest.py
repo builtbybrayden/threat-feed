@@ -22,16 +22,20 @@ import re
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional
 
 from . import advisories as advisories_mod
 from . import appsec as appsec_mod
 from . import coverage as coverage_mod
+from . import cvelist as cvelist_mod
 from . import epss as epss_mod
 from . import feeds as feeds_mod
 from . import kev as kev_mod
 from . import nvd as nvd_mod
+from . import osv as osv_mod
 from . import poc as poc_mod
+from . import decisions as decisions_mod
+from . import validation as validation_mod
 from .briefs import write_brief
 from .issues import RestGitHubClient, sync_candidates
 from .models import Item
@@ -48,6 +52,12 @@ log = logging.getLogger("pipeline")
 # ---------------------------------------------------------------------------
 # Source gathering (each returns plain data; online vs offline chosen by flag)
 # ---------------------------------------------------------------------------
+def _add_source(rec, name: str) -> None:
+    """Record that an intake stream contributed to this CVE (provenance)."""
+    if name not in rec.sources:
+        rec.sources.append(name)
+
+
 def _load_sample(sample_dir: Path, name: str, default: Any) -> Any:
     p = sample_dir / name
     if not p.exists():
@@ -97,10 +107,21 @@ def gather_epss(cve_ids, cfg, session, offline, sample_dir) -> dict[str, float]:
         return {}
 
 
-def load_coverage(cfg, offline, sample_dir) -> dict[str, str]:
+def load_coverage(cfg, offline, sample_dir) -> tuple[dict[str, str], dict[str, Any]]:
+    """Return (index, meta). ``meta["available"]`` is False when no index could be
+    loaded, so the caller marks those CVEs' coverage *unknown* instead of inventing
+    confirmed gaps. Offline, the committed sample_data/ fixture is the index."""
     if offline:
-        return {k.upper(): v for k, v in _load_sample(sample_dir, "coverage_index.json", {}).items()}
-    return coverage_mod.load_index(ROOT / cfg["coverage"]["index_cache"])
+        p = sample_dir / "coverage_index.json"
+        if not p.exists():
+            return {}, {"available": False, "as_of": None, "template_count": 0, "source": "sample_data (missing)"}
+        index = {k.upper(): v for k, v in _load_sample(sample_dir, "coverage_index.json", {}).items()}
+        return index, {
+            "available": len(index) > 0, "as_of": None,
+            "template_count": len(index), "source": "sample_data",
+        }
+    cache = ROOT / cfg["coverage"]["index_cache"]
+    return coverage_mod.load_index(cache), coverage_mod.load_index_meta(cache)
 
 
 def gather_advisories(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
@@ -117,6 +138,45 @@ def gather_advisories(cfg, session, offline, sample_dir) -> list[dict[str, Any]]
         return []
 
 
+def gather_cvelist(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
+    """Recent MITRE CVE-List v5 records (webapp-filtered), normalized. Isolated
+    like every other source. Offline, the committed sample_data/ fixture holds
+    raw CVE 5.x records, parsed through the same code the network path uses."""
+    cc = cfg.get("cvelist", {})
+    if not cc.get("enabled", True):
+        return []
+    try:
+        if offline:
+            return cvelist_mod.parse_records(
+                _load_sample(sample_dir, "cvelist.json", []),
+                webapp_only=bool(cc.get("webapp_only", True)),
+                cap=int(cc.get("max_records", 400)),
+            )
+        return cvelist_mod.fetch_recent(cfg, session, cfg["http"]["timeout"])
+    except Exception as exc:
+        log.warning("cvelist fetch failed (%s) — continuing without it", exc)
+        return []
+
+
+def gather_osv(cfg, session, offline, sample_dir) -> list[dict[str, Any]]:
+    """Recent OSV.dev language-ecosystem records (RustSec/Go/Hex/Pub), normalized.
+    Isolated like every other source. Offline, the committed sample_data/ fixture
+    holds raw OSV records, parsed through the same code the network path uses."""
+    oc = cfg.get("osv", {})
+    if not oc.get("enabled", True):
+        return []
+    try:
+        if offline:
+            return osv_mod.parse_records(
+                _load_sample(sample_dir, "osv.json", []),
+                cap=int(oc.get("max_records", 300)),
+            )
+        return osv_mod.fetch_recent(cfg, session, cfg["http"]["timeout"])
+    except Exception as exc:
+        log.warning("osv fetch failed (%s) — continuing without it", exc)
+        return []
+
+
 # ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
@@ -124,6 +184,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     cfg = load_config(args.config)
     watchlist = load_watchlist(args.watchlist)
     sample_dir = Path(args.sample)
+    # Validation results are committed repo artifacts (not network data), so they
+    # load the same offline and online. Offline falls back to the sample dir so
+    # the demo shows the feature on synthetic CVEs, never claiming a real one was
+    # validated. An explicit --validations always wins (tests point it at a tmp dir).
+    val_path = Path(args.validations) if args.validations else (
+        sample_dir / "validations" if args.offline else ROOT / "validations"
+    )
     state = State.load(args.state)
     state.meta.setdefault("first_run", now_iso())  # data-capture start date (disclaimer)
     session = None if args.offline else make_session(cfg)
@@ -132,27 +199,39 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # issue events), using the already-enriched records in state.json. No feeds,
     # no NVD, no triage — seconds instead of minutes.
     if getattr(args, "queue_only", False):
+        decisions, _ = decisions_mod.load_decisions(args.decisions)
+        validations, _ = validation_mod.load_validations(val_path)
+        for cve, rec in state.cves.items():
+            rec.decision = decisions.get(cve)
+            rec.validation = validation_mod.view(validations.get(cve))
         queue = _build_queue(state, cfg, args)
         _write_queue(Path(args.site), queue, cfg)
         log.info("queue-only rebuild: %d items", len(queue))
         return {"queue": len(queue)}
 
-    # 1. Feeds + KEV + ecosystem advisories --------------------------------
+    # 1. Feeds + KEV + ecosystem advisories + CVE List ---------------------
     items = gather_feed_items(cfg, session, args.offline, sample_dir)
     new_count = sum(state.upsert_item(it) for it in items)
     kev_map = gather_kev(cfg, session, args.offline, sample_dir)
     advisories = gather_advisories(cfg, session, args.offline, sample_dir)
+    cvelist = gather_cvelist(cfg, session, args.offline, sample_dir)
+    osv = gather_osv(cfg, session, args.offline, sample_dir)
 
     # 2. Collect every CVE referenced, create records, apply KEV + advisories
     all_cves: set[str] = set()
     for it in state.items.values():
         all_cves.update(it.cves)
+        for c in it.cves:
+            _add_source(state.get_cve(c), "feed")  # a news/research item named this CVE
     all_cves.update(kev_map.keys())  # KEV CVEs are tracked even if no feed mentions them
     all_cves.update(a["cve_id"] for a in advisories)  # so do GHSA ecosystem advisories
+    all_cves.update(d["cve_id"] for d in cvelist)      # and freshly-published CVE-List records
+    all_cves.update(d["cve_id"] for d in osv)          # and OSV language-ecosystem records
     for cve in all_cves:
         rec = state.get_cve(cve)
         if cve in kev_map:
             rec.kev = True
+            _add_source(rec, "kev")
             k = kev_map[cve]
             rec.vendor = rec.vendor or k.get("vendor")
             rec.product = rec.product or k.get("product")
@@ -163,8 +242,26 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # AppSec (it's a package vuln), so track its CVE to force appsec=True below.
     advisory_cves: set[str] = set()
     for adv in advisories:
-        advisories_mod.apply_to_record(state.get_cve(adv["cve_id"]), adv)
+        rec = state.get_cve(adv["cve_id"])
+        advisories_mod.apply_to_record(rec, adv)
+        _add_source(rec, "ghsa")
         advisory_cves.add(adv["cve_id"])
+
+    # Merge CVE-List records (already webapp-filtered at ingest). The later appsec
+    # classifier re-derives relevance from the now-populated fields, so no forcing.
+    for data in cvelist:
+        rec = state.get_cve(data["cve_id"])
+        cvelist_mod.apply_to_record(rec, data)
+        _add_source(rec, "cvelist")
+
+    # Merge OSV records. Like GHSA, an OSV record is a package-ecosystem vuln and
+    # so inherently AppSec; track its CVE to force appsec=True below.
+    osv_cves: set[str] = set()
+    for data in osv:
+        rec = state.get_cve(data["cve_id"])
+        osv_mod.apply_to_record(rec, data)
+        _add_source(rec, "osv")
+        osv_cves.add(data["cve_id"])
 
     # 3. EPSS (batched) ----------------------------------------------------
     epss_map = gather_epss(all_cves, cfg, session, args.offline, sample_dir)
@@ -173,9 +270,18 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             state.cves[cve].epss = val
 
     # 4. Coverage index ----------------------------------------------------
-    coverage = load_coverage(cfg, args.offline, sample_dir)
+    # Distinguish "no template indexed" from "no index available": when the index
+    # could not be loaded, coverage is *unknown*, not a confirmed gap.
+    coverage, coverage_meta = load_coverage(cfg, args.offline, sample_dir)
+    coverage_available = coverage_meta.get("available", False)
     for cve, rec in state.cves.items():
         rec.nuclei_template = coverage.get(cve)
+        if not coverage_available:
+            rec.coverage_status = "unknown"
+        elif rec.nuclei_template:
+            rec.coverage_status = "covered"
+        else:
+            rec.coverage_status = "absent"
 
     # 5. NVD enrichment (cached by TTL) + PoC ------------------------------
     _enrich_nvd_poc(state, cfg, session, args, sample_dir, all_cves)
@@ -185,7 +291,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     # advisory-sourced CVE as AppSec even if its text alone wouldn't classify.
     for rec in state.cves.values():
         a = appsec_mod.classify_cve(rec, cfg)
-        rec.appsec = a["appsec"] or rec.cve_id in advisory_cves
+        rec.appsec = a["appsec"] or rec.cve_id in advisory_cves or rec.cve_id in osv_cves
         rec.ecosystems = sorted(set(rec.ecosystems) | set(a["ecosystems"]))
         rec.vuln_classes = sorted(set(rec.vuln_classes) | set(a["vuln_classes"]))
 
@@ -224,19 +330,44 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         wl_hit = cve in watchlist_cves or bool(
             word_boundary_hits(f"{rec.vendor or ''} {rec.product or ''} {rec.description}", watchlist)
         )
-        rec.is_candidate, rec.candidate_reasons = evaluate_candidate(rec, cfg, watchlist_hit=wl_hit)
+        rec.is_candidate, rec.candidate_reasons = evaluate_candidate(
+            rec, cfg, watchlist_hit=wl_hit, coverage_status=rec.coverage_status
+        )
         rec.last_updated = now_iso()
         if rec.is_candidate:
             candidates.append(rec)
     candidates.sort(key=lambda r: (r.score, r.kev, r.epss or 0), reverse=True)
+
+    # 7c. Merge human decision records (the auditable lifecycle) onto CVE records.
+    #     These are hand-authored in decisions.yaml; a missing file is fine.
+    decisions, decision_errors = decisions_mod.load_decisions(args.decisions)
+    for err in decision_errors:
+        log.warning("decisions: %s", err)
+    for cve, rec in state.cves.items():
+        rec.decision = decisions.get(cve)
+
+    # 7d. Merge machine validation results (validations/<CVE>/result.json): a
+    #     template's 3-control lab run. These are the deployment gate — a
+    #     template ships only on a real pass. Written by the Hermes Docker runner.
+    validations, validation_errors = validation_mod.load_validations(val_path)
+    for err in validation_errors:
+        log.warning("validations: %s", err)
+    for cve, rec in state.cves.items():
+        rec.validation = validation_mod.view(validations.get(cve))
+
+    # 7b. Optional, opt-in only: file/close `nuclei-candidate` GitHub issues for
+    #     confirmed-absent candidates. The default path never touches GitHub.
+    issue_sync = _maybe_sync_issues(state, candidates, cfg, args)
 
     # 8. Detection queue = CVEs the user curated as `detection-queue` GitHub
     #    issues (no auto-population). Briefs are generated only for those.
     queue = _build_queue(state, cfg, args)
 
     # 9. Site JSON --------------------------------------------------------
-    stats = _compute_stats(state, candidates, cfg)
-    _write_site(state, candidates, stats, queue, args.site, cfg)
+    stats = _compute_stats(state, candidates, cfg, coverage_meta)
+    stats["decisions"] = decisions_mod.summarize(decisions)
+    stats["validations"] = validation_mod.summarize(validations)
+    _write_site(state, candidates, stats, queue, args.site, cfg, coverage_meta)
 
     state.save(args.state)
 
@@ -246,6 +377,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "total_cves": len(state.cves),
         "candidates": len(candidates),
         "queue": len(queue),
+        "decisions": len(decisions),
+        "issue_sync": issue_sync,
         "stats": stats,
     }
     log.info("run complete: %s", json.dumps(summary["stats"]))
@@ -308,6 +441,7 @@ def _nvd_stale(rec, ttl: int) -> bool:
 
 
 def _apply_nvd(rec, fields: dict[str, Any]) -> None:
+    _add_source(rec, "nvd")
     rec.description = fields.get("description") or rec.description
     rec.cwe = fields.get("cwe") or rec.cwe
     rec.cvss_vector = fields.get("cvss_vector") or rec.cvss_vector
@@ -361,11 +495,19 @@ def _tags_for_item(it: Item, hits: list[str], has_poc: bool, extra: list[str]) -
     return tags
 
 
-def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> dict[str, Any]:
+def _compute_stats(
+    state: State, candidates: list, config: dict[str, Any], coverage_meta: dict[str, Any] | None = None
+) -> dict[str, Any]:
     cves = state.cves
+    coverage_meta = coverage_meta or {}
     kev_records = [r for r in cves.values() if r.kev]
-    kev_covered = [r for r in kev_records if r.nuclei_template]
-    pct = round(100 * len(kev_covered) / len(kev_records), 1) if kev_records else 0.0
+    # Coverage % is honest only over CVEs whose coverage is *known* (index was
+    # available): dividing by all KEV records would understate coverage whenever
+    # the index is missing/stale by counting "unknown" as "no template".
+    kev_known = [r for r in kev_records if getattr(r, "coverage_status", "unknown") in ("covered", "absent")]
+    kev_covered = [r for r in kev_known if r.coverage_status == "covered"]
+    pct = round(100 * len(kev_covered) / len(kev_known), 1) if kev_known else 0.0
+    coverage_unknown = sum(1 for r in cves.values() if getattr(r, "coverage_status", "unknown") == "unknown")
 
     # AppSec-focused headline numbers.
     actively_exploited_appsec = sum(1 for r in cves.values() if r.kev and r.appsec)
@@ -387,8 +529,12 @@ def _compute_stats(state: State, candidates: list, config: dict[str, Any]) -> di
         "open_gaps": len(candidates),
         "appsec_cves": sum(1 for r in cves.values() if r.appsec),
         "kev_tracked": len(kev_records),
+        "kev_coverage_known": len(kev_known),
         "kev_with_coverage": len(kev_covered),
         "kev_coverage_pct": pct,
+        "coverage_index_available": bool(coverage_meta.get("available", False)),
+        "coverage_index_as_of": coverage_meta.get("as_of"),
+        "coverage_unknown": coverage_unknown,
         "total_items": len(state.items),
         "total_cves": len(cves),
     }
@@ -421,12 +567,13 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
     if rec is not None:
         e.update({
             "vendor": rec.vendor, "product": rec.product,
+            "affected_versions": rec.affected_versions, "fixed_version": rec.fixed_version,
             "score": rec.score, "kev": rec.kev, "kev_added": rec.kev_added,
             "epss": rec.epss, "cvss_score": rec.cvss_score, "cwe": rec.cwe,
             "ecosystems": rec.ecosystems, "vuln_classes": rec.vuln_classes,
             "published": rec.published, "modified": rec.modified or rec.published,
             "has_poc": bool(rec.poc_links),
-            "coverage": "covered" if rec.nuclei_template else "gap",
+            "coverage": _coverage_view(rec),
             "detectability": {
                 "remote_network": rec.detection.remote_network,
                 "likely_http": rec.detection.likely_http,
@@ -434,11 +581,26 @@ def _queue_entry(iss: dict[str, Any], cve: Optional[str], rec, args) -> dict[str
                 "suggested_template_type": rec.detection.suggested_template_type,
             },
             "candidate_reasons": rec.candidate_reasons,
+            "decision": rec.decision,
+            "validation": rec.validation,
+            "origins": sorted(rec.sources),
             "advisory_url": rec.advisory_url, "ghsa_id": rec.ghsa_id,
             "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
             "brief": f"briefs/{cve}.md" if (Path(args.briefs) / f"{cve}.md").exists() else None,
         })
     return e
+
+
+_COVERAGE_VIEW = {"covered": "covered", "absent": "gap", "unknown": "unknown"}
+
+
+def _coverage_view(rec) -> str:
+    """Map the record's coverage_status to the site's 3-valued coverage string.
+    Falls back to the template presence for records predating coverage_status."""
+    status = getattr(rec, "coverage_status", None)
+    if status in _COVERAGE_VIEW:
+        return _COVERAGE_VIEW[status]
+    return "covered" if rec.nuclei_template else "gap"
 
 
 def _build_queue(state: State, config: dict[str, Any], args) -> list[dict[str, Any]]:
@@ -472,7 +634,7 @@ def _write_queue(site: Path, queue: list[dict[str, Any]], config: dict[str, Any]
     _dump(site / "queue.json", {"generated": now_iso(), "repo": _repo_slug(config), "queue": queue})
 
 
-def _write_site(state: State, candidates: list, stats: dict, queue: list, site_dir: str, config: dict[str, Any]) -> None:
+def _write_site(state: State, candidates: list, stats: dict, queue: list, site_dir: str, config: dict[str, Any], coverage_meta: dict[str, Any] | None = None) -> None:
     site = Path(site_dir)
     site.mkdir(parents=True, exist_ok=True)
     generated = now_iso()
@@ -529,6 +691,9 @@ def _write_site(state: State, candidates: list, stats: dict, queue: list, site_d
         "first_run": state.meta.get("first_run"),
         "repo": repo,
         "stats": stats,
+        # Index provenance so the UI can label coverage staleness honestly and
+        # avoid presenting "unknown" coverage as a confirmed gap.
+        "coverage_index": coverage_meta or {"available": False, "as_of": None},
         "threats": threats,
         "items": [i.to_dict() for i in items_sorted[:400]],
     }
@@ -549,6 +714,8 @@ def _candidate_view(rec) -> dict[str, Any]:
         "cve_id": rec.cve_id,
         "vendor": rec.vendor,
         "product": rec.product,
+        "affected_versions": rec.affected_versions,
+        "fixed_version": rec.fixed_version,
         "score": rec.score,
         "kev": rec.kev,
         "kev_added": rec.kev_added,
@@ -567,9 +734,13 @@ def _candidate_view(rec) -> dict[str, Any]:
             "suggested_template_type": rec.detection.suggested_template_type,
         },
         "nuclei_template": rec.nuclei_template,
+        "coverage": _coverage_view(rec),
         "brief": f"briefs/{rec.cve_id}.md",
         "issue_number": rec.issue_number,
         "candidate_reasons": rec.candidate_reasons,
+        "decision": rec.decision,
+        "validation": rec.validation,
+        "origins": sorted(rec.sources),
     }
 
 
@@ -579,6 +750,8 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "cve_id": rec.cve_id,
         "vendor": rec.vendor,
         "product": rec.product,
+        "affected_versions": rec.affected_versions,
+        "fixed_version": rec.fixed_version,
         "score": rec.score,
         "kev": rec.kev,
         "kev_added": rec.kev_added,
@@ -590,12 +763,15 @@ def _threat_view(rec, sources: list[dict[str, Any]]) -> dict[str, Any]:
         "ecosystems": rec.ecosystems,
         "vuln_classes": rec.vuln_classes,
         "has_poc": bool(rec.poc_links),
-        "coverage": "covered" if rec.nuclei_template else "gap",
+        "coverage": _coverage_view(rec),
         "is_candidate": rec.is_candidate,
         "brief": f"briefs/{rec.cve_id}.md" if rec.is_candidate else None,
         "ghsa_id": rec.ghsa_id,
         "advisory_url": rec.advisory_url,
+        "origins": sorted(rec.sources),
         "issue_number": rec.issue_number,
+        "decision": rec.decision,
+        "validation": rec.validation,
         "cwe": rec.cwe,
         "description": (rec.description[:240] + "…") if rec.description and len(rec.description) > 240 else rec.description,
         "sources": sources,
@@ -608,19 +784,30 @@ def _dump(path: Path, data: Any) -> None:
 
 
 def _maybe_sync_issues(state, candidates, cfg, args) -> dict[str, Any]:
-    import os
+    """Optionally file/close `nuclei-candidate` GitHub issues for candidates.
+
+    Off by default: the detection queue is the user-curated path. This runs only
+    with the explicit `--sync-issues` flag (and a token/repo, never offline), so
+    the auto-filer is an opt-in capability, not a side effect of a normal run.
+    """
+    if not getattr(args, "sync_issues", False):
+        return {"skipped": "not enabled (pass --sync-issues)"}
     if args.offline or args.no_issues:
         return {"skipped": "offline/--no-issues"}
     token = os.environ.get("GITHUB_TOKEN")
     repo = os.environ.get("GITHUB_REPOSITORY")
     if not (token and repo):
         return {"skipped": "no GITHUB_TOKEN/GITHUB_REPOSITORY"}
+    # Only file issues for candidates whose coverage was actually *checked* and
+    # found absent — never for "unknown" (index unavailable) provisional ones,
+    # which may already have an upstream template.
+    confirmed = [c for c in candidates if getattr(c, "coverage_status", "") == "absent"]
     client = RestGitHubClient(repo, token, make_session(cfg), cfg["http"]["timeout"])
     # Cap auto-filed issues to the highest-priority candidates (already sorted by
     # score) so a large advisory pull can't open hundreds of issues at once.
     max_open = cfg.get("issues", {}).get("max_open", 25)
     try:
-        return sync_candidates(candidates[:max_open], state.cves, client)
+        return sync_candidates(confirmed[:max_open], state.cves, client)
     except Exception as exc:
         log.warning("issue sync failed (%s)", exc)
         return {"error": str(exc)}
@@ -631,11 +818,14 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--offline", action="store_true", help="run from sample_data/ with no network")
     ap.add_argument("--no-nvd", action="store_true", help="skip NVD enrichment (faster)")
     ap.add_argument("--no-issues", action="store_true", help="never touch GitHub Issues")
+    ap.add_argument("--sync-issues", action="store_true", help="opt-in: file/close nuclei-candidate GitHub issues for confirmed-absent candidates (needs GITHUB_TOKEN/REPOSITORY)")
     ap.add_argument("--queue-only", action="store_true", help="only rebuild the detection queue from issues (fast, for issue events)")
     ap.add_argument("--limit-nvd", type=int, default=None, help="max NVD lookups this run")
     ap.add_argument("--config", default=str(ROOT / "config.yaml"))
     ap.add_argument("--watchlist", default=str(ROOT / "watchlist.yaml"))
     ap.add_argument("--state", default=str(ROOT / "state.json"))
+    ap.add_argument("--decisions", default=str(ROOT / "decisions.yaml"), help="auditable detection-decision records (decisions.yaml)")
+    ap.add_argument("--validations", default=None, help="machine validation results dir (validations/<CVE>/result.json); offline falls back to <sample>/validations")
     ap.add_argument("--site", default=str(ROOT / "site"))
     ap.add_argument("--briefs", default=str(ROOT / "site" / "briefs"))
     ap.add_argument("--sample", default=str(ROOT / "sample_data"))
