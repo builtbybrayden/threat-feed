@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-15T14:05:26Z",
+  "generated": "2026-11-15T22:55:53Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 54.1,
+      "score": 53.7,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.1)"
+        "recency (+9.7)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -73,12 +73,12 @@
       "id": "cb4668166d1b9ed1",
       "kev": false,
       "published": "2026-11-13T03:03:12Z",
-      "score": 48.8,
+      "score": 48.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:remote code execution (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.8)"
+        "recency (+11.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -99,12 +99,12 @@
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 48.2,
+      "score": 47.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.2)"
+        "recency (+10.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -127,12 +127,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 45.4,
+      "score": 45.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.4)"
+        "recency (+8.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -285,12 +285,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 43.0,
+      "score": 42.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.0)"
+        "recency (+7.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -312,12 +312,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 42.9,
+      "score": 42.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.9)"
+        "recency (+5.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -329,34 +329,6 @@
       ],
       "title": "OpenSSH auth bypass bug hits Alpine Linux, OperWRT",
       "url": "https://risky.biz/RBNEWS630/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4519138a0235fdcb",
-      "kev": false,
-      "published": "2026-11-05T15:30:00Z",
-      "score": 42.6,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:supply chain,remote code execution,rce (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+5.6)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🛡️ A thousand fewer paths to rootThis week we launched a blog that’s literally been months in the making.I included it in the AppSec section below, so here instead I’ll reflect a bit about the behind the scenes and what it felt like doing it.1) Working at a frontier lab is very unique. You can be unreasonably ambitious and (at least right now) the company is surprisingly cost insensitive for using tokens for research. So spending $1.2m on scanning Linux is totally fine.2) The company cares a lot about securing the critical software the world relies on, and we talk about it daily. I don’t actually know the numbers, but I wouldn’t be surprised if we have already and will continue to spend tens of millions of dollars in tokens on securing important OSS software, even if it has no direct business value. Just because we think it needs to happen.3) Kyle is such a joy to work with. And he just loves finding bugs. Every time he finds another few hundred 0-days (not exaggerating), he’s basically bouncing around like a kid at Christmas. We were in the office until 9pm every night this week finishing the blog post, and he was always positive. 4) I’ve noticed that just like how the hedonic treadmill can get you desensitized to fancy hotels and Michelin star food, I find the security research team and I are getting gradually desensitized to absolutely wild bugs. Like, the kind that would be the talk of the year a few years ago, we find probably on a weekly basis.Now, unless the bug is unauthenticated remote code execution on software used by 10’s to 100’s of millions of people or servers, we’re like 🤷 That’s OK I guess. RCE but it takes 1 or more clicks? Weak. Full compromise but it requires a non default configuration 🥱 I definitely did not predict this before joining, and I would have thought this situation was outlandish and impossible at the beginning of this year. The world has changed. I’ve changed.More thoughts later, it’s bed time and there are more bugs to disclose tomorrow.👉️ A thousand fewer paths to root 👈️(Discuss on LinkedIn or X)Sponsor📣 The AI SOC Buyer’s GuideBuying an AI SOC isn’t like buying a SIEM or a SOAR. The old RFP measures features and integrations. It doesn’t tell you whether a platform can reason about your environment, learn from your analysts, or act safely on its own.The AI SOC Buyer’s Guide, from former Virgin Atlantic CISO John White, gives you a framework for the decision: what you’re actually buying, the differentiators that hold up under scrutiny, and the questions to bring into every vendor meeting.👉 Get the Guide 👈I hear lots of people talking about AI SOC, great to hear a CISO’s perspective on what’s important to keep in mind 👍️ AppSecA thousand fewer paths to rootOpenAI describes an autonomous vulnerability discovery, exploitation, and patching pipeline. In one run with an upcoming cyber model, it validated and generated patches for 948 local privilege escalation vulnerabilities in Linux at an API cost of $1.2 million, ~$1,279 per LPE. During the run, the agents in this pipeline discovered and used at least 10 novel Linux exploitation techniques.💡 Shout-out to my friend Kyle Zeng who created the pipeline and did most of the research, and then he and I jammed on the post with other colleagues for…a long time. I’m happy with how it turned out. There are a ton more interesting details in the blog that I don’t have space to describe here, but I’m happy to answer questions on LinkedIn or X, feel free to write a comment (or smash that share button 😆) Oh yeah, and I helped create the official OpenAI X thread, that was a cool experience.Also fun fact: Greg Brockman helped with the title and did some editing, he’s surprisingly involved in a lot of details and very focused on cyber these days. How We Scaled Security Reviews Without Slowing Down EngineeringPostman's Anurag Mewar describes how they moved security reviews from a manual model where every service release waited for AppSec sign-off to risk-adaptive routing based on service criticality and change sensitivity. Mandatory triage questionnaires at the release and PR levels feed aggregated responses into each VAPT (Vulnerability Assessment & Penetration Testing) ticket, auto-closing low/medium severity services with no security-sensitive changes while high/critical services always get manual review. Auto-closed releases still pass through SAST, SCA, secret detection, and infrastructure policy enforcement, with AppSec auditing them monthly to validate triage accuracy. So far 25% of releases auto-unblock and the team has reclaimed 3 full business weeks of AppSec capacity per half-year, with a composite risk score in progress that will sort releases into autonomous, oversight, or critical review tiers.💡 I really like the data-driven approach: they added structured, required fields for security engineers to record info in each ticket, tracking aspects like: was manual security review required, manual review effort, trends in early vs late AppSec involvement, etc. And they review all automated decisions monthly to refine the questionnaire and recalibrate the automation 👍️ Sponsor📣 Nov 19: The five SIEM architectures splitting the market, comparedMost SIEM comparisons stop at detection coverage and price per GB. This session starts with the data architecture underneath, because that is what decides whether you keep visibility as log volume grows or quietly start dropping sources to protect the budget.SACR founder Francis Odum and Datadog Cloud SIEM PM Eitan Moriano walk through the five models splitting the market today, where each one breaks down, and what an AI agent needs underneath it before its conclusions are worth acting on. Live Thursday, November 19.👉 Save your seat 👈Nice, Francis Odum is a friend of the newsletter, and I like his detailed breakdowns of different areas of security and market maps. He’ll share some good perspective 🤔 Cloud SecurityNo quarantine for Bedrock MantlePlerion’s Daniel Grzelak demonstrates how AWS's AWSCompromisedKeyQuarantineV3 policy fails to block LLM inference through the newer bedrock-mantle service, which uses bedrock-mantle:CreateInference instead of the blocked bedrock:InvokeModel action. He shows that attackers can still run DeepSeek, Qwen, and 36 other open-weight models through the Mantle endpoint even after quarantine is applied, with these calls only visible as CloudTrail data events that are disabled by default in most accounts. Daniel recommends enabling CloudTrail data events for AWS::BedrockMantle::Project, using SCPs to deny the service if unused, or waiting for AWS to update the quarantine policy to include bedrock-mantle actions.💡 Sneaky! Daniel makes a good point regarding AWS’ deny list approach not being ideal here, as it’s reactive by design and AWS keeps shipping new surfaces, so there’ll be exposure until the policy catches up with new features.Security Logging in Cloud Environments - KubernetesMarco Lancini describes how to build a comprehensive security logging platform for Kubernetes clusters by collecting audit logs (via kube-apiserver), control plane logs, node/container logs (using Fluent Bit, Vector, or OpenTelemetry Collector as DaemonSets), runtime events (via Falco, Tetragon, or managed services like GuardDuty EKS Protection and GKE Security Command Center), network flows, and Kubernetes Events. He also explains key differences between EKS and GKE's managed offerings and potential blind spots.The architecture feeds all logs through Kinesis/Pub/Sub into immutable S3/GCS buckets with Object Lock/retention policies, then into a SIEM for centralized monitoring, with specific detection rules for high-value events like system:anonymous requests, cluster-admin bindings, pods/exec commands, and privileged pod creation.Blue Teamdepalmar/ai-dfir-toolkitBy Raymond DePalma: Tool that ships 161 vendor-neutral Sigma, YARA, and Suricata signatures for detecting AI/ML attacks across nine categories (prompt injection, MCP attacks, model supply chain, AI infrastructure, copilot abuse, RAG/vector DB, runtime AI malware, agentic orchestration, and agent memory poisoning) mapped to MITRE ATLAS and OWASP LLM/Agentic 2026. All rules ship alongside a machine-readable artifact catalog with ForensicArtifacts, KAPE, Velociraptor, and osquery exports, plus 22 case studies with 221 indicators and 20 actor profiles tied to the rules that detect their techniques.thomasunise/argusBy Thomas Unise: an open-source, self-hosted security operations platform that combines AI-powered investigation, autonomous response, and continuous offensive testing across cloud, identity, code, endpoint, network, and Kubernetes environments. The platform has 8 specialist AI agents that triage, investigate and hunt using read-only tools, and autonomous response playbooks that start in shadow mode with hourly caps and blast-radius limits (e.g. block an attacker at Cloudflare, cut a laptop off the network through CrowdStrike or SentinelOne). It includes 12 types of canaries (including 4 targeting AI agents like fake MCP servers and planted prompt injections), and a test harness supporting Prowler, Semgrep, Nuclei, ZAP, CALDERA, Gitleaks, and Trivy.💡 Hard to know when vibe coded tools are useful these days, but the autonomous response playbooks, telemetry collectors and event-ingestion parsers, and canaries could be sources of inspiration.AI + SecurityQuicklinks:0xdea/zed-claude-devcontainer - A sandboxed Claude Code dev container for the Zed editor, based on Trail of Bits’ devcontainer.Cheat Sheet: Claude Code Security Best Practices - Claude Code and other AI coding assistants are changing how fast code ships — but they're also changing what security teams need to watch for. This practical cheat sheet breaks down the real risk surfaces AI-assisted development introduces, and gives cloud security, AppSec, and platform engineers tactical steps to close the gaps.*JFrog found 42 compromised GitHub repos containing malicious payloads in large files (~13MB), deliberately exceeding GitHub's search and API indexing limits to evade detection. The repos contained malicious execution hooks for AI coding assistants that trigger when a project is opened.*SponsoredOur latest defenses against evolving web scamsGoogle’s Jasika Bawa describes how Chrome's Enhanced Protection mode now includes \"suspicious site warnings\" that use a two-tier taxonomy (suspicious vs. dangerous) to flag deceptive web patterns. The update leverages a server-side Gemini model to analyze page content for scam indicators like fake antivirus and browser update scams, processing data ephemerally without logging or retention. Chrome also introduced ClickFix detection that identifies when users copy suspicious commands (often invoking LOLBins like PowerShell or cmd.exe), scrubs the clipboard payload of PII, sends it to Safe Browsing for analysis, and displays warnings for dangerous verdicts.💡 I love to see popular software building more user protection features, this is great.The Post-AI Security FloorFriend of the newsletter Daniel Miessler outlines three immediate security priorities in response to AI-powered reconnaissance and exploitation: create a comprehensive inventory of all internet-facing assets (websites, APIs, databases, containers) in a simple format like Markdown, documenting what each asset is, where it runs, what data it holds, and who can access it; remove as much exposure as possible from the public internet using tools like Tailscale or Cloudflare Tunnels to protect against persistent agentic attacks; and reduce dependence on small security vendors that hold credentials, as they're attractive targets lacking resources to defend against nation-state and AI-driven attackers. Move sensitive credentials to larger platforms like existing cloud providers or OS-level solutions.MiscMisc‘Make It So’: The Ultimate Patrick Stewart Meme Hall of FameVending machine but it’s anime - Super fun, I wish I knew how to make videos like this.Tim Ferriss - The 10x Question for Deciding What MattersCooking show - Well if you put ham in it… 😂 Content Machine - Women vs men’s motivation at the gymFortune - 42% of America’s recent college grads are working jobs that don’t need a degree - From Kathmandu to Paris, young people are taking to the streets. Turchin, known for the theory of “elite overproduction,” has argued that the U.S. has reached a point seen repeatedly in past civilizations: too many products of elite education for the jobs the economy can generate. What tends to follow is “a wave of prolonged and intense sociopolitical instability.”Study: Brief Psychedelic Nasal Spray Eases Stubborn Depression For Weeks - Mebufotenin has an unusually short psychedelic experience, its effects peak 8 to 15 minutes after dosing and fade within 45 to 60 minutes.AICat Wu is joining OpenAI to lead product management for Core Products.Fun fact, in another #PeakBayArea situation, I met Cat at an AI potluck a few years ago, before she joined Anthropic. She’s friendly and cool, it’s been great to see her build Claude Code, and I’m excited to work with her.My friend Travis McPeak is joining Anthropic to lead cyber security products! Couldn’t be happier for him. I’ve been a fan of Travis as a person and his work since at least 2018, and I can’t wait to see what he and the team do 🤘 Side reflection: it’s crazy to see my friends I’ve “grown up with” in the security industry continue to go on and do so many amazing things 🤩 How I Built the Most AI-Pilled Company in the World - Spawn is ten people. They spend $32m/yr on Claude. “In the last 30 days, Spawn shipped 77,000 substantial changes.”SecurityJulioFerrero/own-your-glass - A hardening toolkit for rooted LG webOS TVs. It switches off the microphones, closes a screen-capture leak, blocks ad and telemetry servers and hides the ad apps.Hacker stole personnel data about thousands of Homeland Security employees, including CBP and ICE agents - “Names, job titles, and work contact information, such as email addresses, cell phone numbers, and office locations, of more than 40,000 people who work for the federal department, including border and immigration agents, cybersecurity staffers, and senior department officials.”BBC - Shop freezers in seven European countries hit by cyber-attackPentagon treating military base freezer malfunctions as suspected cyberattack, officials say - “In at least one of the cases, the freezers ​did not simply stop working; the cooling units' temperatures were cranked up overnight, yielding mounds of wilted or melted food in the morning.”Raphael Satter: “Many of us take fresh food for granted but, for almost everyone, that's overwhelmingly down to refrigeration. Tampering with the cold chain at scale can have devastating consequences. Someone, somewhere, is practicing how to do it.” 😅 PHP2ShellCensys - PHP2Shell services - Great overview of exposure in the wild.Dream - Chained PHP2Shell Exploit Roots 25 Servers, including US Government Servers - Via Palo Alto Networks PAN-OS management web server, which also fronts the GlobalProtect portal. The attacker developed two separate exploits and chained them together to achieve root access on any internet-facing PAN-OS firewall running a vulnerable build in a single HTTP request without any credentials: PHP2Shell exploit → Fragnesia kernel privilege escalation. The targeted servers were across the United States, Japan, Taiwan, and South Korea. Evidence of AI-assisted tooling in the attack infrastructure: Claude Code, an AI-powered offensive security platform called aiscan (configured with DeepSeek and Kimi), API keys for the Chinese reconnaissance platform FOFA.Thankfully armchair commentators on X have been saying PHP2Shell is too hard to exploit so we must be safe 😏✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "supply-chain",
-        "rce"
-      ],
-      "title": "[tl;dr sec] #353 - A Thousand Fewer Paths to Root, Kubernetes Security Logging, Post-AI Security Floor",
-      "url": "https://tldrsec.com/p/tldr-sec-353"
     },
     {
       "appsec": true,
@@ -422,6 +394,34 @@
     },
     {
       "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "4519138a0235fdcb",
+      "kev": false,
+      "published": "2026-11-05T15:30:00Z",
+      "score": 42.4,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:supply chain,remote code execution,rce (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+5.4)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🛡️ A thousand fewer paths to rootThis week we launched a blog that’s literally been months in the making.I included it in the AppSec section below, so here instead I’ll reflect a bit about the behind the scenes and what it felt like doing it.1) Working at a frontier lab is very unique. You can be unreasonably ambitious and (at least right now) the company is surprisingly cost insensitive for using tokens for research. So spending $1.2m on scanning Linux is totally fine.2) The company cares a lot about securing the critical software the world relies on, and we talk about it daily. I don’t actually know the numbers, but I wouldn’t be surprised if we have already and will continue to spend tens of millions of dollars in tokens on securing important OSS software, even if it has no direct business value. Just because we think it needs to happen.3) Kyle is such a joy to work with. And he just loves finding bugs. Every time he finds another few hundred 0-days (not exaggerating), he’s basically bouncing around like a kid at Christmas. We were in the office until 9pm every night this week finishing the blog post, and he was always positive. 4) I’ve noticed that just like how the hedonic treadmill can get you desensitized to fancy hotels and Michelin star food, I find the security research team and I are getting gradually desensitized to absolutely wild bugs. Like, the kind that would be the talk of the year a few years ago, we find probably on a weekly basis.Now, unless the bug is unauthenticated remote code execution on software used by 10’s to 100’s of millions of people or servers, we’re like 🤷 That’s OK I guess. RCE but it takes 1 or more clicks? Weak. Full compromise but it requires a non default configuration 🥱 I definitely did not predict this before joining, and I would have thought this situation was outlandish and impossible at the beginning of this year. The world has changed. I’ve changed.More thoughts later, it’s bed time and there are more bugs to disclose tomorrow.👉️ A thousand fewer paths to root 👈️(Discuss on LinkedIn or X)Sponsor📣 The AI SOC Buyer’s GuideBuying an AI SOC isn’t like buying a SIEM or a SOAR. The old RFP measures features and integrations. It doesn’t tell you whether a platform can reason about your environment, learn from your analysts, or act safely on its own.The AI SOC Buyer’s Guide, from former Virgin Atlantic CISO John White, gives you a framework for the decision: what you’re actually buying, the differentiators that hold up under scrutiny, and the questions to bring into every vendor meeting.👉 Get the Guide 👈I hear lots of people talking about AI SOC, great to hear a CISO’s perspective on what’s important to keep in mind 👍️ AppSecA thousand fewer paths to rootOpenAI describes an autonomous vulnerability discovery, exploitation, and patching pipeline. In one run with an upcoming cyber model, it validated and generated patches for 948 local privilege escalation vulnerabilities in Linux at an API cost of $1.2 million, ~$1,279 per LPE. During the run, the agents in this pipeline discovered and used at least 10 novel Linux exploitation techniques.💡 Shout-out to my friend Kyle Zeng who created the pipeline and did most of the research, and then he and I jammed on the post with other colleagues for…a long time. I’m happy with how it turned out. There are a ton more interesting details in the blog that I don’t have space to describe here, but I’m happy to answer questions on LinkedIn or X, feel free to write a comment (or smash that share button 😆) Oh yeah, and I helped create the official OpenAI X thread, that was a cool experience.Also fun fact: Greg Brockman helped with the title and did some editing, he’s surprisingly involved in a lot of details and very focused on cyber these days. How We Scaled Security Reviews Without Slowing Down EngineeringPostman's Anurag Mewar describes how they moved security reviews from a manual model where every service release waited for AppSec sign-off to risk-adaptive routing based on service criticality and change sensitivity. Mandatory triage questionnaires at the release and PR levels feed aggregated responses into each VAPT (Vulnerability Assessment & Penetration Testing) ticket, auto-closing low/medium severity services with no security-sensitive changes while high/critical services always get manual review. Auto-closed releases still pass through SAST, SCA, secret detection, and infrastructure policy enforcement, with AppSec auditing them monthly to validate triage accuracy. So far 25% of releases auto-unblock and the team has reclaimed 3 full business weeks of AppSec capacity per half-year, with a composite risk score in progress that will sort releases into autonomous, oversight, or critical review tiers.💡 I really like the data-driven approach: they added structured, required fields for security engineers to record info in each ticket, tracking aspects like: was manual security review required, manual review effort, trends in early vs late AppSec involvement, etc. And they review all automated decisions monthly to refine the questionnaire and recalibrate the automation 👍️ Sponsor📣 Nov 19: The five SIEM architectures splitting the market, comparedMost SIEM comparisons stop at detection coverage and price per GB. This session starts with the data architecture underneath, because that is what decides whether you keep visibility as log volume grows or quietly start dropping sources to protect the budget.SACR founder Francis Odum and Datadog Cloud SIEM PM Eitan Moriano walk through the five models splitting the market today, where each one breaks down, and what an AI agent needs underneath it before its conclusions are worth acting on. Live Thursday, November 19.👉 Save your seat 👈Nice, Francis Odum is a friend of the newsletter, and I like his detailed breakdowns of different areas of security and market maps. He’ll share some good perspective 🤔 Cloud SecurityNo quarantine for Bedrock MantlePlerion’s Daniel Grzelak demonstrates how AWS's AWSCompromisedKeyQuarantineV3 policy fails to block LLM inference through the newer bedrock-mantle service, which uses bedrock-mantle:CreateInference instead of the blocked bedrock:InvokeModel action. He shows that attackers can still run DeepSeek, Qwen, and 36 other open-weight models through the Mantle endpoint even after quarantine is applied, with these calls only visible as CloudTrail data events that are disabled by default in most accounts. Daniel recommends enabling CloudTrail data events for AWS::BedrockMantle::Project, using SCPs to deny the service if unused, or waiting for AWS to update the quarantine policy to include bedrock-mantle actions.💡 Sneaky! Daniel makes a good point regarding AWS’ deny list approach not being ideal here, as it’s reactive by design and AWS keeps shipping new surfaces, so there’ll be exposure until the policy catches up with new features.Security Logging in Cloud Environments - KubernetesMarco Lancini describes how to build a comprehensive security logging platform for Kubernetes clusters by collecting audit logs (via kube-apiserver), control plane logs, node/container logs (using Fluent Bit, Vector, or OpenTelemetry Collector as DaemonSets), runtime events (via Falco, Tetragon, or managed services like GuardDuty EKS Protection and GKE Security Command Center), network flows, and Kubernetes Events. He also explains key differences between EKS and GKE's managed offerings and potential blind spots.The architecture feeds all logs through Kinesis/Pub/Sub into immutable S3/GCS buckets with Object Lock/retention policies, then into a SIEM for centralized monitoring, with specific detection rules for high-value events like system:anonymous requests, cluster-admin bindings, pods/exec commands, and privileged pod creation.Blue Teamdepalmar/ai-dfir-toolkitBy Raymond DePalma: Tool that ships 161 vendor-neutral Sigma, YARA, and Suricata signatures for detecting AI/ML attacks across nine categories (prompt injection, MCP attacks, model supply chain, AI infrastructure, copilot abuse, RAG/vector DB, runtime AI malware, agentic orchestration, and agent memory poisoning) mapped to MITRE ATLAS and OWASP LLM/Agentic 2026. All rules ship alongside a machine-readable artifact catalog with ForensicArtifacts, KAPE, Velociraptor, and osquery exports, plus 22 case studies with 221 indicators and 20 actor profiles tied to the rules that detect their techniques.thomasunise/argusBy Thomas Unise: an open-source, self-hosted security operations platform that combines AI-powered investigation, autonomous response, and continuous offensive testing across cloud, identity, code, endpoint, network, and Kubernetes environments. The platform has 8 specialist AI agents that triage, investigate and hunt using read-only tools, and autonomous response playbooks that start in shadow mode with hourly caps and blast-radius limits (e.g. block an attacker at Cloudflare, cut a laptop off the network through CrowdStrike or SentinelOne). It includes 12 types of canaries (including 4 targeting AI agents like fake MCP servers and planted prompt injections), and a test harness supporting Prowler, Semgrep, Nuclei, ZAP, CALDERA, Gitleaks, and Trivy.💡 Hard to know when vibe coded tools are useful these days, but the autonomous response playbooks, telemetry collectors and event-ingestion parsers, and canaries could be sources of inspiration.AI + SecurityQuicklinks:0xdea/zed-claude-devcontainer - A sandboxed Claude Code dev container for the Zed editor, based on Trail of Bits’ devcontainer.Cheat Sheet: Claude Code Security Best Practices - Claude Code and other AI coding assistants are changing how fast code ships — but they're also changing what security teams need to watch for. This practical cheat sheet breaks down the real risk surfaces AI-assisted development introduces, and gives cloud security, AppSec, and platform engineers tactical steps to close the gaps.*JFrog found 42 compromised GitHub repos containing malicious payloads in large files (~13MB), deliberately exceeding GitHub's search and API indexing limits to evade detection. The repos contained malicious execution hooks for AI coding assistants that trigger when a project is opened.*SponsoredOur latest defenses against evolving web scamsGoogle’s Jasika Bawa describes how Chrome's Enhanced Protection mode now includes \"suspicious site warnings\" that use a two-tier taxonomy (suspicious vs. dangerous) to flag deceptive web patterns. The update leverages a server-side Gemini model to analyze page content for scam indicators like fake antivirus and browser update scams, processing data ephemerally without logging or retention. Chrome also introduced ClickFix detection that identifies when users copy suspicious commands (often invoking LOLBins like PowerShell or cmd.exe), scrubs the clipboard payload of PII, sends it to Safe Browsing for analysis, and displays warnings for dangerous verdicts.💡 I love to see popular software building more user protection features, this is great.The Post-AI Security FloorFriend of the newsletter Daniel Miessler outlines three immediate security priorities in response to AI-powered reconnaissance and exploitation: create a comprehensive inventory of all internet-facing assets (websites, APIs, databases, containers) in a simple format like Markdown, documenting what each asset is, where it runs, what data it holds, and who can access it; remove as much exposure as possible from the public internet using tools like Tailscale or Cloudflare Tunnels to protect against persistent agentic attacks; and reduce dependence on small security vendors that hold credentials, as they're attractive targets lacking resources to defend against nation-state and AI-driven attackers. Move sensitive credentials to larger platforms like existing cloud providers or OS-level solutions.MiscMisc‘Make It So’: The Ultimate Patrick Stewart Meme Hall of FameVending machine but it’s anime - Super fun, I wish I knew how to make videos like this.Tim Ferriss - The 10x Question for Deciding What MattersCooking show - Well if you put ham in it… 😂 Content Machine - Women vs men’s motivation at the gymFortune - 42% of America’s recent college grads are working jobs that don’t need a degree - From Kathmandu to Paris, young people are taking to the streets. Turchin, known for the theory of “elite overproduction,” has argued that the U.S. has reached a point seen repeatedly in past civilizations: too many products of elite education for the jobs the economy can generate. What tends to follow is “a wave of prolonged and intense sociopolitical instability.”Study: Brief Psychedelic Nasal Spray Eases Stubborn Depression For Weeks - Mebufotenin has an unusually short psychedelic experience, its effects peak 8 to 15 minutes after dosing and fade within 45 to 60 minutes.AICat Wu is joining OpenAI to lead product management for Core Products.Fun fact, in another #PeakBayArea situation, I met Cat at an AI potluck a few years ago, before she joined Anthropic. She’s friendly and cool, it’s been great to see her build Claude Code, and I’m excited to work with her.My friend Travis McPeak is joining Anthropic to lead cyber security products! Couldn’t be happier for him. I’ve been a fan of Travis as a person and his work since at least 2018, and I can’t wait to see what he and the team do 🤘 Side reflection: it’s crazy to see my friends I’ve “grown up with” in the security industry continue to go on and do so many amazing things 🤩 How I Built the Most AI-Pilled Company in the World - Spawn is ten people. They spend $32m/yr on Claude. “In the last 30 days, Spawn shipped 77,000 substantial changes.”SecurityJulioFerrero/own-your-glass - A hardening toolkit for rooted LG webOS TVs. It switches off the microphones, closes a screen-capture leak, blocks ad and telemetry servers and hides the ad apps.Hacker stole personnel data about thousands of Homeland Security employees, including CBP and ICE agents - “Names, job titles, and work contact information, such as email addresses, cell phone numbers, and office locations, of more than 40,000 people who work for the federal department, including border and immigration agents, cybersecurity staffers, and senior department officials.”BBC - Shop freezers in seven European countries hit by cyber-attackPentagon treating military base freezer malfunctions as suspected cyberattack, officials say - “In at least one of the cases, the freezers ​did not simply stop working; the cooling units' temperatures were cranked up overnight, yielding mounds of wilted or melted food in the morning.”Raphael Satter: “Many of us take fresh food for granted but, for almost everyone, that's overwhelmingly down to refrigeration. Tampering with the cold chain at scale can have devastating consequences. Someone, somewhere, is practicing how to do it.” 😅 PHP2ShellCensys - PHP2Shell services - Great overview of exposure in the wild.Dream - Chained PHP2Shell Exploit Roots 25 Servers, including US Government Servers - Via Palo Alto Networks PAN-OS management web server, which also fronts the GlobalProtect portal. The attacker developed two separate exploits and chained them together to achieve root access on any internet-facing PAN-OS firewall running a vulnerable build in a single HTTP request without any credentials: PHP2Shell exploit → Fragnesia kernel privilege escalation. The targeted servers were across the United States, Japan, Taiwan, and South Korea. Evidence of AI-assisted tooling in the attack infrastructure: Claude Code, an AI-powered offensive security platform called aiscan (configured with DeepSeek and Kimi), API keys for the Chinese reconnaissance platform FOFA.Thankfully armchair commentators on X have been saying PHP2Shell is too hard to exploit so we must be safe 😏✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "supply-chain",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #353 - A Thousand Fewer Paths to Root, Kubernetes Security Logging, Post-AI Security Floor",
+      "url": "https://tldrsec.com/p/tldr-sec-353"
+    },
+    {
+      "appsec": true,
       "cves": [
         "CVE-2026-92261"
       ],
@@ -458,12 +458,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 41.8,
+      "score": 41.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -604,12 +604,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 39.8,
+      "score": 39.7,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -636,12 +636,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 39.7,
+      "score": 39.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.7)"
+        "recency (+2.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -662,12 +662,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 39.1,
+      "score": 39.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -688,12 +688,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 39.0,
+      "score": 38.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -715,12 +715,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 38.5,
+      "score": 38.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -741,12 +741,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 38.5,
+      "score": 38.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -767,12 +767,12 @@
       "id": "57391fb98ccccca2",
       "kev": false,
       "published": "2026-10-22T14:30:00Z",
-      "score": 38.4,
+      "score": 38.3,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,jira,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1618,12 +1618,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 36.3,
+      "score": 36.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1646,12 +1646,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 36.2,
+      "score": 36.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.2)"
+        "recency (+1.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1672,12 +1672,12 @@
       "id": "882253f24ce8e5ea",
       "kev": false,
       "published": "2026-10-15T02:07:28Z",
-      "score": 35.7,
+      "score": 35.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1698,11 +1698,11 @@
       "id": "bcf04c6904579bec",
       "kev": false,
       "published": "2026-11-14T23:59:28Z",
-      "score": 35.2,
+      "score": 34.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.2)"
+        "recency (+13.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1722,11 +1722,11 @@
       "id": "94ec8fcfeda2db99",
       "kev": false,
       "published": "2026-11-14T17:09:09Z",
-      "score": 34.8,
+      "score": 34.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+13.8)"
+        "recency (+13.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1742,38 +1742,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "b73209306c9412bd",
-      "kev": false,
-      "published": "2026-11-12T22:55:19Z",
-      "score": 32.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+11.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-gemini 0.37 Google launched Gemini 4 Hydrogen today - the lowest cost member of the Gemini 4 family. It's actually not too far off the price of its much bigger siblings, Carbon and Argon. I'm finding Gemini 4's pricing really confusing. Here's the pricing scheme: Model Dates Input ($/M) Cached input Output Gemini 4 Carbon Through Nov 30, 2026 $2.00 $0.10 $10.00 From Dec 1, 2026 $4.00 $0.20 $20.00 Gemini 4 Argon Through Nov 30, 2026 $2.00 $0.10 $10.00 From Dec 1, 2026 $4.00 $0.20 $20.00 Gemini 4 Hydrogen $1.50 $0.075 $7.50 Carbon and Argon are the same price, and both are scheduled to double in price on December 1st. If they're the same price, why have two different models? Google says that Argon \"delivers Gemini 4 intelligence with faster responses and lower token spend per turn compared to Gemini 4 Carbon\" - so it may be priced the same, but it will use less tokens per task. Hydrogen, supposedly the cheap model, is currently only a 25% discount on its more capable peers. The Hydrogen price will make more sense after December 1st, when it will represent a 75% discount. It's still considerably more expensive than Claude Haiku 5.5 and GPT-6 Luna - they're both $0.10/$0.50, so Hydrogen is 15x that. I had Hydrogen generate some pelicans. Here's a full comparison grid showing the pelicans for all three members of the Gemini 4 family at their three supported effort levels: Considering how close they are in price, the difference in pelican quality for Hydrogen is quite stark. Here's how Google describe Hydrogen's intended position in their mix of models: In real-world software development, while teams rely on frontier models like Carbon and Argon for deep architectural judgment when designing systems or untangling subtle bugs, they still need a fast, disciplined execution model for writing code, running tests, and verifying changes. Hydrogen is built to stand on its own as a model for everyday work — or to pair with Carbon and Argon as the high-efficiency execution engine in multi-model workflows. Most notably, Hydrogen is the new free tier model, and is the model that will power AI features in Google Search. Tags: gemini, llm, google, pelican-riding-a-bicycle, llm-pricing, ai, llms",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-gemini 0.37",
-      "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 32.3,
+      "score": 32.2,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1793,11 +1769,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 32.2,
+      "score": 32.1,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1815,14 +1791,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6b121f474cc35549",
+      "id": "b73209306c9412bd",
       "kev": false,
-      "published": "2026-11-11T22:03:25Z",
-      "score": 31.4,
+      "published": "2026-11-12T22:55:19Z",
+      "score": 32.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.4)"
+        "recency (+11.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-gemini 0.37 Google launched Gemini 4 Hydrogen today - the lowest cost member of the Gemini 4 family. It's actually not too far off the price of its much bigger siblings, Carbon and Argon. I'm finding Gemini 4's pricing really confusing. Here's the pricing scheme: Model Dates Input ($/M) Cached input Output Gemini 4 Carbon Through Nov 30, 2026 $2.00 $0.10 $10.00 From Dec 1, 2026 $4.00 $0.20 $20.00 Gemini 4 Argon Through Nov 30, 2026 $2.00 $0.10 $10.00 From Dec 1, 2026 $4.00 $0.20 $20.00 Gemini 4 Hydrogen $1.50 $0.075 $7.50 Carbon and Argon are the same price, and both are scheduled to double in price on December 1st. If they're the same price, why have two different models? Google says that Argon \"delivers Gemini 4 intelligence with faster responses and lower token spend per turn compared to Gemini 4 Carbon\" - so it may be priced the same, but it will use less tokens per task. Hydrogen, supposedly the cheap model, is currently only a 25% discount on its more capable peers. The Hydrogen price will make more sense after December 1st, when it will represent a 75% discount. It's still considerably more expensive than Claude Haiku 5.5 and GPT-6 Luna - they're both $0.10/$0.50, so Hydrogen is 15x that. I had Hydrogen generate some pelicans. Here's a full comparison grid showing the pelicans for all three members of the Gemini 4 family at their three supported effort levels: Considering how close they are in price, the difference in pelican quality for Hydrogen is quite stark. Here's how Google describe Hydrogen's intended position in their mix of models: In real-world software development, while teams rely on frontier models like Carbon and Argon for deep architectural judgment when designing systems or untangling subtle bugs, they still need a fast, disciplined execution model for writing code, running tests, and verifying changes. Hydrogen is built to stand on its own as a model for everyday work — or to pair with Carbon and Argon as the high-efficiency execution engine in multi-model workflows. Most notably, Hydrogen is the new free tier model, and is the model that will power AI features in Google Search. Tags: gemini, llm, google, pelican-riding-a-bicycle, llm-pricing, ai, llms",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.37",
+      "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6b121f474cc35549",
+      "kev": false,
+      "published": "2026-11-11T22:03:25Z",
+      "score": 31.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+10.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1842,11 +1842,11 @@
       "id": "0e206308dec11d59",
       "kev": false,
       "published": "2026-11-11T18:42:50Z",
-      "score": 31.3,
+      "score": 30.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+10.3)"
+        "recency (+9.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1865,11 +1865,11 @@
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 31.2,
+      "score": 30.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.2)"
+        "recency (+9.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1880,30 +1880,6 @@
       ],
       "title": "llm 0.37.2",
       "url": "https://simonwillison.net/2026/Nov/11/llm/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5767c4d342983118",
-      "kev": false,
-      "published": "2026-11-10T20:09:44Z",
-      "score": 30.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+9.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-gemini 0.36",
-      "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
     },
     {
       "appsec": false,
@@ -1927,6 +1903,30 @@
       ],
       "title": "On the Effectiveness of Mutational Grammar Fuzzing",
       "url": "https://projectzero.google/2026/03/mutational-grammar-fuzzing.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5767c4d342983118",
+      "kev": false,
+      "published": "2026-11-10T20:09:44Z",
+      "score": 30.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+9.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.36",
+      "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
     },
     {
       "appsec": false,
@@ -1982,11 +1982,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 29.9,
+      "score": 29.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.9)"
+        "recency (+8.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2006,11 +2006,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 29.6,
+      "score": 29.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+8.6)"
+        "recency (+8.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2029,11 +2029,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 29.6,
+      "score": 29.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.6)"
+        "recency (+8.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2053,11 +2053,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 29.0,
+      "score": 28.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+8.0)"
+        "recency (+7.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2103,10 +2103,10 @@
       "id": "33329a02a00b9779",
       "kev": false,
       "published": "2026-11-13T08:00:00Z",
-      "score": 27.0,
+      "score": 26.6,
       "score_reasons": [
         "source:Project Zero (+15)",
-        "recency (+12.0)"
+        "recency (+11.6)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -2125,11 +2125,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2149,11 +2149,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 25.7,
+      "score": 25.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2173,11 +2173,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 25.6,
+      "score": 25.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2197,11 +2197,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 25.4,
+      "score": 25.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2221,11 +2221,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 25.3,
+      "score": 25.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+4.3)"
+        "recency (+4.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2245,11 +2245,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 24.9,
+      "score": 24.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2268,11 +2268,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 24.5,
+      "score": 24.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2292,11 +2292,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2316,11 +2316,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 23.8,
+      "score": 23.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2340,11 +2340,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 23.6,
+      "score": 23.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2364,11 +2364,11 @@
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 23.6,
+      "score": 23.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2388,11 +2388,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 23.5,
+      "score": 23.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2402,30 +2402,6 @@
       ],
       "title": "The October inflection point for vibe game development",
       "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "ddec6cb5a4e152e9",
-      "kev": false,
-      "published": "2026-10-26T23:53:07Z",
-      "score": 23.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in the same position as Sonnet in the Anthropic model collection - not the cheapest or the most expensive, making it harder to decide when to use it. Computer use is a good example of a task that benefits from a less expensive model, since you might put it to work on automated, repetitive tasks. OpenAI's Ted Sanders provided some useful advice in a comment on Hacker News: In the case of GPT-6.1 Terra, I'd say Terra is probably better than Astra and Sol at technical communication, similar on vision and computer use (but much faster!), and a bit worse on most other things. For API developers, it's a nice midrange option if you want something cheaper than Sol but a lot smarter than Luna (especially for vision / computer use / communication). For subscribers, it's not a bombshell release - if you're hitting usage limits, maybe it helps you go a bit further, and if you want clearer communication or faster computer use, it can be a nice option to select. Here are the pelicans for the different reasoning levels. This pelican for \"max\" cost 11.3161 cents and took 4 minutes and 11 seconds: Here's a new comparison grid showing pelicans for every reasoning level of OpenAI's current frontier lineup: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna. GPT-6.1 Terra is priced at $1/million input tokens and $5/million output - almost half the price of GPT-5.6 Terra and GPT-6.1 Sol, and around 10x the price of GPT-6 Luna. Via Hacker News Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, gpt, ted-sanders",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "GPT-6.1 Terra",
-      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
     },
     {
       "appsec": false,
@@ -2456,14 +2432,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "bcd7360bb2139689",
+      "id": "ddec6cb5a4e152e9",
       "kev": false,
-      "published": "2026-10-26T16:15:00Z",
+      "published": "2026-10-26T23:53:07Z",
       "score": 23.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
+        "watchlist:llm (+15)",
         "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in the same position as Sonnet in the Anthropic model collection - not the cheapest or the most expensive, making it harder to decide when to use it. Computer use is a good example of a task that benefits from a less expensive model, since you might put it to work on automated, repetitive tasks. OpenAI's Ted Sanders provided some useful advice in a comment on Hacker News: In the case of GPT-6.1 Terra, I'd say Terra is probably better than Astra and Sol at technical communication, similar on vision and computer use (but much faster!), and a bit worse on most other things. For API developers, it's a nice midrange option if you want something cheaper than Sol but a lot smarter than Luna (especially for vision / computer use / communication). For subscribers, it's not a bombshell release - if you're hitting usage limits, maybe it helps you go a bit further, and if you want clearer communication or faster computer use, it can be a nice option to select. Here are the pelicans for the different reasoning levels. This pelican for \"max\" cost 11.3161 cents and took 4 minutes and 11 seconds: Here's a new comparison grid showing pelicans for every reasoning level of OpenAI's current frontier lineup: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna. GPT-6.1 Terra is priced at $1/million input tokens and $5/million output - almost half the price of GPT-5.6 Terra and GPT-6.1 Sol, and around 10x the price of GPT-6 Luna. Via Hacker News Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, gpt, ted-sanders",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GPT-6.1 Terra",
+      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "bcd7360bb2139689",
+      "kev": false,
+      "published": "2026-10-26T16:15:00Z",
+      "score": 23.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+2.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2479,14 +2479,34 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c29c5645291af4ed",
+      "kev": false,
+      "published": "2026-11-15T19:22:09Z",
+      "score": 22.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview, Catalin Cimpanu talks with Thinkst CTO Marco Slaviero about the state of the defensive AI cyber space and the company’s current agentic canaries, as well as the need for more experimentation. Show notes Marco Slaviero on LinkedIN Blue Hat Asia 2026 Keynote: An Age of Experimentation BMC vulnerabilities, runZero Research [un]prompted.au 2026: Security Through Obscurity is Dead and LLMs Killed It, Brendan Dolan Gavitt Thinkst Scapes: 2026, Q2",
+      "tags": [],
+      "title": "Thinkst on the defensive AI cyber space",
+      "url": "https://risky.biz/RBNEWSSI151/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 22.6,
+      "score": 22.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2530,11 +2550,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 22.2,
+      "score": 22.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+1.2)"
+        "recency (+1.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2554,11 +2574,11 @@
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 22.0,
+      "score": 21.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2578,11 +2598,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 22.0,
+      "score": 21.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2602,11 +2622,11 @@
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
-      "score": 21.9,
+      "score": 21.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2645,29 +2665,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ce198fb1cf58f435",
-      "kev": false,
-      "published": "2026-10-14T21:23:01Z",
-      "score": 21.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+0.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Tree Appreciator Another game experiment with Claude. This one used the default Claude iPhone app (chat mode, not Claude Code mode), where I prompted Claude Opus 5.5 Max with: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. Somewhat embarrassingly given my recent talk, I've found that telling Opus 5.5 \"make sure it is fun\" works uncomfortably well. In this case Claude crunched for 3 hours and 7 minutes before retuning a cosy little spot-the-difference game with music and animation and achievements that's quite compelling to play. Tags: game-design, javascript, ai, generative-ai, llms, claude, vibe-coding, three-js",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "Tree Appreciator",
-      "url": "https://simonwillison.net/2026/Oct/14/tree-appreciator/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
@@ -2692,13 +2689,36 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "ce198fb1cf58f435",
+      "kev": false,
+      "published": "2026-10-14T21:23:01Z",
+      "score": 21.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+0.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Tree Appreciator Another game experiment with Claude. This one used the default Claude iPhone app (chat mode, not Claude Code mode), where I prompted Claude Opus 5.5 Max with: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. Somewhat embarrassingly given my recent talk, I've found that telling Opus 5.5 \"make sure it is fun\" works uncomfortably well. In this case Claude crunched for 3 hours and 7 minutes before retuning a cosy little spot-the-difference game with music and animation and achievements that's quite compelling to play. Tags: game-design, javascript, ai, generative-ai, llms, claude, vibe-coding, three-js",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "Tree Appreciator",
+      "url": "https://simonwillison.net/2026/Oct/14/tree-appreciator/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 20.1,
+      "score": 19.9,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2717,10 +2737,10 @@
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 18.8,
+      "score": 18.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.8)"
+        "recency (+12.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2737,10 +2757,10 @@
       "id": "8cc6965690b08360",
       "kev": false,
       "published": "2026-11-13T22:30:54Z",
-      "score": 18.7,
+      "score": 18.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.7)"
+        "recency (+12.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2757,10 +2777,10 @@
       "id": "ea0dffb11eb2bd56",
       "kev": false,
       "published": "2026-11-12T03:30:09Z",
-      "score": 18.7,
+      "score": 18.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.7)"
+        "recency (+10.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2777,10 +2797,10 @@
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 17.6,
+      "score": 17.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.6)"
+        "recency (+9.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2797,10 +2817,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 16.4,
+      "score": 16.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2817,10 +2837,10 @@
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 16.1,
+      "score": 15.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.1)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2837,10 +2857,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 15.9,
+      "score": 15.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.9)"
+        "recency (+7.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2848,26 +2868,6 @@
       "tags": [],
       "title": "Risky Bulletin: Pro-Kremlin hacktivists dox EU politicians, law enforcement",
       "url": "https://risky.biz/RBNEWS631/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "91d04b9b6b9b3f84",
-      "kev": false,
-      "published": "2026-11-08T19:10:22Z",
-      "score": 15.7,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.7)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview Tom Uren talks to Airlock Digital’s CTO and CSO Peter Baussmann about how the Essential Eight is evolving into ASD’s Essentials framework. The pair discuss why the change was needed and how Essentials is a broader framework that is less prescriptive and requires more judgement. Show notes From the Essential Eight to ASD's Essentials",
-      "tags": [],
-      "title": "Sponsored: The evolution of ASD's Essential Eight",
-      "url": "https://risky.biz/RBNEWSSI150/"
     },
     {
       "appsec": false,
@@ -2893,6 +2893,26 @@
       ],
       "title": "A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens",
       "url": "https://projectzero.google/2026/05/pixel-10-exploit.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "91d04b9b6b9b3f84",
+      "kev": false,
+      "published": "2026-11-08T19:10:22Z",
+      "score": 15.4,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+7.4)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview Tom Uren talks to Airlock Digital’s CTO and CSO Peter Baussmann about how the Essential Eight is evolving into ASD’s Essentials framework. The pair discuss why the change was needed and how Essentials is a broader framework that is less prescriptive and requires more judgement. Show notes From the Essential Eight to ASD's Essentials",
+      "tags": [],
+      "title": "Sponsored: The evolution of ASD's Essential Eight",
+      "url": "https://risky.biz/RBNEWSSI150/"
     },
     {
       "appsec": false,
@@ -3714,10 +3734,10 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 14.8,
+      "score": 14.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.8)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3734,10 +3754,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 14.8,
+      "score": 14.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.8)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3754,10 +3774,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 13.8,
+      "score": 13.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3818,10 +3838,10 @@
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 13.3,
+      "score": 13.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.3)"
+        "recency (+5.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3838,10 +3858,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 13.1,
+      "score": 12.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.1)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3858,10 +3878,10 @@
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 12.9,
+      "score": 12.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3875,33 +3895,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "1078dcb9b7d86963",
-      "kev": false,
-      "published": "2026-11-06T17:13:12Z",
-      "score": 12.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+6.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. — Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics",
-      "tags": [],
-      "title": "Quoting Nilay Patel",
-      "url": "https://simonwillison.net/2026/Nov/6/nilay-patel/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 12.2,
+      "score": 12.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3915,13 +3915,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "1078dcb9b7d86963",
+      "kev": false,
+      "published": "2026-11-06T17:13:12Z",
+      "score": 12.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+6.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. — Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics",
+      "tags": [],
+      "title": "Quoting Nilay Patel",
+      "url": "https://simonwillison.net/2026/Nov/6/nilay-patel/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 11.9,
+      "score": 11.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3938,10 +3958,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3958,10 +3978,10 @@
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 11.7,
+      "score": 11.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3978,10 +3998,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 10.9,
+      "score": 10.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3995,33 +4015,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5928ed51062ddbc9",
-      "kev": false,
-      "published": "2026-11-04T00:29:36Z",
-      "score": 10.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+4.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
-      "tags": [],
-      "title": "datasette-apps 0.3a0",
-      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 10.7,
+      "score": 10.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4035,13 +4035,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7d2479f2553dd44b",
+      "id": "5928ed51062ddbc9",
       "kev": false,
-      "published": "2026-11-03T16:42:02Z",
+      "published": "2026-11-04T00:29:36Z",
       "score": 10.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "recency (+4.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
+      "tags": [],
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "7d2479f2553dd44b",
+      "kev": false,
+      "published": "2026-11-03T16:42:02Z",
+      "score": 10.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4058,10 +4078,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4078,10 +4098,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4098,10 +4118,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4118,10 +4138,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 9.9,
+      "score": 9.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4138,10 +4158,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 9.8,
+      "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4198,10 +4218,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 9.2,
+      "score": 9.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4218,10 +4238,10 @@
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4238,10 +4258,10 @@
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4249,26 +4269,6 @@
       "tags": [],
       "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
       "url": "https://risky.biz/RBNEWSSI147/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c1ffef57cf4f0cf5",
-      "kev": false,
-      "published": "2026-10-29T17:00:26Z",
-      "score": 8.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
-      "tags": [],
-      "title": "Building a multiplayer game world with autonomous Fable-class models",
-      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
     },
     {
       "appsec": false,
@@ -4295,20 +4295,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "dcf0de9e2f585334",
+      "id": "c1ffef57cf4f0cf5",
       "kev": false,
-      "published": "2026-10-15T03:54:22Z",
+      "published": "2026-10-29T17:00:26Z",
       "score": 8.7,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.7)"
+        "source:Simon Willison (+6)",
+        "recency (+2.7)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about Russian targeting of Ukrainian data centres. That’s not good, but it looks like Russia is very poorly prepared for Ukraine’s retaliatory strikes. Karma! They also discuss how open-weight models are getting good at cyber tasks while safeguards are easily bypassed. There is no chance of international regulation that will rein in these models, so it is time to loosen cyber safety restrictions on American frontier models. This episode is also available on YouTube Show notes",
+      "summary": "How I Built the Most AI-Pilled Company in the World Don't be put off by the clickbait headline, this piece by Jacob Sansbury describing how they are building Spawn is a fascinating exploration of the bleeding edge of what's possible with agentic engineering against frontier models. Spawn is a massively multiplayer gaming environment where players can use prompts (to the in-game agent, Savi) to modify the game world. I fired it up on my phone for a few minutes and was able to prompt a castle into existence, then a dragon, then ride the dragon to fly around that castle. By Jacob's telling, Spawn is now being developed autonomously by a swarm of Fable-powered agents costing over $3 million in tokens per month (\"we spend 30x payroll on AI tokens\"). Our agents change the live code directly and ship to production hourly, so they read every error, bug report and metric themselves. About 60% of our work starts from a production error, a Savi bug report (Savi is the AI you build games with in Spawn), something odd in our logs, or a feature request. Savi files bugs herself. When a user hits one, or Savi hits one in the product, she files it. It goes straight to an agent that decides whether it's a real bug to fix, something we won't fix, or intentional design that needs a decision. Usually it becomes a change, delivered to that user within an hour, with a message in the same chat. This is continuous deployment turned up to 11: A loop this tight only works if it never stops, so we treat an hour without a ship as a SEV-0, our most severe kind of incident. Unshipped changes pile up, and every problem already in production lasts longer. The feedback slows down too. An agent can only keep a few hours of work in its head, so shipping faster than that actually helps it stay coherent. [...] We can roll back a broken change in 30 seconds, exactly where it's broken and nowhere else. When a monitor or a log alert fires, it starts or wakes an agent that owns the incident, and we break things on purpose to test that those recovery paths work. My eyebrows raised at least a dozen times reading this. I have trouble imagining this style of development working on software with higher stakes for when something goes wrong, but for a game this appears to be working surprisingly well. Jacob says that Fable 5 (and then 5.1) was the model that made this level of autonomy possible. Opus 5.5 doesn't quite hack it for them, and when they tried GPT-6 Astra to apply fixes from a security review everything stopped working: Every feature had been disabled and marked to be turned on again once the security fixes were done. Astra had gone through our whole product and made the insecure things secure by turning them off. These kinds of extreme experiments are why I'm excited about game development as a substrate for exploring the edges of what today's coding agents can do. Tags: game-design, ai, generative-ai, llms, claude, coding-agents, agentic-engineering, claude-mythos-fable",
       "tags": [],
-      "title": "Srsly Risky Biz: Russia's digital detox boomerang",
-      "url": "https://risky.biz/SRB186/"
+      "title": "Building a multiplayer game world with autonomous Fable-class models",
+      "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
     },
     {
       "appsec": false,
@@ -4329,6 +4329,26 @@
       "tags": [],
       "title": "Risky Bulletin: Spyware chip found in Ledger crypto-wallets",
       "url": "https://risky.biz/RBNEWS620/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "dcf0de9e2f585334",
+      "kev": false,
+      "published": "2026-10-15T03:54:22Z",
+      "score": 8.6,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.6)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about Russian targeting of Ukrainian data centres. That’s not good, but it looks like Russia is very poorly prepared for Ukraine’s retaliatory strikes. Karma! They also discuss how open-weight models are getting good at cyber tasks while safeguards are easily bypassed. There is no chance of international regulation that will rein in these models, so it is time to loosen cyber safety restrictions on American frontier models. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Russia's digital detox boomerang",
+      "url": "https://risky.biz/SRB186/"
     },
     {
       "appsec": false,
@@ -4398,10 +4418,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 8.5,
+      "score": 8.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4429,26 +4449,6 @@
       "tags": [],
       "title": "Game Boy Color on My Conference Badge",
       "url": "https://simonwillison.net/2026/Oct/27/game-boy-color-on-my-conference-badge/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "05f39f2a300ca5f0",
-      "kev": false,
-      "published": "2026-09-30T03:56:03Z",
-      "score": 8.2,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.2)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A ShinyHunters suspect has been arrested in the Netherlands, Apple fixes an iOS zero-day found by Meta, recent Citrix zero-days see mass exploitation within hours and NVIDIA launches an AI sandboxing platform. Show notes Risky Bulletin: Sanctions force CAs to revoke TLS certs in Iran, Russia",
-      "tags": [],
-      "title": "ShinyHunters suspect arrested in the Netherlands",
-      "url": "https://risky.biz/RBNEWS617/"
     },
     {
       "appsec": false,
@@ -4489,6 +4489,26 @@
       "tags": [],
       "title": "Authorities dismantle KillSec group",
       "url": "https://risky.biz/RBNEWS618/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "05f39f2a300ca5f0",
+      "kev": false,
+      "published": "2026-09-30T03:56:03Z",
+      "score": 8.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A ShinyHunters suspect has been arrested in the Netherlands, Apple fixes an iOS zero-day found by Meta, recent Citrix zero-days see mass exploitation within hours and NVIDIA launches an AI sandboxing platform. Show notes Risky Bulletin: Sanctions force CAs to revoke TLS certs in Iran, Russia",
+      "tags": [],
+      "title": "ShinyHunters suspect arrested in the Netherlands",
+      "url": "https://risky.biz/RBNEWS617/"
     },
     {
       "appsec": false,
@@ -4629,26 +4649,6 @@
       "tags": [],
       "title": "Sponsored: Robo-Burp is coming for your web apps",
       "url": "https://risky.biz/RBNEWSSI145/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "df11f17c78623c5a",
-      "kev": false,
-      "published": "2026-10-26T19:00:25Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
-      "tags": [],
-      "title": "Quoting Jason Koebler",
-      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
     },
     {
       "appsec": false,
@@ -5643,6 +5643,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "df11f17c78623c5a",
+      "kev": false,
+      "published": "2026-10-26T19:00:25Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
+      "tags": [],
+      "title": "Quoting Jason Koebler",
+      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "e237a3e4b6254448",
       "kev": false,
       "published": "2026-08-14T04:37:40Z",
@@ -5874,10 +5894,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 7.9,
+      "score": 7.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5914,10 +5934,10 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 7.6,
+      "score": 7.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5974,10 +5994,10 @@
       "id": "9a6f4ea76a26e005",
       "kev": false,
       "published": "2026-10-21T16:25:16Z",
-      "score": 7.3,
+      "score": 7.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5994,10 +6014,10 @@
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 7.1,
+      "score": 7.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6111,26 +6131,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "aa7677223a5c7914",
-      "kev": false,
-      "published": "2026-10-13T13:32:00Z",
-      "score": 6.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
-      "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "f3896491a736a8e2",
       "kev": false,
       "published": "2026-10-13T23:00:06Z",
@@ -6145,9 +6145,29 @@
       "tags": [],
       "title": "Redesigning source control at Anthropic",
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 6.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-15T14:05:26Z",
+  "last_run": "2026-11-15T22:55:53Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1327,
@@ -6160,7 +6180,7 @@
     "open_gaps": 987,
     "public_poc": 722,
     "total_cves": 2377,
-    "total_items": 275
+    "total_items": 276
   },
   "threats": [
     {
@@ -6569,7 +6589,7 @@
       ],
       "description": "Metabase allows a remote, unauthenticated attacker to inject arbitrary SQL via the '/reset_password' database endpoint and gain administrator access to the connected Metabase instance.",
       "ecosystems": [],
-      "epss": 0.98208,
+      "epss": 0.98513,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -7350,7 +7370,7 @@
       ],
       "description": "Langflow is a tool for building and deploying AI-powered agents and workflows. In versions prior to 1.9.0, the POST /api/v1/build_public_tmp/{flow_id}/flow endpoint allows building public flows without requiring authentication. When the opt…",
       "ecosystems": [],
-      "epss": 0.9635,
+      "epss": 0.96814,
       "ghsa_id": null,
       "has_poc": true,
       "is_candidate": false,
@@ -8956,6 +8976,38 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-r488-j9vj-wx3q",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-105857.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-105857",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-94",
+        "CWE-1321"
+      ],
+      "description": "Payload Form Builder has an RCE issue",
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": 0.00637,
+      "ghsa_id": "GHSA-r488-j9vj-wx3q",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-07T20:28:48Z",
+      "product": "@payloadcms/plugin-form-builder",
+      "published": "2026-10-07T20:28:33Z",
+      "score": 24.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-f8c7-rwf9-fmgm",
       "appsec": true,
       "brief": "briefs/CVE-2026-111057.md",
@@ -9259,38 +9311,6 @@
       "modified": "2026-10-08T13:39:07Z",
       "product": "langflow",
       "published": "2026-10-06T13:38:28Z",
-      "score": 24.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-r488-j9vj-wx3q",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-105857.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-105857",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-94",
-        "CWE-1321"
-      ],
-      "description": "Payload Form Builder has an RCE issue",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00429,
-      "ghsa_id": "GHSA-r488-j9vj-wx3q",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-07T20:28:48Z",
-      "product": "@payloadcms/plugin-form-builder",
-      "published": "2026-10-07T20:28:33Z",
       "score": 24.1,
       "sources": [],
       "vendor": null,
