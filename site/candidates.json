@@ -1280,40 +1280,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2015-4852.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 95% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2015-4852",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-502"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.94991,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2021-11-03",
-      "modified": "2021-11-03",
-      "nuclei_template": null,
-      "product": "virtual_desktop_infrastructure",
-      "published": "2021-11-03",
-      "score": 100,
-      "vendor": "oracle",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2014-6332.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -9717,43 +9683,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-45247.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-45247",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-502"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [
-        "php"
-      ],
-      "epss": 0.26157,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-06-03",
-      "modified": "2026-06-03",
-      "nuclei_template": null,
-      "product": "full_page_cache_warmer",
-      "published": "2026-06-03",
-      "score": 81.6,
-      "vendor": "mirasvit",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2013-0631.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -10007,39 +9936,6 @@
       "published": "2023-11-08",
       "score": 80.7,
       "vendor": "netapp",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-5430.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-5430",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-347"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.2239,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-09-24",
-      "modified": "2026-09-24",
-      "nuclei_template": null,
-      "product": "api_control_plane",
-      "published": "2026-09-24",
-      "score": 80.7,
-      "vendor": "wso2",
       "vuln_classes": []
     },
     {
@@ -33574,18 +33470,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-15T22:55:53Z",
+  "generated": "2026-11-16T05:54:10Z",
   "stats": {
     "actively_exploited_appsec": 1327,
-    "appsec_cves": 1783,
-    "kev_coverage_pct": 30.6,
+    "appsec_cves": 1775,
+    "kev_coverage_pct": 30.8,
     "kev_tracked": 1781,
-    "kev_with_coverage": 545,
+    "kev_with_coverage": 548,
     "newly_exploited": 15,
     "newly_exploited_days": 30,
-    "open_gaps": 987,
+    "open_gaps": 984,
     "public_poc": 722,
     "total_cves": 2377,
-    "total_items": 276
+    "total_items": 282
   }
 }
