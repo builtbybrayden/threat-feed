@@ -30002,6 +30002,42 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-91115.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-91115",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-470"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-16T22:35:13Z",
+      "nuclei_template": null,
+      "product": "silverstripe/framework",
+      "published": "2026-11-16T22:35:12Z",
+      "score": 22.8,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-76086.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -30215,6 +30251,42 @@
       "score": 22.7,
       "vendor": null,
       "vuln_classes": []
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-68934.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-68934",
+      "cvss_score": 8.7,
+      "cwe": [
+        "CWE-78"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-16T22:09:07Z",
+      "nuclei_template": null,
+      "product": "code-review-mcp-server",
+      "published": "2026-11-16T22:09:06Z",
+      "score": 22.7,
+      "vendor": null,
+      "vuln_classes": [
+        "command-injection"
+      ]
     },
     {
       "appsec": true,
@@ -33506,7 +33578,7 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-16T15:21:14Z",
+  "generated": "2026-11-17T01:52:58Z",
   "stats": {
     "actively_exploited_appsec": 1327,
     "appsec_cves": 1781,
@@ -33515,9 +33587,9 @@
     "kev_with_coverage": 548,
     "newly_exploited": 15,
     "newly_exploited_days": 30,
-    "open_gaps": 985,
+    "open_gaps": 987,
     "public_poc": 722,
-    "total_cves": 2387,
-    "total_items": 282
+    "total_cves": 2395,
+    "total_items": 284
   }
 }
