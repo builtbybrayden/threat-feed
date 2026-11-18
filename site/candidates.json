@@ -12013,6 +12013,41 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-56164.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-56164",
+      "cvss_score": 5.3,
+      "cwe": [
+        "CWE-306"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.2733,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-07-14",
+      "modified": "2026-07-14",
+      "nuclei_template": null,
+      "product": "sharepoint_server",
+      "published": "2026-07-14",
+      "score": 77.5,
+      "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2024-8069.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -31232,6 +31267,43 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-14265.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-14265",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-502"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.00727,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-17T20:39:21Z",
+      "nuclei_template": null,
+      "product": "software.amazon.jdbc:aws-advanced-jdbc-wrapper",
+      "published": "2026-11-17T20:39:21Z",
+      "score": 21.9,
+      "vendor": null,
+      "vuln_classes": [
+        "deserialization",
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-82416.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -33328,18 +33400,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-17T15:49:40Z",
+  "generated": "2026-11-18T00:52:45Z",
   "stats": {
     "actively_exploited_appsec": 1327,
-    "appsec_cves": 1781,
+    "appsec_cves": 1786,
     "kev_coverage_pct": 31.0,
-    "kev_tracked": 1781,
+    "kev_tracked": 1782,
     "kev_with_coverage": 553,
     "newly_exploited": 15,
     "newly_exploited_days": 30,
-    "open_gaps": 980,
-    "public_poc": 722,
-    "total_cves": 2395,
-    "total_items": 285
+    "open_gaps": 982,
+    "public_poc": 723,
+    "total_cves": 2402,
+    "total_items": 288
   }
 }

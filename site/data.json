@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-17T15:49:40Z",
+  "generated": "2026-11-18T00:52:45Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 52.2,
+      "score": 51.9,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.2)"
+        "recency (+7.9)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -70,15 +70,69 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5fa42ecadbea615e",
+      "kev": false,
+      "published": "2026-11-17T22:52:29Z",
+      "score": 49.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:node.js,python,prompt injection (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+14.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take damaging actions on a machine. I worked on this project with Prime Radiant, the AI research lab behind Superpowers and other projects. My post on the Prime Radiant blog introduces the external sandbox pattern, where code executed by the agent runs inside a dedicated sandbox while the agent itself lives outside of that sandbox. To demonstrate this pattern we've released three sandbox server implementations: external-sandbox-v86 runs a Node.js server which then uses v86 to run Alpine Linux inside WebAssembly. external-sandbox-container is a Python web server which runs the sandbox in Alpine Linux inside an Apple Containers instance. external-sandbox-quicksand is another Python web server, this time using Microsoft's Quicksand sandboxing library, which bundles QEMU and Alpine Linux in a Python package! Each of these implementations offers the same localhost API. You can then configure Pi, Claude Code, or Codex to send API calls to that sandbox any time they want to execute code. The sandboxes also include an optional HTTP/HTTPS allow-list proxy, so you can control exactly which hosts your agent's code is allowed to communicate with - plus a credential replacement mechanism to make authenticated API calls without sharing a secret with the agent. Here's the UI you can use to reconfigure that proxy while the sandbox is still running: I continue to be fascinated by the challenge of safely running untrusted code. This external sandbox pattern provides a neat way to experiment with different approaches. Tags: sandboxing, security, ai, webassembly, generative-ai, llms, coding-agents, claude-code, codex, pi",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "npm",
+        "pypi"
+      ],
+      "title": "External sandboxes for coding agents",
+      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "41af2268db8dcd8f",
+      "kev": false,
+      "published": "2026-11-17T16:48:33Z",
+      "score": 49.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:pypi,python,javascript (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+14.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide. I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the real server-side application. You can now do all of the following, using a carefully crafted URL to lite.datasette.io: Load client-side Datasette to browse any SQLite database, JSON file, CSV file or SQL script Select a released version of Datasette to load from PyPI Load a specific commit, tag, or branch name from the Datasette GitHub repository Pick from over 100 versions of SQLite to use with Datasette Install additional Datasette plugins from PyPI or URLs to wheel files, including JavaScript visualization tools The ability to load specific Datasette references, plugins, and SQLite versions makes this a fantastic tool for linking to demos of work-in-progress features or bug reproductions, without needing to spin up a full web server to serve that demo. As an example, consider the following URL: https://lite.datasette.io/?install=datasette-maplibre&url=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/demo.db&metadata=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/metadata.yml#/demo/capitals_and_countries%23map=0/4.2/180&color=continent Follow that link and, after a short loading screen, you'll find yourself on a page that looks like this: That's Datasette running the new datasette-maplibre plugin, loading up a database of GeoJSON shapes of countries and displaying both a combined map and individual boundary maps in a table. Let's break down that URL to see what it's doing: https://lite.datasette.io/ ?install=datasette-maplibre &url=https://.../demo.db &metadata=https://.../metadata.yml #/demo/capitals_and_countries%23map=0/4.2/180&color=continent The ?install=datasette-maplibre installs that additional plugin from PyPI. You can pass &install=... as many times as you like to load more plugins. &url=https://.../demo.db loads that SQLite database from the provided URL. These URLs need to have open CORS headers - I host files like this in Gists, because they provide an easy way to get open CORS headers on a web-hosted file. &metadata=https://.../metadata.yml loads this metadata.yml file. The metadata file adds HTML descriptions to various tables, and to the Datasette homepage. Visit that homepage here for a guided tour of the other features of that plugin, all defined in the metadata file. #/demo/capitals_and_countries%23map=0/4.2/180&color=continent is a fragment hash that turns into a location within Datasette - here it's loading the /demo/capitals_and_countries SQL view, then appending another fragment hash to it (%23 is a URL-encoded #) which tells the map plugin to zoom to a certain location and to set the color of the shapes on the map based on the continent column in the data. That URL is doing a lot of work! I wrote more about this trick for building URL-addressable software in URL-addressable Pyodide Python environments last year. The full set of supported URL arguments is described in the Datasette Lite README. I've already started using Datasette Lite as part of the Datasette development process. Here's a recent issue describing a pagination bug - I posted a comment there demonstrating the old, broken behavior and the new fix using links to Datasette Lite: Demo of the bug: https://lite.datasette.io/?ref=1.0a42&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score - click next and the second page is empty. Here's that same page with the bug fixed (running on 1.0a43): https://lite.datasette.io/?ref=1.0a43&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score How this works, using service workers Datasette Lite is not a new project. I launched the first version back in 2022, originally as a bit of a joke (running server-side apps in the browser is pretty funny) but one that quickly started proving its value. The problem with that initial version is that it was a hack. It worked by running Datasette in a Pyodide web worker, simulating requests through that stack, then injecting the resulting HTML back into the top level page using innerHTML. This worked for basic Datasette, but meant that any feature that used JavaScript failed to work, because script tags in innerHTML don't execute, and the web worker tricks it used failed to load additional JavaScript or CSS files. The new version takes a completely different approach based on Service Workers. These allow JavaScript to intercept HTTP requests for new pages and resources and serve them from client-side code instead. Datasette Lite registers a service worker for the entire lite.datasette.io domain. The parent page then creates an iframe that sends requests for Datasette pages to URLs that look like this: /app/aa94e6851595/ # the homepage (HTML) /app/aa94e6851595/data/places # a table page (HTML) /app/aa94e6851595/-/static/navigation-search.js # (JavaScript) /app/aa94e6851595/-/static/app.css # (CSS) Those are regular Datasette URLs, but with a /app/aa94e6851595/ prefix. What's that about? The /app/<session>/ prefix is necessary because of multiple tabs. Consider the URL above, which loads the demo instance with the datasette-maplibre plugin. That URL defines a full, custom Datasette instance. You might have that one running in a tab, then one of my other demo links running in another. The service worker for lite.datasette.io is shared between all of those tabs. If it routed to a single instance of Datasette then every tab would share that underlying instance, no matter what plugins or other settings their URL attempted to configure. Instead, the parent page generates a random session ID and uses it as a prefix for all of the subsequent hidden asset and page loads. The service worker can then use that session ID to route those requests back through the parent page to a web worker running a dedicated Datasette instance for that particular session. (We still need a web worker because Pyodide in a service worker would not be able to maintain state beyond around 30 seconds, depending on the browser. There are a lot of moving parts here!) I had Claude Fable 5.2 generate several SVG diagrams to help explain this. Here's my favorite of those, now embedded in the Datasette Lite README: This system started life back in May as an AI research spike generated using Claude Opus 4.8. It wasn't until November (and Claude Fable 5.2) that I felt familiar enough with how it all works to confidently ship it to production! Bonus feature: pick your version of SQLite I added this feature last night as an off-shoot of investigating a potential bug in SQLite. Datasette is meant to work against any released version of SQLite since 3.25 (released in September 2018). There have been 87 further releases since then. Being able to fire up Datasette against a specific version of SQLite is really useful for demonstrating new SQLite features and debugging weird issues. In the past I've used various tricks to get different SQLite versions running with Python on my Mac, but it's not a trivial process. WebAssembly is perfect for this. I can load up a custom SQLite build entirely in my browser, test it there, then discard it when I close my tab. datasette/pysqlite3-wasm-wheels is my new repository which contains WebAssembly compiled Python wheels for pysqlite3 for 163 different SQLite versions. Each version gets a file with a name like this: pysqlite3-0.6.2-3.54.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl That's for SQLite 3.54.1, the most recent version. Datasette Lite now takes a special ?sqlite= URL parameter, which will accept a version number like 3.54.1, resolve the path to the corresponding wheel file, then fetch that wheel and install it into the Pyodide environment and configure Datasette to use it. Once I'd built the wheels, I decided to have Claude Fable 5.2 build me [this bonus tool](https://datasette.github.io/pysqlite3-wasm-wheels/?versions=3.54.1,3.54.0&sql=select+json_object(%27a%27%2C+(select+json_array(1%29%29%29) for comparing a SQL query across any selected versions of SQLite. Here's an example showing how select json_object('a', (select json_array(1))) differs between SQLite 3.54.0 and 3.54.1: This should work for every other Python app, too Nothing about how Datasette Lite works is unique to Datasette. Almost any Python application should be able to pull the same trick - running entirely in the browser using WebAssembly and Pyodide, as a cheap way to provide preview environments, demonstrate features, and recreate bugs. C and Rust extensions used to be a blocker for this kind of thing, but any good coding agent can compile those to Pyodide-compatible WebAssembly now. You can even publish them to PyPI as of PEP 783 in April 2026. One catch is databases. SQLite is no problem at all, but running PostgreSQL or MySQL in WebAssembly, while possible, is still a path less trodden. I'd love to see WebAssembly preview environments like these become a common pattern across the Python ecosystem. For Hacker News: Full server-side Datasette Python app in the browser with service workers Tags: javascript, projects, python, urls, datasette, webassembly, service-workers, pyodide, datasette-lite",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "pypi"
+      ],
+      "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
+      "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "14c044926ad9a31d",
       "kev": false,
       "published": "2026-11-16T00:04:19Z",
-      "score": 49.7,
+      "score": 49.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.7)"
+        "recency (+12.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -99,12 +153,12 @@
       "id": "cb4668166d1b9ed1",
       "kev": false,
       "published": "2026-11-13T03:03:12Z",
-      "score": 46.6,
+      "score": 46.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:remote code execution (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.6)"
+        "recency (+9.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -125,12 +179,12 @@
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 46.1,
+      "score": 45.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.1)"
+        "recency (+8.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -285,12 +339,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 43.9,
+      "score": 43.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.9)"
+        "recency (+6.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -313,13 +367,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 42.3,
+      "score": 42.2,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -344,13 +398,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 42.2,
+      "score": 42.1,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -375,12 +429,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 42.1,
+      "score": 42.0,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -403,12 +457,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 41.8,
+      "score": 41.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.8)"
+        "recency (+4.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -429,12 +483,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 41.6,
+      "score": 41.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.6)"
+        "recency (+4.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -457,12 +511,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 41.5,
+      "score": 41.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -604,12 +658,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 40.9,
+      "score": 40.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -630,12 +684,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 39.3,
+      "score": 39.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -662,12 +716,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 39.2,
+      "score": 39.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.2)"
+        "recency (+2.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -714,12 +768,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 38.6,
+      "score": 38.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -831,12 +885,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 37.9,
+      "score": 37.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -883,12 +937,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 37.6,
+      "score": 37.5,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.6)"
+        "recency (+0.5)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -999,32 +1053,6 @@
       ],
       "title": "[tl;dr sec] #348 - Google's PageBreak Scanner, Perplexity's Agent Security Tool, Defending Agentically",
       "url": "https://tldrsec.com/p/tldr-sec-348"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "8e3e13f1bde3d3a4",
-      "kev": false,
-      "published": "2026-09-21T03:23:22Z",
-      "score": 37.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:rubygems (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Google’s Gemini hacked three companies, hackers claim a breach of Russia’s election commission, OpenAI was behind RubyGems’ May incident, and the Coast Guard and FBI board two ships to investigate cyberattacks. Show notes Risky Bulletin: Gemini hacked three companies too",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "rubygems"
-      ],
-      "title": "Risky Bulletin: Gemini finally did some crimes",
-      "url": "https://risky.biz/RBNEWS613/"
     },
     {
       "appsec": true,
@@ -1330,6 +1358,31 @@
       ],
       "title": "[tl;dr sec] #345 - Bug Rumors → Exploits, Version Control DFIR, Agentic Worms",
       "url": "https://tldrsec.com/p/tldr-sec-345"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "8e3e13f1bde3d3a4",
+      "kev": false,
+      "published": "2026-09-21T03:23:22Z",
+      "score": 37.0,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:rubygems (+15)",
+        "AppSec-relevant (+14)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Google’s Gemini hacked three companies, hackers claim a breach of Russia’s election commission, OpenAI was behind RubyGems’ May incident, and the Coast Guard and FBI board two ships to investigate cyberattacks. Show notes Risky Bulletin: Gemini hacked three companies too",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "rubygems"
+      ],
+      "title": "Risky Bulletin: Gemini finally did some crimes",
+      "url": "https://risky.biz/RBNEWS613/"
     },
     {
       "appsec": true,
@@ -1672,12 +1725,12 @@
       "id": "d7da1053e3ecdb1a",
       "kev": false,
       "published": "2026-10-20T23:50:25Z",
-      "score": 36.0,
+      "score": 35.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pip,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1689,6 +1742,30 @@
       ],
       "title": "eMudhra Intermediate CA Compromise",
       "url": "https://simonwillison.net/2026/Oct/20/emudhra-certificates/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0787798c0405a246",
+      "kev": false,
+      "published": "2026-11-17T22:38:52Z",
+      "score": 35.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+14.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GPT‑6.2 Astra and GPT‑6.2 Sol OpenAI: We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra and gpt-6.2-sol. I shipped LLM 0.38 with support for the new models. 6.2 Astra is 80% of the price of 6 Astra - $8/MTok input and $40/MTok output, the same price as Claude Fable 5.2 (which was also 80% of its predecessor). 6 Astra and Fable 5 were both $10/$50. The cached price is an even bigger discount - $0.40/million compared to $1/million for the older model. This is great news for longer running agentic sessions. GPT-6.2 Sol is the same $2/$10 price as 6.1 Sol and 6 Sol - which are half the price of GPT-5.6 Sol ($4/$20). Here are the pelicans for GPT-6.2 Sol and for GPT-6.2 Astra. The 6.2 Astra max pelican looks like this: I have a full comparison grid here, but here's how the high/xhigh/max pelicans compare with the previous Sol and Astra releases: I also ran my most recent benchmark prompt against the two models, using \"Ultra' effort levels in the Codex CLI: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's Sol and here's Astra. Neither of them did a good enough job of morphing Yonkers into a big mech, at least in comparison to Claude Fable 5.2 and Gemini 4 Carbon. This video showing the Astra and Sol animations playing out at the same time: I created that video using GPT-6.2 Astra (Ultra) in the Codex desktop app by prompting: https://static.simonwillison.net/static/2026/yonkers-gpt-6.2-astra-ultra/index.html and https://static.simonwillison.net/static/2026/yonkers-gpt-6.2-sol-ultra/index.html are two videos of the same thing by two different models I need a video of the first 10 seconds where the top half of the video plays the first and the bottom half plays the second I need an overlaid label of \"GPT-6.2 Astra\" on the top half and \"GPT-6.2 Sol\" on the bottom half. These labels should be tastefully positioned. Make the video square and 2000x2000 pixels Then later: OK make it 20s Here's the exported transcript. The buzz around these new models is mixed at the moment. Astra 6.2 isn't scoring quite as high as Fable 5.2 on various benchmarks, and I've seen a few complaints that its communication style can be confusing. Theo Browne's review (in the form of a feedback letter he sent OpenAI during pre-release) has this useful example: When this model is working on long tasks, it can pull in a lot of subagents and manage them pretty well. It will then proceed to randomly ask you some weird internal implementation detail bullshit that you could not under any earthly circumstance understand, much less have input on. I sent \"/goal make a new level for Outer Wilds\". 2 hours in, it's \"blocked\" because it wanted to ask me \"does r24's reviewer write it's clips to 24_g521.mp4 or 24_p11.mp4?\" Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, theo-browne, gpt, yonkers-rising",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
+      "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/"
     },
     {
       "appsec": true,
@@ -1724,11 +1801,11 @@
       "id": "e7835d0be85cb054",
       "kev": false,
       "published": "2026-11-16T23:57:26Z",
-      "score": 35.0,
+      "score": 34.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.0)"
+        "recency (+13.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1748,11 +1825,11 @@
       "id": "ff2c62cebcf4b098",
       "kev": false,
       "published": "2026-11-15T23:20:27Z",
-      "score": 33.7,
+      "score": 33.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+12.7)"
+        "recency (+12.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1771,11 +1848,11 @@
       "id": "5b63eb3960e8e501",
       "kev": false,
       "published": "2026-11-15T04:02:45Z",
-      "score": 32.7,
+      "score": 32.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+11.7)"
+        "recency (+11.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1794,11 +1871,11 @@
       "id": "9df8820e84fd1a0c",
       "kev": false,
       "published": "2026-11-15T03:49:47Z",
-      "score": 32.7,
+      "score": 32.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.7)"
+        "recency (+11.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1818,11 +1895,11 @@
       "id": "bcf04c6904579bec",
       "kev": false,
       "published": "2026-11-14T23:59:28Z",
-      "score": 32.5,
+      "score": 32.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.5)"
+        "recency (+11.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1839,37 +1916,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "94ec8fcfeda2db99",
-      "kev": false,
-      "published": "2026-11-14T17:09:09Z",
-      "score": 32.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+11.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-vega 0.7 A new release of Datasette's longest untouched plugin, for rendering charts (using Vega-Lite) against data in a table or custom query. The last release was in July 2018! I finally bumped it for compatibility with the latest Datasette alphas, plus some cosmetic tweaks to make it work better with Datasette Lite. (Datasette Lite just gained the ability to run JavaScript plugins like this! I'll write more about that soon.) Since it works with Datasette Lite, the live demo in the README now links to this demo on Datasette Lite. Tags: datasette, datasette-lite",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "datasette-vega 0.7",
-      "url": "https://simonwillison.net/2026/Nov/14/datasette-vega/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "268febaf67e13c76",
       "kev": false,
       "published": "2026-10-27T14:29:26Z",
-      "score": 31.9,
+      "score": 31.8,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:javascript (+15)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -1886,14 +1940,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "94ec8fcfeda2db99",
+      "kev": false,
+      "published": "2026-11-14T17:09:09Z",
+      "score": 31.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+10.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-vega 0.7 A new release of Datasette's longest untouched plugin, for rendering charts (using Vega-Lite) against data in a table or custom query. The last release was in July 2018! I finally bumped it for compatibility with the latest Datasette alphas, plus some cosmetic tweaks to make it work better with Datasette Lite. (Datasette Lite just gained the ability to run JavaScript plugins like this! I'll write more about that soon.) Since it works with Datasette Lite, the live demo in the README now links to this demo on Datasette Lite. Tags: datasette, datasette-lite",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "datasette-vega 0.7",
+      "url": "https://simonwillison.net/2026/Nov/14/datasette-vega/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 31.8,
+      "score": 31.7,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1914,11 +1991,11 @@
       "id": "b73209306c9412bd",
       "kev": false,
       "published": "2026-11-12T22:55:19Z",
-      "score": 30.4,
+      "score": 30.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.4)"
+        "recency (+9.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2007,11 +2084,11 @@
       "id": "6b121f474cc35549",
       "kev": false,
       "published": "2026-11-11T22:03:25Z",
-      "score": 29.5,
+      "score": 29.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.5)"
+        "recency (+8.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2031,11 +2108,11 @@
       "id": "0e206308dec11d59",
       "kev": false,
       "published": "2026-11-11T18:42:50Z",
-      "score": 29.4,
+      "score": 29.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+8.4)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2054,11 +2131,11 @@
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 29.3,
+      "score": 29.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.3)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2078,15 +2155,15 @@
       "id": "5767c4d342983118",
       "kev": false,
       "published": "2026-11-10T20:09:44Z",
-      "score": 28.6,
+      "score": 28.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.6)"
+        "recency (+7.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle",
+      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle, yonkers-rising",
       "tags": [
         "watchlist",
         "AI-sec"
@@ -2102,11 +2179,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 28.2,
+      "score": 28.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.2)"
+        "recency (+7.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2126,11 +2203,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 28.0,
+      "score": 27.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+7.0)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2149,11 +2226,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 28.0,
+      "score": 27.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.0)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2173,11 +2250,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 27.5,
+      "score": 27.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2223,11 +2300,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 25.1,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2247,11 +2324,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 24.8,
+      "score": 24.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2268,36 +2345,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "33329a02a00b9779",
-      "kev": false,
-      "published": "2026-11-13T08:00:00Z",
-      "score": 24.8,
-      "score_reasons": [
-        "source:Project Zero (+15)",
-        "recency (+9.8)"
-      ],
-      "source": "Project Zero",
-      "source_type": "research",
-      "summary": "Since 2021, Project Zero has followed a “90 + 30” vulnerability disclosure policy, allowing vendors up to 90 days to remediate a vulnerability plus an extra 30 days “soak time” for patch rollout. Our goal was to encourage faster patching and give vendors time to deliver patches to users. The advent of AI-assisted vulnerability discovery and exploitation has changed the threat landscape such that the vulnerability remediation timeline encouraged by our disclosure policy is clearly insufficient. LLMs have increased the speed at which attackers can find and exploit vulnerabilities, alongside the risk that multiple parties, including malicious ones, discover the same bug. A vulnerability reported today presents a much higher immediate risk to users than one reported last year. In this new environment, it is crucial that vendors move towards remediating vulnerabilities faster. LLMs have also decreased the time it takes for attackers to reverse engineer and exploit a vulnerability based on a patch, to the extent that zero patch-to-exploitation time is a reasonable, though imperfect, model of attacker behavior. Patch soak time is no longer meaningful in a world where attackers can almost immediately determine bug details from a patch, and can put users at risk by creating a false sense of secrecy. “Patch gap” is the time between a fix being released for a security vulnerability and the user installing the relevant update. It is equally crucial that vendors reduce patch gap, either by reducing patch rollout time or using other strategies to protect users while remediation is in progress. LLMs have also increased the volume of vulnerabilities that Project Zero reports. We are finding several vulnerabilities a week in targets where we once found a few vulnerabilities a year. Aspects of our policy that require vendor negotiation or agreement, including determining whether a bug is fixed and whether grace period applies, are quickly becoming unmanageable. Today, we are announcing a new vulnerability disclosure policy, created with the following goals in mind: Encourage faster vulnerability remediation Encourage vendors to reduce “patch gap” Allow for the policy to be automated by both Project Zero and vendors Our new policy: “Full X” Vulnerabilities will be disclosed X days after they are reported to the vendor. Starting today, our policy is “Full 90”, i.e. vulnerabilities will be disclosed 90 days after they are reported to the vendor. On February 2, 2027, we will move to a “Full 60” policy where vulnerabilities are disclosed after 60 days. On January 3, 2028, we will move to a “Full 30” policy where vulnerabilities are disclosed after 30 days. We are also removing most ‘special cases’ from our disclosure policy, including grace period and variant policy. The only exceptions to our new policy are: Vulnerabilities actively exploited in the wild -- ITW vulnerabilities will be handled according to Google’s application security vulnerability disclosure policy Public vulnerabilities -- Project Zero may make details of a vulnerability public, at our discretion, if the details have already been made public by others Vendor request -- We will make vulnerability details public if the vendor we reported it to requests it Why reduce remediation time gradually? Project Zero solicited feedback from the vendors we report the most vulnerabilities to as a part of developing this new policy. An overarching concern was that immediately changing the policy could harm users by making unfixed vulnerabilities available to attackers while vendors are in the process of improving their remediation processes and technology. While the benefits of delaying disclosure are declining due to the increased probability that attackers will discover a vulnerability during the embargo period, we still feel there are benefits in the short term. In addition, vendors mentioned two more subtle concerns. One was that an overly-aggressive disclosure policy would encourage fixing bugs reported under the new policy with more priority, even if they are less severe than other reported vulnerabilities. The other was that immediately enforcing a policy that some vendors aren’t equipped to meet might lead to a state where vendors accept that they cannot fix bugs within the deadline and don’t attempt to. We decided on a policy that encourages vendors to improve remediation time on a schedule that is challenging but realistic, with the hope that this will lead to vendors broadly improving their remediation processes and infrastructure in a way that eventually enables them to fix all reported vulnerabilities quickly. What about severity? While our analysis isn’t always perfect, Project Zero only reports vulnerabilities with substantial severity and demonstrated security impact in our tracker. That said, we don’t feel severity is an effective metric for making disclosure decisions, especially in the current environment. A vulnerability’s severity does not affect the likelihood that it will be discovered by attackers, only its impact on users. When vendors determine severity and use it to prioritize bug fixes, they are making decisions about what risks they are willing to expose their users to, and it is reasonable to accept the risk of low-severity bugs, like unexploitable null pointer crashes or minor info leaks in a lot of circumstances. But this doesn’t change the availability of these vulnerabilities to attackers, and we want our policy to reflect this reality. It’s also important to acknowledge that Project Zero holds itself to high standards with regards to the reproducibility, readability, reachability and reported security impact of the vulnerabilities we report. This policy assumes bugs reports are of this quality, and it is reasonable for vendors to treat low quality-bug reports differently. What about hardware? We encourage all vendors to consider how they would respond to imminent disclosure of a serious vulnerability, including non-patch strategies, as there is no guarantee that defenders will be the first to find a bug. That said, Project Zero has occasionally granted exceptions to our policy on rare occasions, including Spectre and Meltdown, and will continue to do so in the future. Are you really not going to check whether bugs are fixed? The question of whether a bug is fixed for the purposes of our policy has always been challenging and somewhat unresolved, particularly with regards to code that is not shipped directly to users and not publicly available. It is not unusual for Project Zero to communicate with vendors multiple times for each bug report to come to an agreement on whether a vulnerability is fixed. As more vendors experiment with vulnerability remediation strategies that are not patching like temporarily disabling code paths, we expect this to become even more complex. We still plan to track whether bugs are fixed and communicate if they are not, however, this will not be a decision point in our policy. This will enable us to share technical details of how users are protected without needing to make a binary judgement with consequences for the vendor.",
-      "tags": [
-        "research"
-      ],
-      "title": "Policy and Disclosure: 2026 Edition",
-      "url": "https://projectzero.google/2026/11/disclosure-policy.html"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 24.8,
+      "score": 24.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.8)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2317,11 +2372,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 24.6,
+      "score": 24.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2338,14 +2393,36 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "33329a02a00b9779",
+      "kev": false,
+      "published": "2026-11-13T08:00:00Z",
+      "score": 24.4,
+      "score_reasons": [
+        "source:Project Zero (+15)",
+        "recency (+9.4)"
+      ],
+      "source": "Project Zero",
+      "source_type": "research",
+      "summary": "Since 2021, Project Zero has followed a “90 + 30” vulnerability disclosure policy, allowing vendors up to 90 days to remediate a vulnerability plus an extra 30 days “soak time” for patch rollout. Our goal was to encourage faster patching and give vendors time to deliver patches to users. The advent of AI-assisted vulnerability discovery and exploitation has changed the threat landscape such that the vulnerability remediation timeline encouraged by our disclosure policy is clearly insufficient. LLMs have increased the speed at which attackers can find and exploit vulnerabilities, alongside the risk that multiple parties, including malicious ones, discover the same bug. A vulnerability reported today presents a much higher immediate risk to users than one reported last year. In this new environment, it is crucial that vendors move towards remediating vulnerabilities faster. LLMs have also decreased the time it takes for attackers to reverse engineer and exploit a vulnerability based on a patch, to the extent that zero patch-to-exploitation time is a reasonable, though imperfect, model of attacker behavior. Patch soak time is no longer meaningful in a world where attackers can almost immediately determine bug details from a patch, and can put users at risk by creating a false sense of secrecy. “Patch gap” is the time between a fix being released for a security vulnerability and the user installing the relevant update. It is equally crucial that vendors reduce patch gap, either by reducing patch rollout time or using other strategies to protect users while remediation is in progress. LLMs have also increased the volume of vulnerabilities that Project Zero reports. We are finding several vulnerabilities a week in targets where we once found a few vulnerabilities a year. Aspects of our policy that require vendor negotiation or agreement, including determining whether a bug is fixed and whether grace period applies, are quickly becoming unmanageable. Today, we are announcing a new vulnerability disclosure policy, created with the following goals in mind: Encourage faster vulnerability remediation Encourage vendors to reduce “patch gap” Allow for the policy to be automated by both Project Zero and vendors Our new policy: “Full X” Vulnerabilities will be disclosed X days after they are reported to the vendor. Starting today, our policy is “Full 90”, i.e. vulnerabilities will be disclosed 90 days after they are reported to the vendor. On February 2, 2027, we will move to a “Full 60” policy where vulnerabilities are disclosed after 60 days. On January 3, 2028, we will move to a “Full 30” policy where vulnerabilities are disclosed after 30 days. We are also removing most ‘special cases’ from our disclosure policy, including grace period and variant policy. The only exceptions to our new policy are: Vulnerabilities actively exploited in the wild -- ITW vulnerabilities will be handled according to Google’s application security vulnerability disclosure policy Public vulnerabilities -- Project Zero may make details of a vulnerability public, at our discretion, if the details have already been made public by others Vendor request -- We will make vulnerability details public if the vendor we reported it to requests it Why reduce remediation time gradually? Project Zero solicited feedback from the vendors we report the most vulnerabilities to as a part of developing this new policy. An overarching concern was that immediately changing the policy could harm users by making unfixed vulnerabilities available to attackers while vendors are in the process of improving their remediation processes and technology. While the benefits of delaying disclosure are declining due to the increased probability that attackers will discover a vulnerability during the embargo period, we still feel there are benefits in the short term. In addition, vendors mentioned two more subtle concerns. One was that an overly-aggressive disclosure policy would encourage fixing bugs reported under the new policy with more priority, even if they are less severe than other reported vulnerabilities. The other was that immediately enforcing a policy that some vendors aren’t equipped to meet might lead to a state where vendors accept that they cannot fix bugs within the deadline and don’t attempt to. We decided on a policy that encourages vendors to improve remediation time on a schedule that is challenging but realistic, with the hope that this will lead to vendors broadly improving their remediation processes and infrastructure in a way that eventually enables them to fix all reported vulnerabilities quickly. What about severity? While our analysis isn’t always perfect, Project Zero only reports vulnerabilities with substantial severity and demonstrated security impact in our tracker. That said, we don’t feel severity is an effective metric for making disclosure decisions, especially in the current environment. A vulnerability’s severity does not affect the likelihood that it will be discovered by attackers, only its impact on users. When vendors determine severity and use it to prioritize bug fixes, they are making decisions about what risks they are willing to expose their users to, and it is reasonable to accept the risk of low-severity bugs, like unexploitable null pointer crashes or minor info leaks in a lot of circumstances. But this doesn’t change the availability of these vulnerabilities to attackers, and we want our policy to reflect this reality. It’s also important to acknowledge that Project Zero holds itself to high standards with regards to the reproducibility, readability, reachability and reported security impact of the vulnerabilities we report. This policy assumes bugs reports are of this quality, and it is reasonable for vendors to treat low quality-bug reports differently. What about hardware? We encourage all vendors to consider how they would respond to imminent disclosure of a serious vulnerability, including non-patch strategies, as there is no guarantee that defenders will be the first to find a bug. That said, Project Zero has occasionally granted exceptions to our policy on rare occasions, including Spectre and Meltdown, and will continue to do so in the future. Are you really not going to check whether bugs are fixed? The question of whether a bug is fixed for the purposes of our policy has always been challenging and somewhat unresolved, particularly with regards to code that is not shipped directly to users and not publicly available. It is not unusual for Project Zero to communicate with vendors multiple times for each bug report to come to an agreement on whether a vulnerability is fixed. As more vendors experiment with vulnerability remediation strategies that are not patching like temporarily disabling code paths, we expect this to become even more complex. We still plan to track whether bugs are fixed and communicate if they are not, however, this will not be a decision point in our policy. This will enable us to share technical details of how users are protected without needing to make a binary judgement with consequences for the vendor.",
+      "tags": [
+        "research"
+      ],
+      "title": "Policy and Disclosure: 2026 Edition",
+      "url": "https://projectzero.google/2026/11/disclosure-policy.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 24.5,
+      "score": 24.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2365,11 +2442,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 24.2,
+      "score": 24.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2388,11 +2465,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2412,11 +2489,11 @@
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 23.4,
+      "score": 23.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2436,11 +2513,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 23.3,
+      "score": 23.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2451,53 +2528,6 @@
       ],
       "title": "Quoting Ben Hylak",
       "url": "https://simonwillison.net/2026/Oct/29/ben-hylak/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "28d3ffbcd69019be",
-      "kev": false,
-      "published": "2026-10-28T13:55:15Z",
-      "score": 23.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "The October inflection point for vibe game development",
-      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "503762475e8ae5ab",
-      "kev": false,
-      "published": "2026-10-28T16:45:23Z",
-      "score": 23.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "GitHub Octoverse 2026 I'm at GitHub Universe today (GitHub gave me a free ticket through their \"GitHub Stars\" program). EVP Jay Parikh just announced this year's Octoverse report, and highlighted these numbers in particular: This is a pretty stark representation of the impact of agentic engineering on GitHub. In 2026, merged pull requests tripled in less than a year to 220 million per month. Commits more than tripled to 7.38 billion per month, with most of that increase in the second half of this year. New repository rate doubled this year, to 30.3 million per month. The report includes new numbers by industry, and breaks out numbers for repositories that involve \"interoperability or reverse engineering\". The methodology section includes notes about how they did this: Top countries by pushes to public repositories, adjusted by profile location. Pushes from each country were summed across the Octoverse year. To adjust for biases caused by VPN usage, LLM classification was used to extract the ISO 3166-1 alpha-2 code from the profiles of GitHub users who contributed pushes during this period [...] Industry. Public repositories created 2022 to 2026 were sorted into NAICS sectors by a fine-tuned multilingual embedding model using name, description, topics, and README, from random samples per year. [...] Interoperability. Counts public repositories created each year whose name, description, topics, or README mention interoperability or reverse engineering, or related terms, such as clean room implementation, drop-in replacement, or protocol re-implementation. Tags: github, ai, generative-ai, llms, coding-agents, disclosures, agentic-engineering",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "GitHub Octoverse 2026",
-      "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
     },
     {
       "appsec": false,
@@ -2552,14 +2582,61 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ddec6cb5a4e152e9",
+      "id": "28d3ffbcd69019be",
       "kev": false,
-      "published": "2026-10-26T23:53:07Z",
-      "score": 22.8,
+      "published": "2026-10-28T13:55:15Z",
+      "score": 23.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "The October inflection point for vibe game development",
+      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "503762475e8ae5ab",
+      "kev": false,
+      "published": "2026-10-28T16:45:23Z",
+      "score": 23.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.8)"
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GitHub Octoverse 2026 I'm at GitHub Universe today (GitHub gave me a free ticket through their \"GitHub Stars\" program). EVP Jay Parikh just announced this year's Octoverse report, and highlighted these numbers in particular: This is a pretty stark representation of the impact of agentic engineering on GitHub. In 2026, merged pull requests tripled in less than a year to 220 million per month. Commits more than tripled to 7.38 billion per month, with most of that increase in the second half of this year. New repository rate doubled this year, to 30.3 million per month. The report includes new numbers by industry, and breaks out numbers for repositories that involve \"interoperability or reverse engineering\". The methodology section includes notes about how they did this: Top countries by pushes to public repositories, adjusted by profile location. Pushes from each country were summed across the Octoverse year. To adjust for biases caused by VPN usage, LLM classification was used to extract the ISO 3166-1 alpha-2 code from the profiles of GitHub users who contributed pushes during this period [...] Industry. Public repositories created 2022 to 2026 were sorted into NAICS sectors by a fine-tuned multilingual embedding model using name, description, topics, and README, from random samples per year. [...] Interoperability. Counts public repositories created each year whose name, description, topics, or README mention interoperability or reverse engineering, or related terms, such as clean room implementation, drop-in replacement, or protocol re-implementation. Tags: github, ai, generative-ai, llms, coding-agents, disclosures, agentic-engineering",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GitHub Octoverse 2026",
+      "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ddec6cb5a4e152e9",
+      "kev": false,
+      "published": "2026-10-26T23:53:07Z",
+      "score": 22.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2579,11 +2656,11 @@
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2602,11 +2679,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 22.3,
+      "score": 22.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2626,11 +2703,11 @@
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
-      "score": 22.2,
+      "score": 22.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:model context protocol,mcp (+15)",
-        "recency (+1.2)"
+        "recency (+1.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2650,11 +2727,11 @@
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
-      "score": 22.0,
+      "score": 21.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,typescript,llm (+15)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2665,26 +2742,6 @@
       ],
       "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
       "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5458c272bb841e36",
-      "kev": false,
-      "published": "2026-11-16T21:57:39Z",
-      "score": 21.9,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+13.9)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq discuss why AI means that mercenary spyware is a dead industry. The pair discuss why governments would rather buy the cow than the milk. This episode is also available on YouTube. Show notes The Pall Mall process guidelines for industry",
-      "tags": [],
-      "title": "Between Two Nerds: The spyware market after AI",
-      "url": "https://risky.biz/BTN190/"
     },
     {
       "appsec": false,
@@ -2832,13 +2889,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5458c272bb841e36",
+      "kev": false,
+      "published": "2026-11-16T21:57:39Z",
+      "score": 21.4,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+13.4)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq discuss why AI means that mercenary spyware is a dead industry. The pair discuss why governments would rather buy the cow than the milk. This episode is also available on YouTube. Show notes The Pall Mall process guidelines for industry",
+      "tags": [],
+      "title": "Between Two Nerds: The spyware market after AI",
+      "url": "https://risky.biz/BTN190/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c29c5645291af4ed",
       "kev": false,
       "published": "2026-11-15T19:22:09Z",
-      "score": 20.5,
+      "score": 20.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+12.5)"
+        "recency (+12.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2855,10 +2932,10 @@
       "id": "9e89bf4ca1192eb6",
       "kev": false,
       "published": "2026-11-17T06:16:26Z",
-      "score": 20.4,
+      "score": 19.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+14.4)"
+        "recency (+13.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2875,10 +2952,10 @@
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 19.1,
+      "score": 19.0,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -2894,33 +2971,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "f6ff959916d44f87",
-      "kev": false,
-      "published": "2026-11-15T23:18:17Z",
-      "score": 18.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+12.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette 0.65.6 I backported a minor security fix from 1.0a43: Fixed a security issue where a database registered using add_database(db, name=..., route=...) with a route that differs from its name could be downloaded from /<route>.db by actors who were denied access to it. [...] Tags: security, datasette",
-      "tags": [],
-      "title": "datasette 0.65.6",
-      "url": "https://simonwillison.net/2026/Nov/15/datasette-2/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "f8719c976cec8806",
       "kev": false,
       "published": "2026-11-15T23:58:36Z",
-      "score": 18.7,
+      "score": 18.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.7)"
+        "recency (+12.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2934,13 +2991,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "f6ff959916d44f87",
+      "kev": false,
+      "published": "2026-11-15T23:18:17Z",
+      "score": 18.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+12.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette 0.65.6 I backported a minor security fix from 1.0a43: Fixed a security issue where a database registered using add_database(db, name=..., route=...) with a route that differs from its name could be downloaded from /<route>.db by actors who were denied access to it. [...] Tags: security, datasette",
+      "tags": [],
+      "title": "datasette 0.65.6",
+      "url": "https://simonwillison.net/2026/Nov/15/datasette-2/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ea0dffb11eb2bd56",
       "kev": false,
       "published": "2026-11-12T03:30:09Z",
-      "score": 16.7,
+      "score": 16.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.7)"
+        "recency (+8.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -2957,10 +3034,10 @@
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 16.4,
+      "score": 16.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2977,10 +3054,10 @@
       "id": "8cc6965690b08360",
       "kev": false,
       "published": "2026-11-13T22:30:54Z",
-      "score": 16.4,
+      "score": 16.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2997,10 +3074,10 @@
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 15.8,
+      "score": 15.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3058,33 +3135,6 @@
     },
     {
       "appsec": false,
-      "cves": [
-        "CVE-2026-50343",
-        "CVE-2026-66804"
-      ],
-      "epss": 0.00298,
-      "feed": "news",
-      "id": "a6e999bb72bf0ed5",
-      "kev": false,
-      "published": "2026-09-21T07:00:00Z",
-      "score": 15.2,
-      "score_reasons": [
-        "source:Project Zero (+15)",
-        "EPSS 0% (+0.1)",
-        "recency (+0.1)"
-      ],
-      "source": "Project Zero",
-      "source_type": "research",
-      "summary": "This short blog post is about abusing a privilege escalation bug that Microsoft recently fixed in Windows, CVE-2026-66804, that I and 14 others reported. This issue is an incomplete fix for CVE-2026-50343, a bug dubbed “Dark Elevator” by Calif. The root cause of the bug was a dangling COM object registration for the CrossDevice COM object with the CLSID {E9F83CF2-E0C0-4CA7-AF01-E90C70BEF496}. A COM registration typically needs two parts: a server executable, which for in-process components is a DLL and a CLSID entry under the HKEY_CLASSES_ROOT registry key which points to that DLL. This object was registered in the system wide classes key, meaning it was accessible to all users on the system, including system services. However the server executable was missing. Specifically it was registered to use the DLL %PROGRAMDATA%\\CrossDevice\\CrossDevice.Streaming.Source.dll. Not only does this path not exist, it’s also within the C:\\ProgramData directory. This is a common location for all users on the system and therefore permits anyone to create directories. Therefore you can create an arbitrary DLL file at that location and the COM object can be instantiated potentially leading to privilege escalation. But how to get the COM object, and thus the DLL, loaded into a privileged process? The fixed bug Calif blogged about, CVE-2026-50343, abused a weak registry key permissions to add the class as a installer plugin and then get the InstallService to load it into memory. The issue with the InstallService was fixed, so we need an alternative way to abuse the unfixed dangling COM reference. Abuse Custom COM Marshaling, Again A technique I’ve used multiple times in the past to load an arbitrary DLL into a privileged process is to abuse custom COM marshaling. When you call an interface method which is implemented out-of-process, the COM runtime will marshal the parameters into an RPC call to send to the server. If a parameter is a COM object then the runtime marshals that object into an OBJREF structure that allows the object to be used in the server. The two main types of OBJREFs are shown in the diagram below, or you can read about them in the official DCOM documentation here: The default COM marshaling strategy is by reference which produces a Standard OBJREF containing all the information needed to connect to the original object. The object might even be on a completely different computer. When the object is unmarshaled this information is used to create an RPC channel back to the caller so that the server can call methods on the object. The runtime also supports an opt-in marshal by value mechanism if the object implements the IMarshal interface. This allows the object to specify an arbitrary CLSID to use as the unmarshaling object, which doesn’t have to be the same as the object being passed in. When the object is unmarshaled in the server the CLSID is used to lookup an in-process server DLL to load. Therefore an obvious technique to exploit the dangling COM object registration is to send a Custom OBJREF to a privileged COM service specifying the CLSID of the dangling object. When unmarshaled, which happens automatically in the runtime before the target method is called, the malicious DLL will be loaded and we’d get privilege escalation. The following code shows how trivial it is to specify the dangling COM class in an IMarshal implementation: class FakeMarshal : public IMarshal { // Inherited via IMarshal HRESULT GetUnmarshalClass(REFIID riid, void* pv, DWORD dwDestContext, void* pvDestContext, DWORD mshlflags, CLSID* pCid) override { return CLSIDFromString(L\"{E9F83CF2-E0C0-4CA7-AF01-E90C70BEF496}\", pCid); } // ... }; We need to find a privileged service to send the marshaled COM object to become an administrator. Unfortunately, finding such a service isn’t so simple. The fact that a custom marshaling object will cause an arbitrary DLL to be loaded into the process and code executed is a risky operation, especially across privilege boundaries. Therefore Microsoft implemented a mitigation which can be enabled to disable custom marshaling in the process unless the class is explicitly opted in, or is one of a small number of trusted components such as classes in the runtime library. Since Windows 8 this mitigation is implemented through two mechanisms, the first and original method is setting the EOAC_NO_CUSTOM_MARSHAL capabilities flag when calling CoInitializeSecurity. The second, added to improve security in AppContainer sandboxes is set through the IGlobalOptions::Set method and specifying the COMGLB_UNMARSHALING_POLICY property type. As we’re not trying to escape from a sandbox the only value of importance is COMGLB_UNMARSHALING_POLICY_STRONG which disables custom marshaling similar to the capabilities flag. As the dangling COM object isn’t registered as a trusted marshaler this means we need to find a privileged COM server that doesn’t enable these mitigations. The easiest approach is to scan the processes at runtime. The capability flags are stored in the value combase!gCapabilities while the marshaling policy is stored in combase!g_GLBOPT_UnmarshalingPolicy. However, I kept thinking there must be a COM service that runs as SYSTEM and doesn’t enable custom marshaling. After a bit of fiddling I found one, although there’s no doubt others. It turned out to be a COM service I’ve researched and exploited before, the Shell Create Object Handler object. This is an interesting COM object, in that while it runs in a SYSTEM service, it’s not directly instantiable: PS> $cls = Get-ComClass -Clsid 135fd325-45b7-4c30-89f8-4386961669f0 PS> $o = New-ComObject -Class $cls Exception calling \"CreateInstanceAsObject\" with \"3\" argument(s): \"Class not registered\" PS> $cls.AppIdEntry | Select Name, RunAs, IsService Name RunAs IsService ---- ----- --------- Shell Create Object Handler nt authority\\system False Normally, when a COM object is hosted by a privileged service, it’s registered with the name of a system service that RPCSS will start automatically when the object class is requested. However, in this case as there’s no service,creating the object fails with a “Class not registered” error. In order to create the COM server, the service needs to already be running as the SYSTEM user before you call CoCreateInstance. Instead you have to start the privileged server via the \\Microsoft\\Windows\\Shell\\CreateObjectTask scheduled task. Fortunately this task can be started by normal users, which you can verify with my Get-AccessibleScheduledTask command: PS> Get-AccessibleScheduledTask -Executable | ? Name -Match Shell\\\\CreateObjectTask TokenId Access Name ------- ------ ---- 77E3156D GenericExecute|GenericRead ...\\Shell\\CreateObjectTask Of course just starting this task is not enough, you also need to create a global named event, ShellCreateObjectTaskReadyEvent otherwise the task will immediately exit and not export the COM service. A simple script to create an instance is shown below: PS> $ev = New-NtEvent -Win32Path \"Global\\ShellCreateObjectTaskReadyEvent\" -InitialState $false PS> Start-ScheduledTask -TaskPath \"\\Microsoft\\Windows\\Shell\\\" -TaskName \"CreateObjectTask\" PS> $ev.Wait() PS> $o = New-ComObject -Clsid \"135fd325-45b7-4c30-89f8-4386961669f0\" PS> $o InterfaceName Iid ------------- --- IUnknown 00000000-0000-0000-c000-000000000046 You can verify that the object is hosted in a privileged process with the Get-ComProcess command and checking the CustomMarshalAllowed property. Note this command is currently broken on Windows 11 25H2 due to changing structures that I’ve not had a chance to update, it still works on previous versions. PS> $objref = Get-ComObjRef -Object $o PS> $p = Get-ComProcess -ProcessId $objref.ProcessId PS> $p | Select Name, User, CustomMarshalAllowed Name User CustomMarshalAllowed ---- ---- -------------------- dllhost NT AUTHORITY\\SYSTEM True At this point we have everything we need to exploit the dangling COM object, we’ve got a COM service running as SYSTEM with custom marshaling allowed. We can use the CoGetInstanceFromIStorage API to create the object, passing the “fake” marshaled object as the pstg parameter. This object will get marshaled to the COM server process and then unmarshaled unconditionally during object activation. We do need to implement a fake IStorage interface to get it past the local API implementation, which isn’t that difficult but I thought I’d see if there’s an easier way. Let’s look at the supported interfaces: PS> Get-ComInterface -Object $o Name IID HasProxy HasTypeLib ---- --- -------- ---------- IUnknown 00000000-0000-... False False IMarshal 00000003-0000-... False False IMarshal2 000001cf-0000-... False False ICreateObject 75121952-e0d0-... True False PS> Get-ComInterface -Name ICreateObject | ConvertTo-ComSourceCode -Parse [ object, uuid(75121952-E0D0-43E5-9380-1D80483ACF72), ] interface ICreateObject : IUnknown { HRESULT Proc3([in] GUID* p0, [in] IUnknown* p1, [in] GUID* p2, [out, iid_is(p2)] IUnknown** p3); } The COM object only has one unique interface, ICreateObject. Converting the interface proxy to IDL shows that it takes an IUnknown pointer as its second parameter. Therefore to exploit the dangling COM registration we can just pass the “fake” marshaled object to this parameter and get privileged code execution. I’ve attached an updated, fully working exploit of the bug to the original issue here. It’s worth noting that while this exploitation technique makes it easy to exploit dangling COM registrations, it can also be used to exploit buggy COM class custom unmarshalers. Sometimes, just the act of loading a DLL into a process can cause a crash. Finding the Original Dangling COM Object Registration As a footnote, a quick way to try and find other dangling COM servers would be to use the following PowerShell script with my OleViewDotNet and NtObjectManager modules installed: function Test-ComServer { param($Server) try { Use-NtObject($lib = Import-Win32Module -Path $Server -Flags AsDataFile) { $true } } catch { $false } } PS> $db = Get-ComDatabase -LoadMode MachineOnly PS> $cs = Get-ComClass -Database $db -ServerType InProcServer32 PS> $cs | ? { -not (Test-ComServer $_.DefaultServer) } | Sort DefaultServer | Select Name, DefaultServer This will print out any in-process COM class from the machine hive where LoadLibrary can’t find the DLL. It’s important to use LoadLibrary via the Import-Win32Module command as some of the COM registrations only specify the file name and you want to ensure these are resolved correctly according to the system path. This script will find the dangling CrossDevice COM class on an unpatched system. Note, you’ll need to manually inspect the paths to see if a DLL can be planted at that location. You could make it smarter by checking if the path is in a directory that can be written to, or even test if an existing DLL can be modified, but that’s an exercise for the reader.",
-      "tags": [
-        "research",
-        "has-CVE"
-      ],
-      "title": "Windows Exploitation Techniques: Dangling COM Object Registrations",
-      "url": "https://projectzero.google/2026/09/windows-dangling-com.html"
-    },
-    {
-      "appsec": false,
       "cves": [],
       "epss": null,
       "feed": "news",
@@ -3126,6 +3176,32 @@
       ],
       "title": "HTTP/3 in Burp Suite - it’s time to find a bigger wordlist",
       "url": "https://portswigger.net/research/http3-in-burp-suite"
+    },
+    {
+      "appsec": false,
+      "cves": [
+        "CVE-2026-50343",
+        "CVE-2026-66804"
+      ],
+      "epss": 0.00298,
+      "feed": "news",
+      "id": "a6e999bb72bf0ed5",
+      "kev": false,
+      "published": "2026-09-21T07:00:00Z",
+      "score": 15.1,
+      "score_reasons": [
+        "source:Project Zero (+15)",
+        "EPSS 0% (+0.1)"
+      ],
+      "source": "Project Zero",
+      "source_type": "research",
+      "summary": "This short blog post is about abusing a privilege escalation bug that Microsoft recently fixed in Windows, CVE-2026-66804, that I and 14 others reported. This issue is an incomplete fix for CVE-2026-50343, a bug dubbed “Dark Elevator” by Calif. The root cause of the bug was a dangling COM object registration for the CrossDevice COM object with the CLSID {E9F83CF2-E0C0-4CA7-AF01-E90C70BEF496}. A COM registration typically needs two parts: a server executable, which for in-process components is a DLL and a CLSID entry under the HKEY_CLASSES_ROOT registry key which points to that DLL. This object was registered in the system wide classes key, meaning it was accessible to all users on the system, including system services. However the server executable was missing. Specifically it was registered to use the DLL %PROGRAMDATA%\\CrossDevice\\CrossDevice.Streaming.Source.dll. Not only does this path not exist, it’s also within the C:\\ProgramData directory. This is a common location for all users on the system and therefore permits anyone to create directories. Therefore you can create an arbitrary DLL file at that location and the COM object can be instantiated potentially leading to privilege escalation. But how to get the COM object, and thus the DLL, loaded into a privileged process? The fixed bug Calif blogged about, CVE-2026-50343, abused a weak registry key permissions to add the class as a installer plugin and then get the InstallService to load it into memory. The issue with the InstallService was fixed, so we need an alternative way to abuse the unfixed dangling COM reference. Abuse Custom COM Marshaling, Again A technique I’ve used multiple times in the past to load an arbitrary DLL into a privileged process is to abuse custom COM marshaling. When you call an interface method which is implemented out-of-process, the COM runtime will marshal the parameters into an RPC call to send to the server. If a parameter is a COM object then the runtime marshals that object into an OBJREF structure that allows the object to be used in the server. The two main types of OBJREFs are shown in the diagram below, or you can read about them in the official DCOM documentation here: The default COM marshaling strategy is by reference which produces a Standard OBJREF containing all the information needed to connect to the original object. The object might even be on a completely different computer. When the object is unmarshaled this information is used to create an RPC channel back to the caller so that the server can call methods on the object. The runtime also supports an opt-in marshal by value mechanism if the object implements the IMarshal interface. This allows the object to specify an arbitrary CLSID to use as the unmarshaling object, which doesn’t have to be the same as the object being passed in. When the object is unmarshaled in the server the CLSID is used to lookup an in-process server DLL to load. Therefore an obvious technique to exploit the dangling COM object registration is to send a Custom OBJREF to a privileged COM service specifying the CLSID of the dangling object. When unmarshaled, which happens automatically in the runtime before the target method is called, the malicious DLL will be loaded and we’d get privilege escalation. The following code shows how trivial it is to specify the dangling COM class in an IMarshal implementation: class FakeMarshal : public IMarshal { // Inherited via IMarshal HRESULT GetUnmarshalClass(REFIID riid, void* pv, DWORD dwDestContext, void* pvDestContext, DWORD mshlflags, CLSID* pCid) override { return CLSIDFromString(L\"{E9F83CF2-E0C0-4CA7-AF01-E90C70BEF496}\", pCid); } // ... }; We need to find a privileged service to send the marshaled COM object to become an administrator. Unfortunately, finding such a service isn’t so simple. The fact that a custom marshaling object will cause an arbitrary DLL to be loaded into the process and code executed is a risky operation, especially across privilege boundaries. Therefore Microsoft implemented a mitigation which can be enabled to disable custom marshaling in the process unless the class is explicitly opted in, or is one of a small number of trusted components such as classes in the runtime library. Since Windows 8 this mitigation is implemented through two mechanisms, the first and original method is setting the EOAC_NO_CUSTOM_MARSHAL capabilities flag when calling CoInitializeSecurity. The second, added to improve security in AppContainer sandboxes is set through the IGlobalOptions::Set method and specifying the COMGLB_UNMARSHALING_POLICY property type. As we’re not trying to escape from a sandbox the only value of importance is COMGLB_UNMARSHALING_POLICY_STRONG which disables custom marshaling similar to the capabilities flag. As the dangling COM object isn’t registered as a trusted marshaler this means we need to find a privileged COM server that doesn’t enable these mitigations. The easiest approach is to scan the processes at runtime. The capability flags are stored in the value combase!gCapabilities while the marshaling policy is stored in combase!g_GLBOPT_UnmarshalingPolicy. However, I kept thinking there must be a COM service that runs as SYSTEM and doesn’t enable custom marshaling. After a bit of fiddling I found one, although there’s no doubt others. It turned out to be a COM service I’ve researched and exploited before, the Shell Create Object Handler object. This is an interesting COM object, in that while it runs in a SYSTEM service, it’s not directly instantiable: PS> $cls = Get-ComClass -Clsid 135fd325-45b7-4c30-89f8-4386961669f0 PS> $o = New-ComObject -Class $cls Exception calling \"CreateInstanceAsObject\" with \"3\" argument(s): \"Class not registered\" PS> $cls.AppIdEntry | Select Name, RunAs, IsService Name RunAs IsService ---- ----- --------- Shell Create Object Handler nt authority\\system False Normally, when a COM object is hosted by a privileged service, it’s registered with the name of a system service that RPCSS will start automatically when the object class is requested. However, in this case as there’s no service,creating the object fails with a “Class not registered” error. In order to create the COM server, the service needs to already be running as the SYSTEM user before you call CoCreateInstance. Instead you have to start the privileged server via the \\Microsoft\\Windows\\Shell\\CreateObjectTask scheduled task. Fortunately this task can be started by normal users, which you can verify with my Get-AccessibleScheduledTask command: PS> Get-AccessibleScheduledTask -Executable | ? Name -Match Shell\\\\CreateObjectTask TokenId Access Name ------- ------ ---- 77E3156D GenericExecute|GenericRead ...\\Shell\\CreateObjectTask Of course just starting this task is not enough, you also need to create a global named event, ShellCreateObjectTaskReadyEvent otherwise the task will immediately exit and not export the COM service. A simple script to create an instance is shown below: PS> $ev = New-NtEvent -Win32Path \"Global\\ShellCreateObjectTaskReadyEvent\" -InitialState $false PS> Start-ScheduledTask -TaskPath \"\\Microsoft\\Windows\\Shell\\\" -TaskName \"CreateObjectTask\" PS> $ev.Wait() PS> $o = New-ComObject -Clsid \"135fd325-45b7-4c30-89f8-4386961669f0\" PS> $o InterfaceName Iid ------------- --- IUnknown 00000000-0000-0000-c000-000000000046 You can verify that the object is hosted in a privileged process with the Get-ComProcess command and checking the CustomMarshalAllowed property. Note this command is currently broken on Windows 11 25H2 due to changing structures that I’ve not had a chance to update, it still works on previous versions. PS> $objref = Get-ComObjRef -Object $o PS> $p = Get-ComProcess -ProcessId $objref.ProcessId PS> $p | Select Name, User, CustomMarshalAllowed Name User CustomMarshalAllowed ---- ---- -------------------- dllhost NT AUTHORITY\\SYSTEM True At this point we have everything we need to exploit the dangling COM object, we’ve got a COM service running as SYSTEM with custom marshaling allowed. We can use the CoGetInstanceFromIStorage API to create the object, passing the “fake” marshaled object as the pstg parameter. This object will get marshaled to the COM server process and then unmarshaled unconditionally during object activation. We do need to implement a fake IStorage interface to get it past the local API implementation, which isn’t that difficult but I thought I’d see if there’s an easier way. Let’s look at the supported interfaces: PS> Get-ComInterface -Object $o Name IID HasProxy HasTypeLib ---- --- -------- ---------- IUnknown 00000000-0000-... False False IMarshal 00000003-0000-... False False IMarshal2 000001cf-0000-... False False ICreateObject 75121952-e0d0-... True False PS> Get-ComInterface -Name ICreateObject | ConvertTo-ComSourceCode -Parse [ object, uuid(75121952-E0D0-43E5-9380-1D80483ACF72), ] interface ICreateObject : IUnknown { HRESULT Proc3([in] GUID* p0, [in] IUnknown* p1, [in] GUID* p2, [out, iid_is(p2)] IUnknown** p3); } The COM object only has one unique interface, ICreateObject. Converting the interface proxy to IDL shows that it takes an IUnknown pointer as its second parameter. Therefore to exploit the dangling COM registration we can just pass the “fake” marshaled object to this parameter and get privileged code execution. I’ve attached an updated, fully working exploit of the bug to the original issue here. It’s worth noting that while this exploitation technique makes it easy to exploit dangling COM registrations, it can also be used to exploit buggy COM class custom unmarshalers. Sometimes, just the act of loading a DLL into a process can cause a crash. Finding the Original Dangling COM Object Registration As a footnote, a quick way to try and find other dangling COM servers would be to use the following PowerShell script with my OleViewDotNet and NtObjectManager modules installed: function Test-ComServer { param($Server) try { Use-NtObject($lib = Import-Win32Module -Path $Server -Flags AsDataFile) { $true } } catch { $false } } PS> $db = Get-ComDatabase -LoadMode MachineOnly PS> $cs = Get-ComClass -Database $db -ServerType InProcServer32 PS> $cs | ? { -not (Test-ComServer $_.DefaultServer) } | Sort DefaultServer | Select Name, DefaultServer This will print out any in-process COM class from the machine hive where LoadLibrary can’t find the DLL. It’s important to use LoadLibrary via the Import-Win32Module command as some of the COM registrations only specify the file name and you want to ensure these are resolved correctly according to the system path. This script will find the dangling CrossDevice COM class on an unpatched system. Note, you’ll need to manually inspect the paths to see if a DLL can be planted at that location. You could make it smarter by checking if the path is in a directory that can be written to, or even test if an existing DLL can be modified, but that’s an exercise for the reader.",
+      "tags": [
+        "research",
+        "has-CVE"
+      ],
+      "title": "Windows Exploitation Techniques: Dangling COM Object Registrations",
+      "url": "https://projectzero.google/2026/09/windows-dangling-com.html"
     },
     {
       "appsec": false,
@@ -3854,10 +3930,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 14.5,
+      "score": 14.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.5)"
+        "recency (+8.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3874,10 +3950,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 14.5,
+      "score": 14.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.5)"
+        "recency (+6.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3894,10 +3970,10 @@
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 14.3,
+      "score": 14.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.3)"
+        "recency (+8.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3914,10 +3990,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 14.2,
+      "score": 14.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.2)"
+        "recency (+6.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3931,33 +4007,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c87f4ae5dc4e2adb",
-      "kev": false,
-      "published": "2026-11-10T05:34:14Z",
-      "score": 13.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+7.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Claude Fable 5.2 pays close attention to who owns the code it works on. In Anthropic’s testing on small coding tasks, the model tended to add to the existing structure when the prompt said nothing about ownership or presented the code base as someone else’s, even when that duplicated existing code. When the prompt said the code base was the model’s own, it often consolidated duplicated code and sometimes made related fixes without being asked. If you want the model to improve the structure as it works, say that the code is its own: You are the owner and long-term maintainer of this codebase, and its design is up to you. The ownership sentence makes the model much more likely to consolidate duplicated code into one shared function. In Anthropic’s testing on small coding tasks, the model consolidated duplicated code in under 10 percent of runs without the sentence and in about 75 percent of runs with it. — Prompting Claude Fable 5.2, Anthropic documentation Tags: prompt-engineering, anthropic, generative-ai, ai, llms, claude-mythos-fable",
-      "tags": [],
-      "title": "Quoting Prompting Claude Fable 5.2",
-      "url": "https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 13.1,
+      "score": 13.0,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -3976,10 +4032,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 13.1,
+      "score": 13.0,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -3998,14 +4054,14 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 13.1,
+      "score": 12.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.1)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Tool: Yonkers Rises I realized I didn't know where Yonkers was, so I looked it up on Google Maps and then, to help embed its location and shape in my head (and to try out Claude Fable 5.2's 3D modeling and animation skills), I prompted Fable 5.2 Medium to: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and átomos around manhattan and queens and Brooklyn, use openstreetmap mapping data It correctly deduced that \"átomos\" was a mobile keyboard typo for \"stomps\": Tags: three-js, llms, ai, generative-ai, claude-mythos-fable",
+      "summary": "Tool: Yonkers Rises I realized I didn't know where Yonkers was, so I looked it up on Google Maps and then, to help embed its location and shape in my head (and to try out Claude Fable 5.2's 3D modeling and animation skills), I prompted Fable 5.2 Medium to: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and átomos around manhattan and queens and Brooklyn, use openstreetmap mapping data It correctly deduced that \"átomos\" was a mobile keyboard typo for \"stomps\": Tags: three-js, llms, ai, generative-ai, yonkers-rising, claude-mythos-fable",
       "tags": [],
       "title": "Yonkers Rises",
       "url": "https://simonwillison.net/2026/Nov/10/yonkers-rises/"
@@ -4015,13 +4071,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c87f4ae5dc4e2adb",
+      "kev": false,
+      "published": "2026-11-10T05:34:14Z",
+      "score": 12.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+6.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Claude Fable 5.2 pays close attention to who owns the code it works on. In Anthropic’s testing on small coding tasks, the model tended to add to the existing structure when the prompt said nothing about ownership or presented the code base as someone else’s, even when that duplicated existing code. When the prompt said the code base was the model’s own, it often consolidated duplicated code and sometimes made related fixes without being asked. If you want the model to improve the structure as it works, say that the code is its own: You are the owner and long-term maintainer of this codebase, and its design is up to you. The ownership sentence makes the model much more likely to consolidate duplicated code into one shared function. In Anthropic’s testing on small coding tasks, the model consolidated duplicated code in under 10 percent of runs without the sentence and in about 75 percent of runs with it. — Prompting Claude Fable 5.2, Anthropic documentation Tags: prompt-engineering, anthropic, generative-ai, ai, llms, claude-mythos-fable",
+      "tags": [],
+      "title": "Quoting Prompting Claude Fable 5.2",
+      "url": "https://simonwillison.net/2026/Nov/10/prompting-claude-fable-52/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 12.4,
+      "score": 12.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.4)"
+        "recency (+4.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4038,10 +4114,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 12.3,
+      "score": 12.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.3)"
+        "recency (+6.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4058,10 +4134,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 11.8,
+      "score": 11.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4078,10 +4154,10 @@
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 11.7,
+      "score": 11.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4098,10 +4174,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 11.4,
+      "score": 11.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4118,10 +4194,10 @@
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 11.2,
+      "score": 11.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4135,33 +4211,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "1078dcb9b7d86963",
-      "kev": false,
-      "published": "2026-11-06T17:13:12Z",
-      "score": 11.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+5.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. — Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics",
-      "tags": [],
-      "title": "Quoting Nilay Patel",
-      "url": "https://simonwillison.net/2026/Nov/6/nilay-patel/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 11.1,
+      "score": 11.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4175,13 +4231,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "1078dcb9b7d86963",
+      "kev": false,
+      "published": "2026-11-06T17:13:12Z",
+      "score": 10.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+4.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "The products aren't good enough to sell people on the costs. You cannot tell people that you have to listen to the whine of a data center in their backyard for AI overviews and some of the most hilarious deep fake slop in history. It's not worth it. It just isn't worth it to anyone. And agents aren't real and they might not be being used the way that anyone wants them to yet. All these companies are spending more than they're making on these products. Refrigerators holding blood storage in Europe are being hacked. The costs are too high. The benefits are not real. And if you connect that to corruption, you're like, in order to impose these costs on me, these CEOs are in the White House shaking Trump's hand, renaming it to the Gulf of America, paying for this ballroom that we don't want. It's obvious crypto-corruption, and it's still slop. The AI industry will not get out of it until they make better products. Until everyone can see without needing to be convinced, without needing an ad campaign, without any of this stuff that just using these products makes your life better. — Nilay Patel, The Vergecast: Big Tech lost big in the 2026 election Tags: nilay-patel, slop, ai, generative-ai, ai-ethics",
+      "tags": [],
+      "title": "Quoting Nilay Patel",
+      "url": "https://simonwillison.net/2026/Nov/6/nilay-patel/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 10.6,
+      "score": 10.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.6)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4198,10 +4274,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 10.4,
+      "score": 10.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4218,10 +4294,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4238,10 +4314,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 9.9,
+      "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.9)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4258,10 +4334,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 9.9,
+      "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.9)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4278,10 +4354,10 @@
       "id": "7d2479f2553dd44b",
       "kev": false,
       "published": "2026-11-03T16:42:02Z",
-      "score": 9.8,
+      "score": 9.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.8)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4298,10 +4374,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4318,10 +4394,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 9.6,
+      "score": 9.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4338,10 +4414,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 9.4,
+      "score": 9.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.4)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4358,10 +4434,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4369,26 +4445,6 @@
       "tags": [],
       "title": "Srsly Risky Biz: OpenAI's Kazoo-Grade Spying Incident",
       "url": "https://risky.biz/SRB187/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "d16b3aa2876fabcb",
-      "kev": false,
-      "published": "2026-11-01T16:49:04Z",
-      "score": 9.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury, Jepsen results for ParticleDB 1.1.4 Tags: kyle-kingsbury, llms, ai, generative-ai, ai-misuse",
-      "tags": [],
-      "title": "Quoting Kyle Kingsbury",
-      "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
     },
     {
       "appsec": false,
@@ -4415,20 +4471,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7f26342e5af4b0c2",
+      "id": "d16b3aa2876fabcb",
       "kev": false,
-      "published": "2026-10-19T19:22:17Z",
-      "score": 8.9,
+      "published": "2026-11-01T16:49:04Z",
+      "score": 9.0,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.9)"
+        "source:Simon Willison (+6)",
+        "recency (+3.0)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq discuss whether the rise of AI coding will result in more or less bugs and whether it will ultimately make software more secure. This episode is also available on YouTube. Show notes",
+      "summary": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury, Jepsen results for ParticleDB 1.1.4 Tags: kyle-kingsbury, llms, ai, generative-ai, ai-misuse",
       "tags": [],
-      "title": "Between Two Nerds: Why AI will mean infinite bugs",
-      "url": "https://risky.biz/BTN186/"
+      "title": "Quoting Kyle Kingsbury",
+      "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
     },
     {
       "appsec": false,
@@ -4455,6 +4511,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7f26342e5af4b0c2",
+      "kev": false,
+      "published": "2026-10-19T19:22:17Z",
+      "score": 8.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq discuss whether the rise of AI coding will result in more or less bugs and whether it will ultimately make software more secure. This episode is also available on YouTube. Show notes",
+      "tags": [],
+      "title": "Between Two Nerds: Why AI will mean infinite bugs",
+      "url": "https://risky.biz/BTN186/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
@@ -4475,26 +4551,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5ba4b32d47ec536b",
-      "kev": false,
-      "published": "2026-10-30T21:59:22Z",
-      "score": 8.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
-      "tags": [],
-      "title": "dbreunig/nesformer",
-      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
@@ -4509,6 +4565,26 @@
       "tags": [],
       "title": "Risky Bulletin: Spyware chip found in Ledger crypto-wallets",
       "url": "https://risky.biz/RBNEWS620/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5ba4b32d47ec536b",
+      "kev": false,
+      "published": "2026-10-30T21:59:22Z",
+      "score": 8.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
     },
     {
       "appsec": false,
@@ -4598,10 +4674,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 8.3,
+      "score": 8.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -5441,26 +5517,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7a3afca2246da741",
-      "kev": false,
-      "published": "2026-10-28T10:09:07Z",
-      "score": 8.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
-      "tags": [],
-      "title": "Quoting Terk Terkowitz",
-      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "7b7e4ab18a6fdb38",
       "kev": false,
       "published": "2026-08-03T19:44:35Z",
@@ -6050,13 +6106,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "87166973b4ed4194",
+      "id": "7a3afca2246da741",
       "kev": false,
-      "published": "2026-10-27T19:34:18Z",
+      "published": "2026-10-28T10:09:07Z",
       "score": 7.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If your work does not benefit from current AI tooling, that is a finding, not a failing. Document why, share it with your community of peers, bring it to your manager, and work to find solutions. An engineer who can explain where AI does not yet help their work is demonstrating the judgement we are asking for. — Terk Terkowitz, An update from Amazon engineering leadership on the role of the developer in the age of AI Tags: amazon, generative-ai, agentic-engineering, ai, llms",
+      "tags": [],
+      "title": "Quoting Terk Terkowitz",
+      "url": "https://simonwillison.net/2026/Oct/28/terk-terkowitz/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "87166973b4ed4194",
+      "kev": false,
+      "published": "2026-10-27T19:34:18Z",
+      "score": 7.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6133,26 +6209,6 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 7.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+1.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "e44aa2efb3cde31e",
-      "kev": false,
-      "published": "2026-10-22T19:42:26Z",
       "score": 7.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -6160,10 +6216,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
       "tags": [],
-      "title": "DE STAAT - FREEDOM (Official Music Video)",
-      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
     },
     {
       "appsec": false,
@@ -6184,6 +6240,26 @@
       "tags": [],
       "title": "Quoting Armin Ronacher",
       "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "e44aa2efb3cde31e",
+      "kev": false,
+      "published": "2026-10-22T19:42:26Z",
+      "score": 7.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
+      "tags": [],
+      "title": "DE STAAT - FREEDOM (Official Music Video)",
+      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
     },
     {
       "appsec": false,
@@ -6213,10 +6289,10 @@
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
-      "score": 6.9,
+      "score": 6.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6270,26 +6346,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "812f894cec2b2135",
-      "kev": false,
-      "published": "2026-10-15T13:04:03Z",
-      "score": 6.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
-      "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "96935c790ddc2990",
       "kev": false,
       "published": "2026-10-15T19:47:52Z",
@@ -6330,9 +6386,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "aa7677223a5c7914",
+      "id": "812f894cec2b2135",
       "kev": false,
-      "published": "2026-10-13T13:32:00Z",
+      "published": "2026-10-15T13:04:03Z",
       "score": 6.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -6340,10 +6396,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
       "tags": [],
-      "title": "Quoting Geoffrey Huntley",
-      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
     },
     {
       "appsec": false,
@@ -6364,22 +6420,42 @@
       "tags": [],
       "title": "Redesigning source control at Anthropic",
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "aa7677223a5c7914",
+      "kev": false,
+      "published": "2026-10-13T13:32:00Z",
+      "score": 6.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "If the agent isn't using my diagnostics library, I could introspect and update AGENTS.md, but there's still a delta, and it'll drift. Instead, I write a pre-commit hook that checks the git diff for direct calls to observability modules that bypass my diagnostics module. Boom: fail the commit, inject a prompt telling the agent to use the diagnostics library. All of a sudden it's ten out of ten. — Geoffrey Huntley, nobody should type code by hand anymore. here's what's left. Tags: coding-agents, generative-ai, git, agentic-engineering, ai, geoffrey-huntley, llms",
+      "tags": [],
+      "title": "Quoting Geoffrey Huntley",
+      "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
     }
   ],
-  "last_run": "2026-11-17T15:49:40Z",
+  "last_run": "2026-11-18T00:52:45Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1327,
-    "appsec_cves": 1781,
+    "appsec_cves": 1786,
     "kev_coverage_pct": 31.0,
-    "kev_tracked": 1781,
+    "kev_tracked": 1782,
     "kev_with_coverage": 553,
     "newly_exploited": 15,
     "newly_exploited_days": 30,
-    "open_gaps": 980,
-    "public_poc": 722,
-    "total_cves": 2395,
-    "total_items": 285
+    "open_gaps": 982,
+    "public_poc": 723,
+    "total_cves": 2402,
+    "total_items": 288
   },
   "threats": [
     {
