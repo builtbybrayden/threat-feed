@@ -1,4 +1,4 @@
-from pipeline.coverage import build_index, load_index, save_index
+from pipeline.coverage import build_index, load_index, load_index_meta, save_index
 
 TEMPLATE_WITH_CLASSIFICATION = """
 id: CVE-2024-9999-detect
@@ -35,3 +35,26 @@ def test_index_round_trip(tmp_path):
     loaded = load_index(out)
     assert loaded == {"CVE-2024-9999": "http/x.yaml"}
     assert load_index(tmp_path / "missing.json") == {}
+
+
+def test_index_envelope_round_trip_with_meta(tmp_path):
+    out = tmp_path / "idx.json"
+    save_index({"CVE-2024-9999": "http/x.yaml"}, out, meta={"source": "./nuclei-templates"})
+    # The enveloped shape still loads as a flat mapping...
+    assert load_index(out) == {"CVE-2024-9999": "http/x.yaml"}
+    # ...and its provenance is recoverable.
+    meta = load_index_meta(out)
+    assert meta["available"] is True
+    assert meta["template_count"] == 1
+    assert meta["source"] == "./nuclei-templates"
+    assert meta["as_of"]  # a timestamp was stamped in
+
+
+def test_index_meta_missing_is_unavailable(tmp_path):
+    # A missing or empty index must report unavailable, so callers mark coverage
+    # "unknown" rather than inventing confirmed gaps.
+    meta = load_index_meta(tmp_path / "missing.json")
+    assert meta["available"] is False
+    empty = tmp_path / "empty.json"
+    save_index({}, empty)
+    assert load_index_meta(empty)["available"] is False

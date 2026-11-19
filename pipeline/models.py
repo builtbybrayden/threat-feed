@@ -84,14 +84,30 @@ class CveRecord:
     epss: Optional[float] = None
     poc_links: list[str] = field(default_factory=list)
     nuclei_template: Optional[str] = None          # path in nuclei-templates, or None
+    # Coverage *status* is distinct from the template path: "covered" (a template
+    # indexes this CVE), "absent" (the index was available and held none), or
+    # "unknown" (no/stale index — absence of a template is NOT established).
+    coverage_status: str = "unknown"
     detection: Detection = field(default_factory=Detection)
     appsec: bool = False                            # application-security relevant
     ecosystems: list[str] = field(default_factory=list)   # npm, pypi, php, web, ...
     vuln_classes: list[str] = field(default_factory=list) # sqli, ssrf, rce, ...
     ghsa_id: Optional[str] = None                   # GitHub Advisory id, if sourced from GHSA
     advisory_url: Optional[str] = None              # link to the GitHub advisory
+    # Which intake streams contributed to this record (provenance): any of
+    # "feed", "kev", "ghsa", "cvelist", "osv", "nvd". Lets the UI/JSON answer
+    # "where did this come from" honestly instead of implying a single origin.
+    sources: list[str] = field(default_factory=list)
     is_candidate: bool = False
     candidate_reasons: list[str] = field(default_factory=list)
+    # Human decision record merged from decisions.yaml (status, reviewer, date,
+    # rationale, artifacts, outcome). None until a human records one.
+    decision: Optional[dict[str, Any]] = None
+    # Machine validation result merged from validations/<CVE>/result.json: a
+    # template's 3-control run (vulnerable/patched/benign) with the lab's source
+    # and confidence. None until a run is recorded. Distinct from `decision`
+    # (human) — this is a reproducible fact about a detection run.
+    validation: Optional[dict[str, Any]] = None
     score: float = 0.0                              # best score of linked items
     issue_number: Optional[int] = None
     first_seen: Optional[str] = None

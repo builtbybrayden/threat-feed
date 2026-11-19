@@ -1,0 +1,29 @@
+# Auditable detection-decision records (see pipeline/decisions.py).
+#
+# One record per CVE, hand-authored. The pipeline merges these onto the matching
+# CVE records so the dashboard and the detection queue show a real decision trail.
+# status is one of:
+#   candidate | reviewed | lab-validated | completed | rejected | inconclusive
+# "rejected" and "inconclusive" are honest terminal outcomes, not failures to hide.
+#
+# This file ships one worked example (the self-contained local lab under
+# validation/). It is a DEMONSTRATION of the schema and the validation protocol,
+# not an independent evaluation of the tool, and CVE-2099-0999 is a synthetic id
+# used only by that lab.
+
+- cve: CVE-2099-0999
+  status: lab-validated
+  reviewer: Brayden Arnold
+  date: 2026-11-01
+  rationale: >
+    HTTP-detectable path traversal in a download endpoint, with a public PoC;
+    a behavioural check is feasible and worth building.
+  template: validation/example_path_traversal/detection.yaml
+  artifacts:
+    - validation/example_path_traversal/result.json
+  outcome: >
+    Detected on the vulnerable instance; clean on the patched control and on the
+    benign negative control (see result.json). Validated locally on 127.0.0.1.
+  notes: >
+    Self-contained local lab (authorised). Example of the workflow end-to-end,
+    not an independent evaluation.

@@ -67,6 +67,36 @@ advisories:
   # GitHub ecosystem names (pip = PyPI; maven covers Java + Gradle).
   ecosystems: [pip, npm, maven, go, rubygems, nuget, composer, rust, actions, swift]
 
+cvelist:
+  # MITRE CVE List v5 (github.com/CVEProject/cvelistV5): the authoritative CVE
+  # record stream — catches freshly-published CVEs before NVD enriches them and
+  # independent of whether a GitHub advisory exists. We pull ONLY the small
+  # per-release delta bundle (`*_delta_CVEs_*.zip`, ~1-2 MB, changes since
+  # midnight UTC), never the ~650 MB all-CVEs bundle and never a full clone.
+  # Endpoints verified to resolve on 2026-11-01.
+  enabled: true
+  releases_url: https://api.github.com/repos/CVEProject/cvelistV5/releases
+  asset_match: _delta_CVEs_     # delta bundle only (excludes the all_CVEs zip)
+  releases_to_scan: 10          # scan this many recent releases for a delta asset
+  max_zip_bytes: 26214400       # 25 MiB hard cap on the delta download (guard)
+  max_entry_bytes: 2097152      # 2 MiB per-record uncompressed cap (zip-bomb guard)
+  max_records: 400              # cap webapp-relevant records imported per run
+  webapp_only: true             # import only webapp/appsec-relevant CVEs (stated scope)
+
+osv:
+  # OSV.dev (osv.dev): the language-ecosystem vulnerability databases GHSA only
+  # partly mirrors — RustSec (crates.io), the Go vuln DB, Hex (Elixir), Pub
+  # (Dart). We pull ONLY these small per-ecosystem exports (a few MB each), never
+  # npm (~220 MB) or PyPI (~38 MB), which GHSA already covers. Records are keyed
+  # by the CVE id in each record's aliases. Bucket verified to resolve 2026-11-01.
+  enabled: true
+  bucket_url: https://osv-vulnerabilities.storage.googleapis.com
+  ecosystems: [crates.io, Go, Hex, Pub]   # GHSA-under-covered language DBs only
+  lookback_days: 45             # keep records modified within this window
+  max_records: 300              # cap records imported per run (newest first)
+  max_zip_bytes: 52428800       # 50 MiB per-ecosystem download guard (excludes npm)
+  max_entry_bytes: 1048576      # 1 MiB per-record uncompressed cap (zip-bomb guard)
+
 http:
   timeout: 20
   retries: 3

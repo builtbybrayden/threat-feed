@@ -54,3 +54,15 @@ def test_apply_to_record_unions_ecosystems_without_clobbering():
     assert rec.ghsa_id == "GHSA-xxxx"
     assert rec.epss == 0.42
     assert rec.advisory_url == "https://github.com/advisories/GHSA-xxxx"
+
+
+def test_ghsa_extracts_fixed_and_affected_versions():
+    from pipeline import advisories
+    adv = {"ghsa_id": "GHSA-xxxx", "cve_id": "CVE-2099-9002", "summary": "x",
+           "html_url": "https://example.com/a",
+           "vulnerabilities": [{"package": {"ecosystem": "pip", "name": "p"},
+                                "vulnerable_version_range": ">= 1.0, < 1.4.3",
+                                "first_patched_version": {"identifier": "1.4.3"}}]}
+    d = advisories.parse_advisory(adv)
+    assert d["fixed_version"] == "1.4.3"
+    assert d["affected_versions"] == ">= 1.0, < 1.4.3"

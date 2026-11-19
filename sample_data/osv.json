@@ -1,0 +1,40 @@
+[
+  {
+    "id": "RUSTSEC-2099-0001",
+    "aliases": ["CVE-2099-8001", "GHSA-demo-rust-0001"],
+    "summary": "SSRF in example-rust-http request builder",
+    "details": "The request builder in example-rust-http follows attacker-controlled redirect targets, enabling server-side request forgery.",
+    "modified": "2026-10-29T12:00:00Z",
+    "published": "2026-10-29T10:00:00Z",
+    "affected": [{"package": {"name": "example-rust-http", "ecosystem": "crates.io", "purl": "pkg:cargo/example-rust-http"}}],
+    "severity": [{"type": "CVSS_V3", "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"}],
+    "database_specific": {"cwe_ids": ["CWE-918"]},
+    "references": [{"type": "ADVISORY", "url": "https://rustsec.org/advisories/RUSTSEC-2099-0001"}]
+  },
+  {
+    "id": "GO-2099-0002",
+    "aliases": ["CVE-2099-8002"],
+    "summary": "Path traversal in example-go-fileserver",
+    "modified": "2026-10-30T09:00:00Z",
+    "published": "2026-10-30T08:00:00Z",
+    "affected": [{"package": {"name": "github.com/example/fileserver", "ecosystem": "Go", "purl": "pkg:golang/github.com/example/fileserver"}}],
+    "severity": [{"type": "CVSS_V3", "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"}],
+    "database_specific": {"cwe_ids": ["CWE-22"]},
+    "references": [{"type": "WEB", "url": "https://pkg.go.dev/vuln/GO-2099-0002"}]
+  },
+  {
+    "id": "RUSTSEC-2099-0003",
+    "aliases": ["RUSTSEC-2099-0003"],
+    "summary": "Unmaintained crate (no CVE assigned)",
+    "modified": "2026-10-30T09:00:00Z",
+    "affected": [{"package": {"name": "example-unmaintained", "ecosystem": "crates.io"}}]
+  },
+  {
+    "id": "RUSTSEC-2099-0004",
+    "aliases": ["CVE-2099-8004"],
+    "summary": "Withdrawn advisory",
+    "withdrawn": "2026-10-31T00:00:00Z",
+    "modified": "2026-10-31T00:00:00Z",
+    "affected": [{"package": {"name": "example-withdrawn", "ecosystem": "crates.io"}}]
+  }
+]

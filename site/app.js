@@ -171,7 +171,7 @@
       ["n crit", s.actively_exploited_appsec, "AppSec CVEs exploited in the wild", "exploited"],
       ["n warn", s.newly_exploited, "Newly added to CISA KEV · " + (s.newly_exploited_days || 30) + "d", "newly"],
       ["n poc", s.public_poc, "With public exploit code (PoC)", "poc"],
-      ["n", s.open_gaps, "Missing a Nuclei template", "gaps"]
+      ["n", s.open_gaps, "No indexed Nuclei template", "gaps"]
     ].forEach(function (k) {
       var b = el("div", "kpi clickable");
       b.setAttribute("role", "button"); b.setAttribute("tabindex", "0");
@@ -206,11 +206,14 @@
         filter: { signal: "poc" }
       },
       gaps: {
-        n: s.open_gaps, label: "Missing a Nuclei template",
-        what: "Detection candidates: AppSec CVEs that have no Nuclei template yet, are remotely/HTTP-detectable, and carry a priority signal (KEV, high EPSS, or a watchlist product).",
+        n: s.open_gaps, label: "No indexed Nuclei template",
+        what: "Detection candidates: AppSec CVEs with no template in the Nuclei coverage *index* (a template-reference index, not validated detection), that are remotely/HTTP-detectable and carry a priority signal (KEV, high EPSS, or a watchlist product)."
+          + (s.coverage_index_available === false
+              ? " ⚠ No coverage index was available this run, so these are provisional — an upstream template may already exist. Build the index (make coverage-index) to confirm."
+              : ""),
         how: [["ProjectDiscovery nuclei-templates (coverage)", "https://github.com/projectdiscovery/nuclei-templates"],
               ["FIRST EPSS", "https://www.first.org/epss/"]],
-        filter: { coverage: "gap" }
+        filter: { coverage: s.coverage_index_available === false ? "unknown" : "gap" }
       }
     };
     var m = M[key]; if (!m) return;
@@ -307,6 +310,40 @@
     post.addEventListener("click", cardClick(function () { openNewsDetail(it); }));
     return post;
   }
+  // Tags that are shown inline on a card as their own signal (KEV/PoC/CVE) or are
+  // too generic to filter on usefully; excluded from the tag filter bar so it
+  // stays a list of meaningful topics (ecosystems, vuln classes, research, ...).
+  var NEWS_TAG_HIDE = { "has-CVE": 1 };
+  function renderNewsFilters() {
+    var host = document.getElementById("news-chips"); if (!host) return;
+    host.textContent = "";
+    var counts = newsTagCounts().filter(function (p) { return !NEWS_TAG_HIDE[p[0]]; });
+    if (!counts.length) { host.hidden = true; return; }
+    counts.forEach(function (p) {
+      var tag = p[0], active = state.newsTags.has(tag);
+      var c = el("button", "chip" + (tag === "AI-sec" ? " ai" : ""), tag); c.type = "button";
+      c.setAttribute("aria-pressed", active ? "true" : "false");
+      c.appendChild(el("span", "chip-n", p[1]));
+      c.addEventListener("click", function () {
+        if (state.newsTags.has(tag)) state.newsTags.delete(tag); else state.newsTags.add(tag);
+        renderNewsFilters(); renderNews();
+      });
+      host.appendChild(c);
+    });
+    if (state.newsTags.size) {
+      var clr = el("button", "chip chip-danger", "Clear (" + state.newsTags.size + ")");
+      clr.type = "button";
+      clr.addEventListener("click", function () { state.newsTags.clear(); renderNewsFilters(); renderNews(); });
+      host.appendChild(clr);
+    }
+    updateNewsFilterLabel();
+  }
+  function updateNewsFilterLabel() {
+    var badge = document.getElementById("news-filter-active"); if (!badge) return;
+    var n = state.newsTags.size;
+    var s = n ? Array.from(state.newsTags).slice(0, 2).join(" · ") + (n > 2 ? " +" + (n - 2) : "") : "";
+    badge.textContent = s; badge.hidden = !s;
+  }
   function renderNews() {
     var host = document.getElementById("news"); host.textContent = "";
     var shown = state.items.filter(newsMatch).slice().sort(function (a, b) {
@@ -314,6 +351,7 @@
     });
     document.getElementById("news-empty").hidden = shown.length !== 0;
     shown.forEach(function (it) { host.appendChild(newsPost(it)); });
+    updateNewsFilterLabel();
   }
 
   // ---- THREATS ----------------------------------------------------------
@@ -349,13 +387,127 @@
     });
     g.appendChild(row); host.appendChild(g);
   }
-  var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Has template"]];
+  // Coverage reflects the Nuclei template *index*, not validated detection: a
+  // CVE is "covered" when a template references it, "gap" when the index held
+  // none, and "unknown" when no index was available (absence is NOT confirmed).
+  var COV_LABEL = { covered: "Template indexed", gap: "No template", unknown: "Coverage unknown" };
+  function covClass(cov) { return cov === "gap" ? "gap" : (cov === "unknown" ? "unknown" : "covered"); }
+  function covBadge(cov) {
+    var b = el("span", "cov " + covClass(cov), COV_LABEL[cov] || COV_LABEL.covered);
+    b.title = cov === "unknown"
+      ? "No coverage index was available this run — a template may or may not exist."
+      : (cov === "gap" ? "No Nuclei template indexes this CVE (template-reference index, not validated detection)."
+                       : "A Nuclei template references this CVE (reference indexed, not behaviourally validated).");
+    return b;
+  }
+  var COVERAGE_OPTS = [["all", "All"], ["gap", "No template"], ["covered", "Template indexed"], ["unknown", "Unknown"]];
+
+  // A recorded human decision (decisions.yaml) — the auditable lifecycle. Shown
+  // as a small pill; the detail modal shows reviewer / date / rationale / outcome.
+  var DEC_LABEL = {
+    candidate: "Candidate", reviewed: "Reviewed", "lab-validated": "Lab-validated",
+    completed: "Completed", rejected: "Rejected", inconclusive: "Inconclusive"
+  };
+  function decisionBadge(dec) {
+    if (!dec || !dec.status) return null;
+    var b = el("span", "decision " + dec.status, DEC_LABEL[dec.status] || dec.status);
+    var who = [dec.reviewer, dec.date].filter(Boolean).join(" · ");
+    if (who) b.title = who;
+    return b;
+  }
+  function decisionDetail(dec) {
+    if (!dec || !dec.status) return null;
+    var wrap = el("div");
+    wrap.appendChild(el("h3", "detail-h", "Decision record"));
+    var grid = el("div", "meta-grid");
+    var row = function (k, val) {
+      if (val == null || val === "") return;
+      grid.appendChild(el("div", "k", k)); grid.appendChild(el("div", "v", val));
+    };
+    row("Status", DEC_LABEL[dec.status] || dec.status);
+    row("Reviewer", dec.reviewer);
+    row("Date", dec.date);
+    row("Rationale", dec.rationale);
+    row("Outcome", dec.outcome);
+    row("Template", dec.template);
+    if (dec.artifacts && dec.artifacts.length) row("Artifacts", dec.artifacts.join(", "));
+    row("Notes", dec.notes);
+    wrap.appendChild(grid);
+    return wrap;
+  }
+  // Machine validation (validations/<CVE>/result.json): a template's 3-control
+  // lab run — fires on vulnerable, silent on patched + benign. Distinct from the
+  // human decision. A docker-hub "inferred" lab (versions guessed from the CVE)
+  // is flagged low-confidence so a guessed-version pass is never shown as curated.
+  var VAL_SOURCE_LABEL = { vulhub: "vulhub", "docker-hub-inference": "inferred lab", custom: "custom lab" };
+  var VAL_CONTROL_LABEL = { vulnerable_instance: "Vulnerable", patched_control: "Patched", negative_control_benign: "Benign" };
+  function validationBadge(v) {
+    if (!v) return null;
+    var inferred = v.source === "docker-hub-inference";
+    var cls = !v.validated ? "fail" : (inferred ? "inferred" : "ok");
+    var b = el("span", "val " + cls, !v.validated ? "Lab ✗" : (inferred ? "Lab ✓ inferred" : "Lab ✓"));
+    var src = VAL_SOURCE_LABEL[v.source] || v.source || "lab";
+    b.title = (v.validated ? "Template passed the 3-control lab run" : "Template failed the lab run")
+      + " · " + src + (v.confidence ? " (" + v.confidence + " confidence)" : "")
+      + (inferred ? " — vulnerable/patched versions inferred from the CVE, not a curated lab" : "");
+    return b;
+  }
+  function validationDetail(v) {
+    if (!v) return null;
+    var wrap = el("div");
+    wrap.appendChild(el("h3", "detail-h", "Validation" + (v.validated ? " · passed" : " · failed")));
+    var controls = el("div", "val-controls");
+    (v.controls || []).forEach(function (c) {
+      var row = el("div", "val-ctl " + (c.pass ? "ok" : "fail"));
+      row.appendChild(el("span", "val-ctl-i", c.pass ? "✓" : "✗"));
+      row.appendChild(el("span", "val-ctl-n", VAL_CONTROL_LABEL[c.name] || c.name));
+      row.appendChild(el("span", "val-ctl-d", c.detected ? "detected" : "no detection"));
+      controls.appendChild(row);
+    });
+    wrap.appendChild(controls);
+    var meta = el("div", "meta-grid");
+    var row = function (k, val) { if (val == null || val === "") return; meta.appendChild(el("div", "k", k)); meta.appendChild(el("div", "v", val)); };
+    row("Lab", (VAL_SOURCE_LABEL[v.source] || v.source) + (v.confidence ? " · " + v.confidence + " confidence" : ""));
+    if (v.vulnerable) row("Vulnerable", (v.vulnerable.image || "") + (v.vulnerable.version ? " (" + v.vulnerable.version + ")" : ""));
+    if (v.patched) row("Patched", (v.patched.image || "") + (v.patched.version ? " (" + v.patched.version + ")" : ""));
+    if (v.template) row("Template", v.template);
+    if (v.runner) row("Runner", v.runner);
+    if (v.generated) row("Validated", dateShort(v.generated));
+    wrap.appendChild(meta);
+    if (v.source === "docker-hub-inference" && v.lab_note) wrap.appendChild(el("p", "val-note", "⚠ " + v.lab_note));
+    return wrap;
+  }
+  // Provenance: which intake streams saw this CVE (the record's `origins`). This
+  // is distinct from `sources`, which are the feed ARTICLES that mention a CVE.
+  // Shown as small pills so "where did this come from" is visible, not implied.
+  var ORIGIN_LABEL = {
+    feed: "Feed", kev: "KEV", ghsa: "GHSA", cvelist: "CVE List", osv: "OSV", nvd: "NVD"
+  };
+  var ORIGIN_TITLE = {
+    feed: "Named in a news/research feed item",
+    kev: "Listed in the CISA Known Exploited Vulnerabilities catalog",
+    ghsa: "GitHub Advisory Database (package-ecosystem advisory)",
+    cvelist: "MITRE CVE List (authoritative CNA record)",
+    osv: "OSV.dev (language-ecosystem vulnerability database)",
+    nvd: "Enriched from the NVD API (CVSS / CWE / CPE)"
+  };
+  function originsRow(origins) {
+    if (!origins || !origins.length) return null;
+    var row = el("div", "origins");
+    row.appendChild(el("span", "origins-label", "Seen in"));
+    origins.forEach(function (o) {
+      var b = el("span", "origin " + o, ORIGIN_LABEL[o] || o);
+      if (ORIGIN_TITLE[o]) b.title = ORIGIN_TITLE[o];
+      row.appendChild(b);
+    });
+    return row;
+  }
   var SORT_OPTS = [["score", "Priority"], ["published", "Date published"], ["modified", "Date modified"]];
   function signalOpts() {
     var d = (state.stats && state.stats.newly_exploited_days) || 30;
-    return [["all", "All"], ["kev", "Exploited (KEV)"], ["newkev", "New in KEV · " + d + "d"], ["poc", "Has public PoC"]];
+    return [["all", "All"], ["kev", "Exploited (KEV)"], ["newkev", "New in KEV · " + d + "d"], ["poc", "Has public PoC"], ["validated", "Lab-validated"]];
   }
-  var SIGNAL_LABEL = { kev: "Exploited (KEV)", newkev: "New in KEV", poc: "Has public PoC" };
+  var SIGNAL_LABEL = { kev: "Exploited (KEV)", newkev: "New in KEV", poc: "Has public PoC", validated: "Lab-validated" };
   function renderThreatChips() {
     var host = document.getElementById("threat-chips"); host.textContent = "";
     pillGroup(host, "Signal", signalOpts(), state.threatSignal, function (v) {
@@ -381,7 +533,8 @@
     var parts = [];
     if (state.threatSignal !== "all") parts.push(SIGNAL_LABEL[state.threatSignal] || state.threatSignal);
     if (state.threatCoverage === "gap") parts.push("No template");
-    else if (state.threatCoverage === "covered") parts.push("Has template");
+    else if (state.threatCoverage === "covered") parts.push("Template indexed");
+    else if (state.threatCoverage === "unknown") parts.push("Coverage unknown");
     if (state.threatEco) parts.push(ECO_LABEL[state.threatEco] || state.threatEco);
     if (state.threatSort !== "score") parts.push(state.threatSort === "published" ? "by published" : "by modified");
     return parts.join(" · ");
@@ -392,10 +545,12 @@
   }
   function threatMatch(t) {
     if (state.threatCoverage === "gap" && t.coverage !== "gap") return false;
-    if (state.threatCoverage === "covered" && t.coverage === "gap") return false;
+    if (state.threatCoverage === "covered" && t.coverage !== "covered") return false;
+    if (state.threatCoverage === "unknown" && t.coverage !== "unknown") return false;
     if (state.threatEco && (t.ecosystems || []).indexOf(state.threatEco) === -1) return false;
     if (state.threatSignal === "kev" && !t.kev) return false;
     if (state.threatSignal === "poc" && !t.has_poc) return false;
+    if (state.threatSignal === "validated" && !(t.validation && t.validation.validated)) return false;
     if (state.threatSignal === "newkev") {
       var win = (state.stats && state.stats.newly_exploited_days) || 30;
       if (!t.kev || daysSince(t.kev_added) > win) return false;
@@ -411,7 +566,7 @@
     idw.appendChild(el("div", "vuln-prod", prod));
     var dl = dateLine(t); if (dl) idw.appendChild(el("div", "vuln-date", dl));
     head.appendChild(idw);
-    head.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
+    head.appendChild(covBadge(t.coverage));
     v.appendChild(head);
 
     var stats = el("div", "p-stats");
@@ -421,7 +576,11 @@
     if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
     (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", e)); });
     (t.vuln_classes || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
+    var tdb = decisionBadge(t.decision); if (tdb) stats.appendChild(tdb);
+    var tvb = validationBadge(t.validation); if (tvb) stats.appendChild(tvb);
     v.appendChild(stats);
+
+    var torow = originsRow(t.origins); if (torow) v.appendChild(torow);
 
     if (t.description) v.appendChild(el("p", "vuln-desc", t.description));
 
@@ -466,7 +625,7 @@
     var dl = dateLine(c); if (dl) idw.appendChild(el("div", "vuln-date", dl));
     head.appendChild(idw);
     if (!c._synced) head.appendChild(el("span", "cov local", "Local · syncing"));
-    else if (c.coverage) head.appendChild(el("span", "cov " + (c.coverage === "gap" ? "gap" : "covered"), c.coverage === "gap" ? "No template" : "Covered"));
+    else if (c.coverage) head.appendChild(covBadge(c.coverage));
     v.appendChild(head);
 
     var stats = el("div", "p-stats");
@@ -475,7 +634,11 @@
     if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
     if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
     (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
+    var cdb = decisionBadge(c.decision); if (cdb) stats.appendChild(cdb);
+    var cvb = validationBadge(c.validation); if (cvb) stats.appendChild(cvb);
     if (stats.childNodes.length) v.appendChild(stats);
+
+    var corow = originsRow(c.origins); if (corow) v.appendChild(corow);
 
     if (c.detectability) {
       var d = c.detectability;
@@ -562,7 +725,8 @@
     if (info.kev) sig.push("in CISA KEV");
     if (info.epss != null) sig.push("EPSS " + Math.round(info.epss * 100) + "%");
     if (info.cvss_score != null) sig.push("CVSS " + info.cvss_score);
-    if (info.coverage) sig.push(info.coverage === "gap" ? "no Nuclei template" : "template exists");
+    if (info.coverage) sig.push(info.coverage === "gap" ? "no Nuclei template indexed"
+      : (info.coverage === "unknown" ? "coverage index unavailable" : "Nuclei template indexed"));
     if (sig.length) lines.push("**Signals:** " + sig.join(" · "));
     if (info.description) lines.push("", info.description);
     lines.push("", "### Links");
@@ -621,13 +785,18 @@
       if (t.epss != null) stats.appendChild(statItem("EPSS", epssPct(t.epss)));
       if (t.cvss_score != null) stats.appendChild(statItem("CVSS", t.cvss_score));
       if (t.has_poc) stats.appendChild(statItem("PoC", null, "poc"));
-      stats.appendChild(el("span", "cov " + (t.coverage === "gap" ? "gap" : "covered"), t.coverage === "gap" ? "No template" : "Covered"));
+      stats.appendChild(covBadge(t.coverage));
       (t.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
       (t.vuln_classes || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
       (t.cwe || []).forEach(function (c) { stats.appendChild(el("span", "tag-pill", c)); });
       body.appendChild(stats);
 
+      var tdor = originsRow(t.origins); if (tdor) body.appendChild(tdor);
+
       if (t.description) body.appendChild(el("p", "detail-desc", t.description));
+
+      var tdd = decisionDetail(t.decision); if (tdd) body.appendChild(tdd);
+      var tvd = validationDetail(t.validation); if (tvd) body.appendChild(tvd);
 
       if (t.sources && t.sources.length) {
         var sl = el("div", "src-links");
@@ -691,12 +860,17 @@
       if (c.epss != null) stats.appendChild(statItem("EPSS", epssPct(c.epss)));
       if (c.cvss_score != null) stats.appendChild(statItem("CVSS", c.cvss_score));
       if (c.has_poc || (c.detectability && c.detectability.has_poc)) stats.appendChild(statItem("PoC", null, "poc"));
-      if (c.coverage) stats.appendChild(el("span", "cov " + (c.coverage === "gap" ? "gap" : "covered"), c.coverage === "gap" ? "No template" : "Covered"));
+      if (c.coverage) stats.appendChild(covBadge(c.coverage));
       (c.ecosystems || []).forEach(function (e) { stats.appendChild(el("span", "tag-pill eco", ECO_LABEL[e] || e)); });
       (c.cwe || []).forEach(function (cw) { stats.appendChild(el("span", "tag-pill", cw)); });
       if (stats.childNodes.length) body.appendChild(stats);
 
+      var cdor = originsRow(c.origins); if (cdor) body.appendChild(cdor);
+
       if (c.description) body.appendChild(el("p", "detail-desc", c.description));
+
+      var cdd = decisionDetail(c.decision); if (cdd) body.appendChild(cdd);
+      var cvd = validationDetail(c.validation); if (cvd) body.appendChild(cvd);
 
       if (c.detectability) {
         var d = c.detectability;
@@ -844,7 +1018,7 @@
       setGapBadge(mergedQueue().length);
       renderFooters();
       renderKpis();
-      renderNews();
+      renderNewsFilters(); renderNews();
       renderThreatChips(); renderThreats();
       renderQueue();
       renderRailGaps();
@@ -867,17 +1041,20 @@
     overlay.addEventListener("click", function (e) { if (e.target === overlay) closeModal(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !overlay.hidden) closeModal(); });
   })();
-  (function () {
-    var ft = document.getElementById("threat-filter-toggle");
+  // Collapsible filter bars (Threats + News share the same toggle behaviour).
+  function wireFilterToggle(toggleId, panelId) {
+    var ft = document.getElementById(toggleId);
     if (!ft) return;
     ft.addEventListener("click", function () {
-      var panel = document.getElementById("threat-chips");
+      var panel = document.getElementById(panelId);
       var open = panel.hidden;              // about to open if currently hidden
       panel.hidden = !open;
       ft.setAttribute("aria-expanded", open ? "true" : "false");
       ft.classList.toggle("is-open", open);
     });
-  })();
+  }
+  wireFilterToggle("threat-filter-toggle", "threat-chips");
+  wireFilterToggle("news-filter-toggle", "news-chips");
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
   }

@@ -9,23 +9,36 @@ A proof-of-concept that does two jobs from free, public data:
    *does a template already exist? if not, here is everything needed to write one.*
 
 The dashboard is a static site (vanilla HTML/CSS/JS) that GitHub Actions rebuilds on a
-schedule and publishes to GitHub Pages. New detection gaps automatically become labeled
-GitHub Issues — the work queue.
+schedule and publishes to GitHub Pages. The detection queue is **user-curated**: you add a
+CVE from the dashboard (which opens a prefilled `detection-queue` GitHub Issue) and the
+pipeline lists those issues into the queue. Auto-filing an issue per candidate is available
+but **opt-in** (`--sync-issues`), not part of a normal run.
+
+> Two honesty boundaries this project keeps, by design:
+> - **Template coverage is a reference index, not validated detection.** "Template indexed"
+>   means a Nuclei template references that CVE id — not that the check has been run against
+>   a vulnerable and a patched target. Behavioural validation is a separate, recorded step.
+> - **A missing/stale coverage index reads as _unknown_, never as a confirmed gap.** Absence
+>   of a template is only asserted when the index was actually available that run.
 
 ```
 GitHub Actions (cron, every 6h)
   └─ Python ingester (pipeline/)
        ├─ RSS/Atom feeds (feedparser)           ← sources in config.yaml
        ├─ CISA KEV catalog
+       ├─ GitHub Advisory DB (per-ecosystem + critical) ← discovery
+       ├─ MITRE CVE List v5 delta (webapp-filtered)     ← discovery, pre-NVD
+       ├─ OSV.dev language DBs (RustSec/Go/Hex/Pub)      ← discovery
        ├─ FIRST EPSS API (batched)
        ├─ NVD API 2.0 (CWE, CPE, CVSS, refs)    ← optional NVD_API_KEY
        ├─ PoC signals (nomi-sec PoC-in-GitHub, NVD "Exploit" refs)
        └─ Nuclei coverage index (from a shallow clone of nuclei-templates)
-  └─ normalize → dedupe (state.json) → tag + score
-  └─ detection triage → candidates + per-CVE briefs/
+  └─ merge by CVE id (provenance recorded per source) → dedupe (state.json) → tag + score
+  └─ detection triage → candidates (coverage: covered / absent / unknown)
   └─ write site/data.json + site/candidates.json → commit → Pages redeploys
-  └─ open/update GitHub Issues for new template candidates
-Static site (mobile-first PWA): "Feed" view + "Detection queue" view
+  └─ detection queue = open `detection-queue` issues → site/queue.json + briefs/
+  └─ (opt-in --sync-issues) file/close nuclei-candidate issues for absent candidates
+Static site (mobile-first PWA): "News" + "Threats" + "Detection queue" views
 ```
 
 ## Quick start
@@ -55,28 +68,37 @@ make run                # full online run: feeds + KEV + EPSS + NVD + PoC + tria
 
 `python -m pipeline.ingest` flags: `--offline` (use `sample_data/`, no network),
 `--no-nvd` (skip the slow NVD enrichment), `--limit-nvd N` (cap NVD lookups this run),
-`--no-issues` (never touch GitHub). State persists in `state.json` between runs so
-re-running produces no duplicate items or issues.
+`--no-issues` (never touch GitHub), `--sync-issues` (opt-in: file/close
+`nuclei-candidate` issues for confirmed-absent candidates; needs `GITHUB_TOKEN` +
+`GITHUB_REPOSITORY`), `--queue-only` (rebuild only the queue from issues). State persists
+in `state.json` between runs so re-running produces no duplicate items or issues.
 
 ## File layout
 
 ```
 config.yaml           feeds, source weights, scoring, thresholds (no magic numbers in code)
 watchlist.yaml        generic public products/terms to flag
+decisions.yaml        auditable detection-decision records (the lifecycle), hand-authored
 pipeline/
   models.py           the two schemas: Item and CveRecord
   normalize.py        HTML stripping, CVE regex, id hashing, safe-link + URL canonicalization
   feeds.py  kev.py  epss.py  nvd.py  poc.py   source ingestion/enrichment
+  advisories.py       GitHub Advisory DB (per-ecosystem CVE discovery)
+  cvelist.py          MITRE CVE List v5 delta (authoritative CVE discovery, webapp-filtered)
+  osv.py              OSV.dev language-ecosystem DBs (RustSec/Go/Hex/Pub), keyed by CVE alias
+  appsec.py           application-security relevance + ecosystem/vuln-class tagging
   coverage.py         build/load the Nuclei coverage index
   score.py            transparent, config-driven scoring
   triage.py           detectability classification + candidate rule
   briefs.py           per-CVE Markdown + JSON detection briefs
-  issues.py           idempotent GitHub Issues work queue
+  decisions.py        load/validate the decision-lifecycle records
+  issues.py           idempotent GitHub Issues work queue (opt-in --sync-issues)
   state.py            state.json load/save (dedupe + enrichment cache)
   ingest.py           orchestrator + CLI
 site/                 static PWA dashboard (index.html, app.js, style.css, sw.js, manifest)
 briefs/               generated detection briefs
 sample_data/          committed snapshot for the --offline demo
+validation/           reproducible local validation example (vuln + patched + controls)
 tools/                gen_icons.py (PWA icons), make_sample.py (snapshot sample_data)
 tests/                fixtures + unit/integration tests (no live network)
 .github/workflows/    pipeline.yml (cron + Pages), validate-templates.yml (phase 2)
@@ -90,8 +112,16 @@ tests/                fixtures + unit/integration tests (no live network)
 
 **CveRecord** (one per CVE id): `description`, `cwe[]`, `cvss_vector`, `cvss_score`,
 `vendor`/`product`/`cpes[]`, `affected_versions`, `fixed_version`, `references[]`, `kev`,
-`epss`, `poc_links[]`, `nuclei_template` (path or `null`), `detection{…}`, `is_candidate`,
-`candidate_reasons[]`, `score`, `issue_number`.
+`epss`, `poc_links[]`, `nuclei_template` (path or `null`), `coverage_status`
+(`covered`/`absent`/`unknown`), `detection{…}`, `is_candidate`, `candidate_reasons[]`,
+`sources[]` (provenance — which intake streams saw this CVE:
+`feed`/`kev`/`ghsa`/`cvelist`/`osv`/`nvd`; exposed as `origins` in the site JSON),
+`decision` (merged from `decisions.yaml`), `score`, `issue_number`.
+
+A CVE is keyed once and enriched by every source that references it, so the same
+record can carry, say, a CVE-List description, a KEV flag, and an EPSS score. `origins`
+in `data.json`/`candidates.json` records which streams contributed, so "where did this
+come from" is answerable rather than implied.
 
 ## Scoring
 
@@ -123,10 +153,53 @@ For every CVE seen, the pipeline classifies detectability (rules-first, explaina
 - suggested template type — `behavioral` when HTTP-detectable *and* there's a PoC/writeup
   to model it on, else the safer passive `version-fingerprint`
 
-**A CVE is a candidate** when it has **no existing Nuclei template** AND is remote- or
-HTTP-detectable AND carries a priority signal (in KEV, or EPSS ≥ threshold, or a watchlist
-product). Candidates are ranked by score, written as briefs (`briefs/CVE-*.md`), surfaced
-in the Detection queue, and opened as GitHub Issues.
+**A CVE is a candidate** when it is **not covered** (no indexed template, or coverage
+unknown) AND is remote- or HTTP-detectable AND carries a priority signal (in KEV, or
+EPSS ≥ threshold, or a watchlist product). Candidates are ranked by score and surfaced on
+the Threats board and in `site/candidates.json`. A candidate found while coverage was
+*unknown* is marked provisional (its reasons say a template "was not ruled out").
+
+Coverage status is three-valued and kept distinct from the template path:
+`covered` (a template indexes the CVE), `absent` (the index was available and had none),
+`unknown` (no index this run — absence is **not** established). Headline coverage % is
+computed only over CVEs whose coverage is known.
+
+## Detection workflow (the decision lifecycle)
+
+Triage decides whether a CVE is a *candidate*. What a human then did about it is
+recorded, by hand, in **`decisions.yaml`** at the repo root — one record per CVE. The
+pipeline merges these onto the CVE records, so the dashboard and the detection queue show
+an auditable trail (status, reviewer, date, rationale, template/reference, artifacts,
+outcome), not just "candidate / not candidate".
+
+Lifecycle states: `candidate → reviewed → lab-validated → completed`, plus the terminal
+outcomes `rejected` and `inconclusive` (so the trail can honestly end in "we decided not
+to" or "we couldn't tell" — not only in successes).
+
+```yaml
+- cve: CVE-2099-0999
+  status: lab-validated
+  reviewer: Brayden Arnold
+  date: 2026-11-01
+  rationale: HTTP path traversal with a public PoC; a behavioural check is feasible.
+  template: validation/example_path_traversal/detection.yaml
+  artifacts: [validation/example_path_traversal/result.json]
+  outcome: Detected on the vulnerable instance; clean on the patched + negative control.
+```
+
+**Local validation.** `lab-validated` means a detection was exercised against a vulnerable
+instance, a patched control, and a benign negative control — locally, on `127.0.0.1`, and
+recorded. `validation/example_path_traversal/` is a reproducible, stdlib-only worked
+example of exactly that protocol:
+
+```bash
+python validation/example_path_traversal/run_validation.py   # writes result.json; exits non-zero on failure
+```
+
+It demonstrates the protocol; it is **not** an independent evaluation of the tool, and its
+CVE id is synthetic. To validate a real CVE, swap in the real vulnerable/patched builds and
+point the template at the real request — keeping the same three controls, and keeping it
+local and authorised (never run a candidate detection against live or shared hosts).
 
 ## Dashboard
 
@@ -138,9 +211,9 @@ three views and an AppSec-focused headline:
   tags, expandable score reasons), with search and tag filters.
 - **Threats** — a CVE-centric intelligence board: active & recent application-security
   vulnerabilities ranked by priority (exploited in the wild, EPSS, public PoC, ecosystem
-  relevance), newest-exploited first, each showing coverage status (**Covered** /
-  **No template**), ecosystem/class tags, and any feed coverage. Filter by "Gaps only" or
-  ecosystem.
+  relevance), newest-exploited first, each showing coverage status (**Template indexed** /
+  **No template** / **Coverage unknown**), ecosystem/class tags, and any feed coverage.
+  Filter by coverage or ecosystem.
 - **Detection queue** — the detection backlog: AppSec vulns with no Nuclei template yet
   (the gaps), with detectability, suggested template type, a brief, and the tracking issue.
 - **Headline KPIs** — Actively exploited (AppSec ∩ KEV), Newly exploited (added to KEV in
@@ -192,6 +265,13 @@ Interfaces are scaffolded; implement after the demo core is proven:
   env).
 - Validation harness — `nuclei -validate` (wired in `validate-templates.yml`), then run
   against a vulnerable lab container (expect a match) and a patched one (expect none) via
-  docker compose; record results in the brief.
+  docker compose; record results in the decision record. The three-control protocol and a
+  reproducible stdlib-only worked example already exist in `validation/` — generalise it
+  from the toy target to real vulnerable/patched builds.
 - Only http/dns/network protocols; no `code` templates; no destructive payloads; drafts
   are never auto-promoted — a human reviews and merges via PR.
+
+## Licence
+
+[MIT](LICENSE) © 2026 Brayden Arnold. AI-assisted code contributions are present; see
+commit history for attribution.

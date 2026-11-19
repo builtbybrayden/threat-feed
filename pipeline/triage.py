@@ -82,13 +82,28 @@ def _test_target_hint(rec: CveRecord) -> str | None:
 
 
 def evaluate_candidate(
-    rec: CveRecord, config: dict[str, Any], *, watchlist_hit: bool
+    rec: CveRecord,
+    config: dict[str, Any],
+    *,
+    watchlist_hit: bool,
+    coverage_status: str | None = None,
 ) -> tuple[bool, list[str]]:
-    """Apply the candidate rule and return (is_candidate, reasons)."""
+    """Apply the candidate rule and return (is_candidate, reasons).
+
+    ``coverage_status`` is one of "covered" / "absent" / "unknown". When omitted
+    it is inferred from ``rec.nuclei_template`` for backward compatibility. A CVE
+    is a candidate when it is NOT covered (absent *or* unknown) and is
+    remote/HTTP-detectable and carries a priority signal. The distinction is kept
+    in the reasons: an "unknown" candidate is provisional because a template may
+    already exist upstream — we just could not check.
+    """
     reasons: list[str] = []
     threshold = config.get("candidate", {}).get("epss_threshold", 0.3)
 
-    has_template = rec.nuclei_template is not None
+    if coverage_status is None:
+        coverage_status = "covered" if rec.nuclei_template is not None else "absent"
+
+    has_template = coverage_status == "covered"
     detectable = rec.detection.remote_network or rec.detection.likely_http
     priority = rec.kev or (rec.epss is not None and rec.epss >= threshold) or watchlist_hit
 
@@ -109,6 +124,9 @@ def evaluate_candidate(
             reasons.append(f"EPSS {rec.epss:.0%} >= {threshold:.0%}")
         if watchlist_hit:
             reasons.append("watchlist product")
-        reasons.append("no existing Nuclei template")
+        if coverage_status == "unknown":
+            reasons.append("coverage index unavailable — existing template not ruled out")
+        else:
+            reasons.append("no existing Nuclei template")
 
     return is_candidate, reasons

@@ -14,6 +14,9 @@ auditlog.log
 # A shallow clone of nuclei-templates used only to (re)build the coverage index.
 nuclei-templates/
 
+# Scratch filesystem created when the validation lab target is run by hand.
+validation/**/_labroot/
+
 # Secrets never belong in the repo (keys come from env / Actions secrets).
 .env
 *.key

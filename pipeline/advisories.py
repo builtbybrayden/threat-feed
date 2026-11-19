@@ -81,6 +81,8 @@ def parse_advisory(adv: dict[str, Any]) -> Optional[dict[str, Any]]:
 
     ecosystems: list[str] = []
     product: Optional[str] = None
+    affected_versions: Optional[str] = None
+    fixed_version: Optional[str] = None
     for v in adv.get("vulnerabilities") or []:
         pkg = v.get("package") or {}
         eco = ECOSYSTEM_TAG.get((pkg.get("ecosystem") or "").lower())
@@ -88,6 +90,14 @@ def parse_advisory(adv: dict[str, Any]) -> Optional[dict[str, Any]]:
             ecosystems.append(eco)
         if product is None and pkg.get("name"):
             product = pkg["name"]
+        # GHSA carries clean version data: the vulnerable range and the first
+        # patched version (the "supposed safe" tag the Docker-Hub fallback uses).
+        if affected_versions is None and v.get("vulnerable_version_range"):
+            affected_versions = str(v["vulnerable_version_range"]).strip()
+        fp = v.get("first_patched_version")
+        ident = fp.get("identifier") if isinstance(fp, dict) else fp
+        if fixed_version is None and ident:
+            fixed_version = str(ident).strip()
 
     cvss_score, cvss_vector = _cvss_from(adv)
 
@@ -117,6 +127,8 @@ def parse_advisory(adv: dict[str, Any]) -> Optional[dict[str, Any]]:
         "severity": ((adv.get("severity") or "").lower() or None),
         "ecosystems": ecosystems,
         "product": product,
+        "affected_versions": affected_versions,
+        "fixed_version": fixed_version,
         "cvss_score": cvss_score,
         "cvss_vector": cvss_vector,
         "epss": epss,
@@ -147,6 +159,10 @@ def apply_to_record(rec, adv: dict[str, Any]) -> None:
         rec.description = adv["summary"]
     if adv.get("product") and not rec.product:
         rec.product = adv["product"]
+    if adv.get("affected_versions") and not rec.affected_versions:
+        rec.affected_versions = adv["affected_versions"]
+    if adv.get("fixed_version") and not rec.fixed_version:
+        rec.fixed_version = adv["fixed_version"]
     if adv.get("cvss_score") is not None and rec.cvss_score is None:
         rec.cvss_score = adv["cvss_score"]
         rec.cvss_vector = rec.cvss_vector or adv.get("cvss_vector")

@@ -55,3 +55,37 @@ def test_priority_can_come_from_watchlist(config):
     classify(rec, config)
     assert evaluate_candidate(rec, config, watchlist_hit=True)[0] is True
     assert evaluate_candidate(rec, config, watchlist_hit=False)[0] is False
+
+
+def test_unknown_coverage_is_a_provisional_candidate(config):
+    # No index available: the CVE is still a candidate (detectable + priority),
+    # but the reason flags that an existing template was not ruled out.
+    rec = _rec(cvss_vector="CVSS:3.1/AV:N", cwe=["CWE-89"], kev=True)
+    classify(rec, config)
+    is_cand, reasons = evaluate_candidate(
+        rec, config, watchlist_hit=False, coverage_status="unknown"
+    )
+    assert is_cand is True
+    assert any("not ruled out" in r for r in reasons)
+    assert "no existing Nuclei template" not in reasons
+
+
+def test_absent_coverage_asserts_no_template(config):
+    rec = _rec(cvss_vector="CVSS:3.1/AV:N", cwe=["CWE-89"], kev=True)
+    classify(rec, config)
+    is_cand, reasons = evaluate_candidate(
+        rec, config, watchlist_hit=False, coverage_status="absent"
+    )
+    assert is_cand is True
+    assert "no existing Nuclei template" in reasons
+
+
+def test_covered_status_blocks_candidate_even_without_template_path(config):
+    # coverage_status wins over a missing template path.
+    rec = _rec(cvss_vector="CVSS:3.1/AV:N", cwe=["CWE-89"], kev=True)
+    classify(rec, config)
+    is_cand, reasons = evaluate_candidate(
+        rec, config, watchlist_hit=False, coverage_status="covered"
+    )
+    assert is_cand is False
+    assert any("template already exists" in r for r in reasons)

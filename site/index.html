@@ -81,6 +81,15 @@
                    autocomplete="off" aria-label="Search the news feed" />
           </div>
         </div>
+        <div class="filter-bar">
+          <button class="filter-toggle" id="news-filter-toggle" type="button"
+                  aria-expanded="false" aria-controls="news-chips">
+            <span class="filter-caret" aria-hidden="true">⌄</span>
+            <span>Filter</span>
+            <span class="filter-active" id="news-filter-active" hidden></span>
+          </button>
+        </div>
+        <div class="chips" id="news-chips" aria-label="Filter news by tag" hidden></div>
         <div class="timeline" id="news"></div>
         <p class="empty" id="news-empty" hidden>No items match your filters.</p>
       </section>
