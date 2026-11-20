@@ -30082,6 +30082,41 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-77309.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-77309",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-22",
+        "CWE-459"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": false,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "pypi"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T23:36:41Z",
+      "nuclei_template": null,
+      "product": "ait-gui",
+      "published": "2026-11-20T23:36:41Z",
+      "score": 22.8,
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-76086.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -34315,18 +34350,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-20T15:12:15Z",
+  "generated": "2026-11-20T23:55:38Z",
   "stats": {
     "actively_exploited_appsec": 1327,
-    "appsec_cves": 1830,
-    "kev_coverage_pct": 31.4,
-    "kev_tracked": 1786,
+    "appsec_cves": 1832,
+    "kev_coverage_pct": 31.3,
+    "kev_tracked": 1790,
     "kev_with_coverage": 561,
     "newly_exploited": 10,
     "newly_exploited_days": 30,
-    "open_gaps": 1007,
+    "open_gaps": 1008,
     "public_poc": 724,
-    "total_cves": 2486,
-    "total_items": 299
+    "total_cves": 2494,
+    "total_items": 301
   }
 }
