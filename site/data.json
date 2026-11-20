@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-19T15:36:13Z",
+  "generated": "2026-11-20T00:32:49Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "ff2d940875c195df",
       "kev": false,
       "published": "2026-11-18T14:39:45Z",
-      "score": 57.5,
+      "score": 57.0,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.5)"
+        "recency (+13.0)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -70,15 +70,44 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "2c8a1075fab122ac",
+      "kev": false,
+      "published": "2026-11-19T15:30:00Z",
+      "score": 51.5,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:supply chain,python,confluence (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+14.5)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🎃 San Francisco HalloweenBetter late than never - here are some #PeakBayArea Halloween anecdotes.I didn’t have time to get a costume, so I used one I had from previous years: sexy cop (as you do). But I wanted to spice it up and make it timely, so I used ChatGPT to make me a Wild West Wanted poster for misbehaving AI, so I went as I guess some sort of alignment cop.First, I went to a house party with improv friends- most didn’t get the poster references.Then I hung out with some tech friends, who either loved it, who were like, “Why would you bring AI to this, it’s our one day off 💀.”Other costumes I saw:A couple’s costume: OpenAI and Hugging Face 😅 One friend had a bunch of balloons attached to his torso, and he said he was the “AI bubble.” “Don’t pop me, you’re going to crash the U.S. economy!1!”My friend Maddy Zhang dressed up as PHP2Shell. Too real.Another couple’s costume: Astra and Kimi K3 - I asked Astra if he minded that his girl was distilling him, and he was OK with it.P.S. No newsletter next week, enjoy Thanksgiving (if you celebrate)! Sponsor📣 Ship fast. Fix What's Exploitable.Plenty of tools generate alerts. Seeing which pipeline risks are exploitable takes context.The Secure Software Delivery Toolkit is built for teams who want to ship fast without letting scanner noise set the agenda. It includes 4 practical resources in one place to benchmark your current SDLC, identify critical security gaps, and build an actionable roadmap for your software delivery lifecycle.What’s Inside: DevSecOps Security Best PracticesCI/CD Security Best PracticesAppSec Best Practices Cheat SheetState of SDLC Security 2026👉 Get the Bundle 👈Nice, these guides sound 🔥 AppSecPhrack #73Some of the articles that stick out to me: a profile on Halvar Flake, “Owning the Truth: Undecidability, unsound kernels, and the forging of proof”, “Reflections on Trusting AI: A Virus Inside an LLM”, “MOLE - A Binary Ninja Plugin for Static Taint Analysis”, “Backdoor attacks against Machine Learning IRL”, “A Journey Into Kernel Exploit Development in the LLM Era”, “Security is failure: Every Patch Is a Guess.”Java4Shell: Write once, RCE everywhereCalif’s Quang Luong describes a memory-corruption vulnerability in OpenJDK's Base64 decoder (lol, what?) that allows a remote attacker with no credentials to overwrite heap memory, read it in the style of Heartbleed, and achieve remote code execution. Pre-auth RCE in Keycloak, Atlassian Jira & Confluence, JFrog Artifactory, Jenkins, and more.“To decode Base64 faster, OpenJDK uses specialized x86-64 CPU instructions to process many bytes at once. We discovered a bug in that optimized machine-level code that lets malformed input overwrite neighboring memory… The corruption itself can be triggered by just 64 A characters followed by a single =\". 😅 💡 Calif is like DJ Khaled these days: another one.Sponsor📣 60% of orgs run dependencies published less than 24 hours agoDatadog analyzed security telemetry from thousands of organizations across AWS, Azure, and Google Cloud. 60% were running dependency versions published less than 24 hours earlier, the window where a compromised package like those in the Shai-Hulud campaign does its damage. Meanwhile, the median cloud service now carries four times as many high and critical vulnerabilities as it did in February.The 2026 State of Cloud Security report also covers long-lived keys for AI inference services, keyless auth in CI/CD, and AWS data perimeters.perimeters.👉 Read the report 👈Oof more people have to enable dependency cooldowns 😅 I always enjoy Datadog’s state of the union reports, interesting to see what trends they find.Cloud SecurityTag, You’re It: Authorization Traps in AWS ABACDEF CON 2026 talk by CrowdStrike’s Itay Saraf in which he presents a taxonomy of authorization traps in AWS Attribute-Based Access Control (ABAC) implementations, showing that AWS's own managed policies have had these issues. He categorizes authorization traps into three types: alterable guards (where users can modify tags to bypass restrictions), evaluation semantics (like case-sensitivity differences), and action-key incompatibility (where actions don't support specified condition keys).The Top 10 AWS Security Research of 2026Graciously curated by Eduard Agavriloae and I think Daniel Grzelak:New AWS IAM Attack Paths and the Framework to Exploit Them by Seth ArtCodeBreach: Infiltrating the AWS Console Supply Chain and Hijacking AWS GitHub Repositories via CodeBuild by Yuval Avrahami and Nir OhfeldCloudBashing: Exploiting Free CloudShells for Mining, Networking, Exfil, and Persistence at Scale by Jenko Hwong and Chris Ryan…and 6 other awesome pieces of research, check it out!Blue TeamPolicy and Disclosure: 2026 EditionNatalie Silvanovich announces that Google Project Zero is overhauling its vulnerability disclosure policy in response to AI-accelerated threat landscapes, moving from \"90 + 30\" to a phased \"Full X\" approach: 90 days starting now, 60 days by February 2027, and 30 days by January 2028. The change eliminates grace periods and variant policies because LLMs enable near-instant patch reverse engineering (making \"soak time\" obsolete), dramatically increase vulnerability discovery rates (Project Zero now finds several bugs weekly in targets that previously yielded only a few yearly), and allow multiple parties to independently discover the same bugs. The policy removes severity-based exceptions and the requirement to verify fixes before disclosure, streamlining what had become an unmanageable negotiation process as vulnerability volumes surge.Black October: Lessons From the Downstream BreachesFriend of the newsletter Ryan McGeehan shares lessons from doing incident response for a number of October 2026 serial platform breaches, where compromised dev and infra platforms led to widespread credential leaks affecting their customers. He recommends three key defenses: “Full stack” network lockdown - Implementing network allow lists across the full stack (VPNs, security groups, and platform-specific IP restrictions for GitHub, AWS, Okta, etc.) which would have prevented 90%+ of the incidents he observed.Reduce and manage secrets - Reducing secrets by using TruffleHog to inventory exposed credentials, replacing them with Workload Identity Federation or role-based access, and storing remaining secrets in managers like HashiCorp Vault or AWS Secrets Manager.Establish forensic-ready logging - With centralized collection, consistent formatting, and tamper-resistant retention to enable rapid incident response and customer disclosure. 💡 Highly recommend the rest of Ryan’s blog, it is 👌 AI + SecurityQuicklinksAI Hacking Incidents - An attempt to track cyberattacks where attackers used AI, from published reports. Currently 286 AI-assisted cyberattacks from January 2023 to November 2026. Created by my bud Daniel Miessler.Cheat Sheet: Claude Code Security Best Practices - Claude Code and other AI coding assistants are changing how fast code ships — but they're also changing what security teams need to watch for. This practical cheat sheet breaks down the real risk surfaces AI-assisted development introduces, and gives cloud security, AppSec, and platform engineers tactical steps to close the gaps.*Offsec Harness Index - An attempt to track the open-source offensive AI agent harnesses we can verify on GitHub, and to show which ones attackers are known to have run in real operations. By Daniel Miessler.*SponsoredInside the loop: Five AI attack frameworks that never ask permissionElastic’s Mika Ayenson analyzes five agentic offensive frameworks (ARTEX, CyberStrikeAI, Cairn, PentAGI, and HexStrike) that use LLMs to autonomously plan and execute attacks in 2-25 second bursts, finding that none enforce authorization in code by default and three explicitly tell their models they're pre-authorized. The frameworks leave traditional telemetry (processes, web requests, API calls, sign-ins) that defenders already collect, but their speed demands pre-selecting which detections trigger automated containment, and their ability to switch infrastructure when blocked means behavior-based detections outlast those keyed on source IPs or User-Agents. Mika provides an ES|QL hunt that detects tool-family bursts by counting distinct client types (curl, Python, AWS CLI, browsers) per source IP in one-minute windows, and recommends combining any IP blocks with credential revocation, measuring tempo per identity, scoping assumed roles tightly, and removing secrets from accessible locations.💡 Some nice diagrams, and overall good overview, I like it 👍️ Cyber Chaos Monkey: Staying ahead of security threats with AI agentsShopify’s Dan Scofield describes Cyber Chaos Monkey (CCM), an AI agent system that continuously attacks their production infrastructure using live credentials, source code, threat intelligence, past reports, and infrastructure records to find vulnerabilities before external attackers. The system uses a two-component architecture: Discovery (which uses frontier cyber models to identify potential vulnerabilities) and Sandbox (where agents exploit bugs via live requests, log analysis, and fuzzing).CCM ensures safety through containerization, egress controls, credential proxies, and a \"two-person integrity\" approach where a separately-aligned judge agent monitors and can instantly kill the executor agent if it violates Rules of Engagement. CCM has executed tens of thousands of offensive engagements and identified dozens of impactful findings without causing outages.MiscBest Jensen Huang AI Memes - This is why we have AI generated video 😂 Ironically, I bet NVIDIA GPUs were used to make most of these memes.Crazy Ex-Girlfriend - Face Your FearsSome women in Midtown Manhattan are supposedly stealing finance bro’s lunches then using the name on the order to look them up on LinkedIn to message them.Sign2Shell: How We Hacked Every Major Brazilian Signature ExtensionWindows 0-day dropped by disgruntled researcher hands hackers System rights - Nightmare Eclipse disclosed SignDrop, a Windows zero-day that exploits the Common Log File System (CLFS) to escalate privileges to System level by manipulating Windows Defender's antimalware engine through symbolic links.The Feed Is Fake - That “viral” song, movie, meme, influencer, and celebrity drama was probably the product of a stealth marketing campaign.✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "web",
+        "supply-chain",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #355 - Cyber Chaos Monkey, Offsec Harness Index, Top 10 AWS Security Research of 2026",
+      "url": "https://tldrsec.com/p/tldr-sec-355"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 50.8,
+      "score": 50.5,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+6.8)"
+        "recency (+6.5)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -100,12 +129,12 @@
       "id": "5d0aeb18d920237c",
       "kev": false,
       "published": "2026-11-18T14:44:48Z",
-      "score": 48.5,
+      "score": 48.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pypi,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.5)"
+        "recency (+13.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -126,12 +155,12 @@
       "id": "5fa42ecadbea615e",
       "kev": false,
       "published": "2026-11-17T22:52:29Z",
-      "score": 47.7,
+      "score": 47.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:node.js,python,prompt injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.7)"
+        "recency (+12.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -154,12 +183,12 @@
       "id": "14c044926ad9a31d",
       "kev": false,
       "published": "2026-11-16T00:04:19Z",
-      "score": 47.5,
+      "score": 47.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.5)"
+        "recency (+10.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -180,12 +209,12 @@
       "id": "41af2268db8dcd8f",
       "kev": false,
       "published": "2026-11-17T16:48:33Z",
-      "score": 47.4,
+      "score": 46.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pypi,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.4)"
+        "recency (+11.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -206,12 +235,12 @@
       "id": "cb4668166d1b9ed1",
       "kev": false,
       "published": "2026-11-13T03:03:12Z",
-      "score": 44.9,
+      "score": 44.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:remote code execution (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.9)"
+        "recency (+7.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -223,34 +252,6 @@
       ],
       "title": "Risky Bulletin: Chinese APT exploits SS7, Diameter to spy on targets",
       "url": "https://risky.biz/RBNEWS633/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "f83fd374eb9e235d",
-      "kev": false,
-      "published": "2026-11-12T15:30:00Z",
-      "score": 44.5,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:supply chain,python,rce (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+7.5)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🤗 Family Movie TimeI have some fun Halloween anecdotes but I haven’t had time to write them up yet so I’ll save them for next week.Instead, I’ll quickly reflect on this wholesome meme I saw recently:It reminds me of a very fond memory I have of when I was a wee lad, say 6 or under, about how my parents and I would watch movies together.My dad would sit on one side of the couch and extend his legs down the rest of the couch, then my mom would sit on top of him and do the same, and then I’d sit on her and do the same, like we were a bunch of matryoshka Russian nesting dolls. It was very comforting.There’s something nice about that closeness and familiarity. A part of me is wistful that this isn’t as much a thing when you’re older. I guess you get to live it again for a time, when you have kids.Feel free to share a sweet memory you had with your parents as a kid, or that you have with your kid(s) now 🙂 Sponsor🚨65% of threat intel teams say noise is their #1 problem (Sponsor)Alert noise and false positives were the most common challenge (65%) among surveyed enterprise intel leaders in Flashpoint’s 2026 Enterprise Threat Intelligence Report, followed by analyst bandwidth (55%). As one healthcare leader put it, “we can’t hire our way out of that problem.”Flashpoint Ignite force-multiplies the team you already have, turning noisy alerts into actionable defenses. Tour the platform to discover how Ignite supports faster investigation and decision-making through advanced search, customized alerts, finished intelligence, dashboards, analyst support, and integrated AI.👉 Tour the Flashpoint platform 👈Agreed, focusing on the signal of what matters is key 👌 AppSecThe Vulnpocalypse - Good News and Bad NewsPhil Venables examines the \"vulnapocalypse\" challenge where AI-driven vulnerability discovery is creating massive triage workloads, but argues the real bottleneck isn't finding or fixing vulnerabilities in code, it's deploying those fixes across diverse, complex infrastructures including edge devices, medical equipment, and industrial systems. He breaks down vulnerability remediation into four stages (discovery, fix development, testing/staging, deployment) and notes that while AI accelerates stages 1-2, stage 4 deployment often consumes 60% of effort due to certification requirements, infrastructure complexity, and reliability risks. Phil proposes solutions including policy intent systems that auto-enforce configurations, AI-driven compensating controls that adjust WAFs/firewalls based on vulnerability context, patch intelligence to predict breaking changes, and faster rollback capabilities with incremental deployment percentages (5% → 20% → … 100%) to catch issues earlier.💡 Fantastic blog as always from Phil. I like the style of the intro bullets, alternating “the good news is” and “the bad news is.” I’ve also been finding that the vulnerability fix deployment is a big percent of the effort and problem. Great discussion of the challenges and opportunity at each vulnerability remediation stage.Backporting security fixes to stable releasesTrail of Bits’ Artem Dinaburg calls attention to the challenge of actually getting fixes to users, as stable releases (e.g. Ubuntu Long Term Support) often contain thousands of known, unfixed CVEs that AI agents can easily exploit. Using Codex with GPT-5.6, Trail of Bits identified and backported security fixes to stable Linux kernel branches and distributions, successfully getting 142 fixes representing 90 CVEs applied to stable kernel trees. (Linux CVE backport tracker)Artem’s analysis shows significant vulnerability debt: Ubuntu 26.04 has 770 unfixed CVEs across 1,028 packages (43.5% high/critical), Debian 13 has 4,562 unfixed CVEs across 1,128 packages (39.9% high/critical), and stable kernel branches like 5.10.y contain over 2,000 unfixed CVEs. Trail of Bits is now offering free backporting assistance to open source projects and Linux distributions through Patch the Planet.💡 I appreciate how this post highlights the importance difference between “this vulnerability has been patched in main\" and “(most) users are actually protected.” The data around how many known, non backported CVEs there are is 😅 given how easy it is for current models to create exploits from a vuln write-up and/or a patch. Backporting fixes seems like a great example of messy, grindy work that meaningfully improves security, and is well-suited for LLMs. Would love to see more details on how their process works.Sponsor📣 CodeAF: open-source software factory with vulnerability hunting built inCodeAF is a new open-source software factory built for open models like DeepSeek and Qwen, with vulnerability hunting built in. Every candidate must survive a challenge before you see it: a source-to-sink trace, a sanitization check, a concrete exploit path. Findings land as SARIF with CWE IDs and a suggested patch. On one open model it tops DeepSource's published OpenSSF CVE Benchmark. On DeepSWE, same model, it solved nearly 4× as many real GitHub issues as Claude Code, at 3.4× less per solved issue.👉 Try CodeAF on GitHub 👈Hm those are some pretty impressive performance gains, curious to look into how they make that happen 👀 Cloud SecurityThings LLMs get wrong about AWS IAMAlex Smolen critiques three common IAM anti-patterns frequently generated by coding agents: using explicit Deny statements in identity policies (which add unnecessary complexity when implicit deny already works), misapplying permissions boundaries outside their intended use case of constraining delegated IAM authority, and unnecessarily including sts:GetCallerIdentity in Allow statements when it's always permitted by default. Athena's Trojan Horse: Cross-Tenant Data Poisoning and Exfiltration via AWS AthenaUpwind’s Dan Gansel discovered that aws-sdk-pandas (AWS's official pandas extension) creates a predictable default S3 bucket for Athena query results and treats attacker-owned buckets as legitimate by catching both BucketAlreadyExists and BucketAlreadyOwnedByYou exceptions identically. While AWS previously patched the Athena service for this bucket squatting vulnerability, the fix never propagated to the SDK.Training on Enemy Ground: Cross-Tenant RCE in Amazon SageMakerUpwind’s Dan Gansel discovered a cross-tenant RCE vulnerability in Amazon SageMaker's Python SDK stemming from predictable S3 bucket naming that allowed attackers to pre-register buckets and intercept ML workflows. The vulnerability exploited a logic bug in AWS's 2023 ExpectedBucketOwner fix that only validated ownership when buckets were already in the victim's account listing.The attack produced zero errors or CloudTrail events in victim accounts, and affected 200+ official AWS example notebooks using default_bucket(). Beyond RCE, the squatted bucket enabled training data exfiltration, model poisoning, and intellectual property theft across the victim's entire ML pipeline.💡 These bucket squatting / shadow resource attacks seem to be the gift that keeps giving for cloud provider vulns.Blue TeamOn the hunt for ARTEX: understanding agentic attacks in AWS environmentsDatadog’s Julie Agnes Sparks observed ARTEX, an AI-native penetration testing framework, conducting real-world attacks against AWS environments in October 2026, using compromised long-term IAM access keys to search CloudWatch logs for financial data, file paths, and secrets like AKIA keys. Julie identified hundreds of internet-exposed ARTEX consoles (often in Mandarin, hosted in Singapore/Hong Kong), and observed unauthenticated abuse of public Amazon Cognito user pools, including anonymous sign-ups, token collection, and follow-up AWS account enumeration attempts.The post describes ARTEX's multi-LLM architecture, how it uses an agent planner directing worker agents that record activity on a \"blackboard\" graph, two examples of real ARTEX activity in the wild, and detection opportunities, including characteristic user agents, placeholder S3 object requests (zzz_nonexistent_abc.txt), consistent FilterLogEvents limits of 1000 events, and noisy permission-denied errors during enumeration.See also Wiz’s coverage of ARTEX here.ARTEX and Friends: Enter Agentic Offensive FrameworksGoogle Threat Intelligence Group and Mandiant observed multiple threat actors (financially motivated and suspected PRC-nexus operators) weaponizing open-source agentic pentesting frameworks like ARTEX, PentAGI, and Hexstrike to conduct highly-automated intrusions across the attack lifecycle, with some operations progressing from initial access to deep system access in as little as 15 minutes. ARTEX demonstrated capabilities including automated Active Directory reconnaissance, privilege escalation via Kerberoasting and DCSync, cloud infrastructure profiling to harvest Azure storage keys, and rapid iterative trial-and-error execution, though this speed came at the cost of being forensically noisy. To counter these autonomous frameworks, Mandiant recommends five defensive layers: restricting control-plane access to trusted networks, migrating to short-lived workload credentials, continuous vulnerability scanning, hardening applications against feature abuse, and implementing behavioral detection to identify identity velocity anomalies and API bursts that indicate automated tooling.💡 I found the “Evolution of Autonomous Offensive Frameworks” section especially interesting, as it describes the stages they’ve observed of how LLM-augmentation in cyber operations have evolved over the last year and how they expect it to continue:Stage 6: Multi-agent-driven, unsophisticated attacks with little to no human interaction - 1-3 monthsStage 7: Sophisticated, fully autonomous/agentic attacks - 3 - 6 monthsAI + SecurityQuicklinksKowntaewook/MCPTrace - A Volatility 3 plugin for extracting MCP/JSON-RPC message candidates from Windows and Linux memory dumps.Shadow AI agents are multiplying. Here’s how to find them - Employees are spinning up AI agents faster than security teams can track them, and no single discovery method gives complete coverage. Nudge Security’s guide breaks down eight discovery methods, what each detects and misses, and questions to ask vendors.*heterodoxin/AbliteratedOutTheBox - A fork of llama.cpp that bypasses LLM safety refusals at inference time without modifying model weights or requiring additional training. It works by forcing the model to generate both compliant and refusal responses to each prompt, computing the activation difference between them, then using a look-ahead gate to detect refusal attempts and projecting activations away from the refusal direction during generation.*SponsoredThe Patchless WindowSecond Security's Elad Erez, Daniel Drizin, and Or Elias describe \"The Patchless Window,\" the gap between when an open source vulnerability fix becomes public and when its CVE is published, finding it grew from 5.1 days in January 2026 to 39.2 days in August across 18,594 CVEs. They find that public exploits appeared within hours of fixes (fastest examples: 4-16 hours), while the fastest tenth of all public exploits arrived in just 1.8 days. By analyzing commit histories, vulnerability flows, and matching exploits from VulnCheck's XDB database, they show that AI-accelerated attackers can weaponize vulnerabilities from public source diffs while defenders remain unaware, as vulnerability management tools and scanners only trigger on CVE publication. Ultimately the research argues that the real security gap extends from when vulnerable code is introduced until protection is deployed, and both ends must shrink as AI makes exploit generation from public fixes increasingly trivial.💡 I’ve been thinking about this gap for a while, and I think this study really nails framing the problem and making it visually intuitive with some nice diagrams. Great work, highly recommend reading!Abliterated Models in Appsec PentestingInclude Security's Laurence Tennant tested abliterated GLM-5.3 (a model with safety guardrails surgically removed using the Heretic tool) against base GLM-5.3 for webapp pentesting using the OpenCode agent harness. He found the abliterated model produced 26% fewer vulnerability findings in source code analysis and wasn't significantly better at exploit development, though it did push further into post-exploitation without prompting, resulting in more robust proof-of-concepts in 4 of 5 cases versus 2 of 5 for the base model. The abliterated model excelled at black-box pentesting by immediately starting vulnerability searches without careful prompting, but introduced risks including destructive actions, scope breaches, and supply chain concerns from untrusted hosting providers.💡 It’s interesting to see performance and subtle behavior/risk differences in abliterated models. Originally based on this post, previously included in tl;dr sec, I thought abliterated models inherently had some trade-offs (e.g. intelligence, false positive rate), but now I’m not as sure, it might be possible to have an abliterated model with close to the same intelligence as the base model 🤔 MiscMicrosoft Paint RCE - We are in the lulzy-est timeline 😂 What about popping calc via calc? 🤔 Never gonna print you up! - Yannick Dixken discovered 14 vulnerabilities in Prusa 3D printers, culminating in a full RCE chain exploitable over the network.sshhole - OpenSSH on musl Linux has a bug such that it will… take any password >256 characters 😂 🫠 Absolutely insane.93% of Paint Splatters are Valid Perl ProgramsNvidia Is Preparing to Oust CEO Jensen HuangA Timeline of Nvidia CEO Jensen Huang’s Suspected Spy Drama - ‘When asked if Huang should remain CEO, Trump says, “I think so, oh yeah, sure,” adding, “he’s an honorable guy. I think he probably has an excuse for it.”’ I actually lol’d reading this 😂 Arian Teo - This guy creating anime versions of things is so fun - rom com, late for my flightBryan Johnson - The Longevity Effects Of Psilocybin - Very fun storytelling style and animation at the beginningTim Ferriss - The 4-Hour Workweek in a World of AITodd Achilles campaign ad - How to Not Start Foreign Wars - Pretty 🔥 honestlyRoald Dahl, Writer, Wartime Fighter Ace, and Honeypot - Whoa if this is true that’s crazy 🤯 HealthyGamerGG - Solving your problems doesn’t solve your problemsCrazy Ex-Girlfriend - A Boy Band Made Up Of Four Joshes - Honestly this hits hard.✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "supply-chain",
-        "rce"
-      ],
-      "title": "[tl;dr sec] #354 - ARTEX & Agentic Hacking in the Wild, The Patchless Window, Backporting Security Fixes",
-      "url": "https://tldrsec.com/p/tldr-sec-354"
     },
     {
       "appsec": true,
@@ -278,6 +279,34 @@
       ],
       "title": "How to fix a bug in a fix",
       "url": "https://projectzero.google/2026/10/emergency-patching.html"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f83fd374eb9e235d",
+      "kev": false,
+      "published": "2026-11-12T15:30:00Z",
+      "score": 44.2,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:supply chain,python,rce (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+7.2)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🤗 Family Movie TimeI have some fun Halloween anecdotes but I haven’t had time to write them up yet so I’ll save them for next week.Instead, I’ll quickly reflect on this wholesome meme I saw recently:It reminds me of a very fond memory I have of when I was a wee lad, say 6 or under, about how my parents and I would watch movies together.My dad would sit on one side of the couch and extend his legs down the rest of the couch, then my mom would sit on top of him and do the same, and then I’d sit on her and do the same, like we were a bunch of matryoshka Russian nesting dolls. It was very comforting.There’s something nice about that closeness and familiarity. A part of me is wistful that this isn’t as much a thing when you’re older. I guess you get to live it again for a time, when you have kids.Feel free to share a sweet memory you had with your parents as a kid, or that you have with your kid(s) now 🙂 Sponsor🚨65% of threat intel teams say noise is their #1 problem (Sponsor)Alert noise and false positives were the most common challenge (65%) among surveyed enterprise intel leaders in Flashpoint’s 2026 Enterprise Threat Intelligence Report, followed by analyst bandwidth (55%). As one healthcare leader put it, “we can’t hire our way out of that problem.”Flashpoint Ignite force-multiplies the team you already have, turning noisy alerts into actionable defenses. Tour the platform to discover how Ignite supports faster investigation and decision-making through advanced search, customized alerts, finished intelligence, dashboards, analyst support, and integrated AI.👉 Tour the Flashpoint platform 👈Agreed, focusing on the signal of what matters is key 👌 AppSecThe Vulnpocalypse - Good News and Bad NewsPhil Venables examines the \"vulnapocalypse\" challenge where AI-driven vulnerability discovery is creating massive triage workloads, but argues the real bottleneck isn't finding or fixing vulnerabilities in code, it's deploying those fixes across diverse, complex infrastructures including edge devices, medical equipment, and industrial systems. He breaks down vulnerability remediation into four stages (discovery, fix development, testing/staging, deployment) and notes that while AI accelerates stages 1-2, stage 4 deployment often consumes 60% of effort due to certification requirements, infrastructure complexity, and reliability risks. Phil proposes solutions including policy intent systems that auto-enforce configurations, AI-driven compensating controls that adjust WAFs/firewalls based on vulnerability context, patch intelligence to predict breaking changes, and faster rollback capabilities with incremental deployment percentages (5% → 20% → … 100%) to catch issues earlier.💡 Fantastic blog as always from Phil. I like the style of the intro bullets, alternating “the good news is” and “the bad news is.” I’ve also been finding that the vulnerability fix deployment is a big percent of the effort and problem. Great discussion of the challenges and opportunity at each vulnerability remediation stage.Backporting security fixes to stable releasesTrail of Bits’ Artem Dinaburg calls attention to the challenge of actually getting fixes to users, as stable releases (e.g. Ubuntu Long Term Support) often contain thousands of known, unfixed CVEs that AI agents can easily exploit. Using Codex with GPT-5.6, Trail of Bits identified and backported security fixes to stable Linux kernel branches and distributions, successfully getting 142 fixes representing 90 CVEs applied to stable kernel trees. (Linux CVE backport tracker)Artem’s analysis shows significant vulnerability debt: Ubuntu 26.04 has 770 unfixed CVEs across 1,028 packages (43.5% high/critical), Debian 13 has 4,562 unfixed CVEs across 1,128 packages (39.9% high/critical), and stable kernel branches like 5.10.y contain over 2,000 unfixed CVEs. Trail of Bits is now offering free backporting assistance to open source projects and Linux distributions through Patch the Planet.💡 I appreciate how this post highlights the importance difference between “this vulnerability has been patched in main\" and “(most) users are actually protected.” The data around how many known, non backported CVEs there are is 😅 given how easy it is for current models to create exploits from a vuln write-up and/or a patch. Backporting fixes seems like a great example of messy, grindy work that meaningfully improves security, and is well-suited for LLMs. Would love to see more details on how their process works.Sponsor📣 CodeAF: open-source software factory with vulnerability hunting built inCodeAF is a new open-source software factory built for open models like DeepSeek and Qwen, with vulnerability hunting built in. Every candidate must survive a challenge before you see it: a source-to-sink trace, a sanitization check, a concrete exploit path. Findings land as SARIF with CWE IDs and a suggested patch. On one open model it tops DeepSource's published OpenSSF CVE Benchmark. On DeepSWE, same model, it solved nearly 4× as many real GitHub issues as Claude Code, at 3.4× less per solved issue.👉 Try CodeAF on GitHub 👈Hm those are some pretty impressive performance gains, curious to look into how they make that happen 👀 Cloud SecurityThings LLMs get wrong about AWS IAMAlex Smolen critiques three common IAM anti-patterns frequently generated by coding agents: using explicit Deny statements in identity policies (which add unnecessary complexity when implicit deny already works), misapplying permissions boundaries outside their intended use case of constraining delegated IAM authority, and unnecessarily including sts:GetCallerIdentity in Allow statements when it's always permitted by default. Athena's Trojan Horse: Cross-Tenant Data Poisoning and Exfiltration via AWS AthenaUpwind’s Dan Gansel discovered that aws-sdk-pandas (AWS's official pandas extension) creates a predictable default S3 bucket for Athena query results and treats attacker-owned buckets as legitimate by catching both BucketAlreadyExists and BucketAlreadyOwnedByYou exceptions identically. While AWS previously patched the Athena service for this bucket squatting vulnerability, the fix never propagated to the SDK.Training on Enemy Ground: Cross-Tenant RCE in Amazon SageMakerUpwind’s Dan Gansel discovered a cross-tenant RCE vulnerability in Amazon SageMaker's Python SDK stemming from predictable S3 bucket naming that allowed attackers to pre-register buckets and intercept ML workflows. The vulnerability exploited a logic bug in AWS's 2023 ExpectedBucketOwner fix that only validated ownership when buckets were already in the victim's account listing.The attack produced zero errors or CloudTrail events in victim accounts, and affected 200+ official AWS example notebooks using default_bucket(). Beyond RCE, the squatted bucket enabled training data exfiltration, model poisoning, and intellectual property theft across the victim's entire ML pipeline.💡 These bucket squatting / shadow resource attacks seem to be the gift that keeps giving for cloud provider vulns.Blue TeamOn the hunt for ARTEX: understanding agentic attacks in AWS environmentsDatadog’s Julie Agnes Sparks observed ARTEX, an AI-native penetration testing framework, conducting real-world attacks against AWS environments in October 2026, using compromised long-term IAM access keys to search CloudWatch logs for financial data, file paths, and secrets like AKIA keys. Julie identified hundreds of internet-exposed ARTEX consoles (often in Mandarin, hosted in Singapore/Hong Kong), and observed unauthenticated abuse of public Amazon Cognito user pools, including anonymous sign-ups, token collection, and follow-up AWS account enumeration attempts.The post describes ARTEX's multi-LLM architecture, how it uses an agent planner directing worker agents that record activity on a \"blackboard\" graph, two examples of real ARTEX activity in the wild, and detection opportunities, including characteristic user agents, placeholder S3 object requests (zzz_nonexistent_abc.txt), consistent FilterLogEvents limits of 1000 events, and noisy permission-denied errors during enumeration.See also Wiz’s coverage of ARTEX here.ARTEX and Friends: Enter Agentic Offensive FrameworksGoogle Threat Intelligence Group and Mandiant observed multiple threat actors (financially motivated and suspected PRC-nexus operators) weaponizing open-source agentic pentesting frameworks like ARTEX, PentAGI, and Hexstrike to conduct highly-automated intrusions across the attack lifecycle, with some operations progressing from initial access to deep system access in as little as 15 minutes. ARTEX demonstrated capabilities including automated Active Directory reconnaissance, privilege escalation via Kerberoasting and DCSync, cloud infrastructure profiling to harvest Azure storage keys, and rapid iterative trial-and-error execution, though this speed came at the cost of being forensically noisy. To counter these autonomous frameworks, Mandiant recommends five defensive layers: restricting control-plane access to trusted networks, migrating to short-lived workload credentials, continuous vulnerability scanning, hardening applications against feature abuse, and implementing behavioral detection to identify identity velocity anomalies and API bursts that indicate automated tooling.💡 I found the “Evolution of Autonomous Offensive Frameworks” section especially interesting, as it describes the stages they’ve observed of how LLM-augmentation in cyber operations have evolved over the last year and how they expect it to continue:Stage 6: Multi-agent-driven, unsophisticated attacks with little to no human interaction - 1-3 monthsStage 7: Sophisticated, fully autonomous/agentic attacks - 3 - 6 monthsAI + SecurityQuicklinksKowntaewook/MCPTrace - A Volatility 3 plugin for extracting MCP/JSON-RPC message candidates from Windows and Linux memory dumps.Shadow AI agents are multiplying. Here’s how to find them - Employees are spinning up AI agents faster than security teams can track them, and no single discovery method gives complete coverage. Nudge Security’s guide breaks down eight discovery methods, what each detects and misses, and questions to ask vendors.*heterodoxin/AbliteratedOutTheBox - A fork of llama.cpp that bypasses LLM safety refusals at inference time without modifying model weights or requiring additional training. It works by forcing the model to generate both compliant and refusal responses to each prompt, computing the activation difference between them, then using a look-ahead gate to detect refusal attempts and projecting activations away from the refusal direction during generation.*SponsoredThe Patchless WindowSecond Security's Elad Erez, Daniel Drizin, and Or Elias describe \"The Patchless Window,\" the gap between when an open source vulnerability fix becomes public and when its CVE is published, finding it grew from 5.1 days in January 2026 to 39.2 days in August across 18,594 CVEs. They find that public exploits appeared within hours of fixes (fastest examples: 4-16 hours), while the fastest tenth of all public exploits arrived in just 1.8 days. By analyzing commit histories, vulnerability flows, and matching exploits from VulnCheck's XDB database, they show that AI-accelerated attackers can weaponize vulnerabilities from public source diffs while defenders remain unaware, as vulnerability management tools and scanners only trigger on CVE publication. Ultimately the research argues that the real security gap extends from when vulnerable code is introduced until protection is deployed, and both ends must shrink as AI makes exploit generation from public fixes increasingly trivial.💡 I’ve been thinking about this gap for a while, and I think this study really nails framing the problem and making it visually intuitive with some nice diagrams. Great work, highly recommend reading!Abliterated Models in Appsec PentestingInclude Security's Laurence Tennant tested abliterated GLM-5.3 (a model with safety guardrails surgically removed using the Heretic tool) against base GLM-5.3 for webapp pentesting using the OpenCode agent harness. He found the abliterated model produced 26% fewer vulnerability findings in source code analysis and wasn't significantly better at exploit development, though it did push further into post-exploitation without prompting, resulting in more robust proof-of-concepts in 4 of 5 cases versus 2 of 5 for the base model. The abliterated model excelled at black-box pentesting by immediately starting vulnerability searches without careful prompting, but introduced risks including destructive actions, scope breaches, and supply chain concerns from untrusted hosting providers.💡 It’s interesting to see performance and subtle behavior/risk differences in abliterated models. Originally based on this post, previously included in tl;dr sec, I thought abliterated models inherently had some trade-offs (e.g. intelligence, false positive rate), but now I’m not as sure, it might be possible to have an abliterated model with close to the same intelligence as the base model 🤔 MiscMicrosoft Paint RCE - We are in the lulzy-est timeline 😂 What about popping calc via calc? 🤔 Never gonna print you up! - Yannick Dixken discovered 14 vulnerabilities in Prusa 3D printers, culminating in a full RCE chain exploitable over the network.sshhole - OpenSSH on musl Linux has a bug such that it will… take any password >256 characters 😂 🫠 Absolutely insane.93% of Paint Splatters are Valid Perl ProgramsNvidia Is Preparing to Oust CEO Jensen HuangA Timeline of Nvidia CEO Jensen Huang’s Suspected Spy Drama - ‘When asked if Huang should remain CEO, Trump says, “I think so, oh yeah, sure,” adding, “he’s an honorable guy. I think he probably has an excuse for it.”’ I actually lol’d reading this 😂 Arian Teo - This guy creating anime versions of things is so fun - rom com, late for my flightBryan Johnson - The Longevity Effects Of Psilocybin - Very fun storytelling style and animation at the beginningTim Ferriss - The 4-Hour Workweek in a World of AITodd Achilles campaign ad - How to Not Start Foreign Wars - Pretty 🔥 honestlyRoald Dahl, Writer, Wartime Fighter Ace, and Honeypot - Whoa if this is true that’s crazy 🤯 HealthyGamerGG - Solving your problems doesn’t solve your problemsCrazy Ex-Girlfriend - A Boy Band Made Up Of Four Joshes - Honestly this hits hard.✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "supply-chain",
+        "rce"
+      ],
+      "title": "[tl;dr sec] #354 - ARTEX & Agentic Hacking in the Wild, The Patchless Window, Backporting Security Fixes",
+      "url": "https://tldrsec.com/p/tldr-sec-354"
     },
     {
       "appsec": true,
@@ -392,12 +421,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 42.6,
+      "score": 42.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -420,13 +449,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 42.1,
+      "score": 42.0,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -451,13 +480,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 42.0,
+      "score": 41.9,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -482,12 +511,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -630,12 +659,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 40.9,
+      "score": 40.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.9)"
+        "recency (+3.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -656,12 +685,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 40.7,
+      "score": 40.6,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -684,12 +713,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 40.3,
+      "score": 40.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -711,12 +740,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 40.2,
+      "score": 40.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -737,12 +766,12 @@
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
-      "score": 38.9,
+      "score": 38.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:php,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -769,12 +798,12 @@
       "id": "6512aa1df788d204",
       "kev": false,
       "published": "2026-10-29T02:30:02Z",
-      "score": 38.8,
+      "score": 38.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -882,12 +911,12 @@
       "id": "2651c05b9f589774",
       "kev": false,
       "published": "2026-10-23T03:35:19Z",
-      "score": 38.0,
+      "score": 37.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -938,12 +967,12 @@
       "id": "c57d8ab402c1afe4",
       "kev": false,
       "published": "2026-10-19T02:09:07Z",
-      "score": 37.7,
+      "score": 37.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -964,12 +993,12 @@
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 37.5,
+      "score": 37.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.5)"
+        "recency (+0.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -984,32 +1013,6 @@
       ],
       "title": "[tl;dr sec] #350 - Reverse Engineer Anything, Tracking AI-integrated Malware, Test-driving Jev",
       "url": "https://tldrsec.com/p/tldr-sec-350"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "339d7ddf5cc0abad",
-      "kev": false,
-      "published": "2026-10-31T23:15:22Z",
-      "score": 37.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript,xss (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "xss"
-      ],
-      "title": "How We Took Over ChatGPT Accounts",
-      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
     },
     {
       "appsec": true,
@@ -1044,6 +1047,32 @@
       ],
       "title": "[tl;dr sec] #343 - Hugging Face Technical Report, AWSHound, OWASP Agentic Skills Top 10",
       "url": "https://tldrsec.com/p/tldr-sec-343"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "339d7ddf5cc0abad",
+      "kev": false,
+      "published": "2026-10-31T23:15:22Z",
+      "score": 37.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript,xss (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+2.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "How We Took Over ChatGPT Accounts Parameter Labs describe an exploit they found against ChatGPT's implementation of the artifacts pattern (OpenAI used to call this \"Canvas\" but it looks like the latest revision is called HTML previews), where interactive custom HTML apps are displayed in a sandboxed iframe. It's important that HTML in these stays tightly sandboxed to avoid untrusted code interacting with OpenAI APIs and accessing private data. Parameter found quite a complex attack chain. OpenAI use the MathLive JavaScript library as part of their graph support, and that library includes its own virtual keyboard, which can be triggered in the parent page via postMessage() from the sandboxed iframe. That message receiving code uses innerHTML, so anything that sends a message can add custom HTML to the parent - and there was no mechanism to prevent other sandboxed frames, including HTML preview frames, from calling that method. This meant untrusted code in an iframe could insert HTML, and while innerHTML doesn't directly execute script elements it could be used to inject a new iframe without sandbox restrictions. OpenAI’s CSP rules blocked inline scripts entirely, and only allowed script loading from a handful of domains, but one of those was YouTube - and the YouTube oEmbed endpoint could be used to reflect JavaScript back in a way that executed it. Once the attack had JavaScript execution on ChatGPT, it was trivial to fetch private user data from APIs and exfiltrate it via an image reference. The end result: you could create a ChatGPT share URL which, when visited by another signed-in user, could exfiltrate their private data or take actions on their behalf. OpenAI closed the hole and paid out a $5,000 bug bounty, which I think was a bit cheap for a vulnerability this serious. Via Hacker News Tags: iframes, javascript, sandboxing, security, xss, openai, chatgpt, content-security-policy",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "xss"
+      ],
+      "title": "How We Took Over ChatGPT Accounts",
+      "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
     },
     {
       "appsec": true,
@@ -1750,12 +1779,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 35.9,
+      "score": 35.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1830,11 +1859,11 @@
       "id": "8b1775bc017f8b07",
       "kev": false,
       "published": "2026-11-18T23:59:20Z",
-      "score": 35.1,
+      "score": 34.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+14.1)"
+        "recency (+13.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1854,11 +1883,11 @@
       "id": "ec68b41b6d46452e",
       "kev": false,
       "published": "2026-11-18T15:58:27Z",
-      "score": 34.6,
+      "score": 34.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:curl (+15)",
-        "recency (+13.6)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1877,11 +1906,11 @@
       "id": "0787798c0405a246",
       "kev": false,
       "published": "2026-11-17T22:38:52Z",
-      "score": 33.7,
+      "score": 33.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.7)"
+        "recency (+12.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1901,11 +1930,11 @@
       "id": "e7835d0be85cb054",
       "kev": false,
       "published": "2026-11-16T23:57:26Z",
-      "score": 32.5,
+      "score": 32.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.5)"
+        "recency (+11.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1949,11 +1978,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 31.5,
+      "score": 31.4,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1974,11 +2003,11 @@
       "id": "ff2c62cebcf4b098",
       "kev": false,
       "published": "2026-11-15T23:20:27Z",
-      "score": 31.4,
+      "score": 31.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+10.4)"
+        "recency (+10.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1997,11 +2026,11 @@
       "id": "5b63eb3960e8e501",
       "kev": false,
       "published": "2026-11-15T04:02:45Z",
-      "score": 30.6,
+      "score": 30.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+9.6)"
+        "recency (+9.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2020,11 +2049,11 @@
       "id": "9df8820e84fd1a0c",
       "kev": false,
       "published": "2026-11-15T03:49:47Z",
-      "score": 30.6,
+      "score": 30.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.6)"
+        "recency (+9.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2044,11 +2073,11 @@
       "id": "bcf04c6904579bec",
       "kev": false,
       "published": "2026-11-14T23:59:28Z",
-      "score": 30.5,
+      "score": 30.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.5)"
+        "recency (+9.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2059,29 +2088,6 @@
       ],
       "title": "datasette-llm 0.1a11",
       "url": "https://simonwillison.net/2026/Nov/14/datasette-llm/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "94ec8fcfeda2db99",
-      "kev": false,
-      "published": "2026-11-14T17:09:09Z",
-      "score": 30.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-vega 0.7 A new release of Datasette's longest untouched plugin, for rendering charts (using Vega-Lite) against data in a table or custom query. The last release was in July 2018! I finally bumped it for compatibility with the latest Datasette alphas, plus some cosmetic tweaks to make it work better with Datasette Lite. (Datasette Lite just gained the ability to run JavaScript plugins like this! I'll write more about that soon.) Since it works with Datasette Lite, the live demo in the README now links to this demo on Datasette Lite. Tags: datasette, datasette-lite",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "datasette-vega 0.7",
-      "url": "https://simonwillison.net/2026/Nov/14/datasette-vega/"
     },
     {
       "appsec": false,
@@ -2157,14 +2163,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "94ec8fcfeda2db99",
+      "kev": false,
+      "published": "2026-11-14T17:09:09Z",
+      "score": 29.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-vega 0.7 A new release of Datasette's longest untouched plugin, for rendering charts (using Vega-Lite) against data in a table or custom query. The last release was in July 2018! I finally bumped it for compatibility with the latest Datasette alphas, plus some cosmetic tweaks to make it work better with Datasette Lite. (Datasette Lite just gained the ability to run JavaScript plugins like this! I'll write more about that soon.) Since it works with Datasette Lite, the live demo in the README now links to this demo on Datasette Lite. Tags: datasette, datasette-lite",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "datasette-vega 0.7",
+      "url": "https://simonwillison.net/2026/Nov/14/datasette-vega/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "b73209306c9412bd",
       "kev": false,
       "published": "2026-11-12T22:55:19Z",
-      "score": 28.7,
+      "score": 28.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.7)"
+        "recency (+7.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2184,11 +2213,11 @@
       "id": "6b121f474cc35549",
       "kev": false,
       "published": "2026-11-11T22:03:25Z",
-      "score": 28.0,
+      "score": 27.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.0)"
+        "recency (+6.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2208,11 +2237,11 @@
       "id": "0e206308dec11d59",
       "kev": false,
       "published": "2026-11-11T18:42:50Z",
-      "score": 27.9,
+      "score": 27.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.9)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2231,11 +2260,11 @@
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 27.8,
+      "score": 27.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2246,30 +2275,6 @@
       ],
       "title": "llm 0.37.2",
       "url": "https://simonwillison.net/2026/Nov/11/llm/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5767c4d342983118",
-      "kev": false,
-      "published": "2026-11-10T20:09:44Z",
-      "score": 27.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+6.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle, yonkers-rising",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-gemini 0.36",
-      "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
     },
     {
       "appsec": false,
@@ -2303,14 +2308,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6ee1d6d470e6a201",
+      "id": "5767c4d342983118",
       "kev": false,
-      "published": "2026-11-10T07:28:21Z",
-      "score": 26.9,
+      "published": "2026-11-10T20:09:44Z",
+      "score": 27.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.9)"
+        "recency (+6.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-gemini 0.36 Gemini 4 Carbon was announced two weeks ago for \"a subset of cyber defenders\", but today it's available to everyone else. This is Google's best ever Gemini, priced at $2/million input and $10/million output at launch (that's GPT-6.1 Sol / Claude Sonnet 5.5 prices) but scheduled to double in price to $4/$20 on December 1st (same as Opus 5.5). Here are three pelicans for the low, medium and high thinking efforts (it defaults to medium). This is the pelican I got for high: Gemini pelicans have all been great for a while now, so I also tested it out using Google's Antigravity IDE with a prompt I first tried with Claude Fable 5.2 yesterday: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the HTML result (I had to prompt \"build that into a standalone HTML file\" to get a version with no external dependencies). I then screen-captured that as a video: Update: Huh, just saw this on YouTube (and tweeted by Google CEO Sundar Pichai): Using Google Antigravity’s /swarm feature, Carbon built an open-world 3D game where you explore Google’s Mountain View campus as a pelican riding a GBike — coordinating subagents to model 3D assets in Blender from Omni and Nano Banana references, build the browser game in Three.js with WebGL shaders, and pair procedural Web Audio sound effects with Lyria music. Here's the playable version in AI Studio. Tags: llm-release, gemini, llm, google, generative-ai, ai, llms, pelican-riding-a-bicycle, yonkers-rising",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.36",
+      "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6ee1d6d470e6a201",
+      "kev": false,
+      "published": "2026-11-10T07:28:21Z",
+      "score": 26.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+5.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2330,11 +2359,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 26.8,
+      "score": 26.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2353,11 +2382,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 26.8,
+      "score": 26.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2377,11 +2406,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 26.3,
+      "score": 26.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2400,11 +2429,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 24.4,
+      "score": 24.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2424,11 +2453,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 24.2,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.2)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2448,11 +2477,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 24.1,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2472,11 +2501,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 24.0,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.0)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2496,11 +2525,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2520,11 +2549,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 23.6,
+      "score": 23.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2588,28 +2617,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "33329a02a00b9779",
-      "kev": false,
-      "published": "2026-11-13T08:00:00Z",
-      "score": 23.0,
-      "score_reasons": [
-        "source:Project Zero (+15)",
-        "recency (+8.0)"
-      ],
-      "source": "Project Zero",
-      "source_type": "research",
-      "summary": "Since 2021, Project Zero has followed a “90 + 30” vulnerability disclosure policy, allowing vendors up to 90 days to remediate a vulnerability plus an extra 30 days “soak time” for patch rollout. Our goal was to encourage faster patching and give vendors time to deliver patches to users. The advent of AI-assisted vulnerability discovery and exploitation has changed the threat landscape such that the vulnerability remediation timeline encouraged by our disclosure policy is clearly insufficient. LLMs have increased the speed at which attackers can find and exploit vulnerabilities, alongside the risk that multiple parties, including malicious ones, discover the same bug. A vulnerability reported today presents a much higher immediate risk to users than one reported last year. In this new environment, it is crucial that vendors move towards remediating vulnerabilities faster. LLMs have also decreased the time it takes for attackers to reverse engineer and exploit a vulnerability based on a patch, to the extent that zero patch-to-exploitation time is a reasonable, though imperfect, model of attacker behavior. Patch soak time is no longer meaningful in a world where attackers can almost immediately determine bug details from a patch, and can put users at risk by creating a false sense of secrecy. “Patch gap” is the time between a fix being released for a security vulnerability and the user installing the relevant update. It is equally crucial that vendors reduce patch gap, either by reducing patch rollout time or using other strategies to protect users while remediation is in progress. LLMs have also increased the volume of vulnerabilities that Project Zero reports. We are finding several vulnerabilities a week in targets where we once found a few vulnerabilities a year. Aspects of our policy that require vendor negotiation or agreement, including determining whether a bug is fixed and whether grace period applies, are quickly becoming unmanageable. Today, we are announcing a new vulnerability disclosure policy, created with the following goals in mind: Encourage faster vulnerability remediation Encourage vendors to reduce “patch gap” Allow for the policy to be automated by both Project Zero and vendors Our new policy: “Full X” Vulnerabilities will be disclosed X days after they are reported to the vendor. Starting today, our policy is “Full 90”, i.e. vulnerabilities will be disclosed 90 days after they are reported to the vendor. On February 2, 2027, we will move to a “Full 60” policy where vulnerabilities are disclosed after 60 days. On January 3, 2028, we will move to a “Full 30” policy where vulnerabilities are disclosed after 30 days. We are also removing most ‘special cases’ from our disclosure policy, including grace period and variant policy. The only exceptions to our new policy are: Vulnerabilities actively exploited in the wild -- ITW vulnerabilities will be handled according to Google’s application security vulnerability disclosure policy Public vulnerabilities -- Project Zero may make details of a vulnerability public, at our discretion, if the details have already been made public by others Vendor request -- We will make vulnerability details public if the vendor we reported it to requests it Why reduce remediation time gradually? Project Zero solicited feedback from the vendors we report the most vulnerabilities to as a part of developing this new policy. An overarching concern was that immediately changing the policy could harm users by making unfixed vulnerabilities available to attackers while vendors are in the process of improving their remediation processes and technology. While the benefits of delaying disclosure are declining due to the increased probability that attackers will discover a vulnerability during the embargo period, we still feel there are benefits in the short term. In addition, vendors mentioned two more subtle concerns. One was that an overly-aggressive disclosure policy would encourage fixing bugs reported under the new policy with more priority, even if they are less severe than other reported vulnerabilities. The other was that immediately enforcing a policy that some vendors aren’t equipped to meet might lead to a state where vendors accept that they cannot fix bugs within the deadline and don’t attempt to. We decided on a policy that encourages vendors to improve remediation time on a schedule that is challenging but realistic, with the hope that this will lead to vendors broadly improving their remediation processes and infrastructure in a way that eventually enables them to fix all reported vulnerabilities quickly. What about severity? While our analysis isn’t always perfect, Project Zero only reports vulnerabilities with substantial severity and demonstrated security impact in our tracker. That said, we don’t feel severity is an effective metric for making disclosure decisions, especially in the current environment. A vulnerability’s severity does not affect the likelihood that it will be discovered by attackers, only its impact on users. When vendors determine severity and use it to prioritize bug fixes, they are making decisions about what risks they are willing to expose their users to, and it is reasonable to accept the risk of low-severity bugs, like unexploitable null pointer crashes or minor info leaks in a lot of circumstances. But this doesn’t change the availability of these vulnerabilities to attackers, and we want our policy to reflect this reality. It’s also important to acknowledge that Project Zero holds itself to high standards with regards to the reproducibility, readability, reachability and reported security impact of the vulnerabilities we report. This policy assumes bugs reports are of this quality, and it is reasonable for vendors to treat low quality-bug reports differently. What about hardware? We encourage all vendors to consider how they would respond to imminent disclosure of a serious vulnerability, including non-patch strategies, as there is no guarantee that defenders will be the first to find a bug. That said, Project Zero has occasionally granted exceptions to our policy on rare occasions, including Spectre and Meltdown, and will continue to do so in the future. Are you really not going to check whether bugs are fixed? The question of whether a bug is fixed for the purposes of our policy has always been challenging and somewhat unresolved, particularly with regards to code that is not shipped directly to users and not publicly available. It is not unusual for Project Zero to communicate with vendors multiple times for each bug report to come to an agreement on whether a vulnerability is fixed. As more vendors experiment with vulnerability remediation strategies that are not patching like temporarily disabling code paths, we expect this to become even more complex. We still plan to track whether bugs are fixed and communicate if they are not, however, this will not be a decision point in our policy. This will enable us to share technical details of how users are protected without needing to make a binary judgement with consequences for the vendor.",
-      "tags": [
-        "research"
-      ],
-      "title": "Policy and Disclosure: 2026 Edition",
-      "url": "https://projectzero.google/2026/11/disclosure-policy.html"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
@@ -2637,11 +2644,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 22.9,
+      "score": 22.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2658,14 +2665,36 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "33329a02a00b9779",
+      "kev": false,
+      "published": "2026-11-13T08:00:00Z",
+      "score": 22.7,
+      "score_reasons": [
+        "source:Project Zero (+15)",
+        "recency (+7.7)"
+      ],
+      "source": "Project Zero",
+      "source_type": "research",
+      "summary": "Since 2021, Project Zero has followed a “90 + 30” vulnerability disclosure policy, allowing vendors up to 90 days to remediate a vulnerability plus an extra 30 days “soak time” for patch rollout. Our goal was to encourage faster patching and give vendors time to deliver patches to users. The advent of AI-assisted vulnerability discovery and exploitation has changed the threat landscape such that the vulnerability remediation timeline encouraged by our disclosure policy is clearly insufficient. LLMs have increased the speed at which attackers can find and exploit vulnerabilities, alongside the risk that multiple parties, including malicious ones, discover the same bug. A vulnerability reported today presents a much higher immediate risk to users than one reported last year. In this new environment, it is crucial that vendors move towards remediating vulnerabilities faster. LLMs have also decreased the time it takes for attackers to reverse engineer and exploit a vulnerability based on a patch, to the extent that zero patch-to-exploitation time is a reasonable, though imperfect, model of attacker behavior. Patch soak time is no longer meaningful in a world where attackers can almost immediately determine bug details from a patch, and can put users at risk by creating a false sense of secrecy. “Patch gap” is the time between a fix being released for a security vulnerability and the user installing the relevant update. It is equally crucial that vendors reduce patch gap, either by reducing patch rollout time or using other strategies to protect users while remediation is in progress. LLMs have also increased the volume of vulnerabilities that Project Zero reports. We are finding several vulnerabilities a week in targets where we once found a few vulnerabilities a year. Aspects of our policy that require vendor negotiation or agreement, including determining whether a bug is fixed and whether grace period applies, are quickly becoming unmanageable. Today, we are announcing a new vulnerability disclosure policy, created with the following goals in mind: Encourage faster vulnerability remediation Encourage vendors to reduce “patch gap” Allow for the policy to be automated by both Project Zero and vendors Our new policy: “Full X” Vulnerabilities will be disclosed X days after they are reported to the vendor. Starting today, our policy is “Full 90”, i.e. vulnerabilities will be disclosed 90 days after they are reported to the vendor. On February 2, 2027, we will move to a “Full 60” policy where vulnerabilities are disclosed after 60 days. On January 3, 2028, we will move to a “Full 30” policy where vulnerabilities are disclosed after 30 days. We are also removing most ‘special cases’ from our disclosure policy, including grace period and variant policy. The only exceptions to our new policy are: Vulnerabilities actively exploited in the wild -- ITW vulnerabilities will be handled according to Google’s application security vulnerability disclosure policy Public vulnerabilities -- Project Zero may make details of a vulnerability public, at our discretion, if the details have already been made public by others Vendor request -- We will make vulnerability details public if the vendor we reported it to requests it Why reduce remediation time gradually? Project Zero solicited feedback from the vendors we report the most vulnerabilities to as a part of developing this new policy. An overarching concern was that immediately changing the policy could harm users by making unfixed vulnerabilities available to attackers while vendors are in the process of improving their remediation processes and technology. While the benefits of delaying disclosure are declining due to the increased probability that attackers will discover a vulnerability during the embargo period, we still feel there are benefits in the short term. In addition, vendors mentioned two more subtle concerns. One was that an overly-aggressive disclosure policy would encourage fixing bugs reported under the new policy with more priority, even if they are less severe than other reported vulnerabilities. The other was that immediately enforcing a policy that some vendors aren’t equipped to meet might lead to a state where vendors accept that they cannot fix bugs within the deadline and don’t attempt to. We decided on a policy that encourages vendors to improve remediation time on a schedule that is challenging but realistic, with the hope that this will lead to vendors broadly improving their remediation processes and infrastructure in a way that eventually enables them to fix all reported vulnerabilities quickly. What about severity? While our analysis isn’t always perfect, Project Zero only reports vulnerabilities with substantial severity and demonstrated security impact in our tracker. That said, we don’t feel severity is an effective metric for making disclosure decisions, especially in the current environment. A vulnerability’s severity does not affect the likelihood that it will be discovered by attackers, only its impact on users. When vendors determine severity and use it to prioritize bug fixes, they are making decisions about what risks they are willing to expose their users to, and it is reasonable to accept the risk of low-severity bugs, like unexploitable null pointer crashes or minor info leaks in a lot of circumstances. But this doesn’t change the availability of these vulnerabilities to attackers, and we want our policy to reflect this reality. It’s also important to acknowledge that Project Zero holds itself to high standards with regards to the reproducibility, readability, reachability and reported security impact of the vulnerabilities we report. This policy assumes bugs reports are of this quality, and it is reasonable for vendors to treat low quality-bug reports differently. What about hardware? We encourage all vendors to consider how they would respond to imminent disclosure of a serious vulnerability, including non-patch strategies, as there is no guarantee that defenders will be the first to find a bug. That said, Project Zero has occasionally granted exceptions to our policy on rare occasions, including Spectre and Meltdown, and will continue to do so in the future. Are you really not going to check whether bugs are fixed? The question of whether a bug is fixed for the purposes of our policy has always been challenging and somewhat unresolved, particularly with regards to code that is not shipped directly to users and not publicly available. It is not unusual for Project Zero to communicate with vendors multiple times for each bug report to come to an agreement on whether a vulnerability is fixed. As more vendors experiment with vulnerability remediation strategies that are not patching like temporarily disabling code paths, we expect this to become even more complex. We still plan to track whether bugs are fixed and communicate if they are not, however, this will not be a decision point in our policy. This will enable us to share technical details of how users are protected without needing to make a binary judgement with consequences for the vendor.",
+      "tags": [
+        "research"
+      ],
+      "title": "Policy and Disclosure: 2026 Edition",
+      "url": "https://projectzero.google/2026/11/disclosure-policy.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "afba17402d80c8e4",
       "kev": false,
       "published": "2026-10-28T23:23:21Z",
-      "score": 22.8,
+      "score": 22.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2685,11 +2714,11 @@
       "id": "28d3ffbcd69019be",
       "kev": false,
       "published": "2026-10-28T13:55:15Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2708,11 +2737,11 @@
       "id": "503762475e8ae5ab",
       "kev": false,
       "published": "2026-10-28T16:45:23Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2723,29 +2752,6 @@
       ],
       "title": "GitHub Octoverse 2026",
       "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "bcd7360bb2139689",
-      "kev": false,
-      "published": "2026-10-26T16:15:00Z",
-      "score": 22.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+1.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Research: webframe: evaluated as a scraper and a sandbox webframe is a neat little project from Jeff Lindsay which lets you \"run a web page like a program\" - you point it at a URL or file and it executes it in a hidden headless web view and outputs console.log() to standard output and any exceptions to standard error. It's written in Go on top of the glaze library, which provides access to a system browser (\"WKWebView on macOS, WebKitGTK on Linux, WebView2 on Windows\") so it doesn't need to bundle its own browser engine. It reminds me of my own shot-scraper javascript tool, albeit in a much smaller package that doesn't depend on Playwright. I had Claude Opus 5.5 put it through its paces and prepare a research report for me. Here's the prompt I used: Explore https://github.com/tractordev/webframe try running it and put it though its paces, build a few exploratory prototypes, then evaluate it as a potential sandboxing tool and as a tool for scraping web pages using the same patterns encouraged by the \"shot-scraper JavaScript\" command (see simonw/shot-scraper on GitHub, docs directory) Tags: browsers, go, javascript, jeff-lindsay, shot-scraper",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "webframe: evaluated as a scraper and a sandbox",
-      "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
     },
     {
       "appsec": false,
@@ -2776,20 +2782,23 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c57b91f992129bf4",
+      "id": "bcd7360bb2139689",
       "kev": false,
-      "published": "2026-11-19T03:29:58Z",
+      "published": "2026-10-26T16:15:00Z",
       "score": 22.3,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+14.3)"
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+1.3)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about the Trump administration’s AI task force asking for US federal regulatory agencies to go easy on organisations that fall victim to AI-powered cyber attacks. This makes sense, at least in the short term. But we’d like to see more expansive forward-looking policy that encourages experimentation with AI for defensive purposes. They also discuss updated regulations on US AI chip exports. They aim to make it harder for China’s AI firms to get access to advanced chips by smuggling or by simply renting access to them in Southeast Asian data centres. It’s a good start, but will need to be backed up with stronger enforcement to make it truly effective. This episode is also available on YouTube. Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: Regulatory relief for AI hacks is a good first step",
-      "url": "https://risky.biz/SRB191/"
+      "summary": "Research: webframe: evaluated as a scraper and a sandbox webframe is a neat little project from Jeff Lindsay which lets you \"run a web page like a program\" - you point it at a URL or file and it executes it in a hidden headless web view and outputs console.log() to standard output and any exceptions to standard error. It's written in Go on top of the glaze library, which provides access to a system browser (\"WKWebView on macOS, WebKitGTK on Linux, WebView2 on Windows\") so it doesn't need to bundle its own browser engine. It reminds me of my own shot-scraper javascript tool, albeit in a much smaller package that doesn't depend on Playwright. I had Claude Opus 5.5 put it through its paces and prepare a research report for me. Here's the prompt I used: Explore https://github.com/tractordev/webframe try running it and put it though its paces, build a few exploratory prototypes, then evaluate it as a potential sandboxing tool and as a tool for scraping web pages using the same patterns encouraged by the \"shot-scraper JavaScript\" command (see simonw/shot-scraper on GitHub, docs directory) Tags: browsers, go, javascript, jeff-lindsay, shot-scraper",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "webframe: evaluated as a scraper and a sandbox",
+      "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
     },
     {
       "appsec": false,
@@ -2799,11 +2808,11 @@
       "id": "880e8544b15f9e13",
       "kev": false,
       "published": "2026-10-23T19:40:54Z",
-      "score": 22.1,
+      "score": 22.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2844,6 +2853,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c57b91f992129bf4",
+      "kev": false,
+      "published": "2026-11-19T03:29:58Z",
+      "score": 21.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+13.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about the Trump administration’s AI task force asking for US federal regulatory agencies to go easy on organisations that fall victim to AI-powered cyber attacks. This makes sense, at least in the short term. But we’d like to see more expansive forward-looking policy that encourages experimentation with AI for defensive purposes. They also discuss updated regulations on US AI chip exports. They aim to make it harder for China’s AI firms to get access to advanced chips by smuggling or by simply renting access to them in Southeast Asian data centres. It’s a good start, but will need to be backed up with stronger enforcement to make it truly effective. This episode is also available on YouTube. Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Regulatory relief for AI hacks is a good first step",
+      "url": "https://risky.biz/SRB191/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c6ac92b5dc7c111b",
       "kev": false,
       "published": "2026-10-20T19:34:19Z",
@@ -2868,14 +2897,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "3a028b97719dae29",
+      "kev": false,
+      "published": "2026-10-17T21:11:12Z",
+      "score": 21.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+0.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Inline rendering with document​.currentScript Lean Rada describes a neat trick that takes advantage of the document.currentScript property. You can use that to drop in a tiny inline <script> element that replaces itself when the page loads: The year is <script> document.currentScript.replaceWith( new Date().getFullYear())</script> If you define a shortcut function like this: $=(...n)=>document.currentScript.replaceWith(...n) You get a tiny template language: The year is <script>$(new Date().getFullYear())</script> Tags: javascript",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "Inline rendering with document​.currentScript",
+      "url": "https://simonwillison.net/2026/Oct/17/document-currentscript/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "64f79924a918dd64",
       "kev": false,
       "published": "2026-10-18T23:16:16Z",
-      "score": 21.7,
+      "score": 21.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2895,11 +2947,11 @@
       "id": "c7f58b8773d454a1",
       "kev": false,
       "published": "2026-10-18T23:43:09Z",
-      "score": 21.7,
+      "score": 21.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2910,29 +2962,6 @@
       ],
       "title": "llm-tools-datasette 0.1.1",
       "url": "https://simonwillison.net/2026/Oct/18/llm-tools-datasette/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "3a028b97719dae29",
-      "kev": false,
-      "published": "2026-10-17T21:11:12Z",
-      "score": 21.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+0.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Inline rendering with document​.currentScript Lean Rada describes a neat trick that takes advantage of the document.currentScript property. You can use that to drop in a tiny inline <script> element that replaces itself when the page loads: The year is <script> document.currentScript.replaceWith( new Date().getFullYear())</script> If you define a shortcut function like this: $=(...n)=>document.currentScript.replaceWith(...n) You get a tiny template language: The year is <script>$(new Date().getFullYear())</script> Tags: javascript",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "Inline rendering with document​.currentScript",
-      "url": "https://simonwillison.net/2026/Oct/17/document-currentscript/"
     },
     {
       "appsec": false,
@@ -3009,13 +3038,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "47e62fd1daf84c9e",
+      "kev": false,
+      "published": "2026-11-19T20:43:57Z",
+      "score": 20.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+14.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "PostgreSQL 19 Released Most years PostgreSQL ships a new release in September, but this year's release came two months later thanks mainly to the flurry of issues that the PostgreSQL team needed to address as part of the ongoing AI-reported vulnerability apocalypse. This release was definitely worth the wait. My favorite new feature is this one: For applications that send reads to standbys, PostgreSQL 19 adds \"read-your-writes\" consistency with the new WAIT FOR LSN command. A session on a standby can use WAIT FOR LSN to wait until the standby has replayed the write-ahead log (WAL) up to a specific log sequence number (LSN) before running a query, so the application can read data it just wrote on the primary. In practice, that looks like this: UPDATE movie SET genre = 'Dramatic' WHERE genre = 'Drama'; SELECT pg_current_wal_insert_lsn(); That returns a value like 0/0306EE20. Store that somewhere (a signed cookie would work) such that on a subsequent request your application can do: WAIT FOR LSN '0/0306EE20' WITH (TIMEOUT '0.1s'); SELECT * FROM movie WHERE genre = 'Drama'; The timeout is optional - if you provide one you'll get an error if the replica you are talking to doesn't catch up within the specified time. I first encountered this pattern in Wikipedia, which has a hand-rolled version of this built against MySQL replication: In addition to this, MediaWiki attempts to ensure that the user sees events occurring on the wiki in chronological order. A few seconds of lag can be tolerated, as long as the user sees a consistent picture from subsequent requests. This is done by saving the primary binlog position in the session, and then at the start of each request, waiting for the replica to catch up to that position before doing any reads from it. Here's the relevant MediaWiki code, which these days uses MySQL's WAIT_FOR_EXECUTED_GTID_SET() function and falls back to SOURCE_POS_WAIT(). Via Lobste.rs Tags: mysql, postgresql, replication, scaling, wikipedia, ai-security-research",
+      "tags": [],
+      "title": "PostgreSQL 19 Released",
+      "url": "https://simonwillison.net/2026/Nov/19/postgresql-19/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "3917e7f43fd22671",
       "kev": false,
       "published": "2026-11-18T04:22:08Z",
-      "score": 21.0,
+      "score": 20.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+13.0)"
+        "recency (+12.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3032,10 +3081,10 @@
       "id": "4a7efa8a23b38434",
       "kev": false,
       "published": "2026-11-18T17:09:59Z",
-      "score": 19.7,
+      "score": 19.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+13.7)"
+        "recency (+13.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3052,10 +3101,10 @@
       "id": "5458c272bb841e36",
       "kev": false,
       "published": "2026-11-16T21:57:39Z",
-      "score": 19.4,
+      "score": 19.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.4)"
+        "recency (+11.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3072,10 +3121,10 @@
       "id": "8c9e2cbcfb0c13c2",
       "kev": false,
       "published": "2026-11-04T15:12:29Z",
-      "score": 18.4,
+      "score": 18.3,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -3094,10 +3143,10 @@
       "id": "c29c5645291af4ed",
       "kev": false,
       "published": "2026-11-15T19:22:09Z",
-      "score": 18.3,
+      "score": 17.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.3)"
+        "recency (+9.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3114,10 +3163,10 @@
       "id": "9e89bf4ca1192eb6",
       "kev": false,
       "published": "2026-11-17T06:16:26Z",
-      "score": 17.8,
+      "score": 17.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.8)"
+        "recency (+11.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3131,33 +3180,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "f6ff959916d44f87",
-      "kev": false,
-      "published": "2026-11-15T23:18:17Z",
-      "score": 16.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+10.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette 0.65.6 I backported a minor security fix from 1.0a43: Fixed a security issue where a database registered using add_database(db, name=..., route=...) with a route that differs from its name could be downloaded from /<route>.db by actors who were denied access to it. [...] Tags: security, datasette",
-      "tags": [],
-      "title": "datasette 0.65.6",
-      "url": "https://simonwillison.net/2026/Nov/15/datasette-2/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "f8719c976cec8806",
       "kev": false,
       "published": "2026-11-15T23:58:36Z",
-      "score": 16.4,
+      "score": 16.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.4)"
+        "recency (+10.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3165,6 +3194,26 @@
       "tags": [],
       "title": "datasette-maplibre 0.1a0",
       "url": "https://simonwillison.net/2026/Nov/15/datasette-maplibre/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f6ff959916d44f87",
+      "kev": false,
+      "published": "2026-11-15T23:18:17Z",
+      "score": 16.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+10.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette 0.65.6 I backported a minor security fix from 1.0a43: Fixed a security issue where a database registered using add_database(db, name=..., route=...) with a route that differs from its name could be downloaded from /<route>.db by actors who were denied access to it. [...] Tags: security, datasette",
+      "tags": [],
+      "title": "datasette 0.65.6",
+      "url": "https://simonwillison.net/2026/Nov/15/datasette-2/"
     },
     {
       "appsec": false,
@@ -3308,26 +3357,6 @@
       ],
       "title": "Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529",
       "url": "https://projectzero.google/2026/01/sound-barrier-2.html"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "ea0dffb11eb2bd56",
-      "kev": false,
-      "published": "2026-11-12T03:30:09Z",
-      "score": 15.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about the French government attributing freezer hacks to cyber units within the Iranian Revolutionary Guard Corp. This surprises Tom, because the hacks were entirely consistent with Russian sabotage operations across Europe. They also discuss how China’s cyber operators are turning the dial up to 11. Faster, noisier, and stealthier all at the same time, depending upon which particular threat actor you look at. This episode is also available on YouTube Show notes",
-      "tags": [],
-      "title": "Srsly Risky Biz: Iranian hacks with Russian characteristics",
-      "url": "https://risky.biz/SRB190/"
     },
     {
       "appsec": false,
@@ -4027,13 +4056,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "ea0dffb11eb2bd56",
+      "kev": false,
+      "published": "2026-11-12T03:30:09Z",
+      "score": 14.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+6.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about the French government attributing freezer hacks to cyber units within the Iranian Revolutionary Guard Corp. This surprises Tom, because the hacks were entirely consistent with Russian sabotage operations across Europe. They also discuss how China’s cyber operators are turning the dial up to 11. Faster, noisier, and stealthier all at the same time, depending upon which particular threat actor you look at. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: Iranian hacks with Russian characteristics",
+      "url": "https://risky.biz/SRB190/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 14.5,
+      "score": 14.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.5)"
+        "recency (+8.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4047,33 +4096,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "8cc6965690b08360",
-      "kev": false,
-      "published": "2026-11-13T22:30:54Z",
-      "score": 14.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+8.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-leaflet 0.3 OpenStreetMap have a very reasonable policy that hits to their hosted tile server should send a referrer header. Datasette table pages used the Referrer-Policy: no-referrer HTTP header, causing plugins that loaded tiles from OpenStreetMap to violate that policy. datasette-leaflet is the plugin that loads a bundled Leaflet so other Datasette plugins can depend on it. It now sets the referrer policy on the tile requests themselves to strict-origin-when-cross-origin, passing the host but not the full path to the page. Tags: leaflet, datasette, openstreetmap",
-      "tags": [],
-      "title": "datasette-leaflet 0.3",
-      "url": "https://simonwillison.net/2026/Nov/13/datasette-leaflet/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 14.4,
+      "score": 14.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.4)"
+        "recency (+6.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4087,13 +4116,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "8cc6965690b08360",
+      "kev": false,
+      "published": "2026-11-13T22:30:54Z",
+      "score": 14.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-leaflet 0.3 OpenStreetMap have a very reasonable policy that hits to their hosted tile server should send a referrer header. Datasette table pages used the Referrer-Policy: no-referrer HTTP header, causing plugins that loaded tiles from OpenStreetMap to violate that policy. datasette-leaflet is the plugin that loads a bundled Leaflet so other Datasette plugins can depend on it. It now sets the referrer policy on the tile requests themselves to strict-origin-when-cross-origin, passing the host but not the full path to the page. Tags: leaflet, datasette, openstreetmap",
+      "tags": [],
+      "title": "datasette-leaflet 0.3",
+      "url": "https://simonwillison.net/2026/Nov/13/datasette-leaflet/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 13.3,
+      "score": 13.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4110,10 +4159,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 13.1,
+      "score": 12.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4127,33 +4176,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "16bbcf3b5155a6ea",
-      "kev": false,
-      "published": "2026-11-11T21:18:30Z",
-      "score": 13.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+7.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "aws-emulator Finally, an official emulator from AWS to run tests against a local clone of their many different services without having to provision a paid API key to do so. It's written in Rust by a huge swarm of agents - 29,684 commits in the first three weeks of the project. Swaminathan (Swami) Sivasubramanian wrote about how it came to be in a guest post on Werner Vogels' blog. It currently requires Docker to run on macOS or Windows. I'm hoping they fix that in the future - it would be great if you could download a single binary and use that as part of a standard test suite in other languages and on other platforms. Tags: amazon, amazon-web-services, testing, werner-vogels, ai, rust, docker, generative-ai, llms, agentic-engineering",
-      "tags": [],
-      "title": "aws-emulator",
-      "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 12.9,
+      "score": 12.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -4172,10 +4201,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 12.9,
+      "score": 12.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -4191,13 +4220,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "16bbcf3b5155a6ea",
+      "kev": false,
+      "published": "2026-11-11T21:18:30Z",
+      "score": 12.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+6.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "aws-emulator Finally, an official emulator from AWS to run tests against a local clone of their many different services without having to provision a paid API key to do so. It's written in Rust by a huge swarm of agents - 29,684 commits in the first three weeks of the project. Swaminathan (Swami) Sivasubramanian wrote about how it came to be in a guest post on Werner Vogels' blog. It currently requires Docker to run on macOS or Windows. I'm hoping they fix that in the future - it would be great if you could download a single binary and use that as part of a standard test suite in other languages and on other platforms. Tags: amazon, amazon-web-services, testing, werner-vogels, ai, rust, docker, generative-ai, llms, agentic-engineering",
+      "tags": [],
+      "title": "aws-emulator",
+      "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 12.8,
+      "score": 12.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.8)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4211,33 +4260,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ab788fdb1792dc6b",
-      "kev": false,
-      "published": "2026-11-10T03:53:04Z",
-      "score": 11.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+5.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Yonkers Rises I realized I didn't know where Yonkers was, so I looked it up on Google Maps and then, to help embed its location and shape in my head (and to try out Claude Fable 5.2's 3D modeling and animation skills), I prompted Fable 5.2 Medium to: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and átomos around manhattan and queens and Brooklyn, use openstreetmap mapping data It correctly deduced that \"átomos\" was a mobile keyboard typo for \"stomps\": Tags: three-js, llms, ai, generative-ai, yonkers-rising, claude-mythos-fable",
-      "tags": [],
-      "title": "Yonkers Rises",
-      "url": "https://simonwillison.net/2026/Nov/10/yonkers-rises/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 11.9,
+      "score": 11.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.9)"
+        "recency (+5.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4251,13 +4280,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "ab788fdb1792dc6b",
+      "kev": false,
+      "published": "2026-11-10T03:53:04Z",
+      "score": 11.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+5.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Yonkers Rises I realized I didn't know where Yonkers was, so I looked it up on Google Maps and then, to help embed its location and shape in my head (and to try out Claude Fable 5.2's 3D modeling and animation skills), I prompted Fable 5.2 Medium to: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and átomos around manhattan and queens and Brooklyn, use openstreetmap mapping data It correctly deduced that \"átomos\" was a mobile keyboard typo for \"stomps\": Tags: three-js, llms, ai, generative-ai, yonkers-rising, claude-mythos-fable",
+      "tags": [],
+      "title": "Yonkers Rises",
+      "url": "https://simonwillison.net/2026/Nov/10/yonkers-rises/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 11.6,
+      "score": 11.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.6)"
+        "recency (+3.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4274,10 +4323,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 11.2,
+      "score": 11.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4294,10 +4343,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 10.8,
+      "score": 10.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4314,10 +4363,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 10.7,
+      "score": 10.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.7)"
+        "recency (+4.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4334,10 +4383,10 @@
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4354,10 +4403,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4374,10 +4423,10 @@
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4394,10 +4443,10 @@
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 10.2,
+      "score": 10.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4414,10 +4463,10 @@
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4425,26 +4474,6 @@
       "tags": [],
       "title": "Billions stolen in Binance hack",
       "url": "https://risky.biz/RBNEWS627/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "7cc2162c82dbd2cc",
-      "kev": false,
-      "published": "2026-11-05T17:34:03Z",
-      "score": 9.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "The web browser is very, very, very powerful software for applications, and the cost of accessing that power is going down seemingly every day. — Paul Ford, The Web Is More Than Enough Tags: browsers, paul-ford, web-development",
-      "tags": [],
-      "title": "Quoting Paul Ford",
-      "url": "https://simonwillison.net/2026/Nov/5/paul-ford/"
     },
     {
       "appsec": false,
@@ -4471,13 +4500,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7cc2162c82dbd2cc",
+      "kev": false,
+      "published": "2026-11-05T17:34:03Z",
+      "score": 9.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "The web browser is very, very, very powerful software for applications, and the cost of accessing that power is going down seemingly every day. — Paul Ford, The Web Is More Than Enough Tags: browsers, paul-ford, web-development",
+      "tags": [],
+      "title": "Quoting Paul Ford",
+      "url": "https://simonwillison.net/2026/Nov/5/paul-ford/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 9.3,
+      "score": 9.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4494,10 +4543,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 9.2,
+      "score": 9.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4514,10 +4563,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 9.2,
+      "score": 9.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4534,26 +4583,6 @@
       "id": "7d2479f2553dd44b",
       "kev": false,
       "published": "2026-11-03T16:42:02Z",
-      "score": 9.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My comment on AI is destroying my CS degree — Hacker News.I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in though, and it's still extremely unclear what effective teaching with these tools looks like. The worst part is that the evaluation loop is measured in multiple years! If you start trying some new education mechanism today you won't get a robust idea of how well it works until your current cohort graduate in 3-6 years time. Students effectively all become guinea pigs for untested new ways of learning and teaching. Tags: ai-ethics, hacker-news, education, ai",
-      "tags": [],
-      "title": "AI is destroying my CS degree",
-      "url": "https://simonwillison.net/2026/Nov/3/hn-50354278/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "97e03d86478ab0d0",
-      "kev": false,
-      "published": "2026-11-03T05:32:25Z",
       "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -4561,10 +4590,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube Genius piece of OSINT by Colsto, who demonstrates how you can take almost imperceptible background noise of planes from a video soundtrack, figure out their Doppler curves, then cross reference them against ADS-B data to find the exact location of the video based on their speed, distance, and gaps between different flights. Via Lobste.rs Tags: privacy, youtube",
+      "summary": "My comment on AI is destroying my CS degree — Hacker News.I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in though, and it's still extremely unclear what effective teaching with these tools looks like. The worst part is that the evaluation loop is measured in multiple years! If you start trying some new education mechanism today you won't get a robust idea of how well it works until your current cohort graduate in 3-6 years time. Students effectively all become guinea pigs for untested new ways of learning and teaching. Tags: ai-ethics, hacker-news, education, ai",
       "tags": [],
-      "title": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube",
-      "url": "https://simonwillison.net/2026/Nov/3/a-sound-that-leaks-your-exact-location/"
+      "title": "AI is destroying my CS degree",
+      "url": "https://simonwillison.net/2026/Nov/3/hn-50354278/"
     },
     {
       "appsec": false,
@@ -4611,9 +4640,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "4c1cfae1f7d73c23",
+      "id": "97e03d86478ab0d0",
       "kev": false,
-      "published": "2026-11-02T13:31:26Z",
+      "published": "2026-11-03T05:32:25Z",
       "score": 8.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -4621,30 +4650,30 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
+      "summary": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube Genius piece of OSINT by Colsto, who demonstrates how you can take almost imperceptible background noise of planes from a video soundtrack, figure out their Doppler curves, then cross reference them against ADS-B data to find the exact location of the video based on their speed, distance, and gaps between different flights. Via Lobste.rs Tags: privacy, youtube",
       "tags": [],
-      "title": "The U.S. Census Bureau and “Super Intelligence”",
-      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
+      "title": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube",
+      "url": "https://simonwillison.net/2026/Nov/3/a-sound-that-leaks-your-exact-location/"
     },
     {
       "appsec": false,
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "06290998ddcf2013",
+      "id": "4c1cfae1f7d73c23",
       "kev": false,
-      "published": "2026-10-18T22:53:01Z",
+      "published": "2026-11-02T13:31:26Z",
       "score": 8.7,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.7)"
+        "source:Simon Willison (+6)",
+        "recency (+2.7)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats with Sondera co-founder and CEO, Josh Devon, about how AI agents are highly capable, but they’re not the best rule followers or decision makers. The pair find themselves in the philosophical weeds about why agents lack the ability to determine, or care about, right from wrong before getting into how Sondera’s autoformalisation, that gives specific behaviour guardrails to agents, can help. Show notes",
+      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
       "tags": [],
-      "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
-      "url": "https://risky.biz/RBNEWSSI147/"
+      "title": "The U.S. Census Bureau and “Super Intelligence”",
+      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
     },
     {
       "appsec": false,
@@ -4671,6 +4700,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "06290998ddcf2013",
+      "kev": false,
+      "published": "2026-10-18T22:53:01Z",
+      "score": 8.6,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.6)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats with Sondera co-founder and CEO, Josh Devon, about how AI agents are highly capable, but they’re not the best rule followers or decision makers. The pair find themselves in the philosophical weeds about why agents lack the ability to determine, or care about, right from wrong before getting into how Sondera’s autoformalisation, that gives specific behaviour guardrails to agents, can help. Show notes",
+      "tags": [],
+      "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
+      "url": "https://risky.biz/RBNEWSSI147/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
@@ -4685,26 +4734,6 @@
       "tags": [],
       "title": "Risky Bulletin: DataSuckers suspects arrested in Russia",
       "url": "https://risky.biz/RBNEWS621/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "d16b3aa2876fabcb",
-      "kev": false,
-      "published": "2026-11-01T16:49:04Z",
-      "score": 8.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury, Jepsen results for ParticleDB 1.1.4 Tags: kyle-kingsbury, llms, ai, generative-ai, ai-misuse",
-      "tags": [],
-      "title": "Quoting Kyle Kingsbury",
-      "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
     },
     {
       "appsec": false,
@@ -4731,20 +4760,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "39cf548322967bc7",
+      "id": "d16b3aa2876fabcb",
       "kev": false,
-      "published": "2026-10-12T19:06:44Z",
+      "published": "2026-11-01T16:49:04Z",
       "score": 8.4,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
+        "source:Simon Willison (+6)",
+        "recency (+2.4)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
+      "summary": "More broadly, the use of LLMs erodes trust in documentation, in software, and in the organizations which produce them. Perhaps engineers will begin to treat any new software project with suspicion—the signals we used to rely on as markers of a mature system are now easier to counterfeit. [...] In the age of LLMs, what can maintainers do to ensure correct software and accurate documentation? Having done that work, how can they demonstrate its quality to users? — Kyle Kingsbury, Jepsen results for ParticleDB 1.1.4 Tags: kyle-kingsbury, llms, ai, generative-ai, ai-misuse",
       "tags": [],
-      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
-      "url": "https://risky.biz/BTN185/"
+      "title": "Quoting Kyle Kingsbury",
+      "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
     },
     {
       "appsec": false,
@@ -4785,6 +4814,26 @@
       "tags": [],
       "title": "Sponsored: AI is attacking… it needs to defend, too",
       "url": "https://risky.biz/RBNEWSSI146/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "39cf548322967bc7",
+      "kev": false,
+      "published": "2026-10-12T19:06:44Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
+      "tags": [],
+      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
+      "url": "https://risky.biz/BTN185/"
     },
     {
       "appsec": false,
@@ -4885,46 +4934,6 @@
       "tags": [],
       "title": "Risky Bulletin: Major vulnerability found in ancient TACACS+ networking protocol",
       "url": "https://risky.biz/RBNEWS615/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5ba4b32d47ec536b",
-      "kev": false,
-      "published": "2026-10-30T21:59:22Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
-      "tags": [],
-      "title": "dbreunig/nesformer",
-      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "77881a8e4f503ee1",
-      "kev": false,
-      "published": "2026-09-23T05:56:34Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A network of 10,000 AI servers is masking malicious Chinese AI activity, Ukrainian hackers leak Russia’s naval secrets, ShinyHunters hacks the FBI, and the EvilTokens phishing service is disrupted by tech companies. Show notes Risky Bulletin: Team Cymru unmasks shady Chinese proxy network",
-      "tags": [],
-      "title": "Risky Bulletin: Team Cymru unmasks shady Chinese proxy network",
-      "url": "https://risky.biz/RBNEWS614/"
     },
     {
       "appsec": false,
@@ -5523,6 +5532,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5ba4b32d47ec536b",
+      "kev": false,
+      "published": "2026-10-30T21:59:22Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "dbreunig/nesformer Inspired by qwenputer by Divyansh Agrawal, Drew Breunig baked a working emulator for a Nintendo Entertainment System 6502 CPU into the weights of Qwen3.5-4B. You can now play NES ROMs such as Super Mario Bros (very slowly) running inside Qwen! In a comment on Hacker News Drew reveals the Opus 5.5 prompts he used to build this system: Read this article and any relevant source code: https://divagr.com/blog/qwenputer. Then explore if you could emulate the chip and ram in a Nintendo Entertainment System (as people do today with FPGAs in MISTRs) using this technique. If so, what size model would you have to build and if you could use smaller faster ones, could you get it to be at the standard clockspeed. Followed by: I think we should build it! Just for fun. It's okay if it's not fast. We want to be able to have the weights, and a cli to run them that we can point at a ROM. Apparently Opus found and then used this collection of conformance tests for the NES CPU released 15 years ago by Christopher Pow. Via Hacker News Tags: games, ai, generative-ai, llms, drew-breunig, qwen, conformance-suites",
+      "tags": [],
+      "title": "dbreunig/nesformer",
+      "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "5bf3de99a6181f81",
       "kev": false,
       "published": "2026-08-31T03:20:09Z",
@@ -5631,6 +5660,25 @@
       "tags": [],
       "title": "Between Two Nerds: Why NATO and cyber don't mix",
       "url": "https://risky.biz/BTN170/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "77881a8e4f503ee1",
+      "kev": false,
+      "published": "2026-09-23T05:56:34Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A network of 10,000 AI servers is masking malicious Chinese AI activity, Ukrainian hackers leak Russia’s naval secrets, ShinyHunters hacks the FBI, and the EvilTokens phishing service is disrupted by tech companies. Show notes Risky Bulletin: Team Cymru unmasks shady Chinese proxy network",
+      "tags": [],
+      "title": "Risky Bulletin: Team Cymru unmasks shady Chinese proxy network",
+      "url": "https://risky.biz/RBNEWS614/"
     },
     {
       "appsec": false,
@@ -6248,10 +6296,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 7.9,
+      "score": 7.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6268,10 +6316,10 @@
       "id": "7a3afca2246da741",
       "kev": false,
       "published": "2026-10-28T10:09:07Z",
-      "score": 7.7,
+      "score": 7.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6288,10 +6336,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 7.6,
+      "score": 7.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6328,10 +6376,10 @@
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
-      "score": 7.3,
+      "score": 7.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6348,10 +6396,10 @@
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
-      "score": 7.1,
+      "score": 7.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6368,26 +6416,6 @@
       "id": "f4091a70be2c3b0a",
       "kev": false,
       "published": "2026-10-23T21:35:13Z",
-      "score": 7.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+1.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "e44aa2efb3cde31e",
-      "kev": false,
-      "published": "2026-10-22T19:42:26Z",
       "score": 7.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -6395,30 +6423,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
       "tags": [],
-      "title": "DE STAAT - FREEDOM (Official Music Video)",
-      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "9a6f4ea76a26e005",
-      "kev": false,
-      "published": "2026-10-21T16:25:16Z",
-      "score": 6.9,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.9)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
-      "tags": [],
-      "title": "Panache — RTS Belle Époque pour mobile",
-      "url": "https://simonwillison.net/2026/Oct/21/panache/"
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
     },
     {
       "appsec": false,
@@ -6445,6 +6453,46 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "e44aa2efb3cde31e",
+      "kev": false,
+      "published": "2026-10-22T19:42:26Z",
+      "score": 6.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "DE STAAT - FREEDOM (Official Music Video) OK well this is a first for me... at 00:44 in this new music video by Dutch alternative rock band De Staat: The visual effects are credited to Matties Grooten of Fake it or Leave it. Via flir on Hacker News Tags: music, ai, generative-ai, pelican-riding-a-bicycle",
+      "tags": [],
+      "title": "DE STAAT - FREEDOM (Official Music Video)",
+      "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "9a6f4ea76a26e005",
+      "kev": false,
+      "published": "2026-10-21T16:25:16Z",
+      "score": 6.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
+      "tags": [],
+      "title": "Panache — RTS Belle Époque pour mobile",
+      "url": "https://simonwillison.net/2026/Oct/21/panache/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
@@ -6459,26 +6507,6 @@
       "tags": [],
       "title": "My obituary for programming",
       "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "53d5f118d29b321d",
-      "kev": false,
-      "published": "2026-10-17T13:16:49Z",
-      "score": 6.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
-      "tags": [],
-      "title": "web-edit 0.1a2",
-      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
     },
     {
       "appsec": false,
@@ -6505,9 +6533,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "812f894cec2b2135",
+      "id": "53d5f118d29b321d",
       "kev": false,
-      "published": "2026-10-15T13:04:03Z",
+      "published": "2026-10-17T13:16:49Z",
       "score": 6.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -6515,10 +6543,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
+      "summary": "Release: web-edit 0.1a2 web-edit (previously) is my tiny web app for browsing and editing files in a folder. I mainly built it for editing files on different machines via Tailscale. I added a \"copy to clipboard\" option for both text and image data. I needed this because I was running pelican prompts on a laptop from my phone (here's DeepSeek 4.1 Flash 1017) and I wanted an easy way to copy the resulting logs into a Gist. Tags: projects, pelican-riding-a-bicycle, deepseek",
       "tags": [],
-      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
-      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+      "title": "web-edit 0.1a2",
+      "url": "https://simonwillison.net/2026/Oct/17/web-edit/"
     },
     {
       "appsec": false,
@@ -6565,6 +6593,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "812f894cec2b2135",
+      "kev": false,
+      "published": "2026-10-15T13:04:03Z",
+      "score": 6.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO The phrase \"told investors\" appears four times in this FT article, which reports on Anthropic's day of hosting investors on Wednesday. Lots of details in here from \"people with knowledge of the matter\". Key things I learned from the article: Q1 revenue (Jan/Feb/Mar) was \"about $4.8bn\" Q2 (Apr/May/Jun) was $11.5bn Q3 (Jul/Aug/Sep) was $16.8bn In Q3: $1.70 in revenue for every $1 spent on \"computing power\" Adjusted operating margins (excluding stock-based compensation) were 11% This point about distillation is worth quoting in full (highlight mine): The start-up has also clamped down on “distillation” — a controversial practice whereby rival AI labs train their models on the outputs of more advanced ones. When rival companies “distil” their models from Anthropic’s models, that involves heavy usage and spending. Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue and that they had cut it back “materially” in the third quarter of the year, said four people with direct knowledge of the matter. Napkin maths says that if distillation was 5% of their Q2 revenue (before they cut it back in Q3) then unnamed \"other labs\" spent over half a billion dollars distilling Anthropic's models in that quarter! Also notable: Anthropic appear to no longer be leaning on \"annualized run-rate revenue\" (previously) in these communications to their investors. Tags: ai, generative-ai, llms, anthropic",
+      "tags": [],
+      "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
+      "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "aa7677223a5c7914",
       "kev": false,
       "published": "2026-10-13T13:32:00Z",
@@ -6601,20 +6649,20 @@
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
     }
   ],
-  "last_run": "2026-11-19T15:36:13Z",
+  "last_run": "2026-11-20T00:32:49Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1327,
-    "appsec_cves": 1797,
+    "appsec_cves": 1824,
     "kev_coverage_pct": 31.2,
     "kev_tracked": 1786,
     "kev_with_coverage": 558,
     "newly_exploited": 10,
     "newly_exploited_days": 30,
-    "open_gaps": 985,
+    "open_gaps": 1008,
     "public_poc": 724,
-    "total_cves": 2419,
-    "total_items": 295
+    "total_cves": 2472,
+    "total_items": 297
   },
   "threats": [
     {
@@ -9633,65 +9681,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-88hf-g992-jg85",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-92955",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-913"
-      ],
-      "description": "vm2: Sandbox Escape (NodeVM)",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00712,
-      "ghsa_id": "GHSA-88hf-g992-jg85",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-05T22:47:10Z",
-      "product": "vm2",
-      "published": "2026-10-05T22:47:09Z",
-      "score": 24.2,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-wjwh-qqvp-g4p4",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-92956",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-693",
-        "CWE-913"
-      ],
-      "description": "vm2 sandbox escape via WebAssembly.compileStreaming Promise species bypass",
-      "ecosystems": [
-        "npm"
-      ],
-      "epss": 0.00509,
-      "ghsa_id": "GHSA-wjwh-qqvp-g4p4",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-05T22:34:24Z",
-      "product": "vm2",
-      "published": "2026-10-05T22:34:22Z",
-      "score": 24.2,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-2cvf-wqm6-wr9g",
       "appsec": true,
       "brief": null,
@@ -10097,6 +10086,37 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-8fh7-7q4q-cq52",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-75521.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-75521",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-295"
+      ],
+      "description": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster superuser access",
+      "ecosystems": [
+        "go"
+      ],
+      "epss": 0.00286,
+      "ghsa_id": "GHSA-8fh7-7q4q-cq52",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T00:45:46Z",
+      "product": "miren.dev/runtime",
+      "published": "2026-11-19T00:45:46Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "auth-bypass"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-637c-6jxx-4rwm",
       "appsec": true,
       "brief": null,
@@ -10188,35 +10208,64 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-8fh7-7q4q-cq52",
+      "advisory_url": "https://github.com/advisories/GHSA-pq68-rvw4-xp4r",
       "appsec": true,
-      "brief": "briefs/CVE-2026-75521.md",
+      "brief": null,
       "coverage": "gap",
-      "cve_id": "CVE-2026-75521",
+      "cve_id": "CVE-2026-93605",
       "cvss_score": 10.0,
       "cwe": [
-        "CWE-295"
+        "CWE-693",
+        "CWE-913"
       ],
-      "description": "Miren Runtime: Authentication bypass in RPC layer: unverified TLS client certificates grant cluster superuser access",
+      "description": "vm2 contains a sandbox escape vulnerability",
       "ecosystems": [
-        "go"
+        "npm"
       ],
-      "epss": 0.00286,
-      "ghsa_id": "GHSA-8fh7-7q4q-cq52",
+      "epss": 0.0048,
+      "ghsa_id": "GHSA-pq68-rvw4-xp4r",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-07T18:05:01Z",
+      "product": "vm2",
+      "published": "2026-10-07T18:05:00Z",
+      "score": 24.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-8r5x-fm3f-whwj",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-106446.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-106446",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94",
+        "CWE-843"
+      ],
+      "description": "Handlebars: JavaScript Injection via AST Type Confusion in compile (bypass of CVE-2026-33937)",
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": 0.00786,
+      "ghsa_id": "GHSA-8r5x-fm3f-whwj",
       "has_poc": false,
       "is_candidate": true,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-11-19T00:45:46Z",
-      "product": "miren.dev/runtime",
-      "published": "2026-11-19T00:45:46Z",
-      "score": 24.1,
+      "modified": "2026-10-08T17:52:34Z",
+      "product": "handlebars",
+      "published": "2026-10-08T17:52:32Z",
+      "score": 24.0,
       "sources": [],
       "vendor": null,
-      "vuln_classes": [
-        "auth-bypass"
-      ]
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-897f-g5gm-fmxm",
@@ -10578,6 +10627,37 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-wj7x-58c2-5793",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-77369",
+      "cvss_score": 9.6,
+      "cwe": [
+        "CWE-639",
+        "CWE-862",
+        "CWE-863"
+      ],
+      "description": "Daptin: Broken Access Control (IDOR) in the generic YJS collaboration endpoint",
+      "ecosystems": [
+        "go"
+      ],
+      "epss": null,
+      "ghsa_id": "GHSA-wj7x-58c2-5793",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T00:14:15Z",
+      "product": "github.com/daptin/daptin",
+      "published": "2026-11-20T00:14:14Z",
+      "score": 23.6,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-jmqq-x5g9-9p2w",
       "appsec": true,
       "brief": null,
@@ -10662,38 +10742,6 @@
       "modified": "2026-10-15T20:17:23Z",
       "product": "github.com/dgraph-io/dgraph/v25",
       "published": "2026-10-15T20:17:22Z",
-      "score": 23.4,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-rvm3-566m-v7fv",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-103922",
-      "cvss_score": 9.3,
-      "cwe": [
-        "CWE-346",
-        "CWE-441"
-      ],
-      "description": "Capacitor Android and iOS: remote content can be loaded at the app origin via the internal HTTP proxy path",
-      "ecosystems": [
-        "maven",
-        "npm",
-        "swift"
-      ],
-      "epss": 0.00414,
-      "ghsa_id": "GHSA-rvm3-566m-v7fv",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-05T22:53:12Z",
-      "product": "@capacitor/android",
-      "published": "2026-10-05T22:53:10Z",
       "score": 23.4,
       "sources": [],
       "vendor": null,
@@ -10912,36 +10960,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-rj9j-8772-4h6c",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-68582",
-      "cvss_score": 9.3,
-      "cwe": [
-        "CWE-639",
-        "CWE-863"
-      ],
-      "description": "Vikunja: Link-share token reads any tenant's kanban buckets and enumerates usernames/IDs instance-wide (BOLA)",
-      "ecosystems": [
-        "go"
-      ],
-      "epss": 0.0033,
-      "ghsa_id": "GHSA-rj9j-8772-4h6c",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-09T20:42:35Z",
-      "product": "code.vikunja.io/api",
-      "published": "2026-10-09T20:42:33Z",
-      "score": 23.4,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-fpq8-4vhr-rcxx",
       "appsec": true,
       "brief": null,
@@ -11031,6 +11049,196 @@
       "vuln_classes": [
         "sqli"
       ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-q8v2-3j4h-xg2p",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-63412.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63412",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-94",
+        "CWE-95",
+        "CWE-116"
+      ],
+      "description": "Jane: Instantiation RCE via query parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "ecosystems": [
+        "composer",
+        "php"
+      ],
+      "epss": 0.00391,
+      "ghsa_id": "GHSA-q8v2-3j4h-xg2p",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T16:18:46Z",
+      "product": "jane-php/open-api-3",
+      "published": "2026-11-19T16:18:45Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-3fhm-p725-h3g3",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63345",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-94",
+        "CWE-1116"
+      ],
+      "description": "Refitter allows arbitrary code execution through unescaped OpenAPI paths",
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.0035,
+      "ghsa_id": "GHSA-3fhm-p725-h3g3",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T00:06:06Z",
+      "product": "Refitter",
+      "published": "2026-11-20T00:06:04Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-x9xr-53qx-9qcf",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-63413.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63413",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-94"
+      ],
+      "description": "Jane: Instantiation RCE via header parameter name -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "ecosystems": [
+        "composer",
+        "php"
+      ],
+      "epss": 0.00312,
+      "ghsa_id": "GHSA-x9xr-53qx-9qcf",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T16:12:25Z",
+      "product": "jane-php/open-api-3",
+      "published": "2026-11-19T16:12:22Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-xwcw-j52r-34x4",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-63411.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63411",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-94",
+        "CWE-95",
+        "CWE-116"
+      ],
+      "description": "Jane: Instantiation RCE via parameter description -> raw PHPDoc */ breakout (jane-php/open-api-3)",
+      "ecosystems": [
+        "composer",
+        "php"
+      ],
+      "epss": 0.00312,
+      "ghsa_id": "GHSA-xwcw-j52r-34x4",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T16:12:12Z",
+      "product": "jane-php/open-api-3",
+      "published": "2026-11-19T16:12:11Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-p32v-8v8j-j534",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63344",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-94",
+        "CWE-116"
+      ],
+      "description": "Refitter allows arbitrary code execution through unescaped OpenAPI content-type values",
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.0035,
+      "ghsa_id": "GHSA-p32v-8v8j-j534",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T00:06:53Z",
+      "product": "Refitter",
+      "published": "2026-11-20T00:06:52Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-58x9-vjvp-6mx8",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-63346",
+      "cvss_score": 9.3,
+      "cwe": [
+        "CWE-94",
+        "CWE-116"
+      ],
+      "description": "Refitter allows code execution through unescaped OpenAPI header parameter names",
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.0035,
+      "ghsa_id": "GHSA-58x9-vjvp-6mx8",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T00:06:31Z",
+      "product": "Refitter",
+      "published": "2026-11-20T00:06:28Z",
+      "score": 23.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-4j9v-h7pp-725h",
@@ -11249,99 +11457,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-c27m-942f-rcfh",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-87697.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-87697",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-502"
-      ],
-      "description": "Microsoft Security Advisory CVE-2026-87697 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00843,
-      "ghsa_id": "GHSA-c27m-942f-rcfh",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-19T19:19:49Z",
-      "product": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-      "published": "2026-10-13T20:52:24Z",
-      "score": 23.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-qjpx-jqm5-h2c4",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-96230.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-96230",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-79"
-      ],
-      "description": "Microsoft Security Advisory CVE-2026-96230 - ASP.NET Core Remote Code Execution Vulnerability",
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00946,
-      "ghsa_id": "GHSA-qjpx-jqm5-h2c4",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-19T19:19:40Z",
-      "product": "Microsoft.AspNetCore.Components.WebAssembly.Server",
-      "published": "2026-10-13T20:51:12Z",
-      "score": 23.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-g44w-h65v-4cw9",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-96235.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-96235",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-787"
-      ],
-      "description": "Microsoft Security Advisory CVE-2026-96235 - .NET and Visual Studio Remote Code Execution Vulnerability",
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00859,
-      "ghsa_id": "GHSA-g44w-h65v-4cw9",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-19T19:18:34Z",
-      "product": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
-      "published": "2026-10-13T20:45:50Z",
-      "score": 23.1,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-3x94-m842-937c",
       "appsec": true,
       "brief": "briefs/CVE-2026-108358.md",
@@ -11529,35 +11644,33 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-c94f-87xg-65wf",
+      "advisory_url": "https://github.com/advisories/GHSA-jmmc-wjpc-pg34",
       "appsec": true,
-      "brief": "briefs/CVE-2026-91115.md",
+      "brief": null,
       "coverage": "gap",
-      "cve_id": "CVE-2026-91115",
+      "cve_id": "CVE-2026-61689",
       "cvss_score": 8.8,
       "cwe": [
-        "CWE-470"
+        "CWE-943"
       ],
-      "description": "Silverstripe Framework: RCE via i18nTextCollectorTask writer parameter",
+      "description": "XWiki Platform: HQL injection in search allows unauthenticated database extraction including password hashes",
       "ecosystems": [
-        "composer"
+        "maven"
       ],
-      "epss": 0.00638,
-      "ghsa_id": "GHSA-c94f-87xg-65wf",
+      "epss": 0.00531,
+      "ghsa_id": "GHSA-jmmc-wjpc-pg34",
       "has_poc": false,
-      "is_candidate": true,
+      "is_candidate": false,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-11-16T22:35:13Z",
-      "product": "silverstripe/framework",
-      "published": "2026-11-16T22:35:12Z",
+      "modified": "2026-11-19T20:44:33Z",
+      "product": "org.xwiki.platform:xwiki-platform-rest-server",
+      "published": "2026-11-19T20:44:32Z",
       "score": 23.0,
       "sources": [],
       "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
+      "vuln_classes": []
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-w294-6q5q-53p8",
@@ -11583,68 +11696,6 @@
       "modified": "2026-10-08T22:09:35Z",
       "product": "com.hazelcast:hazelcast",
       "published": "2026-10-08T22:09:34Z",
-      "score": 22.9,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-rxj4-h86g-25gc",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-108357.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-108357",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-611",
-        "CWE-776"
-      ],
-      "description": "PhpSpreadsheet: XmlScanner Bypass via Double-Encoded unentity() TOCTOU Allows XXE and Denial of Service",
-      "ecosystems": [
-        "composer"
-      ],
-      "epss": 0.00463,
-      "ghsa_id": "GHSA-rxj4-h86g-25gc",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-27T15:38:25Z",
-      "product": "phpoffice/phpspreadsheet",
-      "published": "2026-10-27T15:38:22Z",
-      "score": 22.9,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "xxe"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-j2w7-387v-m2rq",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-108359",
-      "cvss_score": 8.7,
-      "cwe": [
-        "CWE-400",
-        "CWE-789"
-      ],
-      "description": "PhpSpreadsheet ODS Reader: Unbounded number-rows-repeated → CPU & Memory Exhaustion (DoS)",
-      "ecosystems": [
-        "composer"
-      ],
-      "epss": 0.0066,
-      "ghsa_id": "GHSA-j2w7-387v-m2rq",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-27T15:38:35Z",
-      "product": "phpoffice/phpspreadsheet",
-      "published": "2026-10-27T15:38:33Z",
       "score": 22.9,
       "sources": [],
       "vendor": null,
@@ -11836,6 +11887,68 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-pxh3-4qqv-58mg",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-61713",
+      "cvss_score": 8.3,
+      "cwe": [
+        "CWE-693"
+      ],
+      "description": "Servo Sandbox bypass: declarative refresh can auto-navigate a sandboxed iframe",
+      "ecosystems": [
+        "rust"
+      ],
+      "epss": 0.00538,
+      "ghsa_id": "GHSA-pxh3-4qqv-58mg",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T20:45:23Z",
+      "product": "servo",
+      "published": "2026-11-19T20:45:22Z",
+      "score": 22.5,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-gpcc-36pq-8qxr",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-76090.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-76090",
+      "cvss_score": 8.4,
+      "cwe": [
+        "CWE-94",
+        "CWE-95",
+        "CWE-116"
+      ],
+      "description": "Tapir: Construction/decode RCE via property name -> raw case-class field (tapir-openapi-codegen)",
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.0014,
+      "ghsa_id": "GHSA-gpcc-36pq-8qxr",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T20:39:27Z",
+      "product": "com.softwaremill.sttp.tapir:tapir-openapi-codegen-core",
+      "published": "2026-11-19T20:39:27Z",
+      "score": 22.4,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-xxph-c9ww-hj94",
       "appsec": true,
       "brief": "briefs/CVE-2026-102554.md",
@@ -11987,34 +12100,36 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-j97h-3f8r-mrjr",
+      "advisory_url": "https://github.com/advisories/GHSA-3mgh-93r5-r7jf",
       "appsec": true,
-      "brief": "briefs/CVE-2026-11800.md",
+      "brief": "briefs/CVE-2026-83816.md",
       "coverage": "gap",
-      "cve_id": "CVE-2026-11800",
+      "cve_id": "CVE-2026-83816",
       "cvss_score": 8.1,
       "cwe": [
-        "CWE-347"
+        "CWE-78",
+        "CWE-863"
       ],
-      "description": "Keycloak has authentication bypass via jwt algorithm confusion",
+      "description": "CodeWhale: exec_shell parallel-readonly classifier auto-approves fd/rg/git grep exec flags enabling silent RCE",
       "ecosystems": [
-        "maven"
+        "npm",
+        "rust"
       ],
-      "epss": 0.00263,
-      "ghsa_id": "GHSA-j97h-3f8r-mrjr",
+      "epss": 0.00737,
+      "ghsa_id": "GHSA-3mgh-93r5-r7jf",
       "has_poc": false,
       "is_candidate": true,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-11-03T17:24:30Z",
-      "product": "org.keycloak:keycloak-services",
-      "published": "2026-11-03T17:24:27Z",
-      "score": 22.2,
+      "modified": "2026-11-19T22:48:14Z",
+      "product": "codewhale-tui",
+      "published": "2026-11-19T22:48:14Z",
+      "score": 22.3,
       "sources": [],
       "vendor": null,
       "vuln_classes": [
-        "auth-bypass"
+        "rce"
       ]
     },
     {
@@ -12223,6 +12338,37 @@
       "vuln_classes": []
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8",
+      "appsec": true,
+      "brief": null,
+      "coverage": "gap",
+      "cve_id": "CVE-2026-83817",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-862",
+        "CWE-1188"
+      ],
+      "description": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent execution",
+      "ecosystems": [
+        "npm",
+        "rust"
+      ],
+      "epss": 0.0069,
+      "ghsa_id": "GHSA-8hp3-xxrg-v9c8",
+      "has_poc": false,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T22:47:34Z",
+      "product": "codewhale-tui",
+      "published": "2026-11-19T22:47:33Z",
+      "score": 21.7,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-47hw-gvq5-r2gm",
       "appsec": true,
       "brief": null,
@@ -12282,36 +12428,6 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-q7v9-x93c-xqv3",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-115909",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-400",
-        "CWE-789"
-      ],
-      "description": "zip: Unbounded Symlink-Target Handling Can Abort Or Exhaust Memory During Extraction",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.00461,
-      "ghsa_id": "GHSA-q7v9-x93c-xqv3",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-29T16:40:04Z",
-      "product": "zip",
-      "published": "2026-10-29T16:40:01Z",
-      "score": 21.6,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-5vvx-3h34-f3gj",
       "appsec": true,
       "brief": "briefs/CVE-2026-61570.md",
@@ -12346,37 +12462,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-hjqx-j4rw-g7xv",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-115908",
-      "cvss_score": 7.4,
-      "cwe": [
-        "CWE-22",
-        "CWE-59",
-        "CWE-61"
-      ],
-      "description": "zip: Arbitrary file write outside the extraction directory, because ZipArchive::extract validates symlink targets lexically.",
-      "ecosystems": [
-        "rust"
-      ],
-      "epss": 0.00432,
-      "ghsa_id": "GHSA-hjqx-j4rw-g7xv",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-29T16:40:14Z",
-      "product": "zip",
-      "published": "2026-10-29T16:40:12Z",
-      "score": 21.5,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-2gff-2mmg-m73p",
       "appsec": true,
       "brief": null,
@@ -12406,30 +12491,33 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-8ffr-xgwf-xj56",
+      "advisory_url": "https://github.com/advisories/GHSA-rvm3-566m-v7fv",
       "appsec": false,
       "brief": null,
       "coverage": "gap",
-      "cve_id": "CVE-2026-18140",
-      "cvss_score": 8.7,
+      "cve_id": "CVE-2026-103922",
+      "cvss_score": 9.3,
       "cwe": [
-        "CWE-674"
+        "CWE-346",
+        "CWE-441"
       ],
-      "description": "aws-smithy-json: Uncontrolled recursion in the aws-smithy-json unknown-key skip path allows unauthenticated remote denial of service in smithy-rs generated servers",
+      "description": "Capacitor Android and iOS: remote content can be loaded at the app origin via the internal HTTP proxy path",
       "ecosystems": [
-        "rust"
+        "maven",
+        "npm",
+        "swift"
       ],
-      "epss": 0.00784,
-      "ghsa_id": "GHSA-8ffr-xgwf-xj56",
+      "epss": 0.00414,
+      "ghsa_id": "GHSA-rvm3-566m-v7fv",
       "has_poc": false,
       "is_candidate": false,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-10-02T22:44:53Z",
-      "product": "aws-smithy-json",
-      "published": "2026-10-02T22:44:52Z",
-      "score": 8.9,
+      "modified": "2026-10-05T22:53:12Z",
+      "product": "@capacitor/android",
+      "published": "2026-10-05T22:53:10Z",
+      "score": 9.4,
       "sources": [],
       "vendor": null,
       "vuln_classes": []
