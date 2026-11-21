@@ -27588,40 +27588,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-105794.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-105794",
-      "cvss_score": 9.1,
-      "cwe": [
-        "CWE-295"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.01001,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-06T15:33:09Z",
-      "nuclei_template": null,
-      "product": "Microsoft.Native.Quic.MsQuic.OpenSSL",
-      "published": "2026-10-06T15:33:08Z",
-      "score": 23.4,
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2026-79752.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -32358,6 +32324,44 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-122244.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-122244",
+      "cvss_score": 7.7,
+      "cwe": [
+        "CWE-79",
+        "CWE-116",
+        "CWE-1021"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "npm"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T23:49:49Z",
+      "nuclei_template": null,
+      "product": "@budibase/server",
+      "published": "2026-11-20T23:49:47Z",
+      "score": 21.7,
+      "vendor": null,
+      "vuln_classes": [
+        "xss"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-114137.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -33976,6 +33980,40 @@
     },
     {
       "appsec": false,
+      "brief": "briefs/CVE-2026-105794.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-105794",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-295"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.01001,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-10-06T15:33:09Z",
+      "nuclei_template": null,
+      "product": "Microsoft.Native.Quic.MsQuic.OpenSSL",
+      "published": "2026-10-06T15:33:08Z",
+      "score": 9.4,
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "appsec": false,
       "brief": "briefs/CVE-2026-75516.md",
       "candidate_reasons": [
         "remote (AV:N)",
@@ -34350,7 +34388,7 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-20T23:55:38Z",
+  "generated": "2026-11-21T06:22:23Z",
   "stats": {
     "actively_exploited_appsec": 1327,
     "appsec_cves": 1832,
@@ -34359,9 +34397,9 @@
     "kev_with_coverage": 561,
     "newly_exploited": 10,
     "newly_exploited_days": 30,
-    "open_gaps": 1008,
+    "open_gaps": 1009,
     "public_poc": 724,
-    "total_cves": 2494,
+    "total_cves": 2496,
     "total_items": 301
   }
 }
