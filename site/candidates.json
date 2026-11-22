@@ -4698,6 +4698,39 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2013-0625.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 94% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2013-0625",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-287"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.93846,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-03-07",
+      "modified": "2022-03-07",
+      "nuclei_template": null,
+      "product": "coldfusion",
+      "published": "2022-03-07",
+      "score": 92.0,
+      "vendor": "adobe",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2017-0148.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -4731,39 +4764,6 @@
       "vuln_classes": [
         "rce"
       ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2013-0625.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 94% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2013-0625",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-287"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.93758,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-07",
-      "modified": "2022-03-07",
-      "nuclei_template": null,
-      "product": "coldfusion",
-      "published": "2022-03-07",
-      "score": 91.9,
-      "vendor": "adobe",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -6603,42 +6603,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2012-0391.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 76% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2012-0391",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-94"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.75599,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-01-21",
-      "modified": "2022-01-21",
-      "nuclei_template": null,
-      "product": "struts",
-      "published": "2022-01-21",
-      "score": 86.5,
-      "vendor": "apache",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2025-20337.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -6701,6 +6665,42 @@
       "published": "2022-06-08",
       "score": 86.2,
       "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2012-0391.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 75% >= 30%",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2012-0391",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-94"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [
+        "web"
+      ],
+      "epss": 0.74694,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-01-21",
+      "modified": "2022-01-21",
+      "nuclei_template": null,
+      "product": "struts",
+      "published": "2022-01-21",
+      "score": 86.2,
+      "vendor": "apache",
       "vuln_classes": []
     },
     {
@@ -7828,6 +7828,42 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2023-47565.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 75% >= 30%",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2023-47565",
+      "cvss_score": 8.0,
+      "cwe": [
+        "CWE-78"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": false,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [],
+      "epss": 0.74521,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2023-12-21",
+      "modified": "2023-12-21",
+      "nuclei_template": null,
+      "product": "qvr_firmware",
+      "published": "2023-12-21",
+      "score": 84.4,
+      "vendor": "qnap",
+      "vuln_classes": [
+        "command-injection"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2012-1856.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -8237,42 +8273,6 @@
       "score": 84.0,
       "vendor": "oracle",
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2023-47565.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 73% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2023-47565",
-      "cvss_score": 8.0,
-      "cwe": [
-        "CWE-78"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": false,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.73277,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2023-12-21",
-      "modified": "2023-12-21",
-      "nuclei_template": null,
-      "product": "qvr_firmware",
-      "published": "2023-12-21",
-      "score": 84.0,
-      "vendor": "qnap",
-      "vuln_classes": [
-        "command-injection"
-      ]
     },
     {
       "appsec": true,
@@ -10454,6 +10454,39 @@
       "vuln_classes": []
     },
     {
+      "appsec": false,
+      "brief": "briefs/CVE-2025-43300.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "in CISA KEV",
+        "EPSS 66% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2025-43300",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-787"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [],
+      "epss": 0.65624,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-08-21",
+      "modified": "2025-08-21",
+      "nuclei_template": null,
+      "product": "ipados",
+      "published": "2025-08-21",
+      "score": 79.7,
+      "vendor": "apple",
+      "vuln_classes": []
+    },
+    {
       "appsec": true,
       "brief": "briefs/CVE-2018-13374.md",
       "candidate_reasons": [
@@ -10916,39 +10949,6 @@
       "published": "2026-05-26",
       "score": 79.2,
       "vendor": "litespeedtech",
-      "vuln_classes": []
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2025-43300.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "in CISA KEV",
-        "EPSS 63% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2025-43300",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-787"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.63175,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-08-21",
-      "modified": "2025-08-21",
-      "nuclei_template": null,
-      "product": "ipados",
-      "published": "2025-08-21",
-      "score": 79.0,
-      "vendor": "apple",
       "vuln_classes": []
     },
     {
@@ -13236,38 +13236,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-76519.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-76519",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-23"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.06227,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-10-14",
-      "modified": "2026-10-14",
-      "nuclei_template": null,
-      "product": "asyncos",
-      "published": "2026-10-14",
-      "score": 75.7,
-      "vendor": "cisco",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2013-7331.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -13334,6 +13302,38 @@
       "vuln_classes": [
         "command-injection"
       ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-76519.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-76519",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-23"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.05715,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-10-14",
+      "modified": "2026-10-14",
+      "nuclei_template": null,
+      "product": "asyncos",
+      "published": "2026-10-14",
+      "score": 75.5,
+      "vendor": "cisco",
+      "vuln_classes": []
     },
     {
       "appsec": false,
@@ -17046,6 +17046,41 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2016-7836.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2016-7836",
+      "cvss_score": 9.8,
+      "cwe": [
+        "CWE-287"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.19919,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-10-14",
+      "modified": "2025-10-14",
+      "nuclei_template": null,
+      "product": "skysea_client_view",
+      "published": "2025-10-14",
+      "score": 69.8,
+      "vendor": "skygroup",
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2023-32435.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -17175,41 +17210,6 @@
       "published": "2022-03-31",
       "score": 69.6,
       "vendor": "trendmicro",
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2016-7836.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2016-7836",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-287"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.1923,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-10-14",
-      "modified": "2025-10-14",
-      "nuclei_template": null,
-      "product": "skysea_client_view",
-      "published": "2025-10-14",
-      "score": 69.6,
-      "vendor": "skygroup",
       "vuln_classes": [
         "rce"
       ]
@@ -33400,6 +33400,43 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-63184.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-63184",
+      "cvss_score": 7.1,
+      "cwe": [
+        "CWE-829",
+        "CWE-918"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.00638,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-20T14:35:31Z",
+      "nuclei_template": null,
+      "product": "Refitter",
+      "published": "2026-11-20T14:35:29Z",
+      "score": 21.3,
+      "vendor": null,
+      "vuln_classes": [
+        "ssrf"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-72695.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -33655,43 +33692,6 @@
       "vendor": null,
       "vuln_classes": [
         "command-injection"
-      ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-63184.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-63184",
-      "cvss_score": 7.1,
-      "cwe": [
-        "CWE-829",
-        "CWE-918"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00411,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-20T14:35:31Z",
-      "nuclei_template": null,
-      "product": "Refitter",
-      "published": "2026-11-20T14:35:29Z",
-      "score": 21.2,
-      "vendor": null,
-      "vuln_classes": [
-        "ssrf"
       ]
     },
     {
@@ -34388,7 +34388,7 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-22T14:25:49Z",
+  "generated": "2026-11-22T23:32:23Z",
   "stats": {
     "actively_exploited_appsec": 1327,
     "appsec_cves": 1828,
@@ -34400,6 +34400,6 @@
     "open_gaps": 1009,
     "public_poc": 724,
     "total_cves": 2496,
-    "total_items": 303
+    "total_items": 304
   }
 }

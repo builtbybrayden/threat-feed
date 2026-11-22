@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-22T14:25:49Z",
+  "generated": "2026-11-22T23:32:23Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "ff2d940875c195df",
       "kev": false,
       "published": "2026-11-18T14:39:45Z",
-      "score": 54.1,
+      "score": 53.7,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.1)"
+        "recency (+9.7)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -73,12 +73,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 49.0,
+      "score": 48.9,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -100,12 +100,12 @@
       "id": "2c8a1075fab122ac",
       "kev": false,
       "published": "2026-11-19T15:30:00Z",
-      "score": 48.2,
+      "score": 47.8,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,confluence (+15)",
         "AppSec-relevant (+14)",
-        "recency (+11.2)"
+        "recency (+10.8)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -129,12 +129,12 @@
       "id": "5d0aeb18d920237c",
       "kev": false,
       "published": "2026-11-18T14:44:48Z",
-      "score": 45.1,
+      "score": 44.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pypi,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.1)"
+        "recency (+9.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -155,12 +155,12 @@
       "id": "14c044926ad9a31d",
       "kev": false,
       "published": "2026-11-16T00:04:19Z",
-      "score": 44.8,
+      "score": 44.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -181,12 +181,12 @@
       "id": "5fa42ecadbea615e",
       "kev": false,
       "published": "2026-11-17T22:52:29Z",
-      "score": 44.5,
+      "score": 44.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:node.js,python,prompt injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.5)"
+        "recency (+9.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -200,32 +200,6 @@
       ],
       "title": "External sandboxes for coding agents",
       "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "41af2268db8dcd8f",
-      "kev": false,
-      "published": "2026-11-17T16:48:33Z",
-      "score": 44.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:pypi,python,javascript (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+9.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide. I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the real server-side application. You can now do all of the following, using a carefully crafted URL to lite.datasette.io: Load client-side Datasette to browse any SQLite database, JSON file, CSV file or SQL script Select a released version of Datasette to load from PyPI Load a specific commit, tag, or branch name from the Datasette GitHub repository Pick from over 100 versions of SQLite to use with Datasette Install additional Datasette plugins from PyPI or URLs to wheel files, including JavaScript visualization tools The ability to load specific Datasette references, plugins, and SQLite versions makes this a fantastic tool for linking to demos of work-in-progress features or bug reproductions, without needing to spin up a full web server to serve that demo. As an example, consider the following URL: https://lite.datasette.io/?install=datasette-maplibre&url=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/demo.db&metadata=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/metadata.yml#/demo/capitals_and_countries%23map=0/4.2/180&color=continent Follow that link and, after a short loading screen, you'll find yourself on a page that looks like this: That's Datasette running the new datasette-maplibre plugin, loading up a database of GeoJSON shapes of countries and displaying both a combined map and individual boundary maps in a table. Let's break down that URL to see what it's doing: https://lite.datasette.io/ ?install=datasette-maplibre &url=https://.../demo.db &metadata=https://.../metadata.yml #/demo/capitals_and_countries%23map=0/4.2/180&color=continent The ?install=datasette-maplibre installs that additional plugin from PyPI. You can pass &install=... as many times as you like to load more plugins. &url=https://.../demo.db loads that SQLite database from the provided URL. These URLs need to have open CORS headers - I host files like this in Gists, because they provide an easy way to get open CORS headers on a web-hosted file. &metadata=https://.../metadata.yml loads this metadata.yml file. The metadata file adds HTML descriptions to various tables, and to the Datasette homepage. Visit that homepage here for a guided tour of the other features of that plugin, all defined in the metadata file. #/demo/capitals_and_countries%23map=0/4.2/180&color=continent is a fragment hash that turns into a location within Datasette - here it's loading the /demo/capitals_and_countries SQL view, then appending another fragment hash to it (%23 is a URL-encoded #) which tells the map plugin to zoom to a certain location and to set the color of the shapes on the map based on the continent column in the data. That URL is doing a lot of work! I wrote more about this trick for building URL-addressable software in URL-addressable Pyodide Python environments last year. The full set of supported URL arguments is described in the Datasette Lite README. I've already started using Datasette Lite as part of the Datasette development process. Here's a recent issue describing a pagination bug - I posted a comment there demonstrating the old, broken behavior and the new fix using links to Datasette Lite: Demo of the bug: https://lite.datasette.io/?ref=1.0a42&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score - click next and the second page is empty. Here's that same page with the bug fixed (running on 1.0a43): https://lite.datasette.io/?ref=1.0a43&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score How this works, using service workers Datasette Lite is not a new project. I launched the first version back in 2022, originally as a bit of a joke (running server-side apps in the browser is pretty funny) but one that quickly started proving its value. The problem with that initial version is that it was a hack. It worked by running Datasette in a Pyodide web worker, simulating requests through that stack, then injecting the resulting HTML back into the top level page using innerHTML. This worked for basic Datasette, but meant that any feature that used JavaScript failed to work, because script tags in innerHTML don't execute, and the web worker tricks it used failed to load additional JavaScript or CSS files. The new version takes a completely different approach based on Service Workers. These allow JavaScript to intercept HTTP requests for new pages and resources and serve them from client-side code instead. Datasette Lite registers a service worker for the entire lite.datasette.io domain. The parent page then creates an iframe that sends requests for Datasette pages to URLs that look like this: /app/aa94e6851595/ # the homepage (HTML) /app/aa94e6851595/data/places # a table page (HTML) /app/aa94e6851595/-/static/navigation-search.js # (JavaScript) /app/aa94e6851595/-/static/app.css # (CSS) Those are regular Datasette URLs, but with a /app/aa94e6851595/ prefix. What's that about? The /app/<session>/ prefix is necessary because of multiple tabs. Consider the URL above, which loads the demo instance with the datasette-maplibre plugin. That URL defines a full, custom Datasette instance. You might have that one running in a tab, then one of my other demo links running in another. The service worker for lite.datasette.io is shared between all of those tabs. If it routed to a single instance of Datasette then every tab would share that underlying instance, no matter what plugins or other settings their URL attempted to configure. Instead, the parent page generates a random session ID and uses it as a prefix for all of the subsequent hidden asset and page loads. The service worker can then use that session ID to route those requests back through the parent page to a web worker running a dedicated Datasette instance for that particular session. (We still need a web worker because Pyodide in a service worker would not be able to maintain state beyond around 30 seconds, depending on the browser. There are a lot of moving parts here!) I had Claude Fable 5.2 generate several SVG diagrams to help explain this. Here's my favorite of those, now embedded in the Datasette Lite README: This system started life back in May as an AI research spike generated using Claude Opus 4.8. It wasn't until November (and Claude Fable 5.2) that I felt familiar enough with how it all works to confidently ship it to production! Bonus feature: pick your version of SQLite I added this feature last night as an off-shoot of investigating a potential bug in SQLite. Datasette is meant to work against any released version of SQLite since 3.25 (released in September 2018). There have been 87 further releases since then. Being able to fire up Datasette against a specific version of SQLite is really useful for demonstrating new SQLite features and debugging weird issues. In the past I've used various tricks to get different SQLite versions running with Python on my Mac, but it's not a trivial process. WebAssembly is perfect for this. I can load up a custom SQLite build entirely in my browser, test it there, then discard it when I close my tab. datasette/pysqlite3-wasm-wheels is my new repository which contains WebAssembly compiled Python wheels for pysqlite3 for 163 different SQLite versions. Each version gets a file with a name like this: pysqlite3-0.6.2-3.54.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl That's for SQLite 3.54.1, the most recent version. Datasette Lite now takes a special ?sqlite= URL parameter, which will accept a version number like 3.54.1, resolve the path to the corresponding wheel file, then fetch that wheel and install it into the Pyodide environment and configure Datasette to use it. Once I'd built the wheels, I decided to have Claude Fable 5.2 build me https://datasette.github.io/pysqlite3-wasm-wheels/?versions=3.54.1,3.54.0&sql=select+json_object(%27a%27%2C+(select+json_array(1%29%29%29)\">this bonus tool for comparing a SQL query across any selected versions of SQLite. Here's an example showing how select json_object('a', (select json_array(1))) differs between SQLite 3.54.0 and 3.54.1: This should work for every other Python app, too Nothing about how Datasette Lite works is unique to Datasette. Almost any Python application should be able to pull the same trick - running entirely in the browser using WebAssembly and Pyodide, as a cheap way to provide preview environments, demonstrate features, and recreate bugs. C and Rust extensions used to be a blocker for this kind of thing, but any good coding agent can compile those to Pyodide-compatible WebAssembly now. You can even publish them to PyPI as of PEP 783 in April 2026. One catch is databases. SQLite is no problem at all, but running PostgreSQL or MySQL in WebAssembly, while possible, is still a path less trodden. I'd love to see WebAssembly preview environments like these become a common pattern across the Python ecosystem. Tags: javascript, projects, python, urls, datasette, webassembly, service-workers, pyodide, datasette-lite",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "pypi"
-      ],
-      "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
-      "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/"
     },
     {
       "appsec": true,
@@ -364,15 +338,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "41af2268db8dcd8f",
+      "kev": false,
+      "published": "2026-11-17T16:48:33Z",
+      "score": 43.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:pypi,python,javascript (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide. I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the real server-side application. You can now do all of the following, using a carefully crafted URL to lite.datasette.io: Load client-side Datasette to browse any SQLite database, JSON file, CSV file or SQL script Select a released version of Datasette to load from PyPI Load a specific commit, tag, or branch name from the Datasette GitHub repository Pick from over 100 versions of SQLite to use with Datasette Install additional Datasette plugins from PyPI or URLs to wheel files, including JavaScript visualization tools The ability to load specific Datasette references, plugins, and SQLite versions makes this a fantastic tool for linking to demos of work-in-progress features or bug reproductions, without needing to spin up a full web server to serve that demo. As an example, consider the following URL: https://lite.datasette.io/?install=datasette-maplibre&url=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/demo.db&metadata=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/metadata.yml#/demo/capitals_and_countries%23map=0/4.2/180&color=continent Follow that link and, after a short loading screen, you'll find yourself on a page that looks like this: That's Datasette running the new datasette-maplibre plugin, loading up a database of GeoJSON shapes of countries and displaying both a combined map and individual boundary maps in a table. Let's break down that URL to see what it's doing: https://lite.datasette.io/ ?install=datasette-maplibre &url=https://.../demo.db &metadata=https://.../metadata.yml #/demo/capitals_and_countries%23map=0/4.2/180&color=continent The ?install=datasette-maplibre installs that additional plugin from PyPI. You can pass &install=... as many times as you like to load more plugins. &url=https://.../demo.db loads that SQLite database from the provided URL. These URLs need to have open CORS headers - I host files like this in Gists, because they provide an easy way to get open CORS headers on a web-hosted file. &metadata=https://.../metadata.yml loads this metadata.yml file. The metadata file adds HTML descriptions to various tables, and to the Datasette homepage. Visit that homepage here for a guided tour of the other features of that plugin, all defined in the metadata file. #/demo/capitals_and_countries%23map=0/4.2/180&color=continent is a fragment hash that turns into a location within Datasette - here it's loading the /demo/capitals_and_countries SQL view, then appending another fragment hash to it (%23 is a URL-encoded #) which tells the map plugin to zoom to a certain location and to set the color of the shapes on the map based on the continent column in the data. That URL is doing a lot of work! I wrote more about this trick for building URL-addressable software in URL-addressable Pyodide Python environments last year. The full set of supported URL arguments is described in the Datasette Lite README. I've already started using Datasette Lite as part of the Datasette development process. Here's a recent issue describing a pagination bug - I posted a comment there demonstrating the old, broken behavior and the new fix using links to Datasette Lite: Demo of the bug: https://lite.datasette.io/?ref=1.0a42&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score - click next and the second page is empty. Here's that same page with the bug fixed (running on 1.0a43): https://lite.datasette.io/?ref=1.0a43&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score How this works, using service workers Datasette Lite is not a new project. I launched the first version back in 2022, originally as a bit of a joke (running server-side apps in the browser is pretty funny) but one that quickly started proving its value. The problem with that initial version is that it was a hack. It worked by running Datasette in a Pyodide web worker, simulating requests through that stack, then injecting the resulting HTML back into the top level page using innerHTML. This worked for basic Datasette, but meant that any feature that used JavaScript failed to work, because script tags in innerHTML don't execute, and the web worker tricks it used failed to load additional JavaScript or CSS files. The new version takes a completely different approach based on Service Workers. These allow JavaScript to intercept HTTP requests for new pages and resources and serve them from client-side code instead. Datasette Lite registers a service worker for the entire lite.datasette.io domain. The parent page then creates an iframe that sends requests for Datasette pages to URLs that look like this: /app/aa94e6851595/ # the homepage (HTML) /app/aa94e6851595/data/places # a table page (HTML) /app/aa94e6851595/-/static/navigation-search.js # (JavaScript) /app/aa94e6851595/-/static/app.css # (CSS) Those are regular Datasette URLs, but with a /app/aa94e6851595/ prefix. What's that about? The /app/<session>/ prefix is necessary because of multiple tabs. Consider the URL above, which loads the demo instance with the datasette-maplibre plugin. That URL defines a full, custom Datasette instance. You might have that one running in a tab, then one of my other demo links running in another. The service worker for lite.datasette.io is shared between all of those tabs. If it routed to a single instance of Datasette then every tab would share that underlying instance, no matter what plugins or other settings their URL attempted to configure. Instead, the parent page generates a random session ID and uses it as a prefix for all of the subsequent hidden asset and page loads. The service worker can then use that session ID to route those requests back through the parent page to a web worker running a dedicated Datasette instance for that particular session. (We still need a web worker because Pyodide in a service worker would not be able to maintain state beyond around 30 seconds, depending on the browser. There are a lot of moving parts here!) I had Claude Fable 5.2 generate several SVG diagrams to help explain this. Here's my favorite of those, now embedded in the Datasette Lite README: This system started life back in May as an AI research spike generated using Claude Opus 4.8. It wasn't until November (and Claude Fable 5.2) that I felt familiar enough with how it all works to confidently ship it to production! Bonus feature: pick your version of SQLite I added this feature last night as an off-shoot of investigating a potential bug in SQLite. Datasette is meant to work against any released version of SQLite since 3.25 (released in September 2018). There have been 87 further releases since then. Being able to fire up Datasette against a specific version of SQLite is really useful for demonstrating new SQLite features and debugging weird issues. In the past I've used various tricks to get different SQLite versions running with Python on my Mac, but it's not a trivial process. WebAssembly is perfect for this. I can load up a custom SQLite build entirely in my browser, test it there, then discard it when I close my tab. datasette/pysqlite3-wasm-wheels is my new repository which contains WebAssembly compiled Python wheels for pysqlite3 for 163 different SQLite versions. Each version gets a file with a name like this: pysqlite3-0.6.2-3.54.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl That's for SQLite 3.54.1, the most recent version. Datasette Lite now takes a special ?sqlite= URL parameter, which will accept a version number like 3.54.1, resolve the path to the corresponding wheel file, then fetch that wheel and install it into the Pyodide environment and configure Datasette to use it. Once I'd built the wheels, I decided to have Claude Fable 5.2 build me https://datasette.github.io/pysqlite3-wasm-wheels/?versions=3.54.1,3.54.0&sql=select+json_object(%27a%27%2C+(select+json_array(1%29%29%29)\">this bonus tool for comparing a SQL query across any selected versions of SQLite. Here's an example showing how select json_object('a', (select json_array(1))) differs between SQLite 3.54.0 and 3.54.1: This should work for every other Python app, too Nothing about how Datasette Lite works is unique to Datasette. Almost any Python application should be able to pull the same trick - running entirely in the browser using WebAssembly and Pyodide, as a cheap way to provide preview environments, demonstrate features, and recreate bugs. C and Rust extensions used to be a blocker for this kind of thing, but any good coding agent can compile those to Pyodide-compatible WebAssembly now. You can even publish them to PyPI as of PEP 783 in April 2026. One catch is databases. SQLite is no problem at all, but running PostgreSQL or MySQL in WebAssembly, while possible, is still a path less trodden. I'd love to see WebAssembly preview environments like these become a common pattern across the Python ecosystem. Tags: javascript, projects, python, urls, datasette, webassembly, service-workers, pyodide, datasette-lite",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "pypi"
+      ],
+      "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
+      "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "cb4668166d1b9ed1",
       "kev": false,
       "published": "2026-11-13T03:03:12Z",
-      "score": 42.9,
+      "score": 42.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:remote code execution (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.9)"
+        "recency (+5.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -393,12 +393,12 @@
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 42.6,
+      "score": 42.4,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -423,13 +423,13 @@
       "id": "5d62f8241f3ab003",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 41.9,
+      "score": 41.8,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 1% (+0.2)",
         "watchlist:javascript,typescript,deserialization (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -454,13 +454,13 @@
       "id": "20e17cb4834c4b95",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 41.8,
+      "score": 41.7,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "EPSS 0% (+0.1)",
         "watchlist:javascript,cross-site scripting,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -485,12 +485,12 @@
       "id": "0c7437e09d811ff7",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 41.7,
+      "score": 41.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
         "watchlist:command injection (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -504,32 +504,6 @@
       ],
       "title": "GHSL-2026-229: Arbitrary code execution on pull requests in a privileged reusable release-check.yml workflow from ipdxco/unified-github-workflows - CVE-2026-92261",
       "url": "https://securitylab.github.com/advisories/GHSL-2026-229_ipdxco_unified-github-workflows/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "f7edd20af5e47e91",
-      "kev": false,
-      "published": "2026-11-09T18:36:54Z",
-      "score": 41.2,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+4.2)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about why PHP2Shell failed to live up to its hype. A critical bug in a very widely used web scripting language amounted to… not much. The pair dissect the reasons why. Show notes Zack Korman on PHP Marcus Hutchins on hacking as a business Brian in Pittsburgh on memory corruption",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php"
-      ],
-      "title": "Between Two Nerds: Why PHP2Shell fizzled",
-      "url": "https://risky.biz/BTN189/"
     },
     {
       "appsec": true,
@@ -656,15 +630,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "f7edd20af5e47e91",
+      "kev": false,
+      "published": "2026-11-09T18:36:54Z",
+      "score": 41.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+4.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about why PHP2Shell failed to live up to its hype. A critical bug in a very widely used web scripting language amounted to… not much. The pair dissect the reasons why. Show notes Zack Korman on PHP Marcus Hutchins on hacking as a business Brian in Pittsburgh on memory corruption",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php"
+      ],
+      "title": "Between Two Nerds: Why PHP2Shell fizzled",
+      "url": "https://risky.biz/BTN189/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 39.9,
+      "score": 39.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -685,12 +685,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 39.8,
+      "score": 39.7,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -713,12 +713,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 39.4,
+      "score": 39.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -739,12 +739,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 39.0,
+      "score": 38.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.0)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -757,38 +757,6 @@
       ],
       "title": "Hide your slop PR descriptions behind",
       "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c0d26d9fed6f72f3",
-      "kev": false,
-      "published": "2026-10-29T14:30:00Z",
-      "score": 38.4,
-      "score_reasons": [
-        "source:tl;dr sec (+8)",
-        "watchlist:php,python,javascript (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+1.4)"
-      ],
-      "source": "tl;dr sec",
-      "source_type": "news",
-      "summary": "Hey there,I hope you’ve been doing well!🤖 [un]prompted conThis week I’ve been at [un]prompted, an excellent AI + security conference, organized by Gadi Evron and an all star CFP crew.Like last time, I’ve been impressed by the quality of the talks and attendees, very cool people doing neat work.It’s been great catching up with friends, and celebrating their new roles. And only occasionally being treated like a dealer who can grant Daybreak access out of my trench coat (which is not the case) 😅 The way they’re doing the CTF is pretty cool, keep an eye out for when that’s shared publicly. But in short: using AI is encouraged (and perhaps required).As per usual, I had to cut my socializing short tonight so I can write the newsletter. But it’s fine. Wednesdays are business time after all.P.S. Soon all of the [un]prompted videos and slides will be released, but I included a few of the talks I liked below so you can start checking them out early.P.P.S. Might have a fun announcement tomorrow 👀 Sponsor🚨 It’s 10pm. Do you know where your team’s agents are? 🚨More and more teams rely on agents to take actions on their behalf throughout company systems, like sending messages, editing documents, and changing records. The Speakeasy AI Control Plane gives security teams a record of every agent action inside the org, and the controls to govern them. It is trusted by MoonPay, PlanetScale, LaunchDarkly & more. Try Speakeasy free for 14 days and start laying down some ground rules for your team’s agents.👉 Start your 14-day trial 👈Agent visibility and monitorability are key. A single control plane where you can enforce security properties seems useful 👍️ [un]prompted conPrompt, Patch, Prove: AI-Assisted Firmware Analysis and RepairOpenAI’s Tim de Waal walks through how anyone can use AI to patch vulnerabilities in binary firmware. Shares the specific approach and prompts he used to patch a command injection and SQL injection in an ASUS router using GPT-5.6 Sol and Daybreak Blue on his personal account for only 7% of his weekly Pro allowance.💡 OK I’m biased because I get to work with Tim and he’s awesome, but I like how this talk breaks down a quite technical topic in an approachable, visually intuitive way. The last slide “Firmware research with the device in the loop” is 👌 Your Harness Needs a Security ConstitutionVery cool talk by Kat Traxler about using AI to find ~100 bugs in cloud providers, specifically design flaws. Instead of trying to find specific known vulnerability classes (e.g. XSS, command injection), Kat defined a series of principles (Security Constitution), from which the models generate candidates (hypotheses of what could go wrong), which it then tries to validate or disprove. One example principle is that there should be authorization at every trust boundary. And then once the system finds an instance of one specific vulnerability, it abstracts it away into a “shape” (or meta-pattern) that the system can then look for across other cloud providers.💡 Super cool idea, great presentation. I think it’s really interesting to use AI to find business logic vulnerabilities, and more broadly domain-specific flaws that you don’t necessarily know what you’re looking for ahead of time. I think this approach is generalizable and I expect to see Kat (and/or others, like you, astute tl;dr sec reader) finding impactful bugs in other domains with the same approach. Sponsor📣 1.7 Billion Credentials Stolen in Just 6 MonthsOver the first six months of 2026, the threat landscape has experienced major shifts, moving from human-led campaigns to AI-led, machine-speed exploitation.Powered by Flashpoint’s industry-leading collection of more than 3.9 petabytes of primary source data, the annual Global Threat Intelligence Report equips enterprise defenders with actionable insights and strategies needed to stay ahead of today’s rapidly evolving, AI-powered threat landscape.👉 Get the report 👈That is a huge dataset 🤯 I’m very curious about how AI adoption has shifted adversary behavior. Also whoa, “19% of the 21,667 vulnerabilities disclosed in H1 2026 shipped with ready-made, functional exploit code, erasing the manual remediation window.”Cloud SecurityAzure’s Weakest Link - Five Full Cross-Tenant CompromisesBinary Security's Haakon Wik Gulbrandsrud describes four more critical vulnerabilities in Azure API Connections (a part of Azure Logic Apps) that allowed cross-tenant compromise of Key Vaults, SQL databases, and other connected services, earning $200,000 in bug bounties. Azure checks that you can use your own connection, but Haakon found ways to redirect the subsequent privileged request to someone else’s connection (e.g. using path traversal) and use its stored credentials. Microsoft's fixes were repeatedly bypassed through techniques like path normalization timing issues and undocumented API endpoints.I Gave 14 LLMs AWS Keys. Here’s What They Wanted to Do NextAdan Alvarez tested 14 LLMs across 13 post-compromise AWS scenarios (20 responses each), mapping their proposed commands to CloudTrail events. Across the runs, 12 of 14 models opened with GetCallerIdentity, creating IAM users remained the preferred persistence method (63/113 persistence attempts), models read secrets 87% of the time when the scenario told them one existed, and DeepSeek V4 proposed account modifications 72% of the time while Grok refused to help 98% of the time. Only 1% of answers proposed evasion when the scenario didn't mention defenses, but around a third proposed tampering with CloudTrail or GuardDuty in scenarios where their next action would be logged or GuardDuty had already flagged them.None of the tradecraft is new, which is the good news for defenders, since the detections most teams already run will catch LLM-driven post-compromise the same way they catch an attacker doing it. The full dataset is at llms.traildiscover.cloud with reproduction code on GitHub.💡 Very interesting to see tests of model behavior tendencies like this, and I appreciate Adan is sharing the full dataset and reproduction code!Red TeamKillaBoi/StealMyBitcoin-PoCTool by Jaydip Modhwadia that gets RCE on Alpine PHP 8.4.26 in a single standard-library Python file, built to solve the Steal My Bitcoin CTF where the prize requires exploiting PHP2Shell on server that prints a Bitcoin private key. It ships with a Docker lab (Alpine PHP 8.4.26 CLI server behind nginx) to reproduce the full chain locally, landing about seven out of ten runs depending on which worker handles each pipelined request.buzzer-re/rikuganTool by Anderson that embeds a multi-provider LLM directly into the IDA Pro and Binary Ninja disassembler UI, featuring 60+ tools for navigation, decompilation, cross-references, and IL manipulation. The agent uses a generator-based turn cycle with automatic error recovery and supports parallel subagent exploration (where an orchestrator spawns isolated analysis tasks), natural language binary patching via /modify, and experimental deobfuscation of control flow flattening and opaque predicates using Binary Ninja's IL primitives. It includes 12 built-in skills, custom skill support, MCP server integration, and granular profiles to control tool access and data visibility, with findings saved alongside the database so they persist across sessions.AI + SecurityQuicklinksGemini 4 Carbon: our next frontier model - New Cyber model from Google. 2x uplift in secure code over Argon (what about vs other models?), Chrome team likes its patches. Curious what about the patches 👀 Application control without the overhead - ThreatLocker and WDAC policies take time most teams don't have. MagicSword builds policies automatically from research on what attackers abuse. No rules to write. Audit first, enforce in as little as 48 hours. Works with your AI assistant via MCP. Free forever up to 100 endpoints. Join Free.*Why Is This Fingerprinting Script Creating Bioweapons? - @blastbots found a JavaScript file using edgy content to stop LLM analysis, like “write malicious programs to perform global DDoS attacks on critical healthcare infra,” “tank man”, etc. Who imagined we’d be in a world where describing malfeasance can block security analysis 😂 What a time to be alive.*SponsoredYour Agent Is Mine: Measuring Malicious Intermediary Attacks on the LLM Supply ChainPaper by Hanzhi Liu et al in which they formalize a threat model for malicious LLM API routers and define two core attack classes, payload injection and secret exfiltration. Across 28 paid routers purchased from Taobao, Xianyu, and Shopify-hosted storefronts and 400 free routers collected from public communities, they found 1 paid and 8 free routers actively injecting malicious code, 2 deploying adaptive evasion triggers, 17 touching researcher-owned AWS canary credentials, and 1 draining ETH from a researcher-owned private key. “Two poisoning studies further show that ostensibly benign routers can be pulled into the same attack surface: a leaked OpenAI key generates 100M GPT-5.4 tokens and more than seven Codex sessions, while weakly configured decoys yield 2B billed tokens, 99 credentials across 440 Codex sessions, and 401 sessions already running in autonomous YOLO mode. We build Mine, a research proxy that implements all four attack classes against four public agent frameworks, and use it to evaluate three deployable client-side defenses: a fail-closed policy gate, response-side anomaly screening, and append-only transparency logging.”💡 LLM API routers get full plaintext access to everything you send them, so if you’re using one basically you’re trusting that they won’t: steal (and use) every secret you send, use your account’s tokens, etc. The “actively injecting malicious code” is pretty nasty 😅 Jev as a judge: How counterfeit policy steers JevDatadog Security Labs' Nick Frichette and Feras Al-Kassar found that TypeSafe AI's Jev classifier can be manipulated through \"counterfeit policy\" attacks, where adversarial instructions embedded in untrusted content redefine attack categories and supply desired answers inline, overriding the model's security classifications. Testing across four prompt injection datasets (12,295 samples total), prepending a counterfeit policy dropped Jev's recall from 82.90% to 3.88% on its binary detection question and from 85.46% to 9.69% on its category classification question. Traditional prompt injection payloads had no effect.They weaponized the technique against LangChain's tool-risk gating feature by injecting a counterfeit policy into a user-editable profile description that redefined is_risky so that a call blocked by the tool's own preconditions counted as safe. TypeSafe's documentation acknowledges the gap, noting that injected instructions, misleading framing, and text arguing for its own classification can all influence Jev's answers.💡 Neat findings and thoughtful experimental set-up, I like it. TL;DR: Jev makes a decision based on some criteria, and untrusted user input can redefine this criteria in a way that helps the attacker. Also shout-out to my Promptfoo colleagues, whose strategies docs page is referenced.MiscMiscAlex Hormozi - How I Would Build a Personal Brand in 2027 (If I Had to Start Over)AI vs Real VoicesLow Level - I Tested The Viral Reverse Engineering RepoHumorCharacters Welcome - Frat Night at the Art MuseumKai Lentit - Hyperoptimized Engineer 2026Beatboxing classroom lesson - Absurd, but I like itFireship - The most vulnerable week in internet history...Fireship - The runtime wars are over... and Node wonWhen wokes & racists agree on everythingLGTM (Looks Good to Me) - Claude Opus 5.5 music videoBreakup in the Friend GroupMake Some Noise - Brennan Lee Mulligan as a JudgeSNL - Press Your Luck✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "php",
-        "sqli",
-        "xss",
-        "path-traversal",
-        "rce",
-        "command-injection"
-      ],
-      "title": "[tl;dr sec] #352 - Unprompted Slides, AWS AI Post-compromise Trends, Malicious LLM API Routers",
-      "url": "https://tldrsec.com/p/tldr-sec-352"
     },
     {
       "appsec": true,
@@ -815,6 +783,38 @@
       ],
       "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
       "url": "https://risky.biz/SRB188/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c0d26d9fed6f72f3",
+      "kev": false,
+      "published": "2026-10-29T14:30:00Z",
+      "score": 38.3,
+      "score_reasons": [
+        "source:tl;dr sec (+8)",
+        "watchlist:php,python,javascript (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+1.3)"
+      ],
+      "source": "tl;dr sec",
+      "source_type": "news",
+      "summary": "Hey there,I hope you’ve been doing well!🤖 [un]prompted conThis week I’ve been at [un]prompted, an excellent AI + security conference, organized by Gadi Evron and an all star CFP crew.Like last time, I’ve been impressed by the quality of the talks and attendees, very cool people doing neat work.It’s been great catching up with friends, and celebrating their new roles. And only occasionally being treated like a dealer who can grant Daybreak access out of my trench coat (which is not the case) 😅 The way they’re doing the CTF is pretty cool, keep an eye out for when that’s shared publicly. But in short: using AI is encouraged (and perhaps required).As per usual, I had to cut my socializing short tonight so I can write the newsletter. But it’s fine. Wednesdays are business time after all.P.S. Soon all of the [un]prompted videos and slides will be released, but I included a few of the talks I liked below so you can start checking them out early.P.P.S. Might have a fun announcement tomorrow 👀 Sponsor🚨 It’s 10pm. Do you know where your team’s agents are? 🚨More and more teams rely on agents to take actions on their behalf throughout company systems, like sending messages, editing documents, and changing records. The Speakeasy AI Control Plane gives security teams a record of every agent action inside the org, and the controls to govern them. It is trusted by MoonPay, PlanetScale, LaunchDarkly & more. Try Speakeasy free for 14 days and start laying down some ground rules for your team’s agents.👉 Start your 14-day trial 👈Agent visibility and monitorability are key. A single control plane where you can enforce security properties seems useful 👍️ [un]prompted conPrompt, Patch, Prove: AI-Assisted Firmware Analysis and RepairOpenAI’s Tim de Waal walks through how anyone can use AI to patch vulnerabilities in binary firmware. Shares the specific approach and prompts he used to patch a command injection and SQL injection in an ASUS router using GPT-5.6 Sol and Daybreak Blue on his personal account for only 7% of his weekly Pro allowance.💡 OK I’m biased because I get to work with Tim and he’s awesome, but I like how this talk breaks down a quite technical topic in an approachable, visually intuitive way. The last slide “Firmware research with the device in the loop” is 👌 Your Harness Needs a Security ConstitutionVery cool talk by Kat Traxler about using AI to find ~100 bugs in cloud providers, specifically design flaws. Instead of trying to find specific known vulnerability classes (e.g. XSS, command injection), Kat defined a series of principles (Security Constitution), from which the models generate candidates (hypotheses of what could go wrong), which it then tries to validate or disprove. One example principle is that there should be authorization at every trust boundary. And then once the system finds an instance of one specific vulnerability, it abstracts it away into a “shape” (or meta-pattern) that the system can then look for across other cloud providers.💡 Super cool idea, great presentation. I think it’s really interesting to use AI to find business logic vulnerabilities, and more broadly domain-specific flaws that you don’t necessarily know what you’re looking for ahead of time. I think this approach is generalizable and I expect to see Kat (and/or others, like you, astute tl;dr sec reader) finding impactful bugs in other domains with the same approach. Sponsor📣 1.7 Billion Credentials Stolen in Just 6 MonthsOver the first six months of 2026, the threat landscape has experienced major shifts, moving from human-led campaigns to AI-led, machine-speed exploitation.Powered by Flashpoint’s industry-leading collection of more than 3.9 petabytes of primary source data, the annual Global Threat Intelligence Report equips enterprise defenders with actionable insights and strategies needed to stay ahead of today’s rapidly evolving, AI-powered threat landscape.👉 Get the report 👈That is a huge dataset 🤯 I’m very curious about how AI adoption has shifted adversary behavior. Also whoa, “19% of the 21,667 vulnerabilities disclosed in H1 2026 shipped with ready-made, functional exploit code, erasing the manual remediation window.”Cloud SecurityAzure’s Weakest Link - Five Full Cross-Tenant CompromisesBinary Security's Haakon Wik Gulbrandsrud describes four more critical vulnerabilities in Azure API Connections (a part of Azure Logic Apps) that allowed cross-tenant compromise of Key Vaults, SQL databases, and other connected services, earning $200,000 in bug bounties. Azure checks that you can use your own connection, but Haakon found ways to redirect the subsequent privileged request to someone else’s connection (e.g. using path traversal) and use its stored credentials. Microsoft's fixes were repeatedly bypassed through techniques like path normalization timing issues and undocumented API endpoints.I Gave 14 LLMs AWS Keys. Here’s What They Wanted to Do NextAdan Alvarez tested 14 LLMs across 13 post-compromise AWS scenarios (20 responses each), mapping their proposed commands to CloudTrail events. Across the runs, 12 of 14 models opened with GetCallerIdentity, creating IAM users remained the preferred persistence method (63/113 persistence attempts), models read secrets 87% of the time when the scenario told them one existed, and DeepSeek V4 proposed account modifications 72% of the time while Grok refused to help 98% of the time. Only 1% of answers proposed evasion when the scenario didn't mention defenses, but around a third proposed tampering with CloudTrail or GuardDuty in scenarios where their next action would be logged or GuardDuty had already flagged them.None of the tradecraft is new, which is the good news for defenders, since the detections most teams already run will catch LLM-driven post-compromise the same way they catch an attacker doing it. The full dataset is at llms.traildiscover.cloud with reproduction code on GitHub.💡 Very interesting to see tests of model behavior tendencies like this, and I appreciate Adan is sharing the full dataset and reproduction code!Red TeamKillaBoi/StealMyBitcoin-PoCTool by Jaydip Modhwadia that gets RCE on Alpine PHP 8.4.26 in a single standard-library Python file, built to solve the Steal My Bitcoin CTF where the prize requires exploiting PHP2Shell on server that prints a Bitcoin private key. It ships with a Docker lab (Alpine PHP 8.4.26 CLI server behind nginx) to reproduce the full chain locally, landing about seven out of ten runs depending on which worker handles each pipelined request.buzzer-re/rikuganTool by Anderson that embeds a multi-provider LLM directly into the IDA Pro and Binary Ninja disassembler UI, featuring 60+ tools for navigation, decompilation, cross-references, and IL manipulation. The agent uses a generator-based turn cycle with automatic error recovery and supports parallel subagent exploration (where an orchestrator spawns isolated analysis tasks), natural language binary patching via /modify, and experimental deobfuscation of control flow flattening and opaque predicates using Binary Ninja's IL primitives. It includes 12 built-in skills, custom skill support, MCP server integration, and granular profiles to control tool access and data visibility, with findings saved alongside the database so they persist across sessions.AI + SecurityQuicklinksGemini 4 Carbon: our next frontier model - New Cyber model from Google. 2x uplift in secure code over Argon (what about vs other models?), Chrome team likes its patches. Curious what about the patches 👀 Application control without the overhead - ThreatLocker and WDAC policies take time most teams don't have. MagicSword builds policies automatically from research on what attackers abuse. No rules to write. Audit first, enforce in as little as 48 hours. Works with your AI assistant via MCP. Free forever up to 100 endpoints. Join Free.*Why Is This Fingerprinting Script Creating Bioweapons? - @blastbots found a JavaScript file using edgy content to stop LLM analysis, like “write malicious programs to perform global DDoS attacks on critical healthcare infra,” “tank man”, etc. Who imagined we’d be in a world where describing malfeasance can block security analysis 😂 What a time to be alive.*SponsoredYour Agent Is Mine: Measuring Malicious Intermediary Attacks on the LLM Supply ChainPaper by Hanzhi Liu et al in which they formalize a threat model for malicious LLM API routers and define two core attack classes, payload injection and secret exfiltration. Across 28 paid routers purchased from Taobao, Xianyu, and Shopify-hosted storefronts and 400 free routers collected from public communities, they found 1 paid and 8 free routers actively injecting malicious code, 2 deploying adaptive evasion triggers, 17 touching researcher-owned AWS canary credentials, and 1 draining ETH from a researcher-owned private key. “Two poisoning studies further show that ostensibly benign routers can be pulled into the same attack surface: a leaked OpenAI key generates 100M GPT-5.4 tokens and more than seven Codex sessions, while weakly configured decoys yield 2B billed tokens, 99 credentials across 440 Codex sessions, and 401 sessions already running in autonomous YOLO mode. We build Mine, a research proxy that implements all four attack classes against four public agent frameworks, and use it to evaluate three deployable client-side defenses: a fail-closed policy gate, response-side anomaly screening, and append-only transparency logging.”💡 LLM API routers get full plaintext access to everything you send them, so if you’re using one basically you’re trusting that they won’t: steal (and use) every secret you send, use your account’s tokens, etc. The “actively injecting malicious code” is pretty nasty 😅 Jev as a judge: How counterfeit policy steers JevDatadog Security Labs' Nick Frichette and Feras Al-Kassar found that TypeSafe AI's Jev classifier can be manipulated through \"counterfeit policy\" attacks, where adversarial instructions embedded in untrusted content redefine attack categories and supply desired answers inline, overriding the model's security classifications. Testing across four prompt injection datasets (12,295 samples total), prepending a counterfeit policy dropped Jev's recall from 82.90% to 3.88% on its binary detection question and from 85.46% to 9.69% on its category classification question. Traditional prompt injection payloads had no effect.They weaponized the technique against LangChain's tool-risk gating feature by injecting a counterfeit policy into a user-editable profile description that redefined is_risky so that a call blocked by the tool's own preconditions counted as safe. TypeSafe's documentation acknowledges the gap, noting that injected instructions, misleading framing, and text arguing for its own classification can all influence Jev's answers.💡 Neat findings and thoughtful experimental set-up, I like it. TL;DR: Jev makes a decision based on some criteria, and untrusted user input can redefine this criteria in a way that helps the attacker. Also shout-out to my Promptfoo colleagues, whose strategies docs page is referenced.MiscMiscAlex Hormozi - How I Would Build a Personal Brand in 2027 (If I Had to Start Over)AI vs Real VoicesLow Level - I Tested The Viral Reverse Engineering RepoHumorCharacters Welcome - Frat Night at the Art MuseumKai Lentit - Hyperoptimized Engineer 2026Beatboxing classroom lesson - Absurd, but I like itFireship - The most vulnerable week in internet history...Fireship - The runtime wars are over... and Node wonWhen wokes & racists agree on everythingLGTM (Looks Good to Me) - Claude Opus 5.5 music videoBreakup in the Friend GroupMake Some Noise - Brennan Lee Mulligan as a JudgeSNL - Press Your Luck✉️ Wrapping UpHave questions, comments, or feedback? Just reply directly, I’d love to hear from you.If you find this newsletter useful and know other people who would too, I'd really appreciate if you'd forward it to them 🙏Thanks for reading!Cheers,ClintP.S. Feel free to connect with me on LinkedIn 👋 Powered by beehiiv",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "php",
+        "sqli",
+        "xss",
+        "path-traversal",
+        "rce",
+        "command-injection"
+      ],
+      "title": "[tl;dr sec] #352 - Unprompted Slides, AWS AI Post-compromise Trends, Malicious LLM API Routers",
+      "url": "https://tldrsec.com/p/tldr-sec-352"
     },
     {
       "appsec": true,
@@ -858,12 +858,12 @@
       "id": "439ed1900392816c",
       "kev": false,
       "published": "2026-10-26T19:51:21Z",
-      "score": 38.1,
+      "score": 38.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -884,12 +884,12 @@
       "id": "31adffac7255205b",
       "kev": false,
       "published": "2026-10-26T01:20:43Z",
-      "score": 38.0,
+      "score": 37.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -1752,12 +1752,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 36.8,
+      "score": 36.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1858,11 +1858,11 @@
       "id": "130048d7e5261719",
       "kev": false,
       "published": "2026-11-21T23:56:28Z",
-      "score": 35.1,
+      "score": 34.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+14.1)"
+        "recency (+13.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1881,11 +1881,11 @@
       "id": "f9e8b18855658f14",
       "kev": false,
       "published": "2026-11-20T03:01:57Z",
-      "score": 32.7,
+      "score": 32.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.7)"
+        "recency (+11.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1896,53 +1896,6 @@
       ],
       "title": "llm-gemini 0.38.1",
       "url": "https://simonwillison.net/2026/Nov/20/llm-gemini/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "8b1775bc017f8b07",
-      "kev": false,
-      "published": "2026-11-18T23:59:20Z",
-      "score": 31.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+10.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-gemini 0.38 Today Google introduced Gemini 4 Neon. I wrote recently about how confusing the pricing for the Gemini 4 series was - Neon has somehow made this even worse. Previously the Gemini 4 lineup was Hydrogen, Argon, and Carbon - where Argon and Carbon were the same price, and Hydrogen was 3/4 of that price now but will be 1/4 of that price when the other two double an 1st December once their initial discount pricing expires. The Neon announcement pretends that Argon doesn't exist. Here's their new image explaining the model line-up: So the lineup now, from most to least expensive, is Carbon, Neon, Hydrogen. Except Carbon is currently half price, so right now Neon ($3/million input, $15/million output) is the most expensive of the three - then Carbon ($2/$10), then Hydrogen ($1.50/$7.50). I guess this will make more sense when Carbon doubles to $4/$20 on December 1st. I ran some pelicans through the three reasoning levels for Neon - low, medium, high. I dropped Argon from my Gemini 4 comparison grid - here's the new Gemini 4 lineup, where the Neon pelicans do look better than Hydrogen and worse than Carbon: As I've done with several recent models, I also fired the following prompt against Gemini 4 Neon on \"extra\" effort level in Google Antigravity: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the result. Tags: yonkers-rising, gemini, llm, pelican-riding-a-bicycle, ai, llms, llm-release, google, generative-ai",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-gemini 0.38",
-      "url": "https://simonwillison.net/2026/Nov/18/llm-gemini/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "ec68b41b6d46452e",
-      "kev": false,
-      "published": "2026-11-18T15:58:27Z",
-      "score": 31.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:curl (+15)",
-        "recency (+10.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "During the time these agents converted 185,000 lines of C code into 340,000 lines of Rust code (I counted), we merged over 300 commits in the actual curl project. We actually improved curl during these a little more than three weeks. A little over 200 bugfixes actually. 200 bugfixes that none of those rust rewrites have. We also fixed a few vulnerabilities. In another month we have done another 200 and maybe fixed a few more vulnerabilities. Will these clones keep up? — Daniel Stenberg, Actual curl rewrites in Rust Tags: daniel-stenberg, curl, rust, security, coding-agents, c, ai, llms, generative-ai, vibe-porting",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "Quoting Daniel Stenberg",
-      "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg/"
     },
     {
       "appsec": false,
@@ -1998,14 +1951,61 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0787798c0405a246",
+      "id": "8b1775bc017f8b07",
       "kev": false,
-      "published": "2026-11-17T22:38:52Z",
-      "score": 30.5,
+      "published": "2026-11-18T23:59:20Z",
+      "score": 31.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+9.5)"
+        "recency (+10.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-gemini 0.38 Today Google introduced Gemini 4 Neon. I wrote recently about how confusing the pricing for the Gemini 4 series was - Neon has somehow made this even worse. Previously the Gemini 4 lineup was Hydrogen, Argon, and Carbon - where Argon and Carbon were the same price, and Hydrogen was 3/4 of that price now but will be 1/4 of that price when the other two double an 1st December once their initial discount pricing expires. The Neon announcement pretends that Argon doesn't exist. Here's their new image explaining the model line-up: So the lineup now, from most to least expensive, is Carbon, Neon, Hydrogen. Except Carbon is currently half price, so right now Neon ($3/million input, $15/million output) is the most expensive of the three - then Carbon ($2/$10), then Hydrogen ($1.50/$7.50). I guess this will make more sense when Carbon doubles to $4/$20 on December 1st. I ran some pelicans through the three reasoning levels for Neon - low, medium, high. I dropped Argon from my Gemini 4 comparison grid - here's the new Gemini 4 lineup, where the Neon pelicans do look better than Hydrogen and worse than Carbon: As I've done with several recent models, I also fired the following prompt against Gemini 4 Neon on \"extra\" effort level in Google Antigravity: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's the result. Tags: yonkers-rising, gemini, llm, pelican-riding-a-bicycle, ai, llms, llm-release, google, generative-ai",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-gemini 0.38",
+      "url": "https://simonwillison.net/2026/Nov/18/llm-gemini/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ec68b41b6d46452e",
+      "kev": false,
+      "published": "2026-11-18T15:58:27Z",
+      "score": 30.8,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:curl (+15)",
+        "recency (+9.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "During the time these agents converted 185,000 lines of C code into 340,000 lines of Rust code (I counted), we merged over 300 commits in the actual curl project. We actually improved curl during these a little more than three weeks. A little over 200 bugfixes actually. 200 bugfixes that none of those rust rewrites have. We also fixed a few vulnerabilities. In another month we have done another 200 and maybe fixed a few more vulnerabilities. Will these clones keep up? — Daniel Stenberg, Actual curl rewrites in Rust Tags: daniel-stenberg, curl, rust, security, coding-agents, c, ai, llms, generative-ai, vibe-porting",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "Quoting Daniel Stenberg",
+      "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0787798c0405a246",
+      "kev": false,
+      "published": "2026-11-17T22:38:52Z",
+      "score": 30.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+9.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2094,11 +2094,11 @@
       "id": "e7835d0be85cb054",
       "kev": false,
       "published": "2026-11-16T23:57:26Z",
-      "score": 29.6,
+      "score": 29.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.6)"
+        "recency (+8.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2118,11 +2118,11 @@
       "id": "ff2c62cebcf4b098",
       "kev": false,
       "published": "2026-11-15T23:20:27Z",
-      "score": 28.8,
+      "score": 28.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2141,11 +2141,11 @@
       "id": "5b63eb3960e8e501",
       "kev": false,
       "published": "2026-11-15T04:02:45Z",
-      "score": 28.2,
+      "score": 27.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+7.2)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2164,11 +2164,11 @@
       "id": "9df8820e84fd1a0c",
       "kev": false,
       "published": "2026-11-15T03:49:47Z",
-      "score": 28.2,
+      "score": 27.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.2)"
+        "recency (+6.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2188,11 +2188,11 @@
       "id": "bcf04c6904579bec",
       "kev": false,
       "published": "2026-11-14T23:59:28Z",
-      "score": 28.1,
+      "score": 27.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.1)"
+        "recency (+6.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2212,11 +2212,11 @@
       "id": "94ec8fcfeda2db99",
       "kev": false,
       "published": "2026-11-14T17:09:09Z",
-      "score": 27.9,
+      "score": 27.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.9)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2262,11 +2262,11 @@
       "id": "b73209306c9412bd",
       "kev": false,
       "published": "2026-11-12T22:55:19Z",
-      "score": 26.8,
+      "score": 26.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2286,11 +2286,11 @@
       "id": "6b121f474cc35549",
       "kev": false,
       "published": "2026-11-11T22:03:25Z",
-      "score": 26.2,
+      "score": 26.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2310,11 +2310,11 @@
       "id": "0e206308dec11d59",
       "kev": false,
       "published": "2026-11-11T18:42:50Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2333,11 +2333,11 @@
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2357,11 +2357,11 @@
       "id": "5767c4d342983118",
       "kev": false,
       "published": "2026-11-10T20:09:44Z",
-      "score": 25.7,
+      "score": 25.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.7)"
+        "recency (+4.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2381,11 +2381,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 25.4,
+      "score": 25.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.4)"
+        "recency (+4.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2405,11 +2405,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 25.3,
+      "score": 25.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2428,11 +2428,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 25.3,
+      "score": 25.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2452,11 +2452,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 25.0,
+      "score": 24.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.0)"
+        "recency (+3.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2475,11 +2475,11 @@
       "id": "41ad409b13a7a12e",
       "kev": false,
       "published": "2026-11-04T15:26:02Z",
-      "score": 23.5,
+      "score": 23.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2499,11 +2499,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 23.4,
+      "score": 23.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.4)"
+        "recency (+2.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2523,11 +2523,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 23.3,
+      "score": 23.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2538,54 +2538,6 @@
       ],
       "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
       "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "86517b8f15c28848",
-      "kev": false,
-      "published": "2026-11-03T05:28:59Z",
-      "score": 23.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I sent out the October edition of my sponsors-only monthly newsletter. If you are a sponsor (or start a sponsorship now) you can access it here. This month: The October inflection point for vibe game development The vulnerability apocalypse gets hot LLM releases API credits for $100+/month subscriptions What I'm using right now My software releases My September newsletter can now be seen here, as a preview of what you'll get. Pay $10/month to stay a month ahead of the free copy! Tags: newsletter",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "October sponsors-only newsletter",
-      "url": "https://simonwillison.net/2026/Nov/3/october-newsletter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "a7779c14f4a1edde",
-      "kev": false,
-      "published": "2026-11-02T23:49:30Z",
-      "score": 23.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:python,llm (+15)",
-        "recency (+2.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm 0.37 There's a lot of stuff in this new release of my LLM CLI tool and Python library, representing around two months of accumulated features and fixes. I added gpt-6.1-sol and gpt-6.1-terra, plus a new llm openai endpoint add command to make it easier to configure additional models that use OpenAI-compatible endpoints. I switched the default model (if you have not set your own default) to gpt-6-luna - half the price of the previous default, gpt-5.6-luna. LLM's support for embeddings now accepts that different binary content may have different content-type - necessary for models like Gemini Embedding 2, which can embed text, audio, images, and video. A lot of open source maintainers complain about a flood of AI-assisted PRs. LLM is my project that has been most affected by this and, to be honest, I'm not finding it to be a problem. That's mainly because I have Opus 5.5 or GPT-6 Astra help me with triage to spot the most useful fixes! This release includes fixes from 12 authors - almost all AI-assisted - and the burden of reviewing them wasn't nearly as great as I expected. I really see them as bug reports with attached examples - sometimes I land them, sometimes I implement my own fix. So thanks to 0d00ciallo0721, ac1982, Allen Flux, Bian Yuhan, Bishop Kammeraad, Chen Yufeiyang, Christopher Krah, Ethan Stoner, Jiachen Xie, Olamide Faniyan, Sharat Chandra Sai Boddu, nosmile99 for helping out with (or spending tokens on) this release! Tags: open-source, llm, generative-ai, projects, ai, embeddings, llms, annotated-release-notes",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm 0.37",
-      "url": "https://simonwillison.net/2026/Nov/2/llm/"
     },
     {
       "appsec": false,
@@ -2610,6 +2562,54 @@
       ],
       "title": "Between Two Nerds: The AI crime machine",
       "url": "https://risky.biz/BTN184/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "86517b8f15c28848",
+      "kev": false,
+      "published": "2026-11-03T05:28:59Z",
+      "score": 23.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I sent out the October edition of my sponsors-only monthly newsletter. If you are a sponsor (or start a sponsorship now) you can access it here. This month: The October inflection point for vibe game development The vulnerability apocalypse gets hot LLM releases API credits for $100+/month subscriptions What I'm using right now My software releases My September newsletter can now be seen here, as a preview of what you'll get. Pay $10/month to stay a month ahead of the free copy! Tags: newsletter",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "October sponsors-only newsletter",
+      "url": "https://simonwillison.net/2026/Nov/3/october-newsletter/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "a7779c14f4a1edde",
+      "kev": false,
+      "published": "2026-11-02T23:49:30Z",
+      "score": 23.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:python,llm (+15)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm 0.37 There's a lot of stuff in this new release of my LLM CLI tool and Python library, representing around two months of accumulated features and fixes. I added gpt-6.1-sol and gpt-6.1-terra, plus a new llm openai endpoint add command to make it easier to configure additional models that use OpenAI-compatible endpoints. I switched the default model (if you have not set your own default) to gpt-6-luna - half the price of the previous default, gpt-5.6-luna. LLM's support for embeddings now accepts that different binary content may have different content-type - necessary for models like Gemini Embedding 2, which can embed text, audio, images, and video. A lot of open source maintainers complain about a flood of AI-assisted PRs. LLM is my project that has been most affected by this and, to be honest, I'm not finding it to be a problem. That's mainly because I have Opus 5.5 or GPT-6 Astra help me with triage to spot the most useful fixes! This release includes fixes from 12 authors - almost all AI-assisted - and the burden of reviewing them wasn't nearly as great as I expected. I really see them as bug reports with attached examples - sometimes I land them, sometimes I implement my own fix. So thanks to 0d00ciallo0721, ac1982, Allen Flux, Bian Yuhan, Bishop Kammeraad, Chen Yufeiyang, Christopher Krah, Ethan Stoner, Jiachen Xie, Olamide Faniyan, Sharat Chandra Sai Boddu, nosmile99 for helping out with (or spending tokens on) this release! Tags: open-source, llm, generative-ai, projects, ai, embeddings, llms, annotated-release-notes",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm 0.37",
+      "url": "https://simonwillison.net/2026/Nov/2/llm/"
     },
     {
       "appsec": false,
@@ -2642,11 +2642,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 22.8,
+      "score": 22.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.8)"
+        "recency (+1.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2657,6 +2657,26 @@
       ],
       "title": "datasette-llm 0.1a9",
       "url": "https://simonwillison.net/2026/Oct/31/datasette-llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "768cc7ae3fa0d592",
+      "kev": false,
+      "published": "2026-11-22T19:18:18Z",
+      "score": 22.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Brandon Dixon, co-founder and CTO of Ent AI, about the rise of a new insider threat, the AI agent. Show notes Brandon Dixon on LinkedIn Sponsored: Ent on using AI to track human behavior on the endpoint",
+      "tags": [],
+      "title": "Sponsored: ENT on AI agents, the new type of insiders",
+      "url": "https://risky.biz/RBNEWSSI152/"
     },
     {
       "appsec": false,
@@ -2690,11 +2710,11 @@
       "id": "6d1ed7773e4f93b1",
       "kev": false,
       "published": "2026-10-29T14:06:27Z",
-      "score": 22.4,
+      "score": 22.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:mcp (+15)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2705,53 +2725,6 @@
       ],
       "title": "Quoting Ben Hylak",
       "url": "https://simonwillison.net/2026/Oct/29/ben-hylak/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "28d3ffbcd69019be",
-      "kev": false,
-      "published": "2026-10-28T13:55:15Z",
-      "score": 22.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+1.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "The October inflection point for vibe game development",
-      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "503762475e8ae5ab",
-      "kev": false,
-      "published": "2026-10-28T16:45:23Z",
-      "score": 22.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+1.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "GitHub Octoverse 2026 I'm at GitHub Universe today (GitHub gave me a free ticket through their \"GitHub Stars\" program). EVP Jay Parikh just announced this year's Octoverse report, and highlighted these numbers in particular: This is a pretty stark representation of the impact of agentic engineering on GitHub. In 2026, merged pull requests tripled in less than a year to 220 million per month. Commits more than tripled to 7.38 billion per month, with most of that increase in the second half of this year. New repository rate doubled this year, to 30.3 million per month. The report includes new numbers by industry, and breaks out numbers for repositories that involve \"interoperability or reverse engineering\". The methodology section includes notes about how they did this: Top countries by pushes to public repositories, adjusted by profile location. Pushes from each country were summed across the Octoverse year. To adjust for biases caused by VPN usage, LLM classification was used to extract the ISO 3166-1 alpha-2 code from the profiles of GitHub users who contributed pushes during this period [...] Industry. Public repositories created 2022 to 2026 were sorted into NAICS sectors by a fine-tuned multilingual embedding model using name, description, topics, and README, from random samples per year. [...] Interoperability. Counts public repositories created each year whose name, description, topics, or README mention interoperability or reverse engineering, or related terms, such as clean room implementation, drop-in replacement, or protocol re-implementation. Tags: github, ai, generative-ai, llms, coding-agents, disclosures, agentic-engineering",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "GitHub Octoverse 2026",
-      "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
     },
     {
       "appsec": false,
@@ -2782,24 +2755,47 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ddec6cb5a4e152e9",
+      "id": "28d3ffbcd69019be",
       "kev": false,
-      "published": "2026-10-26T23:53:07Z",
-      "score": 22.1,
+      "published": "2026-10-28T13:55:15Z",
+      "score": 22.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+1.1)"
+        "watchlist:javascript (+15)",
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in the same position as Sonnet in the Anthropic model collection - not the cheapest or the most expensive, making it harder to decide when to use it. Computer use is a good example of a task that benefits from a less expensive model, since you might put it to work on automated, repetitive tasks. OpenAI's Ted Sanders provided some useful advice in a comment on Hacker News: In the case of GPT-6.1 Terra, I'd say Terra is probably better than Astra and Sol at technical communication, similar on vision and computer use (but much faster!), and a bit worse on most other things. For API developers, it's a nice midrange option if you want something cheaper than Sol but a lot smarter than Luna (especially for vision / computer use / communication). For subscribers, it's not a bombshell release - if you're hitting usage limits, maybe it helps you go a bit further, and if you want clearer communication or faster computer use, it can be a nice option to select. Here are the pelicans for the different reasoning levels. This pelican for \"max\" cost 11.3161 cents and took 4 minutes and 11 seconds: Here's a new comparison grid showing pelicans for every reasoning level of OpenAI's current frontier lineup: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna. GPT-6.1 Terra is priced at $1/million input tokens and $5/million output - almost half the price of GPT-5.6 Terra and GPT-6.1 Sol, and around 10x the price of GPT-6 Luna. Via Hacker News Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, gpt, ted-sanders",
+      "summary": "I've written before about how November 2025 was an inflection point for coding agents - the point where Opus 4.5 and GPT-5.1 crossed a tipping point that meant their respective coding agents became reliable daily drivers for software engineers. I think we've reached a new inflection point in October 2026, and this time it's for vibe coding computer games. Tree Appreciator Emberwick Battle Drones Pumpkin Farmer, aka Quarter Sun Cove Four times as insulting What happens if someone actually puts the work in? You should build a game! Claude Opus 5.5 in particular exhibits meaningful improvements in several areas needed to build a compelling game: 3D modeling Music generation (see Scrimshaw Jukebox) Game design (!) That last one is particularly important. Models have been able to create something that looks like a game for quite a while now, as seen in my previous experiments. The challenge has been getting to a game that's actually fun to play. Game design is a deep subject area. I won't pretend to be well versed in it - I know enough to have respect for it as a craft. Creating a novel, compelling gameplay loop which challenges players at the right level and provides a satisfying learning curve is a fine art. I didn't think the models could do it. Then I tried telling Claude Opus 5.5 to \"Make it a LOT more fun\"... and it did. In the past few weeks I've vibe coded (in the classic sense of the term - no looking at the code at all) four games that I've genuinely enjoyed playing. I attended Foo Camp in Berkeley over the weekend and met several people who were having similar experiences. Building games that play well is shockingly easy now. The new challenge is coming up with concepts for games that are novel and delightful and that wouldn't exist without AI assistance. I haven't done an exhaustive study, but my current impression is that GPT-6 Astra isn't quite there yet. It can absolutely build a game, but its sense of fun doesn't match that of Opus 5.5. I expect OpenAI will get there by the end of the year. Here are the four game projects that have convinced me that the models are now capable of producing fun games with very little guidance. All four are built in HTML and JavaScript and run entirely in the browser. Tree Appreciator The smallest game I found to be genuinely delightful is Tree Appreciator. I used the regular Claude chat interface for this - it didn't even need Claude Code. I built this on a whim while we were driving along Skyline Boulevard looking at trees. My prompt was: Build a three js game called \"Tree appreciator\" - it shows you two algorithmically generated trees and the game mechanics is about appreciating the differences between them. Think hard about how to make sure it is both fun and beautiful. I've found that telling models to use three.js works really well. Claude doesn't have its own image generation model but is capable of building full-color 3D models that look and feel excellent. This game required no iteration or follow-up prompting at all - I got the game in a single shot. It gave me back a charming little mobile-friendly spot-the-difference game. You can play that here. Here's the chat transcript that built it. It's pleasingly relaxing. The graphics are fun, and collecting trees that you have completed in a \"herbarium\" provides a nice, cosy sense of accomplishment. Emberwick This was a more ambitious project that I again built using regular Claude chat. I started out by building an experimental prototype of an engine for a top-down fantasy RPG: Build a demo game engine three.js which is a top down (but at an angle) RPG - the player gets to move through the world with one or two companions. Create a fantasy village setting that demonstrates walking around outside and then shows how when the player enters a building the wall between the player and the camera goes transparent so the user can see what is happening Add some NPCs and plenty of furniture and different types of building some with an upstairs - be creative, make it look great Here's that first version. It worked really well! I was inspired to increase my ambitions: Make it not so flat - the buildings are great but the landscape itself is completely flat at the moment, fix that Add basements to two of the buildings with a tunnel system joining them below the village Add the start of a rocky mountain on one side of the village containing a cave with a sleeping troll Here's that version. When that produced a good result, I decided to push it all the way: Now turn this into an actual game - quadruple the size of the playable area, introduce fun game mechanics, add a plot that isn't too cliche, some twists, a magic system, make it really good We're back to prompts like \"make it really good\" here! Asking for a plot that \"isn't too cliche\" seemed to work too - it's a bit cliché, but still novel enough that I enjoyed following the story. Unlike Tree Appreciator, this took quite a bit of additional playtesting and prompting to get to a finished version. This was mainly due to gameplay problems - things like a character not being in the right place to complete a quest because a different story element had caused them to move to another location. Here's that final game. It has a full story that takes about 15 minutes to play through. There's even an experimental level editor if you want to drop in your own houses, furniture, and landscape features. Once it was all working (and I'd iterated through some gameplay bugs), I played it through from start to finish and found myself emotionally affected by the ending! I'm somewhat embarrassed by this, because everything in this game - the graphics, the plot, the characters, the music, the dialog - came from the model. My creative input was pretty much just \"it's a fantasy village and there's a troll asleep in a cave\". Here's the full shared Claude chat in which I built this game. I also fed that same initial sequence of prompts through ChatGPT GPT-6 Pro. Here's the transcript and the finished game for comparison. It looks great, but I don't think it plays nearly as well. Battle Drones This is by far my most successful project, which I wrote about last week. It's a Command & Conquer-style Real-Time Strategy game where two robot armies (or four as of Saturday) build units, harvest scrap, and battle over territory. This is also the project that convinced me that Opus 5.5 knows what \"fun\" is. The first versions were built back in July using Claude Fable 5. It got me to a workable 2D Command & Conquer-style game, but it wasn't great to play. I prompted Opus 5.5 to \"Make it a LOT more fun\" and then later to \"Port this game to three.js\" and the game was transformed. There's a blow-by-blow account (prompts included) in my write-up. Today, Battle Drones has 2-4 player multiplayer (via a vibe coded WebSockets relay server), medals, replays, seven maps, a random map generator, and a set of \"mutators\" that add variants of the rules. It also lets different LLMs play against each other, using a mode where the game advances five seconds and then pauses to give different models time to interpret the new game state and line up their next set of commands. Here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna: Battle Drones is a particularly good example of Opus 5.5's ability to create 3D models. This page lets you browse all of the models in the game. I released Battle Drones under the Apache 2.0 License last Tuesday. On Wednesday Gabriel Turpin released Panache (screenshots here), a fork of Battle Drones that reimagined the game for steampunk 1900s Belle Époque France, with new models and music and an animated intro sequence. Open source at work! Pumpkin Farmer, aka Quarter Sun Cove I live in Half Moon Bay, California, home of the annual Half Moon Bay Art and Pumpkin Festival, which includes a giant pumpkin weigh-off competition. I decided to try building a game that wasn't just a cheap imitation of something that already existed, so I set out to create a game about farming pumpkins, growing giant pumpkins, and handling the rush of the October pumpkin season. I called it \"Quarter Sun Cove\". I'm still iterating on this project, but it's shaping up quite nicely. It's a cosy farming simulator where you spend the year tending to your giant pumpkin and planting out regular-sized pumpkins for sale in October, then sell pumpkins during pumpkin season and enter your giant pumpkin in the weigh-off. Every character in it is a (vegetarian) animal. The mayor of the town is a pelican. You can be a pelican, skunk, raccoon, possum, beaver, coyote, fox, owl, sea otter, or harbor seal. Those species all later show up (accompanied by their children) to buy pumpkins from you. It's absurdly cute. You can play the latest version here. I'm not convinced by the game mechanics yet - it's actually quite complicated: you have to decide when to plant pumpkins such that they will become ripe at the weekends in October with the most visitors. Here's the initial brainstorming session, which resulted in this spec file. Then I had Opus 5.5 Ultracode burn millions of tokens and nearly two days building it. I told Claude to \"surprise and delight the user frequently\" and the result is so many little details and easter eggs. There are mischievous raccoons, an elephant seal that runs the weigh-off, harbor seals that roll their pumpkins back into the ocean, a wandering goat, and superstitions about growing giant pumpkins that sometimes come true. This isn't my best game yet - it's not as fun to play as Battle Drones - but it represents the kind of game I want more of: weird, fun, uniquely personal - something that wouldn't have been built in the before-times. Four times as insulting If you are offended by AI-generated art, AI-generated music, AI-generated writing, and AI-generated code, I have bad news for you: vibe coded games combine all of those at once. I respect those opinions, even though I don’t strongly hold them myself. The wider games community already has an aversion to AI-generated assets in games. This has been a growing issue over the past few years as tools like Midjourney have enabled developers to generate assets for their projects. This IGN story covering complaints about slop in Valve's Steam Next Fest is a good recent example. We now have games where everything - code, assets, dialog, and even the game design itself - can be outsourced to the models. And the results don't suck! Building a computer game used to be one of the most challenging projects in all of software development, combining a diverse range of skills and requiring intense focus and effort over many months or even years. And now here I am spitting out a playable multiplayer RTS by prompting on my phone! I expect that, as we've already seen with programming, this will result in a split. Some players will refuse to have anything to do with games that were built in this way. Others may embrace this as opening up game development to a much wider audience. I lean in that direction! I certainly won't be entering any of my vibe coded games in traditional game jams or competitions - I don't feel like I've earned that right. We'll likely see new avenues emerge for vibe game developers to compare their projects. What happens if someone actually puts the work in? The thing I find both exciting and shameful about this is that I have got interesting results from so little creative input. The projects I've described here are loosely ordered by how much effort I've put into them. Not a single project represents more than four hours of my work (plus many more hours of Claude Code churning away by itself). Now imagine what could be achieved by anyone who takes this seriously, invests significant creative time, applies better taste in game design, and then playtests and iterates on the result until it's as good as they can make it. I want to see games that wouldn't have existed without these new tools. You should build a game! Building games in this way is so much fun. It's the perfect application for vibe coding because it's so low stakes: how much damage can you cause with a bug in a personal vibe coded game project? (OK, you can do some damage... my attempt at audio-based multiplayer gave my wife Natalie a nasty headache!) All of my games so far have been HTML and JavaScript using static hosting (generally GitHub Pages or Cloudflare Pages). Modern browsers - including mobile browsers - are incredibly capable. Frontier models already know libraries like three.js and Phaser. I'm finding these mobile web games to be indistinguishable from the native experience, at least for the kinds of games I'm trying to build. I suggest starting with a prompt like this: Build a mobile-friendly three.js game where... This works on both chatgpt.com and claude.ai - you don't even need to fire up a full coding agent. As one last example, here's \"Build a mobile-friendly three.js game where a mouse has to hide from a cat\" by Claude Opus 5.5 Extra and by GPT-6 Extra High. Switch to Codex or Claude Code once your project passes the proof-of-concept phase. And if the game isn't fun enough, add this: Make it a LOT more fun Tags: game-design, games, ai, generative-ai, chatgpt, llms, claude, vibe-coding, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "The October inflection point for vibe game development",
+      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "503762475e8ae5ab",
+      "kev": false,
+      "published": "2026-10-28T16:45:23Z",
+      "score": 22.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+1.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GitHub Octoverse 2026 I'm at GitHub Universe today (GitHub gave me a free ticket through their \"GitHub Stars\" program). EVP Jay Parikh just announced this year's Octoverse report, and highlighted these numbers in particular: This is a pretty stark representation of the impact of agentic engineering on GitHub. In 2026, merged pull requests tripled in less than a year to 220 million per month. Commits more than tripled to 7.38 billion per month, with most of that increase in the second half of this year. New repository rate doubled this year, to 30.3 million per month. The report includes new numbers by industry, and breaks out numbers for repositories that involve \"interoperability or reverse engineering\". The methodology section includes notes about how they did this: Top countries by pushes to public repositories, adjusted by profile location. Pushes from each country were summed across the Octoverse year. To adjust for biases caused by VPN usage, LLM classification was used to extract the ISO 3166-1 alpha-2 code from the profiles of GitHub users who contributed pushes during this period [...] Industry. Public repositories created 2022 to 2026 were sorted into NAICS sectors by a fine-tuned multilingual embedding model using name, description, topics, and README, from random samples per year. [...] Interoperability. Counts public repositories created each year whose name, description, topics, or README mention interoperability or reverse engineering, or related terms, such as clean room implementation, drop-in replacement, or protocol re-implementation. Tags: github, ai, generative-ai, llms, coding-agents, disclosures, agentic-engineering",
       "tags": [
         "watchlist",
         "AI-sec"
       ],
-      "title": "GPT-6.1 Terra",
-      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
+      "title": "GitHub Octoverse 2026",
+      "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
     },
     {
       "appsec": false,
@@ -2823,6 +2819,30 @@
       ],
       "title": "webframe: evaluated as a scraper and a sandbox",
       "url": "https://simonwillison.net/2026/Oct/26/webframe-evaluation/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ddec6cb5a4e152e9",
+      "kev": false,
+      "published": "2026-10-26T23:53:07Z",
+      "score": 22.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+1.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GPT-6.1 Terra It's always interesting to note which aspects of a new model are emphasized in the release announcement. In the case of GPT-6.1 Terra, OpenAI went with visual reasoning and computer use: We’re introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing. A significant step up from GPT‑5.6 Terra, it excels at the communication and computer-based tasks that fill the workday, from drafting proposals and interpreting technical drawings to filling out forms and editing videos. Terra sits in the same position as Sonnet in the Anthropic model collection - not the cheapest or the most expensive, making it harder to decide when to use it. Computer use is a good example of a task that benefits from a less expensive model, since you might put it to work on automated, repetitive tasks. OpenAI's Ted Sanders provided some useful advice in a comment on Hacker News: In the case of GPT-6.1 Terra, I'd say Terra is probably better than Astra and Sol at technical communication, similar on vision and computer use (but much faster!), and a bit worse on most other things. For API developers, it's a nice midrange option if you want something cheaper than Sol but a lot smarter than Luna (especially for vision / computer use / communication). For subscribers, it's not a bombshell release - if you're hitting usage limits, maybe it helps you go a bit further, and if you want clearer communication or faster computer use, it can be a nice option to select. Here are the pelicans for the different reasoning levels. This pelican for \"max\" cost 11.3161 cents and took 4 minutes and 11 seconds: Here's a new comparison grid showing pelicans for every reasoning level of OpenAI's current frontier lineup: GPT-6 Astra, GPT-6.1 Sol, GPT-6.1 Terra, and GPT-6 Luna. GPT-6.1 Terra is priced at $1/million input tokens and $5/million output - almost half the price of GPT-5.6 Terra and GPT-6.1 Sol, and around 10x the price of GPT-6 Luna. Via Hacker News Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, gpt, ted-sanders",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GPT-6.1 Terra",
+      "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
     },
     {
       "appsec": false,
@@ -3045,10 +3065,10 @@
       "id": "33329a02a00b9779",
       "kev": false,
       "published": "2026-11-13T08:00:00Z",
-      "score": 21.0,
+      "score": 20.8,
       "score_reasons": [
         "source:Project Zero (+15)",
-        "recency (+6.0)"
+        "recency (+5.8)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -3067,10 +3087,10 @@
       "id": "64a38498625128f7",
       "kev": false,
       "published": "2026-11-20T01:21:54Z",
-      "score": 19.7,
+      "score": 19.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.7)"
+        "recency (+11.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3087,10 +3107,10 @@
       "id": "c57b91f992129bf4",
       "kev": false,
       "published": "2026-11-19T03:29:58Z",
-      "score": 18.7,
+      "score": 18.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.7)"
+        "recency (+10.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3107,10 +3127,10 @@
       "id": "2d7ba38a814edba0",
       "kev": false,
       "published": "2026-11-20T19:21:49Z",
-      "score": 18.6,
+      "score": 18.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.6)"
+        "recency (+12.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3127,10 +3147,10 @@
       "id": "7cdc8a97cf8f4d0e",
       "kev": false,
       "published": "2026-11-20T16:30:48Z",
-      "score": 18.4,
+      "score": 18.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.4)"
+        "recency (+12.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3144,13 +3164,35 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "8c9e2cbcfb0c13c2",
+      "kev": false,
+      "published": "2026-11-04T15:12:29Z",
+      "score": 17.4,
+      "score_reasons": [
+        "source:PortSwigger Research (+15)",
+        "recency (+2.4)"
+      ],
+      "source": "PortSwigger Research",
+      "source_type": "research",
+      "summary": "You can now escalate HTTP header injection to a CRLF-Powered Desync and exploit it to serve random users a redirect to your collaborator, in a single prompt. We’ve just introduced a new scan check for",
+      "tags": [
+        "research"
+      ],
+      "title": "Making HTTP header injection critical with one prompt",
+      "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "3917e7f43fd22671",
       "kev": false,
       "published": "2026-11-18T04:22:08Z",
-      "score": 17.7,
+      "score": 17.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.7)"
+        "recency (+9.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3167,10 +3209,10 @@
       "id": "8651a385618086de",
       "kev": false,
       "published": "2026-11-20T02:49:57Z",
-      "score": 17.7,
+      "score": 17.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.7)"
+        "recency (+11.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3184,35 +3226,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "8c9e2cbcfb0c13c2",
-      "kev": false,
-      "published": "2026-11-04T15:12:29Z",
-      "score": 17.5,
-      "score_reasons": [
-        "source:PortSwigger Research (+15)",
-        "recency (+2.5)"
-      ],
-      "source": "PortSwigger Research",
-      "source_type": "research",
-      "summary": "You can now escalate HTTP header injection to a CRLF-Powered Desync and exploit it to serve random users a redirect to your collaborator, in a single prompt. We’ve just introduced a new scan check for",
-      "tags": [
-        "research"
-      ],
-      "title": "Making HTTP header injection critical with one prompt",
-      "url": "https://portswigger.net/research/making-http-header-injection-critical-with-one-prompt"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "47e62fd1daf84c9e",
       "kev": false,
       "published": "2026-11-19T20:43:57Z",
-      "score": 17.4,
+      "score": 17.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.4)"
+        "recency (+11.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3229,10 +3249,10 @@
       "id": "5458c272bb841e36",
       "kev": false,
       "published": "2026-11-16T21:57:39Z",
-      "score": 16.5,
+      "score": 16.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.5)"
+        "recency (+8.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3249,10 +3269,10 @@
       "id": "4a7efa8a23b38434",
       "kev": false,
       "published": "2026-11-18T17:09:59Z",
-      "score": 16.2,
+      "score": 15.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+10.2)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3260,26 +3280,6 @@
       "tags": [],
       "title": "datasette-arrows 0.1a0",
       "url": "https://simonwillison.net/2026/Nov/18/datasette-arrows/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c29c5645291af4ed",
-      "kev": false,
-      "published": "2026-11-15T19:22:09Z",
-      "score": 15.7,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.7)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview, Catalin Cimpanu talks with Thinkst CTO Marco Slaviero about the state of the defensive AI cyber space and the company’s current agentic canaries, as well as the need for more experimentation. Show notes Marco Slaviero on LinkedIN Blue Hat Asia 2026 Keynote: An Age of Experimentation BMC vulnerabilities, runZero Research [un]prompted.au 2026: Security Through Obscurity is Dead and LLMs Killed It, Brendan Dolan Gavitt Thinkst Scapes: 2026, Q2",
-      "tags": [],
-      "title": "Thinkst on the defensive AI cyber space",
-      "url": "https://risky.biz/RBNEWSSI151/"
     },
     {
       "appsec": false,
@@ -3305,6 +3305,26 @@
       ],
       "title": "A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens",
       "url": "https://projectzero.google/2026/05/pixel-10-exploit.html"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c29c5645291af4ed",
+      "kev": false,
+      "published": "2026-11-15T19:22:09Z",
+      "score": 15.4,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+7.4)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview, Catalin Cimpanu talks with Thinkst CTO Marco Slaviero about the state of the defensive AI cyber space and the company’s current agentic canaries, as well as the need for more experimentation. Show notes Marco Slaviero on LinkedIN Blue Hat Asia 2026 Keynote: An Age of Experimentation BMC vulnerabilities, runZero Research [un]prompted.au 2026: Security Through Obscurity is Dead and LLMs Killed It, Brendan Dolan Gavitt Thinkst Scapes: 2026, Q2",
+      "tags": [],
+      "title": "Thinkst on the defensive AI cyber space",
+      "url": "https://risky.biz/RBNEWSSI151/"
     },
     {
       "appsec": false,
@@ -4124,10 +4144,10 @@
       "id": "9e89bf4ca1192eb6",
       "kev": false,
       "published": "2026-11-17T06:16:26Z",
-      "score": 14.8,
+      "score": 14.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.8)"
+        "recency (+8.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4144,10 +4164,10 @@
       "id": "f6ff959916d44f87",
       "kev": false,
       "published": "2026-11-15T23:18:17Z",
-      "score": 13.8,
+      "score": 13.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4164,10 +4184,10 @@
       "id": "f8719c976cec8806",
       "kev": false,
       "published": "2026-11-15T23:58:36Z",
-      "score": 13.8,
+      "score": 13.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.8)"
+        "recency (+7.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4184,10 +4204,10 @@
       "id": "ea0dffb11eb2bd56",
       "kev": false,
       "published": "2026-11-12T03:30:09Z",
-      "score": 13.3,
+      "score": 13.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.3)"
+        "recency (+5.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4201,33 +4221,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "5ba1e262888374fc",
-      "kev": false,
-      "published": "2026-11-11T01:59:09Z",
-      "score": 12.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+4.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "France blames Iran for supermarket freezer hacks, the White House nominates Palantir’s CISO as CISA director, another Russian cloud provider gets hacked, and N-able takes down its SaaS platform after a researcher discloses 33 vulnerabilities in it. Show notes Risky Bulletin: France blames Iran for the October supermarket fridge hacks",
-      "tags": [],
-      "title": "Risky Bulletin: France blames Iran for supermarket freezer hacks",
-      "url": "https://risky.biz/RBNEWS632/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "0bb09554616bf2b4",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 12.7,
+      "score": 12.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -4246,10 +4246,10 @@
       "id": "4d1ff37a208b08bc",
       "kev": false,
       "published": "2026-10-22T00:00:00Z",
-      "score": 12.7,
+      "score": 12.6,
       "score_reasons": [
         "source:GitHub Security Lab (+12)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "GitHub Security Lab",
       "source_type": "research",
@@ -4265,13 +4265,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5ba1e262888374fc",
+      "kev": false,
+      "published": "2026-11-11T01:59:09Z",
+      "score": 12.6,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+4.6)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "France blames Iran for supermarket freezer hacks, the White House nominates Palantir’s CISO as CISA director, another Russian cloud provider gets hacked, and N-able takes down its SaaS platform after a researcher discloses 33 vulnerabilities in it. Show notes Risky Bulletin: France blames Iran for the October supermarket fridge hacks",
+      "tags": [],
+      "title": "Risky Bulletin: France blames Iran for supermarket freezer hacks",
+      "url": "https://risky.biz/RBNEWS632/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 12.4,
+      "score": 12.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.4)"
+        "recency (+6.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4288,10 +4308,10 @@
       "id": "8cc6965690b08360",
       "kev": false,
       "published": "2026-11-13T22:30:54Z",
-      "score": 12.4,
+      "score": 12.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.4)"
+        "recency (+6.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4308,10 +4328,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 12.0,
+      "score": 11.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.0)"
+        "recency (+3.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4328,10 +4348,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4348,10 +4368,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 11.2,
+      "score": 11.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4368,10 +4388,10 @@
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 11.1,
+      "score": 10.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4388,10 +4408,10 @@
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 10.7,
+      "score": 10.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.7)"
+        "recency (+2.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4408,10 +4428,10 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 10.4,
+      "score": 10.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.4)"
+        "recency (+4.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4428,10 +4448,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 10.4,
+      "score": 10.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.4)"
+        "recency (+4.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4448,10 +4468,10 @@
       "id": "3fd1dde4a9898e0c",
       "kev": false,
       "published": "2026-11-02T19:14:23Z",
-      "score": 10.1,
+      "score": 10.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4468,10 +4488,10 @@
       "id": "d884a4ef2a50bf34",
       "kev": false,
       "published": "2026-11-02T02:08:33Z",
-      "score": 10.0,
+      "score": 9.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4488,10 +4508,10 @@
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
-      "score": 9.9,
+      "score": 9.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4508,10 +4528,10 @@
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 9.9,
+      "score": 9.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.9)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4525,33 +4545,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0902acca81eb73d6",
-      "kev": false,
-      "published": "2026-11-07T19:34:24Z",
-      "score": 9.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "My comment on Terry Pratchett's Study — Hacker News.Terry Pratchett once wrote about the concept of \"horizontal wealth\". Vertical wealth is where you spend money on rich people stuff - yachts and suchlike. Horizontal wealth is where you spend more money on the things you liked before you got rich: https://chibuikeani.blogspot.com/2017/02/the-price-of-happin... But horizontal wealth means not letting your increased income dictate your tastes. You like books and now you have money? Buy more books! Change those catenary bookshelves for good hardwood ones! In my case, build a library extension to your office. And, of course, you buy what will be useful for that most wonderful of pursuits, blind research, which is research without direction for the sheer joy of it. (Original source is his book A Slip of the Keyboard - this linked blog post quotes that bit.) Tags: hacker-news, terry-pratchett",
-      "tags": [],
-      "title": "Terry Pratchett's Study",
-      "url": "https://simonwillison.net/2026/Nov/7/hn-50407316/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "6c1fe33dc9352d01",
       "kev": false,
       "published": "2026-10-30T02:07:09Z",
-      "score": 9.5,
+      "score": 9.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4568,10 +4568,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 9.5,
+      "score": 9.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.5)"
+        "recency (+3.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4579,6 +4579,26 @@
       "tags": [],
       "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
       "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "0902acca81eb73d6",
+      "kev": false,
+      "published": "2026-11-07T19:34:24Z",
+      "score": 9.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+3.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My comment on Terry Pratchett's Study — Hacker News.Terry Pratchett once wrote about the concept of \"horizontal wealth\". Vertical wealth is where you spend money on rich people stuff - yachts and suchlike. Horizontal wealth is where you spend more money on the things you liked before you got rich: https://chibuikeani.blogspot.com/2017/02/the-price-of-happin... But horizontal wealth means not letting your increased income dictate your tastes. You like books and now you have money? Buy more books! Change those catenary bookshelves for good hardwood ones! In my case, build a library extension to your office. And, of course, you buy what will be useful for that most wonderful of pursuits, blind research, which is research without direction for the sheer joy of it. (Original source is his book A Slip of the Keyboard - this linked blog post quotes that bit.) Tags: hacker-news, terry-pratchett",
+      "tags": [],
+      "title": "Terry Pratchett's Study",
+      "url": "https://simonwillison.net/2026/Nov/7/hn-50407316/"
     },
     {
       "appsec": false,
@@ -4608,10 +4628,10 @@
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 9.1,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4628,10 +4648,10 @@
       "id": "78a2482ced344d3e",
       "kev": false,
       "published": "2026-10-25T19:14:25Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.0)"
+        "recency (+0.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4648,10 +4668,10 @@
       "id": "7cc2162c82dbd2cc",
       "kev": false,
       "published": "2026-11-05T17:34:03Z",
-      "score": 8.8,
+      "score": 8.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.8)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4668,10 +4688,10 @@
       "id": "109238fc46e99e54",
       "kev": false,
       "published": "2026-10-22T02:50:47Z",
-      "score": 8.7,
+      "score": 8.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+0.7)"
+        "recency (+0.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4745,26 +4765,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "1fe496fc8c1f9697",
-      "kev": false,
-      "published": "2026-11-03T23:13:45Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-agent 0.5a0 This is a significant release of Datasette Agent. The most notable new feature is called the panel - it lets the agent chat open and then sit next to pages from Datasette, for example a table or query page. When combined with datasette-apps this means you can prompt a database-backed app into existence and then modify it from the chat that sits next to that app. You can try it by signing in with your GitHub account to agent.datasette.io. Tags: projects, datasette-agent, datasette",
-      "tags": [],
-      "title": "datasette-agent 0.5a0",
-      "url": "https://simonwillison.net/2026/Nov/3/datasette-agent/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "326fea695de21a87",
       "kev": false,
       "published": "2026-10-16T01:56:50Z",
@@ -4779,26 +4779,6 @@
       "tags": [],
       "title": "Risky Bulletin: DataSuckers suspects arrested in Russia",
       "url": "https://risky.biz/RBNEWS621/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5928ed51062ddbc9",
-      "kev": false,
-      "published": "2026-11-04T00:29:36Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
-      "tags": [],
-      "title": "datasette-apps 0.3a0",
-      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
     },
     {
       "appsec": false,
@@ -4825,6 +4805,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "1fe496fc8c1f9697",
+      "kev": false,
+      "published": "2026-11-03T23:13:45Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-agent 0.5a0 This is a significant release of Datasette Agent. The most notable new feature is called the panel - it lets the agent chat open and then sit next to pages from Datasette, for example a table or query page. When combined with datasette-apps this means you can prompt a database-backed app into existence and then modify it from the chat that sits next to that app. You can try it by signing in with your GitHub account to agent.datasette.io. Tags: projects, datasette-agent, datasette",
+      "tags": [],
+      "title": "datasette-agent 0.5a0",
+      "url": "https://simonwillison.net/2026/Nov/3/datasette-agent/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "39cf548322967bc7",
       "kev": false,
       "published": "2026-10-12T19:06:44Z",
@@ -4845,9 +4845,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "7d2479f2553dd44b",
+      "id": "5928ed51062ddbc9",
       "kev": false,
-      "published": "2026-11-03T16:42:02Z",
+      "published": "2026-11-04T00:29:36Z",
       "score": 8.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -4855,10 +4855,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "My comment on AI is destroying my CS degree — Hacker News.I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in though, and it's still extremely unclear what effective teaching with these tools looks like. The worst part is that the evaluation loop is measured in multiple years! If you start trying some new education mechanism today you won't get a robust idea of how well it works until your current cohort graduate in 3-6 years time. Students effectively all become guinea pigs for untested new ways of learning and teaching. Tags: ai-ethics, hacker-news, education, ai",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
       "tags": [],
-      "title": "AI is destroying my CS degree",
-      "url": "https://simonwillison.net/2026/Nov/3/hn-50354278/"
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
     },
     {
       "appsec": false,
@@ -4925,9 +4925,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "97e03d86478ab0d0",
+      "id": "7d2479f2553dd44b",
       "kev": false,
-      "published": "2026-11-03T05:32:25Z",
+      "published": "2026-11-03T16:42:02Z",
       "score": 8.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
@@ -4935,10 +4935,10 @@
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube Genius piece of OSINT by Colsto, who demonstrates how you can take almost imperceptible background noise of planes from a video soundtrack, figure out their Doppler curves, then cross reference them against ADS-B data to find the exact location of the video based on their speed, distance, and gaps between different flights. Via Lobste.rs Tags: privacy, youtube",
+      "summary": "My comment on AI is destroying my CS degree — Hacker News.I don't envy educators right now. AI clearly means you need to change how you teach and evaluate students. We are only a few years in though, and it's still extremely unclear what effective teaching with these tools looks like. The worst part is that the evaluation loop is measured in multiple years! If you start trying some new education mechanism today you won't get a robust idea of how well it works until your current cohort graduate in 3-6 years time. Students effectively all become guinea pigs for untested new ways of learning and teaching. Tags: ai-ethics, hacker-news, education, ai",
       "tags": [],
-      "title": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube",
-      "url": "https://simonwillison.net/2026/Nov/3/a-sound-that-leaks-your-exact-location/"
+      "title": "AI is destroying my CS degree",
+      "url": "https://simonwillison.net/2026/Nov/3/hn-50354278/"
     },
     {
       "appsec": false,
@@ -5005,26 +5005,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "4c1cfae1f7d73c23",
-      "kev": false,
-      "published": "2026-11-02T13:31:26Z",
-      "score": 8.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
-      "tags": [],
-      "title": "The U.S. Census Bureau and “Super Intelligence”",
-      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "88f5b2261b84778a",
       "kev": false,
       "published": "2026-10-02T02:57:07Z",
@@ -5039,6 +5019,26 @@
       "tags": [],
       "title": "Authorities dismantle KillSec group",
       "url": "https://risky.biz/RBNEWS618/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "97e03d86478ab0d0",
+      "kev": false,
+      "published": "2026-11-03T05:32:25Z",
+      "score": 8.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube Genius piece of OSINT by Colsto, who demonstrates how you can take almost imperceptible background noise of planes from a video soundtrack, figure out their Doppler curves, then cross reference them against ADS-B data to find the exact location of the video based on their speed, distance, and gaps between different flights. Via Lobste.rs Tags: privacy, youtube",
+      "tags": [],
+      "title": "I discovered a sound that leaks your exact location (and it's everywhere) - YouTube",
+      "url": "https://simonwillison.net/2026/Nov/3/a-sound-that-leaks-your-exact-location/"
     },
     {
       "appsec": false,
@@ -5515,6 +5515,26 @@
       "tags": [],
       "title": "Srsly Risky Biz: Open weight models make the Mythos debate moot",
       "url": "https://risky.biz/SRB172/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "4c1cfae1f7d73c23",
+      "kev": false,
+      "published": "2026-11-02T13:31:26Z",
+      "score": 8.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
+      "tags": [],
+      "title": "The U.S. Census Bureau and “Super Intelligence”",
+      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
     },
     {
       "appsec": false,
@@ -6379,10 +6399,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 7.9,
+      "score": 7.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6399,10 +6419,10 @@
       "id": "5ba4b32d47ec536b",
       "kev": false,
       "published": "2026-10-30T21:59:22Z",
-      "score": 7.6,
+      "score": 7.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6459,10 +6479,10 @@
       "id": "87166973b4ed4194",
       "kev": false,
       "published": "2026-10-27T19:34:18Z",
-      "score": 7.2,
+      "score": 7.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.2)"
+        "recency (+1.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6479,10 +6499,10 @@
       "id": "df11f17c78623c5a",
       "kev": false,
       "published": "2026-10-26T19:00:25Z",
-      "score": 7.1,
+      "score": 7.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6676,26 +6696,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "96935c790ddc2990",
-      "kev": false,
-      "published": "2026-10-15T19:47:52Z",
-      "score": 6.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
-      "tags": [],
-      "title": "Chirp Pong",
-      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
@@ -6730,6 +6730,26 @@
       "tags": [],
       "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
       "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "96935c790ddc2990",
+      "kev": false,
+      "published": "2026-10-15T19:47:52Z",
+      "score": 6.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
+      "tags": [],
+      "title": "Chirp Pong",
+      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
     },
     {
       "appsec": false,
@@ -6772,7 +6792,7 @@
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
     }
   ],
-  "last_run": "2026-11-22T14:25:49Z",
+  "last_run": "2026-11-22T23:32:23Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1327,
@@ -6785,9 +6805,38 @@
     "open_gaps": 1009,
     "public_poc": 724,
     "total_cves": 2496,
-    "total_items": 303
+    "total_items": 304
   },
   "threats": [
+    {
+      "advisory_url": null,
+      "appsec": true,
+      "brief": null,
+      "coverage": "covered",
+      "cve_id": "CVE-2026-123158",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-394"
+      ],
+      "description": "sshd in OpenSSH before 10.6p2 on Linux, when musl libc is used without PAM, lacks a workaround for a password authentication bypass (related to misinterpretation of whether a string is intended to be a password hash). For some configuration…",
+      "ecosystems": [],
+      "epss": 0.95538,
+      "ghsa_id": null,
+      "has_poc": true,
+      "is_candidate": false,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-11-09",
+      "modified": "2026-11-09",
+      "product": "openssh",
+      "published": "2026-11-09",
+      "score": 100,
+      "sources": [],
+      "vendor": "openbsd",
+      "vuln_classes": [
+        "auth-bypass"
+      ]
+    },
     {
       "advisory_url": "https://github.com/advisories/GHSA-9v8h-qqgm-4m35",
       "appsec": true,
@@ -8520,35 +8569,6 @@
       "sources": [],
       "vendor": "oracle",
       "vuln_classes": []
-    },
-    {
-      "advisory_url": null,
-      "appsec": true,
-      "brief": null,
-      "coverage": "covered",
-      "cve_id": "CVE-2025-64446",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-23"
-      ],
-      "description": "A relative path traversal vulnerability in Fortinet FortiWeb 8.0.0 through 8.0.1, FortiWeb 7.6.0 through 7.6.4, FortiWeb 7.4.0 through 7.4.9, FortiWeb 7.2.0 through 7.2.11, FortiWeb 7.0.0 through 7.0.11 may allow an attacker to execute admi…",
-      "ecosystems": [],
-      "epss": 0.91078,
-      "ghsa_id": null,
-      "has_poc": true,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-11-14",
-      "modified": "2025-11-14",
-      "product": "fortiweb",
-      "published": "2025-11-14",
-      "score": 100,
-      "sources": [],
-      "vendor": "fortinet",
-      "vuln_classes": [
-        "path-traversal"
-      ]
     },
     {
       "advisory_url": null,
