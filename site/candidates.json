@@ -2274,44 +2274,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-50522.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 82% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-50522",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-502"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.8187,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-07-22",
-      "modified": "2026-07-22",
-      "nuclei_template": null,
-      "product": "sharepoint_server",
-      "published": "2026-07-22",
-      "score": 98.4,
-      "vendor": "microsoft",
-      "vuln_classes": [
-        "deserialization"
-      ]
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2025-54253.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -4035,42 +3997,6 @@
       "score": 93.3,
       "vendor": "sun",
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-42897.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 71% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-42897",
-      "cvss_score": 8.1,
-      "cwe": [
-        "CWE-79"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.70662,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-05-15",
-      "modified": "2026-05-15",
-      "nuclei_template": null,
-      "product": "exchange_server",
-      "published": "2026-05-15",
-      "score": 93.3,
-      "vendor": "microsoft",
-      "vuln_classes": [
-        "xss"
-      ]
     },
     {
       "appsec": true,
@@ -5894,43 +5820,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2021-22893.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 48% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2021-22893",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-287",
-        "CWE-416"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.47508,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2021-11-03",
-      "modified": "2021-11-03",
-      "nuclei_template": null,
-      "product": "connect_secure",
-      "published": "2021-11-03",
-      "score": 88.3,
-      "vendor": "ivanti",
-      "vuln_classes": [
-        "auth-bypass"
-      ]
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2021-21224.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -5993,40 +5882,6 @@
       "published": "2024-02-13",
       "score": 87.9,
       "vendor": "microsoft",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2010-1871.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 83% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2010-1871",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-917"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.83397,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2021-12-10",
-      "modified": "2021-12-10",
-      "nuclei_template": null,
-      "product": "jboss_enterprise_application_platform",
-      "published": "2021-12-10",
-      "score": 87.8,
-      "vendor": "redhat",
       "vuln_classes": []
     },
     {
@@ -9343,42 +9198,6 @@
       "vuln_classes": []
     },
     {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-32201.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 39% >= 30%",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-32201",
-      "cvss_score": 6.5,
-      "cwe": [
-        "CWE-20"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.38825,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-04-14",
-      "modified": "2026-04-14",
-      "nuclei_template": null,
-      "product": "sharepoint_server",
-      "published": "2026-04-14",
-      "score": 82.1,
-      "vendor": "microsoft",
-      "vuln_classes": []
-    },
-    {
       "appsec": false,
       "brief": "briefs/CVE-2024-43451.md",
       "candidate_reasons": [
@@ -10517,36 +10336,6 @@
       "vuln_classes": [
         "xss"
       ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2018-8581.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2018-8581",
-      "cvss_score": 7.4,
-      "cwe": [],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.27558,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-03",
-      "modified": "2022-03-03",
-      "nuclei_template": null,
-      "product": "exchange_server",
-      "published": "2022-03-03",
-      "score": 79.7,
-      "vendor": "microsoft",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -12515,6 +12304,38 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2021-28663.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2021-28663",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-416"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.12181,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2021-11-03",
+      "modified": "2021-11-03",
+      "nuclei_template": null,
+      "product": "bifrost_gpu_kernel_driver",
+      "published": "2021-11-03",
+      "score": 76.5,
+      "vendor": "arm",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2025-10585.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -12543,38 +12364,6 @@
       "published": "2025-09-23",
       "score": 76.5,
       "vendor": "google",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2021-28663.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2021-28663",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-416"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.12084,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2021-11-03",
-      "modified": "2021-11-03",
-      "nuclei_template": null,
-      "product": "bifrost_gpu_kernel_driver",
-      "published": "2021-11-03",
-      "score": 76.4,
-      "vendor": "arm",
       "vuln_classes": []
     },
     {
@@ -13453,7 +13242,7 @@
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.03847,
+      "epss": 0.03879,
       "issue_number": null,
       "kev": true,
       "kev_added": "2025-03-13",
@@ -14437,34 +14226,35 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-20045.md",
+      "brief": "briefs/CVE-2018-4990.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
         "in CISA KEV",
+        "EPSS 36% >= 30%",
         "no existing Nuclei template"
       ],
-      "cve_id": "CVE-2026-20045",
-      "cvss_score": 8.2,
+      "cve_id": "CVE-2018-4990",
+      "cvss_score": 8.8,
       "cwe": [
-        "CWE-94"
+        "CWE-415"
       ],
       "detectability": {
-        "has_poc": true,
+        "has_poc": false,
         "likely_http": true,
         "remote_network": true,
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.04541,
+      "epss": 0.35684,
       "issue_number": null,
       "kev": true,
-      "kev_added": "2026-01-21",
-      "modified": "2026-01-21",
+      "kev_added": "2022-06-08",
+      "modified": "2022-06-08",
       "nuclei_template": null,
-      "product": "unified_communications_manager",
-      "published": "2026-01-21",
-      "score": 73.6,
-      "vendor": "cisco",
+      "product": "acrobat_dc",
+      "published": "2022-06-08",
+      "score": 73.5,
+      "vendor": "adobe",
       "vuln_classes": []
     },
     {
@@ -14664,39 +14454,6 @@
       "published": "2026-08-20",
       "score": 73.5,
       "vendor": "trueconf",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2018-4990.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "EPSS 35% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2018-4990",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-415"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.35438,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-06-08",
-      "modified": "2022-06-08",
-      "nuclei_template": null,
-      "product": "acrobat_dc",
-      "published": "2022-06-08",
-      "score": 73.4,
-      "vendor": "adobe",
       "vuln_classes": []
     },
     {
@@ -15275,43 +15032,6 @@
       "score": 72.6,
       "vendor": "microsoft",
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-20963.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-20963",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-502"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "web"
-      ],
-      "epss": 0.29201,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-03-18",
-      "modified": "2026-03-18",
-      "nuclei_template": null,
-      "product": "sharepoint_server",
-      "published": "2026-03-18",
-      "score": 72.6,
-      "vendor": "microsoft",
-      "vuln_classes": [
-        "deserialization"
-      ]
     },
     {
       "appsec": true,
@@ -17177,39 +16897,6 @@
       "vuln_classes": [
         "rce"
       ]
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2024-20353.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "in CISA KEV",
-        "EPSS 70% >= 30%",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2024-20353",
-      "cvss_score": 8.6,
-      "cwe": [
-        "CWE-835"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.69824,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-04-24",
-      "modified": "2024-04-24",
-      "nuclei_template": null,
-      "product": "adaptive_security_appliance_software",
-      "published": "2024-04-24",
-      "score": 69.5,
-      "vendor": "cisco",
-      "vuln_classes": []
     },
     {
       "appsec": false,
@@ -20125,6 +19812,38 @@
       "vuln_classes": []
     },
     {
+      "appsec": false,
+      "brief": "briefs/CVE-2025-24085.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2025-24085",
+      "cvss_score": 10.0,
+      "cwe": [
+        "CWE-416"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [],
+      "epss": 0.17537,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2025-01-29",
+      "modified": "2025-01-29",
+      "nuclei_template": null,
+      "product": "ipados",
+      "published": "2025-01-29",
+      "score": 65.3,
+      "vendor": "apple",
+      "vuln_classes": []
+    },
+    {
       "appsec": true,
       "brief": "briefs/CVE-2024-38189.md",
       "candidate_reasons": [
@@ -20313,38 +20032,6 @@
       "nuclei_template": null,
       "product": "macos",
       "published": "2026-08-18",
-      "score": 65.2,
-      "vendor": "apple",
-      "vuln_classes": []
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2025-24085.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2025-24085",
-      "cvss_score": 10.0,
-      "cwe": [
-        "CWE-416"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [],
-      "epss": 0.17401,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2025-01-29",
-      "modified": "2025-01-29",
-      "nuclei_template": null,
-      "product": "ipados",
-      "published": "2025-01-29",
       "score": 65.2,
       "vendor": "apple",
       "vuln_classes": []
@@ -21114,7 +20801,7 @@
         "suggested_template_type": "version-fingerprint"
       },
       "ecosystems": [],
-      "epss": 0.02295,
+      "epss": 0.02231,
       "issue_number": null,
       "kev": true,
       "kev_added": "2026-03-27",
@@ -21757,6 +21444,38 @@
       "vuln_classes": []
     },
     {
+      "appsec": false,
+      "brief": "briefs/CVE-2024-49039.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2024-49039",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-287"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": false,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.16871,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2024-11-12",
+      "modified": "2024-11-12",
+      "nuclei_template": null,
+      "product": "windows_10_1507",
+      "published": "2024-11-12",
+      "score": 63.9,
+      "vendor": "microsoft",
+      "vuln_classes": []
+    },
+    {
       "appsec": true,
       "brief": "briefs/CVE-2022-41328.md",
       "candidate_reasons": [
@@ -22374,38 +22093,6 @@
       "vuln_classes": [
         "rce"
       ]
-    },
-    {
-      "appsec": false,
-      "brief": "briefs/CVE-2024-49039.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2024-49039",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-287"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": false,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.14179,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2024-11-12",
-      "modified": "2024-11-12",
-      "nuclei_template": null,
-      "product": "windows_10_1507",
-      "published": "2024-11-12",
-      "score": 63.1,
-      "vendor": "microsoft",
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -24114,7 +23801,7 @@
         "suggested_template_type": "version-fingerprint"
       },
       "ecosystems": [],
-      "epss": 0.18379,
+      "epss": 0.2201,
       "issue_number": null,
       "kev": true,
       "kev_added": "2024-09-09",
@@ -24122,7 +23809,7 @@
       "nuclei_template": null,
       "product": "sonicos",
       "published": "2024-09-09",
-      "score": 55.3,
+      "score": 56.4,
       "vendor": "sonicwall",
       "vuln_classes": []
     },
@@ -26098,45 +25785,6 @@
     },
     {
       "appsec": true,
-      "brief": "briefs/CVE-2026-45140.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-45140",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-22",
-        "CWE-94",
-        "CWE-219",
-        "CWE-434"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "composer"
-      ],
-      "epss": 0.01326,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-17T20:23:41Z",
-      "nuclei_template": null,
-      "product": "chamilo/chamilo-lms",
-      "published": "2026-09-17T20:23:39Z",
-      "score": 24.2,
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
-    },
-    {
-      "appsec": true,
       "brief": "briefs/CVE-2025-66455.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -26973,42 +26621,6 @@
       "score": 24.0,
       "vendor": null,
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-62253.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-62253",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-306"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "go"
-      ],
-      "epss": 0.00537,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-07T16:11:59Z",
-      "nuclei_template": null,
-      "product": "github.com/sipcapture/homer-app",
-      "published": "2026-10-07T16:11:58Z",
-      "score": 24.0,
-      "vendor": null,
-      "vuln_classes": [
-        "auth-bypass"
-      ]
     },
     {
       "appsec": true,
@@ -30195,6 +29807,41 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-22816.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-22816",
+      "cvss_score": 8.6,
+      "cwe": [
+        "CWE-494",
+        "CWE-829"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.00174,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-23T15:39:17Z",
+      "nuclei_template": null,
+      "product": "org.gradle:gradle-core",
+      "published": "2026-11-23T15:33:34Z",
+      "score": 22.7,
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-100368.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -30338,6 +29985,41 @@
       "vuln_classes": [
         "sqli"
       ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-22865.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-22865",
+      "cvss_score": 8.6,
+      "cwe": [
+        "CWE-494",
+        "CWE-829"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.00158,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-23T15:41:58Z",
+      "nuclei_template": null,
+      "product": "org.gradle:gradle-core",
+      "published": "2026-11-23T15:41:57Z",
+      "score": 22.6,
+      "vendor": null,
+      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -31357,6 +31039,42 @@
       "score": 22.1,
       "vendor": null,
       "vuln_classes": []
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-63492.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-63492",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-78"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-23T22:06:29Z",
+      "nuclei_template": null,
+      "product": "wwbn/avideo",
+      "published": "2026-11-23T22:06:28Z",
+      "score": 22.1,
+      "vendor": null,
+      "vuln_classes": [
+        "command-injection"
+      ]
     },
     {
       "appsec": true,
@@ -32686,6 +32404,41 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-115563.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-115563",
+      "cvss_score": 7.5,
+      "cwe": [
+        "CWE-345",
+        "CWE-522"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "pypi"
+      ],
+      "epss": 0.00333,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-19T22:45:41Z",
+      "nuclei_template": null,
+      "product": "mcp",
+      "published": "2026-11-19T22:45:40Z",
+      "score": 21.6,
+      "vendor": null,
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-57440.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -32752,41 +32505,6 @@
       "nuclei_template": null,
       "product": "org.xerial.snappy:snappy-java",
       "published": "2026-10-27T15:33:42Z",
-      "score": 21.6,
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-115563.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-115563",
-      "cvss_score": 7.5,
-      "cwe": [
-        "CWE-345",
-        "CWE-522"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "pypi"
-      ],
-      "epss": 0.00282,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-19T22:45:41Z",
-      "nuclei_template": null,
-      "product": "mcp",
-      "published": "2026-11-19T22:45:40Z",
       "score": 21.6,
       "vendor": null,
       "vuln_classes": []
@@ -32933,40 +32651,6 @@
       "vuln_classes": [
         "xss"
       ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-77318.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-77318",
-      "cvss_score": 7.3,
-      "cwe": [
-        "CWE-306"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "pypi"
-      ],
-      "epss": 0.00505,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-20T00:12:16Z",
-      "nuclei_template": null,
-      "product": "jupyter-mcp-server",
-      "published": "2026-11-20T00:12:14Z",
-      "score": 21.5,
-      "vendor": null,
-      "vuln_classes": []
     },
     {
       "appsec": true,
@@ -34352,18 +34036,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-23T06:42:21Z",
+  "generated": "2026-11-23T23:44:17Z",
   "stats": {
     "actively_exploited_appsec": 1329,
-    "appsec_cves": 1824,
-    "kev_coverage_pct": 31.4,
-    "kev_tracked": 1790,
-    "kev_with_coverage": 562,
+    "appsec_cves": 1829,
+    "kev_coverage_pct": 32.0,
+    "kev_tracked": 1792,
+    "kev_with_coverage": 573,
     "newly_exploited": 11,
     "newly_exploited_days": 30,
-    "open_gaps": 1008,
+    "open_gaps": 999,
     "public_poc": 726,
-    "total_cves": 2496,
-    "total_items": 306
+    "total_cves": 2506,
+    "total_items": 310
   }
 }
