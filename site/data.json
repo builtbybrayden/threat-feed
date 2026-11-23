@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-22T23:32:23Z",
+  "generated": "2026-11-23T06:42:21Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "ff2d940875c195df",
       "kev": false,
       "published": "2026-11-18T14:39:45Z",
-      "score": 53.7,
+      "score": 53.4,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.7)"
+        "recency (+9.4)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -73,12 +73,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 48.9,
+      "score": 48.7,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.9)"
+        "recency (+4.7)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -100,12 +100,12 @@
       "id": "2c8a1075fab122ac",
       "kev": false,
       "published": "2026-11-19T15:30:00Z",
-      "score": 47.8,
+      "score": 47.5,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,confluence (+15)",
         "AppSec-relevant (+14)",
-        "recency (+10.8)"
+        "recency (+10.5)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -129,12 +129,12 @@
       "id": "5d0aeb18d920237c",
       "kev": false,
       "published": "2026-11-18T14:44:48Z",
-      "score": 44.7,
+      "score": 44.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pypi,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+9.7)"
+        "recency (+9.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -155,12 +155,12 @@
       "id": "14c044926ad9a31d",
       "kev": false,
       "published": "2026-11-16T00:04:19Z",
-      "score": 44.5,
+      "score": 44.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.5)"
+        "recency (+7.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -172,34 +172,6 @@
       ],
       "title": "Risky Bulletin: Cyberattack grounds German UAVs",
       "url": "https://risky.biz/RBNEWS634/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5fa42ecadbea615e",
-      "kev": false,
-      "published": "2026-11-17T22:52:29Z",
-      "score": 44.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:node.js,python,prompt injection (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take damaging actions on a machine. I worked on this project with Prime Radiant, the AI research lab behind Superpowers and other projects. My post on the Prime Radiant blog introduces the external sandbox pattern, where code executed by the agent runs inside a dedicated sandbox while the agent itself lives outside of that sandbox. To demonstrate this pattern we've released three sandbox server implementations: external-sandbox-v86 runs a Node.js server which then uses v86 to run Alpine Linux inside WebAssembly. external-sandbox-container is a Python web server which runs the sandbox in Alpine Linux inside an Apple Containers instance. external-sandbox-quicksand is another Python web server, this time using Microsoft's Quicksand sandboxing library, which bundles QEMU and Alpine Linux in a Python package! Each of these implementations offers the same localhost API. You can then configure Pi, Claude Code, or Codex to send API calls to that sandbox any time they want to execute code. The sandboxes also include an optional HTTP/HTTPS allow-list proxy, so you can control exactly which hosts your agent's code is allowed to communicate with - plus a credential replacement mechanism to make authenticated API calls without sharing a secret with the agent. Here's the UI you can use to reconfigure that proxy while the sandbox is still running: I continue to be fascinated by the challenge of safely running untrusted code. This external sandbox pattern provides a neat way to experiment with different approaches. Tags: sandboxing, security, ai, webassembly, generative-ai, llms, coding-agents, claude-code, codex, pi",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "npm",
-        "pypi"
-      ],
-      "title": "External sandboxes for coding agents",
-      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
     },
     {
       "appsec": true,
@@ -338,15 +310,43 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "5fa42ecadbea615e",
+      "kev": false,
+      "published": "2026-11-17T22:52:29Z",
+      "score": 43.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:node.js,python,prompt injection (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+8.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take damaging actions on a machine. I worked on this project with Prime Radiant, the AI research lab behind Superpowers and other projects. My post on the Prime Radiant blog introduces the external sandbox pattern, where code executed by the agent runs inside a dedicated sandbox while the agent itself lives outside of that sandbox. To demonstrate this pattern we've released three sandbox server implementations: external-sandbox-v86 runs a Node.js server which then uses v86 to run Alpine Linux inside WebAssembly. external-sandbox-container is a Python web server which runs the sandbox in Alpine Linux inside an Apple Containers instance. external-sandbox-quicksand is another Python web server, this time using Microsoft's Quicksand sandboxing library, which bundles QEMU and Alpine Linux in a Python package! Each of these implementations offers the same localhost API. You can then configure Pi, Claude Code, or Codex to send API calls to that sandbox any time they want to execute code. The sandboxes also include an optional HTTP/HTTPS allow-list proxy, so you can control exactly which hosts your agent's code is allowed to communicate with - plus a credential replacement mechanism to make authenticated API calls without sharing a secret with the agent. Here's the UI you can use to reconfigure that proxy while the sandbox is still running: I continue to be fascinated by the challenge of safely running untrusted code. This external sandbox pattern provides a neat way to experiment with different approaches. Tags: sandboxing, security, ai, webassembly, generative-ai, llms, coding-agents, claude-code, codex, pi",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "npm",
+        "pypi"
+      ],
+      "title": "External sandboxes for coding agents",
+      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "41af2268db8dcd8f",
       "kev": false,
       "published": "2026-11-17T16:48:33Z",
-      "score": 43.9,
+      "score": 43.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pypi,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.9)"
+        "recency (+8.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -367,12 +367,12 @@
       "id": "cb4668166d1b9ed1",
       "kev": false,
       "published": "2026-11-13T03:03:12Z",
-      "score": 42.7,
+      "score": 42.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:remote code execution (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.7)"
+        "recency (+5.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -393,12 +393,12 @@
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 42.4,
+      "score": 42.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.4)"
+        "recency (+5.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -633,12 +633,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 41.1,
+      "score": 40.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.1)"
+        "recency (+3.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -685,12 +685,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 39.7,
+      "score": 39.6,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.7)"
+        "recency (+2.6)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -713,12 +713,12 @@
       "id": "9858e6d325f7b887",
       "kev": false,
       "published": "2026-11-04T00:53:51Z",
-      "score": 39.3,
+      "score": 39.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -739,12 +739,12 @@
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 38.8,
+      "score": 38.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -757,32 +757,6 @@
       ],
       "title": "Hide your slop PR descriptions behind",
       "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "6512aa1df788d204",
-      "kev": false,
-      "published": "2026-10-29T02:30:02Z",
-      "score": 38.3,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+1.3)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about new research that shows that Chinese open-weight AI models can be reeducated to remove pro-CCP bias. Good news for American businesses that want cheap AI, but we suspect that many knives will still be out for Chinese open-weight models. They also discuss the near-misses from the PHP and Brotli bugs. We collectively dodged the bullet so that we only got grazed, but the good luck won’t last forever. Finally, Tom looked at CISA’s 2030 strategy. Amazingly, it doesn’t really mention AI at all. Bizarre! This episode is also available on YouTube. Show notes",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php"
-      ],
-      "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
-      "url": "https://risky.biz/SRB188/"
     },
     {
       "appsec": true,
@@ -815,6 +789,32 @@
       ],
       "title": "[tl;dr sec] #352 - Unprompted Slides, AWS AI Post-compromise Trends, Malicious LLM API Routers",
       "url": "https://tldrsec.com/p/tldr-sec-352"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6512aa1df788d204",
+      "kev": false,
+      "published": "2026-10-29T02:30:02Z",
+      "score": 38.2,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+1.2)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about new research that shows that Chinese open-weight AI models can be reeducated to remove pro-CCP bias. Good news for American businesses that want cheap AI, but we suspect that many knives will still be out for Chinese open-weight models. They also discuss the near-misses from the PHP and Brotli bugs. We collectively dodged the bullet so that we only got grazed, but the good luck won’t last forever. Finally, Tom looked at CISA’s 2030 strategy. Amazingly, it doesn’t really mention AI at all. Bizarre! This episode is also available on YouTube. Show notes",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php"
+      ],
+      "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
+      "url": "https://risky.biz/SRB188/"
     },
     {
       "appsec": true,
@@ -1752,12 +1752,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 36.7,
+      "score": 36.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1858,11 +1858,11 @@
       "id": "130048d7e5261719",
       "kev": false,
       "published": "2026-11-21T23:56:28Z",
-      "score": 34.6,
+      "score": 34.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+13.6)"
+        "recency (+13.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1881,11 +1881,11 @@
       "id": "f9e8b18855658f14",
       "kev": false,
       "published": "2026-11-20T03:01:57Z",
-      "score": 32.3,
+      "score": 32.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+11.3)"
+        "recency (+11.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1929,11 +1929,11 @@
       "id": "6db6b1e39d6a161d",
       "kev": false,
       "published": "2026-10-27T07:00:00Z",
-      "score": 31.1,
+      "score": 31.0,
       "score_reasons": [
         "source:Project Zero (+15)",
         "watchlist:javascript,llm (+15)",
-        "recency (+1.1)"
+        "recency (+1.0)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -1954,11 +1954,11 @@
       "id": "8b1775bc017f8b07",
       "kev": false,
       "published": "2026-11-18T23:59:20Z",
-      "score": 31.1,
+      "score": 30.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+10.1)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1978,11 +1978,11 @@
       "id": "ec68b41b6d46452e",
       "kev": false,
       "published": "2026-11-18T15:58:27Z",
-      "score": 30.8,
+      "score": 30.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:curl (+15)",
-        "recency (+9.8)"
+        "recency (+9.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1992,30 +1992,6 @@
       ],
       "title": "Quoting Daniel Stenberg",
       "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "0787798c0405a246",
-      "kev": false,
-      "published": "2026-11-17T22:38:52Z",
-      "score": 30.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "GPT‑6.2 Astra and GPT‑6.2 Sol OpenAI: We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra and gpt-6.2-sol. I shipped LLM 0.38 with support for the new models. 6.2 Astra is 80% of the price of 6 Astra - $8/MTok input and $40/MTok output, the same price as Claude Fable 5.2 (which was also 80% of its predecessor). 6 Astra and Fable 5 were both $10/$50. The cached price is an even bigger discount - $0.40/million compared to $1/million for the older model. This is great news for longer running agentic sessions. GPT-6.2 Sol is the same $2/$10 price as 6.1 Sol and 6 Sol - which are half the price of GPT-5.6 Sol ($4/$20). Here are the pelicans for GPT-6.2 Sol and for GPT-6.2 Astra. The 6.2 Astra max pelican looks like this: I have a full comparison grid here, but here's how the high/xhigh/max pelicans compare with the previous Sol and Astra releases: I also ran my most recent benchmark prompt against the two models, using \"Ultra' effort levels in the Codex CLI: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's Sol and here's Astra. Neither of them did a good enough job of morphing Yonkers into a big mech, at least in comparison to Claude Fable 5.2 and Gemini 4 Carbon. This video showing the Astra and Sol animations playing out at the same time: I created that video using GPT-6.2 Astra (Ultra) in the Codex desktop app by prompting: https://static.simonwillison.net/static/2026/yonkers-gpt-6.2-astra-ultra/index.html and https://static.simonwillison.net/static/2026/yonkers-gpt-6.2-sol-ultra/index.html are two videos of the same thing by two different models I need a video of the first 10 seconds where the top half of the video plays the first and the bottom half plays the second I need an overlaid label of \"GPT-6.2 Astra\" on the top half and \"GPT-6.2 Sol\" on the bottom half. These labels should be tastefully positioned. Make the video square and 2000x2000 pixels Then later: OK make it 20s Here's the exported transcript. The buzz around these new models is mixed at the moment. Astra 6.2 isn't scoring quite as high as Fable 5.2 on various benchmarks, and I've seen a few complaints that its communication style can be confusing. Theo Browne's review (in the form of a feedback letter he sent OpenAI during pre-release) has this useful example: When this model is working on long tasks, it can pull in a lot of subagents and manage them pretty well. It will then proceed to randomly ask you some weird internal implementation detail bullshit that you could not under any earthly circumstance understand, much less have input on. I sent \"/goal make a new level for Outer Wilds\". 2 hours in, it's \"blocked\" because it wanted to ask me \"does r24's reviewer write it's clips to 24_g521.mp4 or 24_p11.mp4?\" Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, theo-browne, gpt, yonkers-rising",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
-      "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/"
     },
     {
       "appsec": false,
@@ -2091,14 +2067,38 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "e7835d0be85cb054",
+      "id": "0787798c0405a246",
       "kev": false,
-      "published": "2026-11-16T23:57:26Z",
-      "score": 29.3,
+      "published": "2026-11-17T22:38:52Z",
+      "score": 29.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.3)"
+        "recency (+8.8)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "GPT‑6.2 Astra and GPT‑6.2 Sol OpenAI: We’re introducing GPT‑6.2 Astra, our new frontier model for your hardest projects, and GPT‑6.2 Sol, our efficient, versatile model for everyday work. They're available in the API as gpt-6.2-astra and gpt-6.2-sol. I shipped LLM 0.38 with support for the new models. 6.2 Astra is 80% of the price of 6 Astra - $8/MTok input and $40/MTok output, the same price as Claude Fable 5.2 (which was also 80% of its predecessor). 6 Astra and Fable 5 were both $10/$50. The cached price is an even bigger discount - $0.40/million compared to $1/million for the older model. This is great news for longer running agentic sessions. GPT-6.2 Sol is the same $2/$10 price as 6.1 Sol and 6 Sol - which are half the price of GPT-5.6 Sol ($4/$20). Here are the pelicans for GPT-6.2 Sol and for GPT-6.2 Astra. The 6.2 Astra max pelican looks like this: I have a full comparison grid here, but here's how the high/xhigh/max pelicans compare with the previous Sol and Astra releases: I also ran my most recent benchmark prompt against the two models, using \"Ultra' effort levels in the Codex CLI: Make a three js animation where yonkers stands up as a big mech (cool stand up motion) and stomps around manhattan and queens and Brooklyn, use openstreetmap mapping data Here's Sol and here's Astra. Neither of them did a good enough job of morphing Yonkers into a big mech, at least in comparison to Claude Fable 5.2 and Gemini 4 Carbon. This video showing the Astra and Sol animations playing out at the same time: I created that video using GPT-6.2 Astra (Ultra) in the Codex desktop app by prompting: https://static.simonwillison.net/static/2026/yonkers-gpt-6.2-astra-ultra/index.html and https://static.simonwillison.net/static/2026/yonkers-gpt-6.2-sol-ultra/index.html are two videos of the same thing by two different models I need a video of the first 10 seconds where the top half of the video plays the first and the bottom half plays the second I need an overlaid label of \"GPT-6.2 Astra\" on the top half and \"GPT-6.2 Sol\" on the bottom half. These labels should be tastefully positioned. Make the video square and 2000x2000 pixels Then later: OK make it 20s Here's the exported transcript. The buzz around these new models is mixed at the moment. Astra 6.2 isn't scoring quite as high as Fable 5.2 on various benchmarks, and I've seen a few complaints that its communication style can be confusing. Theo Browne's review (in the form of a feedback letter he sent OpenAI during pre-release) has this useful example: When this model is working on long tasks, it can pull in a lot of subagents and manage them pretty well. It will then proceed to randomly ask you some weird internal implementation detail bullshit that you could not under any earthly circumstance understand, much less have input on. I sent \"/goal make a new level for Outer Wilds\". 2 hours in, it's \"blocked\" because it wanted to ask me \"does r24's reviewer write it's clips to 24_g521.mp4 or 24_p11.mp4?\" Tags: ai, openai, generative-ai, llms, llm-pricing, pelican-riding-a-bicycle, llm-release, theo-browne, gpt, yonkers-rising",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
+      "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "e7835d0be85cb054",
+      "kev": false,
+      "published": "2026-11-16T23:57:26Z",
+      "score": 29.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2118,11 +2118,11 @@
       "id": "ff2c62cebcf4b098",
       "kev": false,
       "published": "2026-11-15T23:20:27Z",
-      "score": 28.5,
+      "score": 28.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+7.5)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2141,11 +2141,11 @@
       "id": "5b63eb3960e8e501",
       "kev": false,
       "published": "2026-11-15T04:02:45Z",
-      "score": 27.9,
+      "score": 27.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2164,11 +2164,11 @@
       "id": "9df8820e84fd1a0c",
       "kev": false,
       "published": "2026-11-15T03:49:47Z",
-      "score": 27.9,
+      "score": 27.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.9)"
+        "recency (+6.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2188,11 +2188,11 @@
       "id": "bcf04c6904579bec",
       "kev": false,
       "published": "2026-11-14T23:59:28Z",
-      "score": 27.8,
+      "score": 27.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.8)"
+        "recency (+6.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2212,11 +2212,11 @@
       "id": "94ec8fcfeda2db99",
       "kev": false,
       "published": "2026-11-14T17:09:09Z",
-      "score": 27.6,
+      "score": 27.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+6.6)"
+        "recency (+6.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2262,11 +2262,11 @@
       "id": "b73209306c9412bd",
       "kev": false,
       "published": "2026-11-12T22:55:19Z",
-      "score": 26.6,
+      "score": 26.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2286,11 +2286,11 @@
       "id": "6b121f474cc35549",
       "kev": false,
       "published": "2026-11-11T22:03:25Z",
-      "score": 26.0,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2310,11 +2310,11 @@
       "id": "0e206308dec11d59",
       "kev": false,
       "published": "2026-11-11T18:42:50Z",
-      "score": 25.9,
+      "score": 25.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+4.9)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2333,11 +2333,11 @@
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 25.9,
+      "score": 25.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.9)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2357,11 +2357,11 @@
       "id": "5767c4d342983118",
       "kev": false,
       "published": "2026-11-10T20:09:44Z",
-      "score": 25.5,
+      "score": 25.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.5)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2381,11 +2381,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 25.3,
+      "score": 25.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.3)"
+        "recency (+4.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2405,11 +2405,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 25.1,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2428,11 +2428,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 25.1,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.1)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2452,11 +2452,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 24.8,
+      "score": 24.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2499,11 +2499,11 @@
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 23.3,
+      "score": 23.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+2.3)"
+        "recency (+2.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2595,11 +2595,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 23.1,
+      "score": 23.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2619,11 +2619,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 22.9,
+      "score": 22.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2639,14 +2639,34 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "89c02d83ee1869ba",
+      "kev": false,
+      "published": "2026-11-23T01:31:10Z",
+      "score": 22.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Security products start moving out of the Windows kernel, the FBI gets hacked again, the US Department of Agriculture also gets popped, and Austrian, Bulgarian, and Portuguese governments get owned too! Show notes Risky Bulletin: Security products start moving out of the Windows kernel",
+      "tags": [],
+      "title": "Risky Bulletin: Security products start moving out of the Windows kernel",
+      "url": "https://risky.biz/RBNEWS637/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2663,34 +2683,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "768cc7ae3fa0d592",
-      "kev": false,
-      "published": "2026-11-22T19:18:18Z",
-      "score": 22.7,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+14.7)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Brandon Dixon, co-founder and CTO of Ent AI, about the rise of a new insider threat, the AI agent. Show notes Brandon Dixon on LinkedIn Sponsored: Ent on using AI to track human behavior on the endpoint",
-      "tags": [],
-      "title": "Sponsored: ENT on AI agents, the new type of insiders",
-      "url": "https://risky.biz/RBNEWSSI152/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "15b96761d0c22ab8",
       "kev": false,
       "published": "2026-10-29T22:48:29Z",
-      "score": 22.4,
+      "score": 22.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2731,24 +2731,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "afba17402d80c8e4",
+      "id": "768cc7ae3fa0d592",
       "kev": false,
-      "published": "2026-10-28T23:23:21Z",
+      "published": "2026-11-22T19:18:18Z",
       "score": 22.3,
       "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+1.3)"
+        "source:Risky Bulletin (+8)",
+        "recency (+14.3)"
       ],
-      "source": "Simon Willison",
+      "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "In general, LLM performance is incredibly multidimensional. There's no guarantee of a fixed ordering where the model that is best at math is also the model that's best at jokes. Despite that complexity, much of the variation in performance is explained by just a single variable: model size. In general, models that are bigger will (a) be more performant / reliable, (b) cost more per token, and (c) have better recall of esoteric facts. As you note, our models are ordered: Luna < Terra < Sol < Astra [...] These days, version number signifies a few things at once: the order of release, the relationship to other releases, and the magnitude of improvement. So something like 6.1 would indicate it was launched after 5.6, may share some similarities to other 6.1 models in terms of training data / personality (which is why it's not 5.7), and isn't a giant enough leap to merit the headlines and expectations that would come with a 7. — Ted Sanders, explaining OpenAI's model naming conventions Tags: generative-ai, gpt, openai, ai, llms, ted-sanders",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Quoting Ted Sanders",
-      "url": "https://simonwillison.net/2026/Oct/28/ted-sanders/"
+      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Brandon Dixon, co-founder and CTO of Ent AI, about the rise of a new insider threat, the AI agent. Show notes Brandon Dixon on LinkedIn Sponsored: Ent on using AI to track human behavior on the endpoint",
+      "tags": [],
+      "title": "Sponsored: ENT on AI agents, the new type of insiders",
+      "url": "https://risky.biz/RBNEWSSI152/"
     },
     {
       "appsec": false,
@@ -2802,6 +2798,30 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "afba17402d80c8e4",
+      "kev": false,
+      "published": "2026-10-28T23:23:21Z",
+      "score": 22.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+1.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "In general, LLM performance is incredibly multidimensional. There's no guarantee of a fixed ordering where the model that is best at math is also the model that's best at jokes. Despite that complexity, much of the variation in performance is explained by just a single variable: model size. In general, models that are bigger will (a) be more performant / reliable, (b) cost more per token, and (c) have better recall of esoteric facts. As you note, our models are ordered: Luna < Terra < Sol < Astra [...] These days, version number signifies a few things at once: the order of release, the relationship to other releases, and the magnitude of improvement. So something like 6.1 would indicate it was launched after 5.6, may share some similarities to other 6.1 models in terms of training data / personality (which is why it's not 5.7), and isn't a giant enough leap to merit the headlines and expectations that would come with a 7. — Ted Sanders, explaining OpenAI's model naming conventions Tags: generative-ai, gpt, openai, ai, llms, ted-sanders",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "Quoting Ted Sanders",
+      "url": "https://simonwillison.net/2026/Oct/28/ted-sanders/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
@@ -2849,30 +2869,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "880e8544b15f9e13",
-      "kev": false,
-      "published": "2026-10-23T19:40:54Z",
-      "score": 21.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+0.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Introducing Kimi K3.1 Pro Kimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot promise \"Full model weights will be released by Nov 4, 2026\". They're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same). The US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5. Moonshot's own benchmarks show Kimi as approximately level with Opus 5.5 and GPT-6 Astra - beating them on a few benchmarks, coming close on others. Artificial Analysis scored Kimi at 55 - ahead of Claude Fable 5.1, GPT-6 Astra, and Gemini 4 Argon (all at 53) and behind only Claude Opus 5.5 (58). This is the first time a (soon-to-be) open weight model has scored this highly against the frontier. I tried it out via the Moonshot API using the llm openai endpoint command I added to LLM 0.32 back in August: llm openai endpoint \\ https://api.moonshot.ai/v1 \\ --key kimi \\ -m kimi-k3.1-pro \\ \"Generate an SVG of a pelican riding a bicycle\" \\ --responses \\ -o reasoning_effort low \\ > kimi-k3.1-pro-pelican-low.stdout.txt \\ 2> kimi-k3.1-pro-pelican-low.stderr.txt llm openai endpoint can run prompts against any OpenAI-compatible endpoint but doesn't log the results, hence the extra options to save stdout and stderr (the reasoning trace). Here are the pelicans I got for Kimi K3.1 Pro on the three reasoning levels it supports - low, medium, and max. This is max: For comparison, I ran fresh pelicans against Kimi K3 on those three reasoning levels. Via Hacker News Tags: ai, generative-ai, llms, llm, llm-pricing, pelican-riding-a-bicycle, llm-release, ai-in-china, moonshot, kimi",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Introducing Kimi K3.1 Pro",
-      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "4cb6db05cf9cb349",
       "kev": false,
       "published": "2026-10-22T18:09:56Z",
@@ -2897,24 +2893,24 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c6ac92b5dc7c111b",
+      "id": "880e8544b15f9e13",
       "kev": false,
-      "published": "2026-10-20T19:34:19Z",
-      "score": 21.6,
+      "published": "2026-10-23T19:40:54Z",
+      "score": 21.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "watchlist:javascript,typescript,llm (+15)",
-        "recency (+0.6)"
+        "watchlist:llm (+15)",
+        "recency (+0.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "My latest vibe coded game experiment is a Command & Conquer style RTS (Real Time Strategy) game called Battle Drones (play it here). Unlike my previous experiments, this one is actually fun to play. I'm somewhat embarrassed to admit that I got there by telling Claude to \"Make it a LOT more fun\". It also supports multiplayer between nearby devices using audio to synchronize game state! Here's what I've built so far, and some of the things I learned along the way. Battle Drones How I built this v1: the initial prototype v2: full sprites v3: varied terrain v4: the fun update v5: Battle Drones goes 3D v8: Archipelago v10: Goliath, and agent battles Agent battles v11: Random Maps v12: Multiplayer via sound Some thoughts Update: Online multiplayer support Battle Drones My initial goal was to build an RTS game I could play on my phone, in the style of Command & Conquer. I have fond memories of the 1995 original (I liked Red Alert too) and wanted to recapture a little bit of the magic. After 12 major iterations (and 321 commits by coding agents, mainly Claude Code) I now have a browser-based game that works on mobile and desktop, has multiple play modes, several maps (including a random map generator) and even supports multiplayer for two devices within microphone range of each other. (Update: also online multiplayer; the audio multiplayer induced headaches!) Here's a video demo of Battle Drones running in a desktop browser: Features so far include: 9 buildings, 7 ground vehicles, 6 aerial vehicles, 3 infantry units - all 3D models, which you can browse here Fog of war Different weapons are needed to target aerial or ground vehicles Six maps, across five biomes - temperate, desert, arctic, volcanic, tropical A random map generator Skirmish mode - red vs. blue on a rotationally symmetrical map Last Stand mode - one player holds out against as many waves of enemies as possible Area effect weapons: Barrage, EMP, Drop Pod, Sky Hammer Crate drops with bonus resources In-game music that responds to events - it gets more intense as fighting breaks out Different in-game AI personalities (Balanced, Rush, Air Swarm, Boom, Skyforce, Ironclad) AI vs. AI mode, to watch those personalities play each other The Goliath - a giant stomping mech with laser eyes and arm cannons and the ability to establish a new base Mutators that add extra rules or twists A \"Daily Op\" challenge Ranks and achievements (Medals) Agent vs. Agent mode where two LLMs can play Battle Drones against each other A multiplayer mode based on two nearby phones communicating via audio messages, an extension of my earlier experiment with Chirp Pong How I built this Battle Drones is heavily vibe coded - I've reviewed almost none of the code, and it's built in a language (TypeScript) that I've hardly used myself. I've playtested it quite a bit though, and it's been through a large number of iterations since I started the project. Here's a rough history of the project so far, including key prompts and links to transcripts. v1: the initial prototype I started out with Claude Fable 5 back in July: We are going to build a mobile friendly RTS game - command and conquer style - called Battle Drones, in which two armies of drones (both flying and ground-based) battle for territory and resources Let's start with a MVP design, ask me some questions Here's a shared transcript. I'd given Claude Code for Web an environment variable with an OpenAI API key and told it to use the OpenAI Image Generation API for assets, which got me some basic sprites. You can try v1 here - it looked like this: It's recognizable as an RTS, has building mechanics and the ability to select and direct units, and a basic AI to play against. This first version was barely a proof of concept, and it wasn't any fun to play. Claude used the Phaser 2D game framework for these early versions. I didn't even realize this until several iterations later! v2: full sprites The second version (try v2 here) added sprites for all of the vehicles and the \"AI vs. AI\" mode, so I could watch the game playing without having to directly control it myself. Claude proved reasonably competent at prompting OpenAI's image models to generate sprites. You can browse the v2 sprites in the public/assets/sprites folder. v3: varied terrain It still wasn't much fun, and the graphics were boring. It was now October, and I had upgraded to Claude Opus 5.5. I told it: Massively improve this game. Make the graphics and gameplay better (keep it mobile friendly). Render new graphics using the latest OpenAI GPT image API (lookup details) with the API key in the environment variable. Add new unit types and balance the gameplay better. Also add new buildings and better, more varied terrain. This resulted in five new maps with generated background tiles in a variety of styles, visible here. Opus also regenerated the sprites, making them much more visually appealing. You can try v3 here - it looks like this: This is starting to feel like a real game! It still wasn't very fun to play though - I found myself getting bored pretty quickly. v4: the fun update So far my Battle Drones experiment was confirming my previous belief that coding agents can build a thing that looks like a game but can't actually make something that's genuinely compelling to play. I shared this theory with someone over dinner, and then thought to myself that I should give the models a proper chance to prove me wrong. I prompted Opus 5.5 on my phone: This game isn't fun enough yet. Make it a LOT more fun. This time I was running in Ultracode mode, where Claude Code (in this case Claude Code for Web) runs \"dynamic workflows\", described in their docs as: A dynamic workflow is a JavaScript script that orchestrates many subagents at once. This kicked off many hours of work. I started it in the evening and didn't get a playable result back until late into the next morning. But the results were spectacular. You can try v4 here - it looks like this: I had Claude write its own release notes - here are the highlights: Every skirmish and Daily Op now opens with a choice, gives the side that's losing a way back, and pulls the armies into the middle of the map. There are also two new ways to play. Openers: pick Blitz, Industry or Air Wing before the clock starts. Call-down powers: Barrage, EMP, Drop Pod and the Sky Hammer orbital strike. Objectives and salvage: Uplink relays, supply drops and wrecks worth scrap. Feel: combat juice, adaptive music, unit voices and an announcer. Command: battle alerts, game speed, saved squads and touch placement. New modes: Last Stand survival waves and an 8-mission Ops campaign. Progression: heroes, an after-action report with awards, a career, 7 mutators and a Daily Op. Fights run longer and swing more. In 1,200 AI-vs-AI test matches on Normal, games still undecided after 25 minutes fell from 14% to 0.9%. The share of wins by a side that had been 800+ scrap behind rose from 24% to 46%. Part of the reason Claude took so long was that it ran over a thousand simulated playtest sessions, and used the results to rebalance the existing units, add new ones, and introduce new features. v5: Battle Drones goes 3D After the success of Ultracode at \"Make it a LOT more fun\", I decided to be more ambitious: Port this game to three.js with 3D models for all of the buildings and vehicles and landscapes That was another overnight run. I woke up to this v5 version: The new 3D models were entirely constructed by Claude in TypeScript code. v6 (play v6 here) added some more visual polish. v7 (play v7) added robot infantry (troopers, rocket squads, snipers) and a \"Condor\" troop carrying aircraft. v8: Archipelago I was beginning to feel guilty at how little actual design input I had into the game - it really had been a case of me saying \"make it more fun\" and \"add visual polish\" for the past few releases. I'd noticed that the AI didn't use the new infantry and troop carrying aircraft from v7 very often - there wasn't a great strategic reason to use them. It would be neat if we had a new map with a new game mechanic that actively encouraged players to load up Condors with infantry robots and send them out into the map. This resulted in my longest prompt yet: Design a new map. Goal is to make different strategic incentives that encourage use of Infantry and Condors and aerial vehicles. To do this the map will have limited harvester resources but several more uplinks - but uplinks will be on islands that are inaccessible by land vehicles or infantry. These uplinks can also not be claimed using air vehicles. The ONLY way to get them is to fly infantry there in a Condor. Armies always start with a Condor and a single squad. If an army has no Condor a new one will be provided for free, flying in from the edge closest to their HQ and landing there. That free condor will come with a single free squad on board. The two HQs should be entirely separated by water, but still accessible by vehicles thanks to two bridges across the map in different places I want to encourage a battle over uplinks. The map should be the times the size of other maps - still square First research and then critique this design. Only build after we have agreed on any modifications You get to design a new biome for this The result was the tropical Archipelago map, with seven island uplinks that players can only capture by flying out infantry in a Condor. It's definitely the most fun map to play, once you've got the hang of the basic game mechanics from the simpler maps. The v9 edition made that map a little more interesting - it now looks like this: v10: Goliath, and agent battles I decided to add giant robot mechs to the game - think Jaegers from Pacific Rim, or Titans from Warhammer 40,000. Here are some of the prompts I used to brainstorm with Claude: Help me brainstorm ideas for adding giant robots to this game - think dreadnoughts or titans from W20K - how could we do this in a way that enhanced gameplay, kept things balanced, added unique twist? Don't overthink this yet Let's keep brainstorming. I like the idea that it's a mobile base - that can accept harvested scrap and can have buildings built near it (even if it later moves on) and can produce infantry units too. An interaction with condor would be neat but I don't know what that could be. Idea: as it gets damage it loses the ability to fire some weapons - by default it has eye laser (like lancers) and arm canons (like titan) and two shoulder mounted mortars, plus machine guns similar to a squad of troops Damage knocks out mortars and then laser - it always has guns. You can't build next to a building that was only put there because of the mech, you need the mech there for off-base building and only within three squares of it [...] Lets do two condors can carry the mech The end result is really cool. Your browser does not support HTML video. Goliaths can be constructed using a Gantry - a building that can only be created after first building a Fab, Bay, Airpad, and Tech Lab. You can see the Goliath under construction, and it then walks out from the Gantry and can march around the map. Goliaths can \"anchor\", which digs them into the ground. In their anchored state they can act as a new HQ, constructing infantry units and additional buildings in a new area. Two Condor aircraft can hook onto a Goliath, at which point it can be flown around the map! The game now ends when you destroy the enemy's HQ building and any Goliaths they might have built. There are also a couple of mutators relating to Goliaths: Goliath Armada starts each side with four airborne Goliaths (each with a pair of Condors) and no other units. Robot Love adds a special rule: if enemy Goliaths get close to each other on the battlefield they fall in love and the game ends in a draw. (Thank Natalie for that one). Agent battles The other v10 feature is agent battles. In musing about how multiplayer could work I had an idea: what if different LLMs could fight it out in the game? Fun extra challenge: think about how we might make multiplayer available to coding agents. It would be neat if we could set up a battle between eg GPT-6 Sol and Claude Opus 5.5 where each model has access to a tool which gives them information about the game (presumably non-visual, but only the information they could see through fog of war etc) and lets them control their units etc [...] Consult ~/dev/llm/docs and include notes in that file about how LLM could be used here via a new tools plugin Opus 5.5 went to work on this, producing this AGENT-BATTLES.md proposal and then implementing and testing it. The feature also includes the ability to record and replay these battles - here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna, and here's that same battle in a separate debug tool that shows the underlying prompt responses. The prompt that drives agent battles can be seen here. There are a few more replays like this linked in the README. I hope to turn this into a full league table at some point in the future. v11: Random Maps This version exists purely because I glanced at my Claude Usage page one day and saw that I'd only used 75% of my weekly allowance and it was resetting in 45 minutes. I decided to see if I could get an extra Battle Drones feature from my remaining tokens, and picked \"random map\" as the target: Design and implement a mechanism for generating a random map using any of the available biomes - it should be the size of the largest map and rivers and bridges and rocks and forest and scrap and crystals are all in play. Make them rotationally symmetric and use a seed to allow them to be selected or reused later. You have 45 minutes to build this! Be creative. Here's the transcript, and an image Claude generated to show me its work: v12: Multiplayer via sound I only just got this working, so I've not had much time to actively test it yet. The latest Battle Drones now supports multiplayer via two devices sat within microphone distance of each other! This feature started out as my Chirp Pong experiment from last week. I pointed Claude Code at that working proof of concept: Clone Simonw/tools from GitHub and look at recent branches for the example pong game that uses web microphone to implement multiplayer between two phones via audio signals Build a version of that for battledrones Opus built this Radio Probe tool to measure how much bandwidth we could get between two devices and, based on positive results from that, implemented a full audio modem system. I've tried it between laptops, iPhones and iPads so far and it seems to work really well! Why use sound for this? Because I love static HTML that costs nothing to run, and I don't want to spin up a server somewhere and then stay responsible for keeping it operating for as long as anyone might want to play the game. Some thoughts I know almost nothing about game development. This makes it a great opportunity to try out coding agents in a field where my existing software engineering experience has less impact on the results. Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. This morning (via Hacker News) I found Steam Fans Are Begging for a No-AI Filter as Steam Next Fest Is Filled With Slop. I wouldn't personally dream of submitting Battle Drones to an event like this - it's still way too low effort to warrant consideration as a legitimate indie gaming project. ... but I can now see a path to vibe coded games like this being taken seriously. Battle Drones is fun, it looks good, it has innovative features (the multiplayer-over-audio thing is a first for an RTS as far as I can tell). I'd love to see what someone with better taste than me and a driving passion to produce something truly exceptional could build! A few other observations from this project: Static HTML and JavaScript is a fantastic medium for games development. WebGL works great, and Three.js (and Phaser before it) are excellent platforms to build on that the current models know inside out. This also lets them run as Progressive Web Apps - I didn't ask for it, but Battle Drones works offline. I was able to play it on a plane despite never having directly installed it - my phone had it cached. Giving Claude an OpenAI API key and telling it to generate images using OpenAI's models works really well. It can view the images it has generated and iterate on the prompts. Opus 5.5 is spectacular at 3D modeling using Three.js (and Blender, and no doubt other 3D applications as well). The same is true of GPT-6 Astra. They are absolutely capable of building models for 3D game projects. For features like replay and multiplayer it's useful to have a deterministic simulation engine. At one point Claude had to replace calls to Math.sin() and Math.cos() and friends with custom versions because different browsers (Chrome vs. Safari, for example) returned very slightly different numbers, desynchronizing the replay. Opus 5.5 can write music! There are no audio files in this project - the soundtrack is entirely generated through code, varies across different maps, and even gets more intense as the battle heats up. See Scrimshaw Jukebox for a previous experiment with Claude for music composition. I still can't get over how well the prompt \"Make it a LOT more fun\" worked. Tools are effectively free. I prompted up the Radio Probe, the Model browser, the Agent vs. Agent debug tool, and Claude Code built a bunch of tools for itself that I haven't even explored myself. Audio-based multiplayer between static HTML games works! I hope to see a whole lot more games use this same pattern - in digging around today I've not found much prior art beyond Siner by Alon Horesh and ggwave by Georgi Gerganov (also of llama.cpp fame). Claude Code \"Ultracode\" burns tokens like there's no tomorrow, but it can also solve complex problems (like adding audio-based multiplayer) from a single prompt. I'm still not quite over the guilt of building software in this way. I don't feel like I've earned the right to create something this good, in a field in which I have so little prior experience! At this point I've shown it to enough people in private that it felt wrong not to publish it for everyone else to see and learn from. Update: Online multiplayer support Earlier in this article I said: Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. Then I tried playing the multiplayer version with Natalie... and the high pitched modem sounds gave her a nasty headache! That's a pretty bad bug. I added a warning and was then inspired to build proper network multiplayer. I tried getting WebRTC to work but couldn't get a connection going between two of my own devices even on my own WiFi network, so I had Claude build a simple, stateless WebSockets relay server instead: If I wanted to support multiplayer between two devices at a very low cost without storing any state on the server could I do that with a tiny asyncio web server running on the cheapest Fly instance? Build the server and the fly.toml for deploying it, use Fly application name battledrones-relay - put that in a folder in the repo, include deploy instructions in the README in that folder Here's the resulting server. Since this scales to zero and runs on a single Fly.io shared-cpu-1x instance it should cost me no more than $2.19/month - and that's if it stays hot and serving connections the whole time. Battle Drones now supports online multiplayer. Click \"Duel a friend online\", then either share the resulting room URL via your messaging app of choice or have them snap a picture of the displayed QR Code. I also added a feature where you can copy JSON of the match once it has ended and then feed that into the replay feature to rewatch your game. I didn't expect to introduce online multiplayer this soon, but the headache bug felt like it warranted an urgent alternative. Tags: game-design, projects, ai, generative-ai, llms, claude, vibe-coding, coding-agents, claude-code",
+      "summary": "Introducing Kimi K3.1 Pro Kimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot promise \"Full model weights will be released by Nov 4, 2026\". They're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same). The US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5. Moonshot's own benchmarks show Kimi as approximately level with Opus 5.5 and GPT-6 Astra - beating them on a few benchmarks, coming close on others. Artificial Analysis scored Kimi at 55 - ahead of Claude Fable 5.1, GPT-6 Astra, and Gemini 4 Argon (all at 53) and behind only Claude Opus 5.5 (58). This is the first time a (soon-to-be) open weight model has scored this highly against the frontier. I tried it out via the Moonshot API using the llm openai endpoint command I added to LLM 0.32 back in August: llm openai endpoint \\ https://api.moonshot.ai/v1 \\ --key kimi \\ -m kimi-k3.1-pro \\ \"Generate an SVG of a pelican riding a bicycle\" \\ --responses \\ -o reasoning_effort low \\ > kimi-k3.1-pro-pelican-low.stdout.txt \\ 2> kimi-k3.1-pro-pelican-low.stderr.txt llm openai endpoint can run prompts against any OpenAI-compatible endpoint but doesn't log the results, hence the extra options to save stdout and stderr (the reasoning trace). Here are the pelicans I got for Kimi K3.1 Pro on the three reasoning levels it supports - low, medium, and max. This is max: For comparison, I ran fresh pelicans against Kimi K3 on those three reasoning levels. Via Hacker News Tags: ai, generative-ai, llms, llm, llm-pricing, pelican-riding-a-bicycle, llm-release, ai-in-china, moonshot, kimi",
       "tags": [
         "watchlist",
         "AI-sec"
       ],
-      "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
-      "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
+      "title": "Introducing Kimi K3.1 Pro",
+      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
     },
     {
       "appsec": false,
@@ -2939,6 +2935,30 @@
       ],
       "title": "llm-echo 0.5",
       "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c6ac92b5dc7c111b",
+      "kev": false,
+      "published": "2026-10-20T19:34:19Z",
+      "score": 21.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript,typescript,llm (+15)",
+        "recency (+0.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "My latest vibe coded game experiment is a Command & Conquer style RTS (Real Time Strategy) game called Battle Drones (play it here). Unlike my previous experiments, this one is actually fun to play. I'm somewhat embarrassed to admit that I got there by telling Claude to \"Make it a LOT more fun\". It also supports multiplayer between nearby devices using audio to synchronize game state! Here's what I've built so far, and some of the things I learned along the way. Battle Drones How I built this v1: the initial prototype v2: full sprites v3: varied terrain v4: the fun update v5: Battle Drones goes 3D v8: Archipelago v10: Goliath, and agent battles Agent battles v11: Random Maps v12: Multiplayer via sound Some thoughts Update: Online multiplayer support Battle Drones My initial goal was to build an RTS game I could play on my phone, in the style of Command & Conquer. I have fond memories of the 1995 original (I liked Red Alert too) and wanted to recapture a little bit of the magic. After 12 major iterations (and 321 commits by coding agents, mainly Claude Code) I now have a browser-based game that works on mobile and desktop, has multiple play modes, several maps (including a random map generator) and even supports multiplayer for two devices within microphone range of each other. (Update: also online multiplayer; the audio multiplayer induced headaches!) Here's a video demo of Battle Drones running in a desktop browser: Features so far include: 9 buildings, 7 ground vehicles, 6 aerial vehicles, 3 infantry units - all 3D models, which you can browse here Fog of war Different weapons are needed to target aerial or ground vehicles Six maps, across five biomes - temperate, desert, arctic, volcanic, tropical A random map generator Skirmish mode - red vs. blue on a rotationally symmetrical map Last Stand mode - one player holds out against as many waves of enemies as possible Area effect weapons: Barrage, EMP, Drop Pod, Sky Hammer Crate drops with bonus resources In-game music that responds to events - it gets more intense as fighting breaks out Different in-game AI personalities (Balanced, Rush, Air Swarm, Boom, Skyforce, Ironclad) AI vs. AI mode, to watch those personalities play each other The Goliath - a giant stomping mech with laser eyes and arm cannons and the ability to establish a new base Mutators that add extra rules or twists A \"Daily Op\" challenge Ranks and achievements (Medals) Agent vs. Agent mode where two LLMs can play Battle Drones against each other A multiplayer mode based on two nearby phones communicating via audio messages, an extension of my earlier experiment with Chirp Pong How I built this Battle Drones is heavily vibe coded - I've reviewed almost none of the code, and it's built in a language (TypeScript) that I've hardly used myself. I've playtested it quite a bit though, and it's been through a large number of iterations since I started the project. Here's a rough history of the project so far, including key prompts and links to transcripts. v1: the initial prototype I started out with Claude Fable 5 back in July: We are going to build a mobile friendly RTS game - command and conquer style - called Battle Drones, in which two armies of drones (both flying and ground-based) battle for territory and resources Let's start with a MVP design, ask me some questions Here's a shared transcript. I'd given Claude Code for Web an environment variable with an OpenAI API key and told it to use the OpenAI Image Generation API for assets, which got me some basic sprites. You can try v1 here - it looked like this: It's recognizable as an RTS, has building mechanics and the ability to select and direct units, and a basic AI to play against. This first version was barely a proof of concept, and it wasn't any fun to play. Claude used the Phaser 2D game framework for these early versions. I didn't even realize this until several iterations later! v2: full sprites The second version (try v2 here) added sprites for all of the vehicles and the \"AI vs. AI\" mode, so I could watch the game playing without having to directly control it myself. Claude proved reasonably competent at prompting OpenAI's image models to generate sprites. You can browse the v2 sprites in the public/assets/sprites folder. v3: varied terrain It still wasn't much fun, and the graphics were boring. It was now October, and I had upgraded to Claude Opus 5.5. I told it: Massively improve this game. Make the graphics and gameplay better (keep it mobile friendly). Render new graphics using the latest OpenAI GPT image API (lookup details) with the API key in the environment variable. Add new unit types and balance the gameplay better. Also add new buildings and better, more varied terrain. This resulted in five new maps with generated background tiles in a variety of styles, visible here. Opus also regenerated the sprites, making them much more visually appealing. You can try v3 here - it looks like this: This is starting to feel like a real game! It still wasn't very fun to play though - I found myself getting bored pretty quickly. v4: the fun update So far my Battle Drones experiment was confirming my previous belief that coding agents can build a thing that looks like a game but can't actually make something that's genuinely compelling to play. I shared this theory with someone over dinner, and then thought to myself that I should give the models a proper chance to prove me wrong. I prompted Opus 5.5 on my phone: This game isn't fun enough yet. Make it a LOT more fun. This time I was running in Ultracode mode, where Claude Code (in this case Claude Code for Web) runs \"dynamic workflows\", described in their docs as: A dynamic workflow is a JavaScript script that orchestrates many subagents at once. This kicked off many hours of work. I started it in the evening and didn't get a playable result back until late into the next morning. But the results were spectacular. You can try v4 here - it looks like this: I had Claude write its own release notes - here are the highlights: Every skirmish and Daily Op now opens with a choice, gives the side that's losing a way back, and pulls the armies into the middle of the map. There are also two new ways to play. Openers: pick Blitz, Industry or Air Wing before the clock starts. Call-down powers: Barrage, EMP, Drop Pod and the Sky Hammer orbital strike. Objectives and salvage: Uplink relays, supply drops and wrecks worth scrap. Feel: combat juice, adaptive music, unit voices and an announcer. Command: battle alerts, game speed, saved squads and touch placement. New modes: Last Stand survival waves and an 8-mission Ops campaign. Progression: heroes, an after-action report with awards, a career, 7 mutators and a Daily Op. Fights run longer and swing more. In 1,200 AI-vs-AI test matches on Normal, games still undecided after 25 minutes fell from 14% to 0.9%. The share of wins by a side that had been 800+ scrap behind rose from 24% to 46%. Part of the reason Claude took so long was that it ran over a thousand simulated playtest sessions, and used the results to rebalance the existing units, add new ones, and introduce new features. v5: Battle Drones goes 3D After the success of Ultracode at \"Make it a LOT more fun\", I decided to be more ambitious: Port this game to three.js with 3D models for all of the buildings and vehicles and landscapes That was another overnight run. I woke up to this v5 version: The new 3D models were entirely constructed by Claude in TypeScript code. v6 (play v6 here) added some more visual polish. v7 (play v7) added robot infantry (troopers, rocket squads, snipers) and a \"Condor\" troop carrying aircraft. v8: Archipelago I was beginning to feel guilty at how little actual design input I had into the game - it really had been a case of me saying \"make it more fun\" and \"add visual polish\" for the past few releases. I'd noticed that the AI didn't use the new infantry and troop carrying aircraft from v7 very often - there wasn't a great strategic reason to use them. It would be neat if we had a new map with a new game mechanic that actively encouraged players to load up Condors with infantry robots and send them out into the map. This resulted in my longest prompt yet: Design a new map. Goal is to make different strategic incentives that encourage use of Infantry and Condors and aerial vehicles. To do this the map will have limited harvester resources but several more uplinks - but uplinks will be on islands that are inaccessible by land vehicles or infantry. These uplinks can also not be claimed using air vehicles. The ONLY way to get them is to fly infantry there in a Condor. Armies always start with a Condor and a single squad. If an army has no Condor a new one will be provided for free, flying in from the edge closest to their HQ and landing there. That free condor will come with a single free squad on board. The two HQs should be entirely separated by water, but still accessible by vehicles thanks to two bridges across the map in different places I want to encourage a battle over uplinks. The map should be the times the size of other maps - still square First research and then critique this design. Only build after we have agreed on any modifications You get to design a new biome for this The result was the tropical Archipelago map, with seven island uplinks that players can only capture by flying out infantry in a Condor. It's definitely the most fun map to play, once you've got the hang of the basic game mechanics from the simpler maps. The v9 edition made that map a little more interesting - it now looks like this: v10: Goliath, and agent battles I decided to add giant robot mechs to the game - think Jaegers from Pacific Rim, or Titans from Warhammer 40,000. Here are some of the prompts I used to brainstorm with Claude: Help me brainstorm ideas for adding giant robots to this game - think dreadnoughts or titans from W20K - how could we do this in a way that enhanced gameplay, kept things balanced, added unique twist? Don't overthink this yet Let's keep brainstorming. I like the idea that it's a mobile base - that can accept harvested scrap and can have buildings built near it (even if it later moves on) and can produce infantry units too. An interaction with condor would be neat but I don't know what that could be. Idea: as it gets damage it loses the ability to fire some weapons - by default it has eye laser (like lancers) and arm canons (like titan) and two shoulder mounted mortars, plus machine guns similar to a squad of troops Damage knocks out mortars and then laser - it always has guns. You can't build next to a building that was only put there because of the mech, you need the mech there for off-base building and only within three squares of it [...] Lets do two condors can carry the mech The end result is really cool. Your browser does not support HTML video. Goliaths can be constructed using a Gantry - a building that can only be created after first building a Fab, Bay, Airpad, and Tech Lab. You can see the Goliath under construction, and it then walks out from the Gantry and can march around the map. Goliaths can \"anchor\", which digs them into the ground. In their anchored state they can act as a new HQ, constructing infantry units and additional buildings in a new area. Two Condor aircraft can hook onto a Goliath, at which point it can be flown around the map! The game now ends when you destroy the enemy's HQ building and any Goliaths they might have built. There are also a couple of mutators relating to Goliaths: Goliath Armada starts each side with four airborne Goliaths (each with a pair of Condors) and no other units. Robot Love adds a special rule: if enemy Goliaths get close to each other on the battlefield they fall in love and the game ends in a draw. (Thank Natalie for that one). Agent battles The other v10 feature is agent battles. In musing about how multiplayer could work I had an idea: what if different LLMs could fight it out in the game? Fun extra challenge: think about how we might make multiplayer available to coding agents. It would be neat if we could set up a battle between eg GPT-6 Sol and Claude Opus 5.5 where each model has access to a tool which gives them information about the game (presumably non-visual, but only the information they could see through fog of war etc) and lets them control their units etc [...] Consult ~/dev/llm/docs and include notes in that file about how LLM could be used here via a new tools plugin Opus 5.5 went to work on this, producing this AGENT-BATTLES.md proposal and then implementing and testing it. The feature also includes the ability to record and replay these battles - here's a replay of Claude Haiku 5.5 vs. GPT-6 Luna, and here's that same battle in a separate debug tool that shows the underlying prompt responses. The prompt that drives agent battles can be seen here. There are a few more replays like this linked in the README. I hope to turn this into a full league table at some point in the future. v11: Random Maps This version exists purely because I glanced at my Claude Usage page one day and saw that I'd only used 75% of my weekly allowance and it was resetting in 45 minutes. I decided to see if I could get an extra Battle Drones feature from my remaining tokens, and picked \"random map\" as the target: Design and implement a mechanism for generating a random map using any of the available biomes - it should be the size of the largest map and rivers and bridges and rocks and forest and scrap and crystals are all in play. Make them rotationally symmetric and use a seed to allow them to be selected or reused later. You have 45 minutes to build this! Be creative. Here's the transcript, and an image Claude generated to show me its work: v12: Multiplayer via sound I only just got this working, so I've not had much time to actively test it yet. The latest Battle Drones now supports multiplayer via two devices sat within microphone distance of each other! This feature started out as my Chirp Pong experiment from last week. I pointed Claude Code at that working proof of concept: Clone Simonw/tools from GitHub and look at recent branches for the example pong game that uses web microphone to implement multiplayer between two phones via audio signals Build a version of that for battledrones Opus built this Radio Probe tool to measure how much bandwidth we could get between two devices and, based on positive results from that, implemented a full audio modem system. I've tried it between laptops, iPhones and iPads so far and it seems to work really well! Why use sound for this? Because I love static HTML that costs nothing to run, and I don't want to spin up a server somewhere and then stay responsible for keeping it operating for as long as anyone might want to play the game. Some thoughts I know almost nothing about game development. This makes it a great opportunity to try out coding agents in a field where my existing software engineering experience has less impact on the results. Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. This morning (via Hacker News) I found Steam Fans Are Begging for a No-AI Filter as Steam Next Fest Is Filled With Slop. I wouldn't personally dream of submitting Battle Drones to an event like this - it's still way too low effort to warrant consideration as a legitimate indie gaming project. ... but I can now see a path to vibe coded games like this being taken seriously. Battle Drones is fun, it looks good, it has innovative features (the multiplayer-over-audio thing is a first for an RTS as far as I can tell). I'd love to see what someone with better taste than me and a driving passion to produce something truly exceptional could build! A few other observations from this project: Static HTML and JavaScript is a fantastic medium for games development. WebGL works great, and Three.js (and Phaser before it) are excellent platforms to build on that the current models know inside out. This also lets them run as Progressive Web Apps - I didn't ask for it, but Battle Drones works offline. I was able to play it on a plane despite never having directly installed it - my phone had it cached. Giving Claude an OpenAI API key and telling it to generate images using OpenAI's models works really well. It can view the images it has generated and iterate on the prompts. Opus 5.5 is spectacular at 3D modeling using Three.js (and Blender, and no doubt other 3D applications as well). The same is true of GPT-6 Astra. They are absolutely capable of building models for 3D game projects. For features like replay and multiplayer it's useful to have a deterministic simulation engine. At one point Claude had to replace calls to Math.sin() and Math.cos() and friends with custom versions because different browsers (Chrome vs. Safari, for example) returned very slightly different numbers, desynchronizing the replay. Opus 5.5 can write music! There are no audio files in this project - the soundtrack is entirely generated through code, varies across different maps, and even gets more intense as the battle heats up. See Scrimshaw Jukebox for a previous experiment with Claude for music composition. I still can't get over how well the prompt \"Make it a LOT more fun\" worked. Tools are effectively free. I prompted up the Radio Probe, the Model browser, the Agent vs. Agent debug tool, and Claude Code built a bunch of tools for itself that I haven't even explored myself. Audio-based multiplayer between static HTML games works! I hope to see a whole lot more games use this same pattern - in digging around today I've not found much prior art beyond Siner by Alon Horesh and ggwave by Georgi Gerganov (also of llama.cpp fame). Claude Code \"Ultracode\" burns tokens like there's no tomorrow, but it can also solve complex problems (like adding audio-based multiplayer) from a single prompt. I'm still not quite over the guilt of building software in this way. I don't feel like I've earned the right to create something this good, in a field in which I have so little prior experience! At this point I've shown it to enough people in private that it felt wrong not to publish it for everyone else to see and learn from. Update: Online multiplayer support Earlier in this article I said: Games are also super low stakes. The worst that can happen is one of my silly game experiments suffers a bug. Then I tried playing the multiplayer version with Natalie... and the high pitched modem sounds gave her a nasty headache! That's a pretty bad bug. I added a warning and was then inspired to build proper network multiplayer. I tried getting WebRTC to work but couldn't get a connection going between two of my own devices even on my own WiFi network, so I had Claude build a simple, stateless WebSockets relay server instead: If I wanted to support multiplayer between two devices at a very low cost without storing any state on the server could I do that with a tiny asyncio web server running on the cheapest Fly instance? Build the server and the fly.toml for deploying it, use Fly application name battledrones-relay - put that in a folder in the repo, include deploy instructions in the README in that folder Here's the resulting server. Since this scales to zero and runs on a single Fly.io shared-cpu-1x instance it should cost me no more than $2.19/month - and that's if it stays hot and serving connections the whole time. Battle Drones now supports online multiplayer. Click \"Duel a friend online\", then either share the resulting room URL via your messaging app of choice or have them snap a picture of the displayed QR Code. I also added a feature where you can copy JSON of the match once it has ended and then feed that into the replay feature to rewatch your game. I didn't expect to introduce online multiplayer this soon, but the headache bug felt like it warranted an urgent alternative. Tags: game-design, projects, ai, generative-ai, llms, claude, vibe-coding, coding-agents, claude-code",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
+      "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
     },
     {
       "appsec": false,
@@ -2992,29 +3012,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "9b19a68a46764efd",
-      "kev": false,
-      "published": "2026-10-16T01:58:00Z",
-      "score": 21.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+0.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Research: sparqlite: SPARQL 1.1 inside SQLite, written in Rust This research task is really an experiment in running Claude Code for web in \"Ultracode\" mode, as described in Orchestrate subagents at scale with dynamic workflows in the Claude Code documentation. With Ultracode turned on, Claude Code makes aggressive use of dynamic workflows - it generates JavaScript that defines and coordinates a network of subagents to take on complex problems. My initial prompt was this - I meant \"hit the rows directly\", the word \"delete\" was an accidental typo on my phone: Write a SQLite extension in Rust that implants SPARQL and runs really fast because it can hit the delete rows directly This caused Claude Code for web to churn for over 12 hours. I checked in on its progress the next day and sent a single follow-up prompt when I noticed how many Rust crates it had built: Every folder in the crates/ directory needs a README Include a tutorial.md teaching users how to install the extension and how to run it in the SQLite CLI and then teaching them SPARQL in addition to how to use the SQLite extension Include a script with the tutorial for populating a SQLite database with useful and realistic example data for that tutorial This project feels like next-level vibe coding - it's not remotely feasible to review the code that was produced here, and even following the documentation is a significant investment in work. I'm not entirely sure what to do with this - I appear to have a full SPARQL implementation in Rust inside SQLite now, but how valuable is that if I created it on a whim and can't (or won't) invest the necessary time to understand what it can do? Tags: rdf, semantic-web, sqlite, ai, rust, generative-ai, llms, coding-agents, claude-code",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "sparqlite: SPARQL 1.1 inside SQLite, written in Rust",
-      "url": "https://simonwillison.net/2026/Oct/16/sqlite-sparql-rust/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "79fc62a0de2927ed",
       "kev": false,
       "published": "2026-10-13T22:28:54Z",
@@ -3033,6 +3030,29 @@
       ],
       "title": "llm-gemini 0.35",
       "url": "https://simonwillison.net/2026/Oct/13/llm-gemini/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "9b19a68a46764efd",
+      "kev": false,
+      "published": "2026-10-16T01:58:00Z",
+      "score": 21.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+0.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Research: sparqlite: SPARQL 1.1 inside SQLite, written in Rust This research task is really an experiment in running Claude Code for web in \"Ultracode\" mode, as described in Orchestrate subagents at scale with dynamic workflows in the Claude Code documentation. With Ultracode turned on, Claude Code makes aggressive use of dynamic workflows - it generates JavaScript that defines and coordinates a network of subagents to take on complex problems. My initial prompt was this - I meant \"hit the rows directly\", the word \"delete\" was an accidental typo on my phone: Write a SQLite extension in Rust that implants SPARQL and runs really fast because it can hit the delete rows directly This caused Claude Code for web to churn for over 12 hours. I checked in on its progress the next day and sent a single follow-up prompt when I noticed how many Rust crates it had built: Every folder in the crates/ directory needs a README Include a tutorial.md teaching users how to install the extension and how to run it in the SQLite CLI and then teaching them SPARQL in addition to how to use the SQLite extension Include a script with the tutorial for populating a SQLite database with useful and realistic example data for that tutorial This project feels like next-level vibe coding - it's not remotely feasible to review the code that was produced here, and even following the documentation is a significant investment in work. I'm not entirely sure what to do with this - I appear to have a full SPARQL implementation in Rust inside SQLite now, but how valuable is that if I created it on a whim and can't (or won't) invest the necessary time to understand what it can do? Tags: rdf, semantic-web, sqlite, ai, rust, generative-ai, llms, coding-agents, claude-code",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "sparqlite: SPARQL 1.1 inside SQLite, written in Rust",
+      "url": "https://simonwillison.net/2026/Oct/16/sqlite-sparql-rust/"
     },
     {
       "appsec": false,
@@ -3065,10 +3085,10 @@
       "id": "33329a02a00b9779",
       "kev": false,
       "published": "2026-11-13T08:00:00Z",
-      "score": 20.8,
+      "score": 20.6,
       "score_reasons": [
         "source:Project Zero (+15)",
-        "recency (+5.8)"
+        "recency (+5.6)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -3084,13 +3104,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7bfb660056bb441d",
+      "kev": false,
+      "published": "2026-11-22T19:45:06Z",
+      "score": 20.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+14.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Select Styling Specimens I got frustrated at how HTML <select> boxes default to looking different in different browsers, and are (I think) quite ugly in Chrome: So I had Claude Fable 5.2 build me this page showing all of the ways they can be styled: Build an HTML page that shows all of the ways a select box can be styled, I plan to take screenshots in every desktop and mobile browser After some experimentation I've decided my favorite CSS for select boxes is this: select { appearance: none; color: #1f2933; padding: 0.5em 2.25em 0.5em 0.75em; border: 1px solid #c4cbd3; border-radius: 6px; background: #fff url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23667085' stroke-width='1.5'/%3E%3C/svg%3E\") no-repeat right 0.75em center / 0.75em; } Here's what that looks like in the three browsers: Tags: tools, css, html",
+      "tags": [],
+      "title": "Select Styling Specimens",
+      "url": "https://simonwillison.net/2026/Nov/22/select-styling/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "64a38498625128f7",
       "kev": false,
       "published": "2026-11-20T01:21:54Z",
-      "score": 19.2,
+      "score": 18.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.2)"
+        "recency (+10.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3107,10 +3147,10 @@
       "id": "c57b91f992129bf4",
       "kev": false,
       "published": "2026-11-19T03:29:58Z",
-      "score": 18.3,
+      "score": 18.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+10.3)"
+        "recency (+10.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3127,10 +3167,10 @@
       "id": "2d7ba38a814edba0",
       "kev": false,
       "published": "2026-11-20T19:21:49Z",
-      "score": 18.1,
+      "score": 17.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.1)"
+        "recency (+11.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3147,10 +3187,10 @@
       "id": "7cdc8a97cf8f4d0e",
       "kev": false,
       "published": "2026-11-20T16:30:48Z",
-      "score": 18.0,
+      "score": 17.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.0)"
+        "recency (+11.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3189,10 +3229,10 @@
       "id": "3917e7f43fd22671",
       "kev": false,
       "published": "2026-11-18T04:22:08Z",
-      "score": 17.3,
+      "score": 17.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+9.3)"
+        "recency (+9.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3209,10 +3249,10 @@
       "id": "8651a385618086de",
       "kev": false,
       "published": "2026-11-20T02:49:57Z",
-      "score": 17.3,
+      "score": 17.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.3)"
+        "recency (+11.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3229,10 +3269,10 @@
       "id": "47e62fd1daf84c9e",
       "kev": false,
       "published": "2026-11-19T20:43:57Z",
-      "score": 17.0,
+      "score": 16.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.0)"
+        "recency (+10.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3249,10 +3289,10 @@
       "id": "5458c272bb841e36",
       "kev": false,
       "published": "2026-11-16T21:57:39Z",
-      "score": 16.2,
+      "score": 16.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.2)"
+        "recency (+8.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3269,10 +3309,10 @@
       "id": "4a7efa8a23b38434",
       "kev": false,
       "published": "2026-11-18T17:09:59Z",
-      "score": 15.8,
+      "score": 15.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+9.8)"
+        "recency (+9.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3314,10 +3354,10 @@
       "id": "c29c5645291af4ed",
       "kev": false,
       "published": "2026-11-15T19:22:09Z",
-      "score": 15.4,
+      "score": 15.2,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.4)"
+        "recency (+7.2)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4144,10 +4184,10 @@
       "id": "9e89bf4ca1192eb6",
       "kev": false,
       "published": "2026-11-17T06:16:26Z",
-      "score": 14.5,
+      "score": 14.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.5)"
+        "recency (+8.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4164,10 +4204,10 @@
       "id": "f6ff959916d44f87",
       "kev": false,
       "published": "2026-11-15T23:18:17Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.5)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4184,10 +4224,10 @@
       "id": "f8719c976cec8806",
       "kev": false,
       "published": "2026-11-15T23:58:36Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.5)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4204,10 +4244,10 @@
       "id": "ea0dffb11eb2bd56",
       "kev": false,
       "published": "2026-11-12T03:30:09Z",
-      "score": 13.1,
+      "score": 13.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.1)"
+        "recency (+5.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4268,10 +4308,10 @@
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 12.6,
+      "score": 12.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+4.6)"
+        "recency (+4.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4288,10 +4328,10 @@
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 12.1,
+      "score": 12.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.1)"
+        "recency (+6.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4308,10 +4348,10 @@
       "id": "8cc6965690b08360",
       "kev": false,
       "published": "2026-11-13T22:30:54Z",
-      "score": 12.1,
+      "score": 11.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.1)"
+        "recency (+5.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4328,10 +4368,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4348,10 +4388,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 11.7,
+      "score": 11.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4368,10 +4408,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 11.0,
+      "score": 10.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.0)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4388,10 +4428,10 @@
       "id": "553ce3dbd9a4d7a2",
       "kev": false,
       "published": "2026-11-11T15:11:59Z",
-      "score": 10.9,
+      "score": 10.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.9)"
+        "recency (+4.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4408,10 +4448,10 @@
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 10.6,
+      "score": 10.5,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.6)"
+        "recency (+2.5)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4428,10 +4468,10 @@
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 10.2,
+      "score": 10.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4448,10 +4488,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 10.2,
+      "score": 10.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.2)"
+        "recency (+4.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4485,26 +4525,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "d884a4ef2a50bf34",
-      "kev": false,
-      "published": "2026-11-02T02:08:33Z",
-      "score": 9.9,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.9)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "The FBI links the Binance hack to North Korea, game developers are being extorted with game-cloning threats, the Belarusian CyberPartisans hack Russia’s statistics service and Apple sends new mercenary spyware notifications. Show notes Risky Bulletin: Game devs are being extorted with AI game-cloning threats",
-      "tags": [],
-      "title": "FBI confirms North Korea behind Binance hack",
-      "url": "https://risky.biz/RBNEWS628/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "6a8095a99a564e62",
       "kev": false,
       "published": "2026-11-01T19:27:05Z",
@@ -4525,13 +4545,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "d884a4ef2a50bf34",
+      "kev": false,
+      "published": "2026-11-02T02:08:33Z",
+      "score": 9.8,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.8)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "The FBI links the Binance hack to North Korea, game developers are being extorted with game-cloning threats, the Belarusian CyberPartisans hack Russia’s statistics service and Apple sends new mercenary spyware notifications. Show notes Risky Bulletin: Game devs are being extorted with AI game-cloning threats",
+      "tags": [],
+      "title": "FBI confirms North Korea behind Binance hack",
+      "url": "https://risky.biz/RBNEWS628/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d82153ff784453e8",
       "kev": false,
       "published": "2026-11-08T22:26:00Z",
-      "score": 9.7,
+      "score": 9.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4568,10 +4608,10 @@
       "id": "6f0dd9219ff9dddf",
       "kev": false,
       "published": "2026-11-07T23:57:46Z",
-      "score": 9.4,
+      "score": 9.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.4)"
+        "recency (+3.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4588,10 +4628,10 @@
       "id": "0902acca81eb73d6",
       "kev": false,
       "published": "2026-11-07T19:34:24Z",
-      "score": 9.3,
+      "score": 9.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.3)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4608,10 +4648,10 @@
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 9.2,
+      "score": 9.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.2)"
+        "recency (+1.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4628,10 +4668,10 @@
       "id": "1078dcb9b7d86963",
       "kev": false,
       "published": "2026-11-06T17:13:12Z",
-      "score": 9.0,
+      "score": 8.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4659,26 +4699,6 @@
       "tags": [],
       "title": "Sponsored: Should your threat hunt become a detection?",
       "url": "https://risky.biz/RBNEWSSI148a/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "7cc2162c82dbd2cc",
-      "kev": false,
-      "published": "2026-11-05T17:34:03Z",
-      "score": 8.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "The web browser is very, very, very powerful software for applications, and the cost of accessing that power is going down seemingly every day. — Paul Ford, The Web Is More Than Enough Tags: browsers, paul-ford, web-development",
-      "tags": [],
-      "title": "Quoting Paul Ford",
-      "url": "https://simonwillison.net/2026/Nov/5/paul-ford/"
     },
     {
       "appsec": false,
@@ -4725,6 +4745,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7cc2162c82dbd2cc",
+      "kev": false,
+      "published": "2026-11-05T17:34:03Z",
+      "score": 8.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "The web browser is very, very, very powerful software for applications, and the cost of accessing that power is going down seemingly every day. — Paul Ford, The Web Is More Than Enough Tags: browsers, paul-ford, web-development",
+      "tags": [],
+      "title": "Quoting Paul Ford",
+      "url": "https://simonwillison.net/2026/Nov/5/paul-ford/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "06290998ddcf2013",
       "kev": false,
       "published": "2026-10-18T22:53:01Z",
@@ -4765,26 +4805,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "326fea695de21a87",
-      "kev": false,
-      "published": "2026-10-16T01:56:50Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Three DataSuckers hacking group suspects arrested in Russia, Al Jazeera employees targeted with Candiru spyware, the US disrupts 40 North Korean laptop farms, and an OpenAI employee was arrested for planting a spy device. Show notes Risky Bulletin: Russia arrests DataSuckers hacking group",
-      "tags": [],
-      "title": "Risky Bulletin: DataSuckers suspects arrested in Russia",
-      "url": "https://risky.biz/RBNEWS621/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "060564a98c5201c7",
       "kev": false,
       "published": "2026-10-14T02:42:24Z",
@@ -4805,29 +4825,9 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "1fe496fc8c1f9697",
+      "id": "326fea695de21a87",
       "kev": false,
-      "published": "2026-11-03T23:13:45Z",
-      "score": 8.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-agent 0.5a0 This is a significant release of Datasette Agent. The most notable new feature is called the panel - it lets the agent chat open and then sit next to pages from Datasette, for example a table or query page. When combined with datasette-apps this means you can prompt a database-backed app into existence and then modify it from the chat that sits next to that app. You can try it by signing in with your GitHub account to agent.datasette.io. Tags: projects, datasette-agent, datasette",
-      "tags": [],
-      "title": "datasette-agent 0.5a0",
-      "url": "https://simonwillison.net/2026/Nov/3/datasette-agent/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "39cf548322967bc7",
-      "kev": false,
-      "published": "2026-10-12T19:06:44Z",
+      "published": "2026-10-16T01:56:50Z",
       "score": 8.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
@@ -4835,30 +4835,10 @@
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
+      "summary": "Three DataSuckers hacking group suspects arrested in Russia, Al Jazeera employees targeted with Candiru spyware, the US disrupts 40 North Korean laptop farms, and an OpenAI employee was arrested for planting a spy device. Show notes Risky Bulletin: Russia arrests DataSuckers hacking group",
       "tags": [],
-      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
-      "url": "https://risky.biz/BTN185/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5928ed51062ddbc9",
-      "kev": false,
-      "published": "2026-11-04T00:29:36Z",
-      "score": 8.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
-      "tags": [],
-      "title": "datasette-apps 0.3a0",
-      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
+      "title": "Risky Bulletin: DataSuckers suspects arrested in Russia",
+      "url": "https://risky.biz/RBNEWS621/"
     },
     {
       "appsec": false,
@@ -4885,6 +4865,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "1fe496fc8c1f9697",
+      "kev": false,
+      "published": "2026-11-03T23:13:45Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-agent 0.5a0 This is a significant release of Datasette Agent. The most notable new feature is called the panel - it lets the agent chat open and then sit next to pages from Datasette, for example a table or query page. When combined with datasette-apps this means you can prompt a database-backed app into existence and then modify it from the chat that sits next to that app. You can try it by signing in with your GitHub account to agent.datasette.io. Tags: projects, datasette-agent, datasette",
+      "tags": [],
+      "title": "datasette-agent 0.5a0",
+      "url": "https://simonwillison.net/2026/Nov/3/datasette-agent/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "3954bde477b7b3c4",
       "kev": false,
       "published": "2026-10-11T19:18:00Z",
@@ -4905,6 +4905,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "39cf548322967bc7",
+      "kev": false,
+      "published": "2026-10-12T19:06:44Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.2)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq examine how ShinyHunters and the FBI both deceived themselves into believing they were immune to cyber threats. This episode is also available on YouTube. Show notes Krebs On Security FBI Director Kash Patel on ShinyHunters Brett Leatherman, the FBI Assistant Director for Cyber on ShinyHunters Hacker's Manifesto, 1986 FBI and Ubiquitous Technical Surveillance FBI padding the top 10 list arrest numbers",
+      "tags": [],
+      "title": "Between Two Nerds: The FBI and ShinyHunters are the same",
+      "url": "https://risky.biz/BTN185/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "4729de4c9cbe4dc5",
       "kev": false,
       "published": "2026-10-12T02:43:40Z",
@@ -4919,6 +4939,26 @@
       "tags": [],
       "title": "Risky Bulletin: ShinyHunters suspects arrested in US and Jordan",
       "url": "https://risky.biz/RBNEWS619/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5928ed51062ddbc9",
+      "kev": false,
+      "published": "2026-11-04T00:29:36Z",
+      "score": 8.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent. This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing #, which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app_create() now checks that each requested stored query exists and that the user can view it, and asks the user to approve any write queries before the app is created. The \"View app\" buttons shown by the agent tools, and the links on # app references, now open the app full screen in the Datasette Agent panel. Tags: datasette-agent, datasette-apps, datasette",
+      "tags": [],
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
     },
     {
       "appsec": false,
@@ -5515,26 +5555,6 @@
       "tags": [],
       "title": "Srsly Risky Biz: Open weight models make the Mythos debate moot",
       "url": "https://risky.biz/SRB172/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "4c1cfae1f7d73c23",
-      "kev": false,
-      "published": "2026-11-02T13:31:26Z",
-      "score": 8.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
-      "tags": [],
-      "title": "The U.S. Census Bureau and “Super Intelligence”",
-      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
     },
     {
       "appsec": false,
@@ -6396,6 +6416,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "4c1cfae1f7d73c23",
+      "kev": false,
+      "published": "2026-11-02T13:31:26Z",
+      "score": 7.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+1.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I was reminded today of AI Adoption Rate Trending Down for Large Companies, a chart produced by Apollo Global Management in September 2025, which appeared to show a slowdown in U.S. corporate AI adoption based on numbers collected by the U.S. Census Bureau. At the time I used that chart to demonstrate GPT-5 data analysis, and then to experiment with Claude's new Code Interpreter. I decided to try running those numbers again to see what had changed over the past year, and in doing so learned that the Bureau has fallen foul of Executive Order 14434, aka the asinine Super Intelligence one. First, the updated chart Every two weeks the U.S. Census Bureau runs a survey called the Business Trends and Outlook Survey (aka BTOS). Each time it goes to 200,000 businesses out of 1.2 million total - the surveyed group (a \"panel\") cycles such that an individual business only completes the survey every twelve weeks. The latest data is published on alternating Thursdays at 10am. I used the most recent numbers (published October 22, 2026) to create a new version (GPT-6 Astra Extra High transcript) of the AI adoption chart, updated to reflect both the last twelve months and a change that was made to the survey question sent out by the Bureau: Here's a link to the larger image. For comparison, here's that AI adoption chart from last year (my GPT-5 version): In September 2025 the largest (250+ employees) companies answered \"yes\" around 12% of the time to the question about whether they used AI in \"producing goods or services\". Under the new \"any business function\" wording, by February 2026, those same large companies answered \"yes\" around 30% of the time, and by October 2026 that had increased to around 40%. The data in the above chart comes from the \"Employment size class\" XLSX file, available from here. Here's a copy of the file I used. You can view the survey document that is sent out to businesses - here's my snapshot copy of that 346KB PDF. The changing language of the questions As the chart demonstrates, the question asked by the Bureau changed in a material way on November 17th, 2025. Prior to that date, the question they asked was this (emphasis mine): In the last two weeks, did this business use Artificial Intelligence (AI) in producing goods or services? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) On December 3rd, 2025, the Bureau announced a significant change to that question. Here's the replacement: In the last two weeks, did this business use Artificial Intelligence (AI) in any of its business functions? (Examples of AI: machine learning, natural language processing, virtual agents, voice recognition, etc.) No more \"producing goods or services\" - now it's \"in any of its business functions\"! This means that the answers to the question before and after November 17th are not directly comparable. From October 19, 2026, they ask about Super Intelligence When I went looking for the updated question language in the latest XLSX file, I couldn't find it. I found this instead: In the last two weeks, did this business use Super Intelligence or SI (formerly referred to as Artificial Intelligence or AI) in any of its business functions? (Examples of SI use include: SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service; SI-powered forecasting or pricing; SI-driven computer vision for quality control, etc.) The BTOS about page explains what happened: Beginning with the October 19, 2026 collection, instrument wording was updated due to Executive Order 14434. The current numbers reflect the old Artificial Intelligence survey wording - the first survey results reflecting the Super Intelligence wording are due for publication on Thursday. Is this going to affect the survey? The obvious open question here is whether this wording change is going to affect the survey results. The businesses answering this survey will have last seen that question twelve weeks ago, when it was still called AI. Hopefully the new language isn't going to confuse them, especially since the survey helpfully spells out \"formerly referred to as Artificial Intelligence or AI\". I can't help but laugh at the absurdity of \"SI-powered data analysis; generative SI for marketing, product design, or coding; virtual SI agents for customer service\" though. Tags: census, surveys, ai, generative-ai, llms",
+      "tags": [],
+      "title": "The U.S. Census Bureau and “Super Intelligence”",
+      "url": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
@@ -6439,10 +6479,10 @@
       "id": "c1ffef57cf4f0cf5",
       "kev": false,
       "published": "2026-10-29T17:00:26Z",
-      "score": 7.4,
+      "score": 7.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6556,26 +6596,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "f4091a70be2c3b0a",
-      "kev": false,
-      "published": "2026-10-23T21:35:13Z",
-      "score": 6.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "af381dd3420f5f37",
       "kev": false,
       "published": "2026-10-22T15:34:13Z",
@@ -6610,6 +6630,26 @@
       "tags": [],
       "title": "DE STAAT - FREEDOM (Official Music Video)",
       "url": "https://simonwillison.net/2026/Oct/22/de-staat-freedom/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f4091a70be2c3b0a",
+      "kev": false,
+      "published": "2026-10-23T21:35:13Z",
+      "score": 6.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
+      "tags": [],
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
     },
     {
       "appsec": false,
@@ -6792,20 +6832,20 @@
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
     }
   ],
-  "last_run": "2026-11-22T23:32:23Z",
+  "last_run": "2026-11-23T06:42:21Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
-    "actively_exploited_appsec": 1327,
-    "appsec_cves": 1828,
-    "kev_coverage_pct": 31.3,
+    "actively_exploited_appsec": 1329,
+    "appsec_cves": 1824,
+    "kev_coverage_pct": 31.4,
     "kev_tracked": 1790,
-    "kev_with_coverage": 561,
-    "newly_exploited": 9,
+    "kev_with_coverage": 562,
+    "newly_exploited": 11,
     "newly_exploited_days": 30,
-    "open_gaps": 1009,
-    "public_poc": 724,
+    "open_gaps": 1008,
+    "public_poc": 726,
     "total_cves": 2496,
-    "total_items": 304
+    "total_items": 306
   },
   "threats": [
     {
@@ -10810,37 +10850,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-jmqq-x5g9-9p2w",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-107282",
-      "cvss_score": 9.4,
-      "cwe": [
-        "CWE-319",
-        "CWE-441",
-        "CWE-522"
-      ],
-      "description": "AsyncHttpClient: Replay to a different host sends the original host request and credentials to the new host",
-      "ecosystems": [
-        "maven"
-      ],
-      "epss": 0.00189,
-      "ghsa_id": "GHSA-jmqq-x5g9-9p2w",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-08T16:30:47Z",
-      "product": "org.asynchttpclient:async-http-client",
-      "published": "2026-10-08T16:30:46Z",
-      "score": 23.5,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-6v25-8wq6-xq4j",
       "appsec": true,
       "brief": null,
@@ -11917,37 +11926,6 @@
       ]
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-rqf5-2wxv-rjf4",
-      "appsec": true,
-      "brief": null,
-      "coverage": "gap",
-      "cve_id": "CVE-2026-107231",
-      "cvss_score": 8.7,
-      "cwe": [
-        "CWE-319",
-        "CWE-522",
-        "CWE-757"
-      ],
-      "description": "AsyncHttpClient: Digest challenge without a usable nonce downgrades to Basic and sends the password in cleartext",
-      "ecosystems": [
-        "maven"
-      ],
-      "epss": 0.00237,
-      "ghsa_id": "GHSA-rqf5-2wxv-rjf4",
-      "has_poc": false,
-      "is_candidate": false,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-10-08T16:23:37Z",
-      "product": "org.asynchttpclient:async-http-client",
-      "published": "2026-10-08T16:23:36Z",
-      "score": 22.8,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": []
-    },
-    {
       "advisory_url": "https://github.com/advisories/GHSA-x277-3wcg-g9r2",
       "appsec": true,
       "brief": "briefs/CVE-2026-69155.md",
@@ -12314,6 +12292,68 @@
       "sources": [],
       "vendor": null,
       "vuln_classes": []
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-j97h-3f8r-mrjr",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-11800.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-11800",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-347"
+      ],
+      "description": "Keycloak has authentication bypass via jwt algorithm confusion",
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.00263,
+      "ghsa_id": "GHSA-j97h-3f8r-mrjr",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-03T17:24:30Z",
+      "product": "org.keycloak:keycloak-services",
+      "published": "2026-11-03T17:24:27Z",
+      "score": 22.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "auth-bypass"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-rr8v-fxxf-c986",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-75598.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-75598",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-22"
+      ],
+      "description": "Gradle Shadow: Zip Slip path traversal in ShadowCopyAction — no independent entry-name sanitization",
+      "ecosystems": [
+        "maven"
+      ],
+      "epss": 0.00254,
+      "ghsa_id": "GHSA-rr8v-fxxf-c986",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-09T21:48:15Z",
+      "product": "com.gradleup.shadow:com.gradleup.shadow.gradle.plugin",
+      "published": "2026-11-09T21:48:13Z",
+      "score": 22.2,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "path-traversal"
+      ]
     },
     {
       "advisory_url": "https://github.com/advisories/GHSA-cpvr-w4j5-2mpg",
