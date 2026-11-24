@@ -5204,6 +5204,39 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-111560.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "EPSS 64% >= 30%",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-111560",
+      "cvss_score": 7.2,
+      "cwe": [
+        "CWE-78"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.63769,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2026-11-10",
+      "modified": "2026-11-10",
+      "nuclei_template": null,
+      "product": "email_security_gateway_300_firmware",
+      "published": "2026-11-10",
+      "score": 90.3,
+      "vendor": "barracuda",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2020-8260.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -10301,41 +10334,6 @@
       "score": 79.7,
       "vendor": "fortinet",
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2025-68461.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2025-68461",
-      "cvss_score": 7.2,
-      "cwe": [
-        "CWE-79"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.28311,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-02-20",
-      "modified": "2026-02-20",
-      "nuclei_template": null,
-      "product": "webmail",
-      "published": "2026-02-20",
-      "score": 79.7,
-      "vendor": "roundcube",
-      "vuln_classes": [
-        "xss"
-      ]
     },
     {
       "appsec": true,
@@ -34036,18 +34034,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-23T23:44:17Z",
+  "generated": "2026-11-24T09:11:01Z",
   "stats": {
-    "actively_exploited_appsec": 1329,
-    "appsec_cves": 1829,
+    "actively_exploited_appsec": 1330,
+    "appsec_cves": 1828,
     "kev_coverage_pct": 32.0,
     "kev_tracked": 1792,
-    "kev_with_coverage": 573,
-    "newly_exploited": 11,
+    "kev_with_coverage": 574,
+    "newly_exploited": 12,
     "newly_exploited_days": 30,
     "open_gaps": 999,
-    "public_poc": 726,
+    "public_poc": 727,
     "total_cves": 2506,
-    "total_items": 310
+    "total_items": 313
   }
 }
