@@ -1,6 +1,6 @@
 {
   "first_run": "2026-10-28T20:57:11Z",
-  "generated": "2026-11-25T21:29:40Z",
+  "generated": "2026-11-26T07:38:55Z",
   "items": [
     {
       "appsec": true,
@@ -46,12 +46,12 @@
       "id": "ff2d940875c195df",
       "kev": false,
       "published": "2026-11-18T14:39:45Z",
-      "score": 51.3,
+      "score": 51.0,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.3)"
+        "recency (+7.0)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -73,12 +73,12 @@
       "id": "22341d7112ba24f8",
       "kev": false,
       "published": "2026-11-23T19:06:21Z",
-      "score": 49.2,
+      "score": 48.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:rails (+15)",
         "AppSec-relevant (+14)",
-        "recency (+12.2)"
+        "recency (+11.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -99,12 +99,12 @@
       "id": "7af17e6f83a6247a",
       "kev": false,
       "published": "2026-11-24T16:53:59Z",
-      "score": 48.3,
+      "score": 47.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:spring (+15)",
         "AppSec-relevant (+14)",
-        "recency (+13.3)"
+        "recency (+12.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -125,12 +125,12 @@
       "id": "d87abc9440c368a1",
       "kev": false,
       "published": "2026-11-11T14:26:01Z",
-      "score": 47.6,
+      "score": 47.5,
       "score_reasons": [
         "source:PortSwigger Research (+15)",
         "watchlist:xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.6)"
+        "recency (+3.5)"
       ],
       "source": "PortSwigger Research",
       "source_type": "research",
@@ -152,12 +152,12 @@
       "id": "2c8a1075fab122ac",
       "kev": false,
       "published": "2026-11-19T15:30:00Z",
-      "score": 45.1,
+      "score": 44.7,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,confluence (+15)",
         "AppSec-relevant (+14)",
-        "recency (+8.1)"
+        "recency (+7.7)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -313,12 +313,12 @@
       "id": "14c044926ad9a31d",
       "kev": false,
       "published": "2026-11-16T00:04:19Z",
-      "score": 42.6,
+      "score": 42.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:supply chain (+15)",
         "AppSec-relevant (+14)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -339,12 +339,12 @@
       "id": "5d0aeb18d920237c",
       "kev": false,
       "published": "2026-11-18T14:44:48Z",
-      "score": 42.3,
+      "score": 42.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:pypi,python (+15)",
         "AppSec-relevant (+14)",
-        "recency (+7.3)"
+        "recency (+7.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -356,60 +356,6 @@
       ],
       "title": "The PSF end-of-year fundraiser",
       "url": "https://simonwillison.net/2026/Nov/18/psf-end-of-year-fundraiser/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "5fa42ecadbea615e",
-      "kev": false,
-      "published": "2026-11-17T22:52:29Z",
-      "score": 41.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:node.js,python,prompt injection (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+6.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take damaging actions on a machine. I worked on this project with Prime Radiant, the AI research lab behind Superpowers and other projects. My post on the Prime Radiant blog introduces the external sandbox pattern, where code executed by the agent runs inside a dedicated sandbox while the agent itself lives outside of that sandbox. To demonstrate this pattern we've released three sandbox server implementations: external-sandbox-v86 runs a Node.js server which then uses v86 to run Alpine Linux inside WebAssembly. external-sandbox-container is a Python web server which runs the sandbox in Alpine Linux inside an Apple Containers instance. external-sandbox-quicksand is another Python web server, this time using Microsoft's Quicksand sandboxing library, which bundles QEMU and Alpine Linux in a Python package! Each of these implementations offers the same localhost API. You can then configure Pi, Claude Code, or Codex to send API calls to that sandbox any time they want to execute code. The sandboxes also include an optional HTTP/HTTPS allow-list proxy, so you can control exactly which hosts your agent's code is allowed to communicate with - plus a credential replacement mechanism to make authenticated API calls without sharing a secret with the agent. Here's the UI you can use to reconfigure that proxy while the sandbox is still running: I continue to be fascinated by the challenge of safely running untrusted code. This external sandbox pattern provides a neat way to experiment with different approaches. Tags: sandboxing, security, ai, webassembly, generative-ai, llms, coding-agents, claude-code, codex, pi",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "AI-sec",
-        "npm",
-        "pypi"
-      ],
-      "title": "External sandboxes for coding agents",
-      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "41af2268db8dcd8f",
-      "kev": false,
-      "published": "2026-11-17T16:48:33Z",
-      "score": 41.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:pypi,python,javascript (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+6.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide. I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the real server-side application. You can now do all of the following, using a carefully crafted URL to lite.datasette.io: Load client-side Datasette to browse any SQLite database, JSON file, CSV file or SQL script Select a released version of Datasette to load from PyPI Load a specific commit, tag, or branch name from the Datasette GitHub repository Pick from over 100 versions of SQLite to use with Datasette Install additional Datasette plugins from PyPI or URLs to wheel files, including JavaScript visualization tools The ability to load specific Datasette references, plugins, and SQLite versions makes this a fantastic tool for linking to demos of work-in-progress features or bug reproductions, without needing to spin up a full web server to serve that demo. As an example, consider the following URL: https://lite.datasette.io/?install=datasette-maplibre&url=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/demo.db&metadata=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/metadata.yml#/demo/capitals_and_countries%23map=0/4.2/180&color=continent Follow that link and, after a short loading screen, you'll find yourself on a page that looks like this: That's Datasette running the new datasette-maplibre plugin, loading up a database of GeoJSON shapes of countries and displaying both a combined map and individual boundary maps in a table. Let's break down that URL to see what it's doing: https://lite.datasette.io/ ?install=datasette-maplibre &url=https://.../demo.db &metadata=https://.../metadata.yml #/demo/capitals_and_countries%23map=0/4.2/180&color=continent The ?install=datasette-maplibre installs that additional plugin from PyPI. You can pass &install=... as many times as you like to load more plugins. &url=https://.../demo.db loads that SQLite database from the provided URL. These URLs need to have open CORS headers - I host files like this in Gists, because they provide an easy way to get open CORS headers on a web-hosted file. &metadata=https://.../metadata.yml loads this metadata.yml file. The metadata file adds HTML descriptions to various tables, and to the Datasette homepage. Visit that homepage here for a guided tour of the other features of that plugin, all defined in the metadata file. #/demo/capitals_and_countries%23map=0/4.2/180&color=continent is a fragment hash that turns into a location within Datasette - here it's loading the /demo/capitals_and_countries SQL view, then appending another fragment hash to it (%23 is a URL-encoded #) which tells the map plugin to zoom to a certain location and to set the color of the shapes on the map based on the continent column in the data. That URL is doing a lot of work! I wrote more about this trick for building URL-addressable software in URL-addressable Pyodide Python environments last year. The full set of supported URL arguments is described in the Datasette Lite README. I've already started using Datasette Lite as part of the Datasette development process. Here's a recent issue describing a pagination bug - I posted a comment there demonstrating the old, broken behavior and the new fix using links to Datasette Lite: Demo of the bug: https://lite.datasette.io/?ref=1.0a42&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score - click next and the second page is empty. Here's that same page with the bug fixed (running on 1.0a43): https://lite.datasette.io/?ref=1.0a43&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score How this works, using service workers Datasette Lite is not a new project. I launched the first version back in 2022, originally as a bit of a joke (running server-side apps in the browser is pretty funny) but one that quickly started proving its value. The problem with that initial version is that it was a hack. It worked by running Datasette in a Pyodide web worker, simulating requests through that stack, then injecting the resulting HTML back into the top level page using innerHTML. This worked for basic Datasette, but meant that any feature that used JavaScript failed to work, because script tags in innerHTML don't execute, and the web worker tricks it used failed to load additional JavaScript or CSS files. The new version takes a completely different approach based on Service Workers. These allow JavaScript to intercept HTTP requests for new pages and resources and serve them from client-side code instead. Datasette Lite registers a service worker for the entire lite.datasette.io domain. The parent page then creates an iframe that sends requests for Datasette pages to URLs that look like this: /app/aa94e6851595/ # the homepage (HTML) /app/aa94e6851595/data/places # a table page (HTML) /app/aa94e6851595/-/static/navigation-search.js # (JavaScript) /app/aa94e6851595/-/static/app.css # (CSS) Those are regular Datasette URLs, but with a /app/aa94e6851595/ prefix. What's that about? The /app/<session>/ prefix is necessary because of multiple tabs. Consider the URL above, which loads the demo instance with the datasette-maplibre plugin. That URL defines a full, custom Datasette instance. You might have that one running in a tab, then one of my other demo links running in another. The service worker for lite.datasette.io is shared between all of those tabs. If it routed to a single instance of Datasette then every tab would share that underlying instance, no matter what plugins or other settings their URL attempted to configure. Instead, the parent page generates a random session ID and uses it as a prefix for all of the subsequent hidden asset and page loads. The service worker can then use that session ID to route those requests back through the parent page to a web worker running a dedicated Datasette instance for that particular session. (We still need a web worker because Pyodide in a service worker would not be able to maintain state beyond around 30 seconds, depending on the browser. There are a lot of moving parts here!) I had Claude Fable 5.2 generate several SVG diagrams to help explain this. Here's my favorite of those, now embedded in the Datasette Lite README: This system started life back in May as an AI research spike generated using Claude Opus 4.8. It wasn't until November (and Claude Fable 5.2) that I felt familiar enough with how it all works to confidently ship it to production! Bonus feature: pick your version of SQLite I added this feature last night as an off-shoot of investigating a potential bug in SQLite. Datasette is meant to work against any released version of SQLite since 3.25 (released in September 2018). There have been 87 further releases since then. Being able to fire up Datasette against a specific version of SQLite is really useful for demonstrating new SQLite features and debugging weird issues. In the past I've used various tricks to get different SQLite versions running with Python on my Mac, but it's not a trivial process. WebAssembly is perfect for this. I can load up a custom SQLite build entirely in my browser, test it there, then discard it when I close my tab. datasette/pysqlite3-wasm-wheels is my new repository which contains WebAssembly compiled Python wheels for pysqlite3 for 163 different SQLite versions. Each version gets a file with a name like this: pysqlite3-0.6.2-3.54.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl That's for SQLite 3.54.1, the most recent version. Datasette Lite now takes a special ?sqlite= URL parameter, which will accept a version number like 3.54.1, resolve the path to the corresponding wheel file, then fetch that wheel and install it into the Pyodide environment and configure Datasette to use it. Once I'd built the wheels, I decided to have Claude Fable 5.2 build me https://datasette.github.io/pysqlite3-wasm-wheels/?versions=3.54.1,3.54.0&sql=select+json_object(%27a%27%2C+(select+json_array(1%29%29%29)\">this bonus tool for comparing a SQL query across any selected versions of SQLite. Here's an example showing how select json_object('a', (select json_array(1))) differs between SQLite 3.54.0 and 3.54.1: This should work for every other Python app, too Nothing about how Datasette Lite works is unique to Datasette. Almost any Python application should be able to pull the same trick - running entirely in the browser using WebAssembly and Pyodide, as a cheap way to provide preview environments, demonstrate features, and recreate bugs. C and Rust extensions used to be a blocker for this kind of thing, but any good coding agent can compile those to Pyodide-compatible WebAssembly now. You can even publish them to PyPI as of PEP 783 in April 2026. One catch is databases. SQLite is no problem at all, but running PostgreSQL or MySQL in WebAssembly, while possible, is still a path less trodden. I'd love to see WebAssembly preview environments like these become a common pattern across the Python ecosystem. Tags: javascript, projects, python, urls, datasette, webassembly, service-workers, pyodide, datasette-lite",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "pypi"
-      ],
-      "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
-      "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/"
     },
     {
       "appsec": true,
@@ -475,6 +421,34 @@
     },
     {
       "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "5fa42ecadbea615e",
+      "kev": false,
+      "published": "2026-11-17T22:52:29Z",
+      "score": 41.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:node.js,python,prompt injection (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+6.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "External sandboxes for coding agents I've been exploring new ways to sandbox code that is executed by agents, with a focus on making it safer to try out local models without worrying that a mistake or prompt injection attack might cause them to take damaging actions on a machine. I worked on this project with Prime Radiant, the AI research lab behind Superpowers and other projects. My post on the Prime Radiant blog introduces the external sandbox pattern, where code executed by the agent runs inside a dedicated sandbox while the agent itself lives outside of that sandbox. To demonstrate this pattern we've released three sandbox server implementations: external-sandbox-v86 runs a Node.js server which then uses v86 to run Alpine Linux inside WebAssembly. external-sandbox-container is a Python web server which runs the sandbox in Alpine Linux inside an Apple Containers instance. external-sandbox-quicksand is another Python web server, this time using Microsoft's Quicksand sandboxing library, which bundles QEMU and Alpine Linux in a Python package! Each of these implementations offers the same localhost API. You can then configure Pi, Claude Code, or Codex to send API calls to that sandbox any time they want to execute code. The sandboxes also include an optional HTTP/HTTPS allow-list proxy, so you can control exactly which hosts your agent's code is allowed to communicate with - plus a credential replacement mechanism to make authenticated API calls without sharing a secret with the agent. Here's the UI you can use to reconfigure that proxy while the sandbox is still running: I continue to be fascinated by the challenge of safely running untrusted code. This external sandbox pattern provides a neat way to experiment with different approaches. Tags: sandboxing, security, ai, webassembly, generative-ai, llms, coding-agents, claude-code, codex, pi",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "AI-sec",
+        "npm",
+        "pypi"
+      ],
+      "title": "External sandboxes for coding agents",
+      "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+    },
+    {
+      "appsec": true,
       "cves": [
         "CVE-2026-92261"
       ],
@@ -508,26 +482,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "cb4668166d1b9ed1",
+      "id": "41af2268db8dcd8f",
       "kev": false,
-      "published": "2026-11-13T03:03:12Z",
-      "score": 41.2,
+      "published": "2026-11-17T16:48:33Z",
+      "score": 41.4,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:remote code execution (+15)",
+        "source:Simon Willison (+6)",
+        "watchlist:pypi,python,javascript (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.2)"
+        "recency (+6.4)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "A Chinese APT exploits the SS7 and Diameter protocols, a remote code execution bug hits Apache, Brazil’s largest port suffers a cyberattack, and Europol takes down three malware operations. Show notes Risky Bulletin: Chinese APT uses SS7, Diameter attacks to spy on targets",
+      "summary": "Datasette Lite is my port of the Datasette Python application to run directly in the browser using WebAssembly and Pyodide. I've released a complete rewrite of Datasette Lite using service workers, and it's now almost indistinguishable from the real server-side application. You can now do all of the following, using a carefully crafted URL to lite.datasette.io: Load client-side Datasette to browse any SQLite database, JSON file, CSV file or SQL script Select a released version of Datasette to load from PyPI Load a specific commit, tag, or branch name from the Datasette GitHub repository Pick from over 100 versions of SQLite to use with Datasette Install additional Datasette plugins from PyPI or URLs to wheel files, including JavaScript visualization tools The ability to load specific Datasette references, plugins, and SQLite versions makes this a fantastic tool for linking to demos of work-in-progress features or bug reproductions, without needing to spin up a full web server to serve that demo. As an example, consider the following URL: https://lite.datasette.io/?install=datasette-maplibre&url=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/demo.db&metadata=https://gist.githubusercontent.com/simonw/39fa5d399465766039549912e2b3d291/raw/f6dfba99a75cbb8b5d9386223220eb52272767ee/metadata.yml#/demo/capitals_and_countries%23map=0/4.2/180&color=continent Follow that link and, after a short loading screen, you'll find yourself on a page that looks like this: That's Datasette running the new datasette-maplibre plugin, loading up a database of GeoJSON shapes of countries and displaying both a combined map and individual boundary maps in a table. Let's break down that URL to see what it's doing: https://lite.datasette.io/ ?install=datasette-maplibre &url=https://.../demo.db &metadata=https://.../metadata.yml #/demo/capitals_and_countries%23map=0/4.2/180&color=continent The ?install=datasette-maplibre installs that additional plugin from PyPI. You can pass &install=... as many times as you like to load more plugins. &url=https://.../demo.db loads that SQLite database from the provided URL. These URLs need to have open CORS headers - I host files like this in Gists, because they provide an easy way to get open CORS headers on a web-hosted file. &metadata=https://.../metadata.yml loads this metadata.yml file. The metadata file adds HTML descriptions to various tables, and to the Datasette homepage. Visit that homepage here for a guided tour of the other features of that plugin, all defined in the metadata file. #/demo/capitals_and_countries%23map=0/4.2/180&color=continent is a fragment hash that turns into a location within Datasette - here it's loading the /demo/capitals_and_countries SQL view, then appending another fragment hash to it (%23 is a URL-encoded #) which tells the map plugin to zoom to a certain location and to set the color of the shapes on the map based on the continent column in the data. That URL is doing a lot of work! I wrote more about this trick for building URL-addressable software in URL-addressable Pyodide Python environments last year. The full set of supported URL arguments is described in the Datasette Lite README. I've already started using Datasette Lite as part of the Datasette development process. Here's a recent issue describing a pagination bug - I posted a comment there demonstrating the old, broken behavior and the new fix using links to Datasette Lite: Demo of the bug: https://lite.datasette.io/?ref=1.0a42&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score - click next and the second page is empty. Here's that same page with the bug fixed (running on 1.0a43): https://lite.datasette.io/?ref=1.0a43&sql=https://gist.github.com/simonw/75ececf61d50e6e8d50f0c150150ee81#/data/scores?_size=2&_sort=score How this works, using service workers Datasette Lite is not a new project. I launched the first version back in 2022, originally as a bit of a joke (running server-side apps in the browser is pretty funny) but one that quickly started proving its value. The problem with that initial version is that it was a hack. It worked by running Datasette in a Pyodide web worker, simulating requests through that stack, then injecting the resulting HTML back into the top level page using innerHTML. This worked for basic Datasette, but meant that any feature that used JavaScript failed to work, because script tags in innerHTML don't execute, and the web worker tricks it used failed to load additional JavaScript or CSS files. The new version takes a completely different approach based on Service Workers. These allow JavaScript to intercept HTTP requests for new pages and resources and serve them from client-side code instead. Datasette Lite registers a service worker for the entire lite.datasette.io domain. The parent page then creates an iframe that sends requests for Datasette pages to URLs that look like this: /app/aa94e6851595/ # the homepage (HTML) /app/aa94e6851595/data/places # a table page (HTML) /app/aa94e6851595/-/static/navigation-search.js # (JavaScript) /app/aa94e6851595/-/static/app.css # (CSS) Those are regular Datasette URLs, but with a /app/aa94e6851595/ prefix. What's that about? The /app/<session>/ prefix is necessary because of multiple tabs. Consider the URL above, which loads the demo instance with the datasette-maplibre plugin. That URL defines a full, custom Datasette instance. You might have that one running in a tab, then one of my other demo links running in another. The service worker for lite.datasette.io is shared between all of those tabs. If it routed to a single instance of Datasette then every tab would share that underlying instance, no matter what plugins or other settings their URL attempted to configure. Instead, the parent page generates a random session ID and uses it as a prefix for all of the subsequent hidden asset and page loads. The service worker can then use that session ID to route those requests back through the parent page to a web worker running a dedicated Datasette instance for that particular session. (We still need a web worker because Pyodide in a service worker would not be able to maintain state beyond around 30 seconds, depending on the browser. There are a lot of moving parts here!) I had Claude Fable 5.2 generate several SVG diagrams to help explain this. Here's my favorite of those, now embedded in the Datasette Lite README: This system started life back in May as an AI research spike generated using Claude Opus 4.8. It wasn't until November (and Claude Fable 5.2) that I felt familiar enough with how it all works to confidently ship it to production! Bonus feature: pick your version of SQLite I added this feature last night as an off-shoot of investigating a potential bug in SQLite. Datasette is meant to work against any released version of SQLite since 3.25 (released in September 2018). There have been 87 further releases since then. Being able to fire up Datasette against a specific version of SQLite is really useful for demonstrating new SQLite features and debugging weird issues. In the past I've used various tricks to get different SQLite versions running with Python on my Mac, but it's not a trivial process. WebAssembly is perfect for this. I can load up a custom SQLite build entirely in my browser, test it there, then discard it when I close my tab. datasette/pysqlite3-wasm-wheels is my new repository which contains WebAssembly compiled Python wheels for pysqlite3 for 163 different SQLite versions. Each version gets a file with a name like this: pysqlite3-0.6.2-3.54.1-cp314-cp314-pyemscripten_2026_0_wasm32.whl That's for SQLite 3.54.1, the most recent version. Datasette Lite now takes a special ?sqlite= URL parameter, which will accept a version number like 3.54.1, resolve the path to the corresponding wheel file, then fetch that wheel and install it into the Pyodide environment and configure Datasette to use it. Once I'd built the wheels, I decided to have Claude Fable 5.2 build me https://datasette.github.io/pysqlite3-wasm-wheels/?versions=3.54.1,3.54.0&sql=select+json_object(%27a%27%2C+(select+json_array(1%29%29%29)\">this bonus tool for comparing a SQL query across any selected versions of SQLite. Here's an example showing how select json_object('a', (select json_array(1))) differs between SQLite 3.54.0 and 3.54.1: This should work for every other Python app, too Nothing about how Datasette Lite works is unique to Datasette. Almost any Python application should be able to pull the same trick - running entirely in the browser using WebAssembly and Pyodide, as a cheap way to provide preview environments, demonstrate features, and recreate bugs. C and Rust extensions used to be a blocker for this kind of thing, but any good coding agent can compile those to Pyodide-compatible WebAssembly now. You can even publish them to PyPI as of PEP 783 in April 2026. One catch is databases. SQLite is no problem at all, but running PostgreSQL or MySQL in WebAssembly, while possible, is still a path less trodden. I'd love to see WebAssembly preview environments like these become a common pattern across the Python ecosystem. Tags: javascript, projects, python, urls, datasette, webassembly, service-workers, pyodide, datasette-lite",
       "tags": [
         "appsec",
         "watchlist",
-        "rce"
+        "pypi"
       ],
-      "title": "Risky Bulletin: Chinese APT exploits SS7, Diameter to spy on targets",
-      "url": "https://risky.biz/RBNEWS633/"
+      "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
+      "url": "https://simonwillison.net/2026/Nov/17/datasette-lite/"
     },
     {
       "appsec": true,
@@ -621,6 +595,32 @@
     },
     {
       "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "cb4668166d1b9ed1",
+      "kev": false,
+      "published": "2026-11-13T03:03:12Z",
+      "score": 41.1,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:remote code execution (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+4.1)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A Chinese APT exploits the SS7 and Diameter protocols, a remote code execution bug hits Apache, Brazil’s largest port suffers a cyberattack, and Europol takes down three malware operations. Show notes Risky Bulletin: Chinese APT uses SS7, Diameter attacks to spy on targets",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "rce"
+      ],
+      "title": "Risky Bulletin: Chinese APT exploits SS7, Diameter to spy on targets",
+      "url": "https://risky.biz/RBNEWS633/"
+    },
+    {
+      "appsec": true,
       "cves": [
         "CVE-2026-65993"
       ],
@@ -657,12 +657,12 @@
       "id": "f83fd374eb9e235d",
       "kev": false,
       "published": "2026-11-12T15:30:00Z",
-      "score": 41.0,
+      "score": 40.9,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,python,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+4.0)"
+        "recency (+3.9)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -685,12 +685,12 @@
       "id": "f7edd20af5e47e91",
       "kev": false,
       "published": "2026-11-09T18:36:54Z",
-      "score": 40.0,
+      "score": 39.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:php (+15)",
         "AppSec-relevant (+14)",
-        "recency (+3.0)"
+        "recency (+2.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -711,12 +711,12 @@
       "id": "9944ce46586e30e8",
       "kev": false,
       "published": "2026-11-06T03:32:33Z",
-      "score": 39.1,
+      "score": 39.0,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
         "watchlist:authentication bypass,openssh (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.1)"
+        "recency (+2.0)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -737,12 +737,12 @@
       "id": "4519138a0235fdcb",
       "kev": false,
       "published": "2026-11-05T15:30:00Z",
-      "score": 39.0,
+      "score": 38.9,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:supply chain,remote code execution,rce (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.0)"
+        "recency (+1.9)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -788,32 +788,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6512aa1df788d204",
-      "kev": false,
-      "published": "2026-10-29T02:30:02Z",
-      "score": 38.0,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+1.0)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Tom Uren and Amberleigh Jack talk about new research that shows that Chinese open-weight AI models can be reeducated to remove pro-CCP bias. Good news for American businesses that want cheap AI, but we suspect that many knives will still be out for Chinese open-weight models. They also discuss the near-misses from the PHP and Brotli bugs. We collectively dodged the bullet so that we only got grazed, but the good luck won’t last forever. Finally, Tom looked at CISA’s 2030 strategy. Amazingly, it doesn’t really mention AI at all. Bizarre! This episode is also available on YouTube. Show notes",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php"
-      ],
-      "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
-      "url": "https://risky.biz/SRB188/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "c0d26d9fed6f72f3",
       "kev": false,
       "published": "2026-10-29T14:30:00Z",
@@ -846,15 +820,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "6512aa1df788d204",
+      "kev": false,
+      "published": "2026-10-29T02:30:02Z",
+      "score": 37.9,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+0.9)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about new research that shows that Chinese open-weight AI models can be reeducated to remove pro-CCP bias. Good news for American businesses that want cheap AI, but we suspect that many knives will still be out for Chinese open-weight models. They also discuss the near-misses from the PHP and Brotli bugs. We collectively dodged the bullet so that we only got grazed, but the good luck won’t last forever. Finally, Tom looked at CISA’s 2030 strategy. Amazingly, it doesn’t really mention AI at all. Bizarre! This episode is also available on YouTube. Show notes",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php"
+      ],
+      "title": "Srsly Risky Biz: Chinese AI can learn to love the West",
+      "url": "https://risky.biz/SRB188/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "01ab834e1aeb3372",
       "kev": false,
       "published": "2026-11-09T04:25:05Z",
-      "score": 37.9,
+      "score": 37.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:composer,llm (+15)",
         "AppSec-relevant (+14)",
-        "recency (+2.9)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -867,32 +867,6 @@
       ],
       "title": "Hide your slop PR descriptions behind",
       "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
-    },
-    {
-      "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "439ed1900392816c",
-      "kev": false,
-      "published": "2026-10-26T19:51:21Z",
-      "score": 37.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:php (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about security culture. The PHP foundation seems to have had a change of heart about security, but what are the chances that OpenAI or other frontier AI labs will start to take it seriously? This episode is also available on YouTube. Show notes Today's PHP Security Release, and How We're Strengthening PHP Security Stefan Esser's month of PHP bugs Andon cord",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "php"
-      ],
-      "title": "Between Two Nerds: Why frontier lab security will always suck",
-      "url": "https://risky.biz/BTN187/"
     },
     {
       "appsec": true,
@@ -920,6 +894,32 @@
       ],
       "title": "Risky Bulletin: Brotli RCE is wrecking what's left of the internet",
       "url": "https://risky.biz/RBNEWS625/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "439ed1900392816c",
+      "kev": false,
+      "published": "2026-10-26T19:51:21Z",
+      "score": 37.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:php (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+0.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this edition of Between Two Nerds Tom Uren and The Grugq talk about security culture. The PHP foundation seems to have had a change of heart about security, but what are the chances that OpenAI or other frontier AI labs will start to take it seriously? This episode is also available on YouTube. Show notes Today's PHP Security Release, and How We're Strengthening PHP Security Stefan Esser's month of PHP bugs Andon cord",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "php"
+      ],
+      "title": "Between Two Nerds: Why frontier lab security will always suck",
+      "url": "https://risky.biz/BTN187/"
     },
     {
       "appsec": true,
@@ -1013,32 +1013,6 @@
     },
     {
       "appsec": true,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "c57d8ab402c1afe4",
-      "kev": false,
-      "published": "2026-10-19T02:09:07Z",
-      "score": 37.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "watchlist:supply chain (+15)",
-        "AppSec-relevant (+14)",
-        "recency (+0.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "A serious vulnerability lets attackers escape Kernel-based virtual machines, OpenCode users become collateral damage in a distillation attack, supply chain incidents hit AOMEI and ConnectWise and Intel will discontinue SGX. Show notes Risky Bulletin: PwnEscape vulnerability lets you escape KVM",
-      "tags": [
-        "appsec",
-        "watchlist",
-        "supply-chain"
-      ],
-      "title": "Risky Bulletin: Linux patches PwnEscape KVM vulnerability",
-      "url": "https://risky.biz/RBNEWS622/"
-    },
-    {
-      "appsec": true,
       "cves": [
         "CVE-2026-24301"
       ],
@@ -1076,15 +1050,41 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "c57d8ab402c1afe4",
+      "kev": false,
+      "published": "2026-10-19T02:09:07Z",
+      "score": 37.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "watchlist:supply chain (+15)",
+        "AppSec-relevant (+14)",
+        "recency (+0.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "A serious vulnerability lets attackers escape Kernel-based virtual machines, OpenCode users become collateral damage in a distillation attack, supply chain incidents hit AOMEI and ConnectWise and Intel will discontinue SGX. Show notes Risky Bulletin: PwnEscape vulnerability lets you escape KVM",
+      "tags": [
+        "appsec",
+        "watchlist",
+        "supply-chain"
+      ],
+      "title": "Risky Bulletin: Linux patches PwnEscape KVM vulnerability",
+      "url": "https://risky.biz/RBNEWS622/"
+    },
+    {
+      "appsec": true,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ab3b0b6479de9de2",
       "kev": false,
       "published": "2026-10-15T14:30:00Z",
-      "score": 37.3,
+      "score": 37.2,
       "score_reasons": [
         "source:tl;dr sec (+8)",
         "watchlist:javascript,sharepoint,ssrf (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.3)"
+        "recency (+0.2)"
       ],
       "source": "tl;dr sec",
       "source_type": "news",
@@ -1804,12 +1804,12 @@
       "id": "339d7ddf5cc0abad",
       "kev": false,
       "published": "2026-10-31T23:15:22Z",
-      "score": 36.3,
+      "score": 36.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript,xss (+15)",
         "AppSec-relevant (+14)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1830,12 +1830,12 @@
       "id": "1426feceb5c03ac9",
       "kev": false,
       "published": "2026-10-21T18:41:53Z",
-      "score": 35.5,
+      "score": 35.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:php,wordpress,drupal (+15)",
         "AppSec-relevant (+14)",
-        "recency (+0.5)"
+        "recency (+0.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1910,11 +1910,11 @@
       "id": "78a1d0290439d329",
       "kev": false,
       "published": "2026-11-24T23:02:07Z",
-      "score": 34.7,
+      "score": 34.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+13.7)"
+        "recency (+13.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1934,11 +1934,11 @@
       "id": "40c079b22814d80b",
       "kev": false,
       "published": "2026-11-23T23:40:49Z",
-      "score": 33.4,
+      "score": 32.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+12.4)"
+        "recency (+11.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1958,11 +1958,11 @@
       "id": "a45af277109c6507",
       "kev": false,
       "published": "2026-11-23T21:46:35Z",
-      "score": 33.3,
+      "score": 32.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+12.3)"
+        "recency (+11.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -1981,11 +1981,11 @@
       "id": "130048d7e5261719",
       "kev": false,
       "published": "2026-11-21T23:56:28Z",
-      "score": 31.2,
+      "score": 30.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+10.2)"
+        "recency (+9.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2122,11 +2122,11 @@
       "id": "f9e8b18855658f14",
       "kev": false,
       "published": "2026-11-20T03:01:57Z",
-      "score": 29.5,
+      "score": 29.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+8.5)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2146,11 +2146,11 @@
       "id": "8b1775bc017f8b07",
       "kev": false,
       "published": "2026-11-18T23:59:20Z",
-      "score": 28.6,
+      "score": 28.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+7.6)"
+        "recency (+7.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2170,11 +2170,11 @@
       "id": "ec68b41b6d46452e",
       "kev": false,
       "published": "2026-11-18T15:58:27Z",
-      "score": 28.3,
+      "score": 28.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:curl (+15)",
-        "recency (+7.3)"
+        "recency (+7.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2193,11 +2193,11 @@
       "id": "0787798c0405a246",
       "kev": false,
       "published": "2026-11-17T22:38:52Z",
-      "score": 27.8,
+      "score": 27.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+6.8)"
+        "recency (+6.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2208,30 +2208,6 @@
       ],
       "title": "GPT‑6.2 Astra and GPT‑6.2 Sol",
       "url": "https://simonwillison.net/2026/Nov/17/gpt62-astra-and-sol/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "e7835d0be85cb054",
-      "kev": false,
-      "published": "2026-11-16T23:57:26Z",
-      "score": 27.2,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+6.2)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm 0.37.3 A bug fix release for LLM, mainly to cover a problem with the most recent Homebrew package of the software. Homebrew now ships the latest SQLite, 3.54.1, which includes a fix that broke LLM's logging code. Short version: in SQLite 3.54.0 the following SQL: select json_object('a', (select json_array(1))) Returns this: {\"a\":[1]} But in 3.54.1 the same query returns this: {\"a\":\"[1]\"} According to D. Richard Hipp: That was a bug fix. Per the documentation, (SELECT json_array(...)) returns SQL text, not JSON. Hence the 3.54.1 behavior is correct and 3.54.0 was a bug. The workaround looks like this: select json_object('a', json((select json_array(1)))) Tags: llm, webassembly, sqlite, generative-ai, ai, llms, d-richard-hipp",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm 0.37.3",
-      "url": "https://simonwillison.net/2026/Nov/16/llm/"
     },
     {
       "appsec": false,
@@ -2262,6 +2238,53 @@
     },
     {
       "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "e7835d0be85cb054",
+      "kev": false,
+      "published": "2026-11-16T23:57:26Z",
+      "score": 27.0,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+6.0)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm 0.37.3 A bug fix release for LLM, mainly to cover a problem with the most recent Homebrew package of the software. Homebrew now ships the latest SQLite, 3.54.1, which includes a fix that broke LLM's logging code. Short version: in SQLite 3.54.0 the following SQL: select json_object('a', (select json_array(1))) Returns this: {\"a\":[1]} But in 3.54.1 the same query returns this: {\"a\":\"[1]\"} According to D. Richard Hipp: That was a bug fix. Per the documentation, (SELECT json_array(...)) returns SQL text, not JSON. Hence the 3.54.1 behavior is correct and 3.54.0 was a bug. The workaround looks like this: select json_object('a', json((select json_array(1)))) Tags: llm, webassembly, sqlite, generative-ai, ai, llms, d-richard-hipp",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm 0.37.3",
+      "url": "https://simonwillison.net/2026/Nov/16/llm/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "ff2c62cebcf4b098",
+      "kev": false,
+      "published": "2026-11-15T23:20:27Z",
+      "score": 26.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+5.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette 1.0a43 I've been leaning hard into Claude Fable 5.2 to help knock things off the 1.0 milestone, which is now 53% complete. The biggest 1.0 item in this release is streaming support for output renderers - the built-in TSV and CSV export mechanisms now use this as well, and plugins can register themselves as capable of streaming every row in a table in one go via the new Response.stream() method. There are a couple of security fixes, one of which I deemed deserving of a GitHub advisory: private stored queries could be exposed, granting access to the title and SQL of the query (but not allowing that query to be executed). There are dozens of smaller improvements. The row page JSON representation finally has a design suitable for 1.0. A new <datasette-copy-button> Web Component provides copy-schema in various places. JSON in columns on the row page can be pretty-printed. There's a new DatasetteModal.confirm() JavaScript utility method. Plus dozens of bug fixes, including contributions by Zihan Dai, Peter Olkhovets, Ilya Khalafi, and Ankita Advitot. The feature I'm most excited about is a pretty tiny one: I've added CSS multi-page view transitions to Datasette! Here's the commit - key CSS is as follows: /* Enable cross-document view transitions, for anyone without prefers-reduced-motion */ @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } } /* .facet-results should morph from old position to new */ html:active-view-transition .content > .facet-results { view-transition-name: facet-results; } /* So should a .table-wrapper, provided it contains .rows-and-columns */ html:active-view-transition .table-wrapper:has(> table.rows-and-columns) { view-transition-name: rows-table; } With that in place, navigations within Datasette - still staunchly a multi-page application - feel more like an SPA. This works on Safari and Chrome at the moment and I believe supports for Firefox is due to land in Firefox 162 on December 8th 2026 (seeing as they are no longer feature-flagged in Firefox Nightly.) Tags: security, datasette, css, browsers, annotated-release-notes, firefox, javascript, safari, chrome",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "datasette 1.0a43",
+      "url": "https://simonwillison.net/2026/Nov/15/datasette/"
+    },
+    {
+      "appsec": false,
       "cves": [
         "CVE-2026-108398",
         "CVE-2026-87268"
@@ -2271,11 +2294,11 @@
       "id": "1adb2c6d85b08d87",
       "kev": false,
       "published": "2026-11-23T08:00:00Z",
-      "score": 26.7,
+      "score": 26.3,
       "score_reasons": [
         "source:Project Zero (+15)",
         "EPSS 0% (+0.1)",
-        "recency (+11.6)"
+        "recency (+11.2)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -2292,37 +2315,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "ff2c62cebcf4b098",
-      "kev": false,
-      "published": "2026-11-15T23:20:27Z",
-      "score": 26.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+5.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: datasette 1.0a43 I've been leaning hard into Claude Fable 5.2 to help knock things off the 1.0 milestone, which is now 53% complete. The biggest 1.0 item in this release is streaming support for output renderers - the built-in TSV and CSV export mechanisms now use this as well, and plugins can register themselves as capable of streaming every row in a table in one go via the new Response.stream() method. There are a couple of security fixes, one of which I deemed deserving of a GitHub advisory: private stored queries could be exposed, granting access to the title and SQL of the query (but not allowing that query to be executed). There are dozens of smaller improvements. The row page JSON representation finally has a design suitable for 1.0. A new <datasette-copy-button> Web Component provides copy-schema in various places. JSON in columns on the row page can be pretty-printed. There's a new DatasetteModal.confirm() JavaScript utility method. Plus dozens of bug fixes, including contributions by Zihan Dai, Peter Olkhovets, Ilya Khalafi, and Ankita Advitot. The feature I'm most excited about is a pretty tiny one: I've added CSS multi-page view transitions to Datasette! Here's the commit - key CSS is as follows: /* Enable cross-document view transitions, for anyone without prefers-reduced-motion */ @media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } } /* .facet-results should morph from old position to new */ html:active-view-transition .content > .facet-results { view-transition-name: facet-results; } /* So should a .table-wrapper, provided it contains .rows-and-columns */ html:active-view-transition .table-wrapper:has(> table.rows-and-columns) { view-transition-name: rows-table; } With that in place, navigations within Datasette - still staunchly a multi-page application - feel more like an SPA. This works on Safari and Chrome at the moment and I believe supports for Firefox is due to land in Firefox 162 on December 8th 2026 (seeing as they are no longer feature-flagged in Firefox Nightly.) Tags: security, datasette, css, browsers, annotated-release-notes, firefox, javascript, safari, chrome",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "datasette 1.0a43",
-      "url": "https://simonwillison.net/2026/Nov/15/datasette/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "5b63eb3960e8e501",
       "kev": false,
       "published": "2026-11-15T04:02:45Z",
-      "score": 26.2,
+      "score": 26.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2341,11 +2341,11 @@
       "id": "9df8820e84fd1a0c",
       "kev": false,
       "published": "2026-11-15T03:49:47Z",
-      "score": 26.2,
+      "score": 26.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.2)"
+        "recency (+5.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2365,11 +2365,11 @@
       "id": "bcf04c6904579bec",
       "kev": false,
       "published": "2026-11-14T23:59:28Z",
-      "score": 26.1,
+      "score": 25.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+5.1)"
+        "recency (+4.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2389,11 +2389,11 @@
       "id": "94ec8fcfeda2db99",
       "kev": false,
       "published": "2026-11-14T17:09:09Z",
-      "score": 26.0,
+      "score": 25.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+5.0)"
+        "recency (+4.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2412,11 +2412,11 @@
       "id": "b73209306c9412bd",
       "kev": false,
       "published": "2026-11-12T22:55:19Z",
-      "score": 25.2,
+      "score": 25.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+4.2)"
+        "recency (+4.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2433,14 +2433,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "0e206308dec11d59",
+      "kev": false,
+      "published": "2026-11-11T18:42:50Z",
+      "score": 24.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:javascript (+15)",
+        "recency (+3.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to analyze the code for JavaScript APIs, libraries, and web API hosts used by each tool. The homepage now features tag clouds for browsing by each of those categories of tag: Tags: javascript, tools, ai, generative-ai, llms, claude, vibe-coding",
+      "tags": [
+        "watchlist"
+      ],
+      "title": "Browse tools.simonwillison.net by tag",
+      "url": "https://simonwillison.net/2026/Nov/11/tools-tags/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "6b121f474cc35549",
       "kev": false,
       "published": "2026-11-11T22:03:25Z",
-      "score": 24.8,
+      "score": 24.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.8)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2457,37 +2480,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0e206308dec11d59",
-      "kev": false,
-      "published": "2026-11-11T18:42:50Z",
-      "score": 24.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:javascript (+15)",
-        "recency (+3.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Browse tools.simonwillison.net by tag I've been wanting a better way to browse my collection of vibe-coded tools (244 and counting) for a while. I had a few Fable 5.2 credits left over before my weekly reset so I set it to work using tree-sitter to analyze the code for JavaScript APIs, libraries, and web API hosts used by each tool. The homepage now features tag clouds for browsing by each of those categories of tag: Tags: javascript, tools, ai, generative-ai, llms, claude, vibe-coding",
-      "tags": [
-        "watchlist"
-      ],
-      "title": "Browse tools.simonwillison.net by tag",
-      "url": "https://simonwillison.net/2026/Nov/11/tools-tags/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "785dfe74cb1c9046",
       "kev": false,
       "published": "2026-11-11T17:19:52Z",
-      "score": 24.7,
+      "score": 24.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.7)"
+        "recency (+3.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2507,11 +2507,11 @@
       "id": "5767c4d342983118",
       "kev": false,
       "published": "2026-11-10T20:09:44Z",
-      "score": 24.4,
+      "score": 24.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.4)"
+        "recency (+3.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2531,11 +2531,11 @@
       "id": "6ee1d6d470e6a201",
       "kev": false,
       "published": "2026-11-10T07:28:21Z",
-      "score": 24.2,
+      "score": 24.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.2)"
+        "recency (+3.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2555,11 +2555,11 @@
       "id": "6c9f2309ad1225ae",
       "kev": false,
       "published": "2026-11-09T23:57:21Z",
-      "score": 24.1,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,javascript (+15)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2578,11 +2578,11 @@
       "id": "7976b553b90c8592",
       "kev": false,
       "published": "2026-11-09T23:58:46Z",
-      "score": 24.1,
+      "score": 24.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+3.1)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2602,11 +2602,11 @@
       "id": "2d5e4247e860f350",
       "kev": false,
       "published": "2026-11-09T04:32:33Z",
-      "score": 23.9,
+      "score": 23.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+2.9)"
+        "recency (+2.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2669,14 +2669,34 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "b023f3483cf625f8",
+      "kev": false,
+      "published": "2026-11-26T01:56:51Z",
+      "score": 22.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+14.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Tom Uren and Amberleigh Jack talk about a new congressional report examining America’s increasing dependence on China’s open-weight AI models. The US needs to turbocharge its own domestic alternatives. They also discuss the ongoing controversy regarding SpaceX services in Ukraine. Someone placed speed limits on these services in Ukraine, but no one in the US government or SpaceX is taking responsibility. It’s a bad look, especially when American allies may be thinking about buying into Starshield, SpaceX’s military version of its Starlink service. This episode is also available on YouTube Show notes",
+      "tags": [],
+      "title": "Srsly Risky Biz: America needs homegrown open-weight models",
+      "url": "https://risky.biz/SRB192/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "0eaac3789b3995de",
       "kev": false,
       "published": "2026-11-03T21:41:42Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2696,11 +2716,11 @@
       "id": "950aded5fa9d1987",
       "kev": false,
       "published": "2026-11-03T16:29:48Z",
-      "score": 22.7,
+      "score": 22.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2720,11 +2740,11 @@
       "id": "86517b8f15c28848",
       "kev": false,
       "published": "2026-11-03T05:28:59Z",
-      "score": 22.6,
+      "score": 22.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2744,11 +2764,11 @@
       "id": "a7779c14f4a1edde",
       "kev": false,
       "published": "2026-11-02T23:49:30Z",
-      "score": 22.6,
+      "score": 22.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python,llm (+15)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2768,11 +2788,11 @@
       "id": "a0edeec9c181dd22",
       "kev": false,
       "published": "2026-11-01T23:24:22Z",
-      "score": 22.4,
+      "score": 22.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:python (+15)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2791,11 +2811,11 @@
       "id": "9590a7b9dd6aba1c",
       "kev": false,
       "published": "2026-10-31T22:10:01Z",
-      "score": 22.3,
+      "score": 22.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+1.3)"
+        "recency (+1.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2931,34 +2951,14 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "96e9ec7b6c0bdd40",
-      "kev": false,
-      "published": "2026-11-25T01:31:07Z",
-      "score": 21.8,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+13.8)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Hackers breach the CIA’s OSINT platform, cybersecurity firm Radware gets hacked, the US investigates Iran over 50 ship hacks and threat actors exploit an Azure API bug to access cloud environments. Show notes Risky Bulletin: Card stealer found on 80 major US news sites",
-      "tags": [],
-      "title": "Risky Bulletin: Hackers breach CIA OSINT system",
-      "url": "https://risky.biz/RBNEWS638/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "bcd7360bb2139689",
       "kev": false,
       "published": "2026-10-26T16:15:00Z",
-      "score": 21.8,
+      "score": 21.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:javascript (+15)",
-        "recency (+0.8)"
+        "recency (+0.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2977,11 +2977,11 @@
       "id": "ddec6cb5a4e152e9",
       "kev": false,
       "published": "2026-10-26T23:53:07Z",
-      "score": 21.8,
+      "score": 21.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+0.8)"
+        "recency (+0.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -2992,30 +2992,6 @@
       ],
       "title": "GPT-6.1 Terra",
       "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "880e8544b15f9e13",
-      "kev": false,
-      "published": "2026-10-23T19:40:54Z",
-      "score": 21.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+0.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Introducing Kimi K3.1 Pro Kimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot promise \"Full model weights will be released by Nov 4, 2026\". They're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same). The US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5. Moonshot's own benchmarks show Kimi as approximately level with Opus 5.5 and GPT-6 Astra - beating them on a few benchmarks, coming close on others. Artificial Analysis scored Kimi at 55 - ahead of Claude Fable 5.1, GPT-6 Astra, and Gemini 4 Argon (all at 53) and behind only Claude Opus 5.5 (58). This is the first time a (soon-to-be) open weight model has scored this highly against the frontier. I tried it out via the Moonshot API using the llm openai endpoint command I added to LLM 0.32 back in August: llm openai endpoint \\ https://api.moonshot.ai/v1 \\ --key kimi \\ -m kimi-k3.1-pro \\ \"Generate an SVG of a pelican riding a bicycle\" \\ --responses \\ -o reasoning_effort low \\ > kimi-k3.1-pro-pelican-low.stdout.txt \\ 2> kimi-k3.1-pro-pelican-low.stderr.txt llm openai endpoint can run prompts against any OpenAI-compatible endpoint but doesn't log the results, hence the extra options to save stdout and stderr (the reasoning trace). Here are the pelicans I got for Kimi K3.1 Pro on the three reasoning levels it supports - low, medium, and max. This is max: For comparison, I ran fresh pelicans against Kimi K3 on those three reasoning levels. Via Hacker News Tags: ai, generative-ai, llms, llm, llm-pricing, pelican-riding-a-bicycle, llm-release, ai-in-china, moonshot, kimi",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "Introducing Kimi K3.1 Pro",
-      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
     },
     {
       "appsec": false,
@@ -3046,24 +3022,24 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "64f79924a918dd64",
+      "id": "880e8544b15f9e13",
       "kev": false,
-      "published": "2026-10-18T23:16:16Z",
-      "score": 21.4,
+      "published": "2026-10-23T19:40:54Z",
+      "score": 21.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
         "watchlist:llm (+15)",
-        "recency (+0.4)"
+        "recency (+0.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Release: llm-echo 0.5 I'm working towards a new LLM release, and testing PRs caused me to revisit the llm-echo debug plugin. This plugin provides a \"model\" which doesn't involve an LLM at all - it just repeats back the prompts that have been fed to it. The new release now updates the simulated token usage counts to take tool calls, system prompts, and reasoning tokens into account. Example usage: uvx --with llm-echo llm -m echo 'hi there' -o thinking 1 --usage Outputs: First I consider the prompt, then I decide what to say. { \"prompt\": \"hi there\", \"system\": \"\", \"attachments\": [], \"stream\": true, \"previous\": [] } Token usage: 2 input, 24 output Tags: llm",
+      "summary": "Introducing Kimi K3.1 Pro Kimi K3.1 Pro landed on the Kimi API today - it's not yet open weights, but Moonshot promise \"Full model weights will be released by Nov 4, 2026\". They're also offering a \"Highspeed\" version that's 2-3x faster, at twice the price (except for input token cache hits, which are priced the same). The US dollar pricing is $2.00/million tokens for input and $10/million for output - the same as GPT-6.1 Sol and half the price of Claude Opus 5.5. Moonshot's own benchmarks show Kimi as approximately level with Opus 5.5 and GPT-6 Astra - beating them on a few benchmarks, coming close on others. Artificial Analysis scored Kimi at 55 - ahead of Claude Fable 5.1, GPT-6 Astra, and Gemini 4 Argon (all at 53) and behind only Claude Opus 5.5 (58). This is the first time a (soon-to-be) open weight model has scored this highly against the frontier. I tried it out via the Moonshot API using the llm openai endpoint command I added to LLM 0.32 back in August: llm openai endpoint \\ https://api.moonshot.ai/v1 \\ --key kimi \\ -m kimi-k3.1-pro \\ \"Generate an SVG of a pelican riding a bicycle\" \\ --responses \\ -o reasoning_effort low \\ > kimi-k3.1-pro-pelican-low.stdout.txt \\ 2> kimi-k3.1-pro-pelican-low.stderr.txt llm openai endpoint can run prompts against any OpenAI-compatible endpoint but doesn't log the results, hence the extra options to save stdout and stderr (the reasoning trace). Here are the pelicans I got for Kimi K3.1 Pro on the three reasoning levels it supports - low, medium, and max. This is max: For comparison, I ran fresh pelicans against Kimi K3 on those three reasoning levels. Via Hacker News Tags: ai, generative-ai, llms, llm, llm-pricing, pelican-riding-a-bicycle, llm-release, ai-in-china, moonshot, kimi",
       "tags": [
         "watchlist",
         "AI-sec"
       ],
-      "title": "llm-echo 0.5",
-      "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
+      "title": "Introducing Kimi K3.1 Pro",
+      "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
     },
     {
       "appsec": false,
@@ -3094,30 +3070,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "c7f58b8773d454a1",
-      "kev": false,
-      "published": "2026-10-18T23:43:09Z",
-      "score": 21.4,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "watchlist:llm (+15)",
-        "recency (+0.4)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Release: llm-tools-datasette 0.1.1 When I switched LLM over to httpx2 in LLM 0.33 I forget that this would break any plugins which used httpx without directly depending on it. llm-tools-datasette was one of those plugins, now fixed. Tags: datasette, llm",
-      "tags": [
-        "watchlist",
-        "AI-sec"
-      ],
-      "title": "llm-tools-datasette 0.1.1",
-      "url": "https://simonwillison.net/2026/Oct/18/llm-tools-datasette/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "3a028b97719dae29",
       "kev": false,
       "published": "2026-10-17T21:11:12Z",
@@ -3141,6 +3093,30 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "64f79924a918dd64",
+      "kev": false,
+      "published": "2026-10-18T23:16:16Z",
+      "score": 21.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+0.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-echo 0.5 I'm working towards a new LLM release, and testing PRs caused me to revisit the llm-echo debug plugin. This plugin provides a \"model\" which doesn't involve an LLM at all - it just repeats back the prompts that have been fed to it. The new release now updates the simulated token usage counts to take tool calls, system prompts, and reasoning tokens into account. Example usage: uvx --with llm-echo llm -m echo 'hi there' -o thinking 1 --usage Outputs: First I consider the prompt, then I decide what to say. { \"prompt\": \"hi there\", \"system\": \"\", \"attachments\": [], \"stream\": true, \"previous\": [] } Token usage: 2 input, 24 output Tags: llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-echo 0.5",
+      "url": "https://simonwillison.net/2026/Oct/18/llm-echo/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "9b19a68a46764efd",
       "kev": false,
       "published": "2026-10-16T01:58:00Z",
@@ -3158,6 +3134,30 @@
       ],
       "title": "sparqlite: SPARQL 1.1 inside SQLite, written in Rust",
       "url": "https://simonwillison.net/2026/Oct/16/sqlite-sparql-rust/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "c7f58b8773d454a1",
+      "kev": false,
+      "published": "2026-10-18T23:43:09Z",
+      "score": 21.3,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "watchlist:llm (+15)",
+        "recency (+0.3)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: llm-tools-datasette 0.1.1 When I switched LLM over to httpx2 in LLM 0.33 I forget that this would break any plugins which used httpx without directly depending on it. llm-tools-datasette was one of those plugins, now fixed. Tags: datasette, llm",
+      "tags": [
+        "watchlist",
+        "AI-sec"
+      ],
+      "title": "llm-tools-datasette 0.1.1",
+      "url": "https://simonwillison.net/2026/Oct/18/llm-tools-datasette/"
     },
     {
       "appsec": false,
@@ -3188,6 +3188,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "96e9ec7b6c0bdd40",
+      "kev": false,
+      "published": "2026-11-25T01:31:07Z",
+      "score": 21.2,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+13.2)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Hackers breach the CIA’s OSINT platform, cybersecurity firm Radware gets hacked, the US investigates Iran over 50 ship hacks and threat actors exploit an Azure API bug to access cloud environments. Show notes Risky Bulletin: Card stealer found on 80 major US news sites",
+      "tags": [],
+      "title": "Risky Bulletin: Hackers breach CIA OSINT system",
+      "url": "https://risky.biz/RBNEWS638/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ce198fb1cf58f435",
       "kev": false,
       "published": "2026-10-14T21:23:01Z",
@@ -3211,13 +3231,73 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "b6f1f61b0e7172a8",
+      "kev": false,
+      "published": "2026-11-26T06:08:25Z",
+      "score": 20.9,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+14.9)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "sqlite3_rsync: Database Remote-Copy Tool For SQLite This additional SQLite tool has been around for a while now - it was added as \"experimental\" in SQLite 3.47.0 in October 2024 and enhanced in SQLite 3.50.0 in May 2025. It was only today that I understood one of its most attractive characteristics. Normally, if you want to grab a snapshot copy of a SQLite database, you need to use either the backup API or VACUUM INTO. In both cases you need enough disk space to create a duplicate copy of your database, so if you're on a small instance and you already use more than half of the available disk you are plain out of luck. sqlite3_rsync can copy a snapshot of your database over an SSH connection to another machine, without first needing to create a full local copy! It's also good for synchronizing an existing copy of a database without re-transmitting the entire thing over the network. It works in a similar way to regular rsync: The core idea behind the protocol is that the replica sends cryptographic hashes for pages or groups of pages over to the origin side. The origin sends back page content that differs, or requests finer-grain hashes if a multi-page hash does not match. If the origin and replica start out being vastly different, the total network bandwidth can exceed the size of the entire database, due to the overhead of exchanging hashes, but the excess bandwidth is not great - a few percent at most. Update: Hah! Turns out I wrote about this application of sqlite_rsync back in October 2024 when the tool was first released. Tags: backups, sqlite",
+      "tags": [],
+      "title": "sqlite3_rsync: Database Remote-Copy Tool For SQLite",
+      "url": "https://simonwillison.net/2026/Nov/26/sqlite3-rsync/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "f6805f8f00c55a5c",
+      "kev": false,
+      "published": "2026-11-25T23:26:32Z",
+      "score": 20.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+14.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "It’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed through fog. Picture van Leeuwenhoek first training a microscope on pondwater, or Galileo first training his telescope on the stars. That might give you some idea of how our resolution into the complexity-theoretic universe, and the whole universe of mathematical truth beyond it, has now improved. — Scott Aaronson Tags: mathematics, llms, ai, generative-ai",
+      "tags": [],
+      "title": "Quoting Scott Aaronson",
+      "url": "https://simonwillison.net/2026/Nov/25/scott-aaronson/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6448d83067322af6",
+      "kev": false,
+      "published": "2026-11-25T18:16:50Z",
+      "score": 20.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+14.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-charts 0.3a0 I added chart annotations to datasette-charts! You can now render a chart and then annotate it with lines, shaded areas, labels, or a combination of the three. A chart with annotations looks like this: Here's that same chart in Datasette Lite, where you can tweak the annotations using the chart builder UI: If you also install Datasette Agent the agent can build annotated charts for you. Here's what I got on the agent.datasette.io demo for this prompt: Show a chart comparing Simon's tagged content about LLMs with his tagged content about Datasette, with annotations Tags: datasette, visualization, datasette-charts",
+      "tags": [],
+      "title": "datasette-charts 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/25/datasette-charts/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "33329a02a00b9779",
       "kev": false,
       "published": "2026-11-13T08:00:00Z",
-      "score": 19.3,
+      "score": 19.1,
       "score_reasons": [
         "source:Project Zero (+15)",
-        "recency (+4.3)"
+        "recency (+4.1)"
       ],
       "source": "Project Zero",
       "source_type": "research",
@@ -3236,10 +3316,10 @@
       "id": "89c02d83ee1869ba",
       "kev": false,
       "published": "2026-11-23T01:31:10Z",
-      "score": 19.3,
+      "score": 18.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.3)"
+        "recency (+10.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3256,10 +3336,10 @@
       "id": "768cc7ae3fa0d592",
       "kev": false,
       "published": "2026-11-22T19:18:18Z",
-      "score": 19.0,
+      "score": 18.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+11.0)"
+        "recency (+10.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3273,17 +3353,37 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "1fd890046f40431f",
+      "id": "36bb1851414a74bb",
       "kev": false,
-      "published": "2026-11-24T04:24:29Z",
-      "score": 18.7,
+      "published": "2026-11-24T06:07:19Z",
+      "score": 18.2,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.7)"
+        "recency (+12.2)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Release: datasette-charts 0.2a0 I introduced this new charting plugin for Datasette yesterday. Today it's gained integration with Datasette Agent, so now you can ask chat for a chart and it will create one for you using the same underlying chart suggestion and generation tools. Here's a demo video, recorded on agent.datasette.io where you can sign in with GitHub to try the plugin yourself: Download the video (MP4) I prompt Datasette Agent to \"Use #stats to show sqlite-utils downloads over time as a chart\" - where typing \"#stats\" opens a table search box. It shows me a chart inline in the chat, and when I click \"Open in the chart builder\" it opens the chart in a panel along with the table page. I use the table page to switch to a chart of \"datasette\", then when I ask the agent \"what does the chart show?\" it notices that I changed the content in the panel and describes the new Datasette chart to me. Here's a Markdown export of the chat from the video. Tags: datasette-agent, datasette, visualization",
+      "summary": "Release: datasette-charts 0.2a1 Minor UI improvements: Collapsing the suggested charts section now leaves the chart visible. Following a link to a chart opens it with the suggestions collapsed for that visit. On table pages the panel now sits below the \"4,235 rows where country = CHN\" line. The \"Data\" table under each chart has been replaced by Copy TSV and Copy CSV buttons. Removed the \"Chart this data\" item from the table, view and query action menus. More space between lines in chart tooltips. Tags: datasette, visualization, datasette-charts",
+      "tags": [],
+      "title": "datasette-charts 0.2a1",
+      "url": "https://simonwillison.net/2026/Nov/24/datasette-charts-2/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "1fd890046f40431f",
+      "kev": false,
+      "published": "2026-11-24T04:24:29Z",
+      "score": 18.1,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+12.1)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Release: datasette-charts 0.2a0 I introduced this new charting plugin for Datasette yesterday. Today it's gained integration with Datasette Agent, so now you can ask chat for a chart and it will create one for you using the same underlying chart suggestion and generation tools. Here's a demo video, recorded on agent.datasette.io where you can sign in with GitHub to try the plugin yourself: Download the video (MP4) I prompt Datasette Agent to \"Use #stats to show sqlite-utils downloads over time as a chart\" - where typing \"#stats\" opens a table search box. It shows me a chart inline in the chat, and when I click \"Open in the chart builder\" it opens the chart in a panel along with the table page. I use the table page to switch to a chart of \"datasette\", then when I ask the agent \"what does the chart show?\" it notices that I changed the content in the panel and describes the new Datasette chart to me. Here's a Markdown export of the chat from the video. Tags: datasette-agent, datasette, visualization, datasette-charts, sqlite",
       "tags": [],
       "title": "datasette-charts 0.2a0",
       "url": "https://simonwillison.net/2026/Nov/24/datasette-charts/"
@@ -3296,10 +3396,10 @@
       "id": "d4b87967ea5dac14",
       "kev": false,
       "published": "2026-11-24T03:45:57Z",
-      "score": 18.6,
+      "score": 18.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+12.6)"
+        "recency (+12.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -3316,37 +3416,17 @@
       "id": "6cfdb5417553a068",
       "kev": false,
       "published": "2026-11-23T00:37:20Z",
-      "score": 17.3,
+      "score": 16.8,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+11.3)"
+        "recency (+10.8)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "Release: datasette-charts 0.1a0 I've been thinking about this problem for over a year now, but on Sunday I finally fired up Claude Fable 5.2 to build an initial prototype. The prototype went so well that this is now a full plugin. You can try it out in Datasette Lite here. It looks like this: The new charts plugin works against any table or arbitrary SQL query in Datasette. It defines several different chart types (using vendored D3, Observable Plot, and topojson-client), each with a set of heuristics for identifying when they might be a good match for a specific set of rows. Those suggestion thumbnails at the top are actual visualizations driven by the data, and selecting one pulls up the full chart along with tools for modifying it. You can also manually construct a chart from scratch. As with other Datasette visualization plugins, the current state of your chart is persisted in a #fragment in the URL - so you can bookmark charts or share them with others. The most important feature is that the charts take all rows into account. Previous charting plugins like datasette-vega would only show charts for the current page of results, generally up to 100 rows. The new plugin compiles each chart to a SQL query that aggregates across the entire result set (potentially millions of rows) using GROUP BY, time bucketing, and window functions. Each query returns a result capped at 5,000 rows, suitable for display on the chart. The plugin uses sampling to help suggest charts for larger tables without evaluating the full result set. I'm really happy with this initial release of the plugin. It's still very much an alpha, but it's the closest I've got to the dream of Datasette helping visualize data with as little required direction from the user as possible. Tags: coding-agents, generative-ai, projects, ai, llms, datasette, visualization, claude-mythos-fable",
+      "summary": "Release: datasette-charts 0.1a0 I've been thinking about this problem for over a year now, but on Sunday I finally fired up Claude Fable 5.2 to build an initial prototype. The prototype went so well that this is now a full plugin. You can try it out in Datasette Lite here. It looks like this: The new charts plugin works against any table or arbitrary SQL query in Datasette. It defines several different chart types (using vendored D3, Observable Plot, and topojson-client), each with a set of heuristics for identifying when they might be a good match for a specific set of rows. Those suggestion thumbnails at the top are actual visualizations driven by the data, and selecting one pulls up the full chart along with tools for modifying it. You can also manually construct a chart from scratch. As with other Datasette visualization plugins, the current state of your chart is persisted in a #fragment in the URL - so you can bookmark charts or share them with others. The most important feature is that the charts take all rows into account. Previous charting plugins like datasette-vega would only show charts for the current page of results, generally up to 100 rows. The new plugin compiles each chart to a SQL query that aggregates across the entire result set (potentially millions of rows) using GROUP BY, time bucketing, and window functions. Each query returns a result capped at 5,000 rows, suitable for display on the chart. The plugin uses sampling to help suggest charts for larger tables without evaluating the full result set. I'm really happy with this initial release of the plugin. It's still very much an alpha, but it's the closest I've got to the dream of Datasette helping visualize data with as little required direction from the user as possible. Tags: coding-agents, generative-ai, projects, ai, llms, datasette-charts, sqlite, datasette, visualization, claude-mythos-fable",
       "tags": [],
       "title": "datasette-charts 0.1a0",
       "url": "https://simonwillison.net/2026/Nov/23/datasette-charts/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "7bfb660056bb441d",
-      "kev": false,
-      "published": "2026-11-22T19:45:06Z",
-      "score": 17.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+11.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Select Styling Specimens I got frustrated at how HTML <select> boxes default to looking different in different browsers, and are (I think) quite ugly in Chrome: So I had Claude Fable 5.2 build me this page showing all of the ways they can be styled: Build an HTML page that shows all of the ways a select box can be styled, I plan to take screenshots in every desktop and mobile browser After some experimentation I've decided my favorite CSS for select boxes is this: select { appearance: none; color: #1f2933; padding: 0.5em 2.25em 0.5em 0.75em; border: 1px solid #c4cbd3; border-radius: 6px; background: #fff url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23667085' stroke-width='1.5'/%3E%3C/svg%3E\") no-repeat right 0.75em center / 0.75em; } Here's what that looks like in the three browsers: Tags: tools, css, html",
-      "tags": [],
-      "title": "Select Styling Specimens",
-      "url": "https://simonwillison.net/2026/Nov/22/select-styling/"
     },
     {
       "appsec": false,
@@ -3375,13 +3455,33 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "7bfb660056bb441d",
+      "kev": false,
+      "published": "2026-11-22T19:45:06Z",
+      "score": 16.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+10.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Select Styling Specimens I got frustrated at how HTML <select> boxes default to looking different in different browsers, and are (I think) quite ugly in Chrome: So I had Claude Fable 5.2 build me this page showing all of the ways they can be styled: Build an HTML page that shows all of the ways a select box can be styled, I plan to take screenshots in every desktop and mobile browser After some experimentation I've decided my favorite CSS for select boxes is this: select { appearance: none; color: #1f2933; padding: 0.5em 2.25em 0.5em 0.75em; border: 1px solid #c4cbd3; border-radius: 6px; background: #fff url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23667085' stroke-width='1.5'/%3E%3C/svg%3E\") no-repeat right 0.75em center / 0.75em; } Here's what that looks like in the three browsers: Tags: tools, css, html",
+      "tags": [],
+      "title": "Select Styling Specimens",
+      "url": "https://simonwillison.net/2026/Nov/22/select-styling/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "64a38498625128f7",
       "kev": false,
       "published": "2026-11-20T01:21:54Z",
-      "score": 16.4,
+      "score": 16.1,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+8.4)"
+        "recency (+8.1)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3398,10 +3498,10 @@
       "id": "c57b91f992129bf4",
       "kev": false,
       "published": "2026-11-19T03:29:58Z",
-      "score": 15.7,
+      "score": 15.4,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+7.7)"
+        "recency (+7.4)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -3434,26 +3534,6 @@
       ],
       "title": "A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens",
       "url": "https://projectzero.google/2026/05/pixel-10-exploit.html"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "2d7ba38a814edba0",
-      "kev": false,
-      "published": "2026-11-20T19:21:49Z",
-      "score": 15.1,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.1)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil, Hurried Announcement: Alessandro Masullo GRH Tags: mathematics",
-      "tags": [],
-      "title": "Quoting Ravi Vakil",
-      "url": "https://simonwillison.net/2026/Nov/20/ravi-vakil/"
     },
     {
       "appsec": false,
@@ -3682,26 +3762,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "3917e7f43fd22671",
-      "kev": false,
-      "published": "2026-11-18T04:22:08Z",
-      "score": 15.0,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+7.0)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Hackers hijack Optimizely to deliver malware through 178 popular websites, hackers breach Japanese supercomputers, Microsoft Edge to get a Lockdown Mode, and the EU sanctions NoName057. Show notes Risky Bulletin: Hackers hijack Optimizely to deliver malware on 178 popular sites",
-      "tags": [],
-      "title": "Risky Bulletin: Optimizely hijacked to deliver malware",
-      "url": "https://risky.biz/RBNEWS635/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "442c45542a5b18ee",
       "kev": false,
       "published": "2024-03-05T14:55:00Z",
@@ -3843,26 +3903,6 @@
       ],
       "title": "WebSocket Turbo Intruder: Unearthing the WebSocket Goldmine",
       "url": "https://portswigger.net/research/websocket-turbo-intruder-unearthing-the-websocket-goldmine"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "7cdc8a97cf8f4d0e",
-      "kev": false,
-      "published": "2026-11-20T16:30:48Z",
-      "score": 15.0,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+9.0)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I expect, with more time, the Extended Riemann Hypothesis too. Claude and I have also formalized the arguments without assumptions. It is natural to feel that this is an end, in my case a loss of a principal guiding light, but what I saw during the course of progress so amazed me that I believe it is one dawn across science of something far greater. [...] Claude and I have had a great time together with such breadth in recent months, but this time Claude far outpaced me near the finish line. No, Claude flew, and danced, and sparkled near that finish line. — Levent Alpöge, alpo.ge/remark.pdf Tags: anthropic, claude, generative-ai, mathematics, ai, llms, levent-alpoge",
-      "tags": [],
-      "title": "Quoting Levent Alpöge",
-      "url": "https://simonwillison.net/2026/Nov/20/levent-alpoge/"
     },
     {
       "appsec": false,
@@ -4310,13 +4350,73 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "2d7ba38a814edba0",
+      "kev": false,
+      "published": "2026-11-20T19:21:49Z",
+      "score": 14.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Alessandro Masullo has a proposed proof of [Generalized Riemann Hypothesis], and Brian Conrad has been looking closely at it for months and gave extensive feedback which is being incorporated, and it is so far looking good. It is all human, with no AI. The hope was to bring Alessandro to Stanford for a year to polish the writing and then announce it after running it by enough people. Now it seems best to put out the current draft. — Ravi Vakil, Hurried Announcement: Alessandro Masullo GRH Tags: mathematics",
+      "tags": [],
+      "title": "Quoting Ravi Vakil",
+      "url": "https://simonwillison.net/2026/Nov/20/ravi-vakil/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "3917e7f43fd22671",
+      "kev": false,
+      "published": "2026-11-18T04:22:08Z",
+      "score": 14.7,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+6.7)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Hackers hijack Optimizely to deliver malware through 178 popular websites, hackers breach Japanese supercomputers, Microsoft Edge to get a Lockdown Mode, and the EU sanctions NoName057. Show notes Risky Bulletin: Hackers hijack Optimizely to deliver malware on 178 popular sites",
+      "tags": [],
+      "title": "Risky Bulletin: Optimizely hijacked to deliver malware",
+      "url": "https://risky.biz/RBNEWS635/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "7cdc8a97cf8f4d0e",
+      "kev": false,
+      "published": "2026-11-20T16:30:48Z",
+      "score": 14.6,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+8.6)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I expect, with more time, the Extended Riemann Hypothesis too. Claude and I have also formalized the arguments without assumptions. It is natural to feel that this is an end, in my case a loss of a principal guiding light, but what I saw during the course of progress so amazed me that I believe it is one dawn across science of something far greater. [...] Claude and I have had a great time together with such breadth in recent months, but this time Claude far outpaced me near the finish line. No, Claude flew, and danced, and sparkled near that finish line. — Levent Alpöge, alpo.ge/remark.pdf Tags: anthropic, claude, generative-ai, mathematics, ai, llms, levent-alpoge",
+      "tags": [],
+      "title": "Quoting Levent Alpöge",
+      "url": "https://simonwillison.net/2026/Nov/20/levent-alpoge/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8651a385618086de",
       "kev": false,
       "published": "2026-11-20T02:49:57Z",
-      "score": 14.5,
+      "score": 14.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.5)"
+        "recency (+8.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4333,10 +4433,10 @@
       "id": "47e62fd1daf84c9e",
       "kev": false,
       "published": "2026-11-19T20:43:57Z",
-      "score": 14.3,
+      "score": 13.9,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+8.3)"
+        "recency (+7.9)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4353,10 +4453,10 @@
       "id": "5458c272bb841e36",
       "kev": false,
       "published": "2026-11-16T21:57:39Z",
-      "score": 14.2,
+      "score": 13.9,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+6.2)"
+        "recency (+5.9)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4373,10 +4473,10 @@
       "id": "c29c5645291af4ed",
       "kev": false,
       "published": "2026-11-15T19:22:09Z",
-      "score": 13.5,
+      "score": 13.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+5.5)"
+        "recency (+5.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4393,10 +4493,10 @@
       "id": "4a7efa8a23b38434",
       "kev": false,
       "published": "2026-11-18T17:09:59Z",
-      "score": 13.4,
+      "score": 13.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+7.4)"
+        "recency (+7.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4457,10 +4557,10 @@
       "id": "9e89bf4ca1192eb6",
       "kev": false,
       "published": "2026-11-17T06:16:26Z",
-      "score": 12.4,
+      "score": 12.1,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+6.4)"
+        "recency (+6.1)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4477,10 +4577,10 @@
       "id": "ea0dffb11eb2bd56",
       "kev": false,
       "published": "2026-11-12T03:30:09Z",
-      "score": 11.8,
+      "score": 11.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.8)"
+        "recency (+3.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4497,10 +4597,10 @@
       "id": "f6ff959916d44f87",
       "kev": false,
       "published": "2026-11-15T23:18:17Z",
-      "score": 11.6,
+      "score": 11.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4517,10 +4617,10 @@
       "id": "f8719c976cec8806",
       "kev": false,
       "published": "2026-11-15T23:58:36Z",
-      "score": 11.6,
+      "score": 11.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+5.6)"
+        "recency (+5.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4537,10 +4637,10 @@
       "id": "5ba1e262888374fc",
       "kev": false,
       "published": "2026-11-11T01:59:09Z",
-      "score": 11.5,
+      "score": 11.3,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+3.5)"
+        "recency (+3.3)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4557,10 +4657,10 @@
       "id": "ec02ffe3c0c52bb2",
       "kev": false,
       "published": "2026-11-09T03:25:54Z",
-      "score": 10.9,
+      "score": 10.7,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.9)"
+        "recency (+2.7)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4577,10 +4677,10 @@
       "id": "91d04b9b6b9b3f84",
       "kev": false,
       "published": "2026-11-08T19:10:22Z",
-      "score": 10.8,
+      "score": 10.6,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+2.8)"
+        "recency (+2.6)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4597,10 +4697,10 @@
       "id": "1d5a5cfc8d77a167",
       "kev": false,
       "published": "2026-11-13T23:02:45Z",
-      "score": 10.6,
+      "score": 10.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.6)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4617,10 +4717,10 @@
       "id": "8cc6965690b08360",
       "kev": false,
       "published": "2026-11-13T22:30:54Z",
-      "score": 10.6,
+      "score": 10.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+4.6)"
+        "recency (+4.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4637,10 +4737,10 @@
       "id": "76ba93cc9d443ae0",
       "kev": false,
       "published": "2026-11-05T04:02:00Z",
-      "score": 9.9,
+      "score": 9.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+1.9)"
+        "recency (+1.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4657,10 +4757,10 @@
       "id": "16bbcf3b5155a6ea",
       "kev": false,
       "published": "2026-11-11T21:18:30Z",
-      "score": 9.7,
+      "score": 9.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.7)"
+        "recency (+3.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4668,26 +4768,6 @@
       "tags": [],
       "title": "aws-emulator",
       "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "553ce3dbd9a4d7a2",
-      "kev": false,
-      "published": "2026-11-11T15:11:59Z",
-      "score": 9.7,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+3.7)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Anthropic's IPO roadshow video Anthropic kicked off their IPO roadshow yesterday, and their roadshow video has some previously unreleased information about how their business works. The section on \"Approach to compute\" with co-founder Tom Brown is particularly interesting, describing how Anthropic train and serve Claude across AWS Trainium, Google TPUs, NVIDIA GPUs, and AMD GPUs. I'm not sure why there's no official video transcript, but here's one that I extracted using MacWhisper. Highlights below: We train and serve Claude now across all four major chip families. That's only possible because early on we made an unconventional bet on a multi-chip strategy. At the time, many people thought that running AI models on different chips wasn't worth the effort. Each chip needs its own tailored software stack and inference stack, which is expensive and difficult to build. We've now been doing it for years, and we've gotten incredibly good at it. [...] As an example, this year, we started working with AMD GPUs for the first time. In the past, bringing on a new chip platform took dozens of engineers months of work This time, we had Mythos try it out. It got Claude running on AMD in just three days, with basically no human intervention. Claude ported or wrote almost 100% of the kernels. [...] The second driver of our compute advantage is our rate of discovery of compute multipliers. We focus on total effective compute, which is the multiplicative product of physical capacity times the compute multipliers that we discover. Each one we discover makes our pool of total effective compute bigger. For example, say you need 100 units of compute to train a model of a certain intelligence. A 4x compute multiplier means you can use 25 units of compute to train the exact same model. Or you can use those hundred physical units to train an even more intelligent model that would have previously required 400 units. Compute multipliers create a competitive advantage for us that's hard to replicate. They build on each other. Each new multiplier we discover has a positive effect on the multipliers before it. They stack. We believe that this can accelerate even further as we approach recursive self-improvement. Claude will be able to discover compute multipliers entirely by itself, allowing the number of compute multipliers to grow faster and faster. We got a hint at Anthropic's multi-chip strategy last September in their postmortem of three recent issues, where they described bugs that affected just their TPU deployments. Tags: ai, generative-ai, llms, anthropic, gpus, claude-mythos-fable, recursive-self-improvement",
-      "tags": [],
-      "title": "Anthropic's IPO roadshow video",
-      "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/"
     },
     {
       "appsec": false,
@@ -4714,20 +4794,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6a8095a99a564e62",
+      "id": "553ce3dbd9a4d7a2",
       "kev": false,
-      "published": "2026-11-01T19:27:05Z",
-      "score": 9.4,
+      "published": "2026-11-11T15:11:59Z",
+      "score": 9.5,
       "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.4)"
+        "source:Simon Willison (+6)",
+        "recency (+3.5)"
       ],
-      "source": "Risky Bulletin",
+      "source": "Simon Willison",
       "source_type": "news",
-      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Luke Wescott, Threat Detection Engineer at Sublime Security. Luke talks through the rise of calendar-based phishing campaigns over the past year and the reasons behind it. Show notes Luke Wescott on LinkedIn Sublime observes massive uptick in ICS phishing and calendar-based malware attacks",
+      "summary": "Anthropic's IPO roadshow video Anthropic kicked off their IPO roadshow yesterday, and their roadshow video has some previously unreleased information about how their business works. The section on \"Approach to compute\" with co-founder Tom Brown is particularly interesting, describing how Anthropic train and serve Claude across AWS Trainium, Google TPUs, NVIDIA GPUs, and AMD GPUs. I'm not sure why there's no official video transcript, but here's one that I extracted using MacWhisper. Highlights below: We train and serve Claude now across all four major chip families. That's only possible because early on we made an unconventional bet on a multi-chip strategy. At the time, many people thought that running AI models on different chips wasn't worth the effort. Each chip needs its own tailored software stack and inference stack, which is expensive and difficult to build. We've now been doing it for years, and we've gotten incredibly good at it. [...] As an example, this year, we started working with AMD GPUs for the first time. In the past, bringing on a new chip platform took dozens of engineers months of work This time, we had Mythos try it out. It got Claude running on AMD in just three days, with basically no human intervention. Claude ported or wrote almost 100% of the kernels. [...] The second driver of our compute advantage is our rate of discovery of compute multipliers. We focus on total effective compute, which is the multiplicative product of physical capacity times the compute multipliers that we discover. Each one we discover makes our pool of total effective compute bigger. For example, say you need 100 units of compute to train a model of a certain intelligence. A 4x compute multiplier means you can use 25 units of compute to train the exact same model. Or you can use those hundred physical units to train an even more intelligent model that would have previously required 400 units. Compute multipliers create a competitive advantage for us that's hard to replicate. They build on each other. Each new multiplier we discover has a positive effect on the multipliers before it. They stack. We believe that this can accelerate even further as we approach recursive self-improvement. Claude will be able to discover compute multipliers entirely by itself, allowing the number of compute multipliers to grow faster and faster. We got a hint at Anthropic's multi-chip strategy last September in their postmortem of three recent issues, where they described bugs that affected just their TPU deployments. Tags: ai, generative-ai, llms, anthropic, gpus, claude-mythos-fable, recursive-self-improvement",
       "tags": [],
-      "title": "Sponsored: Sublime Security on the rise of ISC calendar phishing",
-      "url": "https://risky.biz/RBNEWSSI149/"
+      "title": "Anthropic's IPO roadshow video",
+      "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/"
     },
     {
       "appsec": false,
@@ -4754,13 +4834,53 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "6a8095a99a564e62",
+      "kev": false,
+      "published": "2026-11-01T19:27:05Z",
+      "score": 9.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business News sponsor interview, Catalin Cimpanu talks with Luke Wescott, Threat Detection Engineer at Sublime Security. Luke talks through the rise of calendar-based phishing campaigns over the past year and the reasons behind it. Show notes Luke Wescott on LinkedIn Sublime observes massive uptick in ICS phishing and calendar-based malware attacks",
+      "tags": [],
+      "title": "Sponsored: Sublime Security on the rise of ISC calendar phishing",
+      "url": "https://risky.biz/RBNEWSSI149/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "6c1fe33dc9352d01",
+      "kev": false,
+      "published": "2026-10-30T02:07:09Z",
+      "score": 9.0,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+1.0)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "Billions stolen from Binance in a crypto hack, Last week’s PHP2Shell bugs are being exploited to hack Palo Alto Networks firewalls, The Brotli bugs also get a run, Belarusian state hackers carry out a wiper attack, and a hacker leaks the data of 41,000 DHS employees. Show notes Risky Bulletin: Belarusian state hackers get on the data-wiping train",
+      "tags": [],
+      "title": "Billions stolen in Binance hack",
+      "url": "https://risky.biz/RBNEWS627/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "ab788fdb1792dc6b",
       "kev": false,
       "published": "2026-11-10T03:53:04Z",
-      "score": 9.2,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4777,10 +4897,10 @@
       "id": "c87f4ae5dc4e2adb",
       "kev": false,
       "published": "2026-11-10T05:34:14Z",
-      "score": 9.2,
+      "score": 9.0,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+3.2)"
+        "recency (+3.0)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -4794,33 +4914,13 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6c1fe33dc9352d01",
-      "kev": false,
-      "published": "2026-10-30T02:07:09Z",
-      "score": 9.1,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+1.1)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "Billions stolen from Binance in a crypto hack, Last week’s PHP2Shell bugs are being exploited to hack Palo Alto Networks firewalls, The Brotli bugs also get a run, Belarusian state hackers carry out a wiper attack, and a hacker leaks the data of 41,000 DHS employees. Show notes Risky Bulletin: Belarusian state hackers get on the data-wiping train",
-      "tags": [],
-      "title": "Billions stolen in Binance hack",
-      "url": "https://risky.biz/RBNEWS627/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "51e95d3a506e7d79",
       "kev": false,
       "published": "2026-10-28T04:44:23Z",
-      "score": 8.9,
+      "score": 8.8,
       "score_reasons": [
         "source:Risky Bulletin (+8)",
-        "recency (+0.9)"
+        "recency (+0.8)"
       ],
       "source": "Risky Bulletin",
       "source_type": "news",
@@ -4828,26 +4928,6 @@
       "tags": [],
       "title": "Risky Bulletin: Moldovan public services crippled by cyberattack",
       "url": "https://risky.biz/RBNEWS626/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "d82153ff784453e8",
-      "kev": false,
-      "published": "2026-11-08T22:26:00Z",
-      "score": 8.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+2.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Research: parse_number() as a SQLite extension: C vs Rust I was out walking the dog when I got curious about how easy/difficult it would be to write a SQLite C extension that adds a parse_number() function for turning strings like -$1,234.56 or '12.5%' into numeric values that could be summed and sorted. I fired up regular Claude chat (Opus 5.5) and prompted: I'm thinking about a SQLite custom function 'parse_number(value)' that strips ',', '$', '£' and '%', handles a leading '-', and returns 'NULL' for anything it can’t parse Explore the difference between building this as a SQLite extension in C v.s. in Rust - I want to compare performance and code complexity and size of the resulting.so(or whatever) file This gave me a solid starting point - the Rust extension was 321 KB (using Rusqlite) and 298 KB (using sqlite-loadable-rs), while the C extension was 14 KB. But the Rust extension was faster! Turns out that's because the Rust equivalent of C's strtod is \"twice as fast\". So I prompted: Try writing your own C function for parsing text into a decimal number that catches up to or beats the Rust implementation And it did, using \"Clinger's fast path\": Net cost per row over 2 million rows, lower is better: first C new C rusqlite sqlite-loadable Mixed data 67 ns 19 ns 46 ns 41 ns Integers only 25 ns 16 ns 36 ns 32 ns Decimals only 106 ns 18 ns 55 ns 47 ns Finally, I had it rewrite the prototype as a research report to match the others in simonw/research by prompting this: Clone simonw/research from GitHub and turn your above investigation into a research report as seen in that repository - you can give me a zip file to download that contains your new folder Here's the resulting report. Tags: research, c, rust, sqlite, claude",
-      "tags": [],
-      "title": "parse_number() as a SQLite extension: C vs Rust",
-      "url": "https://simonwillison.net/2026/Nov/8/sqlite-parse-number-c-vs-rust/"
     },
     {
       "appsec": false,
@@ -4874,20 +4954,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "0902acca81eb73d6",
+      "id": "d82153ff784453e8",
       "kev": false,
-      "published": "2026-11-07T19:34:24Z",
-      "score": 8.5,
+      "published": "2026-11-08T22:26:00Z",
+      "score": 8.7,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.5)"
+        "recency (+2.7)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "My comment on Terry Pratchett's Study — Hacker News.Terry Pratchett once wrote about the concept of \"horizontal wealth\". Vertical wealth is where you spend money on rich people stuff - yachts and suchlike. Horizontal wealth is where you spend more money on the things you liked before you got rich: https://chibuikeani.blogspot.com/2017/02/the-price-of-happin... But horizontal wealth means not letting your increased income dictate your tastes. You like books and now you have money? Buy more books! Change those catenary bookshelves for good hardwood ones! In my case, build a library extension to your office. And, of course, you buy what will be useful for that most wonderful of pursuits, blind research, which is research without direction for the sheer joy of it. (Original source is his book A Slip of the Keyboard - this linked blog post quotes that bit.) Tags: hacker-news, terry-pratchett",
+      "summary": "Research: parse_number() as a SQLite extension: C vs Rust I was out walking the dog when I got curious about how easy/difficult it would be to write a SQLite C extension that adds a parse_number() function for turning strings like -$1,234.56 or '12.5%' into numeric values that could be summed and sorted. I fired up regular Claude chat (Opus 5.5) and prompted: I'm thinking about a SQLite custom function 'parse_number(value)' that strips ',', '$', '£' and '%', handles a leading '-', and returns 'NULL' for anything it can’t parse Explore the difference between building this as a SQLite extension in C v.s. in Rust - I want to compare performance and code complexity and size of the resulting.so(or whatever) file This gave me a solid starting point - the Rust extension was 321 KB (using Rusqlite) and 298 KB (using sqlite-loadable-rs), while the C extension was 14 KB. But the Rust extension was faster! Turns out that's because the Rust equivalent of C's strtod is \"twice as fast\". So I prompted: Try writing your own C function for parsing text into a decimal number that catches up to or beats the Rust implementation And it did, using \"Clinger's fast path\": Net cost per row over 2 million rows, lower is better: first C new C rusqlite sqlite-loadable Mixed data 67 ns 19 ns 46 ns 41 ns Integers only 25 ns 16 ns 36 ns 32 ns Decimals only 106 ns 18 ns 55 ns 47 ns Finally, I had it rewrite the prototype as a research report to match the others in simonw/research by prompting this: Clone simonw/research from GitHub and turn your above investigation into a research report as seen in that repository - you can give me a zip file to download that contains your new folder Here's the resulting report. Tags: research, c, rust, sqlite, claude",
       "tags": [],
-      "title": "Terry Pratchett's Study",
-      "url": "https://simonwillison.net/2026/Nov/7/hn-50407316/"
+      "title": "parse_number() as a SQLite extension: C vs Rust",
+      "url": "https://simonwillison.net/2026/Nov/8/sqlite-parse-number-c-vs-rust/"
     },
     {
       "appsec": false,
@@ -4914,40 +4994,20 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "6f0dd9219ff9dddf",
+      "id": "0902acca81eb73d6",
       "kev": false,
-      "published": "2026-11-07T23:57:46Z",
-      "score": 8.5,
+      "published": "2026-11-07T19:34:24Z",
+      "score": 8.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+2.5)"
+        "recency (+2.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
-      "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: <https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv>; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means for everyone else their browser is fetching unnecessary data and the Datasette server is having to render an entire page that then gets thrown away. I dug in and learned that Firefox has an issue that has been open for 24 years about this behavior... And one of the early comments on that issue links to my blog post from 2002 complaining about this feature. I hadn't just forgotten that I had written about it, I had forgotten the feature entirely! Tags: firefox, html, mozilla, datasette",
+      "summary": "My comment on Terry Pratchett's Study — Hacker News.Terry Pratchett once wrote about the concept of \"horizontal wealth\". Vertical wealth is where you spend money on rich people stuff - yachts and suchlike. Horizontal wealth is where you spend more money on the things you liked before you got rich: https://chibuikeani.blogspot.com/2017/02/the-price-of-happin... But horizontal wealth means not letting your increased income dictate your tastes. You like books and now you have money? Buy more books! Change those catenary bookshelves for good hardwood ones! In my case, build a library extension to your office. And, of course, you buy what will be useful for that most wonderful of pursuits, blind research, which is research without direction for the sheer joy of it. (Original source is his book A Slip of the Keyboard - this linked blog post quotes that bit.) Tags: hacker-news, terry-pratchett",
       "tags": [],
-      "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
-      "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "06290998ddcf2013",
-      "kev": false,
-      "published": "2026-10-18T22:53:01Z",
-      "score": 8.4,
-      "score_reasons": [
-        "source:Risky Bulletin (+8)",
-        "recency (+0.4)"
-      ],
-      "source": "Risky Bulletin",
-      "source_type": "news",
-      "summary": "In this Risky Business sponsored interview James Wilson chats with Sondera co-founder and CEO, Josh Devon, about how AI agents are highly capable, but they’re not the best rule followers or decision makers. The pair find themselves in the philosophical weeds about why agents lack the ability to determine, or care about, right from wrong before getting into how Sondera’s autoformalisation, that gives specific behaviour guardrails to agents, can help. Show notes",
-      "tags": [],
-      "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
-      "url": "https://risky.biz/RBNEWSSI147/"
+      "title": "Terry Pratchett's Study",
+      "url": "https://simonwillison.net/2026/Nov/7/hn-50407316/"
     },
     {
       "appsec": false,
@@ -4974,6 +5034,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "6f0dd9219ff9dddf",
+      "kev": false,
+      "published": "2026-11-07T23:57:46Z",
+      "score": 8.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+2.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages I was looking at the Firefox network panel today when I noticed that requests to a Datasette table page were triggering an HTTP prefetch to the next page of rows in that table. This was happening because Datasette pages serve an HTTP link header like this: link: <https://latest.datasette.io/fixtures/compound_three_primary_keys?_next=a%2Cd%2Cv>; rel=\"next\" This is bad. A tiny fraction of the visitors to one of those pages will click the \"next\" link, which means for everyone else their browser is fetching unnecessary data and the Datasette server is having to render an entire page that then gets thrown away. I dug in and learned that Firefox has an issue that has been open for 24 years about this behavior... And one of the early comments on that issue links to my blog post from 2002 complaining about this feature. I hadn't just forgotten that I had written about it, I had forgotten the feature entirely! Tags: firefox, html, mozilla, datasette",
+      "tags": [],
+      "title": "datasette #3046: Don't serve link: rel=next HTTP headers to Firefox for HTML pages",
+      "url": "https://simonwillison.net/2026/Nov/7/link-rel-next/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "7f26342e5af4b0c2",
       "kev": false,
       "published": "2026-10-19T19:22:17Z",
@@ -4988,6 +5068,26 @@
       "tags": [],
       "title": "Between Two Nerds: Why AI will mean infinite bugs",
       "url": "https://risky.biz/BTN186/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "06290998ddcf2013",
+      "kev": false,
+      "published": "2026-10-18T22:53:01Z",
+      "score": 8.3,
+      "score_reasons": [
+        "source:Risky Bulletin (+8)",
+        "recency (+0.3)"
+      ],
+      "source": "Risky Bulletin",
+      "source_type": "news",
+      "summary": "In this Risky Business sponsored interview James Wilson chats with Sondera co-founder and CEO, Josh Devon, about how AI agents are highly capable, but they’re not the best rule followers or decision makers. The pair find themselves in the philosophical weeds about why agents lack the ability to determine, or care about, right from wrong before getting into how Sondera’s autoformalisation, that gives specific behaviour guardrails to agents, can help. Show notes",
+      "tags": [],
+      "title": "Sponsored: Agents don’t care about human ideas of right and wrong",
+      "url": "https://risky.biz/RBNEWSSI147/"
     },
     {
       "appsec": false,
@@ -6566,10 +6666,10 @@
       "id": "1fe496fc8c1f9697",
       "kev": false,
       "published": "2026-11-03T23:13:45Z",
-      "score": 7.7,
+      "score": 7.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6586,10 +6686,10 @@
       "id": "5928ed51062ddbc9",
       "kev": false,
       "published": "2026-11-04T00:29:36Z",
-      "score": 7.7,
+      "score": 7.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6606,10 +6706,10 @@
       "id": "7d2479f2553dd44b",
       "kev": false,
       "published": "2026-11-03T16:42:02Z",
-      "score": 7.7,
+      "score": 7.6,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.7)"
+        "recency (+1.6)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6626,10 +6726,10 @@
       "id": "97e03d86478ab0d0",
       "kev": false,
       "published": "2026-11-03T05:32:25Z",
-      "score": 7.6,
+      "score": 7.5,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.6)"
+        "recency (+1.5)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6646,10 +6746,10 @@
       "id": "4c1cfae1f7d73c23",
       "kev": false,
       "published": "2026-11-02T13:31:26Z",
-      "score": 7.5,
+      "score": 7.4,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.5)"
+        "recency (+1.4)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6666,10 +6766,10 @@
       "id": "d16b3aa2876fabcb",
       "kev": false,
       "published": "2026-11-01T16:49:04Z",
-      "score": 7.4,
+      "score": 7.3,
       "score_reasons": [
         "source:Simon Willison (+6)",
-        "recency (+1.4)"
+        "recency (+1.3)"
       ],
       "source": "Simon Willison",
       "source_type": "news",
@@ -6763,26 +6863,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "df11f17c78623c5a",
-      "kev": false,
-      "published": "2026-10-26T19:00:25Z",
-      "score": 6.8,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.8)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
-      "tags": [],
-      "title": "Quoting Jason Koebler",
-      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "3f34d86ee2d69ed8",
       "kev": false,
       "published": "2026-10-25T15:10:19Z",
@@ -6803,6 +6883,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "df11f17c78623c5a",
+      "kev": false,
+      "published": "2026-10-26T19:00:25Z",
+      "score": 6.7,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.7)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Because big tech platforms essentially do not have customer support and make it impossible for their users to contact a human, many people experiencing run-of-the-mill tech problems have turned to ChatGPT. And, increasingly, ChatGPT is telling people that have normal tech support problems that they have discovered something journalistically notable and that 404 Media, specifically, can help them. — Jason Koebler, ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems Tags: jason-koebler, openai, journalism, ai, llms, ai-ethics, ai-misuse, generative-ai, chatgpt, 404-media",
+      "tags": [],
+      "title": "Quoting Jason Koebler",
+      "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "c8190b8e5a1ef44e",
       "kev": false,
       "published": "2026-10-24T03:59:57Z",
@@ -6817,46 +6917,6 @@
       "tags": [],
       "title": "battledrones v14: Compass Rose, a four player map",
       "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "f4091a70be2c3b0a",
-      "kev": false,
-      "published": "2026-10-23T21:35:13Z",
-      "score": 6.6,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.6)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
-      "tags": [],
-      "title": "Quick Study",
-      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
-      "id": "9a6f4ea76a26e005",
-      "kev": false,
-      "published": "2026-10-21T16:25:16Z",
-      "score": 6.5,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.5)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
-      "tags": [],
-      "title": "Panache — RTS Belle Époque pour mobile",
-      "url": "https://simonwillison.net/2026/Oct/21/panache/"
     },
     {
       "appsec": false,
@@ -6903,6 +6963,26 @@
       "cves": [],
       "epss": null,
       "feed": "news",
+      "id": "f4091a70be2c3b0a",
+      "kev": false,
+      "published": "2026-10-23T21:35:13Z",
+      "score": 6.5,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.5)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Quick Study Prompt to Claude Opus 5.5 High: Build an artifact where you open a photo and it rapidly (in a few seconds) paints a version of that photo using a canvas element and simulated paintbrush See also my previous experiment getting Claude Fable to simulate a watercolor illustration with P5.js. Quick Study uses Sobel edge detection, with no external libraries beyond Google Fonts. Tags: tools",
+      "tags": [],
+      "title": "Quick Study",
+      "url": "https://simonwillison.net/2026/Oct/23/quick-study-painter/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
       "id": "8481bd4a6647667c",
       "kev": false,
       "published": "2026-10-19T23:58:25Z",
@@ -6917,6 +6997,26 @@
       "tags": [],
       "title": "My obituary for programming",
       "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "9a6f4ea76a26e005",
+      "kev": false,
+      "published": "2026-10-21T16:25:16Z",
+      "score": 6.4,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.4)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Panache — RTS Belle Époque pour mobile Well this is delightful: I released Battle Drones yesterday under an Apache 2.0 License and there's already a French language fork by Gabriel Turpin which reskins the game to take place in steampunk 1900s France and adds an animated intro! Panache est un jeu de stratégie en temps réel pour mobile et navigateur, dans la France de la Belle Époque (vers 1900) : dirigeables, Fardiers à vapeur, Creusot cuirassés, automates en képi, Gargantua la forteresse marchante — et beaucoup de panache. You can play Panache here - it's worth clicking that link just to experience the new intro video. So far it's mostly just aesthetic updates as opposed to gameplay changes. The music has had a French twist added to it as well. The new steampunk models are so cool! Here's a page with the original Battle Drones models and that same page with the new Panache alternatives. This is a comparison of the original and the new design for the Goliath: Via @Meffysto69 Tags: game-design, open-source",
+      "tags": [],
+      "title": "Panache — RTS Belle Époque pour mobile",
+      "url": "https://simonwillison.net/2026/Oct/21/panache/"
     },
     {
       "appsec": false,
@@ -6963,26 +7063,6 @@
       "cves": [],
       "epss": null,
       "feed": "news",
-      "id": "96935c790ddc2990",
-      "kev": false,
-      "published": "2026-10-15T19:47:52Z",
-      "score": 6.3,
-      "score_reasons": [
-        "source:Simon Willison (+6)",
-        "recency (+0.3)"
-      ],
-      "source": "Simon Willison",
-      "source_type": "news",
-      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
-      "tags": [],
-      "title": "Chirp Pong",
-      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
-    },
-    {
-      "appsec": false,
-      "cves": [],
-      "epss": null,
-      "feed": "news",
       "id": "512e526f527e6705",
       "kev": false,
       "published": "2026-10-14T16:26:53Z",
@@ -7017,6 +7097,26 @@
       "tags": [],
       "title": "Anthropic tells investors quarterly revenue up nearly 50% to $16.8bn ahead of IPO",
       "url": "https://simonwillison.net/2026/Oct/15/anthropic-tells-investors/"
+    },
+    {
+      "appsec": false,
+      "cves": [],
+      "epss": null,
+      "feed": "news",
+      "id": "96935c790ddc2990",
+      "kev": false,
+      "published": "2026-10-15T19:47:52Z",
+      "score": 6.2,
+      "score_reasons": [
+        "source:Simon Willison (+6)",
+        "recency (+0.2)"
+      ],
+      "source": "Simon Willison",
+      "source_type": "news",
+      "summary": "Tool: Chirp Pong Another game experiment - I wanted to see if it was feasible to have a two player game on two separate phones running in static HTML where the networking code uses chirps sent via the microphone. It seems to work! Build a two player competitive pong like game where two players use their phones close to each other and the game state is sent via audio noises which the web microphone API can interpret - but add graphical and gameplay twists to make it a lot more fun and intertwine than pong Claude Opus 5.5 Extra in Claude Code. Tags: game-design, ai, generative-ai, llms, claude-code",
+      "tags": [],
+      "title": "Chirp Pong",
+      "url": "https://simonwillison.net/2026/Oct/15/chirp-pong/"
     },
     {
       "appsec": false,
@@ -7059,20 +7159,20 @@
       "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
     }
   ],
-  "last_run": "2026-11-25T21:29:40Z",
+  "last_run": "2026-11-26T07:38:55Z",
   "repo": "builtbybrayden/threat-feed",
   "stats": {
     "actively_exploited_appsec": 1333,
-    "appsec_cves": 1835,
+    "appsec_cves": 1838,
     "kev_coverage_pct": 32.1,
     "kev_tracked": 1805,
     "kev_with_coverage": 580,
-    "newly_exploited": 13,
+    "newly_exploited": 11,
     "newly_exploited_days": 30,
-    "open_gaps": 998,
+    "open_gaps": 1001,
     "public_poc": 728,
-    "total_cves": 2525,
-    "total_items": 316
+    "total_cves": 2528,
+    "total_items": 321
   },
   "threats": [
     {
@@ -11898,6 +11998,69 @@
       ]
     },
     {
+      "advisory_url": "https://github.com/advisories/GHSA-7wwv-x6mc-pxqx",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-69179.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-69179",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-434"
+      ],
+      "description": "TastyIgniter allows Remote Code Execution (RCE) via Unrestricted file upload in Media Manager",
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "ghsa_id": "GHSA-7wwv-x6mc-pxqx",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-25T22:24:37Z",
+      "product": "tastyigniter/tastyigniter",
+      "published": "2026-11-25T22:24:36Z",
+      "score": 23.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "advisory_url": "https://github.com/advisories/GHSA-743w-g9pf-8p94",
+      "appsec": true,
+      "brief": "briefs/CVE-2026-69178.md",
+      "coverage": "gap",
+      "cve_id": "CVE-2026-69178",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-1336"
+      ],
+      "description": "TastyIgniter mail template editor allows remote code execution via server-side template injection",
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "ghsa_id": "GHSA-743w-g9pf-8p94",
+      "has_poc": false,
+      "is_candidate": true,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-25T22:24:14Z",
+      "product": "tastyigniter/tastyigniter",
+      "published": "2026-11-25T22:24:13Z",
+      "score": 23.1,
+      "sources": [],
+      "vendor": null,
+      "vuln_classes": [
+        "rce",
+        "ssti"
+      ]
+    },
+    {
       "advisory_url": "https://github.com/advisories/GHSA-3x94-m842-937c",
       "appsec": true,
       "brief": "briefs/CVE-2026-108358.md",
@@ -11927,69 +12090,6 @@
       "vendor": null,
       "vuln_classes": [
         "xxe"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-v5fq-cf5m-vwv7",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-33944.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-33944",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-89"
-      ],
-      "description": "Dolibarr has SQL Injection in societe/class/societe.class.php via localtax1_value parameter",
-      "ecosystems": [
-        "composer",
-        "php"
-      ],
-      "epss": 0.00551,
-      "ghsa_id": "GHSA-v5fq-cf5m-vwv7",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-05T21:42:07Z",
-      "product": "dolibarr/dolibarr",
-      "published": "2026-10-27T13:29:25Z",
-      "score": 23.0,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "sqli"
-      ]
-    },
-    {
-      "advisory_url": "https://github.com/advisories/GHSA-r94f-hx44-8jqf",
-      "appsec": true,
-      "brief": "briefs/CVE-2026-72819.md",
-      "coverage": "gap",
-      "cve_id": "CVE-2026-72819",
-      "cvss_score": 8.7,
-      "cwe": [
-        "CWE-94"
-      ],
-      "description": "Grav CMS vulnerable to remote code execution via .zip file upload",
-      "ecosystems": [
-        "composer"
-      ],
-      "epss": 0.00902,
-      "ghsa_id": "GHSA-r94f-hx44-8jqf",
-      "has_poc": false,
-      "is_candidate": true,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-09-17T20:59:53Z",
-      "product": "getgrav/grav",
-      "published": "2026-09-17T20:45:57Z",
-      "score": 23.0,
-      "sources": [],
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
       ]
     },
     {
@@ -12810,31 +12910,30 @@
       "vuln_classes": []
     },
     {
-      "advisory_url": "https://github.com/advisories/GHSA-8hp3-xxrg-v9c8",
+      "advisory_url": "https://github.com/advisories/GHSA-vw2v-g4x7-xcqg",
       "appsec": true,
       "brief": null,
       "coverage": "gap",
-      "cve_id": "CVE-2026-83817",
+      "cve_id": "CVE-2026-68539",
       "cvss_score": 7.5,
       "cwe": [
-        "CWE-862",
-        "CWE-1188"
+        "CWE-400",
+        "CWE-770"
       ],
-      "description": "CodeWhale: Automation auto_approve defaults to true, bypassing the task-path hardening fix for silent recurring agent execution",
+      "description": "fulgur allows Unbounded string-set value accumulation causes memory/CPU exhaustion (denial of service)",
       "ecosystems": [
-        "npm",
         "rust"
       ],
-      "epss": 0.00601,
-      "ghsa_id": "GHSA-8hp3-xxrg-v9c8",
+      "epss": 0.00684,
+      "ghsa_id": "GHSA-vw2v-g4x7-xcqg",
       "has_poc": false,
       "is_candidate": false,
       "issue_number": null,
       "kev": false,
       "kev_added": null,
-      "modified": "2026-11-19T22:47:34Z",
-      "product": "codewhale-tui",
-      "published": "2026-11-19T22:47:33Z",
+      "modified": "2026-11-25T19:46:46Z",
+      "product": "fulgur",
+      "published": "2026-11-25T19:46:45Z",
       "score": 21.7,
       "sources": [],
       "vendor": null,

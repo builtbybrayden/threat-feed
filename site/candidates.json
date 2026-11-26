@@ -28186,6 +28186,79 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-69179.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-69179",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-434"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-25T22:24:37Z",
+      "nuclei_template": null,
+      "product": "tastyigniter/tastyigniter",
+      "published": "2026-11-25T22:24:36Z",
+      "score": 23.1,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
+      "brief": "briefs/CVE-2026-69178.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-69178",
+      "cvss_score": 9.1,
+      "cwe": [
+        "CWE-1336"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-25T22:24:14Z",
+      "nuclei_template": null,
+      "product": "tastyigniter/tastyigniter",
+      "published": "2026-11-25T22:24:13Z",
+      "score": 23.1,
+      "vendor": null,
+      "vuln_classes": [
+        "rce",
+        "ssti"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-72819.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -32476,6 +32549,42 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-69181.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-69181",
+      "cvss_score": 7.6,
+      "cwe": [
+        "CWE-23"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "composer"
+      ],
+      "epss": null,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-25T22:54:30Z",
+      "nuclei_template": null,
+      "product": "tastyigniter/tastyigniter",
+      "published": "2026-11-25T22:54:30Z",
+      "score": 21.6,
+      "vendor": null,
+      "vuln_classes": [
+        "path-traversal"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-62955.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -33896,18 +34005,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-25T21:29:40Z",
+  "generated": "2026-11-26T07:38:55Z",
   "stats": {
     "actively_exploited_appsec": 1333,
-    "appsec_cves": 1835,
+    "appsec_cves": 1838,
     "kev_coverage_pct": 32.1,
     "kev_tracked": 1805,
     "kev_with_coverage": 580,
-    "newly_exploited": 13,
+    "newly_exploited": 11,
     "newly_exploited_days": 30,
-    "open_gaps": 998,
+    "open_gaps": 1001,
     "public_poc": 728,
-    "total_cves": 2525,
-    "total_items": 316
+    "total_cves": 2528,
+    "total_items": 321
   }
 }
