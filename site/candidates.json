@@ -10720,7 +10720,7 @@
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.01929,
+      "epss": 0.02071,
       "issue_number": null,
       "kev": true,
       "kev_added": "2025-08-26",
@@ -10965,41 +10965,6 @@
       "vendor": "zyxel",
       "vuln_classes": [
         "command-injection"
-      ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-104286.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-104286",
-      "cvss_score": 9.8,
-      "cwe": [
-        "CWE-22"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.01473,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2026-10-01",
-      "modified": "2026-10-01",
-      "nuclei_template": null,
-      "product": "fortimail",
-      "published": "2026-10-01",
-      "score": 74.2,
-      "vendor": "fortinet",
-      "vuln_classes": [
-        "path-traversal"
       ]
     },
     {
@@ -11850,6 +11815,38 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2022-26485.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2022-26485",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-416"
+      ],
+      "detectability": {
+        "has_poc": true,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.02474,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-03-07",
+      "modified": "2022-03-07",
+      "nuclei_template": null,
+      "product": "firefox",
+      "published": "2022-03-07",
+      "score": 73.5,
+      "vendor": "mozilla",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2024-0519.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -11879,38 +11876,6 @@
       "published": "2024-01-17",
       "score": 73.5,
       "vendor": "google",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2022-26485.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2022-26485",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-416"
-      ],
-      "detectability": {
-        "has_poc": true,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.02444,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-07",
-      "modified": "2022-03-07",
-      "nuclei_template": null,
-      "product": "firefox",
-      "published": "2022-03-07",
-      "score": 73.5,
-      "vendor": "mozilla",
       "vuln_classes": []
     },
     {
@@ -12291,7 +12256,7 @@
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.01077,
+      "epss": 0.00974,
       "issue_number": null,
       "kev": true,
       "kev_added": "2026-06-09",
@@ -12522,7 +12487,7 @@
         "suggested_template_type": "behavioral"
       },
       "ecosystems": [],
-      "epss": 0.0073,
+      "epss": 0.00804,
       "issue_number": null,
       "kev": true,
       "kev_added": "2026-04-01",
@@ -18047,6 +18012,38 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2022-26486.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "in CISA KEV",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2022-26486",
+      "cvss_score": 9.6,
+      "cwe": [
+        "CWE-416"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "behavioral"
+      },
+      "ecosystems": [],
+      "epss": 0.02174,
+      "issue_number": null,
+      "kev": true,
+      "kev_added": "2022-03-07",
+      "modified": "2022-03-07",
+      "nuclei_template": null,
+      "product": "firefox",
+      "published": "2022-03-07",
+      "score": 64.3,
+      "vendor": "mozilla",
+      "vuln_classes": []
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2025-53521.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -18247,38 +18244,6 @@
       "published": "2026-08-31",
       "score": 64.2,
       "vendor": "papercut",
-      "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2022-26486.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "in CISA KEV",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2022-26486",
-      "cvss_score": 9.6,
-      "cwe": [
-        "CWE-416"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "behavioral"
-      },
-      "ecosystems": [],
-      "epss": 0.02148,
-      "issue_number": null,
-      "kev": true,
-      "kev_added": "2022-03-07",
-      "modified": "2022-03-07",
-      "nuclei_template": null,
-      "product": "firefox",
-      "published": "2022-03-07",
-      "score": 64.2,
-      "vendor": "mozilla",
       "vuln_classes": []
     },
     {
@@ -27899,6 +27864,42 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-102870.md",
+      "candidate_reasons": [
+        "HTTP-detectable (web CWE/CPE)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-102870",
+      "cvss_score": 8.8,
+      "cwe": [
+        "CWE-94"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": true,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.00971,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-03T17:07:38Z",
+      "nuclei_template": null,
+      "product": "Microsoft.AspNetCore.Components.WebAssembly.Server",
+      "published": "2026-10-13T20:27:36Z",
+      "score": 23.1,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-105796.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -27931,42 +27932,6 @@
       "score": 23.1,
       "vendor": null,
       "vuln_classes": []
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-102870.md",
-      "candidate_reasons": [
-        "HTTP-detectable (web CWE/CPE)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-102870",
-      "cvss_score": 8.8,
-      "cwe": [
-        "CWE-94"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": true,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00882,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-03T17:07:38Z",
-      "nuclei_template": null,
-      "product": "Microsoft.AspNetCore.Components.WebAssembly.Server",
-      "published": "2026-10-13T20:27:36Z",
-      "score": 23.1,
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
-      ]
     },
     {
       "appsec": true,
@@ -30096,6 +30061,42 @@
     },
     {
       "appsec": true,
+      "brief": "briefs/CVE-2026-70197.md",
+      "candidate_reasons": [
+        "remote (AV:N)",
+        "watchlist product",
+        "no existing Nuclei template"
+      ],
+      "cve_id": "CVE-2026-70197",
+      "cvss_score": 8.1,
+      "cwe": [
+        "CWE-787"
+      ],
+      "detectability": {
+        "has_poc": false,
+        "likely_http": false,
+        "remote_network": true,
+        "suggested_template_type": "version-fingerprint"
+      },
+      "ecosystems": [
+        "nuget"
+      ],
+      "epss": 0.00845,
+      "issue_number": null,
+      "kev": false,
+      "kev_added": null,
+      "modified": "2026-11-03T17:06:52Z",
+      "nuclei_template": null,
+      "product": "Microsoft.NETCore.App.Runtime.win-arm64",
+      "published": "2026-10-13T20:34:32Z",
+      "score": 22.4,
+      "vendor": null,
+      "vuln_classes": [
+        "rce"
+      ]
+    },
+    {
+      "appsec": true,
       "brief": "briefs/CVE-2026-130008.md",
       "candidate_reasons": [
         "HTTP-detectable (web CWE/CPE)",
@@ -30166,42 +30167,6 @@
       "vendor": null,
       "vuln_classes": [
         "prototype-pollution"
-      ]
-    },
-    {
-      "appsec": true,
-      "brief": "briefs/CVE-2026-70197.md",
-      "candidate_reasons": [
-        "remote (AV:N)",
-        "watchlist product",
-        "no existing Nuclei template"
-      ],
-      "cve_id": "CVE-2026-70197",
-      "cvss_score": 8.1,
-      "cwe": [
-        "CWE-787"
-      ],
-      "detectability": {
-        "has_poc": false,
-        "likely_http": false,
-        "remote_network": true,
-        "suggested_template_type": "version-fingerprint"
-      },
-      "ecosystems": [
-        "nuget"
-      ],
-      "epss": 0.00723,
-      "issue_number": null,
-      "kev": false,
-      "kev_added": null,
-      "modified": "2026-11-03T17:06:52Z",
-      "nuclei_template": null,
-      "product": "Microsoft.NETCore.App.Runtime.win-arm64",
-      "published": "2026-10-13T20:34:32Z",
-      "score": 22.3,
-      "vendor": null,
-      "vuln_classes": [
-        "rce"
       ]
     },
     {
@@ -34005,18 +33970,18 @@
       "vuln_classes": []
     }
   ],
-  "generated": "2026-11-27T07:36:53Z",
+  "generated": "2026-11-27T21:00:51Z",
   "stats": {
-    "actively_exploited_appsec": 1334,
-    "appsec_cves": 1839,
-    "kev_coverage_pct": 32.1,
-    "kev_tracked": 1805,
-    "kev_with_coverage": 580,
-    "newly_exploited": 11,
+    "actively_exploited_appsec": 1335,
+    "appsec_cves": 1840,
+    "kev_coverage_pct": 32.2,
+    "kev_tracked": 1808,
+    "kev_with_coverage": 582,
+    "newly_exploited": 12,
     "newly_exploited_days": 30,
-    "open_gaps": 1001,
+    "open_gaps": 1000,
     "public_poc": 729,
-    "total_cves": 2528,
+    "total_cves": 2531,
     "total_items": 324
   }
 }
